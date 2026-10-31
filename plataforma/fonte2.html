@@ -123,6 +123,15 @@ canvas.g{width:100%;height:170px;display:block}
 .trilha em{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--alerta)}
 .duas{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .aviso{font-size:12px;border-left:2px solid var(--alerta);padding:4px 8px;margin-top:8px;color:var(--tinta)}
+.ic{display:block;font-size:12.5px;color:var(--tinta-2);margin-top:4px}
+.dominio{margin-top:10px;border:1px solid var(--linha-2);padding:8px 10px}
+.dominio .selo{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;color:#fff;background:var(--oliva);margin-bottom:4px}
+.dominio .selo.exp{background:var(--alerta)}
+.dominio ul{margin:4px 0 0;padding-left:18px;font-size:12px}
+.dominio li{margin:3px 0}
+.prod{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+.prod div{border-top:3px solid var(--c);padding-top:3px;font-size:12px}
+.prod b{display:block;font-family:var(--f-mono,monospace);font-size:14px}
 
 /* modais */
 .modal{position:fixed;inset:0;z-index:40;background:rgba(35,39,31,.35);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
@@ -264,6 +273,16 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
         <div><button class="lnk" id="bt-aleat" type="button">Gerar cenário aleatório</button></div>
       </div>
     </div>
+    <div class="secao" id="s-resposta"><h3>Resposta da planta e outros danos</h3>
+      <div class="campos">
+        <div class="campo"><span class="rot">Fisiologia após o ataque</span><div class="seg" id="seg-comp"></div>
+          <p class="mini" id="txt-comp" style="margin:4px 0 0"></p></div>
+        <div class="campo"><label class="rot" for="sel-agente">Agente (catálogo do TCC)</label><select id="sel-agente"></select>
+          <p class="mini" id="txt-agente" style="margin:4px 0 0"></p></div>
+        <div class="campo"><label class="rot" for="in-r">Perda de eficiência, r (4 meses a cada evento)</label><div class="faixa"><input type="range" id="in-r" min="0" max="60" step="10"><output id="out-r" class="num"></output></div></div>
+        <div class="campo"><label class="rot" for="in-m">Mortalidade de árvores, m (no 1º evento)</label><div class="faixa"><input type="range" id="in-m" min="0" max="30" step="5"><output id="out-m" class="num"></output></div></div>
+      </div>
+    </div>
     <div class="secao"><h3>Parâmetros do material</h3><div class="tabs-wrap"><table class="tab" id="tab-par"></table></div></div>
     <div class="secao" id="s-estrutura"><h3>Estrutura da biomassa</h3>
       <figure><svg id="svg-estr" viewBox="0 0 300 230" width="100%" role="img" aria-label="Esquema da partição da biomassa entre folhas, lenho e raízes"></svg>
@@ -297,7 +316,7 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
       <div class="pr"><div class="rot">Biomassa foliar e de lenho (t ha⁻¹)</div><canvas class="g" id="g-bio"></canvas>
         <div class="leg"><span><i style="border-color:var(--oliva)"></i>W<sub>F</sub> × 10</span><span><i style="border-color:var(--terra)"></i>W<sub>S</sub></span><span><i style="border-color:var(--tinta-3);border-top-style:dashed"></i>controle</span></div></div>
       <div class="pr"><div class="rot">Volume (m³ ha⁻¹) e perfil do fuste</div><canvas class="g" id="g-vol"></canvas>
-        <div class="leg"><span><i style="border-color:var(--alerta)"></i>desfolhado</span><span><i style="border-color:var(--tinta-3);border-top-style:dashed"></i>controle</span></div></div>
+        <div class="leg"><span><i style="border-color:var(--alerta)"></i>desfolhado</span><span><i style="border-color:var(--tinta-3);border-top-style:dashed"></i>controle</span><span id="leg-ic"><i style="border-color:rgba(156,74,28,.35);border-top-width:6px"></i>faixa de 90%</span></div></div>
     </div>
   </section>
 
@@ -320,8 +339,8 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 </main>
 
 <footer class="rodape">
-  <p>Motor: 3-PGpjs do r3PG v0.1.7 com o módulo de desfolha do TCC, executado no navegador. A versão em JavaScript reproduz a versão verificada em Python com diferença relativa máxima de 3 × 10⁻¹³. Clima: NASA POWER. Solo local: rede TECHS (Binkley et al., 2017) e SoilGrids com a PTF-ZARC. Parâmetros: Caldeira et al. (2020) para o A1 e Borges (2009) para C5, C2 e C4.</p>
-  <p>As ilustrações, os horizontes do solo, o perfil do fuste do gráfico e a altura do A1 são esquemáticos. O taper da aba Toras usa a equação de Souza et al. (2016), de outro clone, e os critérios de sortimento de Soares et al. (2003). Os resultados foram verificados, mas não validados com experimentos de desfolha nos três locais.</p>
+  <p>Motor: 3-PGpjs do r3PG v0.1.7 com o módulo de desfolha do TCC, executado no navegador. A versão em JavaScript reproduz a versão verificada em Python com diferença relativa máxima de 1,4 × 10⁻¹⁴, incluindo a compensação calibrada, a perda de eficiência e a mortalidade. Clima: NASA POWER. Solo local: rede TECHS (Binkley et al., 2017) e SoilGrids com a PTF-ZARC. Bioma: IBGE (2024). Parâmetros: Caldeira et al. (2020) para o A1 e Borges (2009) para C5, C2 e C4. Compensação: calibrada com Bertulio et al. (2008).</p>
+  <p>As ilustrações, os horizontes do solo, o perfil do fuste do gráfico e a altura do A1 são esquemáticos. O taper da aba Toras usa a equação de Souza et al. (2016), de outro clone, e os critérios de sortimento de Soares et al. (2003). Os resultados foram verificados, mas não validados com experimentos de desfolha nos seis locais.</p>
 </footer>
 
 <div class="modal" id="m-valid" hidden><div class="pr" role="dialog" aria-modal="true" aria-label="Validação e métricas">
@@ -407,7 +426,19 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 <script>
 const DADOS = /*DADOS*/;
 const ASW_REF = 190.6, FR_MIN = 0.5483, ALT_A1 = { aH: 3.313814, nHB: 0.715203 };
-const SIT = { IND: "Indianópolis-MG", TB: "Telêmaco Borba-PR", IMP: "Imperatriz-MA" };
+const SIT = { IND: "Indianópolis-MG · Cerrado", TB: "Telêmaco Borba-PR · Mata Atlântica", IMP: "Imperatriz-MA · Cerrado", ALM: "Almeirim-PA · Amazônia", ARA: "Araripina-PE · Caatinga", ELD: "Eldorado do Sul-RS · Pampa" };
+const COMP = { O: "Original", C: "Calibrada" };
+// Catálogo de danos do TCC (experimentos/danos_v2.py): mecanismo, magnitude e fonte. O ano do evento segue o do simulador.
+const AGENTES = {
+  "": { nome: "Personalizado", fonte: "Ajuste livre dos controles." },
+  lagarta: { nome: "Lagarta desfolhadora (ex.: Thyrinteina arnobia)", e: { d: 50, freq: "P1", epoca: 1, r: 0, m: 0 }, fonte: "50% em pulso único: cenário central do TCC." },
+  psilideo: { nome: "Psilídeo-de-concha (Glycaspis brimblecombei)", e: { d: 25, freq: "P1", epoca: 7, r: 0, m: 0 }, fonte: "20 a 30% de desfolha em urograndis (Wilcken et al., 2003). Literatura." },
+  formigas: { nome: "Formigas-cortadeiras (Atta e Acromyrmex)", e: { d: 95, freq: "P1", epoca: 7, r: 0, m: 0 }, fonte: "Desfolha total no inverno (Freitas; Berti Filho, 1994, em Zanetti et al., 2014); 95% é o limite do controle. Literatura." },
+  percevejo20: { nome: "Percevejo-bronzeado, 20% (Thaumastocoris peregrinus)", e: { d: 0, freq: "P1", epoca: 7, r: 20, m: 0 }, fonte: "Queda de Fv/Fm e ETR (Almeida et al., 2018); a perda em campo é desconhecida (Barbosa et al., 2012). Exploratório." },
+  percevejo40: { nome: "Percevejo-bronzeado, 40%", e: { d: 0, freq: "P1", epoca: 7, r: 40, m: 0 }, fonte: "Idem, intensidade maior. Exploratório." },
+  murcha5: { nome: "Murcha de Ceratocystis ou cancro, 5% das árvores", e: { d: 0, freq: "P1", epoca: 1, r: 0, m: 5 }, fonte: "Perdas de árvores de até 15% (Santos et al., 2001). Literatura." },
+  murcha15: { nome: "Murcha de Ceratocystis ou cancro, 15% das árvores", e: { d: 0, freq: "P1", epoca: 1, r: 0, m: 15 }, fonte: "Idem, limite superior. Literatura." },
+};
 const MAT = { A1: "A1 — E. urophylla (Caldeira et al., 2020)", C5: "C5 — E. grandis × E. urophylla, Cerrado (Borges, 2009)", C2: "C2 — clone 3336, Curvelo (Borges, 2009)", C4: "C4 — clone 3336, Itacambira (Borges, 2009)" };
 const FREQ = { P1: "Único", P2: "Dois", PA: "Anual" };
 const FREQ_L = { P1: "pulso único", P2: "dois pulsos (2017 e 2020)", PA: "pulsos anuais (2017–2022)" };
@@ -415,7 +446,7 @@ const EPOCA = { 1: "jan", 4: "abr", 7: "jul", 10: "out" };
 const MESES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
 const C_ = { oliva: "#5f6f34", oliva2: "#9aa56d", terra: "#8a5a36", argila: "#c19767", agua: "#577b96", alerta: "#9c4a1c", tinta: "#23271f", tinta2: "#5d6356", tinta3: "#8b9183", linha: "#d8dacd", prancha: "#fdfdfb" };
 
-let E = { sitio: "IND", mat: "A1", agua: "LOC", fert: 100, d: 50, freq: "P1", epoca: 1 };
+let E = { sitio: "IND", mat: "A1", agua: "LOC", fert: 100, d: 50, freq: "P1", epoca: 1, comp: "O", r: 0, m: 0, ag: "lagarta" };
 let AJ = { vel: 110, exag: 1.6, part: true };
 let R = null, tAtual = 0;
 const fmt = (x, d = 1) => Number.isFinite(x) ? x.toLocaleString("pt-BR", { minimumFractionDigits: d, maximumFractionDigits: d }) : "–";
@@ -456,15 +487,32 @@ document.querySelectorAll(".madeira").forEach(b => { const t = b.classList.conta
 
 // ---------- simulação ----------
 function frNivel(mat, n) { const ref = DADOS.materiais[mat].FR_ref; return FR_MIN + [25, 50, 75, 100].indexOf(n) / 3 * (ref - FR_MIN); }
-function eventos() { const anos = E.freq === "P1" ? [2017] : E.freq === "P2" ? [2017, 2020] : [2017, 2018, 2019, 2020, 2021, 2022];
-  const ev = {}; if (E.d > 0) anos.forEach(a => ev[`${a}-${String(E.epoca).padStart(2, "0")}`] = E.d / 100); return ev; }
-function rodar(sitio, mat, agua, fert, ev) {
+const anosPulso = () => E.freq === "P1" ? [2017] : E.freq === "P2" ? [2017, 2020] : [2017, 2018, 2019, 2020, 2021, 2022];
+const mesTxt = (a, m) => `${a + Math.floor((m - 1) / 12)}-${String((m - 1) % 12 + 1).padStart(2, "0")}`;
+function eventos() { const ev = {}; if (E.d > 0) anosPulso().forEach(a => ev[mesTxt(a, E.epoca)] = E.d / 100); return ev; }
+// outros danos (extensão v2) e compensação (v3), com as mesmas regras do threepg_pjs.py
+function opcoes(comp) { const o = {}; const anos = anosPulso();
+  if (E.r > 0) { o.efic = {}; anos.forEach(a => { for (let i = 0; i < 4; i++) o.efic[mesTxt(a, E.epoca + i)] = E.r / 100; }); }
+  if (E.m > 0) o.mort = { [mesTxt(anos[0], E.epoca)]: E.m / 100 };
+  if (comp) o.comp = comp; return o; }
+function rodar(sitio, mat, agua, fert, ev, opt) {
   const m = DADOS.materiais[mat], s = DADOS.sitios[sitio], asw = agua === "LOC" ? s.asw_local : ASW_REF * agua / 100;
   return { o: Modelo3PG.run({ lat: s.lat, asw_max: asw, asw_i: asw, from: m.inicio, to: "2023-01" },
-    { planted: "2015-01", fertility: frNivel(mat, fert), stems_n: 10000 / 9, WS0: m.WS0, WR0: m.WR0, WF0: m.WF0 }, s.clima, m.params, ev), asw, inicio: m.inicio };
+    { planted: "2015-01", fertility: frNivel(mat, fert), stems_n: 10000 / 9, WS0: m.WS0, WR0: m.WR0, WF0: m.WF0 }, s.clima, m.params, ev, opt), asw, inicio: m.inicio };
+}
+const quantil = (v, q) => { const a = [...v].sort((x, y) => x - y), i = (a.length - 1) * q, b = Math.floor(i); return a[b] + (a[Math.min(b + 1, a.length - 1)] - a[b]) * (i - b); };
+// incerteza: 200 amostras do posterior da calibração (U, a; γ sorteado em [0, 1], não identificável)
+function incerteza(ev, k84) {
+  if (E.comp !== "C" || E.d === 0) return null;
+  const vols = [], perdas = [];
+  for (const [U, a, gam] of DADOS.calibracao.amostras) { const o = rodar(E.sitio, E.mat, E.agua, E.fert, ev, opcoes({ U, a, gam })).o; vols.push(o.vol); }
+  const n = vols[0].length, lo = [], hi = [];
+  for (let k = 0; k < n; k++) { const col = vols.map(v => v[k]); lo.push(quantil(col, .05)); hi.push(quantil(col, .95)); }
+  return { lo, hi, vols };
 }
 function simular() {
-  const ev = eventos(); const a = rodar(E.sitio, E.mat, E.agua, E.fert, {}), b = rodar(E.sitio, E.mat, E.agua, E.fert, ev);
+  const ev = eventos(), comp = E.comp === "C" ? DADOS.calibracao.mediana : null;
+  const a = rodar(E.sitio, E.mat, E.agua, E.fert, {}, {}), b = rodar(E.sitio, E.mat, E.agua, E.fert, ev, opcoes(comp));
   const c = a.o, t = b.o, [y0, m0] = a.inicio.split("-").map(Number);
   const datas = c.age.map((_, k) => { const mm = m0 - 1 + k; return { a: y0 + Math.floor(mm / 12), m: mm % 12 + 1 }; });
   const idade = c.age.map(x => Math.round(x * 12)), k84 = idade.indexOf(84), k12 = idade.indexOf(12);
@@ -474,7 +522,10 @@ function simular() {
   const wue = o => soma(o.npp, k12 + 1, k84) * 100 / soma(o.transp, k12 + 1, k84);
   const alt = (o, k) => E.mat === "A1" ? ALT_A1.aH * Math.pow(o.dbh[k], ALT_A1.nHB) : o.h[k];
   R = { c, t, datas, idade, k84, k12, kev, recup, asw: a.asw, alt, perda: 100 * (1 - t.vol[k84] / c.vol[k84]),
-        wueC: wue(c), wueT: wue(t), removido: t.removido.reduce((x, y) => x + y, 0), fT0: c.fT.slice(k12, k84 + 1).filter(x => x <= 0).length };
+        wueC: wue(c), wueT: wue(t), removido: t.removido.reduce((x, y) => x + y, 0), fT0: c.fT.slice(k12, k84 + 1).filter(x => x <= 0).length,
+        mortos: t.mortInd.reduce((x, y) => x + y, 0), mesesComp: t.compOn.filter(x => x > 0).length };
+  const inc = incerteza(ev, k84);
+  if (inc) { const p = inc.vols.map(v => 100 * (1 - v[k84] / c.vol[k84])); R.ic = { lo: inc.lo, hi: inc.hi, p05: quantil(p, .05), p95: quantil(p, .95), n: p.length }; } else R.ic = null;
 }
 
 // ---------- entradas ----------
@@ -487,8 +538,16 @@ function montarEntradas() {
   opts(document.getElementById("sel-agua"), { LOC: `Solo local (${s.asw_local} mm)`, 100: "100% de 190,6 mm", 75: "75% de 190,6 mm", 50: "50% de 190,6 mm", 25: "25% de 190,6 mm" }, E.agua);
   opts(document.getElementById("sel-fert"), Object.fromEntries([100, 75, 50, 25].map(n => [n, `F${n} · FR ${fmt(frNivel(E.mat, n), 3)}`])), E.fert);
   const r = document.getElementById("in-d"); r.value = E.d; document.getElementById("out-d").textContent = E.d + "%";
-  segs(document.getElementById("seg-freq"), FREQ, E.freq, k => { E.freq = k; atualizar(); });
-  segs(document.getElementById("seg-epoca"), EPOCA, E.epoca, k => { E.epoca = +k; atualizar(); });
+  segs(document.getElementById("seg-freq"), FREQ, E.freq, k => { E.freq = k; E.ag = ""; atualizar(); });
+  segs(document.getElementById("seg-epoca"), EPOCA, E.epoca, k => { E.epoca = +k; E.ag = ""; atualizar(); });
+  segs(document.getElementById("seg-comp"), COMP, E.comp, k => { E.comp = k; atualizar(); });
+  const md = DADOS.calibracao.mediana;
+  document.getElementById("txt-comp").innerHTML = E.comp === "C"
+    ? `Folhas remanescentes fazem mais fotossíntese (U = ${fmt(md.U, 2)}), a condutância se mantém (γ = ${fmt(md.gam, 1)}) e mais carbono vai para as folhas (a = ${fmt(md.a, 2)}), enquanto a copa não se recompõe. Calibrado com Bertulio et al. (2008); a faixa de 90% usa 200 amostras do posterior.`
+    : "Só a remoção de folhas: a planta não reage ao ataque. É o 3-PG com o módulo de desfolha, sem compensação.";
+  opts(document.getElementById("sel-agente"), Object.fromEntries(Object.entries(AGENTES).map(([k, v]) => [k, v.nome])), E.ag);
+  document.getElementById("txt-agente").textContent = AGENTES[E.ag]?.fonte ?? "";
+  for (const [id, v] of [["r", E.r], ["m", E.m]]) { document.getElementById("in-" + id).value = v; document.getElementById("out-" + id).textContent = v + "%"; }
   const P = DADOS.materiais[E.mat].params;
   document.getElementById("tab-par").innerHTML = `<thead><tr><th>Parâmetro</th><th>Valor</th><th>Unidade</th></tr></thead><tbody>
     <tr><td>α<sub>Cx</sub>, eficiência quântica máx.</td><td class="num">${fmt(P.alphaCx, 3)}</td><td>mol C mol⁻¹</td></tr>
@@ -502,9 +561,14 @@ document.getElementById("sel-sitio").onchange = e => { E.sitio = e.target.value;
 document.getElementById("sel-mat").onchange = e => { E.mat = e.target.value; atualizar(); };
 document.getElementById("sel-agua").onchange = e => { E.agua = e.target.value === "LOC" ? "LOC" : +e.target.value; atualizar(); };
 document.getElementById("sel-fert").onchange = e => { E.fert = +e.target.value; atualizar(); };
-document.getElementById("in-d").oninput = e => { E.d = +e.target.value; document.getElementById("out-d").textContent = E.d + "%"; atualizar(false); };
+let adiar = null; const atualizarDepois = () => { clearTimeout(adiar); adiar = setTimeout(() => atualizar(), 120); };
+const solto = id => { const v = document.getElementById("out-" + id); return e => { E[id] = +e.target.value; E.ag = ""; v.textContent = E[id] + "%"; document.getElementById("sel-agente").value = ""; atualizarDepois(); }; };
+document.getElementById("in-d").oninput = solto("d");
+document.getElementById("in-r").oninput = solto("r");
+document.getElementById("in-m").oninput = solto("m");
+document.getElementById("sel-agente").onchange = e => { E.ag = e.target.value; if (AGENTES[E.ag]?.e) Object.assign(E, AGENTES[E.ag].e); atualizar(); };
 document.getElementById("bt-aleat").onclick = () => { const p = a => a[Math.floor(Math.random() * a.length)];
-  Object.assign(E, { sitio: p(Object.keys(SIT)), mat: p(Object.keys(MAT)), agua: p(["LOC", "LOC", 100, 75, 50, 25]), fert: p([100, 75, 50, 25]), d: p([25, 50, 75, 95]), freq: p(["P1", "P1", "P2", "PA"]), epoca: p([1, 4, 7, 10]) });
+  Object.assign(E, { sitio: p(Object.keys(SIT)), mat: p(Object.keys(MAT)), agua: p(["LOC", "LOC", 100, 75, 50, 25]), fert: p([100, 75, 50, 25]), d: p([25, 50, 75, 95]), freq: p(["P1", "P1", "P2", "PA"]), epoca: p([1, 4, 7, 10]), comp: p(["O", "C"]), r: 0, m: 0, ag: "" });
   atualizar(); tocar(true); };
 
 // ---------- figuras SVG ----------
@@ -572,21 +636,49 @@ function resumo() {
   const { c, t, k84 } = R, nv = R.perda < 3 ? "leve" : R.perda < 10 ? "moderada" : R.perda < 30 ? "severa" : "crítica";
   const ev = Object.keys(eventos()).map(e => { const [a, m] = e.split("-"); return MESES[+m - 1] + "/" + a; });
   const av = [];
-  if (E.sitio === "IMP" && E.mat === "A1") av.push(`Diagnóstico de extrapolação: a temperatura média passa da T<sub>máx</sub> do clone A1 (28,65 °C) em ${R.fT0} meses.`);
-  if (E.mat !== "A1") av.push("As parametrizações de Borges (2009) produzem IAF de 7 a 11, acima do medido em campo, o que amortece a perda.");
-  if (E.d >= 95 && E.freq !== "P1") av.push("O 3-PG não tem mortalidade induzida: este cenário indica dano máximo, não risco de morte.");
+  if (E.d >= 95 && E.freq !== "P1" && E.m === 0) av.push("A desfolha, sozinha, não mata árvores no modelo. Para representar morte, use a mortalidade de árvores.");
+  const desc = [E.d > 0 ? `desfolha ${E.d}%, ${FREQ_L[E.freq]}, em ${EPOCA[E.epoca]}` : "", E.r > 0 ? `eficiência −${E.r}%` : "", E.m > 0 ? `mortalidade ${E.m}%` : ""].filter(Boolean).join(" · ");
   document.getElementById("resumo").innerHTML = `
     <div class="destaque-num"><span class="grande num" style="font-family:var(--f-tit)">${fmt(R.perda, 1)}%</span>
-      <span>perda de volume aos 84 meses<br><span class="mini">${E.d === 0 ? "sem desfolha" : `${E.d}%, ${FREQ_L[E.freq]}, em ${EPOCA[E.epoca]} · classe ${nv}`}</span></span></div>
+      <span>perda de volume aos 84 meses<br><span class="mini">${desc ? desc + " · classe " + nv : "sem dano"} · fisiologia ${COMP[E.comp].toLowerCase()}</span>
+        ${R.ic ? `<span class="ic">Faixa de 90%: ${fmt(R.ic.p05, 1)} a ${fmt(R.ic.p95, 1)}% (${R.ic.n} amostras do posterior)</span>` : ""}</span></div>
     <div class="kv"><span class="h">Aos 84 meses</span><span class="h">Controle</span><span class="h">Desfolhado</span>
       <span>Volume, m³ ha⁻¹</span><span>${fmt(c.vol[k84], 0)}</span><span>${fmt(t.vol[k84], 0)}</span>
       <span>IMA, m³ ha⁻¹ ano⁻¹</span><span>${fmt(c.vol[k84] / 7, 1)}</span><span>${fmt(t.vol[k84] / 7, 1)}</span>
       <span>DAP, cm</span><span>${fmt(c.dbh[k84], 1)}</span><span>${fmt(t.dbh[k84], 1)}</span>
       <span>Árvores, ha⁻¹</span><span>${fmt(c.N[k84], 0)}</span><span>${fmt(t.N[k84], 0)}</span>
       <span>Folhas removidas, t ha⁻¹</span><span>–</span><span>${fmt(R.removido, 2)}</span>
-      <span>Recuperação de W<sub>F</sub> a 95%</span><span>–</span><span>${E.d === 0 ? "–" : R.recup === null ? "não ocorre" : R.recup + " meses"}</span></div>
+      <span>Recuperação de W<sub>F</sub> a 95%</span><span>–</span><span>${E.d === 0 ? "–" : R.recup === null ? "não ocorre" : R.recup + " meses"}</span>
+      ${E.comp === "C" && E.d > 0 ? `<span>Meses com compensação ativa</span><span>–</span><span>${R.mesesComp}</span>` : ""}
+      ${E.m > 0 ? `<span>Árvores mortas pelo dano, ha⁻¹</span><span>–</span><span>${fmt(R.mortos, 0)}</span>` : ""}</div>
+    ${produtos()}
     <p class="mini" style="margin:6px 0 0">Eventos: ${ev.length ? ev.join(", ") : "nenhum"}.</p>
-    ${av.map(a => `<div class="aviso">${a}</div>`).join("")}`;
+    ${av.map(a => `<div class="aviso">${a}</div>`).join("")}
+    ${dominio()}`;
+}
+// perda por produto: o fuste médio aos 84 meses é cortado em toras pelo taper (cubagem.js)
+function produtos() {
+  try { const k = R.k84, tr = o => { const T = toras(o.dbh[k], R.alt(o, k)); return Object.fromEntries(SORT.map(s => [s.id, T.lista.filter(x => x.s === s).reduce((a, x) => a + x.v, 0) * o.N[k]])); };
+    const pc = tr(R.c), pt = tr(R.t);
+    return `<div class="rot" style="margin-top:10px">Perda por produto (taper e sortimentos; aba Toras)</div><div class="prod">` + SORT.map(s => { const d = pc[s.id] > 0 ? 100 * (1 - pt[s.id] / pc[s.id]) : NaN;
+      return `<div style="--c:${s.cor}">${s.nome}<b>${Number.isFinite(d) ? (d < 0 ? "+" : "−") + fmt(Math.abs(d), 1) + "%" : "–"}</b><span class="mini">${fmt(pc[s.id], 0)} → ${fmt(pt[s.id], 0)} m³/ha</span></div>`; }).join("") + `</div><p class="mini" style="margin:4px 0 0">Ganho num produto (+) quer dizer que toras desceram de categoria: o tronco mais fino deixa de servir para o produto mais nobre.</p>`;
+  } catch (e) { return ""; }
+}
+// domínio de validade: o que sustenta (ou não) o cenário exibido, com a fonte de cada ressalva
+function dominio() {
+  const P = DADOS.materiais[E.mat].params, it = []; let exp = false;
+  if (E.d > 0 && E.comp === "O") it.push("Sem compensação, o módulo superestimou as perdas do experimento de Bertulio et al. (2008): no urocam, 79,3% de perda de volume simulada contra 59,0% observada. Compare com a fisiologia calibrada.");
+  if (E.d > 0 && E.comp === "C") it.push("Compensação calibrada com um único experimento (Bertulio et al., 2008, Campo Verde-MT) e testada em outro clone do mesmo experimento: no urocam, 64,8% simulada contra 59,0% observada. Não há validação independente.");
+  if (E.d >= 90) { exp = true; it.push("Desfolha quase total: no único experimento brasileiro com desfolhas totais (Matrangolo et al., 2010, aos 56 dias de idade), as perdas foram de 37,9 a 79,7%, e o módulo deu de 1,1 a 12,7%. Leia o resultado como limite inferior."); }
+  if (E.d > 45 && E.comp === "C") it.push("A condutância compensatória tem teto no valor observado com 45% de desfolha (Quentin et al., 2011). A literatura indica γ próximo de 1; aqui a mediana usa 0,5.");
+  if (E.r > 0) { exp = true; it.push("Perda de eficiência: a queda de fotossíntese foi medida em folhas atacadas (Almeida et al., 2018), mas a perda no talhão é desconhecida. Cenário exploratório."); }
+  if (E.m > 15) { exp = true; it.push("Mortalidade acima de 15%: além do registrado por Santos et al. (2001)."); }
+  if (E.mat === "A1" && R.fT0 > 0) { exp = true; it.push(`Extrapolação: a temperatura média passa da T<sub>máx</sub> do clone A1 (${fmt(P.Tmax, 2)} °C) em ${R.fT0} meses. Resultado apenas diagnóstico.`); }
+  if (E.mat !== "A1") it.push("As parametrizações de Borges (2009) produzem IAF de 8 a 11, acima do medido em campo, o que amortece a perda.");
+  if (["ALM", "ELD"].includes(E.sitio)) it.push("Neste local não se acessou medição de produtividade para comparar com o controle simulado.");
+  if (E.sitio === "ARA") it.push("Em Araripina, a biomassa simulada ficou dentro da faixa medida em 15 clones por Alves et al. (2007), abaixo da média: plausibilidade, não validação.");
+  if (!it.length) return "";
+  return `<div class="dominio" id="dominio"><span class="selo ${exp ? "exp" : ""}">${exp ? "Fora do domínio sustentado" : "Domínio de validade"}</span><ul>${it.map(x => `<li>${x}</li>`).join("")}</ul></div>`;
 }
 
 // ---------- gráficos ----------
@@ -609,6 +701,8 @@ function graficos() {
     linha(g, c.Ws, X, Y, C_.tinta3, 1.2, [4, 3]); linha(g, t.Ws, X, Y, C_.terra, 1.8, []); }
   { const [g, W, H] = prep("g-vol"), { c, t } = R; g.clearRect(0, 0, W, H);
     const Wg = W * .62, ymax = Math.max(...c.vol) * 1.08, [X, Y] = eixo(g, Wg, H, ymax, 32, 8, 18, 6);
+    if (R.ic) { g.fillStyle = "rgba(156,74,28,.18)"; g.beginPath(); R.ic.hi.forEach((v, k) => k ? g.lineTo(X(k), Y(v)) : g.moveTo(X(k), Y(v)));
+      for (let k = R.ic.lo.length - 1; k >= 0; k--) g.lineTo(X(k), Y(R.ic.lo[k])); g.closePath(); g.fill(); }
     linha(g, c.vol, X, Y, C_.tinta3, 1.2, [4, 3]); linha(g, t.vol, X, Y, C_.alerta, 1.8, []);
     // perfil do fuste (esquemático)
     const k = tAtual, x0 = Wg + 16, w = W - x0 - 4, cx = x0 + w / 2, Hc = Math.max(1.5, R.alt(c, k)), Ht = Math.max(1.5, R.alt(t, k)), Hm = Math.max(Hc, Ht, 5) * 1.06;
@@ -681,7 +775,7 @@ function montarTempo() { const s = document.getElementById("mes"), n = R.c.Wf.le
   document.getElementById("marcas").innerHTML = R.kev.map(k => `<i style="left:${100 * k / n}%"></i>`).join("") + `<b style="left:${100 * R.k84 / n}%"></b>`; }
 function mostrar() {
   const d = R.datas[tAtual]; document.getElementById("q-idade").textContent = R.idade[tAtual] + " meses"; document.getElementById("q-data").textContent = MESES[d.m - 1] + "/" + d.a; document.getElementById("mes").value = tAtual;
-  atualizar3D(); resumo(); svgEstrutura(); svgSolo(); svgPizza(); barrasEstresse(); painelWue(); graficos();
+  atualizar3D(); resumo(); svgEstrutura(); document.getElementById("leg-ic").hidden = !R.ic; svgSolo(); svgPizza(); barrasEstresse(); painelWue(); graficos();
 }
 function tocar(inicio) { parar(); if (matchMedia("(prefers-reduced-motion: reduce)").matches) { tAtual = R.k84; mostrar(); return; }
   if (inicio) tAtual = Math.max(0, R.k12 - 1); const b = document.getElementById("bt-play"); b.textContent = "❚❚"; b.setAttribute("aria-label", "Pausar");
@@ -689,7 +783,7 @@ function tocar(inicio) { parar(); if (matchMedia("(prefers-reduced-motion: reduc
 function parar() { clearInterval(timer); timer = null; const b = document.getElementById("bt-play"); b.textContent = "▶"; b.setAttribute("aria-label", "Reproduzir"); }
 function irPara(idade) { const k = R.idade.indexOf(idade); tAtual = k >= 0 ? k : R.c.Wf.length - 1; mostrar(); }
 function atualizar(ui = true) { simular(); if (ui) montarEntradas(); montarTempo(); mostrar();
-  document.getElementById("estado-sim").textContent = `${SIT[E.sitio]} · ${E.mat} · ${E.d}% ${FREQ_L[E.freq]} em ${EPOCA[E.epoca]}`; }
+  document.getElementById("estado-sim").textContent = `${SIT[E.sitio]} · ${E.mat} · ${E.d}% ${FREQ_L[E.freq]} em ${EPOCA[E.epoca]} · ${COMP[E.comp]}`; }
 document.getElementById("bt-play").onclick = () => timer ? parar() : tocar(tAtual >= R.c.Wf.length - 1);
 document.getElementById("mes").oninput = e => { parar(); tAtual = +e.target.value; mostrar(); };
 document.getElementById("bt-simular").onclick = () => { atualizar(); tocar(true); };
@@ -700,10 +794,10 @@ document.querySelectorAll("[data-fecha]").forEach(b => b.onclick = () => fechar(
 document.querySelectorAll(".modal").forEach(m => m.addEventListener("click", e => { if (e.target === m) m.hidden = true; }));
 document.addEventListener("keydown", e => { if (e.key === "Escape") { if (document.querySelector(".modal:not([hidden])")) document.querySelectorAll(".modal").forEach(m => m.hidden = true); else if (typeof modoExplicar === "function" && explicando) modoExplicar(false); } });
 document.getElementById("bt-exportar").onclick = () => {
-  const { c, t, datas, idade } = R, cols = [["Wf", "Wf_tha"], ["Ws", "Ws_tha"], ["Wr", "Wr_tha"], ["lai", "IAF"], ["dbh", "DAP_cm"], ["vol", "vol_m3ha"], ["N", "arv_ha"], ["asw", "ASW_mm"], ["npp", "NPP_tha"], ["transp", "transp_mm"], ["alpha", "alpha_ef"], ["etaR", "etaR"]];
+  const { c, t, datas, idade } = R, cols = [["Wf", "Wf_tha"], ["Ws", "Ws_tha"], ["Wr", "Wr_tha"], ["lai", "IAF"], ["dbh", "DAP_cm"], ["vol", "vol_m3ha"], ["N", "arv_ha"], ["asw", "ASW_mm"], ["npp", "NPP_tha"], ["transp", "transp_mm"], ["alpha", "alpha_ef"], ["etaR", "etaR"], ["compU", "U_ef"], ["mortInd", "mortos_dano"]];
   const cab = ["idade_meses", "data", ...cols.flatMap(([, n]) => [n + "_ctrl", n + "_desf"]), "removido_tha"].join(";");
   const lin = idade.map((a, k) => [a, `${datas[k].a}-${String(datas[k].m).padStart(2, "0")}`, ...cols.flatMap(([v]) => [c[v][k], t[v][k]].map(x => Number.isFinite(x) ? x.toFixed(4).replace(".", ",") : "")), t.removido[k].toFixed(4).replace(".", ",")].join(";"));
-  document.getElementById("csv").value = `# Akademia Florestal · simulador 3-PG · ${SIT[E.sitio]} · ${E.mat} · água ${E.agua} · F${E.fert} · d ${E.d}% · ${FREQ_L[E.freq]} · ${EPOCA[E.epoca]}\n` + [cab, ...lin].join("\n");
+  document.getElementById("csv").value = `# Akademia Florestal · simulador 3-PG · ${SIT[E.sitio]} · ${E.mat} · água ${E.agua} · F${E.fert} · d ${E.d}% · ${FREQ_L[E.freq]} · ${EPOCA[E.epoca]} · eficiência −${E.r}% · mortalidade ${E.m}% · fisiologia ${COMP[E.comp]}\n` + [cab, ...lin].join("\n");
   document.getElementById("copiado").textContent = ""; abrir("m-exp"); };
 document.getElementById("bt-copiar").onclick = () => { const ta = document.getElementById("csv");
   navigator.clipboard?.writeText(ta.value).then(() => document.getElementById("copiado").textContent = "Tabela copiada.", () => { ta.select(); document.getElementById("copiado").textContent = "Texto selecionado: use Ctrl+C."; })
@@ -722,11 +816,11 @@ function abrirValid() {
   const tb = rodar("TB", "A1", "LOC", 100, {}).o, id = tb.age.map(x => Math.round(x * 12)), k24 = id.indexOf(24), k36 = id.indexOf(36);
   const lenho = tb.Ws[k36] * (1 - tb.fracBB[k36]) - tb.Ws[k24] * (1 - tb.fracBB[k24]), iaf = tb.lai.slice(k24, k36 + 1).reduce((a, b) => a + b, 0) / (k36 - k24 + 1);
   document.getElementById("valid-corpo").innerHTML = `
-  <p class="mini" style="max-width:80ch">Esta prancha separa três coisas: <b>verificação</b> (o código faz o que o modelo descreve), <b>validação publicada</b> da parametrização e <b>confronto</b> com os poucos dados secundários disponíveis. Não há inventário com IMA aos 7 anos nos três locais no material reunido. Por isso RMSE, MAE e R² de validação local só podem ser calculados com dados que você carregar abaixo.</p>
+  <p class="mini" style="max-width:80ch">Esta prancha separa três coisas: <b>verificação</b> (o código faz o que o modelo descreve), <b>validação publicada</b> da parametrização e <b>confronto</b> com os poucos dados secundários disponíveis. Não há inventário com IMA aos 7 anos nos seis locais no material reunido. Por isso RMSE, MAE e R² de validação local só podem ser calculados com dados que você carregar abaixo.</p>
   <div class="secao"><h3>1. Verificação numérica</h3><div class="tabs-wrap"><table class="tab"><thead><tr><th>Comparação</th><th>n</th><th>R²</th><th>RQEM</th><th>Viés</th></tr></thead><tbody>
     <tr><td>Port Python × r3PG original (308 controles; W<sub>S</sub>, W<sub>F</sub>, W<sub>R</sub>, volume, IAF, DAP)</td><td class="num">28.277/var.</td><td class="num">1,000000</td><td class="num">&lt; 2×10⁻¹³ %</td><td class="num">&lt; 5×10⁻¹⁵ %</td></tr>
     <tr><td>Port Python × 3-PG em planilha (VBA), perenifólia e decídua</td><td class="num">110</td><td class="num">≥ 0,9996</td><td class="num">≤ 0,13%</td><td class="num">≤ 0,04%</td></tr>
-    <tr><td>Este simulador (JavaScript) × port Python, 6 cenários</td><td class="num">≈ 540/var.</td><td class="num">1,000000</td><td class="num">máx. 3×10⁻¹³ (relativa)</td><td class="num">–</td></tr></tbody></table></div></div>
+    <tr><td>Este simulador (JavaScript) × port Python, 7 cenários com desfolha, perda de eficiência, mortalidade e compensação, nos 6 locais</td><td class="num">≈ 640/var.</td><td class="num">1,000000</td><td class="num">máx. 1,4×10⁻¹⁴ (relativa)</td><td class="num">–</td></tr></tbody></table></div></div>
   <div class="secao"><h3>2. Validação publicada da parametrização A1</h3><p class="mini">Caldeira et al. (2020) calibraram e avaliaram o clone A1 com inventários da rede TECHS em vários sítios do Brasil até 80 meses: R² &gt; 0,93 para volume, biomassa de lenho, DAP e área basal, e R² = 0,26 para IAF. Esses resultados são dos autores e não foram refeitos aqui.</p></div>
   <div class="secao"><h3>3. Confronto com dados secundários</h3><div class="tabs-wrap"><table class="tab"><caption>Telêmaco Borba, clone A1, 3 × 3 m (Binkley et al., 2017). Dado não independente: entrou na calibração do A1.</caption>
     <thead><tr><th>Variável (2 a 3 anos)</th><th>Medido</th><th>Simulado</th><th>Diferença</th></tr></thead><tbody>
@@ -739,7 +833,20 @@ function abrirValid() {
     <tr><td>C5 → urograndis</td><td>CAP</td><td class="num">0,760</td><td class="num">7,6%</td><td class="num">−0,7%</td></tr>
     <tr><td>C5 → urograndis</td><td>Altura</td><td class="num">0,680</td><td class="num">12,2%</td><td class="num">−12,2%</td></tr>
     <tr><td>C5 → urograndis</td><td>Volume por árvore</td><td class="num">−0,607</td><td class="num">70,1%</td><td class="num">−61,4%</td></tr></tbody></table></div>
-    <p class="mini">O volume por árvore é subestimado porque o 3-PG estima volume por biomassa e densidade e o experimento usou cubagem de Smalian.</p></div>
+    <p class="mini">O volume por árvore é subestimado porque o 3-PG estima volume por biomassa e densidade e o experimento usou cubagem de Smalian.</p>
+    <div class="tabs-wrap" style="margin-top:10px"><table class="tab"><caption>Calibração da compensação com Bertulio et al. (2008), perda relativa ao controle (%), d = 0,999. O urocam é teste do mesmo experimento, não validação independente.</caption>
+    <thead><tr><th>Material</th><th>Variável</th><th>Observado</th><th>Original</th><th>Calibrado</th></tr></thead><tbody>
+    <tr><td>C5 → urograndis (ajuste)</td><td>Volume</td><td class="num">52,9</td><td class="num">64,8</td><td class="num">50,4</td></tr>
+    <tr><td>C5 → urograndis (ajuste)</td><td>CAP</td><td class="num">24,2</td><td class="num">28,5</td><td class="num">20,2</td></tr>
+    <tr><td>A1 → urocam (teste)</td><td>Volume</td><td class="num">59,0</td><td class="num">79,3</td><td class="num">64,8 (53,7–78,6)</td></tr>
+    <tr><td>A1 → urocam (teste)</td><td>CAP</td><td class="num">22,9</td><td class="num">40,7</td><td class="num">29,7 (22,5–40,0)</td></tr></tbody></table></div>
+    <div class="tabs-wrap" style="margin-top:10px"><table class="tab"><caption>Evidência contrária: Matrangolo et al. (2010), Viçosa-MG, desfolhas totais a partir dos 56 dias; perda de volume (%), protocolo aproximado.</caption>
+    <thead><tr><th>Tratamento</th><th>Observado</th><th>Original</th><th>Calibrado</th></tr></thead><tbody>
+    <tr><td>1 desfolha (56 d)</td><td class="num">37,9</td><td class="num">2,6</td><td class="num">1,1</td></tr>
+    <tr><td>2 desfolhas (56 e 143 d)</td><td class="num">61,9</td><td class="num">8,0</td><td class="num">6,3</td></tr>
+    <tr><td>2 desfolhas (56 e 267 d)</td><td class="num">61,6</td><td class="num">7,6</td><td class="num">6,5</td></tr>
+    <tr><td>3 desfolhas (56, 143 e 278 d)</td><td class="num">79,7</td><td class="num">12,7</td><td class="num">8,5</td></tr></tbody></table></div>
+    <p class="mini">O módulo, nas duas versões, não reproduz a perda após desfolha total precoce. Por isso o simulador marca desfolhas acima de 90% como fora do domínio sustentado.</p></div>
   <div class="secao"><h3>4. Seu inventário: RMSE, MAE e R² com o cenário atual</h3>
     <p class="mini">Cole linhas com <span class="num">idade_meses;volume_m3ha</span> (ou IMA em m³ ha⁻¹ ano⁻¹, marcando a opção). As estatísticas comparam esses valores com o controle simulado no cenário atual (${SIT[E.sitio]}, ${E.mat}).</p>
     <textarea id="inv" style="height:110px" placeholder="84;352&#10;72;300"></textarea>
@@ -747,7 +854,19 @@ function abrirValid() {
     <div id="inv-res" class="mini" style="margin-top:8px"></div></div>
   <div class="secao"><h3>5. Metamodelo Random Forest do simulador</h3><div class="tabs-wrap"><table class="tab"><thead><tr><th>Validação cruzada</th><th>R²</th><th>RQEM</th></tr></thead><tbody>
     <tr><td>k-fold 7 × 10, perda de volume</td><td class="num">0,996</td><td class="num">7,7%</td></tr><tr><td>Um local fora do treino</td><td class="num">0,907</td><td class="num">37,6%</td></tr><tr><td>Um material fora do treino</td><td class="num">0,970</td><td class="num">19,7%</td></tr></tbody></table></div>
-    <p class="mini">Esses números medem quanto a Random Forest imita o 3-PG, não quanto o 3-PG acerta o campo.</p></div>`;
+    <p class="mini">Esses números medem quanto a Random Forest imita o 3-PG, não quanto o 3-PG acerta o campo.</p></div>
+  <div class="secao"><h3>6. Precedentes e o que este simulador acrescenta</h3>
+    <p class="mini" style="max-width:80ch">Representar a desfolha em modelos processuais não é novo. O <b>CABALA</b> representa a desfolha com compensação fisiológica em <i>E. globulus</i> na Austrália (Pinkard et al., 2011, 2014). O <b>3PG.d</b> (Rua et al., 2020) acrescentou ao 3-PG a desfolha pelo gorgulho <i>Gonipterus platensis</i> em <i>E. globulus</i>, em Portugal; a página da ferramenta descreve ataques na primavera ou também no outono, com intensidade e número de ataques por ano definidos pelo usuário, e saídas de altura dominante, área basal e volume.</p>
+    <div class="tabs-wrap"><table class="tab"><thead><tr><th>Neste simulador</th><th>Situação</th></tr></thead><tbody>
+    <tr><td>Motor verificado contra o r3PG v0.1.7 e reproduzido no navegador, sem instalação nem cadastro</td><td>Verificado (seção 1)</td></tr>
+    <tr><td>Clones e híbridos brasileiros (A1, C5, C2, C4) em seis locais, um por bioma com eucalipto</td><td>Parametrizações publicadas; locais sem validação local</td></tr>
+    <tr><td>Compensação fisiológica (fotossíntese, condutância e alocação) calibrada com dados brasileiros</td><td>Um experimento; teste não independente</td></tr>
+    <tr><td>Incerteza da calibração propagada até a perda de volume (faixa de 90%)</td><td>200 amostras do posterior</td></tr>
+    <tr><td>Outros danos além da desfolha: perda de eficiência e mortalidade, com catálogo de agentes e fontes</td><td>Literatura ou exploratório, marcado em cada agente</td></tr>
+    <tr><td>Perda por produto (serraria, celulose, energia) pelo taper e por critérios de sortimento</td><td>Taper de outro clone (Souza et al., 2016): ilustrativo</td></tr>
+    <tr><td>Domínio de validade exibido em cada cenário, inclusive a evidência contrária</td><td>Matrangolo et al. (2010), Quentin et al. (2011)</td></tr>
+    </tbody></table></div>
+    <p class="mini">A comparação com o 3PG.d se baseia na descrição pública da ferramenta. O que ela não descreve não foi tratado como ausente nela.</p></div>`;
   document.getElementById("bt-calc").onclick = () => {
     const ima = document.getElementById("inv-ima").checked, y = [], yh = [];
     for (const l of document.getElementById("inv").value.split(/\n/)) { const p = l.trim().split(/[;\t,]\s*/).map(x => parseFloat(x.replace(",", "."))); if (p.length < 2 || !p.every(Number.isFinite)) continue;
@@ -765,18 +884,20 @@ document.getElementById("bt-valid").onclick = abrirValid;
 
 // ---------- tutorial ----------
 const PASSOS = [
-  { t: "Objetivo do simulador", alvo: "janela", e: { sitio: "IND", mat: "A1", agua: "LOC", fert: 100, d: 0, freq: "P1", epoca: 1 }, idade: 84,
+  { t: "Objetivo do simulador", alvo: "janela", e: { sitio: "IND", mat: "A1", agua: "LOC", fert: 100, d: 0, freq: "P1", epoca: 1, comp: "O", r: 0, m: 0, ag: "" }, idade: 84,
     h: `<p>Lagartas e doenças removem folhas do eucalipto e reduzem a produção de madeira. A perda depende da intensidade, da frequência e da época do ataque, do clima, do solo e do material genético.</p><p>Este laboratório usa o 3-PG para testar essas combinações. Na janela, o talhão da esquerda é o controle e o da direita recebe a desfolha.</p>` },
-  { t: "Não conhece algum termo?", alvo: "bt-conceitos", h: `<p>Palavras com pontilhado e \"?\", como IAF ou fotossíntese, abrem uma explicação simples quando tocadas.</p><p>O link <b>Conceitos</b> reúne 49 explicações, da lei de Beer à rede neural, com uma trilha para iniciantes. Com o <b>Modo explicar</b> ligado, basta tocar em qualquer parte do simulador.</p>` },
+  { t: "Não conhece algum termo?", alvo: "bt-conceitos", h: `<p>Palavras com pontilhado e \"?\", como IAF ou fotossíntese, abrem uma explicação simples quando tocadas.</p><p>O link <b>Conceitos</b> reúne 52 explicações, da lei de Beer à rede neural, com uma trilha para iniciantes. Com o <b>Modo explicar</b> ligado, basta tocar em qualquer parte do simulador.</p>` },
   { t: "Prancha I: entradas fisiológicas", alvo: "p1", h: `<p>À esquerda ficam as condições do talhão (local, material, água e fertilidade) e os parâmetros que distinguem cada material, como α<sub>Cx</sub> e as temperaturas cardinais.</p><p>A Fig. 2 mostra os estoques de folhas, lenho e raízes no mês exibido.</p>` },
   { t: "O módulo de desfolha", alvo: "s-desfolha", e: { d: 50 }, idade: 24, h: `<p>O 3-PG original não representa pragas. No mês do evento, antes do cálculo da luz, a biomassa foliar perde a fração <i>d</i>:</p><div class="eq">W_F,pós = W_F,pré · (1 − d)</div><p>Aqui, 50% em janeiro de 2017, aos 24 meses. Nenhuma outra equação foi alterada.</p>` },
   { t: "Simular", alvo: "bancada", acao: true, h: `<p>O botão <b>Simular</b> roda o modelo nos dois talhões e anima a rotação mês a mês. A linha do tempo marca os eventos em vermelho.</p><p>As folhas voltam em poucos meses, mas o lenho que deixou de crescer não é recuperado.</p>` },
   { t: "Partição e estresse", alvo: "s-particao", idade: 30, h: `<p>No 3-PG, a fração do carbono destinada às raízes já depende do estresse:</p><div class="eq">η_R = pRx·pRn / [pRn + (pRx − pRn)·φ·m]</div><p>Quando falta água ou o ar está seco, φ diminui e η<sub>R</sub> aumenta, à custa do lenho. As barras de resposta ao estresse mostram f<sub>T</sub>, f<sub>VPD</sub>, f<sub>SW</sub> e φ do mês.</p>` },
   { t: "Água e eficiência", alvo: "s-wue", h: `<p>A transpiração é calculada por Penman-Monteith. A eficiência no uso da água (WUE) é a biomassa produzida por quilo de água transpirada. O α efetivo é a eficiência quântica máxima reduzida por temperatura, VPD, água e idade.</p><p>O talhão desfolhado transpira menos e guarda mais água no solo (Fig. 3).</p>` },
-  { t: "Frequência, época e clima", alvo: "s-desfolha", e: { freq: "PA", d: 50 }, idade: 84, h: `<p>Com pulsos anuais de 50%, a perda de volume do A1 em Indianópolis sobe de 3% para cerca de 14%. A época também importa: em abril, início da seca, custa cerca de 1,7%; em outubro, 3,7%.</p><p>Em Imperatriz, a temperatura passa do limite do clone A1, e o resultado aparece marcado como diagnóstico.</p>` },
-  { t: "Validação e métricas", alvo: "bt-valid", h: `<p>O link <b>Validação &amp; métricas</b> reúne a verificação do código, a validação publicada da parametrização e o confronto com dados secundários.</p><p>Não há inventário de IMA aos 7 anos nos três locais. Se você tiver um, cole os dados ali e o simulador calcula RMSE, MAE e R².</p>` },
+  { t: "Frequência, época e clima", alvo: "s-desfolha", e: { freq: "PA", d: 50 }, idade: 84, h: `<p>Com pulsos anuais de 50%, a perda de volume do A1 em Indianópolis sobe de 3% para cerca de 14%. A época também importa: em abril, início da seca, custa cerca de 1,7%; em outubro, 3,7%.</p><p>Em Imperatriz, Almeirim e Araripina, a temperatura passa do limite do clone A1, e o resultado aparece marcado como diagnóstico.</p>` },
+  { t: "A planta reage: compensação calibrada", alvo: "s-resposta", e: { comp: "C", freq: "P1", d: 50, r: 0, m: 0, ag: "lagarta" }, idade: 84, h: `<p>Depois de perder folhas, o eucalipto faz mais fotossíntese nas folhas que restaram, mantém a transpiração e manda mais carbono para refazer a copa. Na <b>fisiologia calibrada</b>, esses três efeitos foram ajustados ao experimento de Bertulio et al. (2008), em Mato Grosso.</p><p>A faixa sombreada no gráfico de volume é a <b>incerteza</b>: o modelo roda 200 vezes, uma para cada combinação de parâmetros compatível com os dados.</p>` },
+  { t: "Outros danos e domínio de validade", alvo: "resumo", e: { comp: "C", d: 0, r: 40, m: 0, ag: "percevejo40" }, idade: 84, h: `<p>Nem toda praga come folhas. O <b>percevejo-bronzeado</b> deixa a folha na árvore, mas reduz a fotossíntese; a <b>murcha</b> mata árvores. Escolha um agente do catálogo: cada um mostra de onde veio a magnitude.</p><p>O quadro <b>Domínio de validade</b> diz o que sustenta o cenário e quando ele sai do que os dados permitem afirmar, inclusive a evidência contrária. A perda por produto mostra quanto sai da serraria, da celulose e da energia.</p>` },
+  { t: "Validação e métricas", alvo: "bt-valid", h: `<p>O link <b>Validação &amp; métricas</b> reúne a verificação do código, a validação publicada da parametrização e o confronto com dados secundários.</p><p>Não há inventário de IMA aos 7 anos nos seis locais. Se você tiver um, cole os dados ali e o simulador calcula RMSE, MAE e R².</p>` },
   { t: "Cubagem e toras", alvo: "bt-toras", h: `<p>O botão <b>Toras</b> abre a cubagem explicada (Smalian, Huber e Newton) e o taper seccional. A árvore média do talhão é dividida em toras para serraria, celulose e energia, e dá para ver quanto a desfolha tira de cada uso.</p><p>A forma do tronco vem de uma equação publicada para outro clone: é uma ilustração do raciocínio, não uma previsão.</p>` },
-  { t: "Exportar e ajustar", alvo: "bancada", e: { freq: "P1" }, h: `<p><b>Exportar</b> gera a série mensal dos dois talhões para colar numa planilha. <b>Ajustes</b> muda só a exibição (velocidade e exagero do diâmetro).</p><p>Os resultados estão verificados, mas não validados em campo.</p>` },
+  { t: "Exportar e ajustar", alvo: "bancada", e: { freq: "P1", d: 50, r: 0, m: 0, comp: "O", ag: "lagarta" }, h: `<p><b>Exportar</b> gera a série mensal dos dois talhões para colar numa planilha. <b>Ajustes</b> muda só a exibição (velocidade e exagero do diâmetro).</p><p>Os resultados estão verificados, mas não validados em campo.</p>` },
 ];
 let passo = 0;
 function verPasso() {
@@ -796,7 +917,7 @@ addEventListener("resize", () => R && graficos());
 
 try { iniciar3D(); } catch (err) { document.getElementById("nota3d").textContent = "A cena 3D não abriu neste navegador. A simulação e os painéis continuam funcionando."; }
 simular(); montarEntradas(); montarTempo(); tAtual = R.k84; mostrar();
-document.getElementById("estado-sim").textContent = `${SIT[E.sitio]} · ${E.mat} · ${E.d}% ${FREQ_L[E.freq]} em ${EPOCA[E.epoca]}`;
-let visto = false; try { visto = localStorage.getItem("tour3pg3") === "1"; localStorage.setItem("tour3pg3", "1"); } catch (e) {}
+document.getElementById("estado-sim").textContent = `${SIT[E.sitio]} · ${E.mat} · ${E.d}% ${FREQ_L[E.freq]} em ${EPOCA[E.epoca]} · ${COMP[E.comp]}`;
+let visto = false; try { visto = localStorage.getItem("tour3pg4") === "1"; localStorage.setItem("tour3pg4", "1"); } catch (e) {}
 if (!visto) { passo = 0; document.getElementById("tour").hidden = false; verPasso(); }
 </script>

@@ -362,3 +362,7 @@ busca DOI únicos 7.908,7908.0,7908.0,True
 busca dedup 7.431,7431.0,7431.0,True
 núcleo 93,93.0,93.0,True
 contexto 3-PG 20,20.0,20.0,True
+cenários JS × Python,7.0,7.0,True
+dif. rel. máx JS × Python (x1e14),1.4,1.4,True
+plataforma IND A1 2x95 original,17.3,17.3,True
+plataforma IND A1 2x95 calibrado,11.6,11.6,True

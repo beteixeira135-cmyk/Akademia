@@ -25,7 +25,10 @@
   // site: {lat, asw_max, asw_i, from:"YYYY-MM", to}; sp: {planted, fertility, stems_n, WS0, WR0, WF0}
   // clim: {year[], month[], tmp_min[], tmp_max[], tmp_ave[], prcp[], srad[], frost_days[], vpd_day[]}
   // defol: {"YYYY-MM": d}
-  function run(site, sp, clim, P, defol) {
+  // opt (extensões v2/v3, iguais às do threepg_pjs.py): {efic: {"YYYY-MM": r}, mort: {"YYYY-MM": m}, comp: {U, gam, a}}
+  //   efic: perda de eficiência α·(1 − r); mort: mortalidade induzida N·(1 − m) no início do mês;
+  //   comp: compensação fisiológica enquanto W_F < W_F,ref (adaptada do CABALA). opt ausente = versão original.
+  function run(site, sp, clim, P, defol, opt) {
     const [yi, mi] = site.from.split("-").map(Number), [yt, mt] = site.to.split("-").map(Number), [yp, mp] = sp.planted.split("-").map(Number);
     const i0 = clim.year.findIndex((y, k) => ym(y, clim.month[k]) === ym(yi, mi));
     const n = ym(yt, mt) - ym(yi, mi) + 1;
@@ -38,6 +41,16 @@
       if (t < 1 || t >= n) throw new Error("Evento fora da simulação: " + k);
       ev[t] = d;
     }
+    opt = opt || {};
+    const serie = (evts, nome) => { const a = new Float64Array(n);
+      for (const [k, r] of Object.entries(evts || {})) { const [y, m] = k.split("-").map(Number), t = ym(y, m) - ym(yi, mi);
+        if (!(r >= 0 && r < 1)) throw new Error(nome + " deve estar em [0,1)"); if (t < 1 || t >= n) throw new Error("Mês de " + nome + " fora da simulação: " + k); a[t] = r; }
+      return a; };
+    const effic = serie(opt.efic, "perda de eficiência"), mortind = serie(opt.mort, "mortalidade induzida");
+    let comp = null;
+    if (opt.comp) { comp = { U: +(opt.comp.U ?? 1), gam: +(opt.comp.gam ?? 0), a: +(opt.comp.a ?? 0) };
+      if (!(comp.U >= 1 && comp.U <= 2 && comp.gam >= 0 && comp.gam <= 1 && comp.a >= 0 && comp.a <= 1)) throw new Error("Compensação fora do domínio"); }
+    const GC_CAP = 1 / (1 - 0.45); let wfRef = 0;
     const lg = Math.round(P.leafgrow), lf = Math.round(P.leaffall);
     const dl = daylength(site.lat).map(x => 86400 * x);
     const fCax = P.fCalpha700 / (2 - P.fCalpha700), fCg0 = P.fCg700 / (2 * P.fCg700 - 1);
@@ -59,11 +72,12 @@
     const upd = t => { S.bt = S.N === 0 ? 0 : S.Ws * 1000 / S.N; S.lai = S.Wf * SLA[t] * 0.1; };
     const vol = t => S.Ws * (1 - fBB[t]) / rho[t];
     const out = { mes: [], age: [], Wf: [], Ws: [], Wr: [], lai: [], dbh: [], h: [], vol: [], N: [], asw: [], fT: [], fSW: [], npp: [], removido: [], fracBB: [],
-      gpp: [], apar: [], alpha: [], fVPD: [], fAge: [], phys: [], transp: [], et: [], prcp: [], etaR: [], etaS: [], etaF: [] };
+      gpp: [], apar: [], alpha: [], fVPD: [], fAge: [], phys: [], transp: [], et: [], prcp: [], etaR: [], etaS: [], etaF: [], compOn: [], compU: [], compGc: [], mortInd: [] };
     const rec = (t, x) => { out.mes.push(t); out.age.push(age[t]); out.Wf.push(S.Wf); out.Ws.push(S.Ws); out.Wr.push(S.Wr); out.lai.push(S.lai);
-      out.dbh.push(S.dbh); out.h.push(S.h); out.vol.push(vol(t)); out.N.push(S.N); out.asw.push(ASW); out.fT.push(fT(t));
+      out.dbh.push(S.dbh); out.h.push(S.h); out.vol.push(x.vol ?? vol(t)); out.N.push(S.N); out.asw.push(ASW); out.fT.push(fT(t));
       out.fSW.push(x.fsw); out.npp.push(x.npp); out.removido.push(x.rem); out.fracBB.push(fBB[t]);
-      for (const k of ["gpp","apar","alpha","fVPD","phys","transp","et","prcp","etaR","etaS","etaF"]) out[k].push(x[k] ?? NaN); out.fAge.push(fage[t]); };
+      for (const k of ["gpp","apar","alpha","fVPD","phys","transp","et","prcp","etaR","etaS","etaF"]) out[k].push(x[k] ?? NaN);
+      out.compOn.push(x.compOn ?? 0); out.compU.push(x.compU ?? 1); out.compGc.push(x.compGc ?? 1); out.mortInd.push(x.mortInd ?? 0); out.fAge.push(fage[t]); };
     let month = mi;
     if (age[0] >= 0) Object.assign(S, { N: sp.stems_n, Ws: sp.WS0, Wf: sp.WF0, Wr: sp.WR0 });
     if (dormant(month, lg, lf)) { S.debt = S.Wf; S.Wf = 0; }
@@ -79,7 +93,12 @@
       if (dorm && !dprev) { S.debt = S.Wf; S.Wf = 0; S.lai = 0; bcor = true; }
       if (bcor) { for (let k = 0; k < B_N; k++) sdc(t); bcor = false; }
       let rem = 0;
-      if (ev[t] > 0) { rem = S.Wf * ev[t]; S.Wf -= rem; S.lai = S.Wf * SLA[t] * 0.1; }
+      if (ev[t] > 0) { const wpre = S.Wf; rem = S.Wf * ev[t]; S.Wf -= rem; S.lai = S.Wf * SLA[t] * 0.1; if (comp && rem > 0) wfRef = Math.max(wpre, wfRef); }
+      let mInd = 0;
+      if (mortind[t] > 0 && S.N > 0) { const mk = mortind[t]; S.Wf *= 1 - mk; S.Wr *= 1 - mk; S.Ws *= 1 - mk; S.debt *= 1 - mk; mInd = S.N * mk; S.N -= mInd;
+        upd(t); for (let k = 0; k < B_N; k++) sdc(t); }
+      const compOn = comp !== null && wfRef > 0 && S.Wf < wfRef, deficit = compOn ? 1 - S.Wf / wfRef : 0;
+      if (comp !== null && !compOn) wfRef = 0;
       let cc = 1; if (P.fullCanAge > 0 && agem[t] < P.fullCanAge) cc = (agem[t] + 0.01) / P.fullCanAge;
       const li = 1 - Math.exp(-P.k * S.lai / cc), apar = g("srad", t) * DIM[month - 1] * li * cc, vpd = g("vpd_day", t);
       const fvpd = Math.exp(-P.CoeffCond * vpd), fsw = 1 / (1 + Math.pow((1 - ASW / asw_max) / SWconst, SWpower));
@@ -88,10 +107,15 @@
       const ffrost = 1 - P.kF * (Math.min(g("frost_days", t), DIM[month - 1]) / DIM[month - 1]);
       const fcal = fCax * 350 / (350 * (fCax - 1) + 350), fcg = fCg0 / (1 + (fCg0 - 1) * 350 / 350);
       let ac = P.alphaCx * fnutr * fT(t) * ffrost * fcal * fphys; if (S.lai === 0) ac = 0;
+      if (effic[t] > 0) ac *= 1 - effic[t];
+      let Uef = 1; if (compOn && ac > 0) { Uef = 1 + (comp.U - 1) * fsw; ac *= Uef; }
       let GPP = P.gDM_mol * P.molPAR_MJ * ac * apar / 100, NPP = GPP * P.y;
       const lt = S.lai, lper = lt === 0 ? 0 : S.lai / lt;
       let gC = P.MaxCond; if (lt <= P.LAIgcx) gC = P.MinCond + (P.MaxCond - P.MinCond) * lt / P.LAIgcx;
-      const cond = gC * lper * fphys * 1 * fcg;
+      let cond = gC * lper * fphys * 1 * fcg, gcFac = 1;
+      if (compOn && comp.gam > 0 && gC > 0) { const laiRef = wfRef * SLA[t] * 0.1;
+        const gCref = laiRef > P.LAIgcx ? P.MaxCond : P.MinCond + (P.MaxCond - P.MinCond) * laiRef / P.LAIgcx;
+        gcFac = Math.min(Math.pow(gCref / gC, comp.gam), GC_CAP); cond *= gcFac; }
       let tr = 0;
       if (vpd !== 0) { const d = dl[month - 1], nr = P.Qa + P.Qb * (g("srad", t) * 1e6 / d), def = RHO_AIR * LAMBDA * (VPD_CONV * vpd) * P.BLcond;
         tr = Math.max(0, DIM[month - 1] * cond * (E20 * nr + def) / (cond * (1 + E20) + P.BLcond) / LAMBDA * d); }
@@ -104,7 +128,8 @@
       GPP *= fts; NPP *= fts; const nppf = NPP, gppf = GPP;
       const trTot = tr; if (trTot > 0 && fts < 1) tr = (et - pint) / trTot * tr;
       const m = P.m0 + (1 - P.m0) * sp.fertility;
-      const fr = P.pRx * P.pRn / (P.pRn + (P.pRx - P.pRn) * fphys * m), fs = (1 - fr) / (1 + S.pFS), ff = 1 - fr - fs;
+      let fr = P.pRx * P.pRn / (P.pRn + (P.pRx - P.pRn) * fphys * m), fs = (1 - fr) / (1 + S.pFS), ff = 1 - fr - fs;
+      if (compOn && comp.a > 0) { const mv = comp.a * deficit; ff = ff + mv * (fs + fr); fs *= 1 - mv; fr *= 1 - mv; }
       if (!dorm) {
         if (S.Wf === 0) S.Wf = S.debt;
         if (NPP >= S.debt) { NPP -= S.debt; S.debt = 0; } else { S.debt -= NPP; NPP = 0; }
@@ -112,6 +137,7 @@
         S.Wf += NPP * ff - lf_; S.Wr += NPP * fr - lr; S.Ws += NPP * fs;
       }
       upd(t); for (let k = 0; k < B_N; k++) sdc(t);
+      const volMes = vol(t); // como no r3PG: volume do mês calculado antes da mortalidade
       if (!dorm && gN[t] > 0) { const ms = Math.min(gN[t] * S.N / 12 / 100, S.N);
         S.Wf -= P.mF * ms * S.Wf / S.N; S.Wr -= P.mR * ms * S.Wr / S.N; S.Ws -= P.mS * ms * S.Ws / S.N; S.N -= ms; bcor = true; }
       if (bcor) { upd(t); for (let k = 0; k < B_N; k++) sdc(t); bcor = false; }
@@ -122,7 +148,7 @@
         else Object.assign(S, { Wf: 0, Wr: 0, Ws: 0, N: 0 });
         upd(t); for (let k = 0; k < B_N; k++) sdc(t);
       }
-      rec(t, { fsw, npp: nppf, rem, gpp: gppf, apar, alpha: ac, fVPD: fvpd, phys: fphys, transp: tr, et, prcp: g("prcp", t), etaR: fr, etaS: fs, etaF: ff });
+      rec(t, { vol: volMes, fsw, npp: nppf, rem, gpp: gppf, apar, alpha: ac, fVPD: fvpd, phys: fphys, transp: tr, et, prcp: g("prcp", t), etaR: fr, etaS: fs, etaF: ff, compOn: +compOn, compU: Uef, compGc: gcFac, mortInd: mInd });
     }
     return out;
   }

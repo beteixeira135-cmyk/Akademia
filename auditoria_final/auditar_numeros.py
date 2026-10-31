@@ -218,5 +218,26 @@ chk("fator orig mín 6", 6, fo_.min(), 0); chk("fator orig máx 15", 15, fo_.max
 RF_ = json.load(open("/home/claude/tcc/revisao_07/corpus/resumo_filtro.json"))
 chk("busca registros 10.000", 10000, RF_["registros_baixados"], 0); chk("busca DOI únicos 7.908", 7908, RF_["unicos_por_doi"], 0)
 chk("busca dedup 7.431", 7431, RF_["apos_dedup_titulo"], 0); chk("núcleo 93", 93, RF_["nucleo"], 0); chk("contexto 3-PG 20", 20, RF_["contexto_3pg"], 0)
+
+# Plataforma v8 (Akademia): verificação JS × Python e valor calibrado citado na seção 4.12
+import json as _j
+_V = _j.load(open(Path(__file__).resolve().parents[1] / "plataforma/verificacao/resultado_verificacao.json"))
+chk("cenários JS × Python", 7, len(_V), 0)
+chk("dif. rel. máx JS × Python (x1e14)", 1.4, max(v["dif_rel_max"] for v in _V) * 1e14, 1)
+sys.path.insert(0, "/home/claude/tcc/modelo")
+from threepg_pjs import run_3pg_pjs as _run
+from clones import MATERIAIS as _MAT, params as _par
+from clima import SITIOS as _SIT, clima_mensal as _cm
+import run_experimentos as _RE
+_M = _MAT["A1"]; _a = _RE.SOLO_LOCAL["IND"]
+_site = dict(latitude=_SIT["IND"]["lat"], altitude=0, soil_class=-1, asw_i=_a, asw_min=0.0, asw_max=_a, **{"from": "2016-01", "to": "2023-01"})
+_sp = dict(planted="2015-01", fertility=_M["FR_ref"], stems_n=10000 / 9, biom_stem=_M["WS0"], biom_root=_M["WR0"], biom_foliage=_M["WF0"])
+_cl = _cm("IND"); _ev = {"2017-01": .95, "2020-01": .95}
+_c = _run(_site, _sp, _cl, _par("A1")); _k = int(np.where(np.round(_c.age * 12) == 84)[0][0])
+_t = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev)
+_tc = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev, compensation=dict(U=1.16, a=0.55, gam=0.5))
+chk("plataforma IND A1 2x95 original", 17.3, 100 * (1 - _t.volume[_k] / _c.volume[_k]), 1)
+chk("plataforma IND A1 2x95 calibrado", 11.6, 100 * (1 - _tc.volume[_k] / _c.volume[_k]), 1)
+
 O = pd.DataFrame(ok); O.to_csv("/home/claude/tcc/auditoria_final/auditoria_numeros.csv", index=False)
 print(len(O), "itens;", int(O.ok.sum()), "conferem"); print(O[~O.ok].to_string())

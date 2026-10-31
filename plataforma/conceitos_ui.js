@@ -161,7 +161,7 @@ document.getElementById("tour").addEventListener("click", e => { const b = e.tar
 
 // modo explicar: com ele ligado, tocar em qualquer parte da tela abre o conceito correspondente
 const C_AREA = { janela: "modelo-3pg", cena: "desfolha", "s-desfolha": "desfolha", "s-particao": "particao", "s-wue": "wue", "s-solo": "agua-solo", "s-estresse": "modificadores",
-  "s-estrutura": "biomassa", "g-bio": "biomassa", "g-vol": "taper", "tor-svg": "sortimento", "cub-tab": "cubagem", "tab-par": "parametrizacao", "s-entradas": "parametrizacao", "barras-estresse": "modificadores", resumo: "perda-relativa", marcas: "desfolha" };
+  "s-estrutura": "biomassa", "g-bio": "biomassa", "g-vol": "taper", "tor-svg": "sortimento", "cub-tab": "cubagem", "tab-par": "parametrizacao", "s-entradas": "parametrizacao", "barras-estresse": "modificadores", resumo: "perda-relativa", marcas: "desfolha", "s-resposta": "compensacao", "seg-comp": "compensacao", dominio: "dominio-validade", "in-r": "perda-eficiencia", "in-m": "mortalidade-induzida", "sel-agente": "desfolha" };
 let explicando = false;
 function modoExplicar(on) {
   explicando = on; document.body.classList.toggle("explicar", on);

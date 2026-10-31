@@ -1,0 +1,37 @@
+[
+ {
+  "cenario": "ALM_A1_ctrl",
+  "meses": 85,
+  "dif_rel_max": 6.889455225598172e-16
+ },
+ {
+  "cenario": "ARA_C5_PA50_comp",
+  "meses": 94,
+  "dif_rel_max": 1.4358300925050286e-14
+ },
+ {
+  "cenario": "ELD_C2_tudo",
+  "meses": 94,
+  "dif_rel_max": 8.627410355517227e-16
+ },
+ {
+  "cenario": "IND_A1_95_comp",
+  "meses": 85,
+  "dif_rel_max": 6.636374044078935e-16
+ },
+ {
+  "cenario": "TB_C4_mort",
+  "meses": 94,
+  "dif_rel_max": 6.338091927963226e-16
+ },
+ {
+  "cenario": "IMP_C5_efic",
+  "meses": 94,
+  "dif_rel_max": 5.448005407330954e-15
+ },
+ {
+  "cenario": "IND_A1_P1_orig",
+  "meses": 85,
+  "dif_rel_max": 3.825355170544224e-15
+ }
+]
