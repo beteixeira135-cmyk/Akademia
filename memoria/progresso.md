@@ -1,6 +1,6 @@
 # Progresso
 ## Feito
-- TCC v. 31/10: 41 p., 9 figuras, 11 tabelas; auditoria 204/204; 36 testes.
+- TCC v. 31/10 (manhã): 41 p., 9 figuras, 11 tabelas; auditoria 204/204; 36 testes (substituída pela versão da noite, abaixo).
 - Plataforma: conceitos (49), modo explicar, cubagem e taper seccional.
 - Calibração v3 (d = 0,999): U mediana 1,16 [IC90% 1,02–1,33]; a mediana 0,55 [0,05–0,975].
   Ajuste C5 (vol/CAP/alt, %): obs 52,9/24,2/19,1; original 64,8/28,5/34,7; calibrado 50,4/20,2/24,9.
@@ -8,7 +8,7 @@
 - Biomas: clima NASA POWER e solo (ALM 219 mm, ARA 194 mm, ELD 145 mm TECHS 6) prontos; controles rodados.
 - Testes da v3: 13 novos (49 no total), todos aprovados (modelo/testes/test_compensacao_v3.py).
 - Validação qualitativa E. globulus (calibracao/saida/validacao_globulus.csv): sem perda de DAP/altura nas duas versões
-  (fraco para discriminar); IAF aos 18 meses (Barry): original −8,3%, calibrado −1,4% (IC90% −6,7 a +2,4) → mais próximo
+  (fraco para discriminar); IAF aos 18 meses (Barry), perda em relação ao controle: original 8,3%, calibrado 1,4% (IC90% −2,4 a 6,7) → mais próximo
   de "área foliar sem diferença".
 - Bloco por bioma (experimentos/run_biomas.py → saida/biomas/): 1.728 tratamentos × 2 versões; a versão original reproduz
   o bloco LOCAL do TCC (diferença máx. 3e-14). Calibrado reduz perdas (ex.: IND A1 50% PA 13,8 → 8,8%) e a recuperação
@@ -16,7 +16,7 @@
 - RF 6 locais (saida/biomas/rf_*.csv): importância perda de volume — intensidade 50,6/47,3%, frequência 44,3/42,1%
   (original/calibrado). Local fora, RQEM média: original 63% (local categórico) e 66% (clima numérico); calibrado 143% e 69%
   (descrever o clima por números melhora a transferência na versão calibrada; R² 0,17 → 0,83).
-- Morris C5, 6 locais (morris_C5_6locais.csv): nWs, k e SLA1 dominam a perda de volume em todos os locais.
+- Morris C5, 6 locais (morris_C5_6locais.csv): nWs é o mais influente em todos; depois k, y ou SLA1, conforme o local; dominam a perda de volume em todos os locais.
 - Danos, 6 locais, C5 (danos_6locais.csv): formigas original 2,5–6,6% (−0,6 em ARA) → calibrado 0,5–3,0%; em ARA a desfolha
   economiza água e o original dá ganho (−2,5% lagarta), atenuado na calibrada (−0,4%).
 - Plausibilidade ARA: biomassa aérea simulada aos 54 meses 57–62 t/ha × 51–132 t/ha (média 88) de 15 clones na estação do IPA

@@ -27,7 +27,7 @@ def resumo_calibracao():
     f = lambda d: ", ".join(f"{k} {v:.1f}" for k, v in d.items())
     v = j["validacao_A1_urocam"]
     return (f"- U: mediana {j['U']['q50']:.2f} (IC90% {j['U']['q05']:.2f}–{j['U']['q95']:.2f}); "
-            f"a: mediana {j['a']['q50']:.2f} (IC90% {j['a']['q05']:.2f}–{j['a']['q95']:.2f}).\n"
+            f"a: mediana {j['a']['q50']:.3f} (IC90% {j['a']['q05']:.3f}–{j['a']['q95']:.3f}).\n"
             f"- Ajuste C5 — observado: {f(j['observado_C5'])} | original: {f(j['original_C5'])} | calibrado: {f(j['preditiva_media_C5'])}.\n"
             f"- Validação A1/urocam — observado: {f(v['observado'])} | original: {f(v['original'])} | "
             f"calibrado: {f(v['calibrado_media'])} (IC90% {f(v['calibrado_q05'])} a {f(v['calibrado_q95'])}).")
