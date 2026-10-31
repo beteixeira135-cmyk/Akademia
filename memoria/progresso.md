@@ -6,12 +6,16 @@
   Ajuste C5 (vol/CAP/alt, %): obs 52,9/24,2/19,1; original 64,8/28,5/34,7; calibrado 50,4/20,2/24,9.
   Validação A1-urocam (vol/CAP): obs 59,0/22,9; original 79,3/40,7; calibrado 64,8/29,7 (IC90% vol 53,7–78,6; CAP 22,5–40,0).
 - Biomas: clima NASA POWER e solo (ALM 219 mm, ARA 194 mm, ELD 145 mm TECHS 6) prontos; controles rodados.
+- Testes da v3: 13 novos (49 no total), todos aprovados (modelo/testes/test_compensacao_v3.py).
+- Validação qualitativa E. globulus (calibracao/saida/validacao_globulus.csv): sem perda de DAP/altura nas duas versões
+  (fraco para discriminar); IAF aos 18 meses (Barry): original −8,3%, calibrado −1,4% (IC90% −6,7 a +2,4) → mais próximo
+  de "área foliar sem diferença".
+- Bloco por bioma (experimentos/run_biomas.py → saida/biomas/): 1.728 tratamentos × 2 versões; a versão original reproduz
+  o bloco LOCAL do TCC (diferença máx. 3e-14). Calibrado reduz perdas (ex.: IND A1 50% PA 13,8 → 8,8%) e a recuperação
+  relativa de 23–35 para 8–15 meses (exceto ARA, 2–8). Incerteza (200 amostras) em incerteza_posterior_d50.csv.
 ## Falta (em ordem)
-1. Testes unitários da v3.
-2. Recuperação com o posterior × E. globulus (Barry 2012: sem diferença aos 18 meses; Eyles 2009: compensação em 5 meses).
-3. Bloco LOCAL nos 6 locais (original × calibrado) + incerteza (200 amostras do posterior).
-4. RF com local fora (6 grupos), Morris nos novos locais, danos nos 6 locais.
-5. Plausibilidade: ARA biomassa aérea aos 54 meses × 51–132 t/ha (IPA); ELD × TECHS 6.
-6. Texto: 3.13/4.12 calibração; 3.14/4.13 biomas; resumo, objetivos, limitações, conclusão; referências novas conferidas no PDF.
-7. Auditoria com os números novos; gerar docx/pdf; Drive e diário.
-8. Defesa: documento de preparação e slides.
+1. RF com local fora (6 grupos), Morris nos novos locais, danos nos 6 locais.
+2. Plausibilidade: ARA biomassa aérea aos 54 meses × 51–132 t/ha (IPA); ELD × TECHS 6.
+3. Texto: 3.13/4.12 calibração; 3.14/4.13 biomas; resumo, objetivos, limitações, conclusão; referências novas conferidas no PDF.
+4. Auditoria com os números novos; gerar docx/pdf; Drive e diário.
+5. Defesa: documento de preparação e slides.
