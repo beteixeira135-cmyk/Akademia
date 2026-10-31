@@ -31,6 +31,9 @@ def commit(msg):
     if (RAIZ / ".git").exists():
         subprocess.run(["git", "-C", str(RAIZ), "add", "-A"], capture_output=True)
         subprocess.run(["git", "-C", str(RAIZ), "commit", "-q", "-m", msg], capture_output=True)
+        # salva no GitHub (repositório privado Akademia); falha de rede não interrompe o trabalho
+        r = subprocess.run(["git", "-C", str(RAIZ), "push", "-q", "origin", "HEAD:main"], capture_output=True, text=True, timeout=600)
+        print("[git] enviado ao GitHub" if r.returncode == 0 else f"[git] push falhou (fica salvo localmente): {r.stderr.strip()[:200]}")
 
 
 def rodar(etapa):
