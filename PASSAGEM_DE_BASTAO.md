@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (2207 tokens, estimativa (caracteres ÷ 3,6); gerado em 31/10/2026 19:05)
+# PASSAGEM DE BASTÃO — TCC II (2275 tokens, estimativa (caracteres ÷ 3,6); gerado em 31/10/2026 19:05)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (20598 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (20642 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -48,9 +48,10 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 # Contexto ativo
-- Agora: mecanização do ambiente (AGENTS.md, memória, pipeline, passagem de bastão automática, git).
+- Feito agora: ambiente mecanizado. Repositório privado https://github.com/beteixeira135-cmyk/akademia é a fonte da verdade;
+  o pipeline (`ferramentas/pipeline.py`) faz commit e push a cada etapa e regenera PASSAGEM_DE_BASTAO.md.
 - Próximo: item 1 de `progresso.md` (testes da v3) e depois o bloco LOCAL nos 6 locais.
-- Bloqueio: conta do GitHub não conectada ao Claude (Configurações › Conectores). Até lá, o estado vai para o Drive.
+- Arquivos grandes reproduzíveis (experimentos/saida/mensal.csv.gz, PDFs, zips) não vão para o GitHub: regenerar com o pipeline ou buscar no Drive.
 
 ---
 # Progresso
@@ -98,6 +99,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 31/10 19:05 README, passagem de bastão automática e push automático no pipeline
 - 31/10 19:05 Une com o README inicial do repositório
 - 31/10 19:02 Initial commit
 - 31/10 18:53 Akademia/TCC II: estado de 31/10/2026 (modelo v3 com compensação, calibração, biomas, plataforma, memória e pipeline)
