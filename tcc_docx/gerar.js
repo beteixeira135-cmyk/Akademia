@@ -199,22 +199,28 @@ corpo.push(P("Acesso: https://claude.ai/artifact/UCFSe9dyzhXKkkNRpibFAc, ou o ar
 corpo.push(...tabela("Roteiro do tutorial guiado da plataforma Akademia Florestal",
   ["Passo", "Conteúdo e ação na plataforma"],
   [["1. Objetivo", "Apresenta o problema e os talhões controle e desfolhado"],
-   ["2. Painel de fisiologia", "Mostra as entradas do talhão e os parâmetros de cada material"],
-   ["3. Módulo de desfolha", "Aplica 50% em jan/2017 e explica W~F,pós~ = W~F,pré~ · (1 − d)"],
-   ["4. Simular", "Anima a rotação: a folhagem se recupera, o lenho não"],
-   ["5. Partição e estresse", "Explica η~R~ e o modificador φ no painel de métricas"],
-   ["6. Água e eficiência", "Apresenta a transpiração, a WUE e a eficiência quântica efetiva"],
-   ["7. Frequência, época e clima", "Compara pulsos anuais, épocas e locais"],
-   ["8. Validação e métricas", "Abre o painel que separa verificação, validação publicada e confronto"],
-   ["9. Exportar e ajustar", "Mostra a exportação da série mensal e os ajustes de exibição"]],
+   ["2. Conceitos", "Apresenta a biblioteca de conceitos e o modo explicar"],
+   ["3. Painel de fisiologia", "Mostra as entradas do talhão e os parâmetros de cada material"],
+   ["4. Módulo de desfolha", "Aplica 50% em jan/2017 e explica W~F,pós~ = W~F,pré~ · (1 − d)"],
+   ["5. Simular", "Anima a rotação: a folhagem se recupera, o lenho não"],
+   ["6. Partição e estresse", "Explica η~R~ e o modificador φ no painel de métricas"],
+   ["7. Água e eficiência", "Apresenta a transpiração, a WUE e a eficiência quântica efetiva"],
+   ["8. Frequência, época e clima", "Compara pulsos anuais, épocas e locais"],
+   ["9. Compensação calibrada", "Liga a fisiologia calibrada e mostra a faixa de 90% no gráfico de volume"],
+   ["10. Outros danos e domínio", "Escolhe um agente do catálogo e lê o quadro de domínio de validade"],
+   ["11. Validação e métricas", "Abre o painel com verificação, calibração, evidência contrária e precedentes"],
+   ["12. Cubagem e toras", "Abre a cubagem (Smalian, Huber e Newton) e o taper seccional com as toras"],
+   ["13. Exportar e ajustar", "Mostra a exportação da série mensal e os ajustes de exibição"]],
   [2.2, 5]));
 corpo.push(...figura("/home/claude/tcc/plataforma/fig_akademia_tutorial.png", 10.5, "Primeiro passo do tutorial guiado da plataforma Akademia Florestal."));
+corpo.push(...figura("/home/claude/tcc/plataforma/fig_akademia_toras.png", 12, "Taper seccional e toras na plataforma Akademia Florestal: fuste médio do talhão desfolhado (clone A1, Indianópolis-MG, dois pulsos de 95%, fisiologia calibrada) dividido em toras de serraria, celulose e energia pelos critérios de Soares et al. (2003), com afilamento de Souza et al. (2016)."));
 
 
 SUM.push(["APÊNDICE B – REPRODUTIBILIDADE COMPUTACIONAL", 0]);
 corpo.push(P("APÊNDICE B – REPRODUTIBILIDADE COMPUTACIONAL", { align: AlignmentType.CENTER, indent: false, sp: L10, run: { bold: true }, before: 480, after: 240, keepNext: true }));
 [
-  "Os códigos, dados de entrada e saídas deste trabalho estão organizados em um pacote de arquivos que acompanha a versão digital do TCC. O mesmo conteúdo, com a explicação de cada arquivo, está disponível em https://drive.google.com/drive/folders/1GLR5Krx8FoJWjV9NM0OprTmUyA9JQP1L. A tabela a seguir descreve os componentes necessários para reproduzir os resultados.",
+  "Os códigos, dados de entrada e saídas deste trabalho estão organizados em um pacote de arquivos que acompanha a versão digital do TCC. O mesmo conteúdo, com a explicação de cada arquivo, está disponível em https://drive.google.com/drive/folders/1GLR5Krx8FoJWjV9NM0OprTmUyA9JQP1L. Todo o projeto é mantido sob controle de versões (Git), em repositório privado cujo acesso pode ser concedido à banca, e cada etapa do trabalho corresponde a um registro datado no histórico. Um roteiro automatizado executa, em ordem, os testes, a calibração, os experimentos, as análises, a auditoria numérica, a geração deste texto e a montagem da plataforma.",
+  "Duas auditorias acompanham o texto. A auditoria numérica recalcula, a partir das saídas dos códigos, os números citados no TCC e falha se algum deles divergir. A auditoria científica classificou 32 afirmações centrais do trabalho segundo o tipo de evidência que as sustenta, avaliou os mecanismos da compensação, a robustez da calibração e a concordância com a literatura, e as correções resultantes foram incorporadas ao texto; seus relatórios, matrizes e o protocolo da busca bibliográfica do Apêndice C fazem parte do pacote. A tabela a seguir descreve os componentes necessários para reproduzir os resultados.",
 ].forEach(t => corpo.push(P(t, { sp: L10, after: 240 })));
 corpo.push(...tabela("Componentes do pacote de reprodutibilidade",
   ["Arquivo", "Conteúdo"],
@@ -238,7 +244,10 @@ corpo.push(...tabela("Componentes do pacote de reprodutibilidade",
    ["experimentos/morris_danos_biomas.py", "Método de Morris e catálogo de danos nos seis locais"],
    ["experimentos/testes/", "8 testes automatizados do pipeline experimental"],
    ["auditoria_final/auditar_numeros.py", "Recálculo dos números citados no texto a partir das saídas"],
-   ["plataforma/", "Akademia Florestal: modelo em JavaScript, dados incorporados e página da plataforma"]],
+   ["plataforma/", "Akademia Florestal: modelo em JavaScript, dados incorporados, biblioteca de conceitos, cubagem e toras e página da plataforma"],
+   ["plataforma/verificacao/", "Comparação da plataforma (JavaScript) com a implementação em Python e recálculo dos números da plataforma citados no texto"],
+   ["revisao_07/", "Auditoria científica: matriz de afirmações, mecanismos e concordância, fichas de leitura, busca bibliográfica, corpus e indicadores"],
+   ["ferramentas/", "Roteiro automatizado de execução e registro das etapas"]],
   [3.2, 5]));
 SUM.push(["APÊNDICE C – BUSCA BIBLIOGRÁFICA E PRECEDENTES", 0]);
 corpo.push(P("APÊNDICE C – BUSCA BIBLIOGRÁFICA E PRECEDENTES", { align: AlignmentType.CENTER, indent: false, sp: L10, run: { bold: true }, before: 480, after: 240, keepNext: true }));

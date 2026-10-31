@@ -56,7 +56,7 @@ function svgFuste(dap, H, tr, alvo) {
     <path d="M${mx + 5} 14 V${base}" stroke="var(--linha-2)"/>${marcas}<text x="${mx - 20}" y="9">altura (m)</text>
     <path d="M${cx + x(dap) + 2} ${y13} h28" stroke="var(--alerta)"/><text x="${cx + x(dap) + 32}" y="${y13 + 3}" fill="var(--alerta)">DAP ${fmt(dap, 1)} cm</text>
     <text x="196" y="18" font-weight="600">Destino de cada tora</text>${leg}
-    <text x="196" y="${Hs - 40}" fill="var(--tinta-2)">largura exagerada</text><text x="196" y="${Hs - 27}" fill="var(--tinta-2)">${fmt(100 * larg / esc, 0)}× para caber na tela</text></g></svg>`;
+    <text x="196" y="138" fill="var(--tinta-2)">largura exagerada</text><text x="196" y="151" fill="var(--tinta-2)">${fmt(100 * larg / esc, 0)}× para caber na tela</text></g></svg>`;
 }
 
 // ---- aba 1: cubagem ----

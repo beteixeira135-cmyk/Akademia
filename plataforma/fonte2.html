@@ -211,7 +211,7 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 <header class="cab">
   <div><div class="rot">Akademia Florestal · laboratório de modelagem ecofisiológica</div>
     <h1>Simulador 3-PG de <em>Eucalyptus</em></h1>
-    <p>Crescimento mensal de povoamentos de eucalipto em Indianópolis-MG, Telêmaco Borba-PR e Imperatriz-MA, com e sem desfolha.</p></div>
+    <p>Crescimento mensal de povoamentos de eucalipto em seis locais, um por bioma com plantios, com e sem desfolha, outros danos e compensação fisiológica.</p></div>
   <nav><button class="lnk" id="bt-conceitos" type="button">Conceitos</button><button class="lnk chave" id="bt-explicar" type="button" aria-pressed="false">Modo explicar</button><button class="lnk" id="bt-cubagem" type="button">Cubagem e toras</button><button class="lnk" id="bt-tour" type="button">Tutorial guiado</button><button class="lnk" id="bt-valid" type="button">Validação &amp; métricas</button></nav>
 </header>
 
@@ -661,7 +661,7 @@ function produtos() {
   try { const k = R.k84, tr = o => { const T = toras(o.dbh[k], R.alt(o, k)); return Object.fromEntries(SORT.map(s => [s.id, T.lista.filter(x => x.s === s).reduce((a, x) => a + x.v, 0) * o.N[k]])); };
     const pc = tr(R.c), pt = tr(R.t);
     return `<div class="rot" style="margin-top:10px">Perda por produto (taper e sortimentos; aba Toras)</div><div class="prod">` + SORT.map(s => { const d = pc[s.id] > 0 ? 100 * (1 - pt[s.id] / pc[s.id]) : NaN;
-      return `<div style="--c:${s.cor}">${s.nome}<b>${Number.isFinite(d) ? (d < 0 ? "+" : "−") + fmt(Math.abs(d), 1) + "%" : "–"}</b><span class="mini">${fmt(pc[s.id], 0)} → ${fmt(pt[s.id], 0)} m³/ha</span></div>`; }).join("") + `</div><p class="mini" style="margin:4px 0 0">Ganho num produto (+) quer dizer que toras desceram de categoria: o tronco mais fino deixa de servir para o produto mais nobre.</p>`;
+      return `<div style="--c:${s.cor}">${s.nome}<b>${Number.isFinite(d) ? (Math.abs(d) < 0.05 ? "" : d < 0 ? "+" : "−") + fmt(Math.abs(d), 1) + "%" : "–"}</b><span class="mini">${fmt(pc[s.id], 0)} → ${fmt(pt[s.id], 0)} m³/ha</span></div>`; }).join("") + `</div><p class="mini" style="margin:4px 0 0">Ganho num produto (+) quer dizer que toras desceram de categoria: o tronco mais fino deixa de servir para o produto mais nobre.</p>`;
   } catch (e) { return ""; }
 }
 // domínio de validade: o que sustenta (ou não) o cenário exibido, com a fonte de cada ressalva

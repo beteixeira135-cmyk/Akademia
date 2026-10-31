@@ -366,3 +366,15 @@ cenários JS × Python,7.0,7.0,True
 dif. rel. máx JS × Python (x1e14),1.4,1.4,True
 plataforma IND A1 2x95 original,17.3,17.3,True
 plataforma IND A1 2x95 calibrado,11.6,11.6,True
+conceitos,52.0,52.0,True
+grupos de conceitos,7.0,7.0,True
+pontes biologia,21.0,21.0,True
+trilha,15.0,15.0,True
+passos do tutorial,13.0,13.0,True
+amostras do posterior na plataforma,200.0,200.0,True
+locais na plataforma,6.0,6.0,True
+"serraria -33,6%",-33.6,-33.6,True
+serraria ctrl 165,165.0,165.0,True
+serraria desf 110,110.0,110.0,True
+"celulose +5,9%",5.9,5.9,True
+"energia +36,8%",36.8,36.8,True

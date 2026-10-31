@@ -239,5 +239,13 @@ _tc = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev, compensation=dic
 chk("plataforma IND A1 2x95 original", 17.3, 100 * (1 - _t.volume[_k] / _c.volume[_k]), 1)
 chk("plataforma IND A1 2x95 calibrado", 11.6, 100 * (1 - _tc.volume[_k] / _c.volume[_k]), 1)
 
+# Plataforma: didática e perda por produto (recalculado de plataforma/verificacao/numeros_plataforma.js)
+import subprocess as _sp
+_NP = _j.loads(_sp.run(["node", "/home/claude/tcc/plataforma/verificacao/numeros_plataforma.js"], capture_output=True, text=True, check=True).stdout)
+chk("conceitos", 52, _NP["conceitos"], 0); chk("grupos de conceitos", 7, _NP["grupos"], 0)
+chk("pontes biologia", 21, _NP["pontes"], 0); chk("trilha", 15, _NP["trilha"], 0); chk("passos do tutorial", 13, _NP["passos"], 0)
+chk("amostras do posterior na plataforma", 200, _NP["amostras"], 0); chk("locais na plataforma", 6, _NP["locais"], 0)
+chk("serraria -33,6%", -33.6, _NP["dif_serraria"], 1); chk("serraria ctrl 165", 165, _NP["serraria_c"], 0); chk("serraria desf 110", 110, _NP["serraria_t"], 0)
+chk("celulose +5,9%", 5.9, _NP["dif_celulose"], 1); chk("energia +36,8%", 36.8, _NP["dif_energia"], 1)
 O = pd.DataFrame(ok); O.to_csv("/home/claude/tcc/auditoria_final/auditoria_numeros.csv", index=False)
 print(len(O), "itens;", int(O.ok.sum()), "conferem"); print(O[~O.ok].to_string())
