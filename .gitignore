@@ -1,0 +1,20 @@
+# grandes ou reproduzíveis
+*.zip
+experimentos/saida/mensal.csv.gz
+experimentos/__pycache__/
+**/__pycache__/
+entrega_drive/
+corpus_pdfs/
+calibracao/txt/
+3PGmix/
+3PGmix_docs/
+lsa*/
+saidas_lsa/
+corpus_lsa/
+referencias/*.pdf
+solos_fontes/*.pdf
+*.pdf
+*.docx
+*.pptx
+plataforma/simulador_3pg_eucalyptus.html
+node_modules/

@@ -1,0 +1,57 @@
+resposta,modelo,esquema,grupo_testado,R2,RQEM_pct,vies_pct
+perda_volume_k72,Gradient Boosting,deixa um material de fora,A1,0.916,38.969,-17.41
+perda_volume_k72,Gradient Boosting,deixa um material de fora,C2,0.986,14.375,-9.494
+perda_volume_k72,Gradient Boosting,deixa um material de fora,C4,0.98,18.032,11.06
+perda_volume_k72,Gradient Boosting,deixa um material de fora,C5,0.985,15.46,9.538
+perda_volume_k72,Gradient Boosting,deixa um sítio de fora,IMP,0.863,44.424,-27.219
+perda_volume_k72,Gradient Boosting,deixa um sítio de fora,IND,0.894,39.668,18.016
+perda_volume_k72,Gradient Boosting,deixa um sítio de fora,TB,0.922,37.858,19.228
+perda_volume_k72,Linear + interações 2ª ordem,deixa um material de fora,A1,0.851,51.856,-13.056
+perda_volume_k72,Linear + interações 2ª ordem,deixa um material de fora,C2,0.945,28.474,-5.167
+perda_volume_k72,Linear + interações 2ª ordem,deixa um material de fora,C4,0.953,27.797,10.247
+perda_volume_k72,Linear + interações 2ª ordem,deixa um material de fora,C5,0.955,26.911,8.048
+perda_volume_k72,Linear + interações 2ª ordem,deixa um sítio de fora,IMP,0.754,59.467,-27.177
+perda_volume_k72,Linear + interações 2ª ordem,deixa um sítio de fora,IND,0.921,34.204,16.578
+perda_volume_k72,Linear + interações 2ª ordem,deixa um sítio de fora,TB,0.893,44.537,17.783
+perda_volume_k72,"RNA MLP (50, 30) ReLU",deixa um material de fora,A1,0.957,27.885,-5.49
+perda_volume_k72,"RNA MLP (50, 30) ReLU",deixa um material de fora,C2,0.96,24.113,5.459
+perda_volume_k72,"RNA MLP (50, 30) ReLU",deixa um material de fora,C4,0.884,43.652,24.0
+perda_volume_k72,"RNA MLP (50, 30) ReLU",deixa um material de fora,C5,0.912,37.882,20.721
+perda_volume_k72,"RNA MLP (50, 30) ReLU",deixa um sítio de fora,IMP,0.826,49.999,-34.42
+perda_volume_k72,"RNA MLP (50, 30) ReLU",deixa um sítio de fora,IND,0.864,45.048,4.692
+perda_volume_k72,"RNA MLP (50, 30) ReLU",deixa um sítio de fora,TB,0.936,34.514,5.656
+perda_volume_k72,Random Forest,deixa um material de fora,A1,0.911,40.066,-17.462
+perda_volume_k72,Random Forest,deixa um material de fora,C2,0.987,13.561,-9.732
+perda_volume_k72,Random Forest,deixa um material de fora,C4,0.989,13.684,8.91
+perda_volume_k72,Random Forest,deixa um material de fora,C5,0.992,11.609,7.309
+perda_volume_k72,Random Forest,deixa um sítio de fora,IMP,0.857,45.36,-27.574
+perda_volume_k72,Random Forest,deixa um sítio de fora,IND,0.931,32.102,13.217
+perda_volume_k72,Random Forest,deixa um sítio de fora,TB,0.932,35.391,14.22
+recup_rel95_meses_ev1,Gradient Boosting,deixa um material de fora,A1,-7.292,64.066,57.478
+recup_rel95_meses_ev1,Gradient Boosting,deixa um material de fora,C2,0.942,7.44,-5.538
+recup_rel95_meses_ev1,Gradient Boosting,deixa um material de fora,C4,0.971,5.81,1.889
+recup_rel95_meses_ev1,Gradient Boosting,deixa um material de fora,C5,0.974,5.234,-1.652
+recup_rel95_meses_ev1,Gradient Boosting,deixa um sítio de fora,IMP,0.79,15.878,12.125
+recup_rel95_meses_ev1,Gradient Boosting,deixa um sítio de fora,IND,0.923,9.368,-4.941
+recup_rel95_meses_ev1,Gradient Boosting,deixa um sítio de fora,TB,0.905,10.939,-5.687
+recup_rel95_meses_ev1,Linear + interações 2ª ordem,deixa um material de fora,A1,-5.722,57.682,54.902
+recup_rel95_meses_ev1,Linear + interações 2ª ordem,deixa um material de fora,C2,0.622,19.027,-14.943
+recup_rel95_meses_ev1,Linear + interações 2ª ordem,deixa um material de fora,C4,0.746,17.265,-8.156
+recup_rel95_meses_ev1,Linear + interações 2ª ordem,deixa um material de fora,C5,0.742,16.334,-10.012
+recup_rel95_meses_ev1,Linear + interações 2ª ordem,deixa um sítio de fora,IMP,0.761,16.934,10.024
+recup_rel95_meses_ev1,Linear + interações 2ª ordem,deixa um sítio de fora,IND,0.862,12.582,-2.763
+recup_rel95_meses_ev1,Linear + interações 2ª ordem,deixa um sítio de fora,TB,0.799,15.927,-4.748
+recup_rel95_meses_ev1,"RNA MLP (50, 30) ReLU",deixa um material de fora,A1,-1.313,33.834,22.077
+recup_rel95_meses_ev1,"RNA MLP (50, 30) ReLU",deixa um material de fora,C2,-0.218,34.173,-33.55
+recup_rel95_meses_ev1,"RNA MLP (50, 30) ReLU",deixa um material de fora,C4,0.315,28.34,-26.675
+recup_rel95_meses_ev1,"RNA MLP (50, 30) ReLU",deixa um material de fora,C5,0.17,29.325,-28.39
+recup_rel95_meses_ev1,"RNA MLP (50, 30) ReLU",deixa um sítio de fora,IMP,0.675,19.774,-16.386
+recup_rel95_meses_ev1,"RNA MLP (50, 30) ReLU",deixa um sítio de fora,IND,0.142,31.35,-30.038
+recup_rel95_meses_ev1,"RNA MLP (50, 30) ReLU",deixa um sítio de fora,TB,0.072,34.194,-32.749
+recup_rel95_meses_ev1,Random Forest,deixa um material de fora,A1,-7.492,64.833,58.525
+recup_rel95_meses_ev1,Random Forest,deixa um material de fora,C2,0.947,7.117,-4.727
+recup_rel95_meses_ev1,Random Forest,deixa um material de fora,C4,0.963,6.593,3.68
+recup_rel95_meses_ev1,Random Forest,deixa um material de fora,C5,0.985,3.878,1.398
+recup_rel95_meses_ev1,Random Forest,deixa um sítio de fora,IMP,0.796,15.65,11.783
+recup_rel95_meses_ev1,Random Forest,deixa um sítio de fora,IND,0.935,8.655,-2.508
+recup_rel95_meses_ev1,Random Forest,deixa um sítio de fora,TB,0.91,10.634,-4.892

@@ -1,0 +1,205 @@
+item,texto,calculado,ok
+total de tratamentos,2408.0,2408.0,True
+bloco solo,1344.0,1344.0,True
+bloco local,912.0,912.0,True
+controles,308.0,308.0,True
+registros por variável r3PG,28277.0,28277.0,True
+RQEM máx r3PG < 2e-13 (x1e13),2.0,2.0,True
+"R2 VBA mínimo >= 0,9996",0.9996,0.9996,True
+"RQEM VBA máx < 0,14",0.13,0.13,True
+vol84 TB A1,429.0,429.0,True
+IMA TB A1,61.0,61.0,True
+lenho TB A1,37.1,37.1,True
+IAF TB A1,4.8,4.8,True
+fT0 TB A1,0.0,0.0,True
+vol84 TB C5,417.0,417.0,True
+IMA TB C5,60.0,60.0,True
+lenho TB C5,40.0,40.0,True
+IAF TB C5,10.3,10.3,True
+fT0 TB C5,0.0,0.0,True
+vol84 IND A1,352.0,352.0,True
+IMA IND A1,50.0,50.0,True
+lenho IND A1,25.9,25.9,True
+IAF IND A1,3.6,3.6,True
+fT0 IND A1,0.0,0.0,True
+vol84 IND C5,356.0,356.0,True
+IMA IND C5,51.0,51.0,True
+lenho IND C5,28.8,28.8,True
+IAF IND C5,8.5,8.5,True
+fT0 IND C5,0.0,0.0,True
+vol84 IMP A1,227.0,227.0,True
+IMA IMP A1,32.0,32.0,True
+lenho IMP A1,14.6,14.6,True
+IAF IMP A1,2.1,2.1,True
+fT0 IMP A1,31.0,31.0,True
+vol84 IMP C5,315.0,315.0,True
+IMA IMP C5,45.0,45.0,True
+lenho IMP C5,22.6,22.6,True
+IAF IMP C5,7.2,7.2,True
+fT0 IMP C5,0.0,0.0,True
++9% lenho TB vs 34,9.0,9.0,True
+"+26% IAF TB vs 3,8",26.0,26.0,True
+ΔLenho IND→TB 11,11.0,11.0,True
+"fSW IND 0,53",0.53,0.53,True
+"fSW TB 0,73",0.73,0.73,True
+IAF max Borges mín 8,8.0,8.0,True
+IAF max Borges máx 11,11.0,11.0,True
+T5 IND A1 P1 0.25,1.6,1.6,True
+T5 IND A1 P1 0.5,3.0,3.0,True
+T5 IND A1 P1 0.95,9.5,9.5,True
+T5 IND A1 P2 0.25,2.1,2.1,True
+T5 IND A1 P2 0.5,4.4,4.4,True
+T5 IND A1 P2 0.95,17.3,17.3,True
+T5 IND A1 PA 0.25,6.7,6.7,True
+T5 IND A1 PA 0.5,13.8,13.8,True
+T5 IND A1 PA 0.95,58.0,58.0,True
+T5 recup IND A1 0.25,15.0,15.0,True
+T5 recup IND A1 0.5,23.0,23.0,True
+T5 recup IND A1 0.95,24.0,24.0,True
+T5 IND C5 P1 0.25,0.6,0.6,True
+T5 IND C5 P1 0.5,1.6,1.6,True
+T5 IND C5 P1 0.95,8.9,8.9,True
+T5 IND C5 P2 0.25,1.5,1.5,True
+T5 IND C5 P2 0.5,4.3,4.3,True
+T5 IND C5 P2 0.95,16.6,16.6,True
+T5 IND C5 PA 0.25,4.2,4.2,True
+T5 IND C5 PA 0.5,11.5,11.5,True
+T5 IND C5 PA 0.95,47.0,47.0,True
+T5 recup IND C5 0.25,20.0,20.0,True
+T5 recup IND C5 0.5,28.0,28.0,True
+T5 recup IND C5 0.95,38.0,38.0,True
+T5 TB A1 P1 0.25,1.2,1.2,True
+T5 TB A1 P1 0.5,3.3,3.3,True
+T5 TB A1 P1 0.95,15.2,15.2,True
+T5 TB A1 P2 0.25,0.5,0.5,True
+T5 TB A1 P2 0.5,2.7,2.7,True
+T5 TB A1 P2 0.95,25.6,25.6,True
+T5 TB A1 PA 0.25,1.8,1.8,True
+T5 TB A1 PA 0.5,6.8,6.8,True
+T5 TB A1 PA 0.95,67.8,67.8,True
+T5 recup TB A1 0.25,14.0,14.0,True
+T5 recup TB A1 0.5,24.0,24.0,True
+T5 recup TB A1 0.95,26.0,26.0,True
+T5 TB C5 P1 0.25,0.3,0.3,True
+T5 TB C5 P1 0.5,1.0,1.0,True
+T5 TB C5 P1 0.95,9.5,9.5,True
+T5 TB C5 P2 0.25,1.1,1.1,True
+T5 TB C5 P2 0.5,3.3,3.3,True
+T5 TB C5 P2 0.95,16.3,16.3,True
+T5 TB C5 PA 0.25,3.5,3.5,True
+T5 TB C5 PA 0.5,7.4,7.4,True
+T5 TB C5 PA 0.95,47.6,47.6,True
+T5 recup TB C5 0.25,21.0,21.0,True
+T5 recup TB C5 0.5,33.0,33.0,True
+T5 recup TB C5 0.95,44.0,44.0,True
+T5 IMP A1 P1 0.25,2.8,2.8,True
+T5 IMP A1 P1 0.5,6.2,6.2,True
+T5 IMP A1 P1 0.95,31.7,31.7,True
+T5 IMP A1 P2 0.25,6.0,6.0,True
+T5 IMP A1 P2 0.5,14.6,14.6,True
+T5 IMP A1 P2 0.95,60.5,60.5,True
+T5 IMP A1 PA 0.25,16.4,16.4,True
+T5 IMP A1 PA 0.5,37.5,37.5,True
+T5 IMP A1 PA 0.95,84.1,84.1,True
+T5 recup IMP A1 0.25,23.0,23.0,True
+T5 recup IMP A1 0.5,28.0,28.0,True
+T5 recup IMP A1 0.95,47.0,47.0,True
+T5 IMP C5 P1 0.25,0.8,0.8,True
+T5 IMP C5 P1 0.5,2.3,2.3,True
+T5 IMP C5 P1 0.95,11.3,11.3,True
+T5 IMP C5 P2 0.25,2.0,2.0,True
+T5 IMP C5 P2 0.5,5.5,5.5,True
+T5 IMP C5 P2 0.95,25.4,25.4,True
+T5 IMP C5 PA 0.25,5.5,5.5,True
+T5 IMP C5 PA 0.5,16.3,16.3,True
+T5 IMP C5 PA 0.95,60.4,60.4,True
+T5 recup IMP C5 0.25,15.0,15.0,True
+T5 recup IMP C5 0.5,26.0,26.0,True
+T5 recup IMP C5 0.95,38.0,38.0,True
+IAF pré IND,2.93,2.93,True
+IAF pós IND,1.46,1.46,True
+IAF pré TB,4.42,4.42,True
+IAF pós TB,2.2,2.2,True
+queda APAR IND,33.0,33.0,True
+queda APAR TB,25.0,25.0,True
+recup abs IND 3,3.0,3.0,True
+recup abs TB 13,13.0,13.0,True
+"ASW +9,3% IND d95",9.3,9.3,True
+NPP comp 30 meses IND,30.0,30.0,True
+"ASW +3,5% TB d95",3.5,3.5,True
+época A1 IND EA,1.7,1.7,True
+época A1 IND EO,3.7,3.7,True
+época A1 TB EJ,1.9,1.9,True
+"época Borges amplitude < 0,5",0.5,0.5,True
+pares 576,576.0,576.0,True
+95% NPP P2>P1,95.0,95.0,True
+"razão mediana 2,1",2.1,2.1,True
+28 pares P2<P1,28.0,28.0,True
+25 do A1,25.0,25.0,True
+20 com 25%,20.0,20.0,True
+"amplitude mín 0,4",0.4,0.4,True
+"amplitude máx 2,3",2.3,2.3,True
+A1 água IND 70,70.0,70.0,True
+A1 água TB ~100,100.0,100.0,True
+FR Borges mín 89,89.0,89.0,True
+FR Borges máx 94,94.0,94.0,True
+TB Borges mín 44,44.0,44.0,True
+TB Borges máx 50,50.0,50.0,True
+material IND 45,45.0,45.0,True
+material TB 49,49.0,49.0,True
+material IMP 28,28.0,28.0,True
+"FR C5 IND 1,0",1.5,1.5,True
+"FR C5 IND 0,2",4.8,4.8,True
+"FR C5 TB 1,0",0.9,0.9,True
+"FR C5 TB 0,2",3.8,3.8,True
+"FR C5 IMP 1,0",2.1,2.1,True
+"FR C5 IMP 0,2",5.3,5.3,True
+"FR A1 IND 1,0 → 3,2",3.2,3.2,True
+"FR A1 IND 0,2 → 2,5",2.5,2.5,True
+Morris IMP Tmax,7.2,7.2,True
+Morris IMP Topt,6.2,6.2,True
+Morris IND μ* máx < 1,0.9,0.9,True
+vol ctrl IND máx 424,424.0,424.0,True
+vol ctrl TB máx 497,497.0,497.0,True
+"RF kfold R2 0,996",0.996,0.996,True
+"RF kfold RQEM 7,7",7.7,7.7,True
+"RF LOSO R2 0,907",0.907,0.907,True
+"RF LOSO RQEM 37,6",37.6,37.6,True
+"RF LOMO R2 0,970",0.97,0.97,True
+"RF rec LOSO 0,880",0.88,0.88,True
+"RF rec LOMO −1,149",-1.149,-1.149,True
+"MLP rec LOSO 0,30",0.3,0.3,True
+viés IMP −28,-28.0,-28.0,True
+viés IND +13,13.0,13.0,True
+viés TB +14,14.0,14.0,True
+A1 fora RQEM 40,40.0,40.0,True
+n volume 1848,1848.0,1848.0,True
+n recup 1519,1519.0,1519.0,True
+imp vol intensidade,57.0,57.0,True
+imp vol frequência,38.3,38.3,True
+imp vol local,2.5,2.5,True
+imp vol material genético,1.0,1.0,True
+imp rec intensidade,58.2,58.2,True
+imp rec material genético,24.8,24.8,True
+imp rec época,10.8,10.8,True
+"imp época/água/fert < 0,5",0.4,0.4,True
+"psilídeo mín 0,4",0.4,0.4,True
+"psilídeo máx 1,6",1.6,1.6,True
+"formigas mín 4,0",4.0,4.0,True
+"formigas máx 14,6",14.6,14.6,True
+"percevejo TB mín 2,1",2.1,2.1,True
+"percevejo TB máx 2,6",2.6,2.6,True
+"percevejo IND/IMP mín 0,3",0.3,0.3,True
+"percevejo IND/IMP máx 0,7",0.7,0.7,True
+ferrugem r mín 63,63.0,63.0,True
+ferrugem r máx 92,92.0,92.0,True
+"ferrugem vol mín 1,3",1.3,1.3,True
+"ferrugem vol máx 4,0",4.0,4.0,True
+"ferrugem DAP mín 0,4",0.4,0.4,True
+"ferrugem DAP máx 1,3",1.3,1.3,True
+"mort15 mín 1,4",1.4,1.4,True
+"mort15 máx 3,4",3.4,3.4,True
+vol/árvore mín +14%,14.0,14.0,True
+vol/árvore máx +16%,16.0,16.0,True
+mancha recup mín 24,24.0,24.0,True
+mancha recup máx 35,35.0,35.0,True

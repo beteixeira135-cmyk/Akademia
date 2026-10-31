@@ -1,0 +1,709 @@
+                                                                  Forest Ecology and Management 405 (2017) 271–283
+
+
+
+                                                                     Contents lists available at ScienceDirect
+
+
+                                                          Forest Ecology and Management
+                                                        journal homepage: www.elsevier.com/locate/foreco
+
+
+
+
+The interactions of climate, spacing and genetics on clonal Eucalyptus                                                                                       MARK
+plantations across Brazil and Uruguay
+                            ⁎
+Dan Binkleya,b, , Otávio C. Campoec,f, Clayton Alvaresd, Rafaela L. Carneirod,
+Ítalo Cegattad, Jose Luiz Stapee,f
+a
+  School of Forestry, Northern Arizona University, Flagstaﬀ, AZ 86011, USA
+b
+  Department of Forest Ecology and Management, Swedish University of Agricultural Sciences, SE-901 83 Umeå, Sweden
+c
+  Federal University of Santa Catarina – UFSC, 89.520-000 Curitibanos, SC, Brazil
+d
+  Instituto de Pesquisas e Estudos Florestais, Via Comendador Pedro Morganti, 3500 - Bairro Monte Alegre, Brazil
+e
+  Department of Forest Sciences, University of São Paulo, 13400 Piracicaba, SP, Brazil
+f
+  Department of Forest Science, São Paulo State University, 18600 Botucatu, SP, Brazil
+
+
+
+
+                                                            A B S T R A C T
+
+                                                            Intensively managed plantations account for 1.5% of the world’s forests, but they meet one-third of the demand
+                                                            for wood products. Eucalyptus plantations are among the most productive, with rates of growth depending
+                                                            heavily on genetics, silviculture, and climate. The TECHS Project examines productivity at 36 locations across a
+                                                            3500 km gradient from Brazil to Uruguay, testing the interacting inﬂuences of genetics, temperature and pre-
+                                                            cipitation on stemwood production. Across all sites and genotypes, stemwood production in the middle of the 6-
+                                                            year rotation (the peak period of growth) averaged 22 Mg ha−1 yr−1. Production varied by ﬁvefold across sites,
+                                                            and by about 2-fold among genotypes within each site. The best clones at each location grew
+                                                            1.5–4 Mg ha−1 yr−1 more than the average for all clones, underscoring the importance of matching genotypes to
+                                                            local site conditions. Contrary to patterns for natural forests across geographic gradients, Eucalyptus production
+                                                            declined with increasing temperature, dropping by 2.5 Mg ha−1 yr−1 for a 1 °C temperature increase. The
+                                                            temperature eﬀect was likely driven in part by the geographic covariance of temperature and rainfall, as rainfall
+                                                            tended to decline by 78 mm yr−1 for each 1 °C increase in temperature. Stemwood production increased an
+                                                            average of 1.5 Mg ha−1 yr−1 for each 100 mm yr−1 increase in precipitation, but when the covariation of
+                                                            temperature and precipitation were included the apparent inﬂuence of precipitation declined to
+                                                            0.4 Mg ha−1 yr−1 for each 100 mm yr−1 increase in precipitation. Future results will determine if within-site
+                                                            reductions in ambient rainfall have the same apparent inﬂuences as the rainfall pattern across the geographic
+                                                            gradient, as well as quantifying the importance of insects and pests in aﬀecting growth. The supply of wood from
+                                                            intensively managed plantations will be strongly inﬂuenced by both temperature and precipitation at plantation
+                                                            locations, and with changing climates.
+
+
+
+
+1. Introduction                                                                                supplying less than 20% (Whiteman, 2014). The proportional con-
+                                                                                               tribution of wood supplied from natural forests has declined steadily to
+    Forests are a dominant vegetation type around most of the world,                           less than half the global demand in 2015, with actual harvest rates from
+from frigid regions with very short growing seasons to the hottest tro-                        natural forests declining since 1995. This shift to reliance on planted
+pical areas that have suﬃcient water supplies to support trees. We                             forests to supply the demands for wood products resulted from in-
+depend on forests for the production of fuel and wood products, and                            creasing area devoted to planted forests (rising by 50% from 1990 to
+global consumption of wood products more than doubled from 1950 to                             2015; Payn et al., 2015) combined with accelerating growth rates.
+1990. Total global consumption of wood stabilized in about 1990 at a                           Planted forests account for about 7% of all forests (Whiteman, 2014).
+level of 3.5 billion m3 yr−1, split about equally for fuel and for in-                         The most intensively managed, fast-growing plantations account for
+dustrial products (Sutton, 2014). More than 80% of the world’s wood                            only 1.5% (54 million ha) of the world’s forests, but they supply one-
+supply was taken from natural forests in 1950, with planted forests                            third of the non-fuelwood supply (INDUFOR, 2012). The most
+
+
+
+    ⁎
+        Corresponding author at: School of Forestry, Northern Arizona University, Flagstaﬀ, AZ 86011, USA.
+        E-mail address: Dan.Binkley@alumni.ubc.ca.
+
+http://dx.doi.org/10.1016/j.foreco.2017.09.050
+Received 6 July 2017; Received in revised form 9 September 2017; Accepted 19 September 2017
+Available online 25 September 2017
+0378-1127/ © 2017 Elsevier B.V. All rights reserved.
+D. Binkley                                                                                                                       Forest Ecology and Management 405 (2017) 271–283
+
+
+commonly planted species are pines in temperate and subtropical areas                         of Eucalyptus clones requires many years of silvicultural evaluation
+(Pinus, 42% of planted areas) and eucalypts (Eucalyptus 26% of planted                        (Resende et al., 2012). A long-standing goal of tree breeders and eco-
+areas) in subtropical and tropical areas.                                                     physiologists is understanding the survival and growth of a large and
+     The growth of forests varies across climatic gradients and species                       diverse group of clones (derived from hybrids of various species) across
+(Lieth and Whittaker, 1975, Roy et al., 2001), and plantations of sui-                        large areas, and how this knowledge can be used to develop manage-
+table Eucalyptus species in the Tropical and Subtropical regions of Brazil                    able ideotypes for tactical and operational decisions (Marcatti et al.,
+are among the most productive forests in the world (Stape et al., 2010,                       2017; Scolforo et al., 2017).
+Flores et al., 2016). Intensive research and development into forest                              These impending changes in factors that drive the biological pro-
+growth resulted in a 4-fold increase in wood productivity in Brazil from                      ductivity of planted Eucalyptus forests led to the creation of an experi-
+1970 to 2015 (Fig. 1). High rates of growth depend on application of                          mental research platform to investigate the inﬂuence of climate (water
+results from research programs in genetic improvement (Resende et al.,                        and thermal stresses), spacing and genetics on survival and growth at
+2012) and silvicultural practices including site preparation, fertiliza-                      the level of individual trees and stands. The TECHS Project (Tolerance
+tion, spacing and weed control (Gonçalves et al., 2013). Climate                              of Eucalyptus Clones to Hydric, Thermal and Biotic Stresses, www.ipef.
+strongly inﬂuences the growth of planted forests of Eucalyptus; a dou-                        br/techs/en) was launched in 2011 as a collaboration among people
+bling of precipitation from 800 mm yr−1 to 1600 mm yr−1 along a 100-                          from 26 forest companies, 9 universities, and research institutions from
+km gradient in Bahia led to a 3-fold increase in wood growth (from                            Brazil, Uruguay, and the United States. The TECHS Project comprises
+10 Mg ha−1 yr−1 to 30 Mg ha−1 yr−1; Stape et al., 2004). The addition                         36 experimental sites across a 3500-km gradient from the Amazon
+of supplemental water within sites also increases Eucalyptus wood                             Region to Uruguay (Tables 1 and 2), examining:
+growth, by 20–80% (Stape et al., 2008; Ryan et al., 2010).
+     Sustaining or increasing the high rates of Eucalyptus growth will                        1. How the growth of clonal Eucalyptus plantations relate to patterns in
+depend on a variety of changes in the future. Annual variations in                               climate;
+precipitation can alter gross primary production and wood production                          2. How production ecology factors (light and water use, eﬃciency of
+by one-third to one-half (Stape et al., 2008), and any regional changes                          resource use, photosynthate allocation) account for the inﬂuence of
+in climate would likely result in regional changes in production. Sta-                           climate;
+tistical and ecophysiological models that incorporate rainfall are com-                       3. The role of genotypes in determining growth responses to climate;
+monly used to predict growth (Almeida et al., 2010; Scolforo et al.,                          4. How spacing can mitigate drought eﬀects, survival and growth at
+2017). Short rotations (commonly about 6–8 years) allow land owners                              the scales of individual trees and plots of trees; and
+to change land use in responses to changing markets. Increases in the                         5. How genotypes can be grouped into ideotypes regarding their eco-
+value of agricultural crops could lead to allocation of Eucalyptus forests                       physiological responses to hydric and thermal stresses and sus-
+to drier sites, which would require more speciﬁc genotypes and new                               ceptibility to pests and diseases for operational deployment.
+management practices. Most intensively managed Eucalyptus planta-
+tions use genetically identical clonal trees within each stand to max-                            This paper provides a description of the TECHS Project, and basic
+imize uniformity and growth (Binkley et al., 2002; Stape et al., 2010),                       mid-rotation results for growth patterns and interactions between ge-
+and genotypes diﬀer substantially in rates of water use, the eﬃciency of                      netics and environmental conditions. A variety of detailed investiga-
+wood production per unit of water transpired, and in responses to                             tions will come from the Project in the next few years.
+droughts (Hubbard et al., 2010, Blackman et al., 2017). Changes in
+silviculture could also be important, such as reducing the number of
+                                                                                              2. Experimental design, site descriptions, and core measurements
+trees planted per hectare to reduce drought-related mortality
+(Hakamada et al., 2017). Besides these abiotic factors, exotic pests and
+                                                                                                  The core design for TECHS has 18 clones of Eucalyptus (Table 3),
+diseases that harm Eucalyptus plantations have been increasingly re-
+                                                                                              with 11 clones planted at each of 36 sites for a planned rotation length
+ported in South America in the last decade with damages levels de-
+                                                                                              of 6 years (Figs. 2–4). Only 27 sites are included in this paper, as the
+pending on genotypes and climate (Wingﬁeld et al., 2013). Deployment
+                                                                                              others were planted later and had not reached the mid-rotation point
+
+
+
+
+Fig. 1. The productivity per ha of Eucalyptus plantations across Brazil increased by 4-fold from 1970 to 2015, as a result of intensiﬁcation of management and development of fast-
+growing genotypes. The rate of increase in productivity is currently near 0 (data from IBA, 2015). Image of a typical 7-year-old plantation being harvested with stemwood production
+across the rotation (mean annual increment) of 25 Mg ha−1 yr−1 (approximately 50 m3 ha−1 yr−1).
+
+
+                                                                                        272
+D. Binkley                                                                                                                         Forest Ecology and Management 405 (2017) 271–283
+
+
+Table 1
+Climate description for 27 of the TECHS sites (column descriptions at bottom of table), for the growth period (24–36 months) presented in this paper.
+
+  TECHS      Lat       Long       Alt    Tavg     Tmx    Tmn     AGDD      T < 2 °C    T > 35 °C       RH    RAD             VPDday       VPDlight      P     PET     AET    DEF
+             Degrees              m      o
+                                          C                                Number of days yr−1         %     MJ m−2 d−1      kPa                        mm yr−1
+
+  1          −14.34    −48.73     545    25.5     31.4   19.6    7472      0            39             61    21.9            1.6          2.2           1321   1644   1091   552
+  2          −24.21    −49.97     770    19.0     23.2   14.7    5081      0            0              73    17.0            0.8          1.1           1495   1183   1137   46
+  3          −19.70    −45.41     727    22.8     28.7   16.9    6480      0            14             64    18.7            1.3          1.9           946    1298   939    359
+  4          −19.31    −42.42     243    23.6     28.5   18.7    6771      0            5              68    17.6            1.2          1.7           964    1215   957    258
+  5          −18.58    −42.93     873    21.8     27.4   16.1    6099      0            0              68    18.7            1.1          1.6           932    1307   915    392
+  6          −30.19    −51.62     150    21.6     26.2   16.9    6022      0            9              74    15.7            0.9          1.3           1805   988    976    13
+  7          −18.02    −50.90     681    24.0     30.2   17.8    6944      0            21             62    19.0            1.5          2.1           1628   1470   963    507
+  8          −11.86    −38.37     218    25.3     30.0   20.6    7405      0            3              70    17.5            1.3          1.8           896    1479   878    601
+  9          −18.73    −47.92     969    21.8     26.8   16.7    6110      0            1              66    18.8            1.1          1.6           1412   1319   1021   298
+  10         −23.03    −48.53     869    19.8     24.3   15.2    5382      0            0              74    17.9            0.8          1.2           1376   1162   1004   158
+  11         −18.71    −52.59     783    23.7     29.1   18.2    6805      0            9              66    19.0            1.3          1.8           1290   1273   862    411
+  12         −19.76    −40.13     36     25.2     29.8   20.6    7362      0            3              72    18.6            1.1          1.6           832    1520   832    688
+  13         −20.90    −51.90     361    26.5     32.7   20.3    7828      0            72             63    21.4            1.7          2.4           1155   1406   1133   274
+  14         −19.96    −51.59     480    24.6     30.8   18.3    7121      0            33             69    18.0            1.3          1.8           1392   1383   1093   291
+  15         −11.21    −48.64     255    27.0     33.3   20.6    8000      0            80             66    20.1            1.7          2.3           1204   1520   1012   507
+  17         −18.25    −45.10     806    22.9     28.7   17.0    6491      0            7              62    20.2            1.4          1.9           792    1610   746    864
+  20         −22.35    −46.97     633    23.1     29.7   16.4    6576      0            22             62    17.8            1.5          2.1           1224   1274   1022   252
+  22         −24.23    −50.53     888    19.8     23.9   15.6    5379      0            0              77    15.5            0.7          1.0           1554   1079   1050   29
+  23         −27.53    −50.10     870    17.4     22.7   12.0    4517      13           0              82    16.3            0.5          0.8           2055   950    949    1
+  24         −22.73    −49.00     656    21.4     28.4   14.4    5972      0            11             69    16.7            1.1          1.6           1701   1147   1018   129
+  26         −16.78    −44.31     926    23.3     29.4   17.2    6675      0            6              64    20.8            1.4          1.9           477    1457   477    980
+  27         −25.98    −50.11     916    19.0     24.8   13.1    5101      10           1              76    14.4            0.8          1.2           1487   819    817    1
+  28         −26.11    −50.21     812    18.5     23.6   13.3    4896      8            0              78    14.7            0.7          1.0           1487   935    933    2
+  29         −3.44     −43.07     81     28.0     32.7   23.2    8375      0            61             72    18.4            1.4          1.9           1560   1781   865    916
+  30         −17.32    −43.77     848    22.4     28.7   16.0    6336      0            5              62    20.6            1.4          2.0           507    1491   507    984
+  31         −16.34    −39.60     200    23.9     28.2   19.5    6880      0            0              76    18.3            0.9          1.3           982    1314   808    506
+  33         −23.85    −48.70     695    21.0     26.0   16.0    5822      0            4              72    16.9            0.9          1.4           1357   1185   1130   55
+
+Tavg = mean annual air temperature; Tmx = average maximum air temperature; Tmn = average minimum air temperature; T < 2 °C = number of frost days; T > 35 °C = number of
+days with Tmx > 35 °C; AGDD = accumulated growing degree days considering based on temperatures between 5 and 35 °C; RH = average relative humidity; RAD = average global
+radiation; P = total precipitation; VPDday = average vapor pressure deﬁcit for 24 h; VPDlight=average vapor pressure deﬁcit of the photoperiod; PET = potential evapotranspiration
+by Penman–Monteith equation; AET = actual evapotranspiration by water balance of Thornthwaite-Mather and using a speciﬁc water holding capacity of the soils; DEF = water deﬁcit
+by water balance of Thornthwaite-Mather and using a speciﬁc water holding capacity of the soils.
+
+
+
+
+used in this evaluation. Each clone was planted in a single plot, with 8                      suitability for warmer conditions, and were planted at all Tropical sites.
+lines × 30 trees (24 × 90 m plot), with trees at a spacing of 3 × 3 m                         Seven other clones were chosen for cooler conditions and were planted
+(1111 trees ha−1). One edge of each plot had 5 rows (each with 8 trees)                       at all Subtropical sites. Each site therefore tested the four plastic clones
+available for destructive sampling throughout the duration of the Pro-                        and seven regional clones, along with a site-speciﬁc clone chosen at the
+ject. Each plot was split, with half receiving full ambient rainfall. Rain-                   discretion of the local landowner (not included in these mid-rotation
+removal troughs were installed in the other half-plot (about a year after                     results).
+planting) to remove about 33% of rainfall. The rain-removal treatments                            Genotype grouping was performed using multilocus genotypes for
+were applied shortly before the mid-rotation point, so no results are                         20 microsatellites to estimate pairwise individual-level genetic dis-
+available to include in the current paper.                                                    tances among the 18 clones (pure species of E. grandis, E. urophylla, E.
+    The plot-level design was complemented with an individual-tree                            saligna, E. dunnii, E. benthamii, and hybrids) and 4 seedlots pure spe-
+design, with varying spacing per tree leading to a range of ambient                           cies (E. grandis, E. saligna, E. urophylla and E. camaldulensis) as refer-
+water supply per tree. The single-tree experiment had one plot for each                       ences. The matrix of genetic distances was used to graphically re-
+clone, with uniform spacing of 3-m within 7 columns, and variable                             present distance relationships between the clones and pure species
+spacing between 27 trees within rows (from 0.25 m to 7.15 m, or                               with an unweighted pair group method with arithmetic mean
+∼13,000 trees ha−1 to ∼450 trees ha−1). All plots were fertilized in-                         (UPGMA, Faria et al., 2011). The heterozygosity of the 18 clones was
+tensively during the ﬁrst year (70 kg N ha−1, 45 kg P ha−1, 85 kg                             assessed using approximately 60,000 single-nucleotide polymorph-
+K ha−1, 500 kg Ca ha−1, 90 kg Mg ha−1, 40 kg S ha−1, 3 kg B ha−1, 1                           isms (SNPs) following the methodology described in Silva-Junior et al.
+kg Cu ha−1, and 1 kg Zn ha−1) to alleviate any nutrient limitation. The                       (2015). The results basically conﬁrmed the breeders’ expectations
+schedule of fertilizer application varied among site, with the total ap-                      regarding two main genetic pools for clones in this study: (i) taxo-
+plication divided among 2–4 applications from the preplanting through                         nomic section Maidenaria (clones F6, J1, I9, M4 and N5 of E. dunnii or
+12 months. Herbicides were used to keep the plots weed-free.                                  E. benthamii); and (ii) Transversaria and Exsertaria sections (all the
+    The large gradient in environmental conditions (Tables 1 and 2) led                       others; Fig. 5).
+to a division of sites into warmer Tropical sites and cooler Subtropical                          The sites showed a range of about 10 °C for both the maximum
+sites. Following discussions among companies’ breeders, 11 commercial                         (23–33 °C) and minimum (12–23 °C) average annual temperatures
+Brazilian Eucalyptus clones were selected among thousands available.                          (Table 1). During the 12 months of mid-rotation evaluation, the cooler
+Four clones were chosen based on expected suitability for a wide range                        sites experienced more than 8 frost days, while in the hottest sites the
+of environmental conditions (termed “plastic” clones, Table 3), and                           maximum daily temperature higher than 35 °C was observed in 40 or
+were planted across all TECHS sites. Seven clones were chosen for                             more days. Annual average precipitation ranged from about 400 mm to
+
+
+
+
+                                                                                        273
+D. Binkley                                                                                                                              Forest Ecology and Management 405 (2017) 271–283
+
+
+Table 2
+Locations for the 27 TECHS sites in this paper, and soil characteristics (0–40 cm depth, details for column heading are below table).
+
+  Site    Nearest city           Region   State    Soil order   Clay   Silt      Sand   Organic     pH     P         K           Ca     Mg     Cation exchange      Water holding
+                                                                                        matter                                                 capacity             capacity
+                                                                %                       g L−1              mg L−1    mmolc L−3                                      L m−2
+                                                                                                           soil
+
+  1       Niquelândia            T        GO       Oxisol       39     18        43     40.0        4.2    0.0       0.7         1.0    1.0    62.7                 166
+  2       Arapoti                T        PR       Oxisol       71     22        7      34.3        4.1    0.0       0.6         1.0    1.0    91.4                 240
+  3       Bom Despacho           T        MG       Oxisol       79     19        2      45.0        4.4    0.0       0.5         1.0    1.0    76.5                 246
+  4       Belo Oriente           T        MG       Oxisol       59     10        31     31.3        4.0    1.5       1.2         4.8    1.3    71.7                 179
+  5       Guanhães               T        MG       Oxisol       44     13        43     35.0        3.9    0.5       0.9         1.3    1.0    91.1                 160
+  6       Eldorado do Sul        ST       RS       Ultisol      27     19        54     25.0        3.7    0.5       1.0         1.0    1.0    128.0                145
+  7       Rio Verde              T        GO       Entisol      6      5         89     19.0        4.5    2.5       0.3         9.5    1.0    35.8                 59
+  8       Inhambupe              T        BA       Ultisol      18     7         75     18.0        4.1    4.5       0.8         1.0    1.0    37.3                 89
+  9       Estrela do Sul         T        MG       Oxisol       80     9         11     43.0        3.9    1.0       0.8         2.0    1.0    88.8                 215
+  10      Botucatu               ST       SP       Oxisol       20     9         71     30.0        4.3    3.5       2.2         4.0    1.0    66.7                 100
+  11      Chapadão do Sul        T        MS       Oxisol       15     9         76     23.5        4.3    1.5       0.5         3.0    1.0    55.0                 91
+  12      Aracruz                T        ES       Oxisol       30     12        58     18.0        4.0    1.5       0.7         2.5    1.0    40.7                 130
+  13      Três Lagoas            T        MS       Oxisol       14     9         77     11.0        4.0    3.0       5.2         24.5   4.5    62.7                 87
+  14      Inocência              T        MS       Entisol      10     8         82     10.5        4.1    1.0       6.8         28.5   5.0    64.8                 79
+  15      Brejinho de            T        TO       Entisol      10     8         82     7.5         4.2    0.0       4.1         35.5   5.0    64.6                 77
+          Nazaré
+  17      Três Marias            T        MG       Oxisol       14     5         81     15.5        4.1    0.5       2.9         11.5   2.0    47.4                 76
+  20      Mogi Guaçu             T        SP       Oxisol       41     16        42     34.0        4.1    4.5       1.2         8.0    1.5    97.2                 165
+  22      Telemaco Borba         T        PR       Oxisol       56     23        21     52.0        4.0    3.5       3.8         37.5   11.0   183.8                214
+  23      Otacílio Costa         ST       SC       Inceptisol   43     28        29     44.5        3.9    0.5       7.5         67.0   10.5   338.0                205
+  24      Borebi                 T        SP       Entisol      8      3         89     12.0        4.6    2.0       5.5         73.0   10.0   104.5                57
+  26      Coração de Jesus       T        MG       Oxisol       35     6         59     32.0        3.9    1.5       5.1         48.5   7.5    120.6                118
+  27      Antônio Olinto         ST       PR       Ultisol      14     5         81     25.5        3.9    3.5       4.5         31.5   6.0    141.5                76
+  28      Três Barras            ST       SC       Oxisol       60     24        16     51.0        3.8    1.5       1.6         30.5   5.5    291.1                225
+  29      Urbano Santos          T        MA       Entisol      9      5         87     16.0        4.1    0.0       1.4         36.5   15.5   91.4                 64
+  30      Bocaiúva               T        MG       Oxisol       76     14        10     47.5        3.9    2.0       1.6         48.5   26.5   209.1                225
+  31      Eunápolis              T        BA       Ultisol      25     3         73     24.5        5.4    5.0       1.5         25.5   9.0    60.0                 88
+  33      Buri                   ST       SP       Oxisol       52     20        28     51.0        4.3    10.5      1.0         11.0   14.5   135.5                196
+
+Region: Tropical (T), Subtropical (ST).
+Soil order: by US taxonomy, Soil Survey Staﬀ (1999).
+Clay and sand were quantiﬁed by densiometer method (Embrapa, 1997).
+Organic matter was determined by Walkley-Black method (Embrapa, 1997).
+Extractable P, K, Ca, e Mg were extracted by ion exchange resin (van Raij et al., 2001).
+CEC (cationic exchange capacity).
+WHC (water holding capacity, 0–2 m depth, Stape et al., 2004).
+
+
+
+Table 3                                                                                                 2000 mm (Fig. 4), and potential evapotranspiration (Thornthwaite and
+The 18 TECHS genotypes of Eucalyptus, genetic heterozygosity, and the climate where                     Mather, 1957) ranged from about 800 to 1800 mm yr−1. Accounting
+each clone was developed for operational use.
+                                                                                                        for the water holding capacity of soil at each site, the annual water
+  Clone      Genotype                 Clone type      Heterozygosity        Climate of the              deﬁcit (water balance of Thornthwaite and Mather, 1957) ranged from
+                                                                            clone origin                0 for cooler and wetter sites to over 800 mm yr−1 on the hotter, drier
+                                                                            regiona                     sites.
+                                                                                                            Soils varied substantially among the TECHS sites, including one site
+  A1         E. urophylla             Plastic         0.245                 Cwa
+  B2         E. urophylla x E.        Tropical        0.247                 Aw                          on a clayey Inceptisol, ﬁve sites on sandy Entisols, four sites on highly
+             grandis                                                                                    weathered, high-clay Ultisols, and seventeen on highly weathered
+  C3         E. grandis x E.          Plastic         0.294                 As                          Oxisols (Table 2). Soil water holding capacity (0–2 m depth) diﬀered by
+             camaldulensis                                                                              up to fourfold across sites, increasing from about 75 mm m−1 for soils
+  D4         E. grandis x E.          Tropical        0.243                 Aw
+             urophylla
+                                                                                                        with 10% clay to over 200 mm m−1 for soils with 80% clay. All soils
+  E5         E. urophylla             Tropical        0.243                 Cwa                         were very acidic, with low to moderate levels of extractable phos-
+  F6         E. benthamii             Subtropical     0.091                 Cfb                         phorus, nutrient cations, and cation exchange capacity. Cation ex-
+  G7         E. urophylla             Tropical        0.251                 Cwa                         change capacity related more strongly to soil organic matter (r2 = 0.45,
+  H8         E. grandis x E.          Tropical        0.258                 Am
+                                                                                                        P < 0.001) than to clay content (r2 = 0.2, P = 0.05).
+             urophylla
+  I9         E. dunnii                Subtropical     0.105                 Cfb                             The diameter at breast height (DBH, 1.3 m above ground level),
+  J1         E. benthamii             Subtropical     0.092                 Cfb                         total height (H), and live crown depth of all trees and sites were mea-
+  K2         E. saligna               Plastic         0.211                 Cfb                         sured every 6 months. Stemwood biomass was estimated by allometric
+  L3         E. urophylla x E.        Subtropical     0.230                 Cfb                         equations developed from destructive sampling of 93 trees from the 18
+             globulus
+  M4         E. dunnii                Subtropical     0.102                 Cfb
+                                                                                                        clones (3–6 trees per clone) at site 33 (which uniquely was planted with
+  N5         E. dunnii                Subtropical     0.106                 Cfb                         all 18 genotypes). The sampled trees were selected to cover the range of
+  O6         E. grandis               Subtropical     0.181                 Cfb                         DBH. After harvesting, DBH and total height (H) were measured.
+  P7         E. urophylla x E.        Tropical        0.234                 As                          Stemwood was separated from the other components of the tree and
+             tereticornis
+                                                                                                        weighed on site individually, and representative samples were collected
+  Q8         E. grandis               Plastic         0.240                 Af
+  R9         E. urophylla             Tropical        0.251                 Aw                          and dried at 65 °C to constant weight for dry mass determination.
+                                                                                                            Dry mass (B, in kg tree−1) of the stemwood compartment was cal-
+  a
+      Köppen climatic classiﬁcation (Alvares et al., 2013b).                                            culated using the linearized model of Schumacher and Hall (1933),
+
+                                                                                                  274
+D. Binkley                                                                                                      Forest Ecology and Management 405 (2017) 271–283
+
+                                                                                                                   Fig. 2. Diagram (upper) and photograph
+   Spacing plots to vary                                               Full rain plots                             (middle) of TECHS design. For the individual-tree
+                                                                                                                   experiment with spacing (left side of upper and
+   rain/tree for each clone                                                                                        middle images), each of the 12 clones used at
+                                                                                                                   each site was planted in 7 lines of trees
+                                                                       Rain exclusion plots                        (3 m spacing) and 27 variable spacing between
+                                                                                                                   trees within rows (ranging from 0.25 to 7.15 m
+                                                                                                                   apart), providing a range from 1.5 m2 tree−1
+                                                                                                                   (∼13,000 trees ha−1) to 23 m2 tree−1 (∼450
+                                                                       Rain exclusion plots                        trees ha−1). The rainfall removal experiment
+                                                                                                                   (right side of upper and middle ﬁgures) planted
+                                                                                                                   trees in single-clone plots (24 × 30 m, with trees
+                                                                                                                   at 3 × 3 m spacing), with additional rows of
+                                                                       Full rain plots                             trees to allow for destructive sampling. The
+                                                                                                                   rainfall removal troughs are shown for 2 clones
+                                                                                                                   in the bottom image.
+
+
+
+
+                   Contrasting clones, showing rainfall exclusion treatment
+
+
+
+
+with speciﬁc intercept “a” for each clone j (R2adj = 0.98, MAE = 0.04 kg           clone-speciﬁc allometrics), dividing by the plot area and expanding to a
+tree−1) (Mattos, 2015):                                                            hectare basis (Mg ha−1 yr−1).
+                                                                                       Leaf area index (LAI) was estimated based on the theory of Norman
+ln Bj = aj + 1,8534ln(DBH ) + 1,1414ln(H )
+                                                                                   and Jarvis (1975), using a ceptometer (AccuPAR LP-80, Decagon De-
+    The best allometric equation was selected by the graphical analysis            vices Inc., 1999). The method accounts for sky conditions at the time of
+of normality and distribution of the residuals, the range of prediction of         radiation measurement, eﬀects of the canopy structure, and foliage
+mean absolute error (MAE, Willmott and Matsuura, 2005), and the                    optical properties, assuming random foliage orientation distribution
+adjusted determination coeﬃcient. The coeﬃcients were ﬁtted using                  radiation extinction coeﬃcient of 0.5 (Campbell, 1986, Wang et al.,
+the ordinary least squares of the function lm in R (R Core Team, 2014).            2007; see Mattos, 2015 for more details).
+The “a” intercept varied from −4.4530 to −4.0682. Stemwood pro-                        The patterns of stemwood production across gradients in pre-
+duction between years 2 and 3 was estimated for each clone and site as             cipitation and temperature were evaluated with CurveExpert version
+the summation of the individual tree stem biomass increases (based on              2.4 (http://www.curveexpert.net/). The best-ﬁt equation was chosen
+
+
+
+
+                                                                             275
+D. Binkley                                                                                                           Forest Ecology and Management 405 (2017) 271–283
+
+                                                                                             Fig. 3. Location and climate classiﬁcation of all 36 of the TECHS sites across
+                                                                                             a 3500 km geographic gradient (climate types from Alvares et al., 2013a,b).
+
+
+
+
+based on the lowest AICc (Akaike’s Information Criterion corrected for            yr−1) was 25% lower than Subtropical region (28 Mg ha−1 yr−1).
+small smaple size) adjusted for small sample sizes.                               Within each site, stemwood production of the clones diﬀered between
+                                                                                  the more productive tropical sites and the subtropical sites.
+3. Results                                                                            The productivity of each clone varied substantially across sites
+                                                                                  (Fig. 8). Clone P7 (planted only in the Tropical region) showed rela-
+    The weather patterns across the TECHS sites were generally typical            tively low variation in production, indicating a limited ability to reach
+of long-term climate patterns, with no extreme droughts or excessive              high growth rates even on favorable sites. Clones H8 and B2 were the
+rains. The TECHS sites and clones showed a wide range of leaf area and            most variable across sites in the Tropical region, achieving high growth
+growth, as expected. Fig. 6 illustrates the response of two clones to the         rates on the best sites, but much less on poorer sites. The clones planted
+environmental conditions across 3 sites. Clone A1 was most productive             only in the Subtropical sites showed generally less variation across sites
+at Site 22, producing 34 Mg ha−1 yr−1 of stemwood, with the light                 than those in the Tropical region. Within the Tropical region variation
+intercepted by a leaf area index of 3.8. Clone A1 produced about the              was lowest for the poorest sites (Fig. 7), perhaps indicating a single
+same LAI on sites 20 and 30, but growth was only 19 and 22 Mg ha−1                overriding factor such as water supply strongly limited the expression
+yr−1. The large diﬀerence in stem production across the sites related             of genotypic diﬀerences. The plastic clones that were planted in both
+not to leaf area and light interception, but to the eﬃciency of producing         regions showed high variation in the Tropical region, similar to the
+wood per unit of light intercepted. Similar to Clone A1, Clone C3 was             Tropical-only clones (Fig. 8). The potential growth of Eucalyptus at each
+the most productive at site 22 (46 Mg ha−1 yr−1 with a LAI of 3.0), but           site may be indexed better by the production of the best clones. The
+produced about the same stemwood as Clone A1 on Sites 20 and 30,                  average growth of the three fastest-growing clones (at each site) aver-
+despite 33% lower LAI. The lack of a diﬀerence in stem production in              aged about 1.5–4 Mg ha−1 yr−1 (3–8 m3 ha−1 yr−1) more than the
+this case resulted from a higher LAI and eﬃciency of light use at Site 20         average for all clones (22 Mg ha−1 yr−1).
+for Clone 3. Diﬀerences in leaf assimilation and respiration, carbon                  These patterns of production for the clones across sites are also il-
+allocation and local herbivory rates can inﬂuence light use eﬃciency,             lustrated in Fig. 9, where the clones are ranked for each region. Plastic
+and future research will estimate the inﬂuences of these factors.                 Clone A1 was a top performer overall for the Tropical region (ranked as
+    The environmental gradient across the Tropical region led to a 5-             the best performer for the greatest number of sites), but A1 ranked near
+fold range in stem production (9–45 Mg ha−1 yr−1, site averages for all           the middle for the Subtropical region. Plastic Clone C3 was near the
+clones within each site, Fig. 7). The variation across sites was not as           bottom for performance on Tropical region, but did better than the
+large for the Subtropical region, diﬀering only about 2-fold (19 and              other three plastic clones in the Subtropical region. The regional pat-
+44 Mg ha−1 yr−1). The production of the best and worst clone diﬀered              tern of production for Clone C3 may relate to the distribution of a gall-
+by a factor of 2 or more for both the Tropical and Subtropical regions.           wasp (absent from some of the Tropical sites and from the Subtropical
+The grand average of all clones within the Tropical region (21 Mg ha−1            region).
+
+
+
+
+                                                                            276
+D. Binkley                                                                                                       Forest Ecology and Management 405 (2017) 271–283
+
+                                                                                                         Fig. 4. The average annual precipitation for the TECHS sites
+                                                                                                         spanned a fourfold range, along with a 10 °C temperature
+                                                                                                         range (upper graph). The combination of water supply and
+                                                                                                         temperature provided estimated water deﬁcits (lower graph)
+                                                                                                         of 0–1000 mm yr−1 (based on temperature, precipitation,
+                                                                                                         and water holding capacity of soil in each site).
+
+
+
+
+    Across sites the annual rainfall from year 2 to 3 ranged from 500 to          (2.5 Mg ha−1 yr−1 for a 1 °C change in temperature) as it was with
+2000 mm, and mean annual temperature ranged from 17 to 27 °C. The                 temperature alone.
+average growth of clones across all sites showed linear relationships                 The inﬂuence of temperature and precipitation may be combined
+with both temperature and precipitation. An increase of precipitation of          into a single variable of a water deﬁcit, incorporating the energy
+100 mm yr−1 was associated with a 1.51 Mg ha−1 yr−1 (r2 = 0.21,                   available to evaporate water, and the supply of water based on pre-
+P = 0.03) increase in stemwood production across all clones, and                  cipitation and soil water-holding capacity (Table 1). Condensing these
+1.79 Mg ha−1 yr−1 (r2 = 0.28, P = 0.01) when considering only the 3               inﬂuences into the single variable of water deﬁcit lowered the AICc (by
+best clones for each site. An increase of 1 °C in mean annual tempera-            about 4 units) and raised the r2 (from 0.37 to 0.45) for predicting stem
+ture was associated with a decline in stemwood production of                      production relative to using temperature and precipitation as in-
+2.9 Mg ha−1 yr−1 for all clones and for the three best clones (r2 = 0.35,         dependent variables, highlighting that temperature and water together
+P < 0.01).                                                                        with soil physical drainage properties inﬂuences clone adaptation and
+    The geographic patterns in precipitation and temperature were not             performance.
+independent. Hotter sites were generally drier, with precipitation de-                Clones varied strongly in responsiveness to diﬀerences in climate
+creasing by an average of 78 mm yr−1 for 1 °C increase in mean annual             across sites. The clone with the highest average growth across the
+temperature (r2 = 0.27, P = 0.01). Simple correlations with produc-               Tropical sites (Clone D4) showed very high growth at cooler Tropical
+tion as a function of temperature had about the same AICc (within 1               sites, and a linear response to precipitation (Fig. 10). In contrast, the
+unit) as the more complex relationship with both temperature and                  best-growing plastic clone (across both regions, A1) showed a relatively
+precipitation. The pattern of growth with precipitation alone was                 large plateau of growth, declining at all extremes. Interestingly, the
+weaker (AICc about 4 units higher) than when both precipitation and               diﬀerent curvilinear responses of individual clones led to the overall
+temperature were included. The apparent response of production to                 linear pattern in the upper part of Fig. 10(A and B) when multiple
+precipitation was substantially lower when temperature was also in-               clones were averaged together.
+cluded as an independent variable, declining to an increase of only                   In the spacing experiment, the trees planted at the widest spacing
+0.43 Mg ha−1 yr−1 with an increase of 100 mm of precipitation                     showed the highest individual tree growth (Fig. 11). All clones showed
+(Fig. 10). The apparent inﬂuence of temperature on production was                 declining individual tree size as distance to neighbors declined, though
+similar when examined in relation to temperature and precipitation                some were notably more sensitive than others. The inﬂuence of
+
+
+
+
+                                                                            277
+D. Binkley                                                                                                                     Forest Ecology and Management 405 (2017) 271–283
+
+
+                                                                                                 increasing respiration loss of carbon. Ecosystem respiration generally
+                                                                                                 increases with temperature, with a typical increase of 40% for a 10 °C
+                                                                                                 increase in temperature (Mahecha et al., 2010). However, the TECHS
+                                                                                                 Project stemwood production showed a much steeper response to the
+                                                                                                 geographic temperate gradient, with a 40% decline in stemwood pro-
+                                                                                                 duction in response to only a 4 °C increase in temperature. Therefore we
+                                                                                                 suspect that a temperature response of respiration would likely be too
+                                                                                                 small to account for the bulk of the decline in stemwood production.
+                                                                                                     Perhaps the most relevant examination of possible factors comes
+                                                                                                 from Aspinwall et al. (2016), with an examination of long-term and
+                                                                                                 short-term temperature responses of Eucalyptus tereticornis grown under
+                                                                                                 controlled conditions. They found strong declines in both photo-
+                                                                                                 synthetic capacity (at saturating levels of CO2) and nighttime respira-
+                                                                                                 tion of leaves with increasing temperatures. Taking 20 °C as a baseline,
+                                                                                                 increasing temperature to 24 °C lowered photosynthetic capacity by
+                                                                                                 17% and nighttime respiration by 29%. An increase of 4 °C across the
+                                                                                                 TECHS site was associated with a notably larger reduction in stemwood
+                                                                                                 production, so these mechanisms may not be suﬃcient to explain the
+                                                                                                 TECHS pattern. Overall, the TECHS Project shows that direct assess-
+                                                                                                 ment of tree ecophysiology and carbon partitioning will be needed to
+                                                                                                 explain the strong decline we observed in stem production with in-
+                                                                                                 creasing temperature across the geographic gradient, as found by Stape
+                                                                                                 et al. (2008) and Ryan et al. (2010).
+                                                                                                     A second major point is that the TECHS pattern of production in
+                                                                                                 response to precipitation (about 1.5 Mg ha−1 yr−1 for each increase of
+                                                                                                 100 mm yr−1 in precipitation) was similar to trends reported for in-
+Fig. 5. TECHS clones came from two main genetic pools of the Eucalyptus genera: (i)
+                                                                                                 ventory plots across geographic gradients in eastern Brazil (Fig. 12).
+Section Maidenaria (clones F6, J1, I9, M4 and N5 of E. dunnii or E. benthamii); and (ii)         Stape et al. (2004) estimated an increase of 2.2 Mg ha−1 yr−1 for each
+Sections Transversaria and Exsertaria (all the others clones and the 4 seedlot species).         100 mm yr−1 increase in precipitation (Fig. 12) across 14 sites in
+                                                                                                 northern Bahia. A database with thousands of operational inventory
+                                                                                                 plots also showed a similar response to increasing precipitation in
+                                                                                                 southern Bahia, northern Espirito Santo, and eastern Minas Gerais,
+                                                                                                 where an increase of 100 mm yr−1 was associated with increased
+                                                                                                 production of 2.4 Mg ha−1 yr−1 on drier sites (about 1000 mm yr−1
+neighbors was much stronger for the Tropical sites than for the cooler                           mean annual precipitation) and 1.5 Mg ha−1 yr−1 on wetter sites
+and wetter Subtropical sites, based on the average response of all clones                        (about 1500 mm yr−1; (J.L. Stape, unpublished data).
+within each site. The individual tree patterns can be extrapolated to a                              As noted above, these apparent eﬀects of increasing precipitation
+plot scale based on the area available to each tree. The plot-level pro-                         may be confounded with changes in temperature across geographic
+duction increased somewhat for each clone with increasing density of                             gradients. Any inﬂuence of temperature may be excluded by testing
+tree spacing, but the pattern diﬀered strongly among the clones. When                            response to either additions or removals of water within sites. Irrigation
+all clones are averaged within each site, the Subtropical sites showed                           treatments in Eucalyptus plantations in Brazil have shown about
+the strongest plot-level response to density of tree spacing. This results                       0.66 Mg ha−1 yr−1 additional stemwood production for each 100 mm
+from a weaker eﬀect of spacing on individual tree growth (Fig. 11B),                             of irrigation water (Stape et al. 2010). This irrigation was close to the
+allowing the number of trees to then have a larger overall eﬀect on plot-                        TECHS value of 0.43 Mg ha−1 yr−1 for each 100 mm increase in rainfall
+level growth (Fig. 11C).                                                                         across sites (when the eﬀect of temperature was included). A relatively
+                                                                                                 modest response of stemwood production to water supply was also
+4. Discussion                                                                                    evident in a rainfall removal experiment in São Paulo. Removal of 37%
+                                                                                                 of throughfall beneath Eucalyptus trees had little eﬀect on forest pro-
+    The broad range of climate, soils, and genotypes in the TECHS                                duction, though tree nutrition (particularly potassium supply) and
+project provided a strong platform for evaluating patterns of stem                               deep-soil drawdown of stored water were also important (Christina
+production. Three ﬁndings were especially intriguing. The range of                               et al., 2015, Laclau, 2016).
+precipitation across the TECHS sites was associated with a threefold                                 A third major point is that the TECHS Project indicated that the
+range in stemwood growth, about the magnitude of response to tem-                                overall patterns of stem production varied as strongly among clones
+perature. Although both precipitation and temperature showed similar                             within sites as across the geographic gradient of sites. As illustrated in
+magnitudes of inﬂuence on stemwood production, the eﬀect of tem-                                 Fig. 6, the clones diﬀered greatly in the deployment of leaf area, and in
+perature was statistically stronger. The temperature response was ne-                            the ability of leaves to grow wood. The clones also diﬀered strongly in
+gative, in contrast to typical regional patterns that include changes of                         response to temperature and precipitation (Fig. 10). On-going studies
+species across temperature gradients in the Tropics. For example, Beer                           are examining some of the processes that underlie these patterns. The
+et al. (2010) examined the pattern of gross primary production (GPP) as                          wide range of responses among clones to the geographic gradient in the
+a function of latitude, and found GPP decreased with distance from the                           TECHS study demonstrates opportunities for matching genotypes, and
+Equator as temperatures declined.                                                                even genes, to sites. We anticipate that on-going investigation of genetic
+    The negative eﬀect of warmer temperatures could result from                                  markers among the clones in this study may relate to the degree of
+
+
+
+
+                                                                                           278
+D. Binkley                                                                                                                            Forest Ecology and Management 405 (2017) 271–283
+
+
+
+
+Fig. 6. Leaf area and stem production showed strong interactions across sites at 24 months of age, as illustrated by clones A1 and C3 at 3 sites. Leaf area of Clone A1 varied little across
+sites (upper), even though stem production diﬀered substantially. The leaf area of Clone C3 changed more strongly across sites, in concert with stem production (bottom).
+
+
+
+
+                                                                                            279
+D. Binkley                                                                                                                           Forest Ecology and Management 405 (2017) 271–283
+
+                                                                                                                                        Fig. 7. The stem production varied by more than
+                                                                                                                                        50% among clones within sites, for both Tropical
+                                                                                                                                        and Subtropical regions (each circle represents
+                                                                                                                                        one clone in each site). The average production
+                                                                                                                                        varied by about 5-fold across Tropical sites, in
+                                                                                                                                        contrast to a 2-fold range among Subtropical sites.
+                                                                                                                                        Sites are sorted by decreasing productivity.
+
+
+
+
+Fig. 8. The performance of each clone varied by 2- to 6-fold across sites. Among the Tropical clones, more productive clones tended to show greater responsiveness to site conditions, but
+this trend was not apparent in the Subtropical clones (perhaps owing to less environmental variation). Four clones were planted across sites in both regions, with similar growth patterns
+between regions.
+
+
+
+                                                                                                                             Fig. 9. Some clones, such as A1, were among the top per-
+                                                                                                                             formers across a broad range of sites, whereas others were
+                                                                                                                             top performers only in a few sites. Clones (from top to
+                                                                                                                             bottom) and sites (from left to right) are sorted by increasing
+                                                                                                                             productivity.
+
+
+
+
+                                                                                           280
+D. Binkley                                                                                                                             Forest Ecology and Management 405 (2017) 271–283
+
+
+
+
+Fig. 10. The average stemwood production of all clones across all sites increased linearly with precipitation and decreasing temperature (A, r2 = 0.37). Not all clones grew well at all
+sites, and the response surface for the three fastest-growing clones at each site (B, r2 = 0.41) averaged about 3–8 m3 ha−1 yr−1 (greater diﬀerences for wetter and hotter sites) more than
+the average of all clones. The responses of individual clones was curvilinear; the clone with the highest average growth for tropical sites was especially sensitive to temperature (C, Clone
+D4 B2, r2 = 0.70), whereas the best plastic clone showed a broad optimum for both temperature and precipitation. (D, Clone A1, r2 = 0.29).
+
+
+
+
+sensitivity to environmental factors, which is fundamental for selection                          appear to have strong potential to lower Eucalyptus production, espe-
+of clones for operational planting, and parameterizing process-based                              cially for dryer landscapes. These tentative conclusions may be revised
+models.                                                                                           after results are available for the full rotation and the within-site water
+    Finally, these results have value for understanding how the future                            removal treatments. A full evaluation of the herbivory associated with
+supply of wood from intensively managed plantations of Eucalyptus                                 exotic pests and diseases will also be important. The breadth of avail-
+would likely shift in response to changing management and climate. For                            able genes and genotypes in future breeding programs may also shift
+example, changes in land value for growing Eucalyptus and other po-                               this balance between the sensitivity of intensively managed plantations
+tential crops may shift the geography of land available for Eucalyptus                            of Eucalyptus to temperature and precipitation.
+silviculture. The TECHS Project results indicate that a shift to slightly
+warmer sites might lead to as great a reduction in growth as a shift to                           Acknowledgements
+slightly drier sites. Changes in future climates within sites may alter
+both temperature and precipitation, and again changes in temperature                                  The TECHS Project depended on the contributions of more than 150
+
+
+
+
+                                                                                            281
+D. Binkley                                                                                                                     Forest Ecology and Management 405 (2017) 271–283
+
+                                                                                                                        Fig. 11. The production of individual trees declined with
+                                                                                                                        increasing density of trees per hectare, when examined as
+                                                                                                                        clones across sites (A), and averages of all clones within
+                                                                                                                        sites (B). Extrapolation to a plot level showed that faster
+                                                                                                                        growing clones showed a stronger increase in relation to
+                                                                                                                        density (steeper slopes in C). Plot-level extrapolation of
+                                                                                                                        production across all clones generally showed increasing
+                                                                                                                        production with density, with stronger responses for sub-
+                                                                                                                        tropical sites (D).
+
+
+
+
+                                                                                                 people from 26 companies, and we thank them all for their contribu-
+                                                                                                 tions to the Project. The project was funded by the following 26 com-
+                                                                                                 panies, with a main researcher: Anglo American (Andre Machado),
+                                                                                                 Arauco (Rodrigo Coutinho), Arborgen (Gabriela Bassa), ArcelorMittal
+                                                                                                 (Roosevelt Almado), Cenibra (Fernando Leite), CMPC (Elias Araujo),
+                                                                                                 Comigo (Ubirajara Oliveira), Copener (jacyr Alves), Duratex (Raul
+                                                                                                 Chaves), Eldorado (Vinicius Silva), Fazenda Campo Bom (Jacqueline
+                                                                                                 Pirez), Fibria (Rodolfo Loos), Florestal Itaquari (Admir Mora), Forestal
+                                                                                                 Oriental (Ricardo Methol), Gerdau (Francisco Gomes), GMR (Paulo
+                                                                                                 Leite), International Paper (Cristiane Lemos), Jari (Katia Silva), Klabin
+                                                                                                 (James Stahl), Lwarcel (Marcela Capoani), Montes del Plata (Alejandro
+                                                                                                 Gonzalez), Plantar (David Fernandes), Rigesa (Ricardo Paim), Suzano
+                                                                                                 (Luiz Fabiano), Vallourec (Helder Andrade) and Veracel (Helton
+                                                                                                 Lourenço). Fundamental assistance was provided for many aspects of
+                                                                                                 the project by Luiz Barrichelo, Dario Grattaplagia, Mike Ryan, Eduardo
+                                                                                                 Mattos, Robert Hubbard, Rodrigo Hakamada, Aurelio Aguiar, Leandro
+Fig. 12. The pattern of stemwood production with precipitation was similar to the pat-           de Siqueira, Gleison dos Santos and João Flavio Silva. The project also
+tern across a geographic gradient of 14 sites in northern Bahia (Stape et al., 2004) and         received support from these universities and institutes: University of
+across hundreds of inventory plots in southern Bahia, eastern Minas Gerais, and northern         Sao Paulo - Brazil, Sao Paulo State University – Brazil, Federal
+Esprito Santo (J.L. Stape, unpublished data). The TECHS lines are for the year of peak
+                                                                                                 University of Lavras – Brazil, Federal University of Rio Grande do Norte
+production of the rotation, and the others are lower because they are mean annual pro-
+duction for the entire rotation.
+                                                                                                 – Brazil, Colorado State University – USA, North Carolina State
+                                                                                                 University – USA, USDA Forest Service, CNPq – Brazil and Fapesp –
+                                                                                                 Brazil.
+
+
+
+
+                                                                                           282
+D. Binkley                                                                                                                                 Forest Ecology and Management 405 (2017) 271–283
+
+
+References                                                                                                Cruz, J.P., Leite, H.G., 2017. GIS-based approach applied to optimizing re-
+                                                                                                          commendations of Eucalyptus genotypes. For. Ecol. Manage. 392, 144–153.
+                                                                                                     Mattos EM (2015) Seasonal characterization of wood growth, canopy structure and light
+Almeida, A.C., Siggins, A., Batista, T.R., Fonseca, S., Loos, R., 2010. Mapping the eﬀect of              use eﬃciency in Eucalyptus clones. MSc Dissertation, University of Sao Paulo,
+    spatial and temporal variation in climate and soils on Eucalyptus plantation produc-                  Piracicaba, 128 pp. 10.11606/D.11.2015.tde-20102015-164358.
+    tion with 3-PG, a process-based growth model. For. Ecol. Manage. 259, 1730–1740.                 Norman, J.M., Jarvis, P.G., 1975. Photosynthesis in Sitka spruce (Picea Sitchensis (Bong)
+Alvares, C.A., Stape, J.L., Sentelhas, P.C., Gonçalves, J.L.M., 2013a. Modeling monthly                   Carr.). Radiation penetration and a test case. J. Appl. Ecol. 12, 839–878.
+    mean air temperature for Brazil. Theoret. Appl. Climatol. 113, 407–427.                          Payn, T., Carnus, J.-M., Freer-Smith, P., Kimberley, M., Kollert, W., Liu, S., Orazio, C.,
+Alvares, C.A., Stape, J.L., Sentelhas, P.C., Gonçalves, J.L.M., 2013b. Köppen's climate                   Rodriguez, L., Silva, L.N., Wingﬁeld, M.J., 2015. Changes in planted forests and fu-
+    classiﬁcation map for Brazil. Meteorol. Z. 22, 711–728.                                               ture global implications. For. Ecol. Manage. 352, 57–67.
+Aspinwall, M.J., Drake, J.E., Campany, C., Vårhammar, A., Ghannoum, O., Tissue, D.T.,                Core Team, R., 2014. R: A language and environment for statistical computing. R
+    Reich, P.B., Tjoelker, M.G., 2016. Convergent acclimation of leaf photosynthesis and                  Foundation for Statistical Computing, Vienna, Austria http://www.R-project.org/.
+    respiration to prevailing ambient temperatures under current and warmer climates in              Resende, M.D.V., Resende, M.F.R., Sansaloni, C.P., Petroli, C.D., Missiaggia, A.A., Aguiar,
+    Eucalyptus tereticornis. New Phytol. 212, 354–367.                                                    A.M., Abad, J.M., Takahashi, E.K., Rosado, A.M., Faria, D.A., Pappas, G.J., Kilian, A.,
+Beer, C., Reichstein, M., Tomelleri, E., Ciais, P., Jung, M., Carvalhais, N., Rödenbeck, C.,              Grattapaglia, D., 2012. Genomic selection for growth and wood quality in Eucalyptus :
+    Arain, M.A., Baldocchi, D., Bonan, G.B., Bondeau, A., Cescatti, A., Lasslop, G.,                      capturing the missing heritability and accelerating breeding for complex traits in
+    Lindroth, A., Lomas, M., Luyssaert, S., Margolis, H., Oleson, K.W., Roupsard, O.,                     forest trees. New Phytol. 194, 116–128.
+    Veenendaal, E., Viovy, N., Williams, C., Woodward, I., Papale, D., 2010. Terrestrial             Roy, J., Saugier, B., Mooney, H.A., 2001. Terrestrial Global Productivity. Academic Press,
+    gross carbon dioxide uptake: global distribution and covariation with climate.                        San Diego.
+    Science 329, 824–837.                                                                            Ryan, M.G., Stape, J.L., Binkley, D., Fonseca, S., Loos, R., Takahashi, E.N., Silva, C.R.,
+Binkley, D., Ryan, M.G., Stape, J.L., Barnard, H., Fownes, J., 2002. Age-related decline in               Silva, S., Hakamada, R., Ferreira, J.M., Lima, A.M., Gava, J.L., Leita, F.P., Silva, G.,
+    forest ecosystem growth: an individual-tree, stand-structure hypothesis. Ecosystems                   Andrade, H., Alves, J.M., 2010. Factors controlling Eucalyptus productivity: How
+    5, 58–67.                                                                                             resource availability and stand structure alter production and carbon allocation. For.
+Blackman, C.J., Aspinwall, M.J., Tissue, D.T., Rymer, P.D., 2017. Genetic adaptation and                  Ecol. Manage. 259, 1695–1703.
+    phenotypic plasticity contribute to greater leaf hydraulic tolerance in response to              Schumacher, F.X., Hall, F.S., 1933. Logarithmic expression of timber volume. J. Agric.
+    drought in warmer climates. Tree Physiol. 37, 83–592.                                                 Res. 47, 719–734.
+Campbell, G.S., 1986. Extinction coeﬃcients for radiation in plant canopies calculated               Scolforo, H.F., Scolforo, J.R.S., Stape, J.L., McTague, J.P., Burkhart, H., McCarter, J.,
+    using an ellipsoidal inclination angle distribution. Agric. For. Meteorol. 36, 317–321.               Neto, Fd.C., Loos, R.A., Sartorio, R.C., 2017. Incorporating rainfall data to better plan
+Christina, M., Le Maire, G., Battie-Laclau, P., Nouvellon, Y., Bouillet, J.-P., Jourdan, C.,              Eucalyptus clones deployment in eastern Brazil. For. Ecol. Manage. 391, 145–153.
+    Gonçalves, J.L.M., Laclau, J.P., 2015. Measured and modeled interactive eﬀects of                Silva-Junior, O.B., Faria, D.A., Grattapaglia, D., 2015. A ﬂexible multi-species genome-
+    potassium deﬁciency and water deﬁcit on gross primary productivity and light-use                      wide 60 K SNP chip developed from pooled resequencing of 240 Eucalyptus tree
+    eﬃciency in Eucalyptus grandis plantations. Glob. Change Biol. http://dx.doi.org/10.                  genomes across 12 species. New Phytol. 206, 1527–1540.
+    1111/gcb.12817.                                                                                  Soil Survey Staﬀ, 1999. Soil Taxonomy: A Basic System of Soil Classiﬁcation for Making
+EMBRAPA, 1997. Manual de Métodos de Análise de Solo. Rio de Janeiro, Brazil,                              and Interpreting Soil Surveys. United States Department of Agriculture, Natural
+    EMBRAPA, pp. 212.                                                                                     Resources Conservation Service, Agriculture Handbook Number 436. Washington,
+Faria, D.A.F., Mamani, E.M.C., Pappas Jr, G.J., Grattapaglia, D., 2011. Genotyping sys-                   DC. 886p.
+    tems for Eucalyptus based on tetra-, penta-, and hexanucleotide repeat EST micro-                Stape, J.L., Binkley, D., Ryan, M.G., 2004. Eucalyptus production and the supply, use and
+    satellites and their use for individual ﬁngerprinting and assignment tests. Tree Genet.               the eﬃciency of use of water, light and nitrogen across a geographic gradient in
+    Genom. 7, 63–77.                                                                                      Brazil. For. Ecol. Manage. 193, 17–31.
+Flores, T.B., Alvares, C.A., Souza, V.C., Stape, J.L., 2016. Eucalyptus no Brasil: zonea-            Stape, J.L., Binkley, D., Ryan, M.G., 2008. Production and carbon allocation in a clonal
+    mento climático e guia para identiﬁcação. IPEF, Piracicaba, pp. 448p.                                 Eucalyptus plantation with water and nutrient manipulations. For. Ecol. Manage. 255,
+Gonçalves, J.L.M., Alvares, C.A., Higa, A.R., Silva, L.D., Alfenas, A.C., Stahl, J., Ferraz,              920–930.
+    S.F.B., Lima, W.P., Brancalion, P.H.S., Hubner, A., Bouillet, J.P., Laclau, J.-P.,               Stape, J.L., Binkley, D., Ryan, M.G., Fonseca, S., Loos, R., Takahashi, E.N., Silva, C.R.,
+    Nouvellon, Y., Epron, D., 2013. Integrating genetic and silvicultural strategies to                   Silva, S., Hakamada, R., Ferreira, J.M., Lima, A.M., Gava, J.L., Leite, F.P., Silva, G.,
+    minimize abiotic and biotic constraints in Brazilian eucalypt plantations. For. Ecol.                 Andrade, H., Alves, J.M., 2010. The Brazil Eucalyptus Potential Productivity Project:
+    Manage. 301, 6–27.                                                                                    inﬂuence of water, nutrients and stand uniformity on wood production. For. Ecol.
+Hakamada, R,, Hubbard, R.M., Ferraz, S., Stape, J.L., Lemos, C., 2017. Biomass produc-                    Manage. 259, 1686–1694.
+    tion and potential water stress increase with planting density in four highly pro-               Sutton, W.R.J., 2014. Save the forests: use more wood. In: Fenning, T. (Eds.), Challenges
+    ductive clonal Eucalyptus genotypes. South. For.: J. For. Sci. 10.2989/20702620.                      and opportunities for the world’s forests in the 21st century,, Springer, New York. 10.
+    2016.1256041.                                                                                         1007/978-94-007-7076-8_9.
+Hubbard, R., Stape, J.L., Ryan, M.G., Almeida, A.C., Rojas, J., 2010. Eﬀects of irrigation           Thornthwaite, C.W., Mather, J.R., 1957. Instructions and tables for computing potential
+    on water use and water use eﬃciency in two fast growing Eucalyptus plantations. For.                  evapotranspiration and the water balance. Publication in Climatology 10(3), Drexel
+    Ecol. Manage. 259, 1714–1721.                                                                         Institute of Technology, Laboratory of Climatology, Centerton, N.J.
+IBA, 2015. Brazilian Tree Industry Annual Report. Indústria Brasileira de Árvores Brasília.          van Raij, B., Andrade, J.C., Cantarella, H., Quaggio, J.A., 2001. Análise química para
+INDUFOR, 2012. Strategic review on the future of forest plantations, report prepared for                  avaliação da fertilidade de solos tropicais. Instituto Agronômico de Campinas,
+    the Forest Stewardship Council (A12-06869 ID 11914) INDUFOR, Helsinki, Finland.                       Campinas, pp. 285.
+    < https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&                               Wang, W.M., Li, Z.L., Su, H.B., 2007. Comparison of leaf angle distribution functions:
+    ved=0ahUKEwiBxJPH5YbWAhVLxlQKHRtoBRAQFggoMAA&url=http%3A%2F                                           Eﬀects on extinction coeﬃcient and fraction of sunlit foliage. Agric. For. Meteorol.
+    %2Fwww.fao.org%2Fforestry%2F42701-090e8a9fd4969cb334b2ae7957d7b1505.                                  143, 106–122.
+    pdf&usg=AFQjCNGLx6aubRsbwLjgCO1i9aZ4pqF1nw > .                                                   Whiteman, A., 2014. Global trends and outlook for forest resources. In: Fenning, T. (Ed.),
+Laclau, J.P., 2016. Sustainable biomass production in eucalypt plantations under climate                  Challenges and opportunities for the world’s forests in the 21st century, Springer,
+    changes: insights from a throughfall exclusion experiment. In: IUFRO Regional                         New York. 10.1007/978-94-007-7076-8_8.
+    Congress for Asia and Oceania 2016: Forests for sustainable development the role of              Willmott, C.J., Matsuura, K., 2005. Advantages of the mean absolute error (MAE) over the
+    research. IUFRO. Beijing, IUFRO, p. 42.                                                               root mean square error (RMSE) in assessing average model performances. Clim. Res.
+Lieth, H., Whittaker, R.H. (Eds.), 1975. Primary Productivity of the Biosphere. Springer-                 30, 79–82.
+    Verlag, New York.                                                                                Wingﬁeld, M.J., Roux, J., Slippers, B., Hurley, B.P., Garnas, J., Myburg, A.A., Wingﬁeld,
+Mahecha, M.D., Reichstein, M., Carvalhais, N., Lasslop, G., Lange, H., Seneviratne, S.I.,                 B.D., 2013. Established and new technologies reduce increasing pest and pathogen
+    Vargas, R., Ammann, C., Arain, M.A., Cescatti, A., 2010. Global convergence in the                    threats to Eucalypt plantations. For. Ecol. Manage. 301, 35–42.
+    temperature sensitivity of respiration at ecosystem level. Science 329, 838–842.
+Marcatti, G.E., Resende, R.T., Resende, M.D.V., Ribeiro, C.A.A.S., dos Santos, A.R., da
+
+
+
+
+                                                                                               283
+

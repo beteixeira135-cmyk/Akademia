@@ -1,0 +1,560 @@
+                                                               Forest Ecology and Management 475 (2020) 118445
+
+
+                                                                    Contents lists available at ScienceDirect
+
+
+                                                         Forest Ecology and Management
+                                                       journal homepage: www.elsevier.com/locate/foreco
+
+
+
+
+Climate and genotype inﬂuences on carbon ﬂuxes and partitioning in                                                                                         T
+Eucalyptus plantations
+                                   ⁎
+Otávio C. Campoea,b, , Clayton A. Alvaresb, Rafaela L. Carneiroc, Dan Binkleyd,
+Michael G. Ryane,f, Robert M. Hubbardf, James Stahlg, Gabriela Moreirah, Luiz Fabiano Moraesi,
+José Luiz Stapeb
+a
+  Department of Forest Sciences, Federal University of Lavras (UFLA), Lavras, MG 37200, Brazil
+b
+  Department of Forest, Soils and Environmental Sciences, São Paulo State University (UNESP), Botucatu, SP 18600, Brazil
+c
+  Forestry Science and Research Institute (IPEF), Piracicaba, SP 13400, Brazil
+d
+  School of Forestry, Northern Arizona University, Flagstaﬀ, AZ 86011, USA
+e
+  Natural Resource Ecology Laboratory, Colorado State University, Fort Collins, CO 80523-1499, USA
+f
+  USDA Forest Service, Rocky Mountain Research Station, Fort Collins, CO 80526, USA
+g
+  Klabin, Telêmaco Borba, PR 84261, Brazil
+h
+  International Paper, Mogi Guaçu, SP 13800, Brazil
+i
+  Suzano, Imperatriz, MA 65900, Brazil
+
+
+
+
+A R T I C LE I N FO                                        A B S T R A C T
+
+Keywords:                                                  Clonal plantations of Eucalyptus are among the most productive forests in the world, with intensiﬁcation of
+Zoning                                                     silviculture and genetic breeding doubling the wood mean annual increments over the past four decades. The
+Drought tolerant                                           TECHS Project demonstrated that even with intensive silviculture, wood production varies by more than two-
+Clonal plantation                                          fold across environmental gradients, and growth of highly selected clones diﬀers by more than two-fold within a
+Belowground allocation
+                                                           site. Wood production accounts for less than half of the photosynthesis of a forest, and we tested two hypotheses
+Wood productivity
+Genotypes
+                                                           about the relation between wood production and the entire carbon balance for ﬁve genotypes across four of the
+                                                           TECHS sites, varying in temperature and water availability. We hypothesized that the inﬂuence of the en-
+                                                           vironment on carbon ﬂuxes and partitioning related to gross primary production would be consistent across
+                                                           genotypes. We also hypothesized that carbon ﬂux and partitioning would be more sensitive to water stress than
+                                                           temperature. Annual average temperatures ranged from 18 to 27 °C, and annual rainfall ranged from about 600
+                                                           to 1500 mm yr−1. Water stress was further tested by reduction in rainfall within sites using troughs to capture
+                                                           about 30% of incoming rain. The geographic gradient led to a six-fold range in wood net primary production
+                                                           during the two years of measurement (from age 1.5 to 3.5 years, the period of maximum current annual in-
+                                                           crement). Gross primary production (GPP) diﬀered only by two-fold, highlighting very large diﬀerences among
+                                                           sites in partitioning: wood net primary production (NPP) accounted for 44% of GPP on sites with higher GPP,
+                                                           and only 34% of GPP on lower GPP sites. The average diﬀerences for wood NPP among clones was also large,
+                                                           with about half of the diﬀerences among clones relating to diﬀerences in GPP, and half to diﬀerences in the
+                                                           partitioning to wood NPP. The clones showed similar partitioning patterns across sites, supporting our ﬁrst
+                                                           hypothesis. Diﬀerences across sites and clones in partitioning of GPP to wood NPP related inversely to below-
+                                                           ground allocation. Belowground partitioning of carbon increased with increasing temperature and increasing
+                                                           water stress. Our second hypothesis was rejected, as patterns across sites related somewhat more strongly to
+                                                           temperature than to water stress. Overall, this ecophysiological investigation in the TECHS Project underscored
+                                                           the importance of understanding how carbon budgets diﬀer across sites (even with intensive silviculture), and
+                                                           why clones can largely diﬀer in wood production.
+
+
+
+
+1. Introduction                                                                                 substantially in the past ﬁfty years. Commercial plantations became
+                                                                                                widespread in the 1960s, and collaborative research and development
+        The productivity of forest plantations in Brazil has increased                          between universities and companies led to a 4-fold increase in growth
+
+
+    ⁎
+        Corresponding author.
+        E-mail address: otavio.campoe@uﬂa.br (O.C. Campoe).
+
+https://doi.org/10.1016/j.foreco.2020.118445
+Received 15 May 2020; Received in revised form 15 July 2020; Accepted 16 July 2020
+0378-1127/ © 2020 Elsevier B.V. All rights reserved.
+O.C. Campoe, et al.                                                                                                     Forest Ecology and Management 475 (2020) 118445
+
+
+
+
+Fig. 1. Spatial distribution of the TECHS project sites and the study sites location (white circles with alphanumeric coding, T for tropical, S for subtropical and the
+South latitude) across the Brazilian climatic gradient (left). Rainfall, annual temperature and water deﬁcit for all the sites, highlighting the study sites (right).
+
+
+rates across several rotations. Brazilian Eucalyptus plantations are                  of productivity of a E. grandis plantation. Responses in carbon ﬂuxes
+among the most productive forest ecosystems in the world (Binkley                     and partitioning to increasing stresses might also vary across genotypes,
+et al., 2017; Stape et al., 2010), and high levels of productivity depend             and changing levels of stress within sites may not show the same pat-
+on investments in genetic selection, soil preparation, fertilization,                 tern that develops across geographic gradients of stress (Sala et al.,
+protection (pests and diseases) and control of competing vegetation (da               2012).
+Silva et al., 2019; Da Silva et al., 2019; Gonçalves et al., 2013).                       Brazilian forestry companies have a large number of site-speciﬁc
+    The high rates of increase in Eucalyptus productivity in recent dec-              Eucalyptus clones that respond with high levels of productivity when
+ades has declined, with little additional gain in the past decade (Binkley            planted in climatic regions where they were developed (Binkley et al.,
+et al., 2017). One factor that limits further gains in productivity is the            2020; Gonçalves et al., 2017). However, the ability to recommend
+expansion of Eucalyptus plantations into regions in central, northern,                genotypes with higher tolerance to regions with soil water deﬁcit or
+and northeastern areas of Brazil, where high temperatures and droughts                high temperature is limited, and currently based on empirical methods.
+constrain growth. These new regions mainly show levels of abiotic and                 This limitation results from the restricted knowledge about the re-
+biotic stresses that limit growth to about two-thirds the levels found in             sponses of diﬀerent clones when planted in climatic regions diﬀerent
+more productive areas (about 40 m3 ha−1 year−1 compared with 60 m3                    from where they were developed. To move from the empirical to the
+ha−1 year−1, Elli et al., 2020a; Gonçalves et al., 2017).                             process-based production methods, it is necessary to advance the
+    Gains in productivity on stressful sites will depend on expanding                 knowledge of genotype × environment interactions. With the expan-
+knowledge on the biotic and abiotic factors limiting growth, including                sion of forest plantations in Brazil to warmer and drier regions, it is
+the range of factors inﬂuencing production ecology: canopy structure,                 critical to understand the processes responsible for the tolerance pro-
+leaf area, and light interception (de Mattos et al., 2020), water supply              cesses of clones when planted in climatically diﬀerent regions. The
+and tree transpiration (Hakamada et al., 2020, Hubbard et al., 2020),                 TECHS project was a pioneer in exploring this topic using a consistent
+and the distribution of ﬁne roots deep into the soil (Christina et al.,               experimental design, replicating the exact same clones across a wide
+2011; Evangelista Silva et al., 2020; Lambais et al., 2017; Pinheiro                  range of sites (Binkley et al., 2020).
+et al., 2016). One of the most important production ecology factors in                    The TECHS experimental platform enabled evaluation of the eﬀect
+stressful sites might be the belowground allocation of photosynthates,                of resource gradients (within and across sites) on the carbon ﬂuxes and
+as lower rates of stem growth might result from lower total gross pri-                partitioning for a group of operationally used clones of Eucalytpus. We
+mary productivity, or from diﬀerences in partitioning of photosynthates               measured and calculated (aboveground respiration) all of the compo-
+to belowground or both (Litton et al., 2007; Stape et al., 2008).                     nents of ecosystem carbon budgets for ﬁve of the TECHS clones across
+    Partitioning to belowground components (coarse and ﬁne roots, and                 four of the sites with diﬀerent climates to test two hypotheses:
+mycorrhizae) tends to increase on stressful sites though actual ﬂux (g
+m−2 yr−1) may not increase (Litton and Giardina, 2008). This trend has                1) the inﬂuence of climate on carbon ﬂux and partitioning will be
+been veriﬁed experimentally for Eucalyptus plantations by reducing                       consistent across genotypes (the genotype by environment interac-
+stresses within sites through fertilization (Epron et al., 2012; Ryan                    tion will be small), and
+et al., 2004) and irrigation (Stape et al., 2008), and also in mixed-                 2) water stress will inﬂuence carbon ﬂux and partitioning more than
+species plantations with Eucalyptus and Acacia species (Epron et al.,                    temperature.
+2013; Forrester et al., 2006). Ryan et al. (2010) showed increase in
+wood production but no eﬀect on partitioning belowground across four
+sites planted with diﬀerent Eucalyptus clones. Campoe et al. (2012) also
+found no relation between gross primary productivity and partitioning
+belowground, despite the increase in wood production across a gradient
+
+
+                                                                                  2
+O.C. Campoe, et al.                                                                                                  Forest Ecology and Management 475 (2020) 118445
+
+
+Table 1
+Main climatic variables of the experimental sites. The sites were coded based on their climatic type (T = Tropical and S = Subtropical) and latitude (from 3°S to
+24°S). See Binkley et al. (2020, 2017) for more details related to soil and climate of the sites.
+  Site                TECHS                Latitude            Longitude            Altitude           Temperature              Rainfall             Water deﬁcit
+                      reference code       S                   W                    m                  °C                       mm yr−1              mm yr−1
+
+  T.03                29                   3.44                43.07                81                 27.3                     1461                 578
+  T.17                30                   17.32               43.77                848                23.3                     713                  544
+  S.22                20                   22.35               46.97                633                22.1                     1097                 145
+  S.24                22                   24.23               50.53                888                19.6                     1492                 5
+
+
+
+2. Methods                                                                             Dry mass equations for above (stem, bark and branch summed) and
+                                                                                   belowground components (coarse roots) were ﬁtted using the linearized
+2.1. Experimental sites and genotypes                                              model of Schumacher and Hall in R (R Development Core Team, 2017),
+                                                                                   as follows: ln(DM) = β0 + β1 × ln(DBH) + β2 × ln(H), where DM is
+    The study was developed using four climatically contrasting sites of           dry mass, DBH is the diameter at breast height (cm), H is the total tree
+the Tolerance of Eucalyptus Clones to Hydric, Thermal and Biotic                   height (m); and β0, β1 and β2 are regression coeﬃcients.
+Stresses (TECHS) cooperative research program (Binkley et al., 2017,                   The decision to use clone- and site-speciﬁc equations was based on
+2020, Fig. 1), spanning a gradient of 800 mm in annual precipitation,              the need to capture the potential diﬀerent behavior of carbon ﬂuxes and
+550 mm in soil water deﬁcit and 7 °C in average annual air temperature             partitioning of each clone at each site. Based on climatic similarity, the
+(Table 1). Across the sites, temperature and water deﬁcit decrease as              equation developed for coarse roots for site T.17 was used for T.03, and
+latitude increased (R2 = 0.69, p < 0.0001). The hottest and driest site            the equation for site S.24 was used on S.22. All equations showed p-
+was located at Urbano Santos-MA, a tropical region at latitude 3°S                 values < 0.01 and R2 ranged from 0.91 to 0.99. Foliage dry mass was
+(T.03), followed by another tropical site at latitude 17°S located at              calculated based on leaf area index measurements and speciﬁc leaf area
+Bocaiúva-MG (T.17). An intermediate site was located at Mogi-Guaçu-                of each clone at each site. Methodological details are further described
+SP, on a transition region between tropical and subtropical climate                in de Mattos et al. (2020).
+(22°S, site S.22), with moderate temperature and water deﬁcit. The
+coldest and wettest site was located at Telêmaco Borba-PR in a sub-                2.3. Carbon ﬂuxes and partitioning
+tropical climate (24°S, site S.24). This geographic gradient represents
+important regions of the Brazilian forestry sector where most of Eu-                   Carbon ﬂuxes were measured for 2 years (October 2013 to October
+calyptus plantations occur (Gonçalves et al., 2017).                               2015) during the phase of maximum growth in the rotations (~1.5 to
+    Meteorological information was collected with weather stations                 3.5 years old, Binkley et al., 2020). All dry mass increments and lit-
+near each experimental site. Missing data due to malfunctioning of the             terfall were converted into carbon (C) using C concentrations
+sensors was gap-ﬁlled with diﬀerent alternative sources following the              (0.452 g g−1 for coarse roots and stem, 0.424 g g−1 for bark,
+methodology described by Elli et al. (2019).                                       0.453 g g−1 for branches, and 0.507 g g−1 for leaves, Campoe et al.,
+    Five clones were chosen to represent highly productive genotypes               2012), and expressed in g of C m−2 year−1.
+and drought tolerant genotypes. Clone A1 (Eucalyptus urophylla) is the                 Total belowground carbon ﬂux (TBCF) was estimated by mass bal-
+most widely planted clone in Brazil, and A1, B2 (E. urophylla × E.                 ance as described in Giardina and Ryan (2002) and Ryan et al. (2010).
+grandis) and K2 (E. saligna) have high rates of growth under favorable             TBCF is estimated based on measurements of soil CO2 eﬄux, above-
+environmental conditions. Clones C3 (E. grandis × E. camaldulensis) and            ground litterfall (foliage, branches, bark, ﬂowers and fruits), root dry
+P7 (E. urophylla. × E. brassiana) are known to be drought tolerant                 mass increment, O horizon mass change, and decomposition of stumps
+(Gonçalves et al., 2017).                                                          from the previous rotation. Variation in soil C and losses of C through
+    Clones were planted at all sites in single plots of 0.2 ha with                leaching or erosion were considered negligible relatively to TBCF
+3 × 3 m spacing (1111 trees ha−1). Plots were split, with rainfall re-             (Giardina and Ryan, 2002) and not included. The TBCF (g C m−2
+duced by about 30% with under-canopy troughs. Planting technique                   year−1) was calculated as:
+followed minimum cultivation methods (Gonçalves et al., 2013), and all
+plots were fertilized intensively during the ﬁrst year (70 kg N ha−1,                  TBCF = (Soil C eﬄux) – (Aboveground litterfall mass) + (change in
+45 kg P ha−1, 85 kg K ha−1, 500 kg Ca ha−1, 90 kg Mg ha−1, 40 kg S                     O horizon mass) + (change in coarse root mass) + (change in mi-
+ha−1, 3 kg B ha−1, 1 kg Cu ha−1, and 1 kg Zn ha−1) to alleviate any                    neral soil)
+nutrient limitation. Herbicide was used to eliminate competing vege-
+tation prior to site preparation until canopy closure (~18 months). Leaf               Soil C eﬄux was measured monthly over the study period on PVC
+cutting ants (Atta sp. and Acromyrmex sp.) were controlled using sul-              collars (20 cm in diameter) using a LI-8100 device with a LI8100-103
+ﬂuramide-based baits and other occasional pests whenever necessary.                20 cm in diameter chamber (LI-COR, Lincoln, NE, USA). Nine PVC
+                                                                                   collars were installed in each plot distributed in 3 positions considering
+2.2. Dry mass equations                                                            the distance of the trees (near the tree, between tree and middle of the
+                                                                                   row, and between these two distances). The PVC collars were posi-
+    Aboveground dry mass was estimated by harvesting 6 trees for each              tioned close to 9 diﬀerent trees in each plot (3 replicates per position) at
+combination of clone and site (n = 24 trees/clone, total of 114 trees).            least one week before the beginning of the measurements. All the col-
+The destructive sampling was performed in July 2014 at age 2.5 years,              lars were inserted into the mineral soil down to a depth of 6–8 cm to
+and the sampled trees were selected to cover the range of diameter at              ensure stability and to avoid CO2 lateral diﬀusion (Davidson et al.,
+breast height (DBH, 1.3 m above ground level). Cut trees were divided              2002).
+into stem wood, stem bark, branch, and foliage. For belowground                        Litterfall was collected monthly. Foliage, ﬂowers and fruits were
+biomass, the coarse roots (> 10 cm) of 54 trees were fully excavated at            collected using 9 litter-traps per plot (3 positions and 3 replicates),
+sites T.17 and S.24. Each component of each tree was weighed on-site,              following a similar spatial distribution of the PVC collars. Bark and
+and representative samples dried at 65 °C to a constant weight for dry             branches were collected in a ~9 m2 area delimited between 4 trees in
+mass.                                                                              each plot. Samples of each component were dried at 65 °C and weighed.
+
+                                                                               3
+O.C. Campoe, et al.                                                                                                       Forest Ecology and Management 475 (2020) 118445
+
+
+                                                                                          mass using speciﬁc leaf area (SLA), plus foliage litterfall. Methods of
+                                                                                          LAI and SLA measurements are described in de Mattos et al. (2020).
+                                                                                          Aboveground net primary production (ANPP) was estimated annually
+                                                                                          as the sum of WNPP and FNPP.
+                                                                                              Aboveground tree respiration (Rag) was estimated as the combi-
+                                                                                          nation of foliage dark respiration and wood CO2 eﬄux, based on Ryan
+                                                                                          et al. (2009). Foliage dark respiration was calculated based on LAI
+                                                                                          measured on every site at approximately 6-months intervals following
+                                                                                          methods of de Mattos et al. (2020), with linear interpolation between
+                                                                                          LAI measurements, using the equation as follows: Foliage respiration (g
+                                                                                          C m−2 yr−1) = 0.66 × LAI (m2 m−2). Wood C eﬄux was calculated
+                                                                                          based on wood net primary production (WNPP), using the equation as
+                                                                                          follows: Wood C eﬄux (g C m−2 yr−1) = (0.7163 – 0.0579 × Age (in
+                                                                                          years)) × WNPP (g C m−2 yr−1). Respiration equations were devel-
+                                                                                          oped for 20 °C, therefore, temperature corrections were applied based
+                                                                                          on the mean annual temperature of the sites by multiplying respiration
+                                                                                          rates by 1.67 for site T.03, 1.23 for site T.17, 1.12 for site S.22, and 0.94
+                                                                                          for site S.24 (Agren and Axelsson, 1980; Ryan et al., 2009).
+                                                                                              Gross primary production (GPP) was calculated as the sum of ANPP,
+                                                                                          TBCF and Rag. Partitioning was calculated as the ratio between a spe-
+                                                                                          ciﬁc carbon ﬂux (WNPP, ANPP, TCBF and Rag) and GPP.
+
+                                                                                          2.4. Data analysis
+
+                                                                                              Relationships between carbon ﬂuxes and partitioning with GPP and
+                                                                                          climatic variables were evaluated using regressions. The data used to
+                                                                                          generate the regressions showed normality and variance homo-
+Fig. 2. Carbon ﬂuxes for sites (averaging clones) and for clones (averaging               scedasticity. The decision of using a linear or logarithmic relation was
+sites). Partitioning (%) is numerically presented on the side of each bar. Rainfall       based on lower Akaike Information Criterion (AIC). The coeﬃcients of
+reduction treatment was not signiﬁcant for ﬂuxes and partitioning (p > 0.05).             determination (R2) and probability value (p-value) were used to assess
+Sites are ordered from most subtropical to most tropical, and Clones are ordered
+                                                                                          the strength of the relationships. The probability level used to de-
+from the highest to the lowest GPP. TBCF = total belowground carbon ﬂux,
+                                                                                          termine signiﬁcance was p ≤ 0.05. All analyses were performed in R (R
+WNPP = wood net primary production, FNPP = foliage net primary produc-
+                                                                                          Development Core Team, 2017).
+tion, Rag = aboveground autotrophic respiration.
+
+                                                                                          3. Results
+    Dry mass of the O horizon was quantiﬁed at the beginning and the
+end of the ﬁrst and second year of the study period, using a 0.28 m2                          Across the geographic gradient in climate, wood production
+steel frame. The O horizon was sampled on 3 replicates of 3 positions                     (WNPP) ranged from 380 to 2260 g C m−2 year−1. This 6-fold range in
+per plot (2.54 m2 per plot), following the same spatial distribution as                   wood production resulted from only a 2-fold range in gross primary
+the PVC collars. Samples were dried at 65 °C until constant weight,                       production (GPP, from 2660 to 6580 g C m−2 year−1). The diﬀerent
+separated into leaf, branch, bark and miscellaneous (ﬂower, fruit and                     magnitudes of ranges resulted from diﬀerences in partitioning to wood:
+unidentiﬁed organic material) and weighed. Ash content analysis was                       0.14 on low GPP sites and up to 0.34 on high GPP sites (Fig. 2).
+performed on sub-samples, and used to correct for mineral soil con-                           The variation of WNPP from 550 to 1660 g C m−2 year−1 resulted
+tamination.                                                                               from roughly equal contributions of diﬀerences in GPP (~60%) and
+    Changes in coarse root biomass (considering only roots > 1 cm in                      diﬀerences in partitioning to wood (~80%), though these patterns
+diameter) were estimated using the dry mass equations described pre-                      diﬀered somewhat among clones. The most productive clone (B2)
+viously. The estimation of the carbon ﬂux associated with the decom-                      ranged from 3100 to 8200 g C m−2 year−1 in GPP, with partitioning to
+position of stumps from previous rotations (from 600 to 1100 stumps                       wood ranging from 0.19 to 0.36. The least productive clone (P7) ranged
+ha−1 on average) was based on stump circumference measurements                            from 2630 to 4400 g C m−2 year−1 in GPP, with partitioning to wood
+and dry mass equations developed by Campoe et al. (2012).                                 ranging from 0.11 to 0.26.
+    Total mineral soil carbon was calculated using the ﬁxed depth                             The ﬂux of carbon belowground (TBCF) diﬀered more across sites
+method from samples collected at 0–20, 20–40 and 40–60 cm layers, at                      (~80%) than across clones (~20%). Partitioning belowground also
+the beginning and at the end of the measurements (ages 1.5 and                            showed the same pattern ranging ~40% across sites, and ~20% across
+3.5 years). Soil bulk density was measured on samples collected using                     clones.
+100 cm3 steel cylinders following a similar spatial distribution of the                       All carbon ﬂuxes signiﬁcantly increased with increasing GPP across
+PVC collars. Soil C content was measured from samples collected with                      the range of sites for all clones, however, the rate of increase was dif-
+an auger. Soil C contents were converted to an area basis by multiplying                  ferent for diﬀerent components (Fig. 3). With increases in GPP, WNPP
+concentrations by average bulk density and sampling depth and sum-                        increased about twice as fast as TBCF, reﬂecting the shifting parti-
+ming the three depths.                                                                    tioning toward wood on more productive sites. The consistent responses
+    Wood net primary production (WNPP) was assessed as the sum of                         among clones across the climate gradient showed minor genotypes by
+bole increment, branch and bark litterfall. Bole increment was calcu-                     environments interaction, supporting the ﬁrst hypothesis.
+lated by measuring bole diameter (1.3 m above ground level) and total                         The most southern site (S.24), had very little water deﬁcit
+height (H) of all trees in October 2013, 2014 and 2015. Clone-site                        (~15 mm yr−1) and the highest production rates. The most northern
+speciﬁc dry mass equations were applied on the annual measurements,                       site (T.03), had the highest water deﬁcit (~700 mm yr−1) and lowest
+and then converted into C. Foliage net primary production (FNPP) was                      production rates (Fig. 4). GPP decreased by 60% and wood production
+assessed by the variation in leaf area index (LAI), converted into dry                    by about half from nearly zero in response to a moderate water deﬁcit,
+
+                                                                                      4
+O.C. Campoe, et al.                                                                                                     Forest Ecology and Management 475 (2020) 118445
+
+
+
+
+Fig. 3. Aboveground net primary production (ANPP), wood net primary production (WNPP), total belowground carbon ﬂux (TBCF) and aboveground respiration
+(Rag) showed signiﬁcant linear relation with gross primary production (GPP). Each entry denotes one treatment (full rain or reduced rain) for each clone at each site
+for each year. Shaded regions on regression lines represent the standard error.
+
+
+
+
+Fig. 4. All carbon ﬂuxes (Gross primary production – GPP, Aboveground net primary production – ANPP, Wood net primary production – WNPP, Total belowground
+carbon ﬂux – TBCF, Aboveground respiration – Rag) decreased with increasing soil water deﬁcit. Adding in the eﬀect of temperature did not improve the ﬁt with the
+data. Each entry denotes one treatment (full rain or reduced rain) for each clone at each site for each year. Shaded regions on regression lines represent the standard
+error.
+
+
+                                                                                  5
+O.C. Campoe, et al.                                                                                             Forest Ecology and Management 475 (2020) 118445
+
+
+
+
+Fig. 5. All carbon ﬂuxes (Gross primary production – GPP, Aboveground net primary production – ANPP, Wood net primary production – WNPP, Total belowground
+carbon ﬂux – TBCF, Aboveground respiration – Rag) decreased with increasing mean annual temperature. Each entry denotes one treatment (full rain or reduced
+rain) for each clone at each site for each year. Shaded regions on regression lines represent the standard error.
+
+
+with a change rate of about 290 g C m−2 yr−1 per 100 mm of water                4. Discussion
+deﬁcit for GPP and 350 g C m−2 yr−1 for wood production. Further
+increases in water deﬁcit had smaller eﬀects, on the order of 60 g C                The TECHS experimental platform was pioneer in exploring the
+m−2 yr−1 per 100 mm of water deﬁcit for GPP and 70 g C m−2 yr−1 for             inﬂuence of climate on carbon ﬂuxes and partitioning, replicating the
+wood production (1.4 Mg ha−1 yr−1). Water deﬁcit also reduced ﬂuxes             same ﬁve contrasting Eucalyptus clones across a signiﬁcant gradient of
+belowground (TBCF), but to a lesser extent (Fig. 4). Across the full            water availability and temperature.
+range of water deﬁcit, TBCF showed a reduction of 90 g C m−2 yr−1 per               The climatic gradient across the sites signiﬁcantly aﬀected carbon
+100 mm.                                                                         partitioning (Fig. 2). Averaging across the ﬁve clones, the most
+    Our second hypothesis was that water deﬁcits would have a stronger          southern site, mild temperature and high rainfall (S.24, Fig. 1 and table
+eﬀect on production than temperature. Contrary to the hypothesis, the           1) showed that a similar fraction of GPP was partitioned to WNPP and
+relationship with temperature was statistically stronger (higher R2 and         to TBCF (~35%). Conversely, the most northern site, warmest with
+AIC 6–10 units lower, Fig. 5). Similar to the pattern for water deﬁcit,         high water deﬁcit (T.03, Fig. 1 and Table 1) showed the most diver-
+site S.24, the most southern site, showed the lowest mean annual                gence in partitioning pattern between WNPP and TCBF (~15% and
+temperature (~20 °C) and the highest production rates, contrastingly            ~50%). These patterns are consistent with the relations among re-
+S.03, the most northern site, showed highest mean annual temperature            source availability and carbon ﬂuxes and partitioning (Binkley et al.,
+(~28 °C) and lowest production rates (Fig. 5).                                  2004; Ryan et al., 2008). In less stressful environments, where Eu-
+    Wood production reduced 90% across the range of temperature,                calyptus species have more access to growth resource (e.g. soil water
+decreasing 240 g C m−2 yr−1 (4.8 Mg ha−1 yr−1) for every additional             availability), carbon uptake and partitioning to woody tissues increase.
+1 °C, with the rate 490 g C m−2 yr−1 for GPP. Increase in temperature           In stressful environments, carbon uptake decreases and partitioning
+also reduced TBCF, at a rate of 127 g C m−2 yr−1 for every additional           belowground increases. The results suggest that the limited access to
+1 °C.                                                                           resources indices the trees to invest higher proportions to belowground
+    Partitioning to WNPP increased and to TBCF decreased with in-               processes, specially production of ﬁne roots to reach pools of resources
+creasing GPP (Fig. 6). Overall partitioning to aboveground respiration          in the soil to match the demand. This is not a particular trend for Eu-
+(foliage and wood) showing no particular trend.                                 calyptus plantations, as these patterns are consistent for diﬀerent tree
+    Carbon partitioning shifted from aboveground to belowground with            species across a wide range of environments (Litton et al., 2007).
+increasing temperature or water deﬁcit (Fig. 7). For every 100 mm of                Fluxes and partitioning for the clones (averaging across sites)
+additional water deﬁcit or additional 1 °C in temperature, partitioning         showed consistent patterns with the region they were genetically de-
+to wood production declined and partitioning to belowground in-                 veloped (Fig. 2). For example, B2 showed the smallest TBCF (~40% of
+creased by approximately 15%.                                                   GPP) and largest WNPP (~30%), and P7 showed the largest TCBF
+    Partitioning to wood production was more sensitive to climatic and          (~50%) and smallest WNPP (~15%). They were selected in climatically
+genotypic variation than partitioning belowground. Across sites for all         contrasting regions of Brazil. B2 was selected on a region with lower
+clones, partitioning to wood was smaller but covered a wider range              and fairly constant temperature, and a well distributed and high rainfall
+(from 0.11 to 0.37), compared to the partitioning belowground (from             regime, and this clone invested less in TBCF and more in wood pro-
+0.33 to 0.63).                                                                  duction. P7 had the opposite behavior. It was developed in a region
+                                                                                with high temperature and limited soil water availability, and this clone
+                                                                                had a high investment in TBCF at the expense of wood production,
+                                                                                perhaps to be able to reach deeper soil layers for water resources. These
+
+                                                                            6
+O.C. Campoe, et al.                                                                                                     Forest Ecology and Management 475 (2020) 118445
+
+
+
+
+Fig. 6. Partitioning to aboveground net primary production (ANPP) and to wood net primary production (WNPP) increased, to total belowground carbon ﬂux (TBCF)
+decreased, and to aboveground respiration (Ra) was constant with increasing gross primary production (GPP). Each entry denotes one treatment (full rain or reduced
+rain) for each clone at each site for each year. Shaded regions on regression lines represent the standard error.
+
+
+
+
+Fig. 7. Wood production partitioning (WNPP:GPP) decreased and belowground partitioning (TBCF:GPP) increased with increasing mean annual temperature or soil
+water deﬁcit. Each entry denotes one treatment (full rain or reduced rain) for each clone at each site for each year. Shaded regions on regression lines represent the
+standard error.
+
+
+                                                                                  7
+O.C. Campoe, et al.                                                                                             Forest Ecology and Management 475 (2020) 118445
+
+
+two clones are good examples of contrasting behavior, where P7                   wood production due to diﬀerent carbon partitioning patterns. High
+showed a strong stability in for its ﬂuxes and partitioning across sites,        wood production is a combined result of higher photosynthesis (GPP)
+compared to clone B2 which showed a signiﬁcant adaptability to ex-               and increased carbon partitioning to WNPP (Ryan et al., 2010). Clones
+press its potential production under speciﬁc climatic conditions (de             with high rates of wood production generally partition less carbon
+Araujo et al., 2019). How much of the carbon ﬂuxes and partitioning of           belowground, and may face physiological dysfunction and mortality on
+a clone are controlled by genetics and how much by environment?                  sites with intense and prolonged droughts (Blackman et al., 2017).
+Would a clone that was selected for a dry environment maintain high              However, higher partitioning belowground provides more tolerance to
+TBCF ﬂux and partitioning in a wet climate? Our results show that both           soil water stress, but also leads to a decrease in wood production.
+genetic diﬀerences and plasticity within a genotype occur—speciﬁcities               One of the strategies to cope with soil water deﬁcit is to increase
+for diﬀerent clones will be explored in a future study. The lack of a            belowground carbon ﬂuxes, mainly root development, to better explore
+controlled experimental design like TECHS project, with measurements             available soil water and reach deeper layers. Lambais et al. (2017)
+of carbon balance of the exact same ﬁve clones replicated across four            showed that the majority of Eucalyptus grandis ﬁne roots are distributed
+sites prevents comparisons with other studies. Most of the results with          over the ﬁrst two meters, and that some may reach deep soil layers
+complete carbon balance measurements either have same species across             (deeper than 10 m) to access stored water. Christina et al. (2017),
+sites or diﬀerent species on a single site.                                      studying the same E. grandis stand showed that ﬁne roots, especially
+    The wide range of climate and genotypes studied provides values for          those distributed on deep layers of the soil during prolonged droughts,
+the current biological limits of carbon partitioning to above and be-            are very important to maintain water supply to physiological processes
+lowground components, at least for Eucalyptus plantations. Partitioning          during dry periods. Our results show that as soil water deﬁcit increases
+to wood production ranged from ~0.10 to ~0.40 and to TBCF from                   across sites, clones signiﬁcantly increased carbon partitioning to be-
+~0.30 to ~0.70. These values are key parameters for process-based                lowground processes by ~45%.
+models of forest productivity, and using biologically possible values are            However, clones with higher partitioning to TBCF also show high
+crucial for accurate predictions. Elli et al. (2020b), using a sensitivity       rates of water use. Hubbard et al. (2020), studying the same clones and
+analysis to identify the most important parameters to assess climate             sites as the present study found that clone C3, known as a drought
+change impacts on Eucalyptus plantations, found that partitioning                tolerant clone, used as much or more water than A1, a high productivity
+parameters are mandatory for accurate production estimation. Caldeira            clone. Since clone C3 has higher TBCF, it explores more soil volume and
+et al. (2020), using 3-PG, successfully calculated productivity of Eu-           has access to water in deeper soil layers during dry periods that other
+calyptus urophylla plantations in Brazil by using the partitioning para-         non-drought tolerant clones are not.
+meters calculated for this current study.                                            Implications for the predictions of climate change on productivity of
+    Absolute values of GPP, WNPP and TBCF are higher, mainly at site             Eucalyptus plantations are clear. Some predictions for the tropical re-
+S.24, however, partitioning ranges are within the expected values under          gions of plantations in Brazil suggest both reduction in rainfall volume
+ﬁeld conditions (Campoe et al., 2012; Litton et al., 2007; Ryan et al.,          and also increase in temperature (Chou et al., 2014). If conﬁrmed, it has
+2010; Stape et al., 2008). These analyses show that to increase current          the potential to negatively impact Eucalyptus plantations by both re-
+levels of productivity, increasing carbon uptake may be more fruitful            ducing photosynthesis and also increasing partitioning belowground.
+than extending the boundaries of partitioning.                                   Therefore, actually apply these new information related to the re-
+    Rainfall correlation with carbon ﬂuxes and partitioning was not as           sponses of Eucalyptus clones to climate will mandatory to sustain the
+signiﬁcant as soil water deﬁcit. Soil water deﬁcit was a better predictor,       current levels of productivity in Brazil.
+decreasing all carbon ﬂuxes, while increasing partitioning to TBCF                   Understanding the balance between carbon ﬂuxes and partitioning
+(Figs. 4 and 7). Binkley et al. (2017) also found that water deﬁcit was a        to above and belowground components provides i) new insights for
+better predictor for wood productivity across the TECHS sites, com-              breeding programs aiming selection of clones to dry regions; ii) zoning
+pared to rainfall. The lack of a strong correlation between rainfall and         optimization of Eucalyptus genotypes across regions with diﬀerent cli-
+productivity may be related to a more than 3-fold variation in water             matic conditions to increase wood productivity.
+holding capacity of the sites, ranging from 65 to 225 l m−2.
+    The hypothesis that soil water deﬁcit would have a stronger eﬀect            CRediT authorship contribution statement
+on ﬂuxes and partitioning, compared to temperature, was not sup-
+ported. The relationship with temperature was equal or stronger
+                                                                                     Otávio C. Campoe: Conceptualization, Data curation, Formal ana-
+(Figs. 5 and 7). In addition to the direct negative impact on photo-             lysis, Funding acquisition, Investigation, Methodology, Project admin-
+synthetic processes (Aspinwall et al., 2016; Drake et al., 2016), tem-
+                                                                                 istration, Visualization, Writing - original draft, Writing - review &
+perature also increases vapor pressure deﬁcit and consequently eva-              editing. Clayton A. Alvares: Data curation, Formal analysis,
+poration, reducing soil water availability (Grossiord et al., 2020).
+                                                                                 Visualization, Writing - review & editing. Rafaela L. Carneiro: Data
+Warmer temperatures also reduce cell division, which will directly re-           curation, Project administration, Writing - review & editing. Dan
+duce growth in tropical trees (Way and Oren, 2010), and indirectly
+                                                                                 Binkley: Funding acquisition, Investigation, Methodology, Project ad-
+feedback through sink limitation to reduce photosynthesis. Soil water            ministration, Visualization, Writing - original draft, Writing - review &
+deﬁcit and temperature were individually strongly correlated with
+                                                                                 editing. Michael G. Ryan: Funding acquisition, Investigation,
+carbon ﬂuxes and partitioning, but the combination of both did not               Methodology, Writing - review & editing. Robert M. Hubbard:
+improve prediction capacity.
+                                                                                 Methodology, Visualization, Writing - original draft, Writing - review &
+    Increase in temperature decreased all carbon ﬂuxes among the study           editing. James Stahl: Investigation, Writing - review & editing.
+sites (Fig. 5), however (Litton and Giardina, 2008) showed an increase
+                                                                                 Gabriela Moreira: Investigation, Writing - review & editing. Luiz
+in all carbon ﬂuxes with increasing temperature. Most of their study             Fabiano Moraes: Investigation, Writing - review & editing. José Luiz
+sites showed mean annual temperature from −5 to 20 °C, and our sites
+                                                                                 Stape: Conceptualization, Data curation, Formal analysis, Funding ac-
+ranged approximately from 20 to 28 °C. These opposite trends may                 quisition, Investigation, Methodology, Project administration,
+represent a turning point for carbon ﬂuxes, showing a bell-shaped curve
+                                                                                 Visualization, Writing - original draft, Writing - review & editing.
+around 20 °C. Queiroz et al. (2020) evaluating wood growth of several
+Eucalyptus clones, at sites ranging mean annual temperature from ~15
+to ~30 °C, found an optimal growth rate of around 20 °C, decreasing for          Declaration of Competing Interest
+higher or lower temperature.
+    Clones may show similar gross primary production but diﬀerent                   The work has not been published elsewhere, and is not under
+
+                                                                             8
+O.C. Campoe, et al.                                                                                                                         Forest Ecology and Management 475 (2020) 118445
+
+
+consideration by any other journal. We declare no personal or ﬁnancial                             Drake, J.E., Tjoelker, M.G., Aspinwall, M.J., Reich, P.B., Barton, C.V.M., Medlyn, B.E.,
+interests that could conﬂict and bias the science of our paper.                                         Duursma, R.A., 2016. Does physiological acclimation to climate warming stabilize
+                                                                                                        the ratio of canopy respiration to photosynthesis? New Phytol. 211, 850–863.
+                                                                                                        https://doi.org/10.1111/nph.13978.
+Acknowledgements                                                                                   Elli, E.F., Huth, N., Sentelhas, P.C., Carneiro, R.L., Alavres, C.A., 2020b. Global sensi-
+                                                                                                        tivity-based modelling approach to identify suitable Eucalyptus traits for adaptation
+                                                                                                        to climate variability and change. in silico Plants 2, 1–17. https://doi.org/10.1093/
+    The TECHS Project was possible only through the coordination                                        insilicoplants/diaa003.
+provided by Forestry Science and Research Institute (IPEF, ipef.br/                                Elli, E.F., Sentelhas, P.C., de Freitas, C.H., Carneiro, R.L., Alvares, C.A., 2019.
+techs/en) and funding from 26 companies. The contributions of Ítalo R.                                  Intercomparison of structural features and performance of Eucalyptus simulation
+                                                                                                        models and their ensemble for yield estimations. For. Ecol. Manage. 450. https://doi.
+Cegatta, Guilherme S. de Barros and Luiz Erivelto de Oliveira were                                      org/10.1016/j.foreco.2019.117493.
+fundamental for the TECHS database. We thank to all the companies,                                 Elli, E.F., Sentelhas, P.C., Huth, N., Carneiro, R.L., Alvares, C.A., 2020a. Gauging the
+specially to International Paper, Klabin, Suzano and Vallourec for their                                eﬀects of climate variability on Eucalyptus plantations productivity across Brazil: A
+                                                                                                        process-based modelling approach. Ecol. Indic. 114. https://doi.org/10.1016/j.
+commitment with the additional ﬁeld work and traveling logistics. The
+                                                                                                        ecolind.2020.106325.
+following universities and institutes also supported this study:                                   Epron, D., Laclau, J.P., Almeida, J.C.R., Gonalves, J.L.M., Ponton, S., Sette, C.R., Delgado-
+University of São Paulo, São Paulo State University, Federal University                                 Rojas, J.S., Bouillet, J.P., Nouvellon, Y., 2012. Do changes in carbon allocation ac-
+of Lavras, Colorado State University, North Carolina State University,                                  count for the growth response to potassium and sodium applications in tropical
+                                                                                                        Eucalyptus plantations? Tree Physiol. 32, 667–679. https://doi.org/10.1093/
+and the USDA Forest Service.                                                                            treephys/tpr107.
+                                                                                                   Epron, D., Nouvellon, Y., Mareschal, L., Moreira, R.M.e., Koutika, L.S., Geneste, B.,
+References                                                                                              Delgado-Rojas, J.S., Laclau, J.P., Sola, G., Gonçalves, J.L.de.M., Bouillet, J.P., 2013.
+                                                                                                        Partitioning of net primary production in Eucalyptus and Acacia stands and in mixed-
+                                                                                                        species plantations: Two case-studies in contrasting tropical environments. For. Ecol.
+Agren, G.I., Axelsson, B., 1980. Swedish Coniferous Forest Project, Department of Ecology               Manage. 301, 102–111. https://doi.org/10.1016/j.foreco.2012.10.034.
+    and Environmental Research, The Swedish University of Agricultural Sciences, S-750             Evangelista Silva, V., Nogueira, T.A.R., Abreu-Junior, C.H., He, Z., Buzetti, S., Laclau,
+    07 Uppsala (Sweden) factors other than activity per se can contribute to an increased               J.P., Teixeira Filho, M.C.M., Grilli, E., Murgia, I., Capra, G.F., 2020. Inﬂuences of
+    metabolism. Ecol. Modell. 11, 39–54.                                                                edaphoclimatic conditions on deep rooting and soil water availability in Brazilian
+Aspinwall, M.J., Drake, J.E., Campany, C., Vårhammar, A., Ghannoum, O., Tissue, D.T.,                   Eucalyptus plantations. Ecol. Manage. For. https://doi.org/10.1016/j.foreco.2019.
+    Reich, P.B., Tjoelker, M.G., 2016. Convergent acclimation of leaf photosynthesis and                117673.
+    respiration to prevailing ambient temperatures under current and warmer climates in            Forrester, D.I., Bauhus, J., Cowie, A.L., 2006. Carbon allocation in a mixed-species
+    Eucalyptus tereticornis. New Phytol. https://doi.org/10.1111/nph.14035.                             plantation of Eucalyptus globulus and Acacia mearnsii. For. Ecol. Manage. 233,
+Binkley, D., Campoe, O.C., Alvares, C., Carneiro, R.L., Cegatta, Í., Stape, J.L., 2017. The             275–284. https://doi.org/10.1016/j.foreco.2006.05.018.
+    interactions of climate, spacing and genetics on clonal Eucalyptus plantations across          Giardina, C.P., Ryan, M.G., 2002. Total belowground carbon allocation in a fast-growing
+    Brazil and Uruguay. For. Ecol. Manage. 405, 271–283. https://doi.org/10.1016/j.                     Eucalyptus plantation estimated using a carbon balance approach. Ecosystems 5,
+    foreco.2017.09.050.                                                                                 487–499. https://doi.org/10.1007/s10021-002-0130-8.
+Binkley, D., Campoe, O.C., Alvares, C.A., Carneiro, R.L., Stape, J.L., 2020. Variation in          Gonçalves, J.L.de.M., Alvares, C.A., Higa, A.R., Silva, L.D., Alfenas, A.C., Stahl, J., Ferraz,
+    whole-rotation yield among Eucalyptus genotypes in response to water and heat                       S.F.de.B., Lima, W.de.P., Brancalion, P.H.S., Hubner, A., Bouillet, J.P.D., Laclau, J.P.,
+    stresses: The TECHS project. For. Ecol. Manage. 462, 117953. https://doi.org/10.                    Nouvellon, Y., Epron, D., 2013. Integrating genetic and silvicultural strategies to
+    1016/j.foreco.2020.117953.                                                                          minimize abiotic and biotic constraints in Brazilian eucalypt plantations. For. Ecol.
+Binkley, D., Stape, J.L., Ryan, M.G., 2004. Thinking about eﬃciency of resource use in                  Manage. 301, 6–27. https://doi.org/10.1016/j.foreco.2012.12.030.
+    forests. For. Ecol. Manage. 193, 5–16. https://doi.org/10.1016/j.foreco.2004.01.019.           Gonçalves, J.L.M., Alvares, C.A., Rocha, J.H.T., Brandani, C.B., Hakamada, R., 2017.
+Blackman, C.J., Aspinwall, M.J., Tissue, D.T., Rymer, P.D., 2017. Genetic adaptation and                Eucalypt plantation management in regions with water stress. South. For. 79,
+    phenotypic plasticity contribute to greater leaf hydraulic tolerance in response to                 169–183. https://doi.org/10.2989/20702620.2016.1255415.
+    drought in warmer climates. Tree Physiol. 37, 583–592. https://doi.org/10.1093/                Grossiord, C., Buckley, T.N., Cernusak, L.A., Novick, K.A., Poulter, B., Siegwolf, R.T.W.,
+    treephys/tpx005.                                                                                    Sperry, J.S., McDowell, N.G., 2020. Plant responses to rising vapor pressure deﬁcit.
+Caldeira, D.R.M., Alvares, C.A., Campoe, O.C., Hakamada, R.E., Guerrini, I.A., Cegatta,                 New Phytol. https://doi.org/10.1111/nph.16485.
+    Í.R., Stape, J.L., 2020. Multisite evaluation of the 3-PG model for the highest phe-           Hakamada, R.E., Hubbard, R.M., Moreira, G.G., Stape, J.L., Campoe, O., Ferraz, S.F.de.B.,
+    notypic plasticity Eucalyptus clone in Brazil. For. Ecol. Manage. 462. https://doi.org/             2020. Inﬂuence of stand density on growth and water use eﬃciency in Eucalyptus
+    10.1016/j.foreco.2020.117989.                                                                       clones. For. Ecol. Manage. 466. https://doi.org/10.1016/j.foreco.2020.118125.
+Campoe, O.C., Stape, J.L., Laclau, J.P., Marsden, C., Nouvellon, Y., 2012. Stand-level             Lambais, G.R., Jourdan, C., de Cássia Piccolo, M., Germon, A., Pinheiro, R.C., Nouvellon,
+    patterns of carbon ﬂuxes and partitioning in a Eucalyptus grandis plantation across a               Y., Stape, J.L., Campoe, O.C., Robin, A., Bouillet, J.P., le Maire, G., Laclau, J.P., 2017.
+    gradient of productivity, in São Paulo State, Brazil. Tree Physiol. 32, 696–706.                    Contrasting phenology of Eucalyptus grandis ﬁne roots in upper and very deep soil
+    https://doi.org/10.1093/treephys/tps038.                                                            layers in Brazil. Plant Soil 421, 301–318. https://doi.org/10.1007/s11104-017-
+Chou, S.C., Lyra, A., Mourão, C., Dereczynski, C., Pilotto, I., Gomes, J., Bustamante, J.,              3460-1.
+    Tavares, P., Silva, A., Rodrigues, D., Campos, D., Chagas, D., Sueiro, G., Siqueira, G.,       Litton, C.M., Giardina, C.P., 2008. Below-ground carbon ﬂux and partitioning: Global
+    Nobre, P., Marengo, J., 2014. Evaluation of the eta simulations nested in three global              patterns and response to temperature. Funct. Ecol. 22, 941–954. https://doi.org/10.
+    climate models. Am. J. Clim. Chang. 03, 438–454. https://doi.org/10.4236/ajcc.                      1111/j.1365-2435.2008.01479.x.
+    2014.35039.                                                                                    Litton, C.M., Raich, J.W., Ryan, M.G., 2007. Carbon allocation in forest ecosystems. Glob.
+Christina, M., Laclau, J.P., Gonçalves, J.L.M., Jourdan, C., Nouvellon, Y., Bouillet, J.P.,             Chang. Biol. 13, 2089–2109. https://doi.org/10.1111/j.1365-2486.2007.01420.x.
+    2011. Almost symmetrical vertical growth rates above and below ground in one of                Pinheiro, R.C., de Deus, J.C., Nouvellon, Y., Campoe, O.C., Stape, J.L., Aló, L.L., Guerrini,
+    the world’s most productive forests. Ecosphere 2. https://doi.org/10.1890/ES10-                     I.A., Jourdan, C., Laclau, J.P., 2016. A fast exploration of very deep soil layers by
+    00158.1.                                                                                            Eucalyptus seedlings and clones in Brazil. For. Ecol. Manage. 366, 143–152. https://
+Christina, M., Nouvellon, Y., Laclau, J.P., Stape, J.L., Bouillet, J.P., Lambais, G.R., le              doi.org/10.1016/j.foreco.2016.02.012.
+    Maire, G., 2017. Importance of deep water uptake in tropical eucalypt forest. Funct.           Queiroz, T.B., Campoe, O.C., Montes, C.R., Alvares, C.A., Cuartas, M.Z., Guerrini, I.A.,
+    Ecol. 31, 509–519. https://doi.org/10.1111/1365-2435.12727.                                         2020. Temperature thresholds for Eucalyptus genotypes growth across tropical and
+da Silva, P.H.M., Junqueira, L.R., de Araujo, M.J., Wilcken, C.F., Moraes, M.L.T., de                   subtropical ranges in South America. For. Ecol. Manage. 472, 118248. https://doi.
+    Paula, R.C., 2019. Susceptibility of eucalypt taxa to a natural infestation by                      org/10.1016/j.foreco.2020.118248.
+    Leptocybe invasa. New For. https://doi.org/10.1007/s11056-019-09758-1.                         R Development Core Team, 2017. R: A language and environment for statistical com-
+Da Silva, P.H.M., Marco, M., Alvares, C.A., Lee, D., De Moraes, M.L.T., De Paula, R.C.,                 puting. Vienna, Austria. https://doi.org/R Foundation for Statistical Computing,
+    2019. Selection of Eucalyptus grandis families across contrasting environmental                     Vienna, Austria. ISBN 3-900051-07-0, URL http://www.R-project.org.
+    conditions. Appl. Biotechnol. Crop. Breed. https://doi.org/10.1590/1984-                       Ryan, M.G., Binkley, D., Fownes, J.H., Giardina, C.P., Senock, R.S., 2004. An experi-
+    70332019v19n1a07.                                                                                   mental test of the causes of forest growth decline with stand age. Ecol. Monogr. 74,
+Davidson, E.A., Savage, K., Bolstad, P., Clark, D.A., Curtis, P.S., Ellsworth, D.S., Hanson,            393–414. https://doi.org/10.1890/03-4037.
+    P.J., Law, B.E., Luo, Y., Pregitzer, K.S., Randolph, J.C., Zak, D., 2002. Belowground          Ryan, M.G., Binkley, D., Stape, J.L., 2008. Why don’t our stands grow even faster? Control
+    carbon allocation in forests estimated from litterfall and IRGA-based soil respiration              of production and carbon cycling in eucalypt plantations. South. For. 70, 99–104.
+    measurements. Agric. For. Meteorol. 113, 39–51. https://doi.org/10.1016/S0168-                      https://doi.org/10.2989/SOUTH.FOR.2008.70.2.5.533.
+    1923(02)00101-6.                                                                               Ryan, M.G., Cavaleri, M.A., Almeida, A.C., Penchel, R., Senock, R.S., Luiz Stape, J., 2009.
+de Araujo, M.J., de Paula, R.C., Campoe, O.C., Carneiro, R.L., 2019. Adaptability and                   Wood CO2 eﬄux and foliar respiration for Eucalyptus in Hawaii and Brazil. Tree
+    stability of eucalypt clones at diﬀerent ages across environmental gradients in Brazil.             Physiol. 29, 1213–1222. https://doi.org/10.1093/treephys/tpp059.
+    For. Ecol. Manage. 454, 117631. https://doi.org/10.1016/j.foreco.2019.117631.                  Ryan, M.G., Stape, J.L., Binkley, D., Fonseca, S., Loos, R.A., Takahashi, E.N., Silva, C.R.,
+de Mattos, E.M., Binkley, D., Campoe, O.C., Alvares, C.A., Stape, J.L., 2020. Variation in              Silva, S.R., Hakamada, R.E., Ferreira, J.M., Lima, A.M.N., Gava, J.L., Leite, F.P.,
+    canopy structure, leaf area, light interception and light use eﬃciency among                        Andrade, H.B., Alves, J.M., Silva, G.G.C., 2010. Factors controlling Eucalyptus pro-
+    Eucalyptus clones. For. Ecol. Manage. 463, 118038. https://doi.org/10.1016/j.                       ductivity: How water availability and stand structure alter production and carbon
+    foreco.2020.118038.                                                                                 allocation. For. Ecol. Manage. 259, 1695–1703. https://doi.org/10.1016/j.foreco.
+
+
+                                                                                               9
+O.C. Campoe, et al.                                                                                                                       Forest Ecology and Management 475 (2020) 118445
+
+
+    2010.01.013.                                                                                       Silva, S.R., Hakamada, R.E., Ferreira, J.M.de.A., Lima, A.M.N., Gava, J.L., Leite, F.P.,
+Sala, O.E., Gherardi, L.A., Reichmann, L., Jobbágy, E., Peters, D., 2012. Legacies of                  Andrade, H.B., Alves, J.M., Silva, G.G.C., Azevedo, M.R., 2010. The Brazil Eucalyptus
+    precipitation ﬂuctuations on primary production: Theory and data synthesis. Trans.                 Potential Productivity Project: Inﬂuence of water, nutrients and stand uniformity on
+    R. Soc. B Biol. Sci. Philos. https://doi.org/10.1098/rstb.2011.0347.                               wood production. For. Ecol. Manage. 259, 1684–1694. https://doi.org/10.1016/j.
+Stape, J.L., Binkley, D., Ryan, M.G., 2008. Production and carbon allocation in a clonal               foreco.2010.01.012.
+    Eucalyptus plantation with water and nutrient manipulations. For. Ecol. Manage.                 Way, D.A., Oren, R., 2010. Diﬀerential responses to changes in growth temperature be-
+    255, 920–930. https://doi.org/10.1016/j.foreco.2007.09.085.                                        tween trees from diﬀerent functional groups and biomes: a review and synthesis of
+Stape, J.L., Binkley, D., Ryan, M.G., Fonseca, S., Loos, R.A., Takahashi, E.N., Silva, C.R.,           data. Tree Physiol. 30, 669–688. https://doi.org/10.1093/treephys/tpq015.
+
+
+
+
+                                                                                               10
+

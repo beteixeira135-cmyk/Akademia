@@ -1,0 +1,505 @@
+<title>Talhão Sorteado 3-PG</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: barra de comando no topo; três colunas — fatores do sorteio | talhão 3D + linha do tempo | ficha do talhão. Empilha no celular. */
+:root{
+  --chao:#eef1ea; --papel:#fbfcf8; --tinta:#17201a; --tinta-2:#4c5a50; --linha:#d5ddd2;
+  --folha:#3f7f74; --folha-2:#8fc2b4; --casca:#c8875e; --praga:#d2552b; --agua:#3d6fb0; --alerta:#b8860b;
+  --solo3d:#a99a7c; --ceu3d:#e2eae4;
+  --f-disp:"Chakra Petch", "Trebuchet MS", system-ui, sans-serif;
+  --f-corpo:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-num:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --raio:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --chao:#0f1512; --papel:#17201b; --tinta:#e6efe8; --tinta-2:#a3b4a8; --linha:#2b3a31;
+  --folha:#6fb7a7; --folha-2:#3e7c70; --casca:#e0a37a; --praga:#f07a4f; --agua:#7ea7e6; --alerta:#e2b23c;
+  --solo3d:#5a4b33; --ceu3d:#1b2620; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --chao:#0f1512; --papel:#17201b; --tinta:#e6efe8; --tinta-2:#a3b4a8; --linha:#2b3a31;
+  --folha:#6fb7a7; --folha-2:#3e7c70; --casca:#e0a37a; --praga:#f07a4f; --agua:#7ea7e6; --alerta:#e2b23c;
+  --solo3d:#5a4b33; --ceu3d:#1b2620; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--chao);color:var(--tinta);font-family:var(--f-corpo);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 28px}
+h1,h2,h3{font-family:var(--f-disp);margin:0;text-wrap:balance;letter-spacing:.01em}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--agua);outline-offset:2px}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.rot{font-family:var(--f-disp);font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--tinta-2);font-weight:600}
+
+/* topo */
+.topo{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;justify-content:space-between;max-width:1480px;margin:0 auto 12px}
+.marca{display:flex;align-items:center;gap:12px;min-width:0}
+.marca svg{flex:none}
+.marca h1{font-size:clamp(20px,2.6vw,28px);font-weight:700;line-height:1.1}
+.marca p{margin:2px 0 0;color:var(--tinta-2);font-size:13.5px;max-width:60ch}
+.acoes{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:1.5px solid var(--tinta);background:var(--papel);border-radius:999px;padding:9px 16px;font-family:var(--f-disp);font-weight:600;letter-spacing:.03em;display:inline-flex;gap:8px;align-items:center}
+.btn:hover{background:var(--linha)}
+.btn.forte{background:var(--tinta);color:var(--chao)}
+.btn.forte:hover{background:var(--folha);border-color:var(--folha);color:#fff}
+.btn .dado{display:inline-block}
+.btn.girando .dado{animation:gira .6s cubic-bezier(.3,1.4,.6,1)}
+@keyframes gira{from{transform:rotate(0) scale(.6)}to{transform:rotate(360deg) scale(1)}}
+
+/* grade */
+.grade{max-width:1480px;margin:0 auto;display:grid;gap:14px;grid-template-columns:300px minmax(0,1fr) 330px;align-items:start}
+@media (max-width:1180px){.grade{grid-template-columns:280px minmax(0,1fr)}.ficha{grid-column:1/-1}}
+@media (max-width:760px){.grade{grid-template-columns:minmax(0,1fr)}.palco{order:-1}}
+.bloco{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:14px;min-width:0}
+
+/* fatores */
+.fatores{display:grid;gap:10px}
+.fator{border:1px solid var(--linha);border-radius:8px;padding:10px 10px 11px;background:var(--chao)}
+.fator header{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;gap:8px}
+.trava{border:1px solid var(--linha);background:var(--papel);border-radius:6px;padding:3px 7px;font-size:11.5px;font-family:var(--f-disp);letter-spacing:.05em;display:inline-flex;gap:5px;align-items:center;color:var(--tinta-2)}
+.trava[aria-pressed="true"]{border-color:var(--tinta);color:var(--tinta);background:var(--linha)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--linha);background:var(--papel);border-radius:999px;padding:4px 11px;font-size:13px;line-height:1.3}
+.chip[aria-pressed="true"]{background:var(--folha);border-color:var(--folha);color:#fff;font-weight:700}
+.chip small{opacity:.8}
+.faixa{display:flex;align-items:center;gap:10px}
+.faixa input{flex:1;accent-color:var(--praga);min-width:0}
+.faixa output{font-family:var(--f-num);font-weight:600;min-width:3.4em;text-align:right}
+.dica{font-size:12.5px;color:var(--tinta-2);margin:6px 0 0}
+
+/* palco 3D */
+.palco{padding:0;overflow:hidden;position:relative}
+#cena{display:block;width:100%;height:clamp(320px,52vh,560px);background:var(--ceu3d);touch-action:none}
+.rotulos3d{position:absolute;inset:10px 12px auto;display:flex;justify-content:space-between;pointer-events:none;gap:8px}
+.etq{font-family:var(--f-disp);font-size:12px;letter-spacing:.09em;text-transform:uppercase;background:color-mix(in srgb,var(--papel) 88%,transparent);border:1px solid var(--linha);padding:4px 9px;border-radius:6px}
+.etq.trat{border-color:var(--praga);color:var(--praga)}
+.aviso3d{position:absolute;left:12px;bottom:92px;max-width:calc(100% - 24px);font-size:12px;color:var(--tinta-2);background:color-mix(in srgb,var(--papel) 85%,transparent);border-radius:6px;padding:3px 8px;pointer-events:none}
+.evento-flash{position:absolute;right:12px;bottom:92px;font-family:var(--f-disp);font-weight:700;color:#fff;background:var(--praga);padding:5px 10px;border-radius:6px;letter-spacing:.04em;opacity:0;transition:opacity .25s;pointer-events:none}
+.evento-flash.on{opacity:1}
+.tempo{border-top:1px solid var(--linha);padding:10px 14px 12px;display:grid;gap:6px;background:var(--papel)}
+.tempo-linha{display:flex;align-items:center;gap:12px}
+.play{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--tinta);background:var(--papel);display:grid;place-items:center;flex:none}
+.trilho{position:relative;flex:1;min-width:0}
+.trilho input{width:100%;accent-color:var(--folha)}
+.marcas{position:absolute;inset:-6px 8px auto;height:8px;pointer-events:none}
+.marcas i{position:absolute;top:0;width:3px;height:9px;background:var(--praga);border-radius:2px;transform:translateX(-50%)}
+.marcas b{position:absolute;top:0;width:2px;height:9px;background:var(--tinta-2);transform:translateX(-50%)}
+.quando{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--tinta-2)}
+.quando strong{color:var(--tinta);font-family:var(--f-num)}
+
+/* ficha */
+.ficha{display:grid;gap:12px}
+.cartao{border:2px solid var(--tinta);border-radius:12px;padding:12px;background:var(--papel)}
+.cartao-topo{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.cartao h2{font-size:19px;line-height:1.15}
+.cartao .sub{font-size:12.5px;color:var(--tinta-2)}
+.selo{font-family:var(--f-disp);font-weight:700;font-size:12px;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border-radius:6px;color:#fff;white-space:nowrap}
+.selo.s0{background:var(--folha)} .selo.s1{background:var(--alerta)} .selo.s2{background:var(--praga)} .selo.s3{background:#8f2d18}
+.perda{display:flex;align-items:baseline;gap:8px;margin:10px 0 2px}
+.perda .grande{font-family:var(--f-disp);font-size:42px;font-weight:700;line-height:1;color:var(--praga)}
+.stats{display:grid;gap:7px;margin-top:10px}
+.stat{display:grid;grid-template-columns:7.2em minmax(0,1fr) 4.6em;align-items:center;gap:8px;font-size:13px}
+.barra{height:9px;background:var(--linha);border-radius:5px;position:relative;overflow:hidden}
+.barra span{position:absolute;inset:0 auto 0 0;background:var(--folha);border-radius:5px}
+.barra span.ruim{background:var(--praga)}
+.stat .v{text-align:right}
+.alertas{display:grid;gap:6px;margin-top:10px}
+.alerta{font-size:12.5px;border-left:3px solid var(--alerta);padding:5px 8px;background:color-mix(in srgb,var(--alerta) 12%,var(--papel))}
+.tabela{width:100%;border-collapse:collapse;font-size:13px}
+.tabela th,.tabela td{padding:5px 4px;border-bottom:1px solid var(--linha);text-align:right}
+.tabela th:first-child,.tabela td:first-child{text-align:left}
+.tabela thead th{font-family:var(--f-disp);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-2);font-weight:600}
+canvas.grafico{width:100%;height:150px;display:block}
+canvas.perfil{width:100%;height:220px;display:block}
+.leg{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--tinta-2)}
+.leg i{display:inline-block;width:16px;height:3px;vertical-align:middle;margin-right:5px;border-radius:2px}
+
+/* tutorial */
+.tour{position:fixed;z-index:30;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;pointer-events:none}
+.tour-card{pointer-events:auto;width:min(560px,100%);background:var(--papel);border:2px solid var(--tinta);border-radius:14px;padding:14px 16px 12px;box-shadow:0 14px 40px rgba(0,0,0,.25)}
+.tour-card h3{font-size:19px;margin:2px 0 6px}
+.tour-card p{margin:0 0 8px;max-width:62ch}
+.tour-card .eq{font-family:var(--f-num);background:var(--chao);border:1px solid var(--linha);border-radius:6px;padding:6px 8px;display:inline-block;margin:2px 0 8px}
+.tour-nav{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:6px}
+.pontos{display:flex;gap:5px;flex-wrap:wrap}
+.pontos i{width:8px;height:8px;border-radius:50%;background:var(--linha)}
+.pontos i.on{background:var(--folha)}
+.destaque{outline:3px solid var(--praga)!important;outline-offset:3px;border-radius:10px;transition:outline-color .3s}
+.imp-barras{display:grid;gap:4px;margin:4px 0 8px}
+.imp-barras div{display:grid;grid-template-columns:8.5em minmax(0,1fr) 3.4em;gap:8px;align-items:center;font-size:13px}
+.rodape{max-width:1480px;margin:16px auto 0;font-size:12.5px;color:var(--tinta-2)}
+.rodape p{margin:4px 0;max-width:110ch}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<header class="topo">
+  <div class="marca">
+    <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><rect x="2" y="2" width="40" height="40" rx="10" fill="var(--tinta)"/><path d="M22 36V18" stroke="var(--casca)" stroke-width="3" stroke-linecap="round"/><ellipse cx="22" cy="15" rx="9" ry="8" fill="var(--folha)"/><circle cx="29" cy="11" r="3.2" fill="var(--praga)"/></svg>
+    <div><h1>Talhão Sorteado 3-PG</h1><p>Sorteie um cenário de desfolha em eucalipto e veja o modelo 3-PG crescer o povoamento mês a mês, com e sem o ataque.</p></div>
+  </div>
+  <div class="acoes">
+    <button class="btn" id="bt-tour" type="button">▶ Tutorial guiado</button>
+    <button class="btn forte" id="bt-sortear" type="button"><span class="dado" aria-hidden="true">⚄</span> Sortear talhão</button>
+  </div>
+</header>
+
+<main class="grade">
+  <section class="bloco" id="painel-fatores" aria-label="Fatores do sorteio">
+    <div class="rot" style="margin-bottom:8px">Fatores do sorteio · trave o que quiser manter</div>
+    <div class="fatores" id="fatores"></div>
+  </section>
+
+  <section class="bloco palco" id="palco" aria-label="Talhão em 3D">
+    <canvas id="cena" aria-label="Povoamento em 3D: metade esquerda sem desfolha, metade direita com desfolha"></canvas>
+    <div class="rotulos3d"><span class="etq">Controle · sem desfolha</span><span class="etq trat">Com desfolha</span></div>
+    <div class="aviso3d" id="aviso3d">Arraste para girar · role para aproximar</div>
+    <div class="evento-flash" id="flash">Desfolha neste mês</div>
+    <div class="tempo" id="tempo">
+      <div class="tempo-linha">
+        <button class="play" id="bt-play" type="button" aria-label="Reproduzir">▶</button>
+        <div class="trilho"><div class="marcas" id="marcas"></div><input type="range" id="mes" min="0" max="84" value="84" aria-label="Mês da simulação"></div>
+      </div>
+      <div class="quando"><span>Idade <strong id="q-idade">–</strong></span><span>Data <strong id="q-data">–</strong></span><span>Rotação de 7 anos = 84 meses</span></div>
+    </div>
+  </section>
+
+  <aside class="ficha" id="ficha" aria-label="Ficha do talhão">
+    <div class="cartao" id="cartao"></div>
+    <div class="bloco">
+      <div class="rot">Biomassa ao longo da rotação</div>
+      <canvas class="grafico" id="g-wf" aria-label="Biomassa foliar"></canvas>
+      <canvas class="grafico" id="g-ws" aria-label="Biomassa de lenho"></canvas>
+      <div class="leg"><span><i style="background:var(--tinta-2)"></i>Controle</span><span><i style="background:var(--praga)"></i>Com desfolha</span><span><i style="background:var(--praga);width:3px;height:10px"></i>Evento</span></div>
+    </div>
+    <div class="bloco" id="bloco-perfil">
+      <div class="rot">Perfil do fuste médio no mês (taper)</div>
+      <canvas class="perfil" id="g-perfil" aria-label="Perfil do fuste"></canvas>
+      <p class="dica" id="perfil-nota"></p>
+    </div>
+  </aside>
+</main>
+
+<footer class="rodape">
+  <p>O motor é o 3-PGpjs do r3PG v0.1.7 com o módulo de desfolha do TCC, traduzido para JavaScript. Ele reproduz a versão verificada em Python com diferença máxima de 3 × 10⁻¹³. Clima: NASA POWER 2015–2023. Solo local: rede TECHS (Binkley et al., 2017) e SoilGrids com a PTF-ZARC. Parâmetros: Caldeira et al. (2020) para o A1 e Borges (2009) para C5, C2 e C4.</p>
+  <p>O perfil do fuste e a altura do clone A1 são ilustrativos. O 3-PG não estima forma de tronco, e a parametrização do A1 não traz relação hipsométrica, por isso a altura do A1 usa o ajuste local alternativo da planilha do projeto. Os resultados são simulações verificadas, mas não validadas em campo.</p>
+</footer>
+
+<div class="tour" id="tour" hidden><div class="tour-card" role="dialog" aria-live="polite" aria-label="Tutorial">
+  <div class="rot" id="tour-passo"></div><h3 id="tour-tit"></h3><div id="tour-txt"></div>
+  <div class="tour-nav"><div class="pontos" id="tour-pontos"></div><div style="display:flex;gap:8px">
+    <button class="btn" id="tour-sair" type="button">Sair</button><button class="btn" id="tour-ant" type="button">Voltar</button><button class="btn forte" id="tour-prox" type="button">Próximo</button></div></div>
+</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>/*MODELO*/</script>
+<script>
+const DADOS = /*DADOS*/;
+const ASW_REF = 190.6, FR_MIN = 0.5483, ALT_A1 = { aH: 3.313814, nHB: 0.715203 };
+const SIT = { IND: "Indianópolis-MG", TB: "Telêmaco Borba-PR", IMP: "Imperatriz-MA" };
+const MAT = { A1: "A1 · E. urophylla", C5: "C5 · híbrido Cerrado", C2: "C2 · clone 3336 Curvelo", C4: "C4 · clone 3336 Itacambira" };
+const FREQ = { P1: "Pulso único", P2: "Dois pulsos", PA: "Pulsos anuais" };
+const EPOCA = { 1: "jan", 4: "abr", 7: "jul", 10: "out" };
+const AGUA = { LOC: "Solo local", 100: "100%", 75: "75%", 50: "50%", 25: "25%" };
+const FERT = { 100: "F100", 75: "F75", 50: "F50", 25: "F25" };
+const MESES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+
+let E = { sitio: "IND", mat: "A1", agua: "LOC", fert: 100, d: 50, freq: "P1", epoca: 1 };
+const TRAVA = { sitio: false, mat: false, solo: false, d: false, freq: false, epoca: false };
+let R = null; // resultado
+let tAtual = 84;
+
+// ---------- simulação ----------
+function frNivel(mat, n) { const ref = DADOS.materiais[mat].FR_ref; const j = [25, 50, 75, 100].indexOf(n); return FR_MIN + j / 3 * (ref - FR_MIN); }
+function eventos() {
+  const anos = E.freq === "P1" ? [2017] : E.freq === "P2" ? [2017, 2020] : [2017, 2018, 2019, 2020, 2021, 2022];
+  const ev = {}; if (E.d > 0) anos.forEach(a => ev[`${a}-${String(E.epoca).padStart(2, "0")}`] = E.d / 100); return ev;
+}
+function simular() {
+  const m = DADOS.materiais[E.mat], s = DADOS.sitios[E.sitio];
+  const asw = E.agua === "LOC" ? s.asw_local : ASW_REF * E.agua / 100;
+  const site = { lat: s.lat, asw_max: asw, asw_i: asw, from: m.inicio, to: "2023-01" };
+  const sp = { planted: "2015-01", fertility: frNivel(E.mat, E.fert), stems_n: 10000 / 9, WS0: m.WS0, WR0: m.WR0, WF0: m.WF0 };
+  const ev = eventos();
+  const c = Modelo3PG.run(site, sp, s.clima, m.params, {});
+  const t = Modelo3PG.run(site, sp, s.clima, m.params, ev);
+  const [y0, m0] = m.inicio.split("-").map(Number);
+  const datas = c.age.map((_, k) => { const mm = (m0 - 1 + k); return { a: y0 + Math.floor(mm / 12), m: mm % 12 + 1 }; });
+  const idade = c.age.map(a => Math.round(a * 12));
+  const k84 = idade.indexOf(84), k12 = idade.indexOf(12);
+  const kev = Object.keys(ev).map(e => { const [a, mm] = e.split("-").map(Number); return datas.findIndex(d => d.a === a && d.m === mm); });
+  const alt = (o, k) => E.mat === "A1" ? ALT_A1.aH * Math.pow(o.dbh[k], ALT_A1.nHB) : o.h[k];
+  let recup = null;
+  if (kev.length) { for (let k = kev[0]; k < c.Wf.length && (kev.length < 2 || k < kev[1]); k++) if (t.Wf[k] / c.Wf[k] >= 0.95) { recup = k - kev[0]; break; } }
+  const kTB = idade.indexOf(24), kTB2 = idade.indexOf(36);
+  R = { c, t, datas, idade, k84, k12, kev, alt, recup, asw, fr: sp.fertility,
+        perda: 100 * (1 - t.vol[k84] / c.vol[k84]), removido: t.removido.reduce((a, b) => a + b, 0),
+        fT0: c.fT.slice(k12, k84 + 1).filter(x => x <= 0).length,
+        lenho: (c.Ws[kTB2] * (1 - c.fracBB[kTB2]) - c.Ws[kTB] * (1 - c.fracBB[kTB])) };
+}
+
+// ---------- fatores (UI) ----------
+const DEF_FATORES = [
+  { id: "sitio", nome: "Local", tipo: "chips", op: SIT, chave: "sitio" },
+  { id: "mat", nome: "Material genético", tipo: "chips", op: MAT, chave: "mat" },
+  { id: "solo", nome: "Solo: água e fertilidade", tipo: "solo" },
+  { id: "d", nome: "Intensidade da desfolha", tipo: "faixa" },
+  { id: "freq", nome: "Frequência", tipo: "chips", op: FREQ, chave: "freq" },
+  { id: "epoca", nome: "Época do pulso", tipo: "chips", op: EPOCA, chave: "epoca", num: true },
+];
+function chips(op, atual, onPick, num) {
+  return `<div class="chips">${Object.entries(op).map(([k, v]) => `<button type="button" class="chip" data-k="${k}" aria-pressed="${String(atual) === String(k)}">${v}</button>`).join("")}</div>`;
+}
+function montarFatores() {
+  const el = document.getElementById("fatores");
+  el.innerHTML = DEF_FATORES.map(f => {
+    let corpo = "";
+    if (f.tipo === "chips") corpo = chips(f.op, E[f.chave]);
+    if (f.tipo === "solo") corpo = `<div class="rot" style="margin:2px 0 4px">Água disponível (ASWmax)</div>${chips(AGUA, E.agua)}
+      <div class="rot" style="margin:8px 0 4px">Fertilidade (FR)</div>${chips(FERT, E.fert)}`;
+    if (f.tipo === "faixa") corpo = `<div class="faixa"><input type="range" id="in-d" min="0" max="95" step="5" value="${E.d}" aria-label="Intensidade da desfolha em porcentagem"><output id="out-d" class="num">${E.d}%</output></div>`;
+    return `<div class="fator" id="f-${f.id}"><header><span class="rot">${f.nome}</span>
+      <button type="button" class="trava" data-trava="${f.id}" aria-pressed="${TRAVA[f.id]}">${TRAVA[f.id] ? "🔒 travado" : "🔓 livre"}</button></header>${corpo}</div>`;
+  }).join("") + `<p class="dica" id="dica-solo"></p>`;
+  el.querySelectorAll(".fator").forEach(box => {
+    const id = box.id.slice(2);
+    box.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+      const k = b.dataset.k, grupo = b.parentElement;
+      if (id === "solo") { const ehAgua = grupo === box.querySelectorAll(".chips")[0]; if (ehAgua) E.agua = k === "LOC" ? "LOC" : +k; else E.fert = +k; }
+      else { const f = DEF_FATORES.find(x => x.id === id); E[f.chave] = f.num ? +k : k; }
+      atualizar();
+    }));
+  });
+  el.querySelectorAll(".trava").forEach(b => b.addEventListener("click", () => { TRAVA[b.dataset.trava] = !TRAVA[b.dataset.trava]; montarFatores(); }));
+  const r = document.getElementById("in-d"); r.addEventListener("input", () => { E.d = +r.value; document.getElementById("out-d").textContent = E.d + "%"; atualizar(false); });
+  const s = DADOS.sitios[E.sitio];
+  document.getElementById("dica-solo").textContent = `Solo local em ${SIT[E.sitio]}: ${s.asw_local} mm até 2 m. Os níveis em % são relativos a 190,6 mm. FR atual: ${frNivel(E.mat, E.fert).toFixed(3).replace(".", ",")}.`;
+}
+function sortear() {
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  if (!TRAVA.sitio) E.sitio = pick(Object.keys(SIT));
+  if (!TRAVA.mat) E.mat = pick(Object.keys(MAT));
+  if (!TRAVA.solo) { E.agua = pick(["LOC", "LOC", 100, 75, 50, 25]); E.fert = pick([100, 75, 50, 25]); }
+  if (!TRAVA.d) E.d = pick([10, 25, 25, 50, 50, 75, 95]);
+  if (!TRAVA.freq) E.freq = pick(["P1", "P1", "P2", "PA"]);
+  if (!TRAVA.epoca) E.epoca = pick([1, 4, 7, 10]);
+  const b = document.getElementById("bt-sortear"); b.classList.remove("girando"); void b.offsetWidth; b.classList.add("girando");
+  atualizar(); tocar(true);
+}
+
+// ---------- ficha ----------
+const fmt = (x, d = 1) => Number.isFinite(x) ? x.toLocaleString("pt-BR", { minimumFractionDigits: d, maximumFractionDigits: d }) : "–";
+function nivel(p) { return p < 3 ? ["Leve", "s0"] : p < 10 ? ["Moderada", "s1"] : p < 30 ? ["Severa", "s2"] : ["Crítica", "s3"]; }
+function codigo() { let h = 0; for (const ch of JSON.stringify(E)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return String(h % 10000).padStart(4, "0"); }
+function montarFicha() {
+  const { c, t, k84 } = R, k = tAtual, [nv, cls] = nivel(R.perda);
+  const rel = (a, b) => b > 0 ? Math.max(0, Math.min(1, a / b)) : 0;
+  const lin = (nome, a, b, un, d = 1) => { const r_ = rel(a, b); return `<div class="stat"><span>${nome}</span><div class="barra"><span class="${r_ < .97 ? "ruim" : ""}" style="width:${(r_ * 100).toFixed(1)}%"></span></div><span class="v num">${fmt(r_ * 100, 0)}%</span></div>`; };
+  const ev = Object.keys(eventos());
+  const alertas = [];
+  if (E.sitio === "IMP" && E.mat === "A1") alertas.push(`Diagnóstico: em Imperatriz a temperatura média passa da temperatura máxima do clone A1 (28,65 °C) em ${R.fT0} meses. Use este resultado só como diagnóstico de extrapolação.`);
+  if (E.sitio === "TB") alertas.push("Telêmaco Borba tem dias de geada, mas nenhum material tem função de dano por geada.");
+  if (E.mat !== "A1") alertas.push("As parametrizações de Borges (2009) produzem IAF de 7 a 11, acima do medido em campo. Isso amortece a perda.");
+  if (E.d >= 95 && E.freq !== "P1") alertas.push("O 3-PG não tem mortalidade induzida: desfolhas severas e repetidas indicam dano máximo, não risco de morte.");
+  document.getElementById("cartao").innerHTML = `
+    <div class="cartao-topo"><div><div class="rot">Talhão nº ${codigo()}</div><h2>${SIT[E.sitio]} · ${E.mat}</h2>
+      <div class="sub">${E.d}% · ${FREQ[E.freq].toLowerCase()} em ${EPOCA[E.epoca]} · água ${E.agua === "LOC" ? "local" : E.agua + "%"} (${fmt(R.asw, 0)} mm) · ${FERT[E.fert]}</div></div>
+      <span class="selo ${cls}">${E.d === 0 ? "Sem ataque" : nv}</span></div>
+    <div class="perda"><span class="grande num">${fmt(R.perda, 1)}%</span><span>de perda de volume aos 84 meses</span></div>
+    <div class="sub">Eventos: ${ev.length ? ev.map(e => { const [a, m] = e.split("-"); return MESES[+m - 1] + "/" + a; }).join(", ") : "nenhum"}</div>
+    <div class="stats">
+      <div class="rot">No mês exibido · desfolhado em % do controle</div>
+      ${lin("Folhagem", t.Wf[k], c.Wf[k])}${lin("IAF", t.lai[k], c.lai[k])}${lin("Lenho", t.Ws[k], c.Ws[k])}${lin("DAP", t.dbh[k], c.dbh[k])}${lin("Volume", t.vol[k], c.vol[k])}${lin("Árvores", t.N[k], c.N[k])}
+    </div>
+    <table class="tabela" style="margin-top:10px"><thead><tr><th>Aos 84 meses</th><th>Controle</th><th>Desfolhado</th></tr></thead><tbody>
+      <tr><td>Volume (m³/ha)</td><td class="num">${fmt(c.vol[k84], 0)}</td><td class="num">${fmt(t.vol[k84], 0)}</td></tr>
+      <tr><td>IMA (m³/ha/ano)</td><td class="num">${fmt(c.vol[k84] / 7, 1)}</td><td class="num">${fmt(t.vol[k84] / 7, 1)}</td></tr>
+      <tr><td>DAP (cm)</td><td class="num">${fmt(c.dbh[k84], 1)}</td><td class="num">${fmt(t.dbh[k84], 1)}</td></tr>
+      <tr><td>Folhas removidas (t/ha)</td><td class="num">–</td><td class="num">${fmt(R.removido, 2)}</td></tr>
+      <tr><td>Recuperação a 95%</td><td class="num">–</td><td class="num">${E.d === 0 ? "–" : R.recup === null ? "não recupera" : R.recup + " meses"}</td></tr>
+    </tbody></table>
+    ${alertas.length ? `<div class="alertas">${alertas.map(a => `<div class="alerta">${a}</div>`).join("")}</div>` : ""}`;
+}
+
+// ---------- gráficos 2D ----------
+const cor = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function prepCanvas(cv) { const r = cv.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = r.width * dpr; cv.height = r.height * dpr; const g = cv.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0); return [g, r.width, r.height]; }
+function grafico(id, chave, titulo, un) {
+  const cv = document.getElementById(id), [g, W, H] = prepCanvas(cv), { c, t, idade, kev } = R;
+  const L = 40, Rm = 8, T = 18, B = 20, n = c[chave].length;
+  const ymax = Math.max(...c[chave], ...t[chave]) * 1.08 || 1;
+  const X = k => L + (W - L - Rm) * k / (n - 1), Y = v => T + (H - T - B) * (1 - v / ymax);
+  g.clearRect(0, 0, W, H); g.font = "11px " + cor("--f-num"); g.fillStyle = cor("--tinta-2"); g.strokeStyle = cor("--linha"); g.lineWidth = 1;
+  const passo = ymax > 150 ? 50 : ymax > 40 ? 10 : ymax > 8 ? 2 : 1;
+  for (let v = 0; v <= ymax; v += passo) { g.beginPath(); g.moveTo(L, Y(v)); g.lineTo(W - Rm, Y(v)); g.stroke(); g.fillText(String(v), 4, Y(v) + 4); }
+  [24, 48, 72, 96].forEach(a => { const k = idade.indexOf(a); if (k >= 0) g.fillText(a + " m", Math.min(X(k) - 10, W - 34), H - 5); });
+  g.fillStyle = cor("--tinta"); g.font = "600 12px " + cor("--f-disp"); g.fillText(titulo + " (" + un + ")", L, 12);
+  g.fillStyle = cor("--praga"); kev.forEach(k => { g.globalAlpha = .35; g.fillRect(X(k) - 1, T, 2, H - T - B); g.globalAlpha = 1; });
+  const linha = (arr, col, w, dash) => { g.strokeStyle = col; g.lineWidth = w; g.setLineDash(dash); g.beginPath(); arr.forEach((v, k) => k ? g.lineTo(X(k), Y(v)) : g.moveTo(X(k), Y(v))); g.stroke(); g.setLineDash([]); };
+  linha(c[chave], cor("--tinta-2"), 1.6, [5, 4]); linha(t[chave], cor("--praga"), 2.2, []);
+  g.strokeStyle = cor("--tinta"); g.lineWidth = 1; g.beginPath(); g.moveTo(X(tAtual), T); g.lineTo(X(tAtual), H - B); g.stroke();
+  g.fillStyle = cor("--praga"); g.beginPath(); g.arc(X(tAtual), Y(t[chave][tAtual]), 3.5, 0, 7); g.fill();
+}
+// perfil de fuste ilustrativo: r(h) = r1,3 · ((H − h)/(H − 1,3))^0,72 acima de 1,3 m; alargamento de base abaixo
+function raioEm(h, H, dap) { const r = dap / 200; if (h <= 1.3) return r * (1 + 0.18 * (1.3 - h) / 1.3); if (h >= H) return 0; return r * Math.pow((H - h) / (H - 1.3), 0.72); }
+function perfil() {
+  const cv = document.getElementById("g-perfil"), [g, W, H] = prepCanvas(cv), { c, t } = R, k = tAtual;
+  const Hc = Math.max(1.5, R.alt(c, k)), Ht = Math.max(1.5, R.alt(t, k)), Hm = Math.max(Hc, Ht, 5) * 1.08;
+  const dmax = Math.max(c.dbh[k], 5) / 100 * 1.25;
+  const cx = W / 2, T = 14, B = 22, Y = h => H - B - (H - T - B) * h / Hm, X = r => (W / 2 - 34) * r / (dmax / 2 * 1.0);
+  g.clearRect(0, 0, W, H); g.font = "11px " + cor("--f-num"); g.fillStyle = cor("--tinta-2"); g.strokeStyle = cor("--linha");
+  const pa = Hm > 30 ? 10 : 5; for (let h = 0; h <= Hm; h += pa) { g.beginPath(); g.moveTo(26, Y(h)); g.lineTo(W - 6, Y(h)); g.stroke(); g.fillText(h + " m", 2, Y(h) + 4); }
+  const desenha = (Hx, dap, col, lado, alpha) => { g.fillStyle = col; g.globalAlpha = alpha; g.beginPath(); g.moveTo(cx, Y(0));
+    for (let i = 0; i <= 60; i++) { const h = Hx * i / 60; g.lineTo(cx + lado * X(raioEm(h, Hx, dap)), Y(h)); } g.lineTo(cx, Y(Hx)); g.closePath(); g.fill(); g.globalAlpha = 1; };
+  desenha(Hc, c.dbh[k], cor("--tinta-2"), -1, .75); desenha(Ht, t.dbh[k], cor("--praga"), 1, .85);
+  g.strokeStyle = cor("--tinta"); g.beginPath(); g.moveTo(cx, Y(0)); g.lineTo(cx, Y(Hm)); g.stroke();
+  g.fillStyle = cor("--tinta"); g.font = "600 11.5px " + cor("--f-disp");
+  g.fillText("controle", 30, H - 6); const tw = g.measureText("desfolhado").width; g.fillText("desfolhado", W - tw - 6, H - 6);
+  g.font = "11px " + cor("--f-num"); g.fillStyle = cor("--tinta-2");
+  g.fillText(`DAP ${fmt(c.dbh[k], 1)} cm · H ${fmt(Hc, 1)} m`, 30, T + 8); const s2 = `DAP ${fmt(t.dbh[k], 1)} cm · H ${fmt(Ht, 1)} m`; g.fillText(s2, W - g.measureText(s2).width - 6, T + 8);
+  document.getElementById("perfil-nota").textContent = (E.mat === "A1" ? "Altura do A1 pelo ajuste local alternativo (aH = 3,3138; nHB = 0,7152). " : "Altura pela relação hipsométrica de Borges (2009). ") + "A largura do desenho está exagerada em relação à altura para mostrar o afilamento.";
+}
+
+// ---------- cena 3D ----------
+let renderer, scene, camera, controls, arvores = [], galhosMesh, folhasMesh, chaoMesh, particulas, flashT = 0;
+const LIN = 6, COL = 5, ESP = 3, K = 14, VIS = 1.6; // VIS: exagero do diâmetro
+function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
+function iniciar3D() {
+  const cv = document.getElementById("cena");
+  renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true }); renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+  scene = new THREE.Scene(); camera = new THREE.PerspectiveCamera(42, 1, 0.5, 400);
+  camera.position.set(-6, 26, 52);
+  controls = new THREE.OrbitControls(camera, cv); controls.target.set(0, 9, 0); controls.enableDamping = true; controls.maxPolarAngle = Math.PI * 0.49; controls.minDistance = 12; controls.maxDistance = 120;
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x6b5a3c, 0.85)); const sol = new THREE.DirectionalLight(0xffffff, 0.75); sol.position.set(30, 50, 20); scene.add(sol);
+  chaoMesh = new THREE.Mesh(new THREE.PlaneGeometry(70, 46), new THREE.MeshLambertMaterial({ color: 0xc9b48f })); chaoMesh.rotation.x = -Math.PI / 2; scene.add(chaoMesh);
+  const trilha = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 46), new THREE.MeshLambertMaterial({ color: 0x9a8a6a })); trilha.rotation.x = -Math.PI / 2; trilha.position.y = 0.02; scene.add(trilha);
+  // fuste: perfil normalizado (altura 0..1, raio 1 no DAP para H de referência 20 m)
+  const pts = []; for (let i = 0; i <= 24; i++) { const h = i / 24; pts.push(new THREE.Vector2(Math.max(0.001, raioEm(h * 20, 20, 200)), h)); }
+  const geoF = new THREE.LatheGeometry(pts, 10);
+  const matF = new THREE.MeshLambertMaterial({ color: 0xd9a27c });
+  const geoC = new THREE.IcosahedronGeometry(1, 0), matC = new THREE.MeshLambertMaterial({ color: 0xffffff });
+  const total = LIN * COL * 2;
+  galhosMesh = new THREE.InstancedMesh(geoF, matF, total); folhasMesh = new THREE.InstancedMesh(geoC, matC, total * K);
+  galhosMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage); folhasMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+  for (let i = 0; i < total * K; i++) folhasMesh.setColorAt(i, new THREE.Color(0x3f7f74));
+  folhasMesh.instanceColor.needsUpdate = true;
+  scene.add(galhosMesh, folhasMesh);
+  const r = rng(20261030);
+  for (const lado of [-1, 1]) for (let i = 0; i < LIN; i++) for (let j = 0; j < COL; j++) {
+    const x = lado * (2.6 + j * ESP) + (r() - .5) * .5, z = (i - (LIN - 1) / 2) * ESP + (r() - .5) * .5;
+    const tufos = []; for (let q = 0; q < K; q++) tufos.push({ u: r(), a: r() * Math.PI * 2, rr: Math.sqrt(r()), s: .75 + r() * .5 });
+    arvores.push({ lado, x, z, fd: .9 + r() * .2, fh: .95 + r() * .1, ordem: r(), tufos });
+  }
+  const pg = new THREE.BufferGeometry(), np = 260, pos = new Float32Array(np * 3), vel = [];
+  for (let i = 0; i < np; i++) { pos[i * 3] = 2.6 + Math.random() * COL * ESP; pos[i * 3 + 1] = 8 + Math.random() * 18; pos[i * 3 + 2] = (Math.random() - .5) * LIN * ESP; vel.push(.03 + Math.random() * .05); }
+  pg.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+  particulas = new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xd2552b, size: .45 })); particulas.userData.vel = vel; particulas.visible = false; scene.add(particulas);
+  const ro = new ResizeObserver(() => { const w = cv.clientWidth, h = cv.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+    const f = Math.min(2.2, Math.max(1, 1.5 / camera.aspect)); camera.position.set(-6 * f, 26 * f, 52 * f); controls.update(); });
+  ro.observe(cv); temaCena(); loop();
+}
+function temaCena() { if (!scene) return; scene.background = new THREE.Color(cor("--ceu3d")); chaoMesh.material.color = new THREE.Color(cor("--solo3d")); }
+const M4 = new THREE.Matrix4(), Q = new THREE.Quaternion(), V = new THREE.Vector3(), SC = new THREE.Vector3(), COR = new THREE.Color();
+function atualizar3D() {
+  if (!renderer || !R) return;
+  const k = tAtual, { c, t } = R;
+  const wfMax = Math.max(...c.Wf.map((w, i) => w * 1000 / c.N[i]));
+  const ev = R.kev.includes(k);
+  const verde = new THREE.Color(cor("--folha")), praga = new THREE.Color(cor("--praga"));
+  let idx = 0, idf = 0;
+  const N0 = c.N[0];
+  for (const a of arvores) {
+    const o = a.lado < 0 ? c : t, vivo = a.ordem < o.N[k] / N0;
+    const H = Math.max(1.2, R.alt(o, k)) * a.fh, dap = o.dbh[k] * a.fd, r = dap / 200 * VIS;
+    if (!vivo) { M4.makeScale(0, 0, 0); galhosMesh.setMatrixAt(idx++, M4); for (let q = 0; q < K; q++) folhasMesh.setMatrixAt(idf++, M4); continue; }
+    M4.compose(V.set(a.x, 0, a.z), Q.identity(), SC.set(r, H, r)); galhosMesh.setMatrixAt(idx++, M4);
+    const wfArv = o.Wf[k] * 1000 / o.N[k], frac = Math.min(1, wfArv / wfMax), nVis = Math.round(K * Math.sqrt(frac));
+    const base = H * .52, compr = H - base, larg = Math.max(.8, Math.min(2.4, H * .085)) * (0.65 + 0.35 * Math.sqrt(frac));
+    a.tufos.forEach((tf, q) => {
+      if (q >= nVis) M4.makeScale(0, 0, 0);
+      else { const h = base + tf.u * compr, rad = larg * tf.rr * (1 - .55 * tf.u); const s = (.55 + .5 * (1 - tf.u)) * tf.s * Math.max(.6, H / 22);
+        M4.compose(V.set(a.x + Math.cos(tf.a) * rad, h, a.z + Math.sin(tf.a) * rad), Q.identity(), SC.set(s, s * 1.25, s)); }
+      folhasMesh.setMatrixAt(idf, M4);
+      COR.copy(verde); if (a.lado > 0 && ev) COR.lerp(praga, .65); COR.offsetHSL(0, 0, (tf.s - 1) * .12); folhasMesh.setColorAt(idf, COR); idf++;
+    });
+  }
+  galhosMesh.instanceMatrix.needsUpdate = true; folhasMesh.instanceMatrix.needsUpdate = true; if (folhasMesh.instanceColor) folhasMesh.instanceColor.needsUpdate = true;
+  particulas.visible = ev; document.getElementById("flash").classList.toggle("on", ev);
+  const fsw = Number.isFinite(c.fSW[k]) ? c.fSW[k] : 1; chaoMesh.material.color = new THREE.Color(cor("--solo3d")).offsetHSL(0, 0, -0.12 * fsw);
+}
+function loop() {
+  requestAnimationFrame(loop);
+  if (particulas && particulas.visible) { const p = particulas.geometry.attributes.position, v = particulas.userData.vel;
+    for (let i = 0; i < v.length; i++) { p.array[i * 3 + 1] -= v[i] * 3; if (p.array[i * 3 + 1] < 0) p.array[i * 3 + 1] = 10 + Math.random() * 16; } p.needsUpdate = true; }
+  controls && controls.update(); renderer && renderer.render(scene, camera);
+}
+
+// ---------- linha do tempo ----------
+let timer = null;
+function montarTempo() {
+  const s = document.getElementById("mes"); s.max = R.c.Wf.length - 1; if (tAtual > +s.max) tAtual = +s.max; s.value = tAtual;
+  const n = R.c.Wf.length - 1;
+  document.getElementById("marcas").innerHTML = R.kev.map(k => `<i style="left:${100 * k / n}%"></i>`).join("") + `<b style="left:${100 * R.k84 / n}%" title="84 meses"></b>`;
+}
+function mostrarMes() {
+  const d = R.datas[tAtual]; document.getElementById("q-idade").textContent = R.idade[tAtual] + " meses";
+  document.getElementById("q-data").textContent = MESES[d.m - 1] + "/" + d.a; document.getElementById("mes").value = tAtual;
+  atualizar3D(); montarFicha(); grafico("g-wf", "Wf", "Folhagem", "t/ha"); grafico("g-ws", "Ws", "Lenho", "t/ha"); perfil();
+}
+function tocar(doInicio) {
+  parar(); if (matchMedia("(prefers-reduced-motion: reduce)").matches) { tAtual = R.k84; mostrarMes(); return; }
+  if (doInicio) tAtual = Math.max(0, R.k12 - 1);
+  document.getElementById("bt-play").textContent = "❚❚"; document.getElementById("bt-play").setAttribute("aria-label", "Pausar");
+  timer = setInterval(() => { if (tAtual >= R.c.Wf.length - 1) { parar(); return; } tAtual++; mostrarMes(); }, 120);
+}
+function parar() { clearInterval(timer); timer = null; const b = document.getElementById("bt-play"); b.textContent = "▶"; b.setAttribute("aria-label", "Reproduzir"); }
+function irPara(idadeMeses) { const k = R.idade.indexOf(idadeMeses); tAtual = k >= 0 ? k : R.c.Wf.length - 1; mostrarMes(); }
+
+function atualizar(refazUI = true) { simular(); if (refazUI) montarFatores(); montarTempo(); mostrarMes(); }
+
+// ---------- tutorial ----------
+const IMP_RF = [["Intensidade", 57.0], ["Frequência", 38.3], ["Local", 2.5], ["Material", 1.0], ["Época", 0.4], ["Água", 0.4], ["Fertilidade", 0.4]];
+const PASSOS = [
+  { t: "O problema", alvo: "palco", estado: { sitio: "IND", mat: "A1", agua: "LOC", fert: 100, d: 0, freq: "P1", epoca: 1 }, idade: 84,
+    h: `<p>Lagartas e doenças arrancam folhas do eucalipto. Sem folha, a árvore capta menos luz e produz menos madeira. Quanto se perde depende da <b>intensidade</b>, da <b>frequência</b> e da <b>época</b> do ataque, do <b>clima</b>, do <b>solo</b> e do <b>material genético</b>.</p><p>Testar tudo isso em campo levaria décadas. Este simulador testa no computador.</p>` },
+  { t: "O motor: modelo 3-PG", alvo: "palco", acao: "tocar", h: `<p>O 3-PG calcula, mês a mês, quanta luz o dossel absorve e transforma isso em carbono. O carbono vai para folhas, lenho e raízes, limitado por temperatura, água no solo e idade.</p><p>Aqui, um talhão de <b>clone A1</b> em <b>Indianópolis-MG</b>, plantado em 3 × 3 m, cresce até 8 anos. Ainda sem ataque, as duas metades são iguais.</p>` },
+  { t: "O módulo de desfolha", alvo: "f-d", estado: { d: 50 }, idade: 24, h: `<p>O 3-PG original não tem pragas. Nós acrescentamos uma regra: no mês do ataque, antes de calcular a luz, a biomassa foliar perde a fração <i>d</i>.</p><div class="eq">W<sub>F,pós</sub> = W<sub>F,pré</sub> · (1 − d)</div><p>Aqui, 50% em janeiro de 2017, aos 24 meses. Veja as copas da direita afinarem. Nenhuma outra equação do modelo foi mexida.</p>` },
+  { t: "Controle × desfolhado", alvo: "cartao", idade: 84, h: `<p>A metade esquerda nunca é atacada e serve de <b>controle</b>. Tudo é comparado com ela, no mesmo mês:</p><div class="eq">perda = 100 · (1 − desfolhado / controle)</div><p>Com 50% de desfolha num único pulso, o A1 perde cerca de 3% do volume aos 7 anos.</p>` },
+  { t: "As folhas voltam, o lenho não", alvo: "g-ws", acao: "tocar", h: `<p>A folhagem volta ao nível de antes em poucos meses, mas leva cerca de 2 anos para alcançar 95% do controle. O lenho que deixou de crescer nesse período não é recuperado.</p><p>É por isso que a linha laranja de lenho fica abaixo da tracejada até o fim.</p>` },
+  { t: "Frequência pesa muito", alvo: "f-freq", estado: { freq: "PA", d: 50 }, acao: "tocar", h: `<p>Agora o ataque se repete <b>todo ano</b>, de 2017 a 2022. O dossel nunca termina de se refazer, e a perda de volume sobe para cerca de 14%. Com 95% todo ano, passa de 50%.</p>` },
+  { t: "A época também conta", alvo: "f-epoca", estado: { freq: "P1", d: 50, epoca: 4 }, idade: 84, h: `<p>O mesmo ataque de 50% em <b>abril</b>, início da seca no Cerrado, custa menos (cerca de 1,7%) do que em <b>outubro</b> (3,7%). Com menos folhas, a árvore transpira menos e guarda água para os meses secos.</p><p>Troque a época no painel e compare.</p>` },
+  { t: "Três climas", alvo: "f-sitio", estado: { sitio: "TB", epoca: 1, d: 95 }, idade: 84, h: `<p>Em <b>Telêmaco Borba-PR</b>, úmido e sem seca, o A1 cresce mais. A mesma desfolha de 95% custa <b>15%</b>, contra 9,5% em Indianópolis, porque ali não há seca em que a água economizada faça diferença.</p><p>Em <b>Imperatriz-MA</b>, a temperatura passa do limite do clone A1 em 31 meses. Por isso esse caso aparece marcado como diagnóstico.</p>` },
+  { t: "O que mais pesa?", alvo: "painel-fatores", h: `<p>Rodamos 2.408 cenários e treinamos uma Random Forest para explicar a perda. Ela aponta o que mais importa:</p><div class="imp-barras">${IMP_RF.map(([n, v]) => `<div><span>${n}</span><div class="barra"><span style="width:${v / 57 * 100}%"></span></div><span class="num">${String(v).replace(".", ",")}%</span></div>`).join("")}</div><p>O ataque em si (intensidade e frequência) manda. Clima, solo e material ajustam a intensidade da resposta.</p>` },
+  { t: "Sua vez", alvo: "bt-sortear", h: `<p>Use <b>Sortear talhão</b> para gerar cenários aleatórios. Trave os fatores que quiser manter. Cada sorteio roda o 3-PG de verdade, no seu navegador.</p><p>Lembre-se: o módulo está <b>verificado</b> (reproduz o r3PG), mas <b>não validado</b> em campo. Os números são hipóteses para testar, não previsões garantidas.</p>` },
+];
+let passo = 0;
+function abrirTour() { passo = 0; document.getElementById("tour").hidden = false; mostrarPasso(); }
+function fecharTour() { document.getElementById("tour").hidden = true; document.querySelectorAll(".destaque").forEach(e => e.classList.remove("destaque")); }
+function mostrarPasso() {
+  const p = PASSOS[passo];
+  document.querySelectorAll(".destaque").forEach(e => e.classList.remove("destaque"));
+  if (p.estado) { Object.assign(E, p.estado); atualizar(); }
+  if (p.idade) { parar(); irPara(p.idade); }
+  if (p.acao === "tocar") tocar(true);
+  const alvo = document.getElementById(p.alvo); if (alvo) { alvo.classList.add("destaque"); alvo.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+  document.getElementById("tour-passo").textContent = `Passo ${passo + 1} de ${PASSOS.length}`;
+  document.getElementById("tour-tit").textContent = p.t; document.getElementById("tour-txt").innerHTML = p.h;
+  document.getElementById("tour-pontos").innerHTML = PASSOS.map((_, i) => `<i class="${i === passo ? "on" : ""}"></i>`).join("");
+  document.getElementById("tour-ant").disabled = passo === 0;
+  document.getElementById("tour-prox").textContent = passo === PASSOS.length - 1 ? "Começar" : "Próximo";
+}
+document.getElementById("tour-prox").addEventListener("click", () => { if (passo < PASSOS.length - 1) { passo++; mostrarPasso(); } else fecharTour(); });
+document.getElementById("tour-ant").addEventListener("click", () => { if (passo > 0) { passo--; mostrarPasso(); } });
+document.getElementById("tour-sair").addEventListener("click", fecharTour);
+document.getElementById("bt-tour").addEventListener("click", abrirTour);
+document.getElementById("bt-sortear").addEventListener("click", sortear);
+document.getElementById("bt-play").addEventListener("click", () => timer ? parar() : tocar(tAtual >= R.c.Wf.length - 1));
+document.getElementById("mes").addEventListener("input", e => { parar(); tAtual = +e.target.value; mostrarMes(); });
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { temaCena(); mostrarMes(); });
+new MutationObserver(() => { temaCena(); mostrarMes(); }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+window.addEventListener("resize", () => R && mostrarMes());
+
+try { iniciar3D(); } catch (err) { document.getElementById("aviso3d").textContent = "Seu navegador não abriu a cena 3D. A simulação, os gráficos e o perfil do fuste continuam funcionando."; }
+simular(); montarFatores(); montarTempo(); tAtual = R.k84; mostrarMes();
+let visto = false; try { visto = localStorage.getItem("tour3pg") === "1"; localStorage.setItem("tour3pg", "1"); } catch (e) {}
+if (!visto) abrirTour();
+</script>

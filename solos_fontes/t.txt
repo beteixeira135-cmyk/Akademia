@@ -1,0 +1,2450 @@
+                                                              ISSN 1678-0892
+                                                                 Março, 2021
+
+            Empresa Brasileira de Pesquisa Agropecuária
+                           Embrapa Solos
+        Ministério da Agricultura, Pecuária e Abastecimento
+
+
+
+
+  Boletim de Pesquisa e Desenvolvimento
+                  272
+
+  Predição da Água Disponível no Solo em
+ Função da Granulometria para Uso nas
+Análises de Risco no Zoneamento Agrícola
+            de Risco Climático
+              Wenceslau Geraldes Teixeira
+               Daniel de Castro Victoria
+            Alexandre Hugo Cezar Barros
+              José Francisco Lumbreras
+             José Coelho de Araújo Filho
+         Fernando Antônio Macena da Silva
+                Evaldo de Paiva Lima
+          Júlio Sílvio de Sousa Bueno Filho
+      José Eduardo Boffino de Almeida Monteiro
+
+
+                         Embrapa Solos
+                        Rio de Janeiro, RJ
+                              2021
+Embrapa Solos
+Rua Jardim Botânico, 1024.
+Jardim Botânico, Rio de Janeiro, RJ - CEP: 22460-000
+Fone: + 55 (21) 2179-4500
+www.embrapa.br
+www.embrapa.br/fale-conosco/sac
+
+Unidade responsável pelo conteúdo e edição
+Embrapa Solos
+
+Comitê Local de Publicações
+Presidente: Daniel Vidal Perez
+Secretário-Executivo: Marcos Antônio Nakayama
+Membros: Bernadete da Conceição Carvalho Gomes Pedreira, Evaldo de Paiva Lima, José
+Francisco Lumbreras, Joyce Maria Guimarães Monteiro, Lucia Raquel Queiroz Pereira da
+Luz, Maurício Rizzato Coelho, Ricardo de Oliveira Dart, Wenceslau Geraldes Teixeira
+
+Supervisão editorial: Marcos Antônio Nakayama
+Revisão de texto: Marcos Antônio Nakayama
+Normalização bibliográfica: Enyomara Lourenço Silva (CRB – 4/1569)
+Projeto gráfico da coleção: Carlos Eduardo Felice Barbeiro
+Editoração eletrônica: Alexandre Abrantes Cotta de Mello
+Capa: Alexandre Abrantes Cotta de Mello
+Imagem da capa: Wenceslau Geraldes Teixeira
+
+1ª edição
+E-book (2021)
+                              Todos os direitos reservados.
+           A reprodução não autorizada desta publicação, no todo ou em parte,
+                  constitui violação dos direitos autorais (Lei nº 9.610).
+              Dados Internacionais de Catalogação na Publicação (CIP)
+                                      Embrapa Solos
+
+Predição da água disponível no solo em função da granulometria para uso nas análises de
+    risco no Zoneamento Agrícola de Risco Climático / Wenceslau Geraldes Teixeira … [et
+    al.]. – Rio de Janeiro : Embrapa Solos, 2021.
+    E-book : il. color. – (Boletim de pesquisa e desenvolvimento / Embrapa Solos, ISSN
+1678-0892 ; 272).
+
+    E-book, no formato ePub.
+
+     1. Zoneamento climático. 2. Relação solo-água. I. Teixeira, Wenceslau Geraldes. II.
+Victoria, Daniel de Castro. III. Barros, Alexandre Hugo Cezar. IV. Lumbreras, José
+Francisco. V. Araújo Filho, José Coelho de. VI. Silva, Fernando Antônio Macena da. VII.
+Lima, Evaldo de Paiva. VIII. Bueno Filho, Júlio Sílvio de Sousa. IX. Monteiro, José Eduardo
+Boffino de Almeida. X. Embrapa Solos. XI. Série.
+                                                                              CDD 630.2515
+
+Enyomara Lourenço Silva (CRB – 4/1569)                                   © Embrapa, 2021
+Autores
+Wenceslau Geraldes Teixeira
+Engenheiro-agrônomo, doutor em Geoecologia, pesquisador da
+Embrapa Solos, Rio de Janeiro, RJ
+
+Daniel de Castro Victoria
+Engenheiro-agrônomo, doutor em Ciências, pesquisador da
+Embrapa Informática Agropecuária, Campinas, SP
+
+Alexandre Hugo Cezar Barros
+Engenheiro-agrônomo, doutor em Física do Ambiente Agrícola,
+pesquisador da Embrapa Solos, Recife, PE
+
+José Francisco Lumbreras
+Engenheiro-agrônomo, doutor em Planejamento e Gestão
+Ambiental, pesquisador da Embrapa Solos, Rio de Janeiro, RJ
+
+José Coelho de Araújo Filho
+Engenheiro-agrônomo, doutor em Geoquímica e Geotectônica,
+pesquisador da Embrapa Solos, Recife, PE
+
+Fernando Antônio Macena da Silva
+Agrônomo, doutor em Engenharia Agrícola, pesquisador da
+Embrapa Cerrados, Brasília, DF
+
+Evaldo de Paiva Lima
+Meteorologista, doutor em Meteorologia Agrícola, pesquisador da
+Embrapa Solos, Rio de Janeiro, RJ
+Júlio Sílvio de Sousa Bueno Filho
+Agrônomo, doutor em Agronomia, professor titular da Universidade
+Federal de Lavras, Lavras, MG
+
+José Eduardo Boffino de Almeida Monteiro
+Engenheiro-agrônomo, doutor em Agrometeorologia, pesquisador
+da Embrapa Informática Agropecuária, Campinas, SP
+Resumo
+A estimativa da capacidade de armazenamento de água no solo é
+fundamental para os estudos de riscos de produção agrícola em
+modelos de simulação e planejamento do manejo da irrigação. No
+entanto, a avaliação direta do volume de água disponível (AD) é
+bastante onerosa, pois envolve a coleta de amostras indeformadas
+e avaliações feitas por laboratórios especializados. Essa dificuldade
+tem levado os pesquisadores a buscarem formas indiretas de
+estimar a AD do solo. Uma das alternativas mais promissoras é o
+uso das funções de pedotransferências (PTF, do inglês
+PedoTransfer Function). Este estudo teve como objetivo ajustar e
+avaliar uma PTF para estimativa da AD baseada nos teores das
+partículas minerais do solo: areia total, silte e argila.
+Concomitantemente, fez-se um estudo para ampliação dos três
+“tipos de solos” e suas respectivas AD utilizados atualmente nas
+simulações do Zoneamento Agrícola de Risco Climático (ZARC). Foi
+utilizado um banco de dados de granulometria e AD oriundos de
+1.201 amostras. Realizou-se o ajuste de uma equação preditiva
+para AD baseado em modelo linear de mistura. Os resultados da
+acurácia do modelo mostraram um valor da raiz do quadrado médio
+dos erros (RQME) de 0,036 cm3 cm-3, um coeficiente de
+determinação (R2) de 0,99 e um coeficiente de correlação (R) de
+0,78. A análise dos resíduos não evidenciou tendências ou
+violações das pressuposições dos modelos lineares. A verificação
+do modelo deu-se de duas formas: validação cruzada pelo método
+k-fold com 20 subconjuntos e verificação a partir de um conjunto de
+dados independentes. Os estudos de validação e comparação com
+outras PTFs mostraram a superioridade da equação proposta.
+Foram gerados gráficos ternários e tabelas para a consulta dos
+valores de AD em função da caracterização granulométrica do solo,
+além da equação para predição da AD. Com os resultados das
+análises realizadas para avaliação da sensibilidade do risco
+climático à variação da AD, foram propostas seis classes de AD, a
+serem utilizadas em substituição às três classes atualmente
+empregadas. A AD-PTF proposta faz parte de um sistema
+hierárquico para estimativas dos valores de AD para os solos do
+Brasil. A disponibilidade de dados de AD mais precisos e classes de
+AD mais bem definidas tem um grande potencial de aumentar a
+acurácia das análises de risco ao deficit hídrico no Brasil, assim
+como poderá beneficiar vários outros usuários que utilizam dados de
+AD.
+
+Termos para indexação: risco climático, funções de
+pedotransferência, modelagem, zoneamento
+Abstract
+Prediction of Available Water Capacity Based on Granulometry
+for Use in Risk Analysis in Agricultural Climate Risk Zoning
+
+The predictions of water storage capacity and in the soil is essential
+for studies of agricultural production risks, in crop production
+simulation models and irrigation management. However, direct
+measurements of available soil water (AW) is costly, as it involves
+the sampling of undisturbed samples and the analyses are carried
+out in specialized laboratories. These difficulties encourage
+researchers to look for indirect ways to estimate AW. One of the
+most promising alternatives is the use of the pedotransfer functions
+(PTF). This study aimed to fit and evaluate a PTF to estimate AW
+based only on the soil particle size distribution: total sand, silt and
+clay. A database with granulometric data and observed AW from
+1,201 samples was used. A predictive equation for AW was adjusted
+using a linear mixture equation. The equation’s accuracy showed a
+root mean square error value of 0.036 m3 m-3 and a determination
+coefficient (R2) of 0.99 and correlation coefficient (R) of 0.78. The
+analysis of residues did not show trends or violations of the
+assumptions of linear equations. The validation of the model was
+verified in two ways: cross-validation by the k-fold method with 20
+subsets and using an independent data set. The validation and
+comparison studies with other PTFs also showed the superiority of
+the proposed equation. Ternary graphs and tables were generated
+for querying AW values as a function of soil granulometric
+characterization, in addition to the equation for AW prediction. The
+assessment of the sensitivity of climatic risk to the variation of AW
+was also carried out, and six AW classes are proposed, to be used
+by the Agricultural Climate Risk Zoning simulations and replace the
+three values currently employed. The AW-PTF proposed in this study
+is part of a hierarchical system for obtaining AW values for soils in
+Brazil. The availability of more precise AW data and better defined
+AW classes has a great potential to increase the accuracy of risk
+analyses for water deficit, as well as benefiting several other
+potential users of AW data.
+
+Index terms: climate risks, Pedotransfer functions, modelling,
+zoning
+Sumário
+Introdução
+
+Material e Métodos
+
+Resultados e Discussão
+
+Conclusões
+
+Agradecimentos
+
+Referências
+
+Apêndices – Análises estatísticas
+Introdução
+   O Brasil é um país com grande diversidade de ambientes, que
+apresentam distintas classes de solo e clima. Isso faz com que cada
+uma das diferentes regiões esteja sujeita a eventos climáticos que
+podem afetar a produção de cultivos agrícolas. Dentre os eventos
+climáticos que afetam os cultivos no Brasil, podemos citar: o deficit
+hídrico (seca), responsável por 42,7% do valor indenizado das
+apólices de seguro entre os anos de 2006 a 2015 (Brasil, 2017) e o
+maior causador de sinistros na cultura da soja e milho entre as
+safras de 2013/14 a 2018/19 (Gonçalves et al., 2019); o granizo,
+responsável por 30% do valor indenizado entre os anos de 2006 a
+2015 (Brasil, 2017); a geada, responsável por 13,2% do valor
+indenizado entre os anos de 2006 a 2015 (Brasil, 2017), e as chuvas
+excessivas na colheita, sendo uma causa de especial importância
+nos sinistros para a cultura do trigo (Gonçalves et al., 2019).
+
+   O Zoneamento Agrícola de Risco Climático (ZARC) disponibiliza
+informações sobre as melhores épocas de plantio, de modo a evitar
+que eventos climáticos desfavoráveis coincidam com as fases mais
+sensíveis dos cultivos. Essas informações estão disponíveis aos
+gestores públicos (Banco Central, Conselho Monetário Nacional –
+CMN – e Ministério da Agricultura, Pecuária e Abastecimento –
+Mapa) para auxiliar na tomada de decisão das políticas que regem o
+Programa de Seguro Rural (PSR), o Programa de Garantia da
+Atividade Agropecuária (Proagro), Proagro+, destinado à agricultura
+familiar, além da subvenção federal ao Prêmio do Seguro Rural
+(PSR). O ZARC tornou-se imprescindível para identificar, quantificar
+e mapear as regiões mais favoráveis ao plantio dos cultivos de
+sequeiro e de alguns cultivos irrigados. Na atualidade, os estudos do
+ZARC contemplam mais de 40 cultivos agrícolas, com a indicação
+das épocas de plantio e percentual de risco associado para todas as
+unidades da federação.
+
+   Na análise e modelagem do risco climático feito pelo ZARC, são
+observados o clima, a disponibilidade de água do solo bem como as
+informações fenológicas dos cultivos. Com relação ao clima, são
+consideradas informações da precipitação pluviométrica, da
+temperatura do ar, do deficit hídrico, dos períodos de estiagem e dos
+períodos de maiores ocorrências de geadas e granizos. Quanto ao
+solo, a capacidade de água disponível (CAD) para os cultivos é
+estimada em função da profundidade efetiva das raízes e da água
+disponível no solo. Quanto à cultura, consideram-se as cultivares e
+sua classificação em grupos de características fenológicas
+homogêneas, associadas à duração dos diferentes ciclos da cultura,
+precoces, médios e tardios (Cunha; Assad, 2001; Santos; Martins,
+2016; Steinmetz; Silva, 2017).
+
+   Representar adequadamente essas informações no ZARC
+sempre foi um desafio, tanto do ponto de vista da geração das
+informações quanto do seu uso. O ZARC, atualmente, segue uma
+estratégia de simplificação de cenários por meio do balanço hídrico
+da cultura, considerando três grupos de cultivares e três tipos de
+solos quanto à sua CAD. Essa simplificação busca evitar uma
+complexidade excessiva capaz de inviabilizar a operacionalização
+das predições em todo território nacional (Brasil, 2008). Atualmente,
+a regra que classifica os solos quanto aos valores de água
+disponível para fins de análise de riscos climáticos em função de
+diferentes épocas de plantio é baseada principalmente nos teores
+de argila, sendo regulamentada pela Instrução Normativa (IN) no 2
+de 09/10/2008 (Brasil, 2008). Nessa IN, os solos são classificados
+em apenas três classes (tipos) quanto à retenção de água
+disponível (AD):
+
+  a.      Tipo 1 (textura arenosa): solos com teor de argila ≥ 10% e <
+        15% ou com teor de argila ≥ 15%, com diferença entre o
+        percentual de areia e o percentual de argila ≥ 50%; nos solos
+        Tipo 1, a AD assume o valor de 0,7 mm cm-1.
+
+  b.      Tipo 2 (textura média): solos com teor de argila ≥ 15% e <
+        35%, com diferença entre o percentual de areia e o percentual
+        de argila < 50%; nos solos Tipo 2, a AD assume o valor de 1,1
+        mm cm-1.
+
+   c.     Tipo 3 (textura argilosa): solos com teor de argila ≥ 35%,
+        cuja AD assume o valor de 1,5 mm cm-1 (Brasil, 2008).
+
+   No entanto, na última década, ficou notório que apenas três
+valores de AD não são suficientes para representar a variabilidade
+dos solos que ocorrem no Brasil, com enviesamentos das predições,
+tanto de subestimação quanto de superestimação das faixas de
+riscos. Essa simplificação excessiva tem sido um dos principais
+questionamentos de como as informações sobre os solos têm sido
+utilizadas no ZARC, e isso tornou-se fonte de motivação para
+aperfeiçoar a modelagem nesse quesito. Recentes avanços
+metodológicos e operacionais no processamento do ZARC vêm
+ocorrendo, buscando acompanhar os avanços tecnológicos e o
+melhor entendimento dos processos de crescimento, produtividade
+e riscos dos cultivos agrícolas.
+
+  Várias alternativas têm sido consideradas na melhoria do ZARC,
+muitas das quais sem viabilidade, seja pelo elevado tempo de
+processamento, ou pela operacionalização de mais de 300 mil
+contratos anuais no âmbito dos programas de seguro agrícola,
+baseados nas recomendações do ZARC.
+
+   Dessa forma, optou-se por uma estratégia com possibilidade de
+melhoria contínua, em que, à medida que novos dados, informações
+e avanços metodológicos para a estimativa da AD nos solos sejam
+obtidos, estes possam ser implementados, sem prejuízos à
+operacionalização dos diversos programas que demandam as
+informações do ZARC. Essa estratégia para obtenção de dados de
+AD será operacionalizada por um sistema hierárquico de
+informações de solos.
+
+Estratégia para obtenção dos valores de AD dos solos do
+Brasil
+
+  A estratégia para obtenção dos dados de AD apresenta duas
+fases. A primeira (Fase 1) está prevista para ocorrer em um curto-
+médio período de tempo, com duração prevista para no máximo três
+anos. A segunda fase (Fase 2), que irá ocorrer em médio prazo, terá
+duração prevista de 4 a 15 anos. Obviamente, a duração desses
+prazos está condicionada a um fluxo de recursos para as atividades
+de levantamento e análise de um número significativo de perfis
+modais, com avaliações das características de retenção de água em
+seus diferentes horizontes, e a uma equipe de especialistas em
+análise e ajuste de equações preditoras. As ações de pesquisas
+previstas, que podem ocorrer simultaneamente à obtenção de dados
+de AD, e a consequente ampliação de seu conhecimento para os
+solos do Brasil, estão ilustradas na Figura 1.
+Figura 1. Diagrama de um sistema hierárquico para estimativa do valor da água disponível
+(AD) no solo de um determinado local do território brasileiro.
+
+
+
+  A Fase 1 tem como principal diferencial da Fase 2 o fato de não
+abordar informações sobre a posição geográfica do terreno (solo) e
+usar informações de rotina da caracterização de solos (análises
+granulométricas e de fertilidade). Inicialmente, a Fase 1 compreende
+o desenvolvimento e validação de uma função de pedotransferência
+para estimativa da água disponível (AD-PTF), utilizando apenas
+dados percentuais dos teores totais de areia, silte e argila do solo
+como variáveis preditivas, que é o objetivo principal desta
+publicação. Ainda na Fase 1, serão desenvolvidas AD-PTFs com
+outras variáveis preditivas, tais como o fracionamento do teor de
+areia total em teores de areia grossa e areia fina. Adicionalmente,
+também serão testadas, como variáveis preditoras, algumas
+características químicas dos solos facilmente obtidas em análises
+de solos de rotina, como pH, teores de carbono orgânico e a
+capacidade de troca de cátions (CTC). Há uma expectativa do
+aumento da acurácia das predições da AD com o aumento do
+número de variáveis preditoras na equação.
+
+   Um grande desafio para o uso de AD-PTF com maior número de
+parâmetros (p. ex., teores de carbono e de areia fina) está
+relacionado à disponibilidade desses dados. Cabe salientar que o
+objetivo final da AD-PTF desenvolvida é servir como parâmetro para
+a avaliação do risco climático e de instrumento para o seguro
+agrícola. Atualmente, cerca de 300 mil áreas agrícolas declaram
+informações sobre as características do solo para fins de
+financiamento, com base em regras simples relacionadas à
+granulometria. Um sistema para estimativa da AD que seja aplicado
+ao universo do seguro agrícola não pode exigir um elevado número
+de parâmetros, sob o risco de se tornar inviável.
+
+  Dessa forma, o desenvolvimento de um sistema hierárquico para
+a predição de AD tem como objetivo fornecer a estimativa mais
+precisa em função da disponibilidade de variáveis preditoras para o
+local de interesse. Idealmente, áreas específicas poderão ter seus
+solos avaliados quanto à capacidade de retenção e AD, e não
+estimados por funções de AD-PTF. Essa situação, tipicamente ideal,
+é bem rara de ocorrer dada a dificuldade da coleta das amostras de
+solo com estrutura indeformada, necessárias para as análises de
+retenção de água, além do longo tempo, altos custos e baixa
+disponibilidade de laboratórios capacitados para as análises de
+retenção de água em amostras de solo.
+
+   Entretanto, com essas variáveis preditoras para a AD-PTF,
+planeja-se também avaliar o aumento da acurácia da predição com
+a inclusão de informações de parâmetros relacionados à estrutura
+do solo. Dentre eles, destacam-se os valores de densidade do solo
+e da água retida na capacidade de campo e/ou no ponto de murcha
+permanente (Figura 1, Fase 2, item d). As avaliações do aumento da
+precisão e da acurácia da inclusão dessas variáveis permitirá uma
+avaliação mais concisa sobre a necessidade destes parâmetros nas
+predições.
+
+   Na Fase 2, será desenvolvido um sistema computacional que
+consultará, por meio das coordenadas geográficas da área de
+interesse e em bancos de dados especializados, a disponibilidade
+de dados de AD e de dados e informações sobre os solos
+predominantes nas áreas – p. ex., Repositório Brasileiro Livre para
+Dados Abertos do Solo (Samuel-Rosa et al., 2020); Hydrophysical
+Database for Brazilian Soils (Hybras) (Ottoni et al., 2018), Sistema
+de Informação de Solos Brasileiros (BDSOLOS) (Embrapa, 2014).
+Não havendo disponibilidade de dados de AD avaliados para os
+solos predominantes para a localidade de interesse, o sistema de
+consulta hierárquico prevê para as estimativas a utilização de
+mapas e catálogos de valores de AD estimados para os solos do
+Brasil (Figura 1, Fase 2, itens e e f). Essas informações sobre a AD
+poderão ser combinadas e refinadas com dados granulométricos e
+de fertilidade do solo de amostras coletadas na área de interesse,
+possibilitando, potencialmente, uma predição da AD mais acurada.
+   A implantação da Fase 2, poderá ser implementada mais
+rapidamente em algumas áreas do Brasil onde já há disponibilidade
+de mapas de classes de solos ou de AD em maiores escalas e
+mesmo regiões com solos predominantes que apresentam perfis
+modais com valores de AD avaliados e catalogados. Para viabilizar
+essa ação, está sendo elaborado um catálogo de valores de AD
+para as classes de solos do Brasil, compilando dados dispersos em
+diferentes fontes (bases de dados com informações de AD, dados
+existentes em publicações, como de levantamentos de solos,
+dissertações, teses, comunicações em congressos, artigos
+científicos, bem como de dados originais não publicados etc.).
+Análises de consistência e de conhecimento tácito de especialistas
+estão sendo realizadas para a avaliação judiciosa dos dados de AD
+e de classificação dos solos. O catálogo de AD para os solos do
+Brasil está em elaboração com a estimativa de valores modais e
+intervalos de confiança para as classes de solo até o quinto nível
+categórico segundo o Sistema Brasileiro de Classificação de Solos
+(Santos et al., 2018).
+
+   Em concordância com os valores do catálogo, que relaciona os
+valores de AD às classes de solos, estão sendo elaborados mapas
+de AD em diferentes escalas de mapeamento, procurando-se
+contemplar o maior detalhamento disponível para as principais
+regiões agrícolas do Brasil. Atualmente, está sendo elaborado um
+mapa de AD para todo o Brasil em escala generalizada (1:250.000),
+utilizando as informações disponibilizadas sobre as classes de solos
+(IBGE, 2018) em conjunto com valores de AD estimados por classe
+de solo (José Coelho, informação pessoal). Posteriormente, serão
+elaborados mapas na escala de 1.100.000 ou mais detalhados, a
+depender da disponibilidade de dados para alguns estados (p. ex.,
+Alagoas – Araújo Filho et al., 2020; Pernambuco – Araújo Filho et
+al., 2000) ou regiões específicas que têm mapas detalhados de
+solos (p. ex., a região norte do Rio de Janeiro, que tem 240.000 ha
+mapeados na escala de 1:10.000 no âmbito do Projeto de Irrigação
+e Drenagem na cultura da cana-de-açúcar no Norte Fluminense –
+PROJIR – Instituto do Açúcar e do Álcool,1983).
+
+   O Programa Nacional de Levantamento e Interpretação de Solos
+do Brasil (PronaSolos) prevê a retomada dos levantamentos de
+solos em escalas de 1:100.000 ou mais detalhadas. Também prevê
+a obtenção de parâmetros de retenção de água para os solos
+brasileiros (Polidoro et al., 2016; Brasil, 2018; 2020). A obtenção,
+organização e disponibilização dos dados e informações dos solos
+irá contribuir significativamente com o aumento da precisão das
+informações de AD nos solos. Isso pode ter um relevante impacto
+social e econômico pela redução das perdas agrícolas por eventos
+climáticos. À medida que forem disponibilizados mapas de solos em
+escalas mais detalhadas, eles terão as informações analisadas,
+processadas e disponibilizadas para consulta da AD.
+
+  A estratégia prevista nas Fases 1 e 2 é desenvolver AD-PTFs,
+assim como avaliar outras PTFs desenvolvidas por outros grupos de
+pesquisa. Com esses estudos, pretende-se recomendar AD-PTFs
+mais acuradas para diferentes biomas, regiões e/ou classes de solo.
+Uma compilação de PTFs para propriedades hídricas desenvolvidas
+no Brasil é apresentada na Tabela 1.
+
+  O sistema hierárquico para estimativa dos valores de AD para
+solos do Brasil utilizará a melhor solução para a predição da AD em
+função das informações disponíveis (Figura 1). A estimativa de AD
+baseada em um sistema hierárquico foi também proposta por
+Schaap et al. (2001) e Zhang et al. (2017). Parâmetros físico-
+hídricos, incluindo AD, por meio de coordenadas e consulta a mapas
+estão disponíveis nos Estados Unidos da América (United States
+Department of Agriculture, 2020); Austrália (Grundy et al., 2015; Soil
+and Landscape Grid of Australia, 2020) e globalmente (Battjes et al.,
+2020; ISRIC, 2020). O sistema de predição e disponibilização de AD
+para os solos do Brasil deverá ser validado e atualizado
+continuamente.
+
+  A Fase 1 está em andamento e compreende ações de curto-
+médio prazo. A Fase 2 está em fase de planejamento e seu alcance
+é estimado perdurar por até 15 anos.
+
+   No Brasil, os Latossolos e Argissolos (Figura 2) correspondem a
+aproximadamente 60% do território nacional (IBGE, 2018). Em
+algumas regiões do Brasil, no entanto, algumas classes menos
+representativas em termos percentuais de área da nação podem
+assumir uma grande importância regional, como os Luvissolos no
+Acre (Shinzato et al., 2015), os Vertissolos no Rio Grande do Sul
+(Almeida, 2017), os Plintossolos em extensas áreas em Goiás,
+Tocantins e Piauí na região denominada de Matopiba (Lumbreras et
+al., 2015), na baixada maranhense (Anjos et al., 2007), da Amazônia
+(Schaefer et al., 2017; Teixeira et al., 2010), e os Gleissolos e
+Neossolos Flúvicos nas várzeas de todo o País, em especial na
+região Amazônica (Teixeira et al., 2018). Muitos desses solos
+apresentam peculiaridades específicas para a estimativa acurada da
+AD, como, por exemplo, a presença de argilas expansivas e
+consequentes fenômenos de expansão e contração do espaço
+poroso, ou presença de grande volume do solo ocupado com
+fragmentos de rochas, concreções ou nódulos ferruginosos,
+reduzindo sua capacidade de armazenamento de água. Dadas
+essas especificidades, tais solos futuramente serão abordados em
+AD-PTFs específicas.
+
+
+
+
+Figura 2. Gráfico de pizza com as estimativas percentuais das áreas das principais classes
+de solos do Brasil em nível categórico de ordem taxonômica.
+Fonte: Adaptado de IBGE (2018).
+
+
+
+Água disponível (AD) no solo
+
+  O conceito de água disponível no solo para as plantas (AD) é
+definido como o teor de água no solo entre um limite superior,
+denominado capacidade de campo (CC), e um limite inferior,
+denominado ponto de murcha permanente (PMP).
+  A capacidade dos solos de reter água em sua matriz porosa é
+função das suas características estruturais, físicas e mineralógicas
+(Reichardt; Timm, 2004) e constitui uma característica determinante
+para o crescimento e a produtividade das culturas agrícolas.
+
+   As culturas agrícolas podem desenvolver sistemas radiculares
+mais ou menos profundos, dependendo da espécie e das condições
+físico-químicas do solo, e, portanto, ter acesso a um maior ou menor
+volume de solo e solutos. Dessa forma, a capacidade de água
+disponível (CAD) é calculada pela AD do solo e a profundidade
+efetiva do sistema radicular (Ze) (Equação 1), ou seja, a CAD
+representa o volume de água que pode ser retido pelo solo e
+absorvida pelas raízes. Esse conceito foi proposto por Veihmeyer e
+Hendrickson (1949) e, apesar de não considerar o equilíbrio
+dinâmico da água no sistema solo-planta-atmosfera, tem grande
+aplicabilidade prática (Carlesso, 1995; Lier, 2000). A água disponível
+nos estudos de física do solo geralmente tem a unidade de cm3 cm-
+3, cujos valores multiplicados por 10 são transformados em mm cm-
+1, sendo esta a forma preferencial dos irrigantes e dos modeladores.
+
+
+
+
+  CAD=AD×Ze                                               Equação 1
+
+
+  Em que:
+
+  CAD representa a capacidade de água disponível, em mm;
+
+  AD é a água disponível, em mm cm-1;
+
+  Ze é a profundidade efetiva do sistema radicular, em cm.
+   A CAD de um solo é um dos parâmetros determinantes na
+duração e intensidade do deficit hídrico para o desenvolvimento e a
+produtividade de uma cultura, sendo utilizada em cálculos do
+balanço hídrico do solo, no manejo da irrigação, na avaliação do
+risco agroclimático, além de outras aplicações. O deficit hídrico
+representa o principal componente do risco agroclimático na maioria
+das regiões do Brasil e, portanto, judiciosas e acuradas estimativas
+das CADs são fundamentais para a precisão dos resultados do
+ZARC.
+
+Balanço hídrico realizado nas modelagens do ZARC
+
+   O ZARC estima a disponibilidade da água no solo por uma
+abordagem do tipo tipping bucket, muito utilizada em simulações de
+rendimento agrícola. Essa abordagem é baseada no balanço de
+massa de água entre diferentes compartimentos de reservatórios de
+água no solo. O balanço hídrico é realizado ao longo da
+profundidade selecionada. O máximo de água que cada camada
+(compartimento) pode armazenar é definido pela sua capacidade
+máxima de armazenamento (Figura 3). No caso de excedente, ele é
+somado ao teor de água na camada imediatamente abaixo. A
+extração de água pelas raízes é simulada em cada compartimento
+até um limite crítico de armazenamento de água no solo. Quando
+esse limite é alcançado, a extração de água cessa e é demandada
+de outras camadas. O total da água armazenada no solo é o
+somatório da água retida em cada compartimento ao longo do perfil
+do solo, e a água disponível para as plantas é calculada pela
+diferença entre o teor de água atual e o PMP. Esse tipo de
+abordagem é amplamente utilizado por causa de sua relativa
+simplicidade.
+      Figura 3. Ilustração do tamanho dos reservatórios de água
+      (armazenamento). A cor amarela representa um solo com menor
+      capacidade de armazenar água (arenoso), e a marrom, um solo com alta
+      capacidade de armazenar água (argiloso). pF 4.2 é considerado o
+      potencial matricial limite para água disponível.
+      Fonte: Adaptado de Cirad (2020).
+
+
+
+  Na estimativa de água no solo para o ZARC o solo é considerado
+um único reservatório de água, o qual é uma unidade homogênea,
+definido entre a superfície até a frente de molhamento. O volume de
+água disponível para as plantas é modulado pelo crescimento das
+raízes, denominado de frente de crescimento das raízes, no qual se
+encontra a reserva útil de água (Figura 4).
+Figura 4. Balanço hídrico utilizado para as simulações do ZARC. ET (max) –
+evapotranspiração máxima; kc – coeficiente da cultura; ET (pot) – evapotranspiração
+potencial.
+Fonte: Adaptado de Baron et al. (1996) e Dingkuhn et al. (2003).
+
+
+
+  A profundidade e a quantidade de água armazenada disponível
+para a planta são determinadas pela profundidade das raízes e sua
+velocidade de crescimento, cuja taxa depende da fase fenológica da
+cultura. Ressalta-se, ainda, que o crescimento das raízes pode ser
+bloqueado pela frente de molhamento ou por um estresse hídrico
+muito forte.
+  As simulações realizadas pelo ZARC são baseadas no modelo
+SARRA (Systeme d'Analyse Régionale des Risques
+Agroclimatiques) desenvolvido por Baron et al. (1996), considerado
+um modelo empírico de reservatórios (tipping bucket), com escala
+temporal de simulação diária, simulando o desenvolvimento da
+planta em função do consumo e disponibilidade da água no solo.
+Com o uso de modelos de balanço hídrico, pode-se levar em
+consideração não somente a variabilidade espaço-temporal das
+chuvas, mas também a variação espacial dos solos. Modelos de
+balanço hídrico com base no conceito de diferentes reservatórios de
+água no solo têm a vantagem de demandarem poucos parâmetros
+de entrada, sem, no entanto, comprometer, na maioria das
+simulações, a precisão dos resultados. Esses modelos são mais
+bem adaptados para análises regionais, pois propagam menos erros
+das estimativas dos parâmetros hidráulicos do solo,
+comparativamente aos modelos baseados na solução da equação
+de Richards, os chamados modelos conceituais (Leenhardt, 1991).
+
+   A identificação das fases dos períodos com menores riscos de
+insucesso devido à probabilidade de ocorrência de deficit hídrico
+depende do tipo da cultura, mas, em geral, os períodos críticos
+referem-se à fase inicial (Fase 1) da semeadura e emergência,
+responsável pelo estabelecimento da lavoura e, consequentemente,
+pelo alcance de bons rendimentos. Na fase de produção, estão
+associados à maturação e/ou ao enchimento de grãos (Fase 3),
+considerada a mais crítica para as culturas (Figura 5) (Baron et al.,
+1996). Destaca-se que, no ZARC, por se tratar de um modelo
+agroclimático, parte-se do pressuposto de que não ocorrem
+limitações quanto à fertilidade dos solos e danos em razão do
+ataque de pragas e de doenças.
+Figura 5. Esquema genérico das fases críticas dos cultivos de grãos. ETm –
+evapotranspiração máxima da cultura; kc – coeficiente da cultura; ETo – evapotranspiração
+de referência; Kc – coeficiente de evapotranspiração da cultura.
+
+
+
+  Considerando que a produção potencial da cultura é função de
+suas características genéticas e de sua adaptação ao ambiente, a
+produção final pode ser penalizada pela oferta hídrica. Como
+parâmetros de saída, o modelo SARRA gera o Índice de Satisfação
+de Necessidade de Água (ISNA) da cultura, que expressa o
+atendimento ou não das necessidades hídricas da cultura em cada
+uma de suas fases fenológicas para cada época de
+semeadura/plantio. Esse índice é calculado por meio da relação
+entre a evapotranspiração real (ETr) e a evapotranspiração máxima
+da cultura (ETm) (Equação 2).
+  CAD=AD×Ze                                              Equação 2
+
+
+  Em que:
+
+  ISNA é o Índice de Satisfação de Necessidade de Água
+(adimensional em decimal);
+
+   ETr é a evapotranspiração real (mm), estimada pela generalização
+introduzida por Forest (1984) na função proposta por Eagleman
+(1971), que descreve a dinâmica da ETr em função da
+evapotranspiração de referência (ETo) e da umidade relativa do solo
+na zona radicular.
+
+  ETm é a evapotranspiração máxima da cultura (mm), sendo
+calculada pela Equação 3.
+
+
+
+  CAD=AD×Ze                                              Equação 3
+
+
+  Em que:
+
+  ETo é a evapotranspiração de referência (mm);
+
+  Kc é o coeficiente cultural (adimensional).
+
+
+  O ISNA foi utilizado em estudos por Assad et al. (2001); Cunha e
+Assad (2001); Farias et al. (2001) e Sans et al. (2001), e é o que
+vem sendo utilizado desde a implantação do ZARC para a
+modelagem e definição dos calendários agrícolas e riscos
+associados.
+   Operacionalmente, para cada cultura agrícola, o modelo de risco
+climático é executado para um conjunto de mais de 3.500 estações
+meteorológicas distribuídas em todo Brasil, todas com pelo menos
+20 anos de dados observados. Em cada simulação, são avaliadas
+36 possíveis datas de semeadura/plantio (36 decêndios), pelo
+menos três ciclos de crescimento da cultura e três tipos de solo,
+resultando em 324 simulações distintas. Para cada uma dessas
+simulações, são obtidos os valores de ISNA de duas fases
+fenológicas críticas e, na sequência, é estimada a frequência de
+ocorrência de valores superiores ou inferiores de um limiar crítico,
+definido por especialistas da cultura. Essa análise de frequência
+considera quatro níveis de risco. Todos esses resultados são
+interpolados, resultando em um conjunto de 2.592 mapas, que são
+analisados para que seja identificada a melhor época de
+semeadura/plantio de cada cultura em cada município do País.
+
+Funções de Pedotransferência (PTF, do inglês PedoTransfer
+Function) para estimar água disponível
+
+  O termo “função de pedotransferência” (PTF) foi introduzido na
+ciência do solo na segunda metade da década de 1980 para
+padronizar expressões anteriores (Bouma, 1989; Pachepsky;
+ Rawls, 2004; Vereecken et al., 2010) e com o intuito de sintetizar o
+seu propósito de “transformar dados que possuímos em dados de
+que necessitamos”. As PTFs consistem-se de expressões
+matemáticas para se estimar atributos dos solos a partir de
+características medidas rotineiramente, denominadas também de
+métodos indiretos (McBratney et al., 2002), aliando facilidade, menor
+custo e confiabilidade para obtenção de dados.
+  Há um número limitado de estudos relacionados às PTFs de
+funções hidráulicas dos solos no Brasil (Tomasella; Hodnett, 1998;
+Assad et al., 2001; Giarola et al., 2002; Tomasella et al., 2003;
+Barros et al., 2010; Medrado; Lima, 2014; Barros et al., 2013;
+Andrade et al., 2020), se considerada a sua dimensão geográfica,
+com domínios morfoclimáticos bastante distintos. Uma das razões é
+a raridade dos dados e organização incipiente de banco de dados
+de solos no País.
+
+  De acordo com Rossato (2002), para os solos brasileiros, a
+acurácia das PTFs, dependendo do método de estimação e das
+variáveis utilizadas, varia entre 0,04 e 0,13 cm3 cm-3. Na Tabela 1,
+são apresentados valores de avaliações estatísticas para diversas
+PTFs desenvolvidas nas últimas décadas, especificamente para
+solos no Brasil.
+
+   Existem vários fatores que afetam a retenção da água no solo,
+num intrincado processo que depende de sua estrutura, composição
+granulométrica, mineralógica e orgânica (Rawls et al., 1991; Wösten
+et al., 2001; Pachepski; Rawls, 2004). As principais características
+edáficas que são mais utilizadas como preditoras das funções
+hidráulicas dos solos são a composição granulométrica (teores de
+areia, silte e argila) e o teor de carbono orgânico. Muitas dessas
+informações estão disponíveis nos levantamentos de solos e nas
+análises feitas para caracterização granulométrica e da fertilidade do
+solo. Outras variáveis têm sido exploradas para o desenvolvimento
+de PTFs (Pachepsky; Rawls, 2004), como os valores de densidade
+do solo, tipo e percentuais das argilas. Entretanto, essas
+informações são raras nos estudos de solos do Brasil.
+   As propriedades hidráulicas da maioria dos solos brasileiros
+apresentam uma distinção pela reduzida quantidade de silte quando
+comparada aos solos de regiões de clima temperado (Tomasella et
+al., 2003). A mineralogia e composição da assembleia mineralógica
+do solo também pode interferir na retenção de água no solo, como
+pode ser observado entre solos de mineralogia com argilas 2:1 (p.
+ex., montmorilonita e esmectita), e as argilas predominantes nos
+solos do hemisfério sul (p. ex., caulinita, goethita e hematita),
+conforme Minasny e Hartemink (2011).
+
+  Dois processos principais definem a retenção de água do solo: a
+capilaridade e a adsorção. A capilaridade depende do arranjo e da
+dimensão dos poros. A estrutura do solo, a densidade e a
+porosidade são variáveis importantes para explicar a retenção da
+água nos potenciais próximos à capacidade de campo. A adsorção,
+que ocorre na superfície das partículas do solo, tem maior influência
+na faixa mais seca do solo e é mais influenciada pela composição
+granulométrica, em especial pela assembleia mineralógica do solo.
+Diferenças na superfície específica de argilas (p. ex., caulinita e
+vermiculita) fazem com que solos com o mesmo teor de argila
+tenham distintos conteúdos de água retida em um mesmo potencial.
+Tabela 1. Variáveis preditoras para estimativas da umidade volumétrica do solo nos
+potenciais de 10 kPa, 33 kPa e 1.500 kPa e da água disponível (AD) utilizadas em 19
+estudos e seus coeficientes de determinação (R2).
+                           Umidade volumétrica (θ) do solo nos     Água
+ Variáveis preditoras       potenciais matriciais de 10 kPa, 33 disponível Referência
+                                     kPa e 1.500 kPa               (AD)
+                                                                   θ10 –
+                              θ10         θ33         θ1500
+                                                                   θ1500
+                            Coeficiente de determinação (R2)
+                                                                            Arruda et al.
+       silte, argila           -         0,91         0,95           -
+                                                                               (1987)
+
+   areia, silte, argila,
+                                                                             Silva et al.
+  densidade do solo,           -         0,99         0,99           -
+                                                                               (1990)
+   matéria orgânica
+
+                                                                             Berg et al.
+      silte e argila         0,82          -          0,78         0,21
+                                                                              (1997)
+
+   areia, silte, argila,                                                    Coelho et al.
+                               -         0,57         0,50           -
+   densidade do solo                                                          (2015)
+
+  silte, argila, carbono                                                    Gaiser et al.
+                               -         0,91         0,92           -
+         orgânico                                                             (2000)
+
+                                                                            Assad et al.
+      total de areia         0,77          -          0,72         0,23
+                                                                              (2001)
+
+                                                                            Assad et al.
+          areia              0,78          -          0,72         0,23
+                                                                              (2001)
+
+   areia, argila, silte,                                                    Giarola et al.
+                             0,79          -          0,81         0,42
+         Fe2O3                                                                 (2002)
+
+   areia, silte, argila,                                                     Oliveira et
+                               -         0,96         0,95           -
+       densidade                                                             al. (2002)
+
+   areia, silte, argila,                                                       Peraza
+                             0,67        0,69         0,76           -
+   matéria orgânica                                                            (2003)
+
+   areia, silte, argila,
+   matéria orgânica,         0,80        0,89         0,91           -      Mello (2005)
+       densidade
+
+   areia, silte, argila,                                                       Urach
+                             0.65        0,68         0,77           -
+       densidade                                                               (2007)
+
+   areia, silte, argila        -         0,92         0,89           -       Alves et al.
+                                                                              (2009)
+
+   areia, silte, argila,
+                                                                            Reichert et
+   matéria orgânica,       0,67         0,62          0,62           -
+                                                                            al. (2009)
+       densidade
+
+   areia, silte, argila,
+                                                                            Nascimento
+   carbono orgânico,         -          0,67          0,72           -
+                                                                            et al. (2010)
+       densidade
+
+     densidade,
+                                                                            Michelon et
+   macroporosidade,          -          0,93          0,81           -
+                                                                             al. (2010)
+   microporosidade
+
+  argila, silte, matéria                                                   Rodrigues et
+                             -          0,58          0,59           -
+  orgânica, densidade                                                       al. (2011)
+
+matéria orgânica, areia                                                    Santos et al.
+                             -          0,64            -            -
+  fina, areia grossa                                                         (2013)
+
+  areia, silte, argila,    0,48         0,48          0,97
+                                                                           Nascimento*
+ densidade e carbono       0,86         0,86          0,94           -
+                                                                             (2015)
+       do solo
+                           0,98         0,98          0,96
+
+*Os valores na vertical se referem às profundidades de 0-20 cm, 20-40 cm e 40-60 cm.
+Fonte: Adaptado de Barros (2014).
+
+
+
+   No caso particular de uma PTF preditiva de AD para ser utilizada
+na modelagem no ZARC, é importante que seja simples e
+operacional em toda a sua concepção, dada a complexidade de sua
+implantação, tanto do ponto de vista operacional de processamento
+para todo o Brasil e para diversas culturas quanto à praticidade do
+agricultor conseguir e fornecer as informações da AD do solo do
+talhão a ser segurado.
+
+  As informações sobre a classe textural ou da composição
+granulométrica não são suficientes para predizer, em muitos solos, a
+sua AD com acurácia, uma vez que solos que sofreram processos
+pedogenéticos diferenciados podem apresentar valores de AD
+distintos, mesmo apresentando granulometria similar.
+   O presente estudo apresenta uma primeira aproximação, que
+amplia a precisão das estimativas de AD dos solos do Brasil
+utilizadas para as recomendações de decênios de plantio e
+estimativas de risco utilizadas no ZARC. Considerou-se aqui que a
+análise granulométrica de amostras de solos é uma análise de rotina
+e de baixo custo, ofertada por diversos laboratórios no País.
+
+  O objetivo deste estudo foi gerar e validar uma PTF para
+estimativa da água disponível (AD), utilizando como preditores
+somente os teores de areia total, silte e argila. Concomitantemente,
+fez-se um estudo para ampliação dos três “tipos de solos” e suas
+respectivas AD utilizados atualmente nas simulações do ZARC.
+Material e Métodos
+  As etapas envolvidas no trabalho incluíram: 1) obtenção de dados
+amostrais, verificação de consistência e organização da base de
+dados; 2) ajuste das equações preditivas de AD; 3) avaliação da
+acurácia do modelo a partir de validação cruzada, verificação com
+base de dados independente e comparação com outras PTFs
+publicadas na literatura; e 4) determinação de novos intervalos de
+AD para a avaliação do risco climático. A base de dados organizada
+e os scripts utilizados para as análises e confecção das figuras
+estão disponíveis no endereço https://github.com/dvictori/ptf_zarc.
+
+Base de dados de água disponível (AD) para solos
+brasileiros
+
+  Foram organizadas duas bases de dados (BD) para o ajuste e
+validação de uma equação preditora da AD. A primeira BD,
+doravante denominada BD-ZARC, foi utilizada no processo de
+desenvolvimento e validação cruzada do modelo. Uma BD adicional,
+denominada BD-Independente, foi composta por novos dados (de
+granulometria e de AD) não utilizados nos ajustes da equação
+preditora e foi utilizada nas análises de validação.
+
+  A BD-ZARC contém dados observados de umidade volumétrica
+do solo na capacidade de campo e no ponto de murcha permanente
+de horizontes e camadas de solos. Com esses parâmetros, foi
+possível calcular os valores de AD (cm3 cm-3). Os outros
+parâmetros, obrigatórios, para a inclusão do dado na BD-ZARC
+foram dados da composição granulométrica, com o fracionamento
+desta em teores de areia total (partículas de tamanho entre 2,00 mm
+e 0,05 mm), de silte (partículas menores que 0,05 mm e maiores de
+que 0,002 mm), e os teores de argila (partículas menores que 0,002
+mm). Os dados da composição granulométrica, em percentuais,
+obrigatoriamente somavam 100%. Quando os dados apresentavam
+a fração areia subdividida (p. ex., teores de areia fina, areia média e
+areia grossa), as subdivisões foram somadas e utilizou-se apenas o
+valor de areia total.
+
+  Adotou-se como critério exclusivo para o cálculo da AD (Equação
+4) a diferença entre a umidade volumétrica medida na capacidade
+de campo (CC), considerada neste estudo exclusivamente o valor
+de umidade em equilíbrio a 10 kPa, e a umidade no ponto de
+murcha permanente (PMP), considerando a umidade de equilíbrio
+no potencial de 1.500 kPa.
+
+
+                                                            Equação 4
+
+
+  Em que:
+
+  CC é o conteúdo volumétrico de água (cm3 cm-3) retido na
+amostra de solo em equilíbrio com o potencial de 10 kPa;
+
+  PMP é o conteúdo volumétrico de água (cm3 cm-3) retido na
+amostra de solo em equilíbrio com um potencial de 1.500 kPa.
+
+
+   Os valores de AD são apresentados nas equações estudadas
+com a dimensão de mm cm-1. Essa conversão é feita pela Equação
+5:
+
+
+                                                            Equação 5
+  Os dados observados que compõem a BD-ZARC foram
+selecionados das seguintes bases de dados públicas ou de dados
+originais de projetos de pesquisa dos autores:
+
+   1.     Hybras: Base organizada pelo CPRM contendo a maior
+        quantidade dos dados (Ottoni et al., 2018);
+
+   2.     Sistema de Informação de Solos Brasileiros – BDSOLOS:
+        Amostras cadastradas no BDSOLOS, Embrapa, 2014
+        (<https://www.sisolos.cnptia.embrapa.br/>);
+
+   3.      WoSIS: Amostras presentes no banco Global World Soil
+        Information System, do World Soil Information (ISRIC),
+        disponível em: <https://www.isric.org/explore/wosis>; e
+
+   4.      Reunião de Correlação e Classificação de Solos de
+        Rondônia (RCC-RO) (Teixeira et al., 2018), Reunião de
+        Correlação e Classificação de Solos de Roraima (Teixeira et
+        al., 2019b).
+
+  Todo o conjunto de dados passou por avaliação de consistência,
+sendo descartados dados com valores discrepantes. Eles foram
+identificados por análise visual de gráficos de dispersão dos valores
+de AD observados em função dos preditores (areia, silte e argila) e
+da análise visual dos resíduos gerados pelos modelos ajustados.
+
+   Foram também desconsiderados dados oriundos das classes dos
+Vertissolos, Chernossolos, Organossolos, assim como dados de
+horizontes espódicos, plânicos e nátricos, dada a dificuldade de
+captar a variabilidade da AD utilizando apenas como preditoras as
+frações granulométricas. Dessa maneira, a PTF desenvolvida
+ajusta-se melhor para solos sem elevados porcentuais de argilas
+expansivas (2:1) e sem a presença de horizontes adensados. A
+base de dados concentra-se em amostras principalmente de
+horizontes das classes dos Latossolos, Argissolos e Neossolos
+Quartzarênicos, que representam mais de 60% das classes de solos
+no País (Figura 2). Adicionalmente, grande parte da área agrícola do
+Brasil está sobre Latossolos (Figura 6), o que justifica nosso foco
+numa maior precisão para predição da AD nessa classe de solo. Os
+dados de AD oriundos da base WOSIS são provenientes
+principalmente de solos da Colômbia e de países europeus e foram
+adicionados à BD-ZARC pela raridade, no Brasil, de dados de AD
+de solo com predomínio da fração silte.
+Figura 6. Mapa mostrando a distribuição: (a) do total das áreas agrícolas e (b) das áreas
+agrícolas em Latossolos (classe de solo dominante no polígono de mapeamento)
+Fonte: Mapbiomas (2020) e IBGE (2018).
+
+
+
+   A BD-Independente foi composta por dados originais cedidos pelo
+Dr. Eduardo Guimarães Couto (UFMT, Cuiabá), Dr. Jean Dalmo de
+Oliveira Marques (IFAM, Manaus) e Joberta Cardoso Pastana
+Yakuwa (mestranda da UFRA). Os dados passaram pelos mesmos
+critérios aplicados à base BD-ZARC.
+   A distribuição dos dados granulométricos é apresentada em
+gráfico ternário com a legenda em faixas de AD. A distribuição dos
+dados granulométricos e de AD é apresentada na forma de gráficos
+de densidade de probabilidade Kernel. Os dados observados de AD
+utilizados foram também classificados nos subagrupamentos
+texturais (Santos et al., 2018), e a estatística descritiva é
+sumarizada em gráficos Boxplots, onde os valores ao centro do
+polígono (box) indicam a média dos valores do agrupamento; a
+mediana é indicada por uma linha horizontal. Os polígonos
+representam os valores compreendidos entre o primeiro e o terceiro
+quartis. As hastes (whiskers) representam os valores acima e abaixo
+dos quartis num intervalo de 1,5 vez a distância interquartil. Dados
+discrepantes (outliers), identificados por pontos nos gráficos
+Boxplots foram considerados quando apresentavam valores maiores
+que ±1,5 vezes a distância interquartil. A discussão quanto à
+magnitude dos valores de AD nos solos neste trabalho é feita com
+base nos critérios de classificação em cinco faixas de valores,
+considerados com valores de AD muito baixos, baixos, médios, altos
+e muito altos. As faixas correspondentes a essa classificação,
+expressas em m3 m-3 e mm cm-1, são apresentadas na Tabela 2.
+
+
+Tabela 2. Classificação dos valores de água disponível (AD) em solos do Brasil em m3 m3
+e mm cm-1
+ Muito baixo        Baixo                Médio                Alto         Muito alto
+                                        m3 m-3
+ AD < 0,050 0,050 ≤ AD < 0,075 0,075 ≤ AD < 0,100 0,100 ≤ AD < 0,125 AD ≥ 0,125
+
+                                       mm cm-1
+  AD < 0,50    0,50 ≤ AD < 0,75    0,75 ≤ AD < 1,00     1,00 ≤ AD < 1,25    AD ≥ 1,25
+Fonte: Adaptado de Lumbreras (2008).
+Ajuste da equação preditiva de AD em função de dados
+granulométricos
+
+   Dentre as diversas técnicas de ajuste de equações para funções
+PTF, foram testados inicialmente ajustes com o uso de equações
+multilineares, utilizando forward and backward selection, Random
+Forest e krigagem. Os resultados não foram satisfatórios,
+principalmente pela descontinuidade abrupta das predições com
+pequena variação da granulometria e distribuição enviesada dos
+resíduos. Essas tentativas preliminares não serão apresentadas.
+Com a premissa de se ter uma variação de AD sem mudanças
+abruptas nos valores preditos com uma pequena variação na
+composição granulométrica do solo, selecionou-se o procedimento
+de ajuste de modelos de mistura (Draper; Pukelsheim, 1999). O uso
+desse procedimento possibilita uma restrição à geometria e
+transições mais suaves entre as predições com valores preditivos
+próximos. Os resíduos dos modelos foram submetidos a análises de
+normalidade, uma das pressuposições de modelos lineares, assim
+como foram observados a independência dos dados, a
+homogeneidade de variâncias e a aditividade (Draper; Smith, 1998).
+
+   Os dados observados de AD foram transformados usando-se o
+parâmetro lambda estimado pelo algoritmo Box-Cox para melhor
+atendimento das pressuposições dos modelos lineares. Toda a
+análise dos dados foi executada em ambiente de análise R (The R
+Foundation, 2018), e a obtenção do parâmetro lambda usado na
+transformação dos dados de AD observados foi feita utilizando o
+pacote MASS (Venables; Ripley, 2002).
+
+  Os valores de AD calculado (ADcal) com intervalo de confiança de
+95% foram obtidos para todos os resultados possíveis (5.151) das
+combinações de resultados granulométricos das frações areia [AT],
+silte [SIL] e argila [ARG] considerando dados em valores
+percentuais, sem decimais, e cuja soma totaliza 100%. Todos os
+5.151 valores de ADcal para essa matriz de combinação das frações
+granulométricas são fornecidos no repositório dos dados
+(https://github.com/dvictori/ptf_zarc/blob/master/resultados/Preditos_
+triangulo_AD_m2.csv). Optou-se por disponibilizar também os dados
+no formato de tabela pela facilidade de consulta dos valores de AD
+sem necessidade de sistemas computacionais. Adicionalmente, a
+disponibilização dos dados em tabelas (look up at tables) facilitará
+eventuais ajustes dos valores de AD para algumas combinações
+granulométricas ou mesmo ajustes específicos por região.
+
+  Os resultados das ADcal são também apresentados num gráfico
+ternário da granulometria com os valores de AD na legenda.
+
+Testes estatísticos para avaliação da acurácia e validação de
+PTF
+
+   A seleção dos parâmetros preditivos e das combinações das
+interações entre eles foi feita pelo teste t de significância dos
+coeficientes. A acurácia das predições das equações foi avaliada
+por meio dos coeficientes de determinação (R2), da raiz do erro
+quadrático médio (RMSE, do inglês Root Mean Square Error) e do
+coeficiente de correlação linear (R) entre os valores de AD
+observados e de AD calculados. As equações das estatísticas de
+avaliação da acurácia do modelo são apresentadas na Tabela 3.
+Tabela 3. Parâmetros estatísticos utilizados para verificar a acurácia das predições.
+
+Raiz do erro médio
+quadrático – root mean                                                           Equação 6
+square error (RMSE)
+
+
+
+
+Coeficiente de
+                                                                                 Equação 7
+determinação (R2)
+
+
+
+
+Coeficiente de correlação
+                                                                                 Equação 8
+(R)
+
+
+
+
+   Em que:
+
+      é a estimativa do valor
+
+      é a média dos valores observados
+
+      é o valor observado
+
+
+  A estatística R2 é baseada na covariância entre os valores de AD
+observados e AD calculados. A maior acurácia da capacidade de
+predição é indicada por valores de R2 próximos a 1,0.
+   A análise das pressuposições de modelos lineares foi feita por
+meio dos gráficos de dispersão de resíduos versus valores preditos
+de AD, que indicam a linearidade e as falhas. Os gráficos Quantil-
+Quantil (Q-Q) indicam a normalidade dos resíduos, quando estes se
+alinham na linha pontilhada do gráfico. O gráfico de dispersão da
+raiz quadrada do valor absoluto do resíduo padronizado versus os
+valores preditos permite ver a homogeneidade de variâncias. Os
+gráficos da distância de Cook, de dispersão do resíduo padronizado
+versus leverage com a distância de Cook e o de dispersão da
+distância de Cook versus leverage permitem identificar os dados
+influentes no modelo. Todas essas análises são apresentadas no
+Apêndice – Análises Estatísticas. Adicionalmente, a base de dados
+utilizada e os scripts para as análises estatísticas também estão
+disponíveis em https://github.com/dvictori/ptf_zarc.
+
+Validação cruzada, comparação com outras PTFs e teste de
+desempenho utilizando-se com uma base dados
+independente
+
+  A PTF desenvolvida passou por um processo de validação que
+compreendeu três diferentes etapas: validação cruzada,
+comparação com outras PTFs publicadas e teste de desempenho
+com uma base de dados independente. Para todos os casos, foram
+avaliados RMSE e R.
+
+  A validação cruzada, utilizada para avaliar a acurácia do modelo
+(Souza et al., 2016; Haddad et al., 2018), foi realizada durante o
+processo de calibração e empregou a estratégia k-fold. Nela, o
+conjunto completo dos dados é dividido em k subconjuntos, os
+coeficientes do modelo são calibrados utilizando k-1 subconjuntos e
+avaliados no subconjunto restante. Esse procedimento é repetido k
+vezes de forma que todos os subconjuntos são utilizados na etapa
+de verificação. Ao final do processo, obtêm-se as estimativas feitas
+pelo modelo a partir de dados que não foram utilizados no processo
+de calibração. O segundo processo de verificação consistiu em
+utilizar uma base de dados independente, onde a PTF desenvolvida
+foi aplicada.
+
+   Para comparação com PTFs que predizem AD, desenvolvidas em
+outros estudos, foram considerados como pressupostos: i) a PTF
+deve utilizar como preditores apenas dados das frações
+granulométricas areia total, silte e argila ou pelo menos uma dessas;
+e ii) estimar AD pela diferença entre a água retida na tensão de 10
+kPa e 1.500 kPa (CC - PMP). As PTFs identificadas como
+compatíveis foram as propostas por Assad et al. (2001), Giarola et
+al. (2002) e Berg et al. (1997). A equação de Berg et al. (1997) não
+utilizou apenas dados do Brasil, mas também, como no presente
+estudo, fez a complementação com dados de AD observados em
+solos europeus.
+
+  Foram feitas comparações utilizando a BD-ZARC e a BD-
+Independente. Em ambos os casos, foram consideradas apenas as
+amostras que figuravam dentro da faixa de valores granulométricos
+para as quais as PTFs foram desenvolvidas (domínio da função).
+
+Determinação de intervalos de classes de água disponível
+(AD) para avaliação de risco climático
+
+   Realizou-se uma análise de sensibilidade do risco hídrico em
+relação aos valores de AD. A análise foi conduzida utilizando a
+parametrização fisiológica utilizada para cultura da soja com ciclo de
+120 dias, simulado no período de novembro a fevereiro. Foram
+utilizadas localidades com série de dados com no mínimo 30 anos
+de observações e feitos testes simulando o clima de municípios em
+regiões com condições climáticas distintas durante o período de
+cultivo. As condições testadas foram: a) região mais úmida, com
+precipitação 98% superior à evapotranspiração de referência ETo
+(Itaberá, SP); b) moderadamente úmida, com precipitação 48%
+superior à ETo (Bento Gonçalves, RS); c) moderadamente seca,
+com precipitação 19% superior à ETo (Herval, RS); d) seca, com
+precipitação 9% inferior à ETo (Ibicoara, BA). Os dados climáticos,
+assim como a parametrização e os algoritmos para simulação
+utilizados estão disponíveis no sistema: Métricas e Informações para
+Conservação e Uso de Recursos na Agricultura (Micura) que é
+utilizado nas simulações do ZARC (Nakai et al., 2018). Em cada
+uma das regiões, o risco hídrico é definido pela frequência com que
+o ISNA da fase crítica foi inferior a 0,50. O ISNA foi calculado pelo
+balanço hídrico considerando oito valores de AD (0,125; 0,25; 0,375;
+0,625; 0,875; 1,25; 2,00 e 3,00 mm cm-1) e uma profundidade
+efetiva do sistema radicular de 40 cm, resultando em uma
+capacidade de água disponível de 5 mm, 10 mm, 15 mm, 25 mm, 35
+mm, 50 mm, 65 mm, 80 mm, 120 mm. Na sequência, foi avaliada a
+relação entre AD e Risco, de forma a identificar qual a variação
+máxima de AD que resultaria em uma variação de aproximadamente
+5% no risco, permitindo estabelecer faixas de AD mais adequadas.
+
+   Foram realizados testes para quatro regiões geográficas com
+diferentes condições climáticas durante o período de cultivo: a)
+úmida, com precipitação até 100% superior à evapotranspiração de
+referência (ETo); b) moderadamente úmida, com precipitação até
+50% superior à ETo; c) moderadamente seca, com precipitação até
+20% superior à ETo; d) seca, com precipitação até 20% inferior à
+ETo. Em cada uma das regiões, o risco hídrico, definido pela
+frequência com que o ISNA da fase crítica foi inferior a 0,5, foi
+estimado para oito valores de AD: 0,125; 0,25; 0,375; 0,625; 0,875;
+1,25; 2,00 e 3,00 mm cm-1. Na sequência, avaliou-se a relação entre
+AD e Risco, de forma a identificar qual a variação máxima de AD
+que resultaria em uma variação de aproximadamente 5% no risco,
+permitindo estabelecer faixas de AD mais adequadas.
+Resultados e Discussão
+Base de dados de AD e distribuição das amostras
+
+   A base de dados organizada, denominada BD-Zarc, contém 1.021
+amostras com dados das frações areia total, silte, argila (%) e água
+disponível (cm3 cm-3), essa última convertida para mm cm-1. As
+faixas de valores dos parâmetros da base, bem como a distribuição
+de frequências são apresentadas na Tabela 4 e Figuras 7 e 8.
+
+
+Tabela 4. Valores mínimo, médio, mediano e máximo para os parâmetros areia total, silte,
+argila e a água disponível na base BD-ZARC
+       Parâmetro              Mínimo         Médio        Mediano           Máximo
+      Areia total (%)            0            43              41              99
+
+         Silte (%)               0            26              19              79
+
+        Argila (%)               0            31              29              93
+
+      AD (mm cm-1)             0,05           1,14           1,01             2,50
+
+
+
+  Durante a composição da base, procurou-se obter dados em
+todas as classes granulométricas, abrangendo uma grande
+amplitude quanto à composição das frações granulométricas
+individuais. Dessa forma, a amplitude para os teores de areia total
+neste estudo foi de 0-99%; para os teores de silte, 0-79%, e, para os
+teores de argila, 0-93% (Tabela 4).
+
+  Um grande percentual das amostras da BD-ZARC apresenta
+baixos teores de silte, assim como um pequeno número de
+observações apresenta elevados teores de argila (Figura 7). A
+melhor distribuição percentual entre as amostras refere-se aos
+teores de areia total, pois a maioria dos dados são oriundos,
+predominantemente, de regiões agrícolas e das classes de
+Latossolos, Argissolos, Cambissolos e Neossolos.
+
+
+
+
+Figura 7. Distribuição dos valores de areia total, silte e argila na base de dados BD-Zarc,
+conforme função densidade de probabilidade (FDP Kernel).
+
+
+
+   Há raros dados disponíveis de amostras de AD com elevados
+teores de silte no Brasil, fato decorrente tanto da menor ocorrência
+dessa fração nos solos tropicais, como de poucos estudos em solos
+com essas características nas áreas agrícolas do território brasileiro.
+A maior parte dos dados com teores de silte acima de 50% são
+oriundos da base WOSIS. A fração silte geralmente compõe um
+pequeno percentual da composição granulométrica de solos
+intemperizados, como os Latossolos e grande parte dos Argissolos.
+Entretanto, algumas regiões do Brasil apresentam solos com
+elevados teores de silte, por exemplo, nas várzeas da Amazônia
+que correspondem a uma área aproximada de 50.000 km2 (Lima et
+al., 2007; Teixeira et al., 2019b), e solos da Formação Solimões, na
+parte ocidental da Amazônia (Coelho et al., 2005; Macedo; Teixeira,
+2008; Schaefer et al., 2017; Kotlar et al., 2020). Contudo, essa
+região apresenta poucos estudos e baixo uso agrícola. Em relação
+às outras frações, a maior parte das amostras apresentam teores de
+argila inferiores a 50%.
+
+   Os valores de AD na BD-ZARC apresentaram uma amplitude com
+um valor mínimo de 0,03 mm cm-1 até um valor máximo de 2,50 mm
+cm-1. A maior frequência de valores se situa próximo a valores de
+1,00 mm cm-1 (Figura 8), o que atualmente se enquadra em solos
+tipo 1 e tipo 2, segundo os critérios do ZARC (Brasil, 2008).
+
+
+
+
+Figura 8. Distribuição dos valores observados de água disponível (AD) na base BD-ZARC,
+conforme função de densidade de probabilidade (FDP Kernel). Valor mediano de AD e
+quartis 25% e 75% são indicados pelas linhas verticais, contínua e tracejadas,
+respectivamente.
+   A relação entre AD e a composição granulométrica pode ser
+visualizada na distribuição dos valores de AD no gráfico ternário das
+frações granulométricas (Figura 9). Pode-se constatar que as
+amostras com maiores valores de AD são as que apresentam
+subgrupamentos texturais média-siltosa, siltosa e argilosa (Santos et
+al., 2018), enquanto, em solos com textura muito argilosa, o
+aumento do percentual de argila não se traduz num aumento direto
+da AD (Figura 10). Ocorrem valores relativamente menores de AD
+em solos com grande predomínio da fração argila (muito argilosos).
+Muitos solos muito argilosos bem estruturados normalmente
+apresentam elevados conteúdos de água na CC, mas também
+apresentam elevados conteúdos de água no PMP, resultando em
+valores médios de AD, segundo os critérios apresentados na Tabela
+2. Tal constatação apresenta claro contraste em relação à regra
+atual de AD do ZARC (Brasil, 2008), onde todos os solos com mais
+de 35% de argila são considerados com elevados valores de AD
+(1,5 mm cm-1).
+Figura 9. Gráfico ternário da distribuição dos dados de água disponível
+(AD) no BD-Zarc. As cores na legenda representam diferentes faixas de
+valores de AD observados.
+Figura 10. Distribuição da água disponível por subgrupamento textural na base de dados
+BD-Zarc utilizada para o desenvolvimento da PTF.
+
+
+
+   Muitos dos Latossolos Amarelos muito argilosos que predominam
+em grande parte da Amazônia Central apresentam elevada retenção
+de água no PMP (1.500 kPa), que condicionam valores médios de
+água disponível (Corrêa, 1984; Teixeira et al., 2001). A
+pressuposição de que solos de textura argilosa e muito argilosa
+apresentam sempre valores de AD elevados (Assad et al., 2008;
+Brasil, 2008) não se confirma tampouco em outras regiões do Brasil,
+como nos Latossolos Amarelos muito argilosos do Maranhão
+(Embrapa, 1991; Lumbreras, 1996; Teixeira et al., 2019b).
+Entretanto, alguns solos muito argilosos podem apresentar valores
+altos de AD (Marques et al., 2004; Teixeira et al., 2019b). Essa
+ambiguidade entre valores de AD e teores elevados de argila deverá
+ser mais bem ajustada com a inclusão de novos parâmetros nas
+AD-PTFs. A regra de classificação dos valores de AD considerados
+muitos baixos até muito altos é apresentada na Tabela 2.
+
+  As incertezas das predições de AD podem ser visualizadas no
+gráfico ternário (Figura 6a - Apêndice) e todos os resultados das
+5.151 combinações granulométricas podem ser acessados neste
+repositório: https://github.com/dvictori/ptf_zarc/blob/master/resultado
+s/Preditos_triangulo_AD_m2.csv.
+
+   As predições da AD baseadas apenas em composição
+granulométrica têm uma menor precisão quando um dos preditores
+(argila, silte, areia total) assume percentuais maiores que 80%. Isso
+é verificado pelo aumento das incertezas das previsões, em especial
+na classe siltosa (Figura 6a - Apêndice). Todas as predições de AD
+pela PTF-ZARC bem como os intervalos limites inferiores e
+superiores num intervalo de confiança de 95% das estimativas
+podem ser verificados em
+https://github.com/dvictori/ptf_zarc/blob/master/resultados/Preditos_t
+riangulo_AD_m2.csv.
+
+   A facilidade de consulta a tabelas sem necessidade de sistemas
+computacionais pode ser uma vantagem em determinadas
+situações. Adicionalmente, ajustes nos valores de AD para algumas
+combinações granulométricas, ou mesmo ajustes específicos por
+região, podem ser facilmente realizados com a modificação dos
+valores na tabela.
+
+  Os menores valores de AD observados são dos solos das classes
+texturais areia e areia franca (Figura 10). Entretanto, alguns solos,
+em especial os da classe areia franca, podem apresentar valores de
+AD um pouco superiores em função de características específicas
+relacionadas, provavelmente a maiores teores de areia fina e
+carbono.
+
+   O efeito da composição granulométrica isoladamente como
+preditor da AD é bastante complexo quando consideramos que
+solos com a mesma composição podem apresentar um espaço
+poroso diferente e com tamanho de poros diferenciados. Tais
+diferenças estruturais apresentam um grande efeito na água retida
+na CC. Solos com os mesmos teores de argila, mas com partículas
+de tamanhos diferentes ou mineralogia distinta (p. ex., solos
+cauliníticos e esmectíticos), podem apresentar valores de AD
+diferentes, em consequência principalmente da água retida por
+processos de adsorção na superfície das argilas. Esse efeito é
+verificado na retenção em altos potenciais. Os autores deste estudo
+estão cientes de que não é possível abarcar toda a complexidade
+que envolve os fenômenos da retenção de água apenas com as
+relações entre sua composição granulométrica. Ou seja, o uso da
+AD-PTF simplificada não será tão precisa quanto a estimativa da AD
+avaliada via coleta e análise ou pelo uso de AD-PTFs mais
+complexas, que utilizam um maior número de parâmetros do solo,
+em especial os correlacionados à estrutura do solo e à geometria do
+sistema poroso. Dessa forma, devem ser considerados mecanismos
+para que o produtor, ao realizar seu contrato de seguro rural, possa
+apresentar dados e informações que permitam a melhor predição da
+AD de seu talhão.
+
+   Uma segunda base de dados, denominada DB-Independente,
+composta por dados não utilizados no desenvolvimento da PTF-
+ZARC, contém 151 amostras. A faixa de valores e a distribuição de
+frequências das variáveis preditoras e dos valores de AD são
+apresentados na Tabela 5 e Figuras 11 e 12.
+Tabela 5. Valores mínimo, médio, mediano e máximo para os parâmetros areia total, silte,
+argila e a água disponível na base BD-Independente.
+        Parâmetro               Mínimo         Médio         Mediano           Máximo
+       Areia total (%)             2             74              87               97
+
+          Silte (%)                0              7              5                49
+
+         Argila (%)                2             19              9                92
+
+       AD (mm cm-1)              0,26           1,06            0,96             2,98
+
+
+
+
+Figura 11. Distribuição dos valores de areia total, silte e argila na base BD-Independente,
+conforme função densidade de probabilidade (FDP Kernel).
+Figura 12. Distribuição dos valores observados de água disponível (AD) na base BD-
+Independente, conforme função densidade de probabilidade (FDP Kernel). Valor mediano
+de AD e quartis 25% e 75% são indicados pelas linhas verticais, contínua e tracejadas,
+respectivamente.
+
+
+
+  É possível notar que a BD-Independente possui uma maior
+proporção de amostras arenosas e com baixos teores de silte e
+argila (Figura 11). Isso pode representar um desafio para a PTF
+desenvolvida, que foi baseada em um conjunto de amostras mais
+homogêneo em relação à granulometria.
+
+  O mesmo também ocorre com os dados de AD (Figura 12), que,
+apesar da maior amplitude de valores em relação à base BD-ZARC
+(0,26 a 2,98 mm cm-1 no BD-Independente vs. 0,05 a 2,50 mm cm-1
+no BD-ZARC), apresentam maior concentração de amostras com
+AD em torno de 0,9 mm cm-1.
+  O gráfico ternário da BD-Independente (Figura 13) também
+evidencia a maior quantidade de amostras arenosas e poucas com
+teores de silte acima de 35% As amostras do BD-Independente
+apresentam em média valores de AD superiores aos maiores
+valores de AD encontrados na BD-ZARC, evidenciando a diferença
+entre os dados utilizados no desenvolvimento da PTF-ZARC e a
+base independente usada para validação.
+
+
+
+
+     Figura 13. Gráfico ternário da distribuição dos dados de AD na BD-
+     Independente.
+  A maior concentração de valores de AD em torno de 0,9 mm cm-1
+e a menor variação faz com que a AD mediana dos subgrupos
+texturais na BD-Independente seja maior que o encontrado na BD-
+ZARC (Figura 14). Também fica evidenciada a discrepância dos
+dados do subgrupamento médio-siltoso. No entanto, assim como na
+BD-ZARC, é possível identificar que as ADs dos subgrupamentos
+muito argiloso e argiloso apresentam valores semelhantes aos do
+subgrupamento médio-arenoso – um claro contraste em relação às
+regras atuais do ZARC, onde todos os solos com mais de 35% de
+argila são considerados com valores de AD igual a 1,5 mm cm-1.
+
+
+
+
+Figura 14. Distribuição da água disponível por subgrupo textural na base BD-
+independente. Números entre parênteses apresentam o número de amostras em cada
+subgrupamento.
+Ajuste da Equação PTF preditiva de AD baseado apenas em
+dados granulométricos
+
+   Foram avaliados dois modelos preditivos para a AD. O primeiro
+(AD-PTF m1) utilizou como parâmetros preditores os teores de areia
+total (AT), silte (SILTE) e argila (ARG) e as combinações de
+interações duplas e triplas entre os fatores (modelo de mistura).
+Foram determinados os coeficientes dos fatores e sua significância
+pelo teste t. Observa-se no quadro da análise da variância que os
+coeficientes da interação SIL*ARG e SIL*AT não são significativos
+(Tabela 1a - Apêndice). Adicionalmente, pela análise dos gráficos
+Quantil-Quantil (Q-Q), observa-se um desvio da normalidade com o
+afastamento dos resíduos da reta pontilhada. O gráfico de dispersão
+da raiz quadrada do valor absoluto do resíduo padronizado versus
+os valores preditos indica heterocedasticidade (Figura 1a -
+Apêndice). A análise de dispersão de resíduos versus valores
+preditos mostra que o ajuste é satisfatório com os resíduos
+distribuídos com dispersão em torno do valor 0. Os gráficos de
+dispersão do resíduo padronizado versus leverage com a distância
+de Cook e o gráfico de dispersão da distância de Cook versus
+leverage para o modelo PTF AD m1 (dados sem transformação) não
+indicaram observações influentes, que alavancassem (leverage) os
+modelos ajustados (s).
+
+   Devido aos desvios da normalidade e da homogeneidade de
+variância, optou-se por fazer a transformação dos valores
+observados de AD segundo os procedimentos indicados por Box e
+Cox (1964). Para tal, foi determinado e utilizado o parâmetro de
+transformação lambda = 0,3451 (Figura 2a - Apêndice). Um novo
+modelo foi ajustado (AD-PTF m2), sendo significantes nesse modelo
+todos os coeficientes dos parâmetros preditivos e suas interações
+duplas e triplas (Tabela 1a e 2a - Apêndice). Houve também um
+aumento na R2, que foi de 0,72 no m1 (Tabela 1a) e de 0,99 no m2
+(Tabela 2a - Apêndice). A análise das pressuposições não indica
+violações aos pressupostos de modelos lineares e que se pode
+utilizar a equação AD-PTF m2 para as estimativas de AD (Figura 2a
+- Apêndice). Os resíduos da equação AD-PTF m2 apresentam uma
+distribuição mais próxima da normalidade, o que pode ser verificado
+no gráfico Q-Q (Figura 3a - Apêndice). A maior homogeneidade de
+variância em relação ao modelo com dados não transformados é
+indicada pela análise comparativa entre os gráficos de dispersão da
+raiz quadrada do valor absoluto do resíduo padronizado versus os
+valores preditos dos modelos com e sem transformação (Figura 2a -
+Apêndice). A análise dos resíduos e dos dados influentes do modelo
+AD-PTF m2 é bastante similar ao do modelo AD-PTF m1 quando
+avaliados os dados sem ajuste.
+
+  Os parâmetros de acurácia da AD-PTF m2, doravante
+denominada de PTF-ZARC, apresentaram um RMSE de 0,036 cm3
+cm-3 após a destransformação dos dados. O coeficiente de
+correlação (R - Equação 8) entre os dados de ADcal pelo PTF-
+ZARC e AD observados foi de 0,78 (Figura 3a - Apêndice) e o
+coeficiente de determinação (R2) foi de 0,99 (Tabela 2a – Apêndice)
+
+  A equação PTF-ZARC para a predição da AD (mm cm-1) para os
+solos do Brasil com base unicamente em dados da composição
+granulométrica de areia total, silte e argila (%) é apresentada na
+Equação 9:
+  AD = { 1 + [0,35941*(-0,02128887*AT - 0,01005814*SIL
+  - 0,01901894*ARG + 0,0001171219*(AT*SIL) +             Equação 9
+  0,0002073924*(AT*ARG) + 0,00006118707*(SIL*ARG) -
+  0,000006373789 * (AT*SIL*ARG))] ^ 2,78474} * 10
+
+
+  Os valores de AD preditos pela PTF-ZARC (Equação 9) podem
+ser visualizados na forma de um gráfico ternário de granulometria,
+com a legenda na escala de valores de AD (Figura 15).
+      Figura 15. Gráfico ternário granulométrico com valores de AD calculada
+      pela PTF-ZARC para todas as combinações granulométricas (5151). A
+      legenda apresenta os valores de AD agrupados, conforme nova proposta
+      de classes de AD para o ZARC.
+
+
+
+  O resultado da PTF-ZARC, baseada nas frações areia total, silte e
+argila, apresenta um claro contraste em relação à regra de três tipos
+de solos (Figura 16) publicada na Instrução Normativa 2 de
+09/10/2008 (Brasil, 2008), que classifica os solos principalmente em
+relação aos teores de argila, não havendo uma classificação para os
+solos com menos de 10% de argila, e tratando todos os solos com
+mais de 35% de argila como tendo um valor único de AD de 1,5 mm
+cm-1. Adicionalmente, a norma atual (Brasil, 2008) leva apenas
+parcialmente em consideração diferenças nos teores de silte (fator
+delta). Os dados de AD observados indicam que os maiores valores
+são encontrados nos subgrupos texturais siltoso e médio-siltoso
+(Figura 10). Essa tendência foi captada pelo modelo aqui
+desenvolvido (Figura 15).
+
+
+
+
+      Figura 16. Gráfico ternário granulométrico com valores de AD e tipos de
+      solo definidos no ZARC pela Instrução Normativa n. 2, de 09/10/2008
+      (Brasil, 2008).
+  Uma análise da distribuição dos dados de ADcal (Figura 17)
+mostra que a PTF-ZARC prediz, para cerca da metade (50%) das
+combinações granulométricas, valores de AD iguais ou inferiores a
+1,14 mm cm-1 e, para 75% das combinações, prediz valores de AD
+iguais ou inferiores a 1,64 mm cm-1. Entretanto, a distribuição dos
+valores de ADs de acordo com os subgrupos texturais (Figura 18)
+mostra que o modelo foi capaz de captar a menor diferença na AD
+entre os solos de textura média e argilosa ou muito argilosa, sendo
+os maiores valores de AD encontrados nos solos dos subgrupos
+texturais médio-siltosos e siltosos.
+
+
+
+
+Figura 17. Distribuição dos valores calculados de água disponível (AD cal) para todo o
+triângulo textural, conforme função densidade de probabilidade (FDP Kernel). Valor
+mediano de AD e quartis 25% e 75% são indicados pelas linhas verticais, contínua e
+tracejadas, respectivamente.
+Figura 18. Distribuição da AD calculada (ADcal) para todo o triângulo textural por
+subgrupamento textural. Números entre parênteses indicam o número de amostras em
+cada subgrupamento textural.
+
+
+
+Validação da Equação PTF-ZARC
+
+   A verificação da acurácia da PTF-ZARC foi realizada através de
+três procedimentos. Inicialmente, através da validação cruzada i) k-
+fold, com 20 subconjuntos. Por esse procedimento, a média dos
+resultados obtidos apresentou RMSE = 0,37 mm cm-1 [0,037 cm3
+cm-3]. Esse resultado é próximo ao obtido pela Equação 9 (PTF-
+ZARC), que foi de 0,36 mm cm-1.
+
+  No segundo procedimento, foi feita uma comparação das
+predições da AD pela PTF-ZARC com outras PTFs. Para assegurar
+a validade da comparação, na seleção dos valores de AD
+observados, foi selecionada a mesma amplitude de valores
+granulométricos para as quais as PTFs foram desenvolvidas (Tabela
+6). A PTF-ZARC contempla uma faixa granulométrica mais ampla
+que as outras equações testadas, que apresentam um domínio mais
+restrito. Dessa forma, a comparação foi realizada em um
+subconjunto do BD-ZARC contendo 462 amostras que
+contemplavam toda a amplitude de todas as PTFs em comparação
+(Tabela 7).
+
+
+Tabela 6. Classes granulométricas das amostras utilizadas para o desenvolvimento de
+funções transferidoras para estimativa de água disponível (AD).
+               PTF                     Areia (%)          Silte (%)     Argila (%)
+           PTF-ZARC                     0 a 99             0 a 79         0 a 93
+
+       Assad et al. (2001)              2 a 92             0 a 56         5 a 86
+
+       Giarola et al. (2002)            3 a 78            10 a 42         6 a 81
+
+           Berg (1997)                     -                  -           2 a 95
+
+
+
+Tabela 7. Coeficientes de ajuste R e RMSE para a PTF-ZARC e outras PTFs.
+                                                                          RMSE
+                     Modelo                         N             R
+                                                                        (mm cm-1)
+
+                  PTF-ZARC                         1021       0,78         0,37
+
+                  PTF-ZARC
+                                                   468        0,35         0,35
+                (base reduzida)
+
+              Assad et al. (2001)                  468        0,16         0,39
+
+             Giarola et al. (2002)                 468        -0,06        0,45
+
+               Berg et al. (1997)                  468        -0,06        0,42
+
+          ZARC - atual Brasil (2008)               468        0,05         0,52
+
+Resultados para a PTF-ZARC foram obtidos por validação cruzada usando o BD-ZARC
+completo (n = 1021). Já a comparação com outras PTFs deve ser feita utilizando a base
+filtrada para o domínio de aplicação das equações (n = 468).
+   Ao reduzir o número de amostras para a comparação com as
+outras PTFs, o R obtido pela PTF-ZARC reduziu seu valor, mas
+ainda indica a superioridade desta equação nas predições, que é
+corroborado também pelo menor valor do RMSE (Tabela 7). A base
+de dados reduzida apresenta menor variação da granulometria, sem
+apresentar redução na amplitude dos dados de AD (Figura 19),
+contendo elevada variação das observações de AD e menor
+variação granulométrica. Por esse motivo, tanto a PTF-ZARC
+quanto as outras PTFs utilizadas na comparação têm dificuldade em
+estimar as ADs de forma satisfatória. No entanto, mesmo com tal
+limitação, a PTF desenvolvida apresentou o melhor desempenho.
+Essa comparação, utilizando um subgrupo do BD-ZARC, é
+enviesada estatisticamente, mas complementa e ilustra os outros
+procedimentos utilizados pela validação do modelo. De forma a
+ilustrar as diferenças nas estimativas da AD, utilizando a regra atual
+do ZARC para estimar AD (Brasil, 2008) e as estimativas pela PTF-
+ZARC, gerou-se um gráfico de correlação 1:1 entre dados preditos e
+observados de AD (Figura 20)
+Figura 19. Localização das amostras do BD-ZARC no gráfico ternário com
+destaque (linha preta tracejada) para as amostras que se enquadram na
+faixa de valores das PTFs testadas.
+     Figura 20. Gráfico de correlação (1:1) entre dados observados e gerados
+     pela PTF-ZARC (pontos pretos) e pelas regras do ZARC atual para
+     estimar AD (Brasil, 2008) (pontos vermelhos).
+
+
+
+Validação da PTF-ZARC com uma base de dados
+independente (BD-Independente)
+
+  O terceiro procedimento de validação utilizado foi o uso de um
+BD-Independente com 121 observações não utilizadas na calibração
+da PTF-ZARC (Equação 9). Essa BD contém uma maior proporção
+de dados arenosos e menor amplitude nos dados de AD. Dessa
+forma, a PTF desenvolvida apresentou desempenho reduzido,
+indicado pelo maior valor do RMSE em relação à do BD-ZARC. No
+entanto, o valor de RMSE da PTF-ZARC foi o menor em relação às
+outras PTFs comparadas e a regra atual utilizada no ZARC. O
+parâmetro R indica, de forma mais clara, o melhor desempenho da
+PTF-ZARC em comparação às outras PTFs testadas (Tabela 8). A
+comparação com outras PTFs foi feita utilizando apenas amostras
+que atendiam à regra de domínio da composição granulométrica de
+todas as equações (n = 24).
+Tabela 8. Coeficientes de correlação (R) e Erro Quadrático Médio (RMSE) calculados
+para as diferentes PTF utilizadas para estimativa de AD baseadas apenas em dados
+granulométricos.
+                     Modelo                         n     R      RMSE (mm cm-1)
+          PTF-ZARC (bd-independente)              162    0,61           0,59
+
+     PTF-ZARC (bd- independente reduzido)          24    0,77           0,65
+
+               Assad et al. (2001)                 24    0,07           0,61
+
+               Giarola et al. (2002)               24   -0,51           0,66
+
+            van den Berg et al. (1997)             24   -0,51           0,68
+
+            ZARC - atual Brasil (2008)             24   -0,37           0,65
+
+
+
+Proposição de faixas de água disponível (AD) para uso nas
+avaliações de risco climático
+
+  A partir da análise de sensibilidade, foi possível identificar a
+relação entre o risco hídrico e a AD (Figura 21), com maiores riscos
+nas regiões mais secas e com menor AD.
+Figura 21. Variação do risco hídrico (ISNA < 0,50) observado em função da água
+disponível (AD) para a cultura da soja, estimado em quatro regiões, variando entre
+condição seca e alto risco hídrico e condição mais úmida e com baixo risco.
+
+
+
+  É possível constatar que, apesar da grande diferença de risco
+entre as regiões para uma mesma AD, a diferença entre uma
+determinada AD e a imediatamente superior ou inferior apresenta
+pouca alteração, independentemente da região testada (Figura 22).
+Isso permite que seja adotado um gradiente médio único para
+representar a diferença do risco entre ADs diferentes,
+independentemente da condição hídrica do ambiente testado.
+Figura 22. Gráfico de barras mostrando a diferença do risco hídrico (ISNA < 0,50) entre
+duas classes adjacentes de água disponível (AD) para a cultura da soja, estimado em
+quatro regiões nas condições seca (alto risco hídrico), seca moderada, úmida moderada e
+úmida (baixo risco).
+
+
+
+   As classes de risco tradicionalmente adotadas no ZARC variam
+num intervalo mínimo de 10%. Atualmente, são utilizadas as faixas
+de 20% (1% a 20%), 30% (21% a 30%) e 40% (31% a 40%). No
+sistema atual, são considerados três tipos de solo, com ADs de 0,7
+mm cm-1; 1,1 mm cm-1 e 1,5 mm cm-1. O solo tipo 1 (0,7 mm cm-1)
+representa um intervalo de AD compreendido entre 0,5 mm cm-1e
+0,9 mm cm-1, o que representa uma variação no risco dentro da
+classe de aproximadamente 9% (Figura 23). Tal variação aumenta a
+probabilidade de agrupamento dos solos dentro de uma mesma
+classe de AD que deveriam ser classificados em diferentes faixas de
+risco. Dessa forma, é desejável reduzir o intervalo entre as classes
+de AD.
+Figura 23. Histograma com valor mínimo, amplitude e valor máximo do risco
+correspondente às ADs para solos tipo 1, 2 e 3 (intervalo de AD constante e intervalo de
+risco variável), conforme classificação dos solos do ZARC, segundo a Instrução Normativa
+nº 2, de 09/10/2008 (Brasil, 2008). Risco estimado para cultura da soja em região de clima
+seco moderado.
+
+
+
+  Por outro lado, a redução do intervalo admitido entre uma classe
+de AD e outra exigirá um maior número de classes a ser simulado
+no ZARC, para representar adequadamente a variação possível
+encontrada no campo. Esse intervalo não deve ser muito amplo,
+pois resulta em maior incerteza, e nem demasiado estreito, pois
+resultaria em um número excessivo de categorias, prejudicando o
+processamento operacional dos estudos de ZARC.
+
+  A partir das relações AD versus risco, estabelecidas pelas
+regressões lineares (Figura 21), para se manter uma diferença
+máxima constante de, por exemplo, 5% de risco entre uma AD e
+outra, a diferença entre ADs deve ser de aproximadamente 30%.
+Por exemplo, a partir de uma AD inicial de 0,4 mm cm-1 (risco de
+cerca de 55% em clima seco moderado), a seguinte será de
+aproximadamente de 0,56 mm cm-1 (risco de cerca de 50% em
+clima seco moderado).
+
+   Para contemplar grande parte da variação de AD dos solos
+brasileiros, o intervalo de AD de 0,35 mm cm-1 a 2,50 mm cm-1 foi
+dividido em seis classes com variação de 40% entre elas. Os
+limiares de cada classe foram aproximados e um valor de
+referência, próximo ao valor médio da classe, foi utilizado para o
+cálculo dos riscos (Tabela 9). Dessa forma, para a classe AD 1, o
+valor de AD utilizado foi de 0,40 mm cm-1.
+
+
+Tabela 9. Valores de referência, mínimos e máximos da água disponível para seis classes
+a serem utilizadas nas modelagens de risco climático (ZARC).
+
+                     AD (mm cm-1)
+ Classe de                                     Correspondência com classe de AD
+    AD                  Valor de                        atual no ZARC
+           Mínimo                    Máximo
+                       referência
+   AD 1       0,34        0,40         0,48              Não representada
+
+   AD 2       0,48        0,56         0,67                    Solo 1
+
+   AD 3       0,67        0,78         0,94                    Solo 1
+
+   AD 4       0,94        1,10         1,32                    Solo 2
+
+   AD 5       1,32        1,53         1,84                    Solo 3
+
+   AD 6*      1,84        2,14         2,57              Não representada
+
+*Solos com AD > 2,57 mm cm-1 serão considerados da classe AD 6.
+
+
+
+  Os efeitos do maior número de classes de AD do solo são
+resumidos nas Figuras 23 e 24, que apresentam a variação do risco,
+considerando a amplitude das faixas de AD no modelo atual e o
+intervalo de AD considerado em cada uma das novas faixas,
+respectivamente.
+
+
+
+
+Figura 23. Histograma com valor mínimo, amplitude e valor máximo do risco
+correspondente às classes de AD 1 a AD 6 (intervalo de Água Disponível (AD) variável e
+intervalo de risco constante). Os valores entre parênteses no eixo x referem-se ao valor de
+referência de AD em mm cm-1 de cada classe proposta.
+Figura 24. Gráfico de barras flutuantes mostrando a amplitude das seis faixas de AD,
+considerando variação constante do risco. Números em destaque em cada barra
+representam o valor de referência da classe, não necessariamente a média entre os
+valores mínimo e máximo.
+Conclusões
+  A função de pedotransferência (PTF-ZARC) proposta para estimar
+a Água Disponível (AD) baseada nos teores de areia, silte e argila
+apresenta uma melhor acurácia quando comparada às PTFs
+similares disponíveis, e com as predições da regra atual utilizada
+para estimativa da AD nas modelagens do Zoneamento Agrícola de
+Risco Climático (ZARC).
+
+  As seis faixas de AD propostas para as simulações do ZARC
+apresentam a mesma variação percentual do risco. O seu uso
+permitirá a obtenção de maior precisão nas estimativas de risco ao
+deficit hídrico e uma melhor representação dos diferentes solos em
+comparação as três faixas de AD atualmente em uso.
+
+   A AD no solo não é consequência apenas da sua composição
+granulométrica. Pode-se, potencialmente, obter maior precisão nas
+predições de AD utilizando mais parâmetros preditivos, tais como
+teores de carbono, de areia fina, da densidade de solo, valores
+medidos de retenção de água e ou variáveis categóricas (classes de
+solos, classes texturais). Estão sendo desenvolvidas AD-PTFs
+utilizando um maior número de variáveis preditivas, que serão
+inseridas em um sistema hierárquico destinado a obter predições
+mais acuradas da AD para os solos do Brasil.
+
+  Os resultados das simulações para os diferentes cultivos no
+ZARC têm âmbito nacional e qualquer mudança em sua
+operacionalização deverá ser precedida de estudos para avaliação
+dos impactos e validação dos novos procedimentos.
+  A seguir, são elencadas algumas recomendações para estudos do
+comportamento hídrico dos solos do Brasil:
+
+    Há necessidade de ampliação do número de perfis modais nas
+    diferentes classes de solos e regiões brasileiras com dados
+    medidos das propriedades hidráulicas do solo, em especial os
+    parâmetros referentes aos valores da umidade volumétrica na
+    capacidade de campo (CC), no ponto de murcha permanente
+    (PMP) e na saturação.
+    Idealmente, os estudos sobre retenção de água nos solos
+    deverão envolver a avaliação da umidade do solo desde a
+    condição saturada até o solo seco no PMP (0 kPa até 1.500
+    kPa). Esses dados permitirão o ajuste das curvas de retenção
+    de água (CRA). Por conseguinte, as CRA permitirão o uso de
+    modelos de simulação de fluxos utilizando a solução da
+    equação de Richard.
+
+   Para avaliar a composição granulométrica do solo, para fins
+predições de propriedades hidráulicas do solo, em diferentes
+classes de solo, o número de subamostras para compor uma
+amostra de solo composta, assim como as espessuras das
+camadas de solo a serem amostradas, deverá ser indicado em
+função da variabilidade inerente do solo, da acurácia necessária e
+das profundidades dos sistemas radiculares das diferentes
+espécies. As incertezas associadas aos dados granulométricos
+devidas à variabilidade dos solos, dos métodos de análises e dos
+diferentes esquemas amostrais serão temas abordados numa
+publicação futura.
+Agradecimentos
+  Aos colegas que nos enviaram dados para a validação
+independente: Dr. Eduardo Guimarães Couto (UFMT, Cuiabá, MT),
+Dr. Jean Dalmo de Oliveira Marques (IFAM, Manaus, AM) e Joberta
+Cardoso Pastana Yakuwa (mestranda da UFRA, Belém, PA).
+
+   Aos colegas que participaram da reunião de apresentação destes
+resultados e colaboraram em diversas fases deste trabalho com
+sugestões, críticas e motivações: Dra. Marta Vasconcelos Ottoni
+(Serviço Geológico do Brasil – CPRM), Dr. Alessandro Samuel Rosa
+(Universidade Tecnológica do Paraná, Santa Helena, PR) e Dr.
+Everson da Conceição (Embrapa Agrobiologia, Seropédica, RJ).
+Aos dois revisores anônimos e também ao Pesquisador e editor
+assistente do Comitê Local de Publicações da Embrapa Solos, Dr.
+Mauricio Rizzato Coelho, por valiosas sugestões para melhoria do
+trabalho.
+Referências
+ALMEIDA, J. A. Solos das pradarias mistas do sul do Brasil (Pampa Gaúcho). In: CURI, N.;
+KER J. C.; NOVAIS, R. F.; VIDAL-TORRADO, P.; SCHAEFER, C. E. G. R. (ed.).
+Pedologia: solos dos biomas brasileiros. Viçosa, MG: Sociedade Brasileira de Ciência do
+Solo, 2017. p. 407-466.
+
+ALVES, G. V. A.; MASUTTI, M. M.; OLIVEIRA, L. N. de. Caracterização da água disponível
+a partir de parâmetros físico-hídricos em solos de referência do sertão pernambucano. In:
+CONGRESSO DE PESQUISA E INOVAÇÃO DA REDE NACIONAL DE EDUCAÇÃO E
+TECNOLOGIA, 4., 2009, Belém, PA. Anais... Belém, PA: Instituto Federal do Pará, 2009. 1
+CD-ROM.
+
+ANDRADE, F. H. N.; ALMEIDA, C. D. G. C. de; ALMEIDA, B. G. de; ALBUQUERQUE
+FILHO, J. A. C.; MANTOVANELLI, B. C.; ARAÚJO FILHO, J. C. de. Atributos físico-hídricos
+do solo via funções de pedotransferência em solos dos Tabuleiros Costeiros de
+Pernambuco. IRRIGA, v. 25, n. 1, p. 69-86, 2020.
+
+ANJOS, L. H. C. dos; PEREIRA, M. G.; PEREZ, D. V.; RAMOS, D. P. Caracterização e
+classificação de Plintossolos no Município de Pinheiro - MA. Revista Brasileira de Ciência
+do Solo, v. 31, n. 5, p. 1035-1044, 2007.
+
+ARAÚJO FILHO, J. C.; BURGOS, N.; LOPES, O. F.; SILVA, F. H. B. B.; MEDEIROS, L. A.
+R.; MÉLO FILHO, H. F. R.; PARAHYBA, R. B. V.; CAVALCANTI, A. C.; OLIVEIRA NETO, M.
+B.; SILVA, F. B. R.; LEITE, A. P.; SANTOS, J. C. P.; SOUSA NETO, N. C.; SILVA, A. B.;
+LUZ, L. R. Q. P.; LIMA, P. C.; REIS, R. M. G.; BARROS, A. H. C. Levantamento de
+reconhecimento de baixa e média intensidade dos solos do estado de Pernambuco.
+Recife: Embrapa Solos - UEP Recife; Rio de Janeiro: Embrapa Solos, 2000. (Embrapa
+Solos. Boletim de Pesquisa, 11).
+
+ARAÚJO FILHO, J. C. de; SANTOS, J. C. P. dos; PARAHYBA, R. da B. V.; OLIVEIRA
+NETO, M. B. de; BARROS, A. H. C.; MARQUES, F. A.; AMARAL, A. J. do. Zoneamento
+agroecológico do estado de Alagoas: levantamento de reconhecimento de baixa e média
+intensidade dos solos do estado de Alagoas. Rio de Janeiro: Embrapa Solos, 2020. E-
+book. (Embrapa Solos. Documentos, 216).
+
+ARRUDA, F. B.; ZULLO JÚNIOR, J.; OLIVEIRA, J. B. de. Parâmetros de solo para o
+cálculo da água disponível com base na textura do solo. Revista Brasileira de Ciência do
+Solo, v. 11, n. 1, p. 11-15, 1987.
+
+ASSAD, E. D.; MARIN, F. R.; PINTO, H. S.; ZULLO JÚNIOR, J. Zoneamento agrícola de
+riscos climáticos do Brasil: base teórica, pesquisa e desenvolvimento. Informe
+Agropecuário, v. 29, p. 47-60, 2008.
+
+ASSAD, M. L. L.; SANS, L. M. A.; ASSAD, E. D. Relação entre água retida e conteúdo de
+areia total em solos brasileiros. Revista Brasileira de Agrometeorologia, v. 9, n. 3, p.
+588–596, 2001.
+ASSAD, M. L. L. Funções de pedotransferência para estimativa da disponibilidade de
+água em diferentes tipos de solos do Brasil - Relatório Final. São Carlos: Universidade
+Federal de São Carlos, 2016. 18 p.
+
+BARON, C.; PRESSEZ, P.; MARAUX, F. Système d’Analyse Régionale des risques
+agroclimatiques - bilan hydrique appliqué au zonage (SARRAZIN). Montpellier: CIRAD-
+CA, 1996. 26 p.
+
+BARROS, A. H. C.; van LIER, Q. J. Pedotransfer functions for Brazilian soils. In: TEIXEIRA,
+W. G.; CEDDIA, M. B.; OTTONI, M. V.; DONAGEMMA, G. K. Application of Soil Physics
+in Environmental Analyses. 1. ed. Heidelberg: Springer, 2014. p. 131-162.
+
+BARROS, A. H. C.; LIER, Q, J. V.; MAIA, A. H. M.; SCARPARE, V. F. Pedotransfer
+functions to estimate water retention parameters of soils in northeastern Brazil. Revista
+Brasileira de Ciência do Solo, v. 37, p. 379-391, 2013.
+
+BARROS, A. H. C. Desenvolvimento de funções de pedotransferência e sua utilização
+em modelo agro hidrológico. 2010. 149 f. Tese (Doutorado em Física do Ambiente
+Agrícola) - Universidade de São Paulo - Escola Superior de Agricultura Luiz de Queiroz,
+Piracicaba.
+
+BATJES, N. H.; RIBEIRO, E.; VAN OOSTRUM, A. Standardised soil profile data to support
+global mapping and modelling (WoSIS snapshot 2019). Earth System Science Data, v. 12,
+n. 1, p. 299-320, 2020.
+
+BOUMA, J. Using soil survey data for quantitative land evaluation. In: Advances in soil
+science. New York: Springer, 1989. p. 177-213.
+
+BOX, G. E. P.; COX, D. R. An analysis of transformations (with discussion). Journal of the
+Royal Statistical Society, v. 26, p. 211-252, 1964.
+
+BRASIL. Decreto 9.404, de 19 de junho de 2018. Institui o Programa Nacional de
+Levantamento e Interpretação de Solos do Brasil - PronaSolos. 2018. Disponível em:
+http://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/decreto/D9414.htm. Acesso em:
+30 jun. 2020.
+
+BRASIL. Decreto 10.269, de 6 de março de 2020. Institui o Comitê Estratégico e o
+Comitê-Executivo do Programa Nacional de Levantamento e Interpretação de Solos do
+Brasil. 2020. Disponível em: http://www.in.gov.br/web/dou/-/decreto-n-10.269-de-6-de-
+marco-de-2020-246772845. Acesso em: 30 jun. 2020.
+
+BRASIL. Instrução Normativa n. 02, de 09 de outubro de 2008. Adota, no Zoneamento
+Agrícola de Risco Climático do Ministério da Agricultura, Pecuária e Abastecimento, as
+especificações para solos que menciona, e dá outras providências. Diário Oficial da
+União, Brasília, DF, 10 out. 2008. Seção 1, n. 197, p. 71.
+
+BRASIL. Ministério da Agricultura Pecuária e Abastecimento. Seguro Rural: Programa de
+subvenção ao prêmio do Seguro Rural protegendo o produtor rural Relatório das
+Indenizações Pagas entre 2006 a 2015. [Brasília: s. n., 2015]. Disponível em:
+http://www.agricultura.gov.br/assuntos/riscos-seguro/seguro-rural/documentos-seguro-
+rural/RelatriodeSinistralidade_PSR_2006_2015.pdf. Acesso em: 25 ago. 2017.
+
+CARLESSO, R. Absorção de água pelas plantas: água disponível versus extraível e a
+produtividade das culturas. Ciência Rural, v. 25, p. 183-188, 1995.
+
+CIRAD. Système d'Analyse Régionale des Risques Agroclimatologiques Version H
+(SARRA-H). Disponível em: https://sarra-h.teledetection.fr/SARRAH_BH.html. Acesso: 17
+ago. 2020.
+
+COELHO, E. F.; CONCEIÇÃO, M. A. F.; SOUZA, V. A. Estimativa dos limites de
+disponibilidade de água em função da densidade global e da textura do solo. Revista
+Ceres, v. 45, n. 258, p. 183-192, 2015.
+
+COELHO, M. R.; FIDALGO, E. C. C.; ARAÚJO, F. de O.; SANTOS, H. G. dos;
+MENDONÇA-SANTOS, M. de L.; PEREZ, D. V.; MOREIRA, F. M. de S. Solos das áreas-
+piloto do Projeto BiosBrasil (Conservation and Sustainable Management of Below-
+Ground Biodiversity: phase I), Município de Benjamin Constant, Estado do Amazonas.
+Rio de Janeiro: Embrapa Solos, 2005. (Embrapa Solos. Boletim de Pesquisa e
+Desenvolvimento, 67).
+
+CORRÊA, J. C. Características físico-hídricas dos solos Latossolo Amarelo, Podzólico
+Vermelho Amarelo e Podzol Hidromórfico do Estado do Amazonas. Pesquisa
+Agropecuária Brasileira, v. 19, p. 347-360, 1984.
+
+CUNHA, G. R.; ASSAD, E. D. Uma visão geral do número especial da RBA sobre o
+zoneamento agrícola no Brasil. Revista Brasileira de Agrometeorologia, v. 9, n. 3, p.
+377-385, 2001.
+
+DRAPER N. R.; PUKELSHEIM F. K. Ordering of simplex designs for first-and second-
+degree mixture models. Journal of statistical planning and inference. v. 1, n. 2,79 p.
+325-348, 1999.
+
+DRAPER, N. R.; SMITH, H. Applied regression analysis. 3. ed. New York: John Wiley
+and Sons, 1998. 706 p.
+
+DINGKUHN, M.; BARON, C.; BONNAL, V.; MARAUX, F.; SARR, B.; CLOPES, A. FOREST,
+F. Decision support tools for rainfed crops in the Sahel at the plot and regional scales. In:
+TJARK, S. B.; WOPEREIS, M. (ed.). Decision support tools for smallholder agriculture
+in Sub-Saharan Africa: a practical guide.. Muscle Shoals: IFDC, p. 127-139. 2003.
+
+EAGLEMAN, A. M. An experimentally derived model for actual evapotranspiration.
+Agricultural Meteorology, v. 8, n. 4/5, p. 385-409, 1971.
+
+EMBRAPA. Sistema de Informação de Solos Brasileiros – BDSOLOS. [2014].
+Disponível em: http://www.sisolos.cnptia.embrapa.br. Acesso em: 22 dez. 2020.
+
+FARIAS, J. R. B.; ASSAD, E. D.; ALMEIDA, I. D.; EVANGELISTA, B. A.; LAZZAROTTO, C.;
+NEUMAIER, N.; NEPOMUCENO, A. L. Caracterização de risco de déficit hídrico nas
+regiões produtoras de soja no Brasil. Revista Brasileira de Agrometeorologia, v. 9, n. 3,
+p. 415- 421, 2001.
+
+RODRIGUES, T. E.; OLIVEIRA JÚNIOR, R. C. de; SILVA, J. M. L. da; VALENTE, M. A.;
+CAPECHE, C. L. Caracterização físico-hídrica dos principais solos da Amazônia
+Legal. I. Estado do Pará: relatório técnico. Belém, PA: EMBRAPA-SNLCS: FAO, 1991.
+236 p.
+
+FOREST, F. Simulation du bilan hydrique des cultures pluviales. Présentation et
+utilisation du logiciel BIP. Montpellier: IRAT-CIRAD, 1984. 63 p.
+
+GAISER, T.; GRAEF, F.; CORDEIRO, J. C. Water retention characteristics of soils with
+contrasting clay mineral composition in semi-arid tropical regions. Australian Journal of
+Soil Research, n. 38, p. 523–536, 2000.
+
+GIAROLA, N. F. B.; SILVA, A. P.; IMHOFF, S. Relações entre propriedades físicas e
+características de solos da região sul do Brasil. Revista Brasileira de Ciência do Solo, v.
+26, n. 4, p. 885–893, 2002.
+
+GONÇALVES, S. L.; FARIAS, J. R. B. de; SIBALDELLI, R. N. R. Eventos climáticos
+adversos e seus impactos para as culturas de soja, milho e trigo no Brasil:
+Documentos. Londrina, PR: Embrapa Soja, 2019. Disponível em:
+http://ainfo.cnptia.embrapa.br/digital/bitstream/item/207382/1/Doc-420-OL-final.pdf. Acesso
+em: 28 ago. 2020.
+
+GRUNDY, M. J.; ROSSEL, R. V.; SEARLE, R. D.; WILSON, P. L.; CHEN, C.; GREGORY, L.
+J. Soil and landscape grid of Australia. Soil Research, v. 53, n.8, p. 835-844, 2015.
+
+HADDAD, D. B.; ASSIS, L. S. de; TARRATACA, L.; GOMES, A. D. S.; CEDDIA, M. B.;
+OLIVEIRA, R. F. D. N. Brazilian soil bulk density prediction based on a committee of neural
+regressors. In: INTERNATIONAL JOINT CONFERENCE ON NEURAL NETWORKS, 2018,
+Rio de Janeiro. Papers... Rio de Janeiro: IEEE, 2018. Disponível em:
+https://ieeexplore.ieee.org/iel7/8465565/8488986/08489177.pdf. Acesso em: 2 fev. 2021.
+
+IBGE. Mapa de Solos. Rio de Janeiro, 2018. Escala 1: 250.000. IBGE. Disponível em:
+https://bdiaweb.ibge.gov.br/#/consulta/pedologia. Acesso em: 7 ago. 2020.
+
+INSTITUTO DO AÇÚCAR E DO ÁLCOOL. Projeto de irrigação e drenagem da cana-de-
+açúcar na região Norte Fluminense: estudos e levantamentos pedológicos: relatório
+técnico setorial. Rio de Janeiro: Sondotécnica Engenharia de Solos, 1983. 9 v.
+
+ISRIC. World Soil Information Service. Wageningen. Disponível em:
+https://www.isric.org/explore/wosis . Acesso em: 3 nov. 2020.
+
+KOTLAR, A. M.; VAN LIER, Q. de J.; SOUZA BRITO, E. de. Pedotransfer functions for
+water contents at specific pressure heads of silty soils from Amazon rainforest. Geoderma,
+v. 361, p. 114098, 2020.
+LEENHARDT, D. Spatialisation du bilan hydrique: propagation des erreurs d'estimation
+des caractéristiques du sol au travers des modèles de bilan hydrique. Cas du blé dur
+d'hiver. 1991. 123 f. Thèse (Thèse de Doctorat en Sciences biologiques et Fondamentales
+Appliquées) – École Nationale Supérieure Agronomique de Mpntpellier, Montpellier.
+
+LIMA, H. N.; TEIXEIRA, W. G.; IWATA, S. A.; SOUZA, K. W. de; MACEDO, R. S.;
+GUIMARÃES, S. T. Atributos químicos e composição granulométrica de solos na área de
+estudo do Piatam. In: CAVALCANTE, K. V.; RIVAS, A. A. F.; FREITAS, C. E. de C. (ed.).
+Indicadores socioambientais e atributos de referência para o trecho Urucu-Coari-
+Manaus, rio Solimões, Amazônia Ocidental. 1. ed. Manaus: UFAM, 2007. p. 131-137.
+
+LUMBRERAS, J. F. Regime hídrico do solo sob cobertura de floresta e de eucalipto na
+pré-amazônia maranhense. 1996. 87 f. Dissertação (Mestrado em Ciência do Solo) –
+Universidade Federal Rural do rio de Janeiro, Rio de Janeiro.
+
+LUMBRERAS, J. F. Relações solo-paisagem no noroeste do estado do Rio de Janeiro:
+subsídios ao planejamento de uso sustentável em áreas de relevo acidentado do
+bioma Mata Atlântica. 2008. 305 f. Tese (Doutorado em Planejamento e Gestão
+Ambiental) – Universidade Federal Rural do Rio de Janeiro, Rio de Janeiro.
+
+LUMBRERAS, J. F.; CARVALHO FILHO, A. de; MOTTA, P. E. F. da; BARROS, A. H. C.;
+AGLIO, M. L. D.; DART, R. de O.; SILVEIRA, H. L. F. da; QUARTAROLI, C. F.; ALMEIDA,
+R. E. M. de; FREITAS, P. L. de. Aptidão agrícola das terras do Matopiba. Rio de Janeiro:
+Embrapa Solos, 2015. 48 p. il. color. (Embrapa Solos. Documentos, 179).
+
+MACEDO, R. S.; TEIXEIRA, W. G.; MARTINS, G. C.; RODRIGUES, M. do R. L.
+Caracterização química e física da camada superficial do solo em clareiras com diferentes
+idades de revegetação na Província Petrolífera de Urucu, Coari-AM. In: REUNIÃO
+BRASILEIRA DE MANEJO E CONSERVAÇÃO DO SOLO E DA ÁGUA, 17., 2008, Rio de
+Janeiro. Manejo e conservação do solo e da água no contexto das mudanças
+ambientais. Rio de Janeiro: Sociedade Brasileira de Ciência do Solo: Embrapa Solos:
+Embrapa Agrobiologia, 2008. 1 CD-ROM. p. 1-5. (Embrapa Solos. Documentos, 101).
+
+MAPBIOMAS. Projeto MapBiomas. Coleção 5 da Série Anual de Mapas de Cobertura e
+Uso de Solo do Brasil, 2020. Disponível em: https://mapbiomas.org/. Acessado 26 out.
+2020.
+
+MARQUES, J. de O.; LIBARDI, P. L.; TEIXEIRA, W. G. Estudo de parâmetros físicos,
+químicos e hídricos de um Latossolo Amarelo, na região Amazônica. Acta Amazonica, v.
+34, n. 2, p. 145–154, 2004.
+
+MCBRATNEY, A. B, MINASNY, B.; CATTLE, S. R.; VERVOOT, R. W. From pedotransfer
+functions to soil inference systems. Geoderma, v. 109, p. 41-73. 2002.
+
+MEDRADO, E.; LIMA J. E. Development of pedotransfer functions for estimating water
+retention curve for tropical soils of the Brazilian savanna. Geoderma Regional, v. 1, p. 59-
+66, 2014.
+MELLO, C. R.; OLIVEIRA, G. C.; FERREIRA, D. F.; LIMA, J. M.; LOPES, D. Modelos para
+determinação dos parâmetros da equação de van Genuchten para um Cambissolo.
+Revista Brasileira de Engenharia Agrícola e Ambiental. v. 9, n. 1, p. 23-29, 2005.
+
+MICHELON, C. J.; CARLESSO, R.; OLIVEIRA, Z. B. D.; KNIES, A. E.; PETRY, M. T.;
+MARTINS, J. D. Funções de pedotransferência para estimativa da retenção de água em
+alguns solos do Rio Grande do Sul. Ciência Rural, v. 40, n. 4, p. 848-853, 2010.
+
+MINASNY B.; HARTEMINK A. E. Predicting soil properties in the tropics. Earth-Science
+Reviews v. 106, p. 52–62, 2011.
+
+NAKAI, A. M.; MACIEL, R. J. S.; MONTEIRO, J. E. B. de A.; OLIVEIRA, A. F. de; CUADRA,
+S. V. Micura. Versão 1. Campinas: Embrapa Informática Agropecuária, 2018.
+
+NASCIMENTO, D. V. do. Funções de pedotransferência para estimar a umidade em
+solos cultivados com cana-de-açúcar na zona da Mata de Pernambuco. 2015. 76 f.
+Dissertação (Mestrado em Engenharia Agrícola) - Universidade Federal Rural de
+Pernambuco – Recife.
+
+NASCIMENTO, G. B.; ANJOS L. H. C. dos; PEREIRA, M. G.; FONTANA, A.; SANTOS, H.
+G. dos. Funções de pedotransferência do conteúdo de água em Latossolos Amarelos e
+Argissolos Amarelos. Revista Brasileira de Ciências Agrárias, v. 5, n. 4, p. 560-569,
+2010.
+
+OLIVEIRA, L. B.; RIBEIRO, M. R.; JACOMINE, P. K. T.; RODRIGUES J. J. V.; MARQUES,
+F. A. Funções de pedotransferência para predição de umidade retida a potenciais
+específicos em solos do estado de Pernambuco. Revista Brasileira de Ciência do Solo,
+v. 26, p. 315-323, 2002.
+
+OTTONI, M. V.; OTTONI FILHO, T. B.; SCHAAP, M. G.; LOPES-ASSAD, M. L. R.;
+ROTUNNO FILHO, O. C. Hydrophysical database for Brazilian soils (HYBRAS) and
+pedotransfer functions for water retention. Vadose Zone Journal, v. 17, n. 1, p. 1-17, 2018.
+
+PACHEPSKY, Y. A.; RAWLS, W. J. Development of pedotransfer functions in soil hydrology.
+Development in Soil Science, v. 30, 542 p., 2004.
+
+PERAZA, J. E. S. Retenção de água e pedofunções para solos do Rio Grande do Sul.
+2003. 118 f. Dissertação (Mestrado) - Universidade Federal de Santa Maria, Santa Maria.
+
+POLIDORO, J. C.; MENDONÇA-SANTOS, M. de L.; LUMBRERAS, J. F.; COELHO, M. R.;
+CARVALHO FILHO, A. de; MOTTA, P. E. F. da; CARVALHO JÚNIOR, W. de; ARAÚJO
+FILHO, J. C. de; CURCIO, G. R.; CORREIA, J. R.; MARTINS, E. de S.; SPERA, S. T.;
+OLIVEIRA, S. R. de M.; BOLFE, E. L.; MANZATTO, C. V.; TOSTO, S. G.; VENTURIERI, A.;
+SA, I. B.; OLIVEIRA, V. A. de; SHINZATO, E.; ANJOS, L. H. C. dos; VALLADARES, G. S.;
+RIBEIRO, J. L.; MEDEIROS, P. S. C. de; MOREIRA, F. M. de S.; SILVA, L. S. L.;
+SEQUINATTO, L.; AGLIO, M. L. D.; DART, R. de O. Programa Nacional de Solos do
+Brasil (PronaSolos). Rio de Janeiro: Embrapa Solos, 2016. 53 p. (Embrapa Solos.
+Documentos, 183). Disponível em: https://www.embrapa.br/busca-de-
+publicacoes/-/publicacao/1054924/programa-nacional-de-solos-do-brasil-pronasolos.
+Acesso em: 25 jun. 2020.
+
+THE R FOUNDATION. R: A language and environment for statistical computing. Vienna,
+2018. Disponível em: https://www.R-project.org/. Acesso em: 10 jan. 2019.
+
+RAWLS, W. J.; GISH, T. J.; BRAKENSIEK, D. L. Estimating soil water retention from soil
+physical properties and characteristics. Advances in Agronomy, v. 16, p. 213-234, 1991.
+
+REICHERT, J. M.; ALBUQUERQUE, J. A.; KAISER, D. R.; REINERT, D. J.; URACH, F. L.;
+CARLESSO, R. Estimation of water retention under availability in soils of Rio Grande do
+Sul. Revista Brasileira de Ciência do Solo, v. 33, p. 1547-1560, 2009.
+
+REICHARDT, K.; TIMM, L. C. Solo, planta e atmosfera: conceitos, processos e
+aplicações. 1. ed. São Paulo: Manole, 2004. 478 p.
+
+RODRIGUES, L. N.; MAIA, A. H. N.; SILVA R. N. da. Funções de pedotransferência para
+estimar capacidade de campo, ponto de murcha permanente e densidade global em solos
+de uma bacia hidrográfica do bioma cerrado. In: CONGRESSO BRASILEIRO DE
+ENGENHARIA AGRÍCOLA, 40., 2011, Cuiabá. Geração de tecnologias inovadoras e o
+desenvolvimento do Cerrado brasileiro: artigos completos. Cuiabá: Associação
+Brasileira de Engenharia Agrícola, 2011. 1 CD-ROM.
+
+ROSSATO, L. Estimativa da Capacidade de armazenamento de água no solo do
+Brasil. 2002. 147 f. Dissertação (Mestrado) - Instituto Nacional de Pesquisas Espaciais,
+São José dos Campos.
+
+SAMUEL-ROSA, A.; DALMOLIN, R. S. D.; BUENO, J. M. M.; TEIXEIRA, W. G.; ALBA, J.
+M. F. Open legacy soil survey data in Brazil: geospatial data quality and how to improve.
+Scientia Agricola, v. 77, n. 1, e20170430 p. 2020.
+
+SANS, L. M. A.; ASSAD, E. D.; GUIMARÃES, D. P. l. Zoneamento de riscos climáticos para
+a cultura de milho na Região Centro-Oeste do Brasil e para o estado de Minas Gerais.
+Revista Brasileira de Agrometeorologia, v. 9, n. 3, p. 527-535, 2001.
+
+SANTOS, H. G. dos; JACOMINE, P. K. T.; ANJOS, L. H. dos; OLIVEIRA, V. A. de;
+LUMBRERAS, J. F.; COELHO, M. R.; ALMEIDA, J. A. de; ARAÚJO FILHO, J. C. de;
+OLIVEIRA, J. B. de; CUNHA, T. J. F. Sistema Brasileiro de Classificação de Solos. 5.
+ed. rev. ampl. Brasília: Embrapa, 2018. 356 p.
+
+SANTOS, W. G.; MARTINS, J. I. F. O Zoneamento Agrícola de Risco Climático e sua
+contribuição à agricultura brasileira. Revista de Política Agrícola, v. 25, n. 3, p. 73-94,
+2016.
+
+SANTOS, W. J. R. D.; CURI, N.; SILVA, S. H. G.; ARAÚJO, E. F. D.; MARQUES, J. J.
+Pedotransfer functions for water retention in different soil classes from the center-southern
+Rio Grande do Sul State. Ciência e Agrotecnologia, v. 37, n. 1, p. 49-60, 2013.
+SCHAAP, M. G.; LEIJ, F. J.; van GENUCHTEN, M. T. Rosetta: A computer program for
+estimating soil hydraulic parameters with hierarchical pedotransfer functions. Journal of
+Hydrology, v. 251, n. 3-4, p.163-176, 2001.
+
+SCHAEFER, C. R. G. R.; LIMA, H. N. de; TEIXEIRA, W. G.; VALE JÚNIOR, J. F. do;
+SOUZA, K. W. de; CORRÊIA, G. R.; MENDONÇA, B. A. F.; AMARAL, E. F.; CAMPOS, M.
+C. C.; RUIVO, M. de L. P. Solos da região Amazônica. In: CURI, N.; KER, J. C.; NOVAIS, R.
+F.; VIDAL-TORRADO, P.; SCHAEFER, C. R. G. R. (ed.). Pedologia: solos dos biomas
+brasileiros. 1. ed. Viçosa: Sociedade Brasileira de Ciência do Solo. v. VIII, p. 111-176. 2017.
+
+SHINZATO, E.; TEIXEIRA, W. G.; DANTAS, M. E. Principais classes de solos do Estado do
+Acre. In: Adamy, A. (ed.). Geodiversidade do estado do Acre. Porto Velho: CPRM, 2015.
+p. 57-74.
+
+SILVA A. S.; BRITO, L. T.; OLIVEIRA, C. A.; MOTA, A. W. Parâmetros de solo em função
+da umidade na capacidade de campo em áreas irrigáveis do trópico semiárido Brasileiro.
+Pesquisa Agropecuária Brasileira, v. 25, n. 1, p. 103-116, 1990.
+
+UNITED STATES DEPARTMENT OF AGRICULTURE. Natural Resources Conservation
+Service. Web Soil Survey. The simple yet powerful way to access and use soil data.
+Disponível em: http://websoilsurvey.sc.egov.usda.gov/. Acesso em: 3 nov. 2020.
+
+SOIL AND LANDSCAPE GRID OF AUSTRALIA. Terrestrial Ecosystem Research
+Network - CSIRO. Disponível em: https://www.clw.csiro.au/aclep/soilandlandscapegrid/.
+Acesso em: 3 nov. 2020.
+
+SOUZA, E. D.; FERNANDES FILHO, E. I.; SCHAEFER, C. E. G. R.; BATJES, N. H.;
+SANTOS, G. R. D. PONTES, L. M. Pedotransfer functions to estimate bulk density from soil
+properties and environmental covariates: Rio Doce basin. Scientia Agricola. v. 73(6), p.
+525-534. 2016.
+
+STEINMETZ, S.; SILVA, S. C da. Início dos estudos sobre zoneamento agrícola de
+risco climático (ZARC) no Brasil. Santo Antônio de Goiás: Embrapa Arroz e Feijão, 2017.
+27 p. (Embrapa Arroz e Feijão. Documentos, 312).
+
+TEIXEIRA, W. G.; ARRUDA, W. DA C.; SHINZATO, E.; MACEDO, R. S.; MARTINS, G. C.;
+LIMA, H. N.; RODRIGUES, T. E. Solos do Amazonas. In: MAIA, M. A. M.; MARMOS, J. L.
+(ed.). Geodiversidade do estado do Amazonas. Manaus - Rio de Janeiro: CPRM, p. 71-
+86. 2010.
+
+TEIXEIRA, W. G.; LIMA, H. N.; PINTO, W. H. A.; SOUZA, K. W. de; SHINZATO, E.;
+SCHROTH, G. O manejo dos solos nas várzeas da Amazônia. In: BERTOL, I; MARIA, I. C.
+de; SOUZA, L. da S. (ed.). Manejo e conservação do solo e da água. 1. ed. Viçosa, MG:
+Sociedade Brasileira de Ciência do Solo, 2019a. v. 1, p. 701-728.
+
+TEIXEIRA, W. G.; LUMBRERAS, J. F.; MARTINS, G. C.; NOGUEIRA, J. do N. P.; LIMA, M.
+M. da G. de; COELHO, M. R. Retenção de água em amostras de solos de Rondônia. In:
+LUMBRERAS, J. F.; SILVA, L. M. da; ANJOS, L. H. C. dos; OLIVEIRA, V. A. de; WADT, P.
+G. S.; PEREIRA, M. G.; DELARMELINDA-HONORÉ, E. A.; BURITY, K. T. L. (ed.). Guia de
+campo da XII Reunião Brasileira de Classificação e Correlação de Solos: RCC de
+Rondônia. Brasília: Embrapa, 2019b. c. 12. E-book.
+
+TEIXEIRA, W. G.; MARTINS, G. C.; COELHO, M. R.; LUMBRERAS, J. F. Retenção de
+água em amostras de solos de Roraima. In: BATISTA, K. D.; LUMBRERAS, J. F.; COELHO,
+M. R.; OLIVEIRA, V. A. de; VALE JÚNIOR, J. F. do (ed.). Guia de campo da XI Reunião
+Brasileira de Classificação e Correlação de Solos: RCC de Roraima. Brasília:
+Embrapa, 2018. c. 6. E-book.
+
+TEIXEIRA, W. G. Land use effects on soil physical and hydraulic properties of a
+clayey ferralsol in the Central Amazon. 2001. 268 p. Tese (Doutorado) - Universidade
+Bayreuth, Bayreuth.
+
+TOMASELLA, J.; HODNETT M. G. Estimating soil water retention characteristics from
+limited data in Brazilian Amazonia. Soil Science, v. 163, p. 190-202, 1998.
+
+TOMASELLA, J.; PACHEPSKY, Y.; CRESTANA, S.; RAWLS, W. J. Comparison of two
+techniques to develop pedotransfer functions for water retention. Soil Science Society of
+America Journal, v. 67, p. 1085-1092, 2003.
+
+URACH, F. L. Estimativa da retenção de água em solos para fins de irrigação. 2007. 79
+f. Dissertação (Mestrado) - Universidade de Santa Maria, Santa Maria.
+
+BERG, M. van den; KLAMT, E.; van REEUWIJK, L. P.; SOMBROEK, W. G. et al.
+Pedotransfer Functions for the Estimation of Moisture Retention Characteristics of
+Ferralsols and Related Soils. Geoderma, v. 78, n. 3-4, p. 161-180, 1997.
+
+LIER, Q. J. van. Índices da disponibilidade de água para as plantas. In: NOVAIS, R. F.;
+ALVAREZ, V. H.; SCHAEFER, C. E. G. R. Tópicos em ciência do solo. Viçosa, MG:
+Sociedade Brasileira de Ciência do Solo, 2000. v. 1, p. 95-106.
+
+VEIHMEYER, F. J.; HENDRICKSON, A. H. Methods of measuring field capacity and wilting
+percentages of soils. Soil Science, v. 68, p.75-94, 1949.
+
+VENABLES, W. N.; RIPLEY, B. D. Modern Applied Statistics with S. 4th ed. New York:
+Springer, 2002.
+
+VEREECKEN, H; JAVAUX, M.; WEYNANTS, M.; PACHEPSKY, Y.; SCHAAP, M. G.; van
+GENUCHTEN, T. M. Using pedotransfer functions to estimate the van Genuchten-Mualem
+soil hydraulic properties: A review. Vadose Zone Journal, v. 9, n. 4, p. 795-820, 2010.
+
+WÖSTEN, J. H. M.; PACHEPSKY, Y. A.; RAWLS, W. J. Pedotransfer functions: Bridging the
+gap between available basic soil data and missing soil hydraulic characteristics. Journal of
+Hydrology, v. 251, p. 123-150, 2001.
+
+ZHANG, Y.; SCHAAP, M. G. Weighted recalibration of the Rosetta pedotransfer model with
+improved estimates of hydraulic parameter distributions and summary statistics (Rosetta3).
+Journal of Hydrology, v. 547, p. 39-53, 2017.
+Apêndices – Análises estatísticas
+AD-PTF, Modelo 1 (m1)
+
+  AD = a1AT + a2SIL + a3ARG + a4(AT * SIL) + a5(AT * ARG) + a6(SIL *
+  ARG) + a7(AT * SIL * ARG)
+
+  Em que:
+
+  AD é a água disponível (cm3 cm-3);
+
+  a1-7 são os coeficientes apresentados na Tabela 1a;
+
+  AT, SIL e ARG são os teores de areia total, silte e argila, em
+porcentagem, respectivamente.
+
+
+Tabela 1a. Coeficientes, erro padrão e significância (teste t) do ajuste da PTF de predição
+de AD sem transformação (m1).
+      Coeficientes            Estimativa         Erro Padrão         valor t         Pr(>|t|)
+            AT                 3.834e-05           5.899e-05          0.650         0.515909
+
+           SIL                 2.979e-03           1.929e-04         15.439        < 2e-16 ***
+
+          ARG                  3.244e-04           1.071e-04          3.030        0.002505 **
+
+        (AT * SIL)             8.100e-06           6.592e-06          1.229         0.219436
+
+       (AT * ARG)              3.732e-05           4.110e-06          9.081        < 2e-16 ***
+
+       (SIL * ARG)             2.074e-06           6.928e-06          0.299         0.764683
+
+    (AT * SIL * ARG)          -1.021e-06           2.888e-07         -3.536       0.000424 ***
+
+Probabilidade de significância - códigos 0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Residual standard error: 0.03603 on 1014 Graus de liberdade (GL)
+Multiple R-squared: 0.9213, Adjusted R-squared: 0.9207
+F-estatística: 1696 on 7 and 1014 GL, p-valor: < 2.2e-16
+Figura 1a. a) Gráfico de dispersão de resíduos versus valores preditos de AD; b) Gráficos
+Quantil-Quantil (Q-Q); c) Gráfico de dispersão da raiz quadrada do valor absoluto do
+resíduo padronizado versus os valores preditos. Gráfico de dispersão do resíduo
+padronizado versus leverage com a distância de Cook; d) Gráfico de dispersão da distância
+de Cook versus leverage para o modelo PTF AD m1 (dados sem transformação).
+
+
+
+PTF Água Disponível, Modelo 2 (m2)
+
+  Utiliza transformação Box-Cox para melhorar distribuição dos
+resíduos.
+
+  ADt = a1AT + a2SIL + a3ARG + a4(AT * SIL) + a5(AT * ARG) + a6(SIL
+  * ARG) + a7(AT * SIL * ARG)
+
+  AD = (lambda * ADt + 1) ^ (1 / lambda)
+
+  Em que:
+
+  AD é a água disponível (cm3 cm-3);
+  ADt é a água disponível antes da transformação Box-Cox (sem
+unidade);
+
+  a1-7 são os coeficientes apresentados na Tabela 2a;
+
+  AT, SIL e ARG são os teores de areia total, silte e argila (%),
+respectivamente;
+
+  lambda é o fator de transformação Box-Cox (lambda = 0,3591)
+
+  Cálculo do lambda para transformação Box-Cox.
+
+  lambda = 0,3591
+
+
+
+
+Figura 2a. Determinação gráfica do fator lambda utilizado na transformação dos dados de
+AD observados para ADt. O valor de lambda é ponto de máximo deste gráfico, que
+assumem o valor de 0,3591.
+Tabela 2a. Coeficientes, erro padrão e significância (teste t) do ajuste da PTF de predição
+de ADt com transformação (m2).
+      Coeficientes              Estimativa          Erro padrão    valor t     Pr(>|t|)
+            AT                 -2,129E+02            2,343E-04    -90.865    < 2e-16 ***
+
+            SIL                -1,006E+02            7,663E-04    -13.126    5.08e-13 ***
+
+           ARG                 -1,902E+02            4,252E-04    -44.726    8.15e-15 ***
+
+        (AT * SIL)              1,171E-04            2,618E-05     4.473     8.57e-06 ***
+
+       (AT * ARG)               2,074E-04            1,633E-05     12.704    < 2e-16 ***
+
+       (SIL * ARG)              6,119E-05            2,751E-05     2.224      0.0264 *
+
+    (AT * SIL * ARG)            -6,374E-06           1,147E-06     -5.556    3.52e-08 ***
+
+Signif. codes: 0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Residual standard error: 0.1431 on 1014 degrees of freedom
+Multiple R-squared: 0.9917,                 Adjusted R-squared: 0.9917
+F-statistic: 1.735e+04 on 7 and 1014 DF, p-value: < 2.2e-16
+Obs: o residual standard error nesta tabela está na escala da AD transformada (ADt). O
+RMSE para o modelo M2, calculado via validação cruzada e na escala destransformada
+foi de 0,0366 cm3 cm-3 (0,366 mm cm-1), similar ao obtido para M1 via validação
+cruzada (0,362 mm cm-1).
+Figura 3a. a) Gráfico da dispersão de resíduos versus valores preditos de AD; b) Gráficos
+Quantil-Quantil (Q-Q); c) Gráfico de dispersão da raiz quadrada do valor absoluto do
+resíduo padronizado versus os valores preditos; d) Gráfico de dispersão do resíduo
+padronizado versus leverage com a distância de Cook. Gráfico de dispersão da distância
+de Cook versus leverage para o modelo PTF AD m2 (dados com transformação).
+Figura 4a. Gráfico de dispersão 1:1 dos dados de AD medidos (observados) versus AD
+preditos pelo modelo M2. O coeficiente de correlação é 0,78.
+
+
+
+
+Figura 5a. Gráfico de dispersão e histograma dos resíduos do PTF-AD (m2).
+      Figura 6a. Gráfico ternário com os valores do intervalo de confiança (95%)
+      da estimativa de AD pelo modelo PTF-.
+
+
+
+   No link a seguir, podem ser acessados todos os valores de água
+disponível (ADs) estimados em função da sua composição
+granulométrica (média e intervalos de confiança com o limite inferior
+e superior da AD num intervalo de confiança de
+95%): https://github.com/dvictori/ptf_zarc/blob/master/resultados/Pre
+ditos_triangulo_AD_m2.csv
+

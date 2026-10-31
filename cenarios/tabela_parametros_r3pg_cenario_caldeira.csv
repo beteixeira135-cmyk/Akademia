@@ -1,0 +1,83 @@
+ordem_r3pg,parametro,valor,classe,origem_detalhe
+1,pFS2,0.5,FONTE,FONTE Tab.1
+2,pFS20,0.15,FONTE,FONTE Tab.1
+3,aWs,0.0249,FONTE,"FONTE §2.7.2 texto (Tab.1 arredonda 0,025)"
+4,nWs,3.021,FONTE,"FONTE §2.7.2 texto (Tab.1: 3,02)"
+5,pRx,0.23,FONTE,FONTE Tab.1
+6,pRn,0.06,FONTE,FONTE Tab.1
+7,gammaF1,0.13,FONTE,FONTE Tab.1
+8,gammaF0,0.06,FONTE,"FONTE Tab.1 (texto: 0,062)"
+9,tgammaF,4.0,FONTE,FONTE Tab.1 (meses)
+10,gammaR,0.015,FONTE,FONTE Tab.1 (L3)
+11,leafgrow,0.0,ESTRUTURAL,ESTRUTURAL: perenifólia
+12,leaffall,0.0,ESTRUTURAL,ESTRUTURAL: perenifólia
+13,Tmin,7.25,FONTE,FONTE Tab.1
+14,Topt,23.95,FONTE,FONTE Tab.1
+15,Tmax,28.65,FONTE,FONTE Tab.1
+16,kF,0.0,ADAPTADO,"ADAPTADO E. globulus; sem geada na série (Tmin>=4,3 °C)"
+17,SWconst0,0.4,ADAPTADO,ADAPTADO 3PGmix classe C (= soil_class 4 do r3PG)
+18,SWpower0,3.0,ADAPTADO,ADAPTADO 3PGmix classe C
+19,fCalpha700,1.4,NEUTRO,NEUTRO: com CO2=350 ppm constante f_calpha=1 para qualquer valor
+20,fCg700,0.7,NEUTRO,NEUTRO: com CO2=350 ppm constante f_cg=1 para qualquer valor
+21,m0,0.0,FONTE,FONTE Tab.1 sk1m
+22,fN0,1.0,FONTE,FONTE Tab.1 sk2m
+23,fNn,0.0,ADAPTADO,ADAPTADO E. globulus; irrelevante com fN0=1
+24,MaxAge,50.0,ADAPTADO,ADAPTADO E. globulus (Borges 2009 no mesmo arquivo: 9)
+25,nAge,4.0,ADAPTADO,ADAPTADO E. globulus
+26,rAge,0.95,ADAPTADO,ADAPTADO E. globulus
+27,gammaN1,0.0,AUSENTE_ZERO,AUSENTE_ZERO: mortalidade independente da densidade não aplicada
+28,gammaN0,0.0,AUSENTE_ZERO,AUSENTE_ZERO
+29,tgammaN,0.0,AUSENTE_ZERO,AUSENTE_ZERO
+30,ngammaN,1.0,AUSENTE_ZERO,AUSENTE_ZERO
+31,wSx1000,300.0,FONTE,FONTE Tab.1
+32,thinPower,1.5,ADAPTADO,ADAPTADO E. globulus
+33,mF,0.0,ADAPTADO,ADAPTADO E. globulus
+34,mR,0.2,ADAPTADO,ADAPTADO E. globulus
+35,mS,0.2,ADAPTADO,ADAPTADO E. globulus
+36,SLA0,9.4,FONTE,FONTE Tab.1
+37,SLA1,8.4,FONTE,FONTE Tab.1
+38,tSLA,2.0,FONTE,FONTE Tab.1 (L4)
+39,k,0.5,FONTE,FONTE Tab.1 (L3)
+40,fullCanAge,0.0,FONTE,FONTE Tab.1 tfullCan
+41,MaxIntcptn,0.26,FONTE,FONTE Tab.1 cpir (L1)
+42,LAImaxIntcptn,0.0,ADAPTADO,ADAPTADO E. globulus
+43,cVPD,5.0,NEUTRO,NEUTRO: só 3-PGmix
+44,alphaCx,0.068,FONTE,FONTE Tab.1 (L2)
+45,y,0.5,FONTE,"FONTE Tab.1 (3PGmix.Data: 0,05 = erro)"
+46,MinCond,0.0,ADAPTADO,"ADAPTADO E. globulus (0,0072 = gSx, não gCmin)"
+47,MaxCond,0.0182,FONTE,FONTE Tab.1
+48,LAIgcx,3.33,ADAPTADO,ADAPTADO E. globulus
+49,CoeffCond,0.05,FONTE,"FONTE Tab.1 0,5 kPa-1 = 0,05 mbar-1"
+50,BLcond,0.2,FONTE,FONTE Tab.1 (L3)
+51,RGcGW,0.66,NEUTRO,NEUTRO: só d13C
+52,D13CTissueDif,2.0,NEUTRO,NEUTRO: só d13C
+53,aFracDiffu,4.4,NEUTRO,NEUTRO: só d13C
+54,bFracRubi,27.0,NEUTRO,NEUTRO: só d13C
+55,fracBB0,0.35,FONTE,FONTE Tab.1
+56,fracBB1,0.15,FONTE,"FONTE Tab.1 (texto: 0,12)"
+57,tBB,2.0,FONTE,FONTE Tab.1
+58,rho0,0.44,FONTE,FONTE §2.7.3 440 kg m-3
+59,rho1,0.44,FONTE,FONTE (densidade constante)
+60,tRho,4.0,NEUTRO,NEUTRO: rho0=rho1
+61,CrownShape,3.0,NEUTRO,NEUTRO: só 3-PGmix
+62,aH,0.0,AUSENTE_ZERO,AUSENTE_ZERO: altura MISSING -> saída de altura = 0
+63,nHB,0.0,AUSENTE_ZERO,AUSENTE_ZERO
+64,nHC,0.0,AUSENTE_ZERO,AUSENTE_ZERO
+65,aV,0.0,ESTRUTURAL,ESTRUTURAL: volume pelo caminho de biomassa (Silva Eq.30)
+66,nVB,0.0,ESTRUTURAL,ESTRUTURAL: idem
+67,nVH,0.0,ESTRUTURAL,ESTRUTURAL: idem
+68,nVBH,0.0,ESTRUTURAL,ESTRUTURAL: idem
+69,aK,0.0,NEUTRO,NEUTRO: só 3-PGmix
+70,nKB,0.0,NEUTRO,NEUTRO
+71,nKH,0.0,NEUTRO,NEUTRO
+72,nKC,0.0,NEUTRO,NEUTRO
+73,nKrh,0.0,NEUTRO,NEUTRO
+74,aHL,0.0,NEUTRO,NEUTRO
+75,nHLB,0.0,NEUTRO,NEUTRO
+76,nHLL,0.0,NEUTRO,NEUTRO
+77,nHLC,0.0,NEUTRO,NEUTRO
+78,nHLrh,0.0,NEUTRO,NEUTRO
+79,Qa,-90.0,ADAPTADO,ADAPTADO E. globulus
+80,Qb,0.8,ADAPTADO,ADAPTADO E. globulus
+81,gDM_mol,24.0,ADAPTADO,ADAPTADO
+82,molPAR_MJ,2.3,ADAPTADO,ADAPTADO

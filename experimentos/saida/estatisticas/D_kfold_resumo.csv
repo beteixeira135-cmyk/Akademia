@@ -1,0 +1,25 @@
+resposta,modelo,esquema,folds,R2_media,R2_dp,R2_min,r_media,RQEM_media,RQEM_dp,RQEM_max
+perda_volume_k72,Gradient Boosting,deixa um material de fora,4,0.967,0.034,0.916,0.994,21.709,11.608,38.969
+perda_volume_k72,Gradient Boosting,deixa um sítio de fora,3,0.893,0.03,0.863,0.979,40.65,3.391,44.424
+perda_volume_k72,Gradient Boosting,k-fold 7 × 10 repetições,70,0.991,0.002,0.985,0.996,11.779,0.928,13.827
+perda_volume_k72,Linear + interações 2ª ordem,deixa um material de fora,4,0.926,0.05,0.851,0.979,33.759,12.082,51.856
+perda_volume_k72,Linear + interações 2ª ordem,deixa um sítio de fora,3,0.856,0.09,0.754,0.965,46.069,12.701,59.467
+perda_volume_k72,Linear + interações 2ª ordem,k-fold 7 × 10 repetições,70,0.965,0.008,0.948,0.983,23.438,1.96,27.262
+perda_volume_k72,"RNA MLP (50, 30) ReLU",deixa um material de fora,4,0.928,0.037,0.884,0.987,33.383,8.979,43.652
+perda_volume_k72,"RNA MLP (50, 30) ReLU",deixa um sítio de fora,3,0.875,0.056,0.826,0.975,43.187,7.909,49.999
+perda_volume_k72,"RNA MLP (50, 30) ReLU",k-fold 7 × 10 repetições,70,0.993,0.002,0.987,0.997,10.172,1.41,13.695
+perda_volume_k72,Random Forest,deixa um material de fora,4,0.97,0.039,0.911,0.994,19.73,13.591,40.066
+perda_volume_k72,Random Forest,deixa um sítio de fora,3,0.907,0.043,0.857,0.979,37.618,6.904,45.36
+perda_volume_k72,Random Forest,k-fold 7 × 10 repetições,70,0.996,0.001,0.989,0.998,7.676,1.15,14.286
+recup_rel95_meses_ev1,Gradient Boosting,deixa um material de fora,4,-1.101,4.127,-7.292,0.965,20.638,28.967,64.066
+recup_rel95_meses_ev1,Gradient Boosting,deixa um sítio de fora,3,0.873,0.072,0.79,0.964,12.062,3.397,15.878
+recup_rel95_meses_ev1,Gradient Boosting,k-fold 7 × 10 repetições,70,0.982,0.002,0.976,0.991,4.617,0.281,5.407
+recup_rel95_meses_ev1,Linear + interações 2ª ordem,deixa um material de fora,4,-0.903,3.213,-5.722,0.958,27.577,20.101,57.682
+recup_rel95_meses_ev1,Linear + interações 2ª ordem,deixa um sítio de fora,3,0.807,0.051,0.761,0.953,15.148,2.279,16.934
+recup_rel95_meses_ev1,Linear + interações 2ª ordem,k-fold 7 × 10 repetições,70,0.971,0.003,0.962,0.985,5.915,0.34,6.907
+recup_rel95_meses_ev1,"RNA MLP (50, 30) ReLU",deixa um material de fora,4,-0.261,0.736,-1.313,0.961,31.418,3.016,34.173
+recup_rel95_meses_ev1,"RNA MLP (50, 30) ReLU",deixa um sítio de fora,3,0.296,0.329,0.072,0.959,28.439,7.638,34.194
+recup_rel95_meses_ev1,"RNA MLP (50, 30) ReLU",k-fold 7 × 10 repetições,70,0.977,0.004,0.968,0.988,5.237,0.474,6.382
+recup_rel95_meses_ev1,Random Forest,deixa um material de fora,4,-1.149,4.228,-7.492,0.965,20.605,29.519,64.833
+recup_rel95_meses_ev1,Random Forest,deixa um sítio de fora,3,0.88,0.074,0.796,0.964,11.646,3.605,15.65
+recup_rel95_meses_ev1,Random Forest,k-fold 7 × 10 repetições,70,0.991,0.003,0.981,0.996,3.163,0.438,4.559

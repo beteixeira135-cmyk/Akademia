@@ -1,0 +1,472 @@
+CRESCIMENTO DE CLONES DE Eucalyptus spp. SUBMETIDOS A DESFOLHA
+ARTIFICIAL SUCESSIVA
+
+Vantuil Gonçalo Bertulio!, Otávio Peres Filho”, Edina Gomes da Silva! e Alberto Dorval?
+
+' Engenheiros Florestais, Mestrandos do Curso de Ciências Florestais e Ambientais, Faculdade de Engenharia
+Florestal, Departamento de Engenharia Florestal, Universidade Federal de Mato Grosso, Campus Cuiabá,
+Cuiabá/MT.
+
+? Professor Associado I, Faculdade de Engenharia Florestal, UFMT, Departamento de Engenharia Florestal, Campus
+Cuiaba, Cuiaba/MT.
+
+> Professor Adjunto I, Faculdade de Engenharia Florestal, UFMT, Departamento de Engenharia Florestal, Campus
+Cuiabá, Cuiabá/MT.
+
+RESUMO
+
+Avaliou-se o efeito da desfolha no crescimento em diâmetro, altura e volume dos clones
+de Eucalyptus urophylla x Eucalyptus camaldulensis, denominado urocam, e de Eucalyptus
+urophylla x Eucalyptus grandis, submetendo ambos os clones a duas desfolhas artificiais totais e
+sucessivas no período de um ano. O experimento foi realizado em área de reflorestamento da
+empresa Sadia SA, no município de Campo Verde, estado de Mato Grosso, Brazil. O
+delineamento experimental utilizado foi o de blocos inteiramente casualizados. Para o clone
+urocam, o volume médio de madeira (m3) no final do experimento foi 191,14% maior na
+testemunha e para o clone urograndis o volume médio foi 108,80% maior na testemunha. Os
+resultados também permitiram concluir que o rendimento em volume médio do clone urograndis
+(197,90%) foi superior ao do clone urocam.
+
+Palavras-chave: clones de eucalipto, performance de crescimento, desfolhamento, danos
+
+GROWING OF Eucalyptus spp. CLONES SUBMITTED TO SUCESSIVE ARTIFICIAL
+DEFOLIA TION
+
+ABSTRACT
+
+This paper evaluates the effect of defoliation on diameter, height and volume growth of
+the eucalypt clones Eucalyptus urophylla x Eucalyptus camaldulensis, known as urocam, and
+Eucalyptus urophylla x Eucalyptus grandis, known as urograndis. Both clones were submitted to
+two total and successive artificial defoliations in the period of one year. By using randomized
+blocks design, the experiment was set in an eucalyptus forest of the Sadia SA Company, in
+Campo Verde County, Mato Grosso State, Brazil. Concerning the urocam clone, the average
+wood volume at the end of the experiment was 191.14% higher in the untreated group compared
+to the defoliated one, while in urograndis the average wood volume was 108.80% higher than the
+defoliated one. The results also showed that the urograndis clone was 197.90% more productive
+than the urocam clone.
+
+Key words: eucalypt clones, growth performance, defoliation, damages
+120
+
+Crescimento de clones de Eucalyptus spp. submetidos a desfolha artificial sucessiva
+
+INTRODUÇÃO
+
+O crescimento das árvores é um
+fenômeno complexo composto de respostas
+de seu meristema apical e cambial às forças
+intrínsecas e extrínsecas, as quais não são
+uniformes no tempo e espaço. Cada espécie
+ou mesmo árvores individuais podem ter seu
+crescimento influenciado por fatores
+ambientais. A taxa de crescimento e a
+resposta ao crescimento podem variar
+grandemente em função de uma abrupta
+mudança ambiental ou o desfolhamento
+drástico (Freitas e Berti Filho, 1994).
+
+O desfolhamento afeta o crescimento
+das árvores, fundamentalmente pela
+diminuição da área fotossintética, o que
+implica na redução da produtividade
+primária das árvores, podendo em caso de
+ataques com desfolhamentos sucessivos,
+paralisar o seu crescimento. O aumento
+expressivo da área plantada de eucalipto
+causa uma severa queda na biodiversidade;
+em contra partida, essa falta de competição
+favorece a proliferação de insetos fitófagos e
+doenças (Pereira, 2007).
+
+Os efeitos mais importantes,
+resultantes das desfolhas provocadas por
+ataques de insetos podem ser mortalidade,
+diminuição de crescimento, aumento no
+período de rotação e aumento na
+suscetibilidade aos ataques de insetos e
+doenças secundárias. Esses danos são
+denominados, conjuntamente, de impacto de
+crescimento (Kulman, 1971).
+
+As desfolhas em anos consecutivos
+são mais prejudiciais que uma única
+desfolha severa (Speight e Wylie, 2000). As
+desfolhas natural ou artificial causam
+impacto no crescimento da raiz e na parte
+aérea da planta e quanto mais elevada a
+intensidade da desfolha, mais o crescimento
+é reduzido (Martinez e Wagner, 1994).
+
+Na maioria dos casos, os insetos
+fitófagos nada mais fazem do que reduzir a
+área foliar, comprometendo, assim, a
+
+capacidade fotossintética da planta. Em
+condições de infestação de maior magnitude,
+o substancial desfolhamento torna-se fator
+limitante ao pleno crescimento da planta
+(Freitas, 1988).
+
+Plantas novas de Eucalyptus sp.
+apresentam mortalidade com até três
+desfolhas consecutivas (Mendes, 1981).
+
+Considerando-se a hipótese de que a
+desfolha sucessiva limita o crescimento das
+árvores dos clones urocam e urograndis em
+diâmetro, altura e volume e que a resposta ao
+desfolhamento sucessivo varia de clone para
+clone, objetivou-se no presente trabalho
+avaliar as perdas no crescimento em
+diâmetro altura e volume nestes clones,
+submetidos a duas desfolhas artificiais totais
+e sucessivas no período de um ano.
+
+MATERIAL E MÉTODOS
+
+O experimento foi realizado em um
+povoamento florestal formado por dois
+clones denominados urocam (Eucalyptus
+urophylla x Eucalyptus camaldulensis) e
+urograndis (Eucalyptus urophyla x
+Eucalyptus grandis), com idade inicial de 14
+meses, espaçamento de 3m X 3m, localizado
+no município de Campo Verde, estado de
+Mato Grosso, na propriedade da empresa
+Sadia SA. As parcelas das desfolhas
+sucessivas foram implantadas em
+delineamento experimental de blocos
+inteiramente casualizados, com blocos de 90
+m?, sendo cada bloco/clone constituído por
+dez árvores. As testemunhas foram
+constituídas de 40 árvores por clone. As
+árvores foram marcadas com placas de
+alumínio, afixadas por pregos, contendo a
+identificação do clone, nível de desfolha
+(100% ou 0%) e número da árvore. As
+desfolhas foram aplicadas considerando-se a
+altura da copa e a partir da inserção do
+primeiro galho vivo da árvore. As folhas
+foram arrancadas manualmente, utilizando-
+se luvas, escadas e cordas para inclinação
+
+| aq
+
+121
+
+Revista de Agricultura 2008
+
+das arvores. A segunda desfolha total foi
+feita após as folhas atingirem o seu tamanho
+máximo.
+
+Os dados foram coletados
+mensalmente, de 12/4/2007 a 12/3/2008,
+sendo as medidas da circunferência à altura
+do peito (CAP) feitas com o auxílio de fita
+métrica e as alturas total (HT), inicial (HI) e
+final (HF) realizadas com auxílio do
+instrumento Blume Leiss. Os volumes inicial
+e final (VI e VF), de cada árvore, foram
+calculados utilizando-se a fórmula de
+volume de Smalian (Scolforo e Figueireido
+Filho, 1998). Os dados obtidos foram
+analisados pelo teste de Tuckey, ao nível de
+5% de probabilidade (Gomes, 1981), e por
+equação polinomial de segundo grau,
+utilizando-se o Software SAS 8.2.
+
+RESULTADOS E DISCUSSÃO
+
+O clone urograndis apresentou, tanto
+para o tratamento como para as testemunhas,
+as maiores valores médios em CAP, altura e
+volume em relação ao clone urocam (Tabela
+1), persistindo esta tendência até o final do
+experimento (Tabela 2). O clone urocam
+apresentou as menores médias por apresentar
+menor quantidade de folhas, que de acordo
+com Martinez e Wagner (1994) são
+características genotípicas da planta.
+
+A superioridade no crescimento do
+clone urograndis, medido pelo incremento
+da CAP, em relação ao clone urocam
+ocorreu em todo o período de coleta dos
+dados, inclusive com relação às testemunhas.
+Em função da primeira desfolha ter ocorrido
+no final do mês de abril, considerado
+período chuvoso na região, a tendência de
+paralisação do crescimento foi mais
+prolongada do que na segunda desfolha,
+realizada no mês de janeiro, ainda no
+período chuvoso, deixando evidente que a
+falta de água aumentaram as consequências
+da desfolha (Figura 1). Este fato já foi
+comprovado por Staley (1965), que
+trabalhando com árvores de carvalho,
+
+constatou que o efeito do desfolhamento é
+agravado pelo estresse hídrico.
+
+Freitas e Berti Filho (1994),
+estudando eucaliptos, concluíram que a
+associação da drástica redução de área foliar
+com períodos de estresse hídrico altera
+substancialmente a fisiologia da planta,
+refletindo em seu crescimento.
+
+Após a primeira desfolha realizada
+em abril e a segunda em janeiro, houve uma
+tendência maior de interrupção no
+crescimento do clone urograndis, enquanto
+que no clone urocam esta tendência foi
+menor (Figura 1), que corroboram as
+afirmações de Martinez e Wagner (1994),
+que comparou a desfolha feita por vespa
+com a desfolha artificial em Pinus
+ponderosa e concluiu que as árvores com
+menos folhagem por causa das
+características genéticas podem ser mais
+afetadas pela desfolha.
+
+40 5
+38 4
+36 = Urocam 0%
+34
+32
+30
+28 4
+26 4
+24
+224 °
+20 r > + ar —— 1
+Abr Mai Jun Jul Ago Set Out Nov Dez Jan Fev Mar
+
+—— Urocam 100% —— Urograndis 100%
+
+== Urograndis 0%
+
+CAP (ert
+
+al
+
+Periodo
+
+FIGURA 1. Valores médios de CAP (cm). Campo
+Verde, MT, abril/2007 a março/2008.
+
+O clone urograndis devido a sua
+característica genética de possuir maior
+quantidade folhas, possivelmente apresenta
+maior capacidade fotossintética, resultando
+em um maior crescimento, pois ao final do
+experimento apresentou, em relação ao clone
+urocam, valores superiores na CAP média de
+11,81%, altura média de 58,73% e volume
+médio de 97,90% (Tabela 2). Essa
+superioridade foi constatada a partir da
+primeira coleta, onde a CAP média, a altura
+média e o volume médio foram de 20,66%,
+
+122
+
+Crescimento de clones de Eucalyptus spp. submetidos a desfolha artificial sucessiva
+
+27,00% 85,46%, respectivamente maiores
+em relação ao clone urocam (Tabela 1).
+
+Não ocorreu a mortalidade de
+árvores, indicando que duas desfolhas
+sucessivas, nas condições ambientais em que
+foi desenvolvido o experimento, não foram
+suficientes para promover os óbitos dos
+indivíduos. Todavia, se as desfolhas
+sucessivas forem continuadas, a mortalidade
+poderá ocorrer, considerando-se que com
+apenas duas desfolhas sucessivas a perda de
+
+volume foi substancial no período
+amostrado.
+
+Na relação entre os tratamentos e as
+testemunhas, as medidas finais em volume
+médio foi mais significativo nas
+testemunhas, sendo de 191,14% no clone
+urocam e de 108,80% no clone urograndis
+(Tabela 2).
+
+Tabela 1. Valores médios de crescimento dos clones testados aos 14 meses de idade. Campo
+
+Verde, MT, abril/2007 a março/2008.
+
+urocam urograndis
+Parâmetros” Desfolha 100% Testemunha Desfolha Testemunha
+100%
+CAP' (cm) 22,50a 23,97b 27,15a 26,98b
+Hº (m) 8,74 11,10a 10,71b
+ve (m?) 0,0282a 0,0337b 0,0523a 0,0515b
+Mortalidade 0a 0a 0a
+
+* - médias seguidas da mesma letra (horizontal) não diferem estatisticamente entre si (teste F), ao nível de 1% de
+
+probabilidade.
+
+'- CAP= circunferência a altura do peito; 2- H= altura total; ?- V= volume
+
+Tabela 2. Valores médios de crescimento dos clones testados aos 26 meses idade. Campo Verde,
+
+MT, abril/2007 a marco/2008.
+
+urocam urograndis
+Parâmetros* Desfolha 100% | Testemunha Desfolha 100% | Testemunha
+CAP’ (cm) 26,35a 36,4275b 29,4625a 38,6225b
+Hº (m) 9,45a 14,35b 15,0a 17,885b
+Vv? (m3) 0,0419a 0,1221b 0,083a 0,1734b
+Mortalidade 0a 0a Oa Oa
+
+* - médias seguidas da mesma letra (horizontal) não diferem estatisticamente entre si (teste F), ao nivel de 1% de
+probabilidade.
+'. CAP= circunferência a altura do peito; ?- H= altura total; 7— V = volume
+
+Freitas e Berti Filho (1994),
+estudando eucaliptos, concluíram que a
+associação da drástica redução de área foliar afirmações de Martinez e Wagner (1994),
+com períodos de estresse hídrico altera que comparou a desfolha feita por vespa
+substancialmente a fisiologia da planta, com a desfolha artificial em Pinus
+refletindo em seu crescimento. ponderosa e concluiu que as árvores com
+
+Após a primeira desfolha realizada menos folhagem por causa das
+em abril e a segunda em janeiro, houve uma características genéticas podem ser mais
+tendência maior de interrupção no afetadas pela desfolha,
+crescimento do clone urograndis, enquanto
+
+que no clone urocam esta tendência foi
+menor (Figura 1), que corroboram as
+
+à dl o
+
+123
+
+Revista de Agricultura 2008
+
+O clone urograndis devido a sua
+característica genética de possuir maior
+quantidade folhas, possivelmente apresenta
+maior capacidade fotossintética, resultando
+em um maior crescimento, pois ao final do
+experimento apresentou, em relação ao clone
+urocam, valores superiores na CAP média de
+11,81%, altura média de 58,73% e volume
+médio de 97,90% (Tabela 2). Essa
+superioridade foi constatada a partir da
+primeira coleta, onde a CAP média, a altura
+média e o volume médio foram de 20,66%,
+27,00% 85,46%, respectivamente maiores
+em relação ao clone urocam (Tabela 1).
+
+Não ocorreu a mortalidade de
+árvores, indicando que duas desfolhas
+sucessivas, nas condições ambientais em que
+foi desenvolvido o experimento, não foram
+suficientes para promover os óbitos dos
+indivíduos. Todavia, se as desfolhas
+sucessivas forem continuadas, a mortalidade
+poderá ocorrer, considerando-se que com
+apenas duas desfolhas sucessivas a perda de
+volume foi substancial no período
+amostrado.
+
+Na relação entre os tratamentos e as
+testemunhas, as medidas finais em volume
+médio foram mais significativas nas
+testemunhas, sendo de 191,14% no clone
+urocam e de 108,80% no clone urograndis
+(Tabela 2).
+
+CONCLUSÕES
+
+Duas desfolhas artificiais sucessivas
+afetam significativamente o crescimento em
+diâmetro, a altura e o volume de madeira dos
+clones de Eucalyptus urophylla x Eucalyptus
+camaldulensis, denominado urocam, e de
+Eucalyptus urophylla x Eucalyptus grandis,
+denominado urograndis, sem contudo
+induzir a morte das árvores.
+
+AGRADECIMENTOS
+
+A empresa SADIA SA, que
+disponibilizou a área para a implantação do
+
+experimento; ao Engenheiro Florestal Paulo
+Lemos dos Santos e ao Prof. Jorge Reinaldo
+Baicere Schmidt, da Faculdade de
+Engenharia Florestal, UFMT, pelo apoio na
+elaboração das planilhas e nas análises
+estatísticas.
+
+REFERÊNCIAS BIBLIOGRÁFICAS
+
+FREITAS, S. Efeito do desfolhamento na
+produção de Eucalyptus grandis Hill ex-
+Maiden (Myrtaceae) visando avaliar os
+danos causados por insetos
+desfolhadores. 1988. 99f Tese
+(Doutorado em Entomologia) — Escola
+Superior de Agricultura “Luiz de
+Queiroz”.
+
+FREITAS, S.; BERTI FILHO, E. Efeito do
+desfolhamento no crescimento de
+Eucalyptus grandis Hill ex Maiden
+(Myrtaceae). IPEF, v. 47, p. 36-43,
+1994.
+
+GOMES, F. P., Curso de Estatística
+Experimental, Piracicaba: Escola
+Superior de Agricultura “Luiz de
+Queiroz”, 430 p. 1981.
+
+KULMAN, H. M. Effects of insects
+defoliation on growth and mortality of
+trees. Annual Review of Entomology,
+v. 16, p. 289-324, 1971.
+
+MARTINEZ, G. S.; WAGNER, M. R.
+Sawfly (Hymenoptera: Diprionidae) and
+Artificial Defoliation Affects Above-
+and Below-Ground Growth of
+Ponderosa Pine Seedlings. Journal of
+Economic Entomology. Washington, v.
+87, n. 4, p. 1038-1045, 1994.
+
+MENDES, J. M. A. Ação danosa de pragas
+desfolhadoras sobre as florestas de
+eucaliptos. Circular técnica IPEF.
+Piracicaba, n. 131, p. 1-6, 1981.
+
+PEREIRA, L. G B. A Lagarta-Parda,
+Thyrinteina arnobia, principal
+lepidóptero desfolhador da cultura do
+eucalipto. Dossiê Técnico, Fundação
+124
+Crescimento de clones de Eucalyptus spp. submetidos a desfolha artificial sucessiva
+
+Centro Tecnológico de  Minas-
+CETEC/MG. 2007. 28p.
+
+SCOLFORO, J. R. S.; FIGUEIREDO
+FILHO, A. Biometria florestal:
+medição e volumetria de árvores
+florestais. Lavras, UFLA/FAEPE, 310
+p. 1998.
+
+SPEIGHT, M.R.; WYLIE, F.R. Insects
+pests in tropical forestry. New York.
+CABI Publishing. 2000. 306 p.
+
+STALEY, J. M. Decline and mortality of red
+and scarfet oak. Forest Science,
+Washington, v. 11, p. 2-17, 1965.
+

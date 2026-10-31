@@ -1,0 +1,68 @@
+{
+  "arquivo": "POWER_Point_Daily_20150101_20240131_018d68S_047d77W_LST.csv",
+  "linhas_dados": 3318,
+  "inicio": "2015-01-01",
+  "fim": "2024-01-31",
+  "dias_faltantes": 0,
+  "datas_duplicadas": 0,
+  "codigos_menos999": 0,
+  "nan": 0,
+  "tmax_menor_que_tmin": 0,
+  "dias_tmin_le_0": 0,
+  "razao_PAR_SW_media": 0.4614,
+  "faixas": {
+    "T2M_MAX": [
+      15.96,
+      40.75
+    ],
+    "T2M_MIN": [
+      4.3,
+      27.46
+    ],
+    "QV2M": [
+      3.04,
+      18.32
+    ],
+    "RH2M": [
+      23.16,
+      93.08
+    ],
+    "PRECTOTCORR": [
+      0.0,
+      47.53
+    ],
+    "GWETTOP": [
+      0.28,
+      0.95
+    ],
+    "GWETROOT": [
+      0.59,
+      0.9
+    ],
+    "GWETPROF": [
+      0.65,
+      0.89
+    ],
+    "ALLSKY_SFC_PAR_TOT": [
+      1.95,
+      14.28
+    ],
+    "CLRSKY_SFC_PAR_TOT": [
+      6.58,
+      14.28
+    ],
+    "ALLSKY_SFC_SW_DWN": [
+      3.85,
+      31.08
+    ],
+    "CLRSKY_SFC_SW_DWN": [
+      16.05,
+      31.68
+    ]
+  },
+  "meses_completos": 109,
+  "meses_incompletos": 0,
+  "PAR_mensal_meses": 120,
+  "PAR_meses_sobrepostos": 109,
+  "PAR_max_abs_diferenca": 0.0057
+}

@@ -1,0 +1,450 @@
+[
+ {
+  "sitio": "ELD",
+  "lon": -51.463,
+  "lat": -30.1032,
+  "camadas": [
+   {
+    "prof": "0-5cm",
+    "top": 0,
+    "bot": 5,
+    "clay": 29.9,
+    "sand": 44.5,
+    "silt": 24.8
+   },
+   {
+    "prof": "5-15cm",
+    "top": 5,
+    "bot": 15,
+    "clay": 29.3,
+    "sand": 46.1,
+    "silt": 24.6
+   },
+   {
+    "prof": "15-30cm",
+    "top": 15,
+    "bot": 30,
+    "clay": 34.1,
+    "sand": 41.4,
+    "silt": 24.3
+   },
+   {
+    "prof": "30-60cm",
+    "top": 30,
+    "bot": 60,
+    "clay": 55.0,
+    "sand": 25.7,
+    "silt": 18.6
+   },
+   {
+    "prof": "60-100cm",
+    "top": 60,
+    "bot": 100,
+    "clay": 58.4,
+    "sand": 22.9,
+    "silt": 17.9
+   },
+   {
+    "prof": "100-200cm",
+    "top": 100,
+    "bot": 200,
+    "clay": 56.0,
+    "sand": 23.5,
+    "silt": 20.3
+   }
+  ],
+  "asw": 212.03540038655083
+ },
+ {
+  "sitio": "ELD",
+  "lon": -51.463,
+  "lat": -30.0232,
+  "camadas": [
+   {
+    "prof": "0-5cm",
+    "top": 0,
+    "bot": 5,
+    "clay": 28.7,
+    "sand": 41.5,
+    "silt": 29.7
+   },
+   {
+    "prof": "5-15cm",
+    "top": 5,
+    "bot": 15,
+    "clay": 28.5,
+    "sand": 42.5,
+    "silt": 29.1
+   },
+   {
+    "prof": "15-30cm",
+    "top": 15,
+    "bot": 30,
+    "clay": 32.1,
+    "sand": 40.6,
+    "silt": 27.3
+   },
+   {
+    "prof": "30-60cm",
+    "top": 30,
+    "bot": 60,
+    "clay": 38.1,
+    "sand": 35.5,
+    "silt": 26.4
+   },
+   {
+    "prof": "60-100cm",
+    "top": 60,
+    "bot": 100,
+    "clay": 41.2,
+    "sand": 34.3,
+    "silt": 24.7
+   },
+   {
+    "prof": "100-200cm",
+    "top": 100,
+    "bot": 200,
+    "clay": 39.8,
+    "sand": 33.7,
+    "silt": 26.8
+   }
+  ],
+  "asw": 219.47187526605134
+ },
+ {
+  "sitio": "ELD",
+  "lon": -51.463,
+  "lat": -29.9432,
+  "camadas": [
+   {
+    "prof": "0-5cm",
+    "top": 0,
+    "bot": 5,
+    "clay": null,
+    "sand": null,
+    "silt": null
+   },
+   {
+    "prof": "5-15cm",
+    "top": 5,
+    "bot": 15,
+    "clay": null,
+    "sand": null,
+    "silt": null
+   },
+   {
+    "prof": "15-30cm",
+    "top": 15,
+    "bot": 30,
+    "clay": null,
+    "sand": null,
+    "silt": null
+   },
+   {
+    "prof": "30-60cm",
+    "top": 30,
+    "bot": 60,
+    "clay": null,
+    "sand": null,
+    "silt": null
+   },
+   {
+    "prof": "60-100cm",
+    "top": 60,
+    "bot": 100,
+    "clay": null,
+    "sand": null,
+    "silt": null
+   },
+   {
+    "prof": "100-200cm",
+    "top": 100,
+    "bot": 200,
+    "clay": null,
+    "sand": null,
+    "silt": null
+   }
+  ],
+  "asw": null
+ },
+ {
+  "sitio": "ELD",
+  "lon": -51.383,
+  "lat": -30.1032,
+  "camadas": [
+   {
+    "prof": "0-5cm",
+    "top": 0,
+    "bot": 5,
+    "clay": 28.8,
+    "sand": 45.4,
+    "silt": 25.5
+   },
+   {
+    "prof": "5-15cm",
+    "top": 5,
+    "bot": 15,
+    "clay": 28.3,
+    "sand": 46.8,
+    "silt": 24.4
+   },
+   {
+    "prof": "15-30cm",
+    "top": 15,
+    "bot": 30,
+    "clay": 30.5,
+    "sand": 44.8,
+    "silt": 24.6
+   },
+   {
+    "prof": "30-60cm",
+    "top": 30,
+    "bot": 60,
+    "clay": 44.8,
+    "sand": 34.3,
+    "silt": 21.2
+   },
+   {
+    "prof": "60-100cm",
+    "top": 60,
+    "bot": 100,
+    "clay": 45.6,
+    "sand": 32.9,
+    "silt": 21.6
+   },
+   {
+    "prof": "100-200cm",
+    "top": 100,
+    "bot": 200,
+    "clay": 43.7,
+    "sand": 33.9,
+    "silt": 22.7
+   }
+  ],
+  "asw": 212.93485862762077
+ },
+ {
+  "sitio": "ELD",
+  "lon": -51.383,
+  "lat": -29.9432,
+  "camadas": [
+   {
+    "prof": "0-5cm",
+    "top": 0,
+    "bot": 5,
+    "clay": 27.4,
+    "sand": 43.6,
+    "silt": 29.1
+   },
+   {
+    "prof": "5-15cm",
+    "top": 5,
+    "bot": 15,
+    "clay": 26.7,
+    "sand": 45.0,
+    "silt": 28.3
+   },
+   {
+    "prof": "15-30cm",
+    "top": 15,
+    "bot": 30,
+    "clay": 28.9,
+    "sand": 42.9,
+    "silt": 28.0
+   },
+   {
+    "prof": "30-60cm",
+    "top": 30,
+    "bot": 60,
+    "clay": 39.5,
+    "sand": 35.8,
+    "silt": 25.1
+   },
+   {
+    "prof": "60-100cm",
+    "top": 60,
+    "bot": 100,
+    "clay": 40.2,
+    "sand": 34.9,
+    "silt": 24.9
+   },
+   {
+    "prof": "100-200cm",
+    "top": 100,
+    "bot": 200,
+    "clay": 39.4,
+    "sand": 34.9,
+    "silt": 26.0
+   }
+  ],
+  "asw": 218.00280112804595
+ },
+ {
+  "sitio": "ELD",
+  "lon": -51.303,
+  "lat": -30.1032,
+  "camadas": [
+   {
+    "prof": "0-5cm",
+    "top": 0,
+    "bot": 5,
+    "clay": null,
+    "sand": null,
+    "silt": null
+   },
+   {
+    "prof": "5-15cm",
+    "top": 5,
+    "bot": 15,
+    "clay": null,
+    "sand": null,
+    "silt": null
+   },
+   {
+    "prof": "15-30cm",
+    "top": 15,
+    "bot": 30,
+    "clay": null,
+    "sand": null,
+    "silt": null
+   },
+   {
+    "prof": "30-60cm",
+    "top": 30,
+    "bot": 60,
+    "clay": null,
+    "sand": null,
+    "silt": null
+   },
+   {
+    "prof": "60-100cm",
+    "top": 60,
+    "bot": 100,
+    "clay": null,
+    "sand": null,
+    "silt": null
+   },
+   {
+    "prof": "100-200cm",
+    "top": 100,
+    "bot": 200,
+    "clay": null,
+    "sand": null,
+    "silt": null
+   }
+  ],
+  "asw": null
+ },
+ {
+  "sitio": "ELD",
+  "lon": -51.303,
+  "lat": -30.0232,
+  "camadas": [
+   {
+    "prof": "0-5cm",
+    "top": 0,
+    "bot": 5,
+    "clay": 28.3,
+    "sand": 42.0,
+    "silt": 29.7
+   },
+   {
+    "prof": "5-15cm",
+    "top": 5,
+    "bot": 15,
+    "clay": 27.6,
+    "sand": 43.5,
+    "silt": 29.1
+   },
+   {
+    "prof": "15-30cm",
+    "top": 15,
+    "bot": 30,
+    "clay": 28.2,
+    "sand": 42.4,
+    "silt": 28.7
+   },
+   {
+    "prof": "30-60cm",
+    "top": 30,
+    "bot": 60,
+    "clay": 33.2,
+    "sand": 37.7,
+    "silt": 28.3
+   },
+   {
+    "prof": "60-100cm",
+    "top": 60,
+    "bot": 100,
+    "clay": 34.8,
+    "sand": 36.5,
+    "silt": 28.3
+   },
+   {
+    "prof": "100-200cm",
+    "top": 100,
+    "bot": 200,
+    "clay": 34.6,
+    "sand": 36.0,
+    "silt": 28.7
+   }
+  ],
+  "asw": 229.24141416641723
+ },
+ {
+  "sitio": "ELD",
+  "lon": -51.303,
+  "lat": -29.9432,
+  "camadas": [
+   {
+    "prof": "0-5cm",
+    "top": 0,
+    "bot": 5,
+    "clay": 26.0,
+    "sand": 43.2,
+    "silt": 31.0
+   },
+   {
+    "prof": "5-15cm",
+    "top": 5,
+    "bot": 15,
+    "clay": 25.5,
+    "sand": 44.1,
+    "silt": 30.6
+   },
+   {
+    "prof": "15-30cm",
+    "top": 15,
+    "bot": 30,
+    "clay": 27.9,
+    "sand": 41.8,
+    "silt": 30.4
+   },
+   {
+    "prof": "30-60cm",
+    "top": 30,
+    "bot": 60,
+    "clay": 36.4,
+    "sand": 36.1,
+    "silt": 27.9
+   },
+   {
+    "prof": "60-100cm",
+    "top": 60,
+    "bot": 100,
+    "clay": 37.2,
+    "sand": 34.8,
+    "silt": 28.0
+   },
+   {
+    "prof": "100-200cm",
+    "top": 100,
+    "bot": 200,
+    "clay": 35.3,
+    "sand": 34.7,
+    "silt": 29.8
+   }
+  ],
+  "asw": 226.6847774847772
+ }
+]

@@ -1,0 +1,633 @@
+<title>Talhão Sorteado 3-PG</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Atkinson+Hyperlegible:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: barra de comando no topo; três colunas — fatores do sorteio | talhão 3D + linha do tempo | ficha do talhão. Empilha no celular. */
+:root{
+  --chao:#eef1ea; --papel:#fbfcf8; --tinta:#17201a; --tinta-2:#4c5a50; --linha:#d5ddd2;
+  --folha:#3f7f74; --folha-2:#8fc2b4; --casca:#c8875e; --praga:#d2552b; --agua:#3d6fb0; --alerta:#b8860b;
+  --solo3d:#a99a7c; --ceu3d:#e2eae4;
+  --f-disp:"Chakra Petch", "Trebuchet MS", system-ui, sans-serif;
+  --f-corpo:"Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-num:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --raio:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --chao:#0f1512; --papel:#17201b; --tinta:#e6efe8; --tinta-2:#a3b4a8; --linha:#2b3a31;
+  --folha:#6fb7a7; --folha-2:#3e7c70; --casca:#e0a37a; --praga:#f07a4f; --agua:#7ea7e6; --alerta:#e2b23c;
+  --solo3d:#5a4b33; --ceu3d:#1b2620; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --chao:#0f1512; --papel:#17201b; --tinta:#e6efe8; --tinta-2:#a3b4a8; --linha:#2b3a31;
+  --folha:#6fb7a7; --folha-2:#3e7c70; --casca:#e0a37a; --praga:#f07a4f; --agua:#7ea7e6; --alerta:#e2b23c;
+  --solo3d:#5a4b33; --ceu3d:#1b2620; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--chao);color:var(--tinta);font-family:var(--f-corpo);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 28px}
+h1,h2,h3{font-family:var(--f-disp);margin:0;text-wrap:balance;letter-spacing:.01em}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--agua);outline-offset:2px}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.rot{font-family:var(--f-disp);font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--tinta-2);font-weight:600}
+
+/* topo */
+.topo{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;justify-content:space-between;max-width:1480px;margin:0 auto 12px}
+.marca{display:flex;align-items:center;gap:12px;min-width:0}
+.marca svg{flex:none}
+.marca h1{font-size:clamp(20px,2.6vw,28px);font-weight:700;line-height:1.1}
+.marca p{margin:2px 0 0;color:var(--tinta-2);font-size:13.5px;max-width:60ch}
+.acoes{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:1.5px solid var(--tinta);background:var(--papel);border-radius:999px;padding:9px 16px;font-family:var(--f-disp);font-weight:600;letter-spacing:.03em;display:inline-flex;gap:8px;align-items:center}
+.btn:hover{background:var(--linha)}
+.btn.forte{background:var(--tinta);color:var(--chao)}
+.btn.forte:hover{background:var(--folha);border-color:var(--folha);color:#fff}
+.btn .dado{display:inline-block}
+.btn.girando .dado{animation:gira .6s cubic-bezier(.3,1.4,.6,1)}
+@keyframes gira{from{transform:rotate(0) scale(.6)}to{transform:rotate(360deg) scale(1)}}
+
+/* grade */
+.grade{max-width:1480px;margin:0 auto;display:grid;gap:14px;grid-template-columns:300px minmax(0,1fr) 330px;align-items:start}
+@media (max-width:1180px){.grade{grid-template-columns:280px minmax(0,1fr)}.ficha{grid-column:1/-1}}
+@media (max-width:760px){.grade{grid-template-columns:minmax(0,1fr)}.palco{order:-1}}
+.bloco{background:var(--papel);border:1px solid var(--linha);border-radius:var(--raio);padding:14px;min-width:0}
+
+/* fatores */
+.fatores{display:grid;gap:10px}
+.fator{border:1px solid var(--linha);border-radius:8px;padding:10px 10px 11px;background:var(--chao)}
+.fator header{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px;gap:8px}
+.trava{border:1px solid var(--linha);background:var(--papel);border-radius:6px;padding:3px 7px;font-size:11.5px;font-family:var(--f-disp);letter-spacing:.05em;display:inline-flex;gap:5px;align-items:center;color:var(--tinta-2)}
+.trava[aria-pressed="true"]{border-color:var(--tinta);color:var(--tinta);background:var(--linha)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--linha);background:var(--papel);border-radius:999px;padding:4px 11px;font-size:13px;line-height:1.3}
+.chip[aria-pressed="true"]{background:var(--folha);border-color:var(--folha);color:#fff;font-weight:700}
+.chip small{opacity:.8}
+.faixa{display:flex;align-items:center;gap:10px}
+.faixa input{flex:1;accent-color:var(--praga);min-width:0}
+.faixa output{font-family:var(--f-num);font-weight:600;min-width:3.4em;text-align:right}
+.dica{font-size:12.5px;color:var(--tinta-2);margin:6px 0 0}
+
+/* palco 3D */
+.palco{padding:0;overflow:hidden;position:relative}
+#cena{display:block;width:100%;height:clamp(320px,52vh,560px);background:var(--ceu3d);touch-action:none}
+.rotulos3d{position:absolute;inset:10px 12px auto;display:flex;justify-content:space-between;pointer-events:none;gap:8px}
+.etq{font-family:var(--f-disp);font-size:12px;letter-spacing:.09em;text-transform:uppercase;background:color-mix(in srgb,var(--papel) 88%,transparent);border:1px solid var(--linha);padding:4px 9px;border-radius:6px}
+.etq.trat{border-color:var(--praga);color:var(--praga)}
+.aviso3d{position:absolute;left:12px;bottom:92px;max-width:calc(100% - 24px);font-size:12px;color:var(--tinta-2);background:color-mix(in srgb,var(--papel) 85%,transparent);border-radius:6px;padding:3px 8px;pointer-events:none}
+.evento-flash{position:absolute;right:12px;bottom:92px;font-family:var(--f-disp);font-weight:700;color:#fff;background:var(--praga);padding:5px 10px;border-radius:6px;letter-spacing:.04em;opacity:0;transition:opacity .25s;pointer-events:none}
+.evento-flash.on{opacity:1}
+.tempo{border-top:1px solid var(--linha);padding:10px 14px 12px;display:grid;gap:6px;background:var(--papel)}
+.tempo-linha{display:flex;align-items:center;gap:12px}
+.play{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--tinta);background:var(--papel);display:grid;place-items:center;flex:none}
+.trilho{position:relative;flex:1;min-width:0}
+.trilho input{width:100%;accent-color:var(--folha)}
+.marcas{position:absolute;inset:-6px 8px auto;height:8px;pointer-events:none}
+.marcas i{position:absolute;top:0;width:3px;height:9px;background:var(--praga);border-radius:2px;transform:translateX(-50%)}
+.marcas b{position:absolute;top:0;width:2px;height:9px;background:var(--tinta-2);transform:translateX(-50%)}
+.quando{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--tinta-2)}
+.quando strong{color:var(--tinta);font-family:var(--f-num)}
+
+/* ficha */
+.ficha{display:grid;gap:12px}
+.cartao{border:2px solid var(--tinta);border-radius:12px;padding:12px;background:var(--papel)}
+.cartao-topo{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.cartao h2{font-size:19px;line-height:1.15}
+.cartao .sub{font-size:12.5px;color:var(--tinta-2)}
+.selo{font-family:var(--f-disp);font-weight:700;font-size:12px;letter-spacing:.07em;text-transform:uppercase;padding:4px 9px;border-radius:6px;color:#fff;white-space:nowrap}
+.selo.s0{background:var(--folha)} .selo.s1{background:var(--alerta)} .selo.s2{background:var(--praga)} .selo.s3{background:#8f2d18}
+.perda{display:flex;align-items:baseline;gap:8px;margin:10px 0 2px}
+.perda .grande{font-family:var(--f-disp);font-size:42px;font-weight:700;line-height:1;color:var(--praga)}
+.stats{display:grid;gap:7px;margin-top:10px}
+.stat{display:grid;grid-template-columns:7.2em minmax(0,1fr) 4.6em;align-items:center;gap:8px;font-size:13px}
+.barra{height:9px;background:var(--linha);border-radius:5px;position:relative;overflow:hidden}
+.barra span{position:absolute;inset:0 auto 0 0;background:var(--folha);border-radius:5px}
+.barra span.ruim{background:var(--praga)}
+.stat .v{text-align:right}
+.alertas{display:grid;gap:6px;margin-top:10px}
+.alerta{font-size:12.5px;border-left:3px solid var(--alerta);padding:5px 8px;background:color-mix(in srgb,var(--alerta) 12%,var(--papel))}
+.tabela{width:100%;border-collapse:collapse;font-size:13px}
+.tabela th,.tabela td{padding:5px 4px;border-bottom:1px solid var(--linha);text-align:right}
+.tabela th:first-child,.tabela td:first-child{text-align:left}
+.tabela thead th{font-family:var(--f-disp);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-2);font-weight:600}
+canvas.grafico{width:100%;height:150px;display:block}
+canvas.perfil{width:100%;height:220px;display:block}
+.leg{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--tinta-2)}
+.leg i{display:inline-block;width:16px;height:3px;vertical-align:middle;margin-right:5px;border-radius:2px}
+
+/* tutorial */
+.tour{position:fixed;z-index:30;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;pointer-events:none}
+.tour-card{pointer-events:auto;width:min(560px,100%);background:var(--papel);border:2px solid var(--tinta);border-radius:14px;padding:14px 16px 12px;box-shadow:0 14px 40px rgba(0,0,0,.25)}
+.tour-card h3{font-size:19px;margin:2px 0 6px}
+.tour-card p{margin:0 0 8px;max-width:62ch}
+.tour-card .eq{font-family:var(--f-num);background:var(--chao);border:1px solid var(--linha);border-radius:6px;padding:6px 8px;display:inline-block;margin:2px 0 8px}
+.tour-nav{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:6px}
+.pontos{display:flex;gap:5px;flex-wrap:wrap}
+.pontos i{width:8px;height:8px;border-radius:50%;background:var(--linha)}
+.pontos i.on{background:var(--folha)}
+.destaque{outline:3px solid var(--praga)!important;outline-offset:3px;border-radius:10px;transition:outline-color .3s}
+.imp-barras{display:grid;gap:4px;margin:4px 0 8px}
+.imp-barras div{display:grid;grid-template-columns:8.5em minmax(0,1fr) 3.4em;gap:8px;align-items:center;font-size:13px}
+.rodape{max-width:1480px;margin:16px auto 0;font-size:12.5px;color:var(--tinta-2)}
+.rodape p{margin:4px 0;max-width:110ch}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<header class="topo">
+  <div class="marca">
+    <svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><rect x="2" y="2" width="40" height="40" rx="10" fill="var(--tinta)"/><path d="M22 36V18" stroke="var(--casca)" stroke-width="3" stroke-linecap="round"/><ellipse cx="22" cy="15" rx="9" ry="8" fill="var(--folha)"/><circle cx="29" cy="11" r="3.2" fill="var(--praga)"/></svg>
+    <div><h1>Talhão Sorteado 3-PG</h1><p>Sorteie um cenário de desfolha em eucalipto e veja o modelo 3-PG crescer o povoamento mês a mês, com e sem o ataque.</p></div>
+  </div>
+  <div class="acoes">
+    <button class="btn" id="bt-tour" type="button">▶ Tutorial guiado</button>
+    <button class="btn forte" id="bt-sortear" type="button"><span class="dado" aria-hidden="true">⚄</span> Sortear talhão</button>
+  </div>
+</header>
+
+<main class="grade">
+  <section class="bloco" id="painel-fatores" aria-label="Fatores do sorteio">
+    <div class="rot" style="margin-bottom:8px">Fatores do sorteio · trave o que quiser manter</div>
+    <div class="fatores" id="fatores"></div>
+  </section>
+
+  <section class="bloco palco" id="palco" aria-label="Talhão em 3D">
+    <canvas id="cena" aria-label="Povoamento em 3D: metade esquerda sem desfolha, metade direita com desfolha"></canvas>
+    <div class="rotulos3d"><span class="etq">Controle · sem desfolha</span><span class="etq trat">Com desfolha</span></div>
+    <div class="aviso3d" id="aviso3d">Arraste para girar · role para aproximar</div>
+    <div class="evento-flash" id="flash">Desfolha neste mês</div>
+    <div class="tempo" id="tempo">
+      <div class="tempo-linha">
+        <button class="play" id="bt-play" type="button" aria-label="Reproduzir">▶</button>
+        <div class="trilho"><div class="marcas" id="marcas"></div><input type="range" id="mes" min="0" max="84" value="84" aria-label="Mês da simulação"></div>
+      </div>
+      <div class="quando"><span>Idade <strong id="q-idade">–</strong></span><span>Data <strong id="q-data">–</strong></span><span>Rotação de 7 anos = 84 meses</span></div>
+    </div>
+  </section>
+
+  <aside class="ficha" id="ficha" aria-label="Ficha do talhão">
+    <div class="cartao" id="cartao"></div>
+    <div class="bloco">
+      <div class="rot">Biomassa ao longo da rotação</div>
+      <canvas class="grafico" id="g-wf" aria-label="Biomassa foliar"></canvas>
+      <canvas class="grafico" id="g-ws" aria-label="Biomassa de lenho"></canvas>
+      <div class="leg"><span><i style="background:var(--tinta-2)"></i>Controle</span><span><i style="background:var(--praga)"></i>Com desfolha</span><span><i style="background:var(--praga);width:3px;height:10px"></i>Evento</span></div>
+    </div>
+    <div class="bloco" id="bloco-perfil">
+      <div class="rot">Perfil do fuste médio no mês (taper)</div>
+      <canvas class="perfil" id="g-perfil" aria-label="Perfil do fuste"></canvas>
+      <p class="dica" id="perfil-nota"></p>
+    </div>
+  </aside>
+</main>
+
+<footer class="rodape">
+  <p>O motor é o 3-PGpjs do r3PG v0.1.7 com o módulo de desfolha do TCC, traduzido para JavaScript. Ele reproduz a versão verificada em Python com diferença máxima de 3 × 10⁻¹³. Clima: NASA POWER 2015–2023. Solo local: rede TECHS (Binkley et al., 2017) e SoilGrids com a PTF-ZARC. Parâmetros: Caldeira et al. (2020) para o A1 e Borges (2009) para C5, C2 e C4.</p>
+  <p>O perfil do fuste e a altura do clone A1 são ilustrativos. O 3-PG não estima forma de tronco, e a parametrização do A1 não traz relação hipsométrica, por isso a altura do A1 usa o ajuste local alternativo da planilha do projeto. Os resultados são simulações verificadas, mas não validadas em campo.</p>
+</footer>
+
+<div class="tour" id="tour" hidden><div class="tour-card" role="dialog" aria-live="polite" aria-label="Tutorial">
+  <div class="rot" id="tour-passo"></div><h3 id="tour-tit"></h3><div id="tour-txt"></div>
+  <div class="tour-nav"><div class="pontos" id="tour-pontos"></div><div style="display:flex;gap:8px">
+    <button class="btn" id="tour-sair" type="button">Sair</button><button class="btn" id="tour-ant" type="button">Voltar</button><button class="btn forte" id="tour-prox" type="button">Próximo</button></div></div>
+</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>// 3-PGpjs (r3PG v0.1.7, src/md_3PG.f95) + módulo de desfolha — porte para JavaScript
+// do port Python verificado (threepg_pjs.py). Escopo: 1 espécie, light/transp/phys_model = 1,
+// height_model 1, sem correção de viés, sem desbaste.
+(function (root) {
+  const PI = 3.141592654, LN2 = 0.693147181, E20 = 2.2, LAMBDA = 2460000.0, RHO_AIR = 1.2, VPD_CONV = 0.000622;
+  const DOY = [15, 46, 74, 105, 135, 166, 196, 227, 258, 288, 319, 349];
+  const DIM = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  const B_N = 2;
+  const dormant = (m, g, f) => g > f ? (f <= m && m <= g) : g < f ? (m < g || m >= f) : false;
+  const fexp = (x, g0, gx, tg, ng) => tg !== 0 ? gx + (g0 - gx) * Math.exp(-LN2 * Math.pow(x / tg, ng)) : gx;
+  const fexpF = (x, f1, f0, tg) => { if (tg * f1 === 0) return f1; const kg = 12 * Math.log(1 + f1 / f0) / tg; return f1 * f0 / (f0 + (f1 - f0) * Math.exp(-kg * x)); };
+  function daylength(lat) {
+    const sl = Math.sin(PI * lat / 180), cl = Math.cos(PI * lat / 180);
+    return DOY.map(d => { const sd = 0.4 * Math.sin(0.0172 * (d - 80)); const c = -sd * sl / (cl * Math.sqrt(1 - sd * sd));
+      return c > 1 ? 0 : c < -1 ? 1 : Math.acos(c) / PI; });
+  }
+  function mortality(stems, ws, mS, wSx1000, tp) {
+    let n = stems / 1000, i = 0; const x1 = 1000 * mS * ws / stems;
+    while (true) { i++; if (n <= 0) break; const x2 = wSx1000 * Math.pow(n, 1 - tp); const fN = x2 - x1 * n - (1 - mS) * ws;
+      const dfN = (1 - tp) * x2 / n - x1; const dN = -fN / dfN; n += dN; if (Math.abs(dN) <= 0.001 || i >= 5) break; }
+    return stems - 1000 * n;
+  }
+  const ym = (y, m) => y * 12 + (m - 1);
+
+  // site: {lat, asw_max, asw_i, from:"YYYY-MM", to}; sp: {planted, fertility, stems_n, WS0, WR0, WF0}
+  // clim: {year[], month[], tmp_min[], tmp_max[], tmp_ave[], prcp[], srad[], frost_days[], vpd_day[]}
+  // defol: {"YYYY-MM": d}
+  function run(site, sp, clim, P, defol) {
+    const [yi, mi] = site.from.split("-").map(Number), [yt, mt] = site.to.split("-").map(Number), [yp, mp] = sp.planted.split("-").map(Number);
+    const i0 = clim.year.findIndex((y, k) => ym(y, clim.month[k]) === ym(yi, mi));
+    const n = ym(yt, mt) - ym(yi, mi) + 1;
+    if (i0 < 0 || i0 + n > clim.year.length) throw new Error("Clima não cobre o período");
+    const g = (k, t) => clim[k][i0 + t];
+    const ev = new Float64Array(n);
+    for (const [k, d] of Object.entries(defol || {})) {
+      const [y, m] = k.split("-").map(Number); const t = ym(y, m) - ym(yi, mi);
+      if (!(d >= 0 && d < 1)) throw new Error("Intensidade deve estar em [0,1)");
+      if (t < 1 || t >= n) throw new Error("Evento fora da simulação: " + k);
+      ev[t] = d;
+    }
+    const lg = Math.round(P.leafgrow), lf = Math.round(P.leaffall);
+    const dl = daylength(site.lat).map(x => 86400 * x);
+    const fCax = P.fCalpha700 / (2 - P.fCalpha700), fCg0 = P.fCg700 / (2 * P.fCg700 - 1);
+    const expo = (P.Tmax - P.Topt) / (P.Topt - P.Tmin);
+    const fT = t => { const ta = g("tmp_ave", t); return (ta <= P.Tmin || ta >= P.Tmax) ? 0 : ((ta - P.Tmin) / (P.Topt - P.Tmin)) * Math.pow((P.Tmax - ta) / (P.Tmax - P.Topt), expo); };
+    const SWconst = P.SWconst0, SWpower = P.SWpower0; // soil_class = -1
+    let asw_min = 0, asw_max = site.asw_max; let ASW = Math.max(Math.min(site.asw_i, asw_max), asw_min);
+    const fN0 = P.fNn === 0 ? 1 : P.fN0;
+    const pfsPower = Math.log(P.pFS20 / P.pFS2) / Math.log(10), pfsConst = P.pFS2 / Math.pow(2, pfsPower);
+    const age = [], agem = [];
+    for (let t = 0; t < n; t++) { age.push((12 * (yi - yp) + mi - mp - 1 + t + 1) / 12); agem.push(t === 0 ? age[0] : age[t] - 1 / 12); }
+    const SLA = agem.map(a => fexp(a, P.SLA0, P.SLA1, P.tSLA, 2)), fBB = agem.map(a => fexp(a, P.fracBB0, P.fracBB1, P.tBB, 1));
+    const rho = agem.map(a => fexp(a, P.rho0, P.rho1, P.tRho, 1)), gN = age.map(a => fexp(a, P.gammaN0, P.gammaN1, P.tgammaN, P.ngammaN));
+    const gF = agem.map(a => fexpF(a, P.gammaF1, P.gammaF0, P.tgammaF));
+    const fage = agem.map(a => P.nAge === 0 ? 1 : 1 / (1 + Math.pow((a / P.MaxAge) / P.rAge, P.nAge)));
+    const S = { N: 0, Ws: 0, Wf: 0, Wr: 0, debt: 0, bt: 0, dbh: 0, ba: 0, h: 0, lai: 0, pFS: 0 };
+    const sdc = t => { const comp = rho[t] * S.ba; S.dbh = Math.pow(S.bt / P.aWs, 1 / P.nWs); S.ba = S.dbh * S.dbh / 4 * PI * S.N / 10000;
+      S.h = P.aH * Math.pow(S.dbh, P.nHB) * Math.pow(comp, P.nHC); S.pFS = pfsConst * Math.pow(S.dbh, pfsPower); };
+    const upd = t => { S.bt = S.N === 0 ? 0 : S.Ws * 1000 / S.N; S.lai = S.Wf * SLA[t] * 0.1; };
+    const vol = t => S.Ws * (1 - fBB[t]) / rho[t];
+    const out = { mes: [], age: [], Wf: [], Ws: [], Wr: [], lai: [], dbh: [], h: [], vol: [], N: [], asw: [], fT: [], fSW: [], npp: [], removido: [], fracBB: [] };
+    const rec = (t, x) => { out.mes.push(t); out.age.push(age[t]); out.Wf.push(S.Wf); out.Ws.push(S.Ws); out.Wr.push(S.Wr); out.lai.push(S.lai);
+      out.dbh.push(S.dbh); out.h.push(S.h); out.vol.push(vol(t)); out.N.push(S.N); out.asw.push(ASW); out.fT.push(fT(t));
+      out.fSW.push(x.fsw); out.npp.push(x.npp); out.removido.push(x.rem); out.fracBB.push(fBB[t]); };
+    let month = mi;
+    if (age[0] >= 0) Object.assign(S, { N: sp.stems_n, Ws: sp.WS0, Wf: sp.WF0, Wr: sp.WR0 });
+    if (dormant(month, lg, lf)) { S.debt = S.Wf; S.Wf = 0; }
+    S.bt = S.Ws * 1000 / S.N; S.dbh = Math.pow(S.bt / P.aWs, 1 / P.nWs); S.ba = S.dbh * S.dbh / 4 * PI * S.N / 10000; S.lai = S.Wf * SLA[0] * 0.1;
+    S.h = P.aH * Math.pow(S.dbh, P.nHB) * Math.pow(rho[0] * S.ba, P.nHC);
+    for (let k = 0; k < B_N; k++) sdc(0);
+    rec(0, { fsw: NaN, npp: 0, rem: 0 });
+    for (let t = 1; t < n; t++) {
+      month = month + 1 > 12 ? 1 : month + 1;
+      let bcor = false;
+      const dorm = dormant(month, lg, lf), dprev = dormant(month - 1, lg, lf);
+      if (!dorm && dprev) { S.lai = S.debt * SLA[t] * 0.1; bcor = true; }
+      if (dorm && !dprev) { S.debt = S.Wf; S.Wf = 0; S.lai = 0; bcor = true; }
+      if (bcor) { for (let k = 0; k < B_N; k++) sdc(t); bcor = false; }
+      let rem = 0;
+      if (ev[t] > 0) { rem = S.Wf * ev[t]; S.Wf -= rem; S.lai = S.Wf * SLA[t] * 0.1; }
+      let cc = 1; if (P.fullCanAge > 0 && agem[t] < P.fullCanAge) cc = (agem[t] + 0.01) / P.fullCanAge;
+      const li = 1 - Math.exp(-P.k * S.lai / cc), apar = g("srad", t) * DIM[month - 1] * li * cc, vpd = g("vpd_day", t);
+      const fvpd = Math.exp(-P.CoeffCond * vpd), fsw = 1 / (1 + Math.pow((1 - ASW / asw_max) / SWconst, SWpower));
+      const fnutr = P.fNn === 0 ? 1 : 1 - (1 - fN0) * Math.pow(1 - sp.fertility, P.fNn);
+      const fphys = Math.min(fvpd, fsw) * fage[t];
+      const ffrost = 1 - P.kF * (Math.min(g("frost_days", t), DIM[month - 1]) / DIM[month - 1]);
+      const fcal = fCax * 350 / (350 * (fCax - 1) + 350), fcg = fCg0 / (1 + (fCg0 - 1) * 350 / 350);
+      let ac = P.alphaCx * fnutr * fT(t) * ffrost * fcal * fphys; if (S.lai === 0) ac = 0;
+      let GPP = P.gDM_mol * P.molPAR_MJ * ac * apar / 100, NPP = GPP * P.y;
+      const lt = S.lai, lper = lt === 0 ? 0 : S.lai / lt;
+      let gC = P.MaxCond; if (lt <= P.LAIgcx) gC = P.MinCond + (P.MaxCond - P.MinCond) * lt / P.LAIgcx;
+      const cond = gC * lper * fphys * 1 * fcg;
+      let tr = 0;
+      if (vpd !== 0) { const d = dl[month - 1], nr = P.Qa + P.Qb * (g("srad", t) * 1e6 / d), def = RHO_AIR * LAMBDA * (VPD_CONV * vpd) * P.BLcond;
+        tr = Math.max(0, DIM[month - 1] * cond * (E20 * nr + def) / (cond * (1 + E20) + P.BLcond) / LAMBDA * d); }
+      let ifr = P.MaxIntcptn; if (P.LAImaxIntcptn > 0) ifr = P.MaxIntcptn * Math.min(1, lt / P.LAImaxIntcptn) * lper;
+      const pint = g("prcp", t) * ifr;
+      ASW = ASW + g("prcp", t);
+      const et = Math.min(ASW, tr + pint), exc = Math.max(ASW - et - asw_max, 0);
+      ASW = ASW - et - exc; if (ASW < asw_min) ASW = asw_min;
+      const fts = (tr + pint) === 0 ? 1 : et / (tr + pint);
+      GPP *= fts; NPP *= fts; const nppf = NPP;
+      const m = P.m0 + (1 - P.m0) * sp.fertility;
+      const fr = P.pRx * P.pRn / (P.pRn + (P.pRx - P.pRn) * fphys * m), fs = (1 - fr) / (1 + S.pFS), ff = 1 - fr - fs;
+      if (!dorm) {
+        if (S.Wf === 0) S.Wf = S.debt;
+        if (NPP >= S.debt) { NPP -= S.debt; S.debt = 0; } else { S.debt -= NPP; NPP = 0; }
+        const lf_ = gF[t] * S.Wf, lr = P.gammaR * S.Wr;
+        S.Wf += NPP * ff - lf_; S.Wr += NPP * fr - lr; S.Ws += NPP * fs;
+      }
+      upd(t); for (let k = 0; k < B_N; k++) sdc(t);
+      if (!dorm && gN[t] > 0) { const ms = Math.min(gN[t] * S.N / 12 / 100, S.N);
+        S.Wf -= P.mF * ms * S.Wf / S.N; S.Wr -= P.mR * ms * S.Wr / S.N; S.Ws -= P.mS * ms * S.Ws / S.N; S.N -= ms; bcor = true; }
+      if (bcor) { upd(t); for (let k = 0; k < B_N; k++) sdc(t); bcor = false; }
+      const btmax = P.wSx1000 * Math.pow(1000 / S.N, P.thinPower);
+      if (!dorm && btmax < S.bt) {
+        const mt_ = mortality(S.N, S.Ws, P.mS, P.wSx1000, P.thinPower);
+        if (mt_ < S.N) { S.Wf -= P.mF * mt_ * S.Wf / S.N; S.Wr -= P.mR * mt_ * S.Wr / S.N; S.Ws -= P.mS * mt_ * S.Ws / S.N; S.N -= mt_; }
+        else Object.assign(S, { Wf: 0, Wr: 0, Ws: 0, N: 0 });
+        upd(t); for (let k = 0; k < B_N; k++) sdc(t);
+      }
+      rec(t, { fsw, npp: nppf, rem });
+    }
+    return out;
+  }
+  root.Modelo3PG = { run };
+  if (typeof module !== "undefined") module.exports = { run };
+})(typeof window !== "undefined" ? window : globalThis);
+</script>
+<script>
+const DADOS = {"materiais":{"A1":{"params":{"pFS2":0.5,"pFS20":0.15,"aWs":0.0249,"nWs":3.021,"pRx":0.23,"pRn":0.06,"gammaF1":0.13,"gammaF0":0.06,"tgammaF":4.0,"gammaR":0.015,"leafgrow":0.0,"leaffall":0.0,"Tmin":7.25,"Topt":23.95,"Tmax":28.65,"kF":0.0,"SWconst0":0.4,"SWpower0":3.0,"fCalpha700":1.4,"fCg700":0.7,"m0":0.0,"fN0":1.0,"fNn":0.0,"MaxAge":50.0,"nAge":4.0,"rAge":0.95,"gammaN1":0.0,"gammaN0":0.0,"tgammaN":0.0,"ngammaN":1.0,"wSx1000":300.0,"thinPower":1.5,"mF":0.0,"mR":0.2,"mS":0.2,"SLA0":9.4,"SLA1":8.4,"tSLA":2.0,"k":0.5,"fullCanAge":0.0,"MaxIntcptn":0.26,"LAImaxIntcptn":0.0,"cVPD":5.0,"alphaCx":0.068,"y":0.5,"MinCond":0.0,"MaxCond":0.0182,"LAIgcx":3.33,"CoeffCond":0.05,"BLcond":0.2,"RGcGW":0.66,"D13CTissueDif":2.0,"aFracDiffu":4.4,"bFracRubi":27.0,"fracBB0":0.35,"fracBB1":0.15,"tBB":2.0,"rho0":0.44,"rho1":0.44,"tRho":4.0,"CrownShape":3.0,"aH":0.0,"nHB":0.0,"nHC":0.0,"aV":0.0,"nVB":0.0,"nVH":0.0,"nVBH":0.0,"aK":0.0,"nKB":0.0,"nKH":0.0,"nKC":0.0,"nKrh":0.0,"aHL":0.0,"nHLB":0.0,"nHLL":0.0,"nHLC":0.0,"nHLrh":0.0,"Qa":-90.0,"Qb":0.8,"gDM_mol":24.0,"molPAR_MJ":2.3},"WS0":5.47,"WR0":1.09,"WF0":2.07,"FR_ref":0.8,"inicio":"2016-01","nome":{"nome":"E. urophylla clone A1 (Caldeira et al. 2020)","regiao":"multiss\u00edtio Brasil (TECHS); calibrado/validado at\u00e9 80 meses"}},"C5":{"params":{"pFS2":1.64,"pFS20":0.15,"aWs":0.02,"nWs":3.11,"pRx":0.5,"pRn":0.1,"gammaF1":0.07,"gammaF0":0.001,"tgammaF":4.0,"gammaR":0.025,"Tmin":8.0,"Topt":25.0,"Tmax":40.0,"m0":0.0,"fN0":0.5,"fNn":1.0,"MaxAge":9.0,"nAge":4.0,"rAge":0.95,"SLA0":13.74,"SLA1":7.56,"tSLA":1.23,"k":0.5,"fullCanAge":2.0,"MaxIntcptn":0.15,"LAImaxIntcptn":3.33,"alphaCx":0.08,"y":0.5,"MaxCond":0.02,"LAIgcx":3.33,"CoeffCond":0.0324,"BLcond":0.2,"wSx1000":300.0,"fracBB0":0.59,"fracBB1":0.19,"tBB":2.17,"rho0":0.382,"rho1":0.505,"tRho":2.264,"aH":0.67,"nHB":1.27,"leafgrow":0.0,"leaffall":0.0,"kF":0.0,"SWconst0":0.4,"SWpower0":3.0,"fCalpha700":1.4,"fCg700":0.7,"gammaN1":0.0,"gammaN0":0.0,"tgammaN":0.0,"ngammaN":1.0,"thinPower":1.5,"mF":0.0,"mR":0.2,"mS":0.2,"cVPD":5.0,"MinCond":0.0,"RGcGW":0.66,"D13CTissueDif":2.0,"aFracDiffu":4.4,"bFracRubi":27.0,"CrownShape":3.0,"nHC":0.0,"aV":0.0,"nVB":0.0,"nVH":0.0,"nVBH":0.0,"aK":0.0,"nKB":0.0,"nKH":0.0,"nKC":0.0,"nKrh":0.0,"aHL":0.0,"nHLB":0.0,"nHLL":0.0,"nHLC":0.0,"nHLrh":0.0,"Qa":-90.0,"Qb":0.8,"gDM_mol":24.0,"molPAR_MJ":2.3},"WS0":0.106,"WR0":0.099,"WF0":0.168,"FR_ref":0.9,"inicio":"2015-04","nome":{"nome":"E. grandis \u00d7 E. urophylla modelo geral Cerrado-MG (Borges 2009)","regiao":"modelo geral Cerrado-MG"}},"C2":{"params":{"pFS2":1.72,"pFS20":0.11,"aWs":0.011,"nWs":3.35,"pRx":0.5,"pRn":0.1,"gammaF1":0.07,"gammaF0":0.001,"tgammaF":4.0,"gammaR":0.025,"Tmin":8.0,"Topt":25.0,"Tmax":40.0,"m0":0.0,"fN0":0.5,"fNn":1.0,"MaxAge":9.0,"nAge":4.0,"rAge":0.95,"SLA0":12.69,"SLA1":8.6,"tSLA":0.73,"k":0.5,"fullCanAge":2.0,"MaxIntcptn":0.15,"LAImaxIntcptn":3.33,"alphaCx":0.08,"y":0.5,"MaxCond":0.02,"LAIgcx":3.33,"CoeffCond":0.0324,"BLcond":0.2,"wSx1000":300.0,"fracBB0":0.6,"fracBB1":0.14,"tBB":1.68,"rho0":0.409,"rho1":0.473,"tRho":2.917,"aH":0.5,"nHB":1.42,"leafgrow":0.0,"leaffall":0.0,"kF":0.0,"SWconst0":0.4,"SWpower0":3.0,"fCalpha700":1.4,"fCg700":0.7,"gammaN1":0.0,"gammaN0":0.0,"tgammaN":0.0,"ngammaN":1.0,"thinPower":1.5,"mF":0.0,"mR":0.2,"mS":0.2,"cVPD":5.0,"MinCond":0.0,"RGcGW":0.66,"D13CTissueDif":2.0,"aFracDiffu":4.4,"bFracRubi":27.0,"CrownShape":3.0,"nHC":0.0,"aV":0.0,"nVB":0.0,"nVH":0.0,"nVBH":0.0,"aK":0.0,"nKB":0.0,"nKH":0.0,"nKC":0.0,"nKrh":0.0,"aHL":0.0,"nHLB":0.0,"nHLL":0.0,"nHLC":0.0,"nHLrh":0.0,"Qa":-90.0,"Qb":0.8,"gDM_mol":24.0,"molPAR_MJ":2.3},"WS0":0.116,"WR0":0.1,"WF0":0.17,"FR_ref":0.9,"inicio":"2015-04","nome":{"nome":"E. grandis \u00d7 E. urophylla clone 3336, Curvelo-MG (Borges 2009)","regiao":"clone 3336, Curvelo-MG"}},"C4":{"params":{"pFS2":1.0,"pFS20":0.17,"aWs":0.043,"nWs":2.82,"pRx":0.5,"pRn":0.1,"gammaF1":0.07,"gammaF0":0.001,"tgammaF":4.0,"gammaR":0.025,"Tmin":8.0,"Topt":25.0,"Tmax":40.0,"m0":0.0,"fN0":0.5,"fNn":1.0,"MaxAge":9.0,"nAge":4.0,"rAge":0.95,"SLA0":14.43,"SLA1":7.48,"tSLA":1.42,"k":0.5,"fullCanAge":2.0,"MaxIntcptn":0.15,"LAImaxIntcptn":3.33,"alphaCx":0.08,"y":0.5,"MaxCond":0.02,"LAIgcx":3.33,"CoeffCond":0.0324,"BLcond":0.2,"wSx1000":300.0,"fracBB0":0.62,"fracBB1":0.15,"tBB":2.47,"rho0":0.345,"rho1":0.502,"tRho":2.175,"aH":0.57,"nHB":1.31,"leafgrow":0.0,"leaffall":0.0,"kF":0.0,"SWconst0":0.4,"SWpower0":3.0,"fCalpha700":1.4,"fCg700":0.7,"gammaN1":0.0,"gammaN0":0.0,"tgammaN":0.0,"ngammaN":1.0,"thinPower":1.5,"mF":0.0,"mR":0.2,"mS":0.2,"cVPD":5.0,"MinCond":0.0,"RGcGW":0.66,"D13CTissueDif":2.0,"aFracDiffu":4.4,"bFracRubi":27.0,"CrownShape":3.0,"nHC":0.0,"aV":0.0,"nVB":0.0,"nVH":0.0,"nVBH":0.0,"aK":0.0,"nKB":0.0,"nKH":0.0,"nKC":0.0,"nKrh":0.0,"aHL":0.0,"nHLB":0.0,"nHLL":0.0,"nHLC":0.0,"nHLrh":0.0,"Qa":-90.0,"Qb":0.8,"gDM_mol":24.0,"molPAR_MJ":2.3},"WS0":0.116,"WR0":0.1,"WF0":0.17,"FR_ref":0.9,"inicio":"2015-04","nome":{"nome":"E. grandis \u00d7 E. urophylla clone 3336, Itacambira-MG (Borges 2009)","regiao":"clone 3336, Itacambira-MG"}}},"sitios":{"IND":{"nome":"Indian\u00f3polis-MG","lat":-19.0389,"lon":-47.9169,"asw_local":215.0,"clima":{"year":[2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2023.0],"month":[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0],"tmp_min":[19.756774193548388,19.09,18.950645161290325,18.357666666666667,15.326129032258065,14.551666666666668,14.967419354838709,15.228709677419355,18.593666666666664,21.86935483870968,20.266333333333332,19.982903225806453,20.32,19.970689655172414,19.486129032258066,17.168333333333333,15.42741935483871,13.141333333333334,13.096451612903227,15.08516129032258,18.009,19.05483870967742,18.926333333333332,19.15774193548387,19.36258064516129,18.886071428571427,18.86258064516129,18.31066666666667,16.378709677419355,13.879999999999999,12.031290322580647,15.214193548387096,16.668333333333333,19.353870967741937,18.87,19.428709677419352,19.412258064516127,19.075714285714287,19.46709677419355,17.011333333333333,14.026774193548386,15.005333333333333,13.558387096774194,15.409354838709678,17.674666666666667,19.924193548387095,18.935333333333332,19.27,19.266451612903225,20.063214285714285,19.030645161290323,18.157333333333334,16.08451612903226,13.120000000000001,12.209677419354838,15.53741935483871,18.983999999999998,19.778387096774193,20.050333333333334,19.561290322580643,19.940645161290323,19.807586206896552,18.447741935483872,17.316333333333333,13.050967741935484,14.203666666666667,13.992903225806451,14.402903225806451,18.377333333333336,20.812580645161287,18.276666666666664,19.596774193548388,19.254516129032258,19.287857142857145,18.413870967741936,15.925666666666666,15.169677419354839,14.144,11.011935483870968,15.629999999999999,20.392333333333333,19.963870967741936,19.15666666666667,18.822903225806453,19.01225806451613,18.72607142857143,18.48,17.483999999999998,12.806129032258065,13.570333333333334,13.38774193548387,14.42741935483871,17.65533333333333,19.018387096774195,18.228666666666665,18.978064516129034,18.91483870967742],"tmp_max":[31.37258064516129,27.723214285714285,26.51516129032258,27.200666666666667,25.844516129032257,26.183,27.335483870967742,30.29,32.779333333333334,35.32741935483871,29.357000000000003,28.22225806451613,27.384516129032257,28.37896551724138,27.582903225806454,29.0,27.880967741935482,25.320333333333334,27.85516129032258,29.74225806451613,32.899,31.140967741935484,27.677333333333333,27.679354838709674,27.65258064516129,27.46857142857143,28.36225806451613,28.767,27.234193548387097,26.936666666666667,25.604193548387098,30.39032258064516,31.82,32.344193548387096,27.491333333333333,27.698387096774194,27.97806451612903,27.2775,28.359354838709677,26.680999999999997,26.495483870967742,27.177,27.90258064516129,29.27709677419355,31.6,28.905161290322578,26.57133333333333,28.220000000000002,29.094516129032257,27.955000000000002,27.296774193548387,27.230999999999998,26.573548387096775,25.732666666666667,25.912258064516127,28.850645161290323,33.761,31.713870967741936,29.897666666666666,27.500967741935483,28.166129032258063,26.90103448275862,27.623225806451615,26.97233333333333,24.878387096774194,26.293,26.837419354838712,28.635161290322582,33.50966666666667,32.549354838709675,30.976666666666667,28.94741935483871,30.225483870967743,29.302857142857142,28.05548387096774,28.37,28.541935483870965,27.682666666666666,27.175483870967742,30.10516129032258,35.03633333333333,30.756129032258062,29.346999999999998,28.56935483870968,26.76451612903226,27.31392857142857,28.504516129032258,29.070333333333334,25.616129032258065,27.089,27.958387096774196,29.017419354838708,31.743333333333332,31.198709677419355,30.220666666666666,27.61258064516129,26.510645161290324],"tmp_ave":[25.564677419354837,23.40660714285714,22.732903225806453,22.77916666666667,20.585322580645162,20.367333333333335,21.151451612903227,22.759354838709676,25.6865,28.598387096774196,24.811666666666667,24.10258064516129,23.85225806451613,24.174827586206895,23.534516129032262,23.08416666666667,21.654193548387095,19.230833333333333,20.475806451612904,22.413709677419355,25.454,25.09790322580645,23.301833333333335,23.41854838709677,23.50758064516129,23.177321428571428,23.61241935483871,23.538833333333336,21.806451612903224,20.40833333333333,18.817741935483873,22.802258064516128,24.244166666666665,25.84903225806452,23.180666666666667,23.563548387096773,23.69516129032258,23.176607142857144,23.913225806451614,21.846166666666665,20.261129032258065,21.091166666666666,20.730483870967742,22.343225806451613,24.637333333333334,24.414677419354838,22.75333333333333,23.745,24.18048387096774,24.009107142857143,23.163709677419355,22.694166666666668,21.329032258064515,19.426333333333332,19.06096774193548,22.194032258064517,26.372500000000002,25.746129032258064,24.974,23.531129032258065,24.053387096774195,23.35431034482759,23.035483870967745,22.144333333333332,18.96467741935484,20.248333333333335,20.41516129032258,21.519032258064517,25.9435,26.680967741935483,24.626666666666665,24.27209677419355,24.740000000000002,24.295357142857142,23.23467741935484,22.147833333333335,21.855806451612903,20.913333333333334,19.093709677419355,22.86758064516129,27.714333333333332,25.36,24.251833333333334,23.696129032258064,22.888387096774196,23.02,23.49225806451613,23.277166666666666,19.211129032258064,20.329666666666668,20.67306451612903,21.72241935483871,24.699333333333332,25.108548387096775,24.224666666666664,23.295322580645163,22.71274193548387],"prcp":[92.27,169.84,202.4,86.76,47.83,15.059999999999999,3.31,0.30000000000000004,68.78,62.7,203.59,179.83,322.9,145.28,191.64,6.08,22.29,45.84,0.01,25.35,13.51,127.05,191.8,179.34,177.88,143.24,110.4,55.65,70.39,2.4499999999999997,0.0,0.29000000000000004,24.380000000000003,117.78,232.97,194.63,216.93,199.03,94.97,86.76,23.78,0.17,0.04,13.57,45.21,180.67,316.53,206.27,86.26,238.15,170.3,117.3,34.019999999999996,1.7499999999999998,0.51,3.98,34.57,80.18,167.24,265.29,296.63,277.33,83.5,26.9,16.84,0.36,4.760000000000001,1.03,8.03,65.69,56.27,188.46,91.11,180.31,88.78,98.47,23.03,19.71,0.01,3.0,9.4,132.46,188.31,206.74,274.75,221.12,88.82000000000001,37.97,38.62,3.0,0.09,12.23,69.33,61.43,74.99,229.39000000000001,278.73],"srad":[25.267419354838708,20.79642857142857,16.16709677419355,16.942666666666664,14.945483870967742,14.966333333333333,14.961290322580645,20.135161290322582,18.91466666666667,22.891612903225806,19.955333333333332,20.335483870967742,18.210322580645162,21.108620689655172,18.728387096774195,20.278333333333332,16.13290322580645,15.036666666666667,17.61709677419355,18.97290322580645,21.360333333333333,21.89483870967742,19.200666666666667,22.660645161290322,19.74451612903226,22.229642857142856,20.29516129032258,17.386000000000003,15.790645161290323,16.307,17.07935483870968,19.344838709677422,23.356333333333335,22.16548387096774,19.454,19.660967741935483,21.83483870967742,19.988928571428573,21.20774193548387,17.762999999999998,16.966451612903228,14.525333333333332,17.37709677419355,17.219354838709677,19.800666666666665,19.871290322580645,17.685666666666666,22.706774193548387,24.48161290322581,19.877142857142854,18.54,18.118,15.719354838709679,16.668333333333333,16.69483870967742,18.053870967741933,21.334999999999997,22.094193548387096,21.012333333333334,20.87741935483871,19.876451612903224,17.722758620689657,20.011935483870968,18.604666666666667,16.52,15.771333333333333,17.171612903225807,19.478709677419356,22.169666666666668,19.153548387096773,23.947,19.733548387096775,22.503870967741936,19.55785714285714,20.386451612903226,20.153000000000002,16.448387096774194,15.953666666666667,18.419999999999998,19.014193548387098,20.563,18.700967741935486,21.694333333333336,21.903548387096773,20.067419354838712,18.31964285714286,21.59774193548387,19.456,16.418064516129032,15.208,17.850322580645162,17.94935483870968,18.604666666666667,20.88032258064516,22.003,19.544838709677418,18.90741935483871],"frost_days":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"vpd_day":[11.425147345196562,7.547013951876943,6.371551148624675,7.481977085332511,7.944551577177176,8.704673026551294,9.67003457704989,12.915339060957425,14.126884731478912,15.508311748964593,8.558165650710318,7.465206361311667,6.306649083415758,7.6490918252818165,7.119553513860859,10.234046886409024,10.003075580811903,8.583820141751353,11.202672295516923,12.32788436355795,14.680018964850738,11.61706680931891,7.609512067621726,7.45274403583702,7.281393487378796,7.4122028428329525,8.407316727433743,9.235332967763359,8.757859878675305,9.827884671586972,9.389068591720918,13.047546334917309,14.043632399716074,13.00583734618118,7.4475344913391694,7.284660178451521,7.601394017540999,7.078738238871171,7.9860136389213565,7.798801018479409,9.297290212074499,9.481341058864174,11.023973917863522,11.595206474841943,13.128564638056528,8.280692599698876,6.439390612451852,7.968242783523957,8.965452499353846,7.1116488557319535,7.130166613666498,7.645871796056653,8.243460555387605,8.994056066638652,9.60823896812099,11.027932154856488,15.265454123716458,11.857933661443132,9.361480437135743,6.978477503129978,7.433356182160093,6.169469665244987,7.873466744087921,7.911797506911922,8.20928682210777,8.999687985654091,9.666362052381166,11.40352868467582,15.308440552926035,12.226967510411306,11.930066133274062,8.563284131655662,10.326688498910022,9.194070141702031,8.367700743905846,10.26046894685993,10.88202125939589,10.483387345718882,11.440340740859183,12.462579751330043,16.18832236139864,10.48570083620806,9.336997425435477,8.667564623313831,6.585344735121682,7.355738966198933,8.824832923894602,10.11825776816593,9.03363264347152,10.14538173197107,11.171037603499933,11.829014758541943,13.3303160844189,11.716548058195308,11.014027059708146,7.5041809408746225,6.39139446462042]}},"TB":{"nome":"Tel\u00eamaco Borba-PR","lat":-24.3239,"lon":-50.6158,"asw_local":214.0,"clima":{"year":[2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2023.0],"month":[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0],"tmp_min":[19.450967741935486,18.255,17.43064516129032,15.372333333333334,13.14806451612903,11.277999999999999,11.653548387096773,12.04483870967742,14.504666666666667,16.807096774193546,17.742666666666665,19.28483870967742,18.210645161290323,19.874137931034483,16.781290322580645,16.613666666666667,11.488387096774193,7.9816666666666665,9.546129032258065,10.945806451612903,10.596,14.685806451612903,15.68,17.624193548387098,19.051612903225806,19.119285714285716,17.873548387096776,14.681333333333333,14.361612903225806,10.885333333333334,9.343225806451612,11.80258064516129,14.852,15.646129032258065,15.014666666666667,18.048709677419353,18.3141935483871,16.70642857142857,19.183548387096774,15.215333333333332,12.577096774193548,12.110000000000001,11.964516129032257,9.92,13.668666666666667,15.972903225806453,16.77,18.6858064516129,20.26290322580645,18.87,17.769354838709678,16.625,15.094193548387098,12.127666666666666,9.845161290322581,10.791290322580645,14.759666666666668,17.07161290322581,17.179,17.630967741935482,18.858709677419355,18.473103448275864,16.65806451612903,13.661,10.750322580645161,12.785666666666666,10.748387096774193,11.060645161290322,15.503000000000002,15.970967741935485,16.159666666666666,18.396129032258063,18.936774193548384,17.376428571428573,18.028709677419354,14.174,12.004516129032258,10.793333333333333,7.032258064516129,12.468064516129031,15.504,14.880967741935484,16.237666666666666,17.41548387096774,18.663870967741936,18.447857142857142,18.38225806451613,15.452666666666666,10.587741935483871,10.515666666666668,11.59483870967742,10.470967741935485,12.071,14.960645161290321,12.984333333333332,17.44645161290323,17.845483870967744],"tmp_max":[27.45774193548387,26.40892857142857,26.14032258064516,25.981333333333332,22.08516129032258,21.630666666666666,19.811935483870965,23.45967741935484,25.234333333333332,26.38806451612903,25.762333333333334,25.918064516129032,26.301290322580645,26.138620689655173,25.392258064516128,25.47233333333333,20.30322580645161,18.010333333333335,20.299999999999997,21.499354838709678,22.784666666666666,24.82032258064516,26.47533333333333,26.75548387096774,27.056129032258063,28.207857142857144,26.87451612903226,24.963666666666665,23.445806451612903,20.323666666666668,20.30548387096774,22.690967741935484,28.741666666666667,26.161290322580644,25.293666666666663,26.780645161290323,25.35483870967742,25.456071428571427,26.44741935483871,25.457666666666668,23.42774193548387,20.822666666666667,23.818064516129034,22.544193548387096,26.448333333333334,25.385806451612904,28.262666666666668,30.828709677419354,29.971290322580646,28.479285714285712,26.43,26.454,23.740322580645163,21.743333333333332,20.75548387096774,24.026451612903227,27.662666666666667,31.155161290322578,29.095666666666666,28.35290322580645,29.260967741935485,29.477241379310346,30.27709677419355,28.251666666666665,24.325806451612905,22.58833333333333,22.358709677419355,23.063548387096777,28.56833333333333,29.595161290322583,29.904333333333334,29.88193548387097,27.594193548387096,29.37392857142857,28.07225806451613,27.057333333333336,23.850322580645162,21.043333333333337,20.593548387096774,25.057419354838707,29.307666666666666,24.938064516129035,28.512666666666668,31.226129032258065,29.40838709677419,30.053571428571427,27.836451612903225,26.290000000000003,21.90741935483871,19.974333333333334,23.043548387096774,21.64741935483871,21.964333333333332,24.60677419354839,24.158666666666665,27.301612903225806,28.611290322580647],"tmp_ave":[23.454354838709676,22.331964285714285,21.78548387096774,20.676833333333335,17.616612903225807,16.45433333333333,15.732741935483869,17.75225806451613,19.8695,21.597580645161287,21.752499999999998,22.601451612903226,22.255967741935486,23.006379310344826,21.086774193548386,21.043,15.895806451612902,12.996,14.923064516129031,16.22258064516129,16.690333333333335,19.753064516129033,21.077666666666666,22.189838709677417,23.053870967741936,23.66357142857143,22.374032258064517,19.822499999999998,18.903709677419354,15.604500000000002,14.824354838709677,17.246774193548386,21.796833333333332,20.903709677419354,20.154166666666665,22.414677419354838,21.83451612903226,21.081249999999997,22.815483870967743,20.3365,18.002419354838707,16.466333333333335,17.891290322580645,16.232096774193547,20.058500000000002,20.679354838709678,22.516333333333336,24.75725806451613,25.11709677419355,23.674642857142857,22.09967741935484,21.5395,19.41725806451613,16.935499999999998,15.300322580645162,17.408870967741937,21.211166666666667,24.113387096774193,23.13733333333333,22.991935483870968,24.05983870967742,23.975172413793103,23.46758064516129,20.956333333333333,17.538064516129033,17.686999999999998,16.553548387096775,17.06209677419355,22.035666666666668,22.783064516129034,23.032,24.139032258064518,23.265483870967742,23.37517857142857,23.050483870967742,20.61566666666667,17.92741935483871,15.918333333333335,13.812903225806451,18.76274193548387,22.405833333333334,19.90951612903226,22.375166666666665,24.320806451612903,24.036129032258064,24.250714285714285,23.109354838709677,20.871333333333332,16.24758064516129,15.245000000000001,17.319193548387098,16.0591935483871,17.017666666666667,19.783709677419356,18.5715,22.374032258064517,23.228387096774195],"prcp":[173.43,184.09,108.99,70.46000000000001,132.0,56.5,237.0,41.32,173.09,215.39000000000001,222.05,215.79,186.76,257.46000000000004,119.79,77.17999999999999,180.27,105.61,49.07,149.78,37.14,112.86,104.7,184.71,193.68,104.35,104.76,105.93,165.65,157.95,2.03,96.43,37.64,321.86,177.64000000000001,270.32,271.24,86.61,176.24,8.5,38.48,84.15,12.45,77.89999999999999,91.5,231.97,62.54,86.93,142.95,194.69,157.89000000000001,104.78,189.88,70.14,26.59,28.94,74.84,69.16,178.57,165.25,121.76,104.7,37.41,31.68,72.16,168.49,24.48,162.04,19.75,103.84,68.1,138.95000000000002,194.9,50.56,137.39,12.13,82.23,72.69,37.419999999999995,21.81,58.59,275.14,89.3,57.66,182.4,88.24,163.77,78.79,108.17,135.88,21.15,126.05,186.34,218.52,62.21,141.22,93.50999999999999],"srad":[22.62483870967742,19.095714285714283,18.02741935483871,16.771,11.819354838709677,11.671,10.196451612903227,16.99290322580645,16.956,17.36774193548387,15.177,16.932258064516127,21.67064516129032,18.032413793103448,19.192580645161293,18.077333333333335,10.462258064516128,11.244333333333334,13.738387096774193,14.75741935483871,20.172,19.13774193548387,21.963,20.141935483870967,20.876129032258063,21.954642857142858,17.373548387096776,14.868333333333334,11.379354838709677,11.796,14.802903225806451,15.328387096774193,20.509666666666664,17.319032258064517,21.380666666666666,19.258709677419354,18.614193548387096,20.003214285714286,16.930967741935483,18.736333333333334,14.343548387096776,9.682333333333334,14.330967741935483,15.20774193548387,17.197333333333333,15.926129032258064,21.03166666666667,24.687419354838706,21.95935483870968,18.928571428571427,18.184838709677418,15.043333333333333,10.947096774193549,12.841333333333333,13.897096774193548,16.238387096774193,16.351333333333333,21.258387096774193,22.247666666666664,21.250645161290322,19.942903225806454,19.824137931034482,22.138709677419353,19.874666666666666,14.791290322580645,10.874666666666666,13.388709677419355,15.375483870967741,19.300666666666665,20.107741935483872,23.984666666666666,20.25258064516129,17.761935483870968,23.333571428571428,18.645806451612902,18.444000000000003,13.795806451612904,11.434666666666667,14.640322580645162,15.389032258064516,17.625666666666667,15.305483870967743,24.162666666666667,25.183225806451613,20.495806451612903,23.615357142857142,16.73774193548387,15.691,13.01741935483871,11.757666666666667,13.855806451612903,14.273870967741935,12.397333333333334,16.962903225806453,22.982666666666667,21.326129032258066,21.00741935483871],"frost_days":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"vpd_day":[7.009880795950751,6.730017195681604,6.989650752374571,8.053985913739682,5.725812821921951,6.238142105351002,4.701054671338439,7.4077343645110725,7.801410140716149,7.624455048923032,6.4172378402340495,5.541245666156609,6.65027095059437,5.343831035709989,6.656427734566636,6.834860189052373,5.132161612639432,4.968785898988751,5.953838892400603,6.280646157796005,7.474709444986647,7.313150399795056,8.376560027435183,7.4926389470003905,6.861857184433994,8.05912866966389,7.4563784163368645,7.450018252045798,6.246877135123862,5.413173845821938,6.0386494769943155,6.863608004832451,11.283492985889945,8.078750301883304,7.58199133632659,7.2456862765682235,5.650177071926514,6.763267240647398,6.1423722303846,7.628873448024848,7.1293959705331105,5.235551414784894,7.759745262598273,7.556384897894126,9.433424677991454,7.129607223508362,9.640578865513163,11.469244952390715,9.295633058460119,8.53379736054837,7.066699799674085,7.801423667376779,6.109020197252329,5.941235097755882,6.172140437956556,8.468856159926432,10.134127624135084,12.927047015424355,10.338407036938984,9.206925479607879,9.440195999928886,9.954638129384678,12.071957102200628,11.357511286504133,8.756998533493025,6.3156785660371,7.055752004651732,7.509993476734682,10.725435647352246,11.65094174507017,11.9124563840968,10.490333557757369,7.512585875765142,10.541152127035161,8.639163343608915,9.801328102990668,7.769899681908843,5.993287790036284,7.106484059044036,8.659482242651292,11.577802766293104,7.317701890676107,10.238997612613796,12.804671398785345,9.74547925277073,10.664466410283147,8.148335946655527,8.31762136816619,6.758325300443088,5.3168072678473,7.255417083128809,6.600889493742691,6.1442479953991525,6.965338971388764,7.579830815346081,8.176941423026078,9.361049997016472]}},"IMP":{"nome":"Imperatriz-MA","lat":-5.52583,"lon":-47.4758,"asw_local":210.0,"clima":{"year":[2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2015.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2016.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2017.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2018.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2019.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2020.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2021.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2022.0,2023.0],"month":[1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,1.0],"tmp_min":[22.896451612903224,22.52035714285714,22.73225806451613,22.91433333333333,23.296451612903226,24.055666666666664,24.121935483870967,24.36225806451613,27.192,27.589354838709678,26.856333333333335,26.612903225806452,23.782258064516128,23.65448275862069,23.940645161290323,24.113333333333333,23.768387096774195,23.584,23.98193548387097,25.216451612903228,26.756666666666668,24.98,25.290333333333333,23.68516129032258,22.748064516129034,22.43892857142857,22.65838709677419,23.112000000000002,23.118709677419353,22.214,21.787096774193547,24.071290322580648,25.798,27.28258064516129,24.247,23.23516129032258,22.771612903225805,22.5125,22.751612903225805,22.551333333333332,22.42838709677419,22.206666666666667,22.654838709677417,23.77225806451613,25.648333333333333,26.38193548387097,24.633666666666667,22.629677419354838,22.68548387096774,22.69107142857143,22.976774193548387,23.272,22.82709677419355,22.213666666666665,22.565806451612904,23.80870967741935,26.457666666666668,25.511935483870968,24.970333333333333,24.49258064516129,23.175483870967742,23.24896551724138,23.15516129032258,23.042666666666666,23.539032258064516,22.110333333333333,21.651612903225807,23.291612903225804,25.358333333333334,25.4358064516129,23.466333333333335,23.30516129032258,22.960322580645162,22.90964285714286,22.671290322580642,22.976999999999997,22.883548387096774,22.956,23.695483870967742,24.095483870967744,25.263333333333332,24.306451612903224,23.548333333333336,23.393225806451614,22.43290322580645,22.829642857142858,22.734516129032258,22.753333333333334,22.16,21.534,21.317741935483873,22.276774193548388,24.778666666666666,26.323870967741936,23.514,22.713225806451614,22.601290322580645],"tmp_max":[31.009677419354837,29.774285714285714,29.86741935483871,30.240000000000002,32.91709677419355,35.69133333333333,36.391935483870974,38.29709677419355,39.75233333333333,39.28354838709677,38.37766666666666,36.76903225806451,31.799354838709675,32.66241379310345,30.666451612903224,30.881666666666668,32.94096774193548,35.289,37.57387096774193,38.85935483870968,38.425666666666665,36.005483870967744,35.82666666666667,32.04096774193548,29.575483870967744,28.768214285714286,29.622258064516128,30.411333333333335,31.677096774193547,34.01466666666666,35.24032258064516,37.77935483870968,38.894,38.54354838709677,33.187333333333335,31.070645161290326,30.595161290322583,28.797857142857143,29.46967741935484,29.528333333333332,30.373548387096776,34.217,36.35967741935484,36.86806451612903,38.172000000000004,37.8316129032258,33.40266666666667,29.66709677419355,29.240322580645163,29.815714285714286,29.797096774193548,29.933,30.595483870967744,33.568333333333335,35.03225806451613,37.59096774193548,39.39066666666667,36.093548387096774,34.352666666666664,34.54741935483871,30.52193548387097,30.279310344827586,29.54612903225806,29.791,30.03806451612903,30.997333333333334,33.46741935483871,36.593870967741935,38.309666666666665,35.90967741935484,31.375666666666667,31.181290322580644,29.897096774193546,29.8475,29.501612903225805,30.139333333333333,31.450645161290325,34.16466666666667,36.08870967741935,37.81612903225806,36.96266666666667,34.723225806451616,31.398000000000003,30.074516129032258,29.283870967741933,29.486785714285713,29.432258064516127,29.984666666666666,29.510322580645163,30.214,33.38741935483871,36.262903225806454,38.5,38.48612903225806,30.941666666666666,30.317741935483873,30.01290322580645],"tmp_ave":[26.953064516129032,26.147321428571427,26.29983870967742,26.577166666666667,28.10677419354839,29.8735,30.25693548387097,31.329677419354837,33.472166666666666,33.43645161290323,32.617,31.69096774193548,27.7908064516129,28.15844827586207,27.303548387096775,27.497500000000002,28.354677419354836,29.436500000000002,30.77790322580645,32.03790322580645,32.591166666666666,30.49274193548387,30.558500000000002,27.86306451612903,26.16177419354839,25.603571428571428,26.14032258064516,26.76166666666667,27.397903225806452,28.11433333333333,28.513709677419357,30.925322580645165,32.346,32.913064516129026,28.717166666666667,27.152903225806455,26.683387096774194,25.65517857142857,26.11064516129032,26.039833333333334,26.40096774193548,28.21183333333333,29.50725806451613,30.32016129032258,31.91016666666667,32.10677419354839,29.018166666666666,26.148387096774194,25.96290322580645,26.253392857142856,26.386935483870968,26.6025,26.711290322580645,27.891,28.799032258064514,30.699838709677415,32.924166666666665,30.802741935483873,29.661499999999997,29.52,26.848709677419357,26.764137931034483,26.350645161290323,26.416833333333333,26.788548387096775,26.553833333333333,27.55951612903226,29.94274193548387,31.834,30.67274193548387,27.421,27.243225806451612,26.428709677419356,26.37857142857143,26.086451612903225,26.558166666666665,27.16709677419355,28.560333333333332,29.892096774193547,30.9558064516129,31.113,29.51483870967742,27.47316666666667,26.733870967741936,25.85838709677419,26.158214285714287,26.083387096774192,26.369,25.83516129032258,25.874,27.352580645161293,29.269838709677423,31.639333333333333,32.405,27.227833333333333,26.515483870967742,26.307096774193546],"prcp":[141.68,137.38,173.24,124.16,32.22,1.63,11.41,3.3200000000000003,3.49,34.93,23.53,69.80000000000001,148.17,84.51,189.26999999999998,113.59,58.040000000000006,28.01,5.09,1.11,82.03,35.84,71.67,141.73,210.07000000000002,314.72,190.06,96.53999999999999,22.79,24.7,8.56,12.16,1.1400000000000001,31.86,93.51,171.83,106.43,332.59,219.6,74.74,47.8,4.06,1.5999999999999999,6.41,28.29,37.43,181.60999999999999,175.1,166.43,168.2,216.4,223.06,50.34,1.23,6.6000000000000005,0.01,2.49,34.73,83.71,74.25,212.45999999999998,244.06,484.15,250.12,40.26,7.9399999999999995,1.52,7.529999999999999,4.99,63.550000000000004,152.05,158.14,116.96,221.64,218.14,106.35,34.29,14.69,6.890000000000001,4.83,43.53,178.57,172.44,334.28,283.92,196.96,257.32,96.42,29.4,40.379999999999995,5.53,1.6500000000000001,3.7,26.86,307.54,176.75,98.58],"srad":[18.476129032258065,17.122857142857143,17.29032258064516,18.452333333333335,17.817741935483873,18.684666666666665,19.026451612903227,21.94516129032258,20.962666666666667,21.22935483870968,19.750666666666667,18.291935483870965,14.239354838709678,20.70551724137931,17.374193548387098,17.936666666666667,18.154516129032256,19.077333333333335,20.892258064516128,21.293548387096774,19.009999999999998,19.84741935483871,18.965,16.61193548387097,16.8141935483871,16.75,17.580322580645163,18.887333333333334,18.554193548387094,20.357666666666667,21.54741935483871,21.2241935483871,23.542666666666666,19.531612903225806,18.427,17.501612903225805,19.10225806451613,16.369642857142857,18.114838709677418,18.159333333333333,19.083548387096776,20.53033333333333,20.82225806451613,19.659032258064514,20.154666666666667,19.620967741935484,17.908,18.669999999999998,18.179032258064513,18.313214285714285,17.098387096774193,17.815333333333335,18.69516129032258,20.367,20.238709677419354,21.616451612903226,20.720666666666666,18.379677419354838,18.047,18.43290322580645,17.491612903225807,18.539310344827587,17.376774193548385,17.56866666666667,18.631290322580647,20.25766666666667,21.69193548387097,22.284193548387098,22.887,20.521612903225805,16.735333333333333,17.405483870967743,17.515806451612903,17.51607142857143,18.45935483870968,18.682000000000002,19.489677419354837,18.400333333333332,19.726774193548387,21.903225806451612,18.446,18.04516129032258,17.855666666666664,15.74516129032258,17.792258064516126,17.99607142857143,17.503870967741936,19.008333333333333,18.66,19.03166666666667,20.379677419354838,22.065161290322582,21.044666666666668,19.677096774193547,16.787666666666667,16.77806451612903,18.646774193548385],"frost_days":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"vpd_day":[8.514242020437948,7.296020498332171,7.231835543743692,7.533111811699685,10.730854007380959,14.233177127111533,15.317476203637614,18.40868459893978,18.361604461546257,17.03685293304656,16.12579656336948,13.552841811650925,8.778216332409709,10.063436445276256,7.171998201209021,7.289272369902836,10.352093736304166,14.011658296441194,17.461075717024215,18.64607300236798,16.316567502897204,13.891035506453461,13.306027232289367,9.187201908697318,6.868320599534512,6.18301868935866,6.999091457273838,7.576936630338576,9.19334080580266,13.222330614638949,15.436820047531267,17.743383898562605,18.147511703764213,15.982006401955541,10.271963301483757,8.30361724296429,8.094526191766361,6.1561612129509165,6.739654409120055,6.976279524336903,8.103791953688939,13.529547031998181,16.536281212483942,16.429072963445797,16.96856154573932,15.629652657489519,10.225804627212199,7.076617024356734,6.524817767058723,7.203883715878865,6.940870526358374,6.852660961870315,8.048295039975592,12.568407911463055,14.478175693279532,17.645345636190974,18.425890859117654,13.526652871491482,11.309802059180013,12.048878276267503,7.66032049557378,7.296065847398454,6.488438270067107,6.8775258232671455,6.748651094283105,9.148971702590435,12.873640534732813,16.38644006189589,17.498652528176564,13.30061505306183,8.4978965155896,8.385652506262883,7.0755596424486065,7.0585065135927625,6.844721323885695,7.356394273728833,9.095410032810943,12.828710162243075,15.19771072322472,17.786857584160288,15.218128014382621,12.487423955106596,8.455457750744328,6.920063432070261,6.785498383388543,6.694377260898472,6.7096891917832195,7.356294121204268,7.276174427306023,8.626691267754703,13.020117579674572,16.68845511574657,18.394738619617947,16.869197950733255,7.897064480952011,7.798182012699488,7.517618260707339]}}}};
+const ASW_REF = 190.6, FR_MIN = 0.5483, ALT_A1 = { aH: 3.313814, nHB: 0.715203 };
+const SIT = { IND: "Indianópolis-MG", TB: "Telêmaco Borba-PR", IMP: "Imperatriz-MA" };
+const MAT = { A1: "A1 · E. urophylla", C5: "C5 · híbrido Cerrado", C2: "C2 · clone 3336 Curvelo", C4: "C4 · clone 3336 Itacambira" };
+const FREQ = { P1: "Pulso único", P2: "Dois pulsos", PA: "Pulsos anuais" };
+const EPOCA = { 1: "jan", 4: "abr", 7: "jul", 10: "out" };
+const AGUA = { LOC: "Solo local", 100: "100%", 75: "75%", 50: "50%", 25: "25%" };
+const FERT = { 100: "F100", 75: "F75", 50: "F50", 25: "F25" };
+const MESES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+
+let E = { sitio: "IND", mat: "A1", agua: "LOC", fert: 100, d: 50, freq: "P1", epoca: 1 };
+const TRAVA = { sitio: false, mat: false, solo: false, d: false, freq: false, epoca: false };
+let R = null; // resultado
+let tAtual = 84;
+
+// ---------- simulação ----------
+function frNivel(mat, n) { const ref = DADOS.materiais[mat].FR_ref; const j = [25, 50, 75, 100].indexOf(n); return FR_MIN + j / 3 * (ref - FR_MIN); }
+function eventos() {
+  const anos = E.freq === "P1" ? [2017] : E.freq === "P2" ? [2017, 2020] : [2017, 2018, 2019, 2020, 2021, 2022];
+  const ev = {}; if (E.d > 0) anos.forEach(a => ev[`${a}-${String(E.epoca).padStart(2, "0")}`] = E.d / 100); return ev;
+}
+function simular() {
+  const m = DADOS.materiais[E.mat], s = DADOS.sitios[E.sitio];
+  const asw = E.agua === "LOC" ? s.asw_local : ASW_REF * E.agua / 100;
+  const site = { lat: s.lat, asw_max: asw, asw_i: asw, from: m.inicio, to: "2023-01" };
+  const sp = { planted: "2015-01", fertility: frNivel(E.mat, E.fert), stems_n: 10000 / 9, WS0: m.WS0, WR0: m.WR0, WF0: m.WF0 };
+  const ev = eventos();
+  const c = Modelo3PG.run(site, sp, s.clima, m.params, {});
+  const t = Modelo3PG.run(site, sp, s.clima, m.params, ev);
+  const [y0, m0] = m.inicio.split("-").map(Number);
+  const datas = c.age.map((_, k) => { const mm = (m0 - 1 + k); return { a: y0 + Math.floor(mm / 12), m: mm % 12 + 1 }; });
+  const idade = c.age.map(a => Math.round(a * 12));
+  const k84 = idade.indexOf(84), k12 = idade.indexOf(12);
+  const kev = Object.keys(ev).map(e => { const [a, mm] = e.split("-").map(Number); return datas.findIndex(d => d.a === a && d.m === mm); });
+  const alt = (o, k) => E.mat === "A1" ? ALT_A1.aH * Math.pow(o.dbh[k], ALT_A1.nHB) : o.h[k];
+  let recup = null;
+  if (kev.length) { for (let k = kev[0]; k < c.Wf.length && (kev.length < 2 || k < kev[1]); k++) if (t.Wf[k] / c.Wf[k] >= 0.95) { recup = k - kev[0]; break; } }
+  const kTB = idade.indexOf(24), kTB2 = idade.indexOf(36);
+  R = { c, t, datas, idade, k84, k12, kev, alt, recup, asw, fr: sp.fertility,
+        perda: 100 * (1 - t.vol[k84] / c.vol[k84]), removido: t.removido.reduce((a, b) => a + b, 0),
+        fT0: c.fT.slice(k12, k84 + 1).filter(x => x <= 0).length,
+        lenho: (c.Ws[kTB2] * (1 - c.fracBB[kTB2]) - c.Ws[kTB] * (1 - c.fracBB[kTB])) };
+}
+
+// ---------- fatores (UI) ----------
+const DEF_FATORES = [
+  { id: "sitio", nome: "Local", tipo: "chips", op: SIT, chave: "sitio" },
+  { id: "mat", nome: "Material genético", tipo: "chips", op: MAT, chave: "mat" },
+  { id: "solo", nome: "Solo: água e fertilidade", tipo: "solo" },
+  { id: "d", nome: "Intensidade da desfolha", tipo: "faixa" },
+  { id: "freq", nome: "Frequência", tipo: "chips", op: FREQ, chave: "freq" },
+  { id: "epoca", nome: "Época do pulso", tipo: "chips", op: EPOCA, chave: "epoca", num: true },
+];
+function chips(op, atual, onPick, num) {
+  return `<div class="chips">${Object.entries(op).map(([k, v]) => `<button type="button" class="chip" data-k="${k}" aria-pressed="${String(atual) === String(k)}">${v}</button>`).join("")}</div>`;
+}
+function montarFatores() {
+  const el = document.getElementById("fatores");
+  el.innerHTML = DEF_FATORES.map(f => {
+    let corpo = "";
+    if (f.tipo === "chips") corpo = chips(f.op, E[f.chave]);
+    if (f.tipo === "solo") corpo = `<div class="rot" style="margin:2px 0 4px">Água disponível (ASWmax)</div>${chips(AGUA, E.agua)}
+      <div class="rot" style="margin:8px 0 4px">Fertilidade (FR)</div>${chips(FERT, E.fert)}`;
+    if (f.tipo === "faixa") corpo = `<div class="faixa"><input type="range" id="in-d" min="0" max="95" step="5" value="${E.d}" aria-label="Intensidade da desfolha em porcentagem"><output id="out-d" class="num">${E.d}%</output></div>`;
+    return `<div class="fator" id="f-${f.id}"><header><span class="rot">${f.nome}</span>
+      <button type="button" class="trava" data-trava="${f.id}" aria-pressed="${TRAVA[f.id]}">${TRAVA[f.id] ? "🔒 travado" : "🔓 livre"}</button></header>${corpo}</div>`;
+  }).join("") + `<p class="dica" id="dica-solo"></p>`;
+  el.querySelectorAll(".fator").forEach(box => {
+    const id = box.id.slice(2);
+    box.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+      const k = b.dataset.k, grupo = b.parentElement;
+      if (id === "solo") { const ehAgua = grupo === box.querySelectorAll(".chips")[0]; if (ehAgua) E.agua = k === "LOC" ? "LOC" : +k; else E.fert = +k; }
+      else { const f = DEF_FATORES.find(x => x.id === id); E[f.chave] = f.num ? +k : k; }
+      atualizar();
+    }));
+  });
+  el.querySelectorAll(".trava").forEach(b => b.addEventListener("click", () => { TRAVA[b.dataset.trava] = !TRAVA[b.dataset.trava]; montarFatores(); }));
+  const r = document.getElementById("in-d"); r.addEventListener("input", () => { E.d = +r.value; document.getElementById("out-d").textContent = E.d + "%"; atualizar(false); });
+  const s = DADOS.sitios[E.sitio];
+  document.getElementById("dica-solo").textContent = `Solo local em ${SIT[E.sitio]}: ${s.asw_local} mm até 2 m. Os níveis em % são relativos a 190,6 mm. FR atual: ${frNivel(E.mat, E.fert).toFixed(3).replace(".", ",")}.`;
+}
+function sortear() {
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  if (!TRAVA.sitio) E.sitio = pick(Object.keys(SIT));
+  if (!TRAVA.mat) E.mat = pick(Object.keys(MAT));
+  if (!TRAVA.solo) { E.agua = pick(["LOC", "LOC", 100, 75, 50, 25]); E.fert = pick([100, 75, 50, 25]); }
+  if (!TRAVA.d) E.d = pick([10, 25, 25, 50, 50, 75, 95]);
+  if (!TRAVA.freq) E.freq = pick(["P1", "P1", "P2", "PA"]);
+  if (!TRAVA.epoca) E.epoca = pick([1, 4, 7, 10]);
+  const b = document.getElementById("bt-sortear"); b.classList.remove("girando"); void b.offsetWidth; b.classList.add("girando");
+  atualizar(); tocar(true);
+}
+
+// ---------- ficha ----------
+const fmt = (x, d = 1) => Number.isFinite(x) ? x.toLocaleString("pt-BR", { minimumFractionDigits: d, maximumFractionDigits: d }) : "–";
+function nivel(p) { return p < 3 ? ["Leve", "s0"] : p < 10 ? ["Moderada", "s1"] : p < 30 ? ["Severa", "s2"] : ["Crítica", "s3"]; }
+function codigo() { let h = 0; for (const ch of JSON.stringify(E)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return String(h % 10000).padStart(4, "0"); }
+function montarFicha() {
+  const { c, t, k84 } = R, k = tAtual, [nv, cls] = nivel(R.perda);
+  const rel = (a, b) => b > 0 ? Math.max(0, Math.min(1, a / b)) : 0;
+  const lin = (nome, a, b, un, d = 1) => { const r_ = rel(a, b); return `<div class="stat"><span>${nome}</span><div class="barra"><span class="${r_ < .97 ? "ruim" : ""}" style="width:${(r_ * 100).toFixed(1)}%"></span></div><span class="v num">${fmt(r_ * 100, 0)}%</span></div>`; };
+  const ev = Object.keys(eventos());
+  const alertas = [];
+  if (E.sitio === "IMP" && E.mat === "A1") alertas.push(`Diagnóstico: em Imperatriz a temperatura média passa da temperatura máxima do clone A1 (28,65 °C) em ${R.fT0} meses. Use este resultado só como diagnóstico de extrapolação.`);
+  if (E.sitio === "TB") alertas.push("Telêmaco Borba tem dias de geada, mas nenhum material tem função de dano por geada.");
+  if (E.mat !== "A1") alertas.push("As parametrizações de Borges (2009) produzem IAF de 7 a 11, acima do medido em campo. Isso amortece a perda.");
+  if (E.d >= 95 && E.freq !== "P1") alertas.push("O 3-PG não tem mortalidade induzida: desfolhas severas e repetidas indicam dano máximo, não risco de morte.");
+  document.getElementById("cartao").innerHTML = `
+    <div class="cartao-topo"><div><div class="rot">Talhão nº ${codigo()}</div><h2>${SIT[E.sitio]} · ${E.mat}</h2>
+      <div class="sub">${E.d}% · ${FREQ[E.freq].toLowerCase()} em ${EPOCA[E.epoca]} · água ${E.agua === "LOC" ? "local" : E.agua + "%"} (${fmt(R.asw, 0)} mm) · ${FERT[E.fert]}</div></div>
+      <span class="selo ${cls}">${E.d === 0 ? "Sem ataque" : nv}</span></div>
+    <div class="perda"><span class="grande num">${fmt(R.perda, 1)}%</span><span>de perda de volume aos 84 meses</span></div>
+    <div class="sub">Eventos: ${ev.length ? ev.map(e => { const [a, m] = e.split("-"); return MESES[+m - 1] + "/" + a; }).join(", ") : "nenhum"}</div>
+    <div class="stats">
+      <div class="rot">No mês exibido · desfolhado em % do controle</div>
+      ${lin("Folhagem", t.Wf[k], c.Wf[k])}${lin("IAF", t.lai[k], c.lai[k])}${lin("Lenho", t.Ws[k], c.Ws[k])}${lin("DAP", t.dbh[k], c.dbh[k])}${lin("Volume", t.vol[k], c.vol[k])}${lin("Árvores", t.N[k], c.N[k])}
+    </div>
+    <table class="tabela" style="margin-top:10px"><thead><tr><th>Aos 84 meses</th><th>Controle</th><th>Desfolhado</th></tr></thead><tbody>
+      <tr><td>Volume (m³/ha)</td><td class="num">${fmt(c.vol[k84], 0)}</td><td class="num">${fmt(t.vol[k84], 0)}</td></tr>
+      <tr><td>IMA (m³/ha/ano)</td><td class="num">${fmt(c.vol[k84] / 7, 1)}</td><td class="num">${fmt(t.vol[k84] / 7, 1)}</td></tr>
+      <tr><td>DAP (cm)</td><td class="num">${fmt(c.dbh[k84], 1)}</td><td class="num">${fmt(t.dbh[k84], 1)}</td></tr>
+      <tr><td>Folhas removidas (t/ha)</td><td class="num">–</td><td class="num">${fmt(R.removido, 2)}</td></tr>
+      <tr><td>Recuperação a 95%</td><td class="num">–</td><td class="num">${E.d === 0 ? "–" : R.recup === null ? "não recupera" : R.recup + " meses"}</td></tr>
+    </tbody></table>
+    ${alertas.length ? `<div class="alertas">${alertas.map(a => `<div class="alerta">${a}</div>`).join("")}</div>` : ""}`;
+}
+
+// ---------- gráficos 2D ----------
+const cor = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function prepCanvas(cv) { const r = cv.getBoundingClientRect(), dpr = Math.min(2, window.devicePixelRatio || 1); cv.width = r.width * dpr; cv.height = r.height * dpr; const g = cv.getContext("2d"); g.setTransform(dpr, 0, 0, dpr, 0, 0); return [g, r.width, r.height]; }
+function grafico(id, chave, titulo, un) {
+  const cv = document.getElementById(id), [g, W, H] = prepCanvas(cv), { c, t, idade, kev } = R;
+  const L = 40, Rm = 8, T = 18, B = 20, n = c[chave].length;
+  const ymax = Math.max(...c[chave], ...t[chave]) * 1.08 || 1;
+  const X = k => L + (W - L - Rm) * k / (n - 1), Y = v => T + (H - T - B) * (1 - v / ymax);
+  g.clearRect(0, 0, W, H); g.font = "11px " + cor("--f-num"); g.fillStyle = cor("--tinta-2"); g.strokeStyle = cor("--linha"); g.lineWidth = 1;
+  const passo = ymax > 150 ? 50 : ymax > 40 ? 10 : ymax > 8 ? 2 : 1;
+  for (let v = 0; v <= ymax; v += passo) { g.beginPath(); g.moveTo(L, Y(v)); g.lineTo(W - Rm, Y(v)); g.stroke(); g.fillText(String(v), 4, Y(v) + 4); }
+  [24, 48, 72, 96].forEach(a => { const k = idade.indexOf(a); if (k >= 0) g.fillText(a + " m", Math.min(X(k) - 10, W - 34), H - 5); });
+  g.fillStyle = cor("--tinta"); g.font = "600 12px " + cor("--f-disp"); g.fillText(titulo + " (" + un + ")", L, 12);
+  g.fillStyle = cor("--praga"); kev.forEach(k => { g.globalAlpha = .35; g.fillRect(X(k) - 1, T, 2, H - T - B); g.globalAlpha = 1; });
+  const linha = (arr, col, w, dash) => { g.strokeStyle = col; g.lineWidth = w; g.setLineDash(dash); g.beginPath(); arr.forEach((v, k) => k ? g.lineTo(X(k), Y(v)) : g.moveTo(X(k), Y(v))); g.stroke(); g.setLineDash([]); };
+  linha(c[chave], cor("--tinta-2"), 1.6, [5, 4]); linha(t[chave], cor("--praga"), 2.2, []);
+  g.strokeStyle = cor("--tinta"); g.lineWidth = 1; g.beginPath(); g.moveTo(X(tAtual), T); g.lineTo(X(tAtual), H - B); g.stroke();
+  g.fillStyle = cor("--praga"); g.beginPath(); g.arc(X(tAtual), Y(t[chave][tAtual]), 3.5, 0, 7); g.fill();
+}
+// perfil de fuste ilustrativo: r(h) = r1,3 · ((H − h)/(H − 1,3))^0,72 acima de 1,3 m; alargamento de base abaixo
+function raioEm(h, H, dap) { const r = dap / 200; if (h <= 1.3) return r * (1 + 0.18 * (1.3 - h) / 1.3); if (h >= H) return 0; return r * Math.pow((H - h) / (H - 1.3), 0.72); }
+function perfil() {
+  const cv = document.getElementById("g-perfil"), [g, W, H] = prepCanvas(cv), { c, t } = R, k = tAtual;
+  const Hc = Math.max(1.5, R.alt(c, k)), Ht = Math.max(1.5, R.alt(t, k)), Hm = Math.max(Hc, Ht, 5) * 1.08;
+  const dmax = Math.max(c.dbh[k], 5) / 100 * 1.25;
+  const cx = W / 2, T = 14, B = 22, Y = h => H - B - (H - T - B) * h / Hm, X = r => (W / 2 - 34) * r / (dmax / 2 * 1.0);
+  g.clearRect(0, 0, W, H); g.font = "11px " + cor("--f-num"); g.fillStyle = cor("--tinta-2"); g.strokeStyle = cor("--linha");
+  const pa = Hm > 30 ? 10 : 5; for (let h = 0; h <= Hm; h += pa) { g.beginPath(); g.moveTo(26, Y(h)); g.lineTo(W - 6, Y(h)); g.stroke(); g.fillText(h + " m", 2, Y(h) + 4); }
+  const desenha = (Hx, dap, col, lado, alpha) => { g.fillStyle = col; g.globalAlpha = alpha; g.beginPath(); g.moveTo(cx, Y(0));
+    for (let i = 0; i <= 60; i++) { const h = Hx * i / 60; g.lineTo(cx + lado * X(raioEm(h, Hx, dap)), Y(h)); } g.lineTo(cx, Y(Hx)); g.closePath(); g.fill(); g.globalAlpha = 1; };
+  desenha(Hc, c.dbh[k], cor("--tinta-2"), -1, .75); desenha(Ht, t.dbh[k], cor("--praga"), 1, .85);
+  g.strokeStyle = cor("--tinta"); g.beginPath(); g.moveTo(cx, Y(0)); g.lineTo(cx, Y(Hm)); g.stroke();
+  g.fillStyle = cor("--tinta"); g.font = "600 11.5px " + cor("--f-disp");
+  g.fillText("controle", 30, H - 6); const tw = g.measureText("desfolhado").width; g.fillText("desfolhado", W - tw - 6, H - 6);
+  g.font = "11px " + cor("--f-num"); g.fillStyle = cor("--tinta-2");
+  g.fillText(`DAP ${fmt(c.dbh[k], 1)} cm · H ${fmt(Hc, 1)} m`, 30, T + 8); const s2 = `DAP ${fmt(t.dbh[k], 1)} cm · H ${fmt(Ht, 1)} m`; g.fillText(s2, W - g.measureText(s2).width - 6, T + 8);
+  document.getElementById("perfil-nota").textContent = (E.mat === "A1" ? "Altura do A1 pelo ajuste local alternativo (aH = 3,3138; nHB = 0,7152). " : "Altura pela relação hipsométrica de Borges (2009). ") + "A largura do desenho está exagerada em relação à altura para mostrar o afilamento.";
+}
+
+// ---------- cena 3D ----------
+let renderer, scene, camera, controls, arvores = [], galhosMesh, folhasMesh, chaoMesh, particulas, flashT = 0;
+const LIN = 6, COL = 5, ESP = 3, K = 14, VIS = 1.6; // VIS: exagero do diâmetro
+function rng(seed) { let s = seed >>> 0; return () => ((s = (s * 1664525 + 1013904223) >>> 0) / 4294967296); }
+function iniciar3D() {
+  const cv = document.getElementById("cena");
+  renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true }); renderer.setPixelRatio(Math.min(2, window.devicePixelRatio || 1));
+  scene = new THREE.Scene(); camera = new THREE.PerspectiveCamera(42, 1, 0.5, 400);
+  camera.position.set(-6, 26, 52);
+  controls = new THREE.OrbitControls(camera, cv); controls.target.set(0, 9, 0); controls.enableDamping = true; controls.maxPolarAngle = Math.PI * 0.49; controls.minDistance = 12; controls.maxDistance = 120;
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x6b5a3c, 0.85)); const sol = new THREE.DirectionalLight(0xffffff, 0.75); sol.position.set(30, 50, 20); scene.add(sol);
+  chaoMesh = new THREE.Mesh(new THREE.PlaneGeometry(70, 46), new THREE.MeshLambertMaterial({ color: 0xc9b48f })); chaoMesh.rotation.x = -Math.PI / 2; scene.add(chaoMesh);
+  const trilha = new THREE.Mesh(new THREE.PlaneGeometry(2.2, 46), new THREE.MeshLambertMaterial({ color: 0x9a8a6a })); trilha.rotation.x = -Math.PI / 2; trilha.position.y = 0.02; scene.add(trilha);
+  // fuste: perfil normalizado (altura 0..1, raio 1 no DAP para H de referência 20 m)
+  const pts = []; for (let i = 0; i <= 24; i++) { const h = i / 24; pts.push(new THREE.Vector2(Math.max(0.001, raioEm(h * 20, 20, 200)), h)); }
+  const geoF = new THREE.LatheGeometry(pts, 10);
+  const matF = new THREE.MeshLambertMaterial({ color: 0xd9a27c });
+  const geoC = new THREE.IcosahedronGeometry(1, 0), matC = new THREE.MeshLambertMaterial({ color: 0xffffff });
+  const total = LIN * COL * 2;
+  galhosMesh = new THREE.InstancedMesh(geoF, matF, total); folhasMesh = new THREE.InstancedMesh(geoC, matC, total * K);
+  galhosMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage); folhasMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+  for (let i = 0; i < total * K; i++) folhasMesh.setColorAt(i, new THREE.Color(0x3f7f74));
+  folhasMesh.instanceColor.needsUpdate = true;
+  scene.add(galhosMesh, folhasMesh);
+  const r = rng(20261030);
+  for (const lado of [-1, 1]) for (let i = 0; i < LIN; i++) for (let j = 0; j < COL; j++) {
+    const x = lado * (2.6 + j * ESP) + (r() - .5) * .5, z = (i - (LIN - 1) / 2) * ESP + (r() - .5) * .5;
+    const tufos = []; for (let q = 0; q < K; q++) tufos.push({ u: r(), a: r() * Math.PI * 2, rr: Math.sqrt(r()), s: .75 + r() * .5 });
+    arvores.push({ lado, x, z, fd: .9 + r() * .2, fh: .95 + r() * .1, ordem: r(), tufos });
+  }
+  const pg = new THREE.BufferGeometry(), np = 260, pos = new Float32Array(np * 3), vel = [];
+  for (let i = 0; i < np; i++) { pos[i * 3] = 2.6 + Math.random() * COL * ESP; pos[i * 3 + 1] = 8 + Math.random() * 18; pos[i * 3 + 2] = (Math.random() - .5) * LIN * ESP; vel.push(.03 + Math.random() * .05); }
+  pg.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+  particulas = new THREE.Points(pg, new THREE.PointsMaterial({ color: 0xd2552b, size: .45 })); particulas.userData.vel = vel; particulas.visible = false; scene.add(particulas);
+  const ro = new ResizeObserver(() => { const w = cv.clientWidth, h = cv.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+    const f = Math.min(2.2, Math.max(1, 1.5 / camera.aspect)); camera.position.set(-6 * f, 26 * f, 52 * f); controls.update(); });
+  ro.observe(cv); temaCena(); loop();
+}
+function temaCena() { if (!scene) return; scene.background = new THREE.Color(cor("--ceu3d")); chaoMesh.material.color = new THREE.Color(cor("--solo3d")); }
+const M4 = new THREE.Matrix4(), Q = new THREE.Quaternion(), V = new THREE.Vector3(), SC = new THREE.Vector3(), COR = new THREE.Color();
+function atualizar3D() {
+  if (!renderer || !R) return;
+  const k = tAtual, { c, t } = R;
+  const wfMax = Math.max(...c.Wf.map((w, i) => w * 1000 / c.N[i]));
+  const ev = R.kev.includes(k);
+  const verde = new THREE.Color(cor("--folha")), praga = new THREE.Color(cor("--praga"));
+  let idx = 0, idf = 0;
+  const N0 = c.N[0];
+  for (const a of arvores) {
+    const o = a.lado < 0 ? c : t, vivo = a.ordem < o.N[k] / N0;
+    const H = Math.max(1.2, R.alt(o, k)) * a.fh, dap = o.dbh[k] * a.fd, r = dap / 200 * VIS;
+    if (!vivo) { M4.makeScale(0, 0, 0); galhosMesh.setMatrixAt(idx++, M4); for (let q = 0; q < K; q++) folhasMesh.setMatrixAt(idf++, M4); continue; }
+    M4.compose(V.set(a.x, 0, a.z), Q.identity(), SC.set(r, H, r)); galhosMesh.setMatrixAt(idx++, M4);
+    const wfArv = o.Wf[k] * 1000 / o.N[k], frac = Math.min(1, wfArv / wfMax), nVis = Math.round(K * Math.sqrt(frac));
+    const base = H * .52, compr = H - base, larg = Math.max(.8, Math.min(2.4, H * .085)) * (0.65 + 0.35 * Math.sqrt(frac));
+    a.tufos.forEach((tf, q) => {
+      if (q >= nVis) M4.makeScale(0, 0, 0);
+      else { const h = base + tf.u * compr, rad = larg * tf.rr * (1 - .55 * tf.u); const s = (.55 + .5 * (1 - tf.u)) * tf.s * Math.max(.6, H / 22);
+        M4.compose(V.set(a.x + Math.cos(tf.a) * rad, h, a.z + Math.sin(tf.a) * rad), Q.identity(), SC.set(s, s * 1.25, s)); }
+      folhasMesh.setMatrixAt(idf, M4);
+      COR.copy(verde); if (a.lado > 0 && ev) COR.lerp(praga, .65); COR.offsetHSL(0, 0, (tf.s - 1) * .12); folhasMesh.setColorAt(idf, COR); idf++;
+    });
+  }
+  galhosMesh.instanceMatrix.needsUpdate = true; folhasMesh.instanceMatrix.needsUpdate = true; if (folhasMesh.instanceColor) folhasMesh.instanceColor.needsUpdate = true;
+  particulas.visible = ev; document.getElementById("flash").classList.toggle("on", ev);
+  const fsw = Number.isFinite(c.fSW[k]) ? c.fSW[k] : 1; chaoMesh.material.color = new THREE.Color(cor("--solo3d")).offsetHSL(0, 0, -0.12 * fsw);
+}
+function loop() {
+  requestAnimationFrame(loop);
+  if (particulas && particulas.visible) { const p = particulas.geometry.attributes.position, v = particulas.userData.vel;
+    for (let i = 0; i < v.length; i++) { p.array[i * 3 + 1] -= v[i] * 3; if (p.array[i * 3 + 1] < 0) p.array[i * 3 + 1] = 10 + Math.random() * 16; } p.needsUpdate = true; }
+  controls && controls.update(); renderer && renderer.render(scene, camera);
+}
+
+// ---------- linha do tempo ----------
+let timer = null;
+function montarTempo() {
+  const s = document.getElementById("mes"); s.max = R.c.Wf.length - 1; if (tAtual > +s.max) tAtual = +s.max; s.value = tAtual;
+  const n = R.c.Wf.length - 1;
+  document.getElementById("marcas").innerHTML = R.kev.map(k => `<i style="left:${100 * k / n}%"></i>`).join("") + `<b style="left:${100 * R.k84 / n}%" title="84 meses"></b>`;
+}
+function mostrarMes() {
+  const d = R.datas[tAtual]; document.getElementById("q-idade").textContent = R.idade[tAtual] + " meses";
+  document.getElementById("q-data").textContent = MESES[d.m - 1] + "/" + d.a; document.getElementById("mes").value = tAtual;
+  atualizar3D(); montarFicha(); grafico("g-wf", "Wf", "Folhagem", "t/ha"); grafico("g-ws", "Ws", "Lenho", "t/ha"); perfil();
+}
+function tocar(doInicio) {
+  parar(); if (matchMedia("(prefers-reduced-motion: reduce)").matches) { tAtual = R.k84; mostrarMes(); return; }
+  if (doInicio) tAtual = Math.max(0, R.k12 - 1);
+  document.getElementById("bt-play").textContent = "❚❚"; document.getElementById("bt-play").setAttribute("aria-label", "Pausar");
+  timer = setInterval(() => { if (tAtual >= R.c.Wf.length - 1) { parar(); return; } tAtual++; mostrarMes(); }, 120);
+}
+function parar() { clearInterval(timer); timer = null; const b = document.getElementById("bt-play"); b.textContent = "▶"; b.setAttribute("aria-label", "Reproduzir"); }
+function irPara(idadeMeses) { const k = R.idade.indexOf(idadeMeses); tAtual = k >= 0 ? k : R.c.Wf.length - 1; mostrarMes(); }
+
+function atualizar(refazUI = true) { simular(); if (refazUI) montarFatores(); montarTempo(); mostrarMes(); }
+
+// ---------- tutorial ----------
+const IMP_RF = [["Intensidade", 57.0], ["Frequência", 38.3], ["Local", 2.5], ["Material", 1.0], ["Época", 0.4], ["Água", 0.4], ["Fertilidade", 0.4]];
+const PASSOS = [
+  { t: "O problema", alvo: "palco", estado: { sitio: "IND", mat: "A1", agua: "LOC", fert: 100, d: 0, freq: "P1", epoca: 1 }, idade: 84,
+    h: `<p>Lagartas e doenças arrancam folhas do eucalipto. Sem folha, a árvore capta menos luz e produz menos madeira. Quanto se perde depende da <b>intensidade</b>, da <b>frequência</b> e da <b>época</b> do ataque, do <b>clima</b>, do <b>solo</b> e do <b>material genético</b>.</p><p>Testar tudo isso em campo levaria décadas. Este simulador testa no computador.</p>` },
+  { t: "O motor: modelo 3-PG", alvo: "palco", acao: "tocar", h: `<p>O 3-PG calcula, mês a mês, quanta luz o dossel absorve e transforma isso em carbono. O carbono vai para folhas, lenho e raízes, limitado por temperatura, água no solo e idade.</p><p>Aqui, um talhão de <b>clone A1</b> em <b>Indianópolis-MG</b>, plantado em 3 × 3 m, cresce até 8 anos. Ainda sem ataque, as duas metades são iguais.</p>` },
+  { t: "O módulo de desfolha", alvo: "f-d", estado: { d: 50 }, idade: 24, h: `<p>O 3-PG original não tem pragas. Nós acrescentamos uma regra: no mês do ataque, antes de calcular a luz, a biomassa foliar perde a fração <i>d</i>.</p><div class="eq">W<sub>F,pós</sub> = W<sub>F,pré</sub> · (1 − d)</div><p>Aqui, 50% em janeiro de 2017, aos 24 meses. Veja as copas da direita afinarem. Nenhuma outra equação do modelo foi mexida.</p>` },
+  { t: "Controle × desfolhado", alvo: "cartao", idade: 84, h: `<p>A metade esquerda nunca é atacada e serve de <b>controle</b>. Tudo é comparado com ela, no mesmo mês:</p><div class="eq">perda = 100 · (1 − desfolhado / controle)</div><p>Com 50% de desfolha num único pulso, o A1 perde cerca de 3% do volume aos 7 anos.</p>` },
+  { t: "As folhas voltam, o lenho não", alvo: "g-ws", acao: "tocar", h: `<p>A folhagem volta ao nível de antes em poucos meses, mas leva cerca de 2 anos para alcançar 95% do controle. O lenho que deixou de crescer nesse período não é recuperado.</p><p>É por isso que a linha laranja de lenho fica abaixo da tracejada até o fim.</p>` },
+  { t: "Frequência pesa muito", alvo: "f-freq", estado: { freq: "PA", d: 50 }, acao: "tocar", h: `<p>Agora o ataque se repete <b>todo ano</b>, de 2017 a 2022. O dossel nunca termina de se refazer, e a perda de volume sobe para cerca de 14%. Com 95% todo ano, passa de 50%.</p>` },
+  { t: "A época também conta", alvo: "f-epoca", estado: { freq: "P1", d: 50, epoca: 4 }, idade: 84, h: `<p>O mesmo ataque de 50% em <b>abril</b>, início da seca no Cerrado, custa menos (cerca de 1,7%) do que em <b>outubro</b> (3,7%). Com menos folhas, a árvore transpira menos e guarda água para os meses secos.</p><p>Troque a época no painel e compare.</p>` },
+  { t: "Três climas", alvo: "f-sitio", estado: { sitio: "TB", epoca: 1, d: 95 }, idade: 84, h: `<p>Em <b>Telêmaco Borba-PR</b>, úmido e sem seca, o A1 cresce mais. A mesma desfolha de 95% custa <b>15%</b>, contra 9,5% em Indianópolis, porque ali não há seca em que a água economizada faça diferença.</p><p>Em <b>Imperatriz-MA</b>, a temperatura passa do limite do clone A1 em 31 meses. Por isso esse caso aparece marcado como diagnóstico.</p>` },
+  { t: "O que mais pesa?", alvo: "painel-fatores", h: `<p>Rodamos 2.408 cenários e treinamos uma Random Forest para explicar a perda. Ela aponta o que mais importa:</p><div class="imp-barras">${IMP_RF.map(([n, v]) => `<div><span>${n}</span><div class="barra"><span style="width:${v / 57 * 100}%"></span></div><span class="num">${String(v).replace(".", ",")}%</span></div>`).join("")}</div><p>O ataque em si (intensidade e frequência) manda. Clima, solo e material ajustam a intensidade da resposta.</p>` },
+  { t: "Sua vez", alvo: "bt-sortear", h: `<p>Use <b>Sortear talhão</b> para gerar cenários aleatórios. Trave os fatores que quiser manter. Cada sorteio roda o 3-PG de verdade, no seu navegador.</p><p>Lembre-se: o módulo está <b>verificado</b> (reproduz o r3PG), mas <b>não validado</b> em campo. Os números são hipóteses para testar, não previsões garantidas.</p>` },
+];
+let passo = 0;
+function abrirTour() { passo = 0; document.getElementById("tour").hidden = false; mostrarPasso(); }
+function fecharTour() { document.getElementById("tour").hidden = true; document.querySelectorAll(".destaque").forEach(e => e.classList.remove("destaque")); }
+function mostrarPasso() {
+  const p = PASSOS[passo];
+  document.querySelectorAll(".destaque").forEach(e => e.classList.remove("destaque"));
+  if (p.estado) { Object.assign(E, p.estado); atualizar(); }
+  if (p.idade) { parar(); irPara(p.idade); }
+  if (p.acao === "tocar") tocar(true);
+  const alvo = document.getElementById(p.alvo); if (alvo) { alvo.classList.add("destaque"); alvo.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+  document.getElementById("tour-passo").textContent = `Passo ${passo + 1} de ${PASSOS.length}`;
+  document.getElementById("tour-tit").textContent = p.t; document.getElementById("tour-txt").innerHTML = p.h;
+  document.getElementById("tour-pontos").innerHTML = PASSOS.map((_, i) => `<i class="${i === passo ? "on" : ""}"></i>`).join("");
+  document.getElementById("tour-ant").disabled = passo === 0;
+  document.getElementById("tour-prox").textContent = passo === PASSOS.length - 1 ? "Começar" : "Próximo";
+}
+document.getElementById("tour-prox").addEventListener("click", () => { if (passo < PASSOS.length - 1) { passo++; mostrarPasso(); } else fecharTour(); });
+document.getElementById("tour-ant").addEventListener("click", () => { if (passo > 0) { passo--; mostrarPasso(); } });
+document.getElementById("tour-sair").addEventListener("click", fecharTour);
+document.getElementById("bt-tour").addEventListener("click", abrirTour);
+document.getElementById("bt-sortear").addEventListener("click", sortear);
+document.getElementById("bt-play").addEventListener("click", () => timer ? parar() : tocar(tAtual >= R.c.Wf.length - 1));
+document.getElementById("mes").addEventListener("input", e => { parar(); tAtual = +e.target.value; mostrarMes(); });
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => { temaCena(); mostrarMes(); });
+new MutationObserver(() => { temaCena(); mostrarMes(); }).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+window.addEventListener("resize", () => R && mostrarMes());
+
+try { iniciar3D(); } catch (err) { document.getElementById("aviso3d").textContent = "Seu navegador não abriu a cena 3D. A simulação, os gráficos e o perfil do fuste continuam funcionando."; }
+simular(); montarFatores(); montarTempo(); tAtual = R.k84; mostrarMes();
+let visto = false; try { visto = localStorage.getItem("tour3pg") === "1"; localStorage.setItem("tour3pg", "1"); } catch (e) {}
+if (!visto) abrirTour();
+</script>

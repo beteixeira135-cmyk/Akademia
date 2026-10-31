@@ -1,0 +1,260 @@
+    Variáveis silviculturais e cadastrais em redes neurais artificiais melhoram as
+                    estimativas de altura para Khaya grandifoliola?
+   Does including silvicultural and cadastral variables in artificial neural networks
+                improve height estimates for Khaya grandifoliola?
+
+   Bernardo Teixeira de Castro1; Pedro Nascimento Tavares Izola2; Lidiomar Soares da
+        Costa3; Rodrigo Otávio Veiga de Miranda4; Álvaro Augusto Vieira Soares5
+1Universidade Federal de Uberlândia (UFU), Monte Carmelo/MG
+
+beteixeira@ufu.br
+2Universidade Federal de Uberlândia (UFU), Monte Carmelo/MG
+
+pedro.izola@ufu.br
+3Universidade Federal de Uberlândia (UFU), Monte Carmelo/MG
+
+lidiomar.costa@ufu.br
+4Universidade Federal de Uberlândia (UFU), Monte Carmelo/MG
+
+rodrigo.florestal@ufu.br
+5Universidade Federal de Uberlândia (UFU), Monte Carmelo/MG
+
+alvaro.soares@ufu.br
+Resumo: Este trabalho investigou a aplicação de Redes Neurais Artificiais (RNAs) para
+estimar a altura total de Khaya grandifoliola, utilizando, além do diâmetro a 1,30 m (D)
+variáveis silviculturais e de cadastro. O modelo de RNA final, com arquitetura de duas
+camadas ocultas (50 e 30) e função de ativação ‘relu’, obteve alta acurácia (R² = 0,91; RQEM
+= 10,2%) e capacidade de generalização, validada por validação cruzada em sete folds. A
+análise de importância das variáveis revelou que além de D, o preditor mais influente, as
+variáveis de cadastro e o espaçamento tiveram efeito considerável para o refinamento das
+predições. Os resultados reforçam o potencial do aprendizado de máquina na mensuração
+florestal, oferecendo oportunidade incorporar novas variáveis nos processos de predição.
+Palavras-chave: Modelagem; Hipsometria; Inteligência artificial.
+
+Abstract: This study investigated the application of Artificial Neural Networks (ANNs) to
+estimate the total height of Khaya grandifoliola, using not only diameter at breast height (D)
+but also silvicultural and cadastral variables. The final ANN model, with a two-hidden-layer
+architecture (50 and 30) and ReLU activation function, achieved high accuracy (R² = 0.91;
+RMSE = 10.2%) and generalization capacity, validated through seven-fold cross-validation.
+The variable importance analysis revealed that, in addition to D, the most influential predictor,
+cadastral variables and spacing had a considerable effect on refining predictions. The results
+highlight the potential of machine learning in forest mensuration, offering an opportunity to
+incorporate new variables into prediction processes
+
+Keywords: Modeling; Hypsometry; Artificial intelligence.
+
+
+                                                                                               1
+INTRODUÇÃO
+        A Khaya grandifoliola, conhecida popularmente como mogno-africano, tem se
+destacado no panorama florestal pela qualidade de sua madeira, representando uma opção
+promissora para a diversificação do setor de florestas plantadas no Brasil. A altura total das
+árvores está entre as variáveis básicas da mensuração florestal, pois é utilizada para o
+cálculo de outros atributos essenciais, como volume, biomassa e capacidade produtiva.
+Diferentemente do diâmetro à altura do peito (D), que é medido em todas as árvores da
+parcela, a altura é geralmente coletada em apenas uma amostra das árvores, sendo
+posteriormente estimada por meio desses modelos, tradicionalmente ajustados (Binoti et al.,
+2013) por regressão linear ou não linear, utilizam o D como principal preditor, embora em
+muitos casos também integrem altura dominante, diâmetro médio quadrático e é
+imprescindível, portanto, que tais modelos sejam desenvolvidos de forma a garantir a maior
+acurácia possível. Nesse contexto, o aprendizado de máquina em especial, as Redes
+Neurais Artificiais (RNAs), emergem como ferramentas poderosas.
+        As RNAs são capazes de modelar relações complexas e não lineares entre variáveis
+explicativas e a variável resposta, superando algumas limitações (Binoti et al., 2013);
+diversos estudos já demonstraram sua eficácia na predição da altura de árvores em distintas
+espécies e condições, contribuindo para a redução do esforço de campo e o aumento da
+precisão das estimativas (Martins et al., 2020; Jansen, D, C, 2023). A inclusão de variáveis
+silviculturais, como espaçamento médio, forma do fuste e infestação por cancro, bem como
+variáveis de cadastro, como fazenda e parcela, pode fornecer informações adicionais
+valiosas para o refinamento das estimativas. Tais variáveis refletem as condições
+específicas   de   crescimento,   sanidade    e   manejo    dos   indivíduos,   influenciando
+significativamente a altura das árvores (Campos et al., 2016; Barbosa et al., 2020). Diante
+do exposto, este trabalho tem como objetivo principal estimar a altura total de Khaya
+grandifoliola utilizando Redes Neurais Artificiais, avaliando o impacto da inclusão de
+variáveis de qualidade silvicultural (espaçamento médio, forma do fuste e infestação por
+cancro) e de cadastro (fazenda e parcela) na acurácia das estimativas. Adicionalmente,
+busca-se investigar a importância de cada variável na qualidade das predições.
+
+MATERIAL E MÉTODOS
+        Os dados utilizados no estudo provêm de três fazendas com plantios puros e não
+
+
+                                                                                            2
+desbastados de Khaya grandifoliola no Triângulo Mineiro (MG), região de clima tropical e
+vegetação de Cerrado. As áreas plantadas variaram entre 78 e 279 hectares com
+espaçamentos médios de 5,85 x 6,01 m (35,15 m²/planta),5,95 x 5,83 m (34,7 m²/planta) e
+5,17 x 4,86 m (25,13 m²/planta) para as fazendas A, B e C respectivamente, com idades de
+6 a 12 anos. Foram aplicados dois tipos de inventário florestal: contínuo (Fazenda A) e
+convencional (Fazendas B e C), ambos com amostragem por área fixa, utilizando parcelas
+retangulares (2.880 m²) e quadradas (900 m²), respectivamente, distribuídas de forma
+sistemática.
+        Mediu-se o diâmetro a 1,30 m do solo (D) de todas as árvores e a altura total (H) das
+15 primeiras por parcela. Também foram registradas variáveis categóricas: identificador de
+fazenda, identificador de parcela, presença ou ausência de cancro, classe de tortuosidade
+do tronco, presença de mato-competição. Além disso, também foram medidos os
+espaçamentos entre linhas e entre plantas. A partir destes dados, foi modelada a altura total
+em função das variáveis supracitadas com redes neurais artificiais (RNA). As RNA foram
+desenvolvidas com o algoritmo MLPRegressor, o qual ajusta os pesos sinápticos entre os
+neurônios por meio de algoritmos de otimização, como o gradiente descendente estocástico
+com retropropagação do erro (backpropagation), minimizando como função de perda erro
+quadrático médio. A implementação foi realizada com a biblioteca de código aberto Scikit-
+learn, em linguagem Python.
+     As variáveis utilizadas no modelo foram integradas a um pipeline de pré-
+processamento, o qual organiza de forma sequencial operações essenciais para garantir a
+consistência no tratamento dos dados durante o treinamento e a validação dos modelos. As
+variáveis numéricas foram padronizadas utilizando o método StandardScaler, que remove a
+média e ajusta a variância para 1, o que é especialmente importante para algoritmos que
+assumem dados centrados na origem e com variância unitária. Já as variáveis categóricas
+foram transformadas por meio do OneHotEncoder, que converte cada categoria em uma
+nova coluna binária, tornando-as compatíveis com algoritmos de aprendizado de máquina
+que requerem entradas numéricas. A função de ativação ReLU (Rectified Linear Unit) é
+definida como f(x) = max (0, x), onde x é a entrada para o neurônio. Ela retorna x se x for
+positivo, e 0 caso contrário. O parâmetro max_iter (máximo de iterações) define o número
+máximo de épocas (passagens completas pelo conjunto de dados de treinamento) que o
+algoritmo de otimização executará.
+
+                                                                                           3
+        Realizou-se a validação cruzada do tipo K-fold (com k=7), que consiste em dividir o
+conjunto de dados em 7 subconjuntos (ou “folds”) de tamanhos aproximadamente iguais. O
+modelo é treinado utilizando 6 desses subconjuntos e testado no subconjunto restante. Esse
+processo é repetido 7 vezes, de modo que cada subconjunto seja utilizado uma única vez
+como conjunto de teste. Para a avaliação da validação modelos foram calculadas as
+seguintes estatísticas de qualidade: coeficiente de determinação (R²) (equação 1),
+coeficiente de correlação de Pearson entre os valores observados e estimados (𝑟𝑦𝑦̂ )
+(equação 2) e a raiz quadrada do erro quadrático médio (RQEM) (equação 3).
+            ∑𝑛 (𝑦 −𝑦̂ )2               ∑𝑛       ̅)(𝑦̂𝑖 −𝑦̅̂ )
+                                        𝑖=1(𝑦𝑖 −𝑦                               100   ∑𝑛 (𝑦 −𝑦̂𝑖 )2
+𝑅 2 = 1 − ∑𝑖=1 𝑖
+           𝑛 (𝑦 −𝑦
+                  𝑖
+                 ̅)2
+                     [1]; 𝑟𝑦𝑦̂ =                                    [2]; 𝑅𝑄𝐸𝑀 = 𝑦̅ √ 𝑖=1 𝑛𝑖           ) [3],
+                   𝑖                                            2
+             𝑖=1                   √∑𝑛       ̅)2 ∑𝑛
+                                     𝑖=1(𝑦𝑖 −𝑦        ̂𝑖 −𝑦̅̂ )
+                                                  𝑖=1(𝑦
+
+
+em que: 𝑦𝑖 e 𝑦̂𝑖 são os valores observados e estimados de altura total, respectivamente, 𝑦‾ e
+𝑦̅̂ são suas respectivas médias e 𝑛 é o número de observações.
+
+RESULTADOS E DISCUSSÃO
+        O modelo treinado com a inclusão de variáveis silviculturais e de cadastro demonstrou
+bom desempenho na estimação da altura total de Khaya grandifoliola. Após a otimização de
+hiperparâmetros via Grid Search, técnica que realiza uma busca exaustiva por todas as
+combinações possíveis de hiperparâmetros previamente definidos, visando encontrar a
+configuração que proporciona o melhor desempenho do modelo, e validação cruzada K-
+Fold.
+        O valor de importância das variáveis preditoras está apresentado na Tabela 1. O
+modelo apresentou um R² de 0,91, indicando que aproximadamente 90,8% da variabilidade
+na altura total é explicada pelo modelo. O ryŷ foi de 0,95, demonstrando uma forte relação
+linear entre os valores observados e preditos. O RQEM foi de 10,16%, indicando baixo erro
+médio de predição, um indicador de elevada acurácia.
+        Esses resultados superam os obtidos por Freitas et al. (2022), que ao ajustarem
+modelos hipsométricos convencionais, obtiveram valores de RQEM = 12,8% e ryŷ = 0,90
+para o modelo Scolforo 1. A superioridade do modelo de RNA reflete sua capacidade de
+incorporar relações não lineares complexas e variáveis adicionais como aqui testadas. Estes
+resultados superam, em geral, o desempenho de modelos hipsométricos tradicionais
+(genéricos) que utilizam apenas o D como preditor, conforme demonstrado em estudos
+anteriores (Binoti et al., 2013). A validação cruzada empregada garante que o desempenho
+
+                                                                                                               4
+observado não é um artefato do conjunto de dados de treinamento, mas sim uma estimativa
+confiável da capacidade de generalização do modelo para novos dados.
+     A análise de importância das variáveis, realizada pelo método de permutation
+importance, permitiu avaliar a contribuição relativa de cada variável de entrada para a
+predição da altura total no modelo de RNA. Esse método consiste em embaralhar, uma a
+uma, as variáveis preditoras no conjunto de dados de teste e medir o impacto dessa
+alteração no desempenho do modelo. Quanto maior a queda na acurácia após a permutação
+de uma variável, maior é sua importância para o modelo. Os resultados obtidos evidenciam
+uma hierarquia clara de influência das variáveis (Tabela 1).
+
+Tabela 1: Preditores e sua importância relativa numa rede neural artificial para estimação
+da altura total de árvores de Khaya grandifoliola na região do Triângulo Mineiro.
+     Variável                                            Importância (%)
+
+     Diâmetro a 1,30 m (D)                               79,87
+     Fazenda                                             27,28
+     Parcela                                             25,98
+     Espaçamento entre plantas (m)                       9,21
+     Espaçamento entre linhas (m)                        5,17
+     Classe de tortuosidade                              0,02
+     Presença de cancro                                  0,01
+     Mato-competição                                     0,00
+
+     A inclusão dessas variáveis categóricas, processadas via OneHotEncoder, permitiu
+que a RNA capturasse essas variações espaciais e contextuais, aprimorando a acurácia da
+predição. É natural que as variáveis com identificadores de fazenda e parcela tenham
+contribuído para a maior acurácia do modelo dado que o uso estas variáveis é análogo, na
+prática, a uma estratificação. As variáveis de espaçamento, entre plantas (m) e entre linhas
+(0,0517), também apresentaram relevância, embora em menor grau que o D e as variáveis
+de cadastro. O espaçamento influencia a competição por recursos (luz, água, nutrientes)
+entre as árvores, o que, por sua vez, afeta o crescimento em altura. Classe de tortuosidade,
+presença de cancro e mato-competição pouco ou nada contribuíram para o modelo,
+
+
+                                                                                          5
+indicando que, no conjunto de dados utilizado, a variabilidade ou o impacto dessas
+características na altura total foi marginal, ou que a forma como foram coletadas e ou
+representadas não permitiu que o modelo extraísse informações significativas.
+
+CONCLUSÃO
+     A RNA expandida, alimentada com variáveis silviculturais e de cadastro, demonstrou
+superior aos modelos hipsométricos genéricos Scolforo 1 e Scolforo 2, reportados por Freitas
+et al. (2022) para Khaya grandifoliola na mesma região. Esses modelos, embora acurados,
+apresentaram RQEM em torno de 12,8% e correlação de 0,90, valores inferiores aos obtidos
+pela RNA no presente estudo (R² = 0,91; ryŷ = 0,95; RQEM = 10,2%). A robustez do modelo
+proposto também foi confirmada pela validação cruzada, indicando boa capacidade de
+generalização e aplicabilidade prática em diferentes contextos florestais." A análise de
+variáveis mostrou que, além do D, variáveis de estratificação como fazenda e parcela, bem
+com os espaçamentos entre linha e entre plantas influenciaram significativamente as
+predições. A inclusão dessas variáveis permitiu maior refinamento nas estimativas,
+destacando o potencial do aprendizado de máquina para apoiar o manejo florestal. Sugere-
+se, em estudos futuros, testar novas arquiteturas de RNA, variáveis climáticas e diferentes
+regiões para ampliar a aplicabilidade do modelo.
+
+REFERÊNCIAS
+BARBOSA, R. I.; BINOTI, D. H. B.; LEITE, H. G. et al. Modelagem da altura de árvores em
+plantio de Khaya ivorensis A. Chev. na Amazônia Central utilizando redes neurais
+artificiais. Floresta e Ambiente, Seropédica, v. 27, n. 3, e20190042, 2020.
+Disponível em: https://www.scielo.br/j/floram/a/KSDnnYH3DMFBsNbGwVK5w8d/
+Acesso em: 18 jul. 2025.
+
+BINOTI, M. L. M. D. S.; BINOTI, D. H. B.; LEITE, H. G. Aplicação de redes neurais
+artificiais para estimação da altura de povoamentos equiâneos de eucalipto. Revista
+Árvore, Viçosa, v. 37, p. 639-645, 2013.
+Disponível em: https://www.scielo.br/j/rarv/a/XcnMvQg3qfjG5jsvW3cDvsD/
+Acesso em: 18 jul. 2025.
+
+CAMPOS, B. P. F.; SILVA, G. F.; BINOTI, D. H. B. et al. Predição da altura total de árvores
+em plantios de diferentes espécies por meio de redes neurais artificiais. Pesquisa Florestal
+Brasileira, v. 36, n. 88, p. 375-385, 2016.
+Disponível em: https://pfb.sede.embrapa.br/pfb/article/view/1166
+Acesso em: 15 jul. 2025.
+
+                                                                                           6
+FREITAS, L. L. M. S.; PACHECO, M. S.; MIRANDA, O. O. V. et al. Estimação da altura
+total de árvores em plantios de Khaya grandifoliola na região do Triângulo Mineiro com
+modelos hipsométricos genéricos. In: SIMPÓSIO DE CIÊNCIAS AGRÁRIAS E
+AMBIENTAIS – SICAA, Monte Carmelo, MG, 2022.
+Disponível em: https://doity.com.br/anais/sicaa2022/trabalho/258973
+Acesso em: 18 jul. 2025.
+
+JANSEN, D. C. Estimação de altura em plantio de eucalipto por meio de redes neurais
+artificiais no estado de Rondônia. 2023. Trabalho de Conclusão de Curso (Bacharelado em
+Engenharia Florestal) – Instituto Federal de Educação, Ciência e Tecnologia de Rondônia,
+Ji-Paraná, 2023.
+Disponível em: http://repositorio.ifro.edu.br/handle/123456789/615
+Acesso em: 15 jul. 2025.
+
+MARTINS, M. T.; MARANGON, G. P.; COSTA, E. A. et al. Estimação da altura de plantios
+florestais de eucalipto por regressão e redes neurais artificiais. BIOFIX Scientific Journal,
+Curitiba, v. 5, n. 1, p.141-152, 2020.
+Disponível em: https://dx.doi.org/10.5380/biofix.v5i1.68839
+Acesso em: 15 jul. 2025.
+
+
+
+
+                                                                                                7
+
