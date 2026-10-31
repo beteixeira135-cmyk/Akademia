@@ -378,3 +378,85 @@ serraria ctrl 165,165.0,165.0,True
 serraria desf 110,110.0,110.0,True
 "celulose +5,9%",5.9,5.9,True
 "energia +36,8%",36.8,36.8,True
+cenários totais,7584.0,7584.0,True
+cenários aptos,5688.0,5688.0,True
+aptos por versão,2844.0,2844.0,True
+ganho orig %,1.9,1.9,True
+ganho calib %,3.1,3.1,True
+ganho máx orig,3.5,3.5,True
+ganho máx calib,5.0,5.0,True
+só desfolha ganho orig %,4.9,4.9,True
+só desfolha ganho calib %,19.4,19.4,True
+só desfolha ganhos calib n,28.0,28.0,True
+ganhos calib com 25%,22.0,22.0,True
+só eficiência ganho,0.0,0.0,True
+só mortalidade ganho %,11.1,11.1,True
+só mortalidade ganho máx,1.1,1.1,True
+mortalidade ganho só ALM e ARA,2.0,2.0,True
+desfolha orig ganho só ARA,1.0,1.0,True
+maior ganho IND A1 25 PA jul calib,5.0,5.0,True
+perda mediana orig,11.1,11.1,True
+perda mediana calib,7.4,7.4,True
+perda máx orig,82.8,82.8,True
+perda máx calib,63.6,63.6,True
+folhas recuperam orig %,41.1,41.1,True
+folhas recuperam calib %,88.8,88.8,True
+meses recup orig,32.0,32.0,True
+meses recup calib,8.0,8.0,True
+NPP pós maior orig %,7.7,7.7,True
+NPP pós maior calib %,42.3,42.3,True
+árvore maior com mortalidade %,57.2,57.2,True
+árvore maior e talhão menor %,55.3,55.3,True
+teste: vol trat 277,277.0,277.0,True
+teste: vol ctrl 352,352.0,352.0,True
+"teste: perda 21,3",21.3,21.3,True
+teste: 4 m pulso1 trat,3.6,3.6,True
+teste: 4 m pulso2 trat,4.5,4.5,True
+teste: 4 m pulso1 ctrl,31.2,31.2,True
+teste: 4 m pulso2 ctrl,29.7,29.7,True
+teste: IAF trat jan21,2.9,2.9,True
+teste: IAF ctrl jan21,1.9,1.9,True
+teste: NPP trat jan21,5.6,5.6,True
+teste: NPP ctrl jan21,4.4,4.4,True
+teste: 72-84 trat,56.1,56.1,True
+teste: 72-84 ctrl,56.8,56.8,True
+teste: DAP trat,18.8,18.8,True
+teste: DAP ctrl,18.5,18.5,True
+"teste: vol/árvore +4,9",4.9,4.9,True
+teste: só desfolha,11.6,11.6,True
+teste: só eficiência,12.8,12.8,True
+teste: só mortalidade,5.7,5.7,True
+teste: soma,30.2,30.2,True
+interação mediana,0.02,0.02,True
+interação q05,-4.8,-4.8,True
+interação q95,2.9,2.9,True
+RF kfold R2,0.991,0.991,True
+RF kfold RQEM,1.5,1.5,True
+RF LOSO R2,0.912,0.912,True
+RF LOSO RQEM,4.5,4.5,True
+classif acurácia,98.3,98.3,True
+classif balanceada,93.7,93.7,True
+frac ganho,2.5,2.5,True
+imp frequência,35.6,35.6,True
+imp intensidade,31.1,31.1,True
+imp versão,11.7,11.7,True
+imp eficiência,8.4,8.4,True
+imp época,7.5,7.5,True
+clima+solo < 3,3.0,3.0,True
+LOO RQEM orig,15.1,15.1,True
+LOO RQEM calib,4.2,4.2,True
+LOO viés orig,14.0,14.0,True
+LOO viés calib,0.6,0.6,True
+LOO melhorou,5.0,5.0,True
+C5→A1 RQEM orig,19.1,19.1,True
+C5→A1 RQEM calib,6.4,6.4,True
+C5→A1 viés orig,19.0,19.0,True
+C5→A1 viés calib,6.3,6.3,True
+A1→C5 RQEM orig,11.7,11.7,True
+A1→C5 RQEM calib,4.3,4.3,True
+A1→C5 viés orig,10.7,10.7,True
+A1→C5 viés calib,0.1,0.1,True
+U post mín,1.12,1.12,True
+U post máx,1.21,1.21,True
+a post mín,0.54,0.54,True
+a post máx,0.83,0.83,True

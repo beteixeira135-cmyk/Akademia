@@ -1,0 +1,275 @@
+{
+ "n_cenarios": 7584,
+ "n_aptos": 5688,
+ "calibrada": {
+  "n": 2844,
+  "frac_ganho": 3.1293952180028133,
+  "ganho_max": 5.014880638259145,
+  "n_ganho": 89,
+  "frac_ganho_so_desfolha": 19.444444444444446,
+  "frac_folhas_recuperam": 88.80208333333334,
+  "recup_folhas_mediana": 8.0,
+  "frac_npp_pos_maior": 42.27430555555556,
+  "perda_mediana": 7.398744572466237,
+  "perda_max": 63.63290287903438,
+  "ganho_condicoes": {
+   "d": [
+    0,
+    25,
+    50,
+    75
+   ],
+   "r": [
+    0,
+    20,
+    40,
+    60
+   ],
+   "m": [
+    0,
+    5,
+    15,
+    25
+   ],
+   "freq": [
+    "P1",
+    "PA"
+   ],
+   "sitios": [
+    "ALM",
+    "ARA",
+    "ELD",
+    "IMP",
+    "IND",
+    "TB"
+   ],
+   "materiais": [
+    "A1",
+    "C5"
+   ]
+  }
+ },
+ "original": {
+  "n": 2844,
+  "frac_ganho": 1.8635724331926864,
+  "ganho_max": 3.5188226972233227,
+  "n_ganho": 53,
+  "frac_ganho_so_desfolha": 4.861111111111112,
+  "frac_folhas_recuperam": 41.10243055555556,
+  "recup_folhas_mediana": 32.0,
+  "frac_npp_pos_maior": 7.725694444444445,
+  "perda_mediana": 11.068774307312257,
+  "perda_max": 82.84700252304083,
+  "ganho_condicoes": {
+   "d": [
+    0,
+    25,
+    50,
+    75
+   ],
+   "r": [
+    0,
+    20,
+    40,
+    60
+   ],
+   "m": [
+    0,
+    5,
+    15,
+    25
+   ],
+   "freq": [
+    "P1",
+    "PA"
+   ],
+   "sitios": [
+    "ALM",
+    "ARA"
+   ],
+   "materiais": [
+    "C5"
+   ]
+  }
+ },
+ "ganho_por_tipo": {
+  "só desfolha | calibrada": {
+   "n": 144,
+   "n_ganho": 28,
+   "frac": 19.444444444444446,
+   "ganho_max": 5.014880638259145
+  },
+  "só desfolha | original": {
+   "n": 144,
+   "n_ganho": 7,
+   "frac": 4.861111111111112,
+   "ganho_max": 3.5188226972233227
+  },
+  "só perda de eficiência | calibrada": {
+   "n": 108,
+   "n_ganho": 0,
+   "frac": 0.0,
+   "ganho_max": 0.0
+  },
+  "só perda de eficiência | original": {
+   "n": 108,
+   "n_ganho": 0,
+   "frac": 0.0,
+   "ganho_max": 0.0
+  },
+  "só mortalidade | calibrada": {
+   "n": 108,
+   "n_ganho": 12,
+   "frac": 11.11111111111111,
+   "ganho_max": 1.1220913791913922
+  },
+  "só mortalidade | original": {
+   "n": 108,
+   "n_ganho": 12,
+   "frac": 11.11111111111111,
+   "ganho_max": 1.1220913791913922
+  },
+  "danos combinados | calibrada": {
+   "n": 2484,
+   "n_ganho": 49,
+   "frac": 1.9726247987117553,
+   "ganho_max": 3.609711578217656
+  },
+  "danos combinados | original": {
+   "n": 2484,
+   "n_ganho": 34,
+   "frac": 1.3687600644122384,
+   "ganho_max": 2.561555667808868
+  }
+ },
+ "ganho_so_desfolha_calibrada": {
+  "d25_P1": 9,
+  "d25_PA": 13,
+  "d50_P1": 3,
+  "d50_PA": 2,
+  "d75_P1": 1
+ },
+ "ganho_so_desfolha_original_sitios": [
+  "ARA"
+ ],
+ "ganho_mortalidade_sitios": [
+  "ALM",
+  "ARA"
+ ],
+ "maior_ganho": {
+  "sitio": "IND",
+  "material": "A1",
+  "d": 25,
+  "freq": "PA",
+  "epoca": 7,
+  "r": 0,
+  "m": 0,
+  "versao": "calibrada",
+  "perda_volume": -5.014880638259145
+ },
+ "mortalidade": {
+  "n": 4320,
+  "frac_arvore_maior": 57.22222222222222,
+  "frac_arvore_maior_e_talhao_menor": 55.300925925925924
+ },
+ "perda_por_intensidade_P1_jan": {
+  "calibrada_25": {
+   "min": -0.94,
+   "median": 0.22,
+   "max": 0.43
+  },
+  "calibrada_50": {
+   "min": -0.37,
+   "median": 0.66,
+   "max": 1.91
+  },
+  "calibrada_75": {
+   "min": 0.36,
+   "median": 2.49,
+   "max": 3.41
+  },
+  "calibrada_95": {
+   "min": 2.21,
+   "median": 4.89,
+   "max": 7.07
+  },
+  "original_25": {
+   "min": -1.52,
+   "median": 0.56,
+   "max": 1.64
+  },
+  "original_50": {
+   "min": -2.45,
+   "median": 1.64,
+   "max": 3.46
+  },
+  "original_75": {
+   "min": -1.92,
+   "median": 4.31,
+   "max": 6.83
+  },
+  "original_95": {
+   "min": 0.2,
+   "median": 9.54,
+   "max": 15.24
+  }
+ },
+ "aditividade": {
+  "n": 4968,
+  "frac_subaditivo": 46.73913043478261,
+  "interacao_mediana": 0.01660220293602705,
+  "interacao_q05": -4.835279717243302,
+  "interacao_q95": 2.8644153408919037
+ },
+ "teste_autor": {
+  "combinado": 21.324295730986275,
+  "so_desfolha": 11.582327279850313,
+  "so_eficiencia": 12.830173570890102,
+  "so_mortalidade": 5.7473644826296795,
+  "vol_ctrl": 352.25836533313105,
+  "vol_trat": 277.14174977235615,
+  "arv_trat": 833.3333333333333,
+  "dap_ctrl": 18.502963940741388,
+  "dap_trat": 18.798344873784682,
+  "vol_arvore_rel": 4.900939025351625,
+  "iaf_jan2021_ctrl": 1.9094031539184635,
+  "iaf_jan2021_trat": 2.935507302454491,
+  "npp_jan2021_ctrl": 4.386484767446264,
+  "npp_jan2021_trat": 5.634011765033773,
+  "soma_isolados": 30.159865333370092,
+  "cresc_4m_pos_pulso1_ctrl": 31.17092541918298,
+  "cresc_4m_pos_pulso1_trat": 3.6104675826629418,
+  "cresc_4m_pos_pulso2_ctrl": 29.71789714926956,
+  "cresc_4m_pos_pulso2_trat": 4.452759793667838,
+  "cresc_72_84_ctrl": 56.806853670054124,
+  "cresc_72_84_trat": 56.098470962532815
+ },
+ "kfold": {
+  "k-fold 10 × 3": {
+   "R2": 0.990809906218042,
+   "RQEM_pp": 1.4610372375784912
+  },
+  "deixa um local de fora": {
+   "R2": 0.9117521768251945,
+   "RQEM_pp": 4.527446364472667
+  },
+  "classificacao ganho × perda (k-fold estratificado 10 × 3)": {
+   "acuracia": 98.26534485177024,
+   "acuracia_balanceada": 93.7358154957433,
+   "frac_ganho": 2.4964838255977497
+  }
+ },
+ "importancia_pct": {
+  "pulsos anuais": 35.6,
+  "intensidade d": 31.1,
+  "fisiologia calibrada": 11.7,
+  "perda de eficiência r": 8.4,
+  "época": 7.5,
+  "material C5": 1.4,
+  "chuva anual": 1.4,
+  "mortalidade m": 1.4,
+  "meses secos": 0.8,
+  "T média": 0.6,
+  "CAD": 0.1
+ }
+}

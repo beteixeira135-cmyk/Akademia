@@ -63,6 +63,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Drive (31/10, fim da noite): relatórios da Missão 07 em Docs na pasta 11; Diário recriado com a entrada da Missão 07; passagem atualizada. Autor arrasta TCC rev07 (pasta 08) e zip (pasta 11).
 - Feito (31/10, 20h): plataforma v8 (artifact versão 8). Motor JS com compensação v3, perda de eficiência e mortalidade, conferido contra o Python em 7 cenários (dif. rel. máx 1,4e-14; plataforma/verificacao/comparar.py). Corrigido: volume registrado antes da mortalidade (como no r3PG). 6 locais por bioma; fisiologia original × calibrada; faixa de 90% com 200 amostras do posterior; catálogo de agentes; perda por produto; quadro de domínio de validade; prancha 'Precedentes' (3PG.d, CABALA). TCC rev08 (53 p.): 3.14, 4.12 e conclusão atualizados; auditoria 367/367.
 - Feito (31/10, 21h): 'tudo no TCC' — TCC rev09 (55 p., 10 figuras, 14 tabelas): 3.14 descreve a biblioteca de 52 conceitos, modo explicar, cubagem (Smalian/Huber/Newton), taper e sortimentos; 4.12 traz a perda por produto (serraria −33,6%, celulose +5,9%, energia +36,8%) e a figura v8; Apêndice A com tutorial de 13 passos e figura das toras; Apêndice B com controle de versões, roteiro automatizado, auditorias numérica e científica, verificacao/, revisao_07/, ferramentas/. Auditoria 379/379. Pendente: perguntar ao autor sobre declaração de uso de IA.
+- Feito (31/10, 21h30): espaço de possibilidades (experimentos/possibilidades.py, 7.584 cenários; 5.688 aptos) e validação cruzada da calibração (calibracao/validacao_cruzada.py: LOO k=5 RQEM 15,1→4,2 p.p.; k=2 C5→A1 19,1→6,4; A1→C5 11,7→4,3). RF k-fold 10×3 R² 0,991; LOSO 0,912; classificador ganho×perda 98,3% (bal. 93,7%). Ganho sobre o controle em 1,9% (orig.) e 3,1% (calib.) dos cenários, quase sempre com 25% de desfolha. TCC rev10: 3.15, 4.13 (Tabelas 12–13), Limitações → 4.14; 59 p.; auditoria 461/461.
 ```
 
 ## memoria/progresso.md
@@ -103,6 +104,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
   (1,21 com limite 1,6); limitações (a)–(o); Apêndice C (busca). TCC com 53 p., 14 tabelas; auditoria 363/363.
 - Plataforma v8 (31/10): diferenciais em relação ao 3PG.d — compensação calibrada com incerteza, 6 biomas, outros danos com catálogo, perda por produto, domínio de validade; JS = Python (7 cenários, 1,4e-14). TCC rev08 com 3.14/4.12 atualizados; auditoria 367/367.
 - TCC rev09 (31/10): todo o trabalho descrito no texto (plataforma didática, cubagem e toras, perda por produto, reprodutibilidade e auditorias). 55 p.; auditoria 379/379.
+- TCC rev10 (31/10): seções 3.15/4.13 — possibilidades do módulo (ganho raro, recuperação de folhas ≠ de volume, aditividade) e validação cruzada (k-fold do metamodelo; LOO da calibração). 59 p.; auditoria 461/461.
 ## Falta (em ordem)
 1. OpenAlex: rodar revisao_07/busca/openalex_busca.py após o reset do limite e atualizar a cienciometria.
 3. Revisão do texto pelo autor e envio aos orientadores (1ª semana de novembro).
@@ -121,6 +123,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 31/10: mecanizar o ambiente: AGENTS.md, banco de memória, pipeline único e passagem de bastão gerada automaticamente; GitHub como fonte da verdade quando a conta for conectada.
 - 31/10: Missão 07 — auditoria integrada. Parecer B. Recomendação aos orientadores: discutir γ (literatura indica ≈ 1) e o domínio de uso (sem desfolha total no 1º ano).
 - 31/10: diferenciar a plataforma do 3PG.d (Rua et al., 2020) sem alegar pioneirismo: incerteza propagada, compensação calibrada, outros danos, perda por produto e domínio de validade explícito. A comparação usa só a descrição pública do 3PG.d.
+- 31/10: comprovar com validação cruzada: LOO (k=5) e por clone (k=2) na calibração (dado real, mesmo experimento) e k-fold do metamodelo no espaço de possibilidades (mede regularidade do modelo, não acerto em campo).
 ```
 
 ## memoria/tecnico.md
