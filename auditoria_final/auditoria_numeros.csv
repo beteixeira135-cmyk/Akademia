@@ -203,3 +203,135 @@ vol/árvore mín +14%,14.0,14.0,True
 vol/árvore máx +16%,16.0,16.0,True
 mancha recup mín 24,24.0,24.0,True
 mancha recup máx 35,35.0,35.0,True
+U q50,1.16,1.16,True
+U q05,1.02,1.02,True
+U q95,1.33,1.33,True
+a q50,0.55,0.55,True
+a q05,0.05,0.05,True
+a q95,0.975,0.975,True
+corr U-a,0.09,0.09,True
+"U q50 d0,99",1.07,1.07,True
+C5 obs volume,52.9,52.9,True
+C5 orig volume,64.8,64.8,True
+C5 cal volume,50.4,50.4,True
+C5 erro orig volume,12.0,12.0,True
+C5 erro cal volume,-2.5,-2.5,True
+C5 obs CAP,24.2,24.2,True
+C5 orig CAP,28.5,28.5,True
+C5 cal CAP,20.2,20.2,True
+C5 erro orig CAP,4.3,4.3,True
+C5 erro cal CAP,-4.0,-4.0,True
+C5 obs altura,19.1,19.1,True
+C5 orig altura,34.7,34.7,True
+C5 cal altura,24.9,24.9,True
+C5 erro orig altura,15.7,15.7,True
+C5 erro cal altura,5.8,5.8,True
+A1 obs volume,59.0,59.0,True
+A1 orig volume,79.3,79.3,True
+A1 cal volume,64.8,64.8,True
+A1 q05 volume,53.7,53.7,True
+A1 q95 volume,78.6,78.6,True
+A1 obs CAP,22.9,22.9,True
+A1 orig CAP,40.7,40.7,True
+A1 cal CAP,29.7,29.7,True
+A1 q05 CAP,22.5,22.5,True
+A1 q95 CAP,40.0,40.0,True
+"A1 erro orig vol 20,3",20.3,20.3,True
+"A1 erro cal vol 5,8",5.8,5.8,True
+"A1 erro orig CAP 17,7",17.7,17.7,True
+"A1 erro cal CAP 6,8",6.8,6.8,True
+"d0,99 vol 56,0",56.0,56.0,True
+"d0,99 CAP 24,1",24.1,24.1,True
+"Barry IAF orig 8,3",8.3,8.3,True
+"Barry IAF cal 1,4",1.4,1.4,True
+"Barry IAF q05 −2,4",-2.4,-2.4,True
+"Barry IAF q95 6,7",6.7,6.7,True
+"globulus ganho máx 1,6",1.6,1.6,True
+globulus sem perda (máx ≤ 0),0.0,0.0,True
+tratamentos com desfolha por versão 1.728,1728.0,1728.0,True
+tratamentos por versão 1.728,1728.0,1728.0,True
+original = TCC (dif máx < 1e-10),0.0,0.0,True
+T11 IND P1 orig,1.6,1.6,True
+T11 IND P1 cal,0.7,0.7,True
+T11 IND PA orig,11.5,11.5,True
+T11 IND PA cal,4.6,4.6,True
+T11 IND IC q05,-3.4,-3.4,True
+T11 IND IC q95,9.6,9.6,True
+T11 IND recup orig,28.0,28.0,True
+T11 IND recup cal,12.0,12.0,True
+T11 IMP P1 orig,2.3,2.3,True
+T11 IMP P1 cal,1.5,1.5,True
+T11 IMP PA orig,16.3,16.3,True
+T11 IMP PA cal,6.5,6.5,True
+T11 IMP IC q05,1.0,1.0,True
+T11 IMP IC q95,10.8,10.8,True
+T11 IMP recup orig,26.0,26.0,True
+T11 IMP recup cal,14.0,14.0,True
+T11 TB P1 orig,1.0,1.0,True
+T11 TB P1 cal,0.6,0.6,True
+T11 TB PA orig,7.4,7.4,True
+T11 TB PA cal,1.2,1.2,True
+T11 TB IC q05,-7.2,-7.2,True
+T11 TB IC q95,8.2,8.2,True
+T11 TB recup orig,33.0,33.0,True
+T11 TB recup cal,11.0,11.0,True
+T11 ALM P1 orig,0.7,0.7,True
+T11 ALM P1 cal,0.4,0.4,True
+T11 ALM PA orig,6.5,6.5,True
+T11 ALM PA cal,1.4,1.4,True
+T11 ALM IC q05,-5.6,-5.6,True
+T11 ALM IC q95,4.9,4.9,True
+T11 ALM recup orig,29.0,29.0,True
+T11 ALM recup cal,13.0,13.0,True
+T11 ARA P1 orig,-2.5,-2.5,True
+T11 ARA P1 cal,-0.4,-0.4,True
+T11 ARA PA orig,3.2,3.2,True
+T11 ARA PA cal,1.4,1.4,True
+T11 ARA IC q05,-5.2,-5.2,True
+T11 ARA IC q95,8.2,8.2,True
+T11 ARA recup orig,4.0,4.0,True
+T11 ARA recup cal,2.0,2.0,True
+T11 ELD P1 orig,1.1,1.1,True
+T11 ELD P1 cal,0.4,0.4,True
+T11 ELD PA orig,6.4,6.4,True
+T11 ELD PA cal,2.2,2.2,True
+T11 ELD IC q05,-9.0,-9.0,True
+T11 ELD IC q95,9.5,9.5,True
+T11 ELD recup orig,34.0,34.0,True
+T11 ELD recup cal,11.0,11.0,True
+razão cal/orig P1 55%,55.0,55.0,True
+razão cal/orig PA 34%,34.0,34.0,True
+recup orig mín 4,4.0,4.0,True
+recup orig máx 35,35.0,35.0,True
+recup cal mín 2,2.0,2.0,True
+recup cal máx 14,14.0,14.0,True
+P1 cal C5 < 2% (máx),1.5,1.5,True
+ARA chuva 572,572.0,572.0,True
+ARA meses secos 7,7.0,7.0,True
+ALM chuva 1.862,1862.0,1862.0,True
+"formigas orig mín 2,5",2.5,2.5,True
+"formigas orig máx 6,6",6.6,6.6,True
+"formigas cal mín 0,5",0.5,0.5,True
+"formigas cal máx 3,0",3.0,3.0,True
+"formigas ARA mín −0,6",-0.6,-0.6,True
+"formigas ARA máx 1,5",1.5,1.5,True
+RF LOSO orig cat 63,63.0,63.0,True
+RF LOSO cal cat 143,143.0,143.0,True
+RF LOSO cal clim 69,69.0,69.0,True
+"RF R2 cal cat 0,17",0.17,0.17,True
+"RF R2 cal clim 0,83",0.83,0.83,True
+"RF6 intens orig 50,6",50.6,50.6,True
+"RF6 intens cal 47,3",47.3,47.3,True
+"RF6 freq orig 44,3",44.3,44.3,True
+"RF6 freq cal 42,1",42.1,42.1,True
+Morris nWs topo nos 6 locais,6.0,6.0,True
+"Morris nWs mín 0,69",0.69,0.69,True
+"Morris nWs máx 1,86",1.86,1.86,True
+ARA biomassa aérea mín 57,57.0,57.0,True
+ARA biomassa aérea máx 62,62.0,62.0,True
+IMA C5 IND,51.0,51.0,True
+IMA C5 IMP,45.0,45.0,True
+IMA C5 TB,60.0,60.0,True
+IMA C5 ALM,70.0,70.0,True
+IMA C5 ARA,20.0,20.0,True
+IMA C5 ELD,56.0,56.0,True

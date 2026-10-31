@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (2694 tokens, estimativa (caracteres ÷ 3,6); gerado em 31/10/2026 19:18)
+# PASSAGEM DE BASTÃO — TCC II (2858 tokens, estimativa (caracteres ÷ 3,6); gerado em 31/10/2026 19:24)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (21009 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (21143 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -50,7 +50,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 # Contexto ativo
 - Feito agora: ambiente mecanizado. Repositório privado https://github.com/beteixeira135-cmyk/akademia é a fonte da verdade;
   o pipeline (`ferramentas/pipeline.py`) faz commit e push a cada etapa e regenera PASSAGEM_DE_BASTAO.md.
-- Próximo: escrever 3.13/4.12 (calibração) e 3.14/4.13 (biomas) no tcc_docx/conteudo.js, depois auditoria e docx.
+- Próximo: subir TCC (49 p.) e diário ao Drive; depois plataforma com os 6 locais e a versão calibrada.
 - Arquivos grandes reproduzíveis (experimentos/saida/mensal.csv.gz, PDFs, zips) não vão para o GitHub: regenerar com o pipeline ou buscar no Drive.
 
 ---
@@ -78,10 +78,15 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Plausibilidade ARA: biomassa aérea simulada aos 54 meses 57–62 t/ha × 51–132 t/ha (média 88) de 15 clones na estação do IPA
   (Alves et al., 2007, Rev. Ciênc. Agrár. 48:161-173; 3 × 2 m; ~650 mm). Dentro da faixa, abaixo da média. ELD: sem dado
   publicado de produtividade localizado (não independente de qualquer forma).
+- TCC v. 31/10 noite: 49 p., 9 figuras, 13 tabelas. Novas seções 3.12 (compensação e calibração), 3.13 (biomas),
+  4.10, 4.11 (Tabelas 10 e 11); plataforma → 3.14/4.12; limitações → 4.13 (b) e (j)/(k) revistas; objetivos (+2),
+  introdução, resumo/abstract, palavras-chave, conclusões (+2), siglas e símbolos, 5 referências novas (Alves 2007,
+  IBGE 2024, McNabb e Wadouski 1999, OpenStreetMap, Silva, Mauro e Almeida 2019), Apêndice B. Auditoria: 335/335.
 ## Falta (em ordem)
-1. Texto: 3.13/4.12 calibração; 3.14/4.13 biomas; resumo, objetivos, limitações, conclusão; referências novas conferidas no PDF.
-2. Auditoria com os números novos; gerar docx/pdf; Drive e diário.
-3. Defesa: documento de preparação e slides.
+1. Drive: TCC docx/pdf novos, diário e passagem de bastão.
+2. Plataforma: incluir os 3 novos locais e a opção "com compensação calibrada" (opcional).
+3. Revisão do texto pelo autor e envio aos orientadores (1ª semana de novembro).
+4. Defesa: documento de preparação e slides.
 
 ---
 ## Calibração (lido de calibracao/saida/calibracao_d0999.json)
@@ -110,6 +115,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 31/10 19:18 Biomas: RF com local fora (6 grupos), Morris e danos nos 6 locais, plausibilidade em Araripina
 - 31/10 19:10 Compensação v3: testes (49), validação E. globulus e bloco por bioma (6 locais × original/calibrado + incerteza)
 - 31/10 19:05 Memória: GitHub conectado como fonte da verdade
 - 31/10 19:05 README, passagem de bastão automática e push automático no pipeline

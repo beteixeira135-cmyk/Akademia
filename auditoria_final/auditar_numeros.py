@@ -122,5 +122,82 @@ chk("mort15 mín 1,4", 1.4, m15.perda_volume_84.min(), 1); chk("mort15 máx 3,4"
 chk("vol/árvore mín +14%", 14, 100 * (m15.vol_arvore_ratio.min() - 1), 0); chk("vol/árvore máx +16%", 16, 100 * (m15.vol_arvore_ratio.max() - 1), 0)
 mf = DN[DN.cenario == "Mancha foliar"].recup_rel95_meses
 chk("mancha recup mín 24", 24, mf.min(), 0); chk("mancha recup máx 35", 35, mf.max(), 0)
+# ===== calibração da compensação e biomas (31/10/2026) =====
+CB = Path("/home/claude/tcc/calibracao/saida"); BB = S / "biomas"
+J = json.load(open(CB / "calibracao_d0999.json")); J9 = json.load(open(CB / "calibracao_d099.json"))
+for k_, t_, c_ in [("U q50", 1.16, J["U"]["q50"]), ("U q05", 1.02, J["U"]["q05"]), ("U q95", 1.33, J["U"]["q95"]),
+                   ("a q50", 0.55, J["a"]["q50"]), ("a q05", 0.05, J["a"]["q05"]), ("a q95", 0.975, J["a"]["q95"] + 1e-9),
+                   ("corr U-a", 0.09, J["corr_post"]), ("U q50 d0,99", 1.07, J9["U"]["q50"])]:
+    chk(k_, t_, c_, 3 if k_ == "a q95" else 2)
+for var, ob, orig, cal in [("volume", 52.9, 64.8, 50.4), ("CAP", 24.2, 28.5, 20.2), ("altura", 19.1, 34.7, 24.9)]:
+    chk(f"C5 obs {var}", ob, J["observado_C5"][var]); chk(f"C5 orig {var}", orig, J["original_C5"][var]); chk(f"C5 cal {var}", cal, J["preditiva_media_C5"][var])
+    chk(f"C5 erro orig {var}", {"volume": 12.0, "CAP": 4.3, "altura": 15.7}[var], J["original_C5"][var] - J["observado_C5"][var])
+    chk(f"C5 erro cal {var}", round(cal - ob, 1), J["preditiva_media_C5"][var] - J["observado_C5"][var])
+V = J["validacao_A1_urocam"]
+for var, ob, orig, cal, lo, hi in [("volume", 59.0, 79.3, 64.8, 53.7, 78.6), ("CAP", 22.9, 40.7, 29.7, 22.5, 40.0)]:
+    chk(f"A1 obs {var}", ob, V["observado"][var]); chk(f"A1 orig {var}", orig, V["original"][var]); chk(f"A1 cal {var}", cal, V["calibrado_media"][var])
+    chk(f"A1 q05 {var}", lo, V["calibrado_q05"][var]); chk(f"A1 q95 {var}", hi, V["calibrado_q95"][var])
+chk("A1 erro orig vol 20,3", 20.3, V["original"]["volume"] - V["observado"]["volume"]); chk("A1 erro cal vol 5,8", 5.8, V["calibrado_media"]["volume"] - V["observado"]["volume"])
+chk("A1 erro orig CAP 17,7", 17.7, V["original"]["CAP"] - V["observado"]["CAP"]); chk("A1 erro cal CAP 6,8", 6.8, V["calibrado_media"]["CAP"] - V["observado"]["CAP"])
+chk("d0,99 vol 56,0", 56.0, J9["validacao_A1_urocam"]["calibrado_media"]["volume"]); chk("d0,99 CAP 24,1", 24.1, J9["validacao_A1_urocam"]["calibrado_media"]["CAP"])
+GL = pd.read_csv(CB / "validacao_globulus.csv")
+gl = lambda caso, ver, var, col="perda_media": GL[GL.caso.str.startswith(caso) & (GL.versao == ver) & (GL.variavel == var)][col].iloc[0]
+chk("Barry IAF orig 8,3", 8.3, gl("Barry", "original", "lai")); chk("Barry IAF cal 1,4", 1.4, gl("Barry", "calibrado", "lai"))
+chk("Barry IAF q05 −2,4", -2.4, gl("Barry", "calibrado", "lai", "q05")); chk("Barry IAF q95 6,7", 6.7, gl("Barry", "calibrado", "lai", "q95"))
+chk("globulus ganho máx 1,6", 1.6, -GL[GL.variavel.isin(["dbh", "height"])].perda_media.min())
+chk("globulus sem perda (máx ≤ 0)", 0.0, max(0.0, GL[GL.variavel.isin(["dbh", "height"])].perda_media.max()), 1)
+# biomas
+BO = pd.read_csv(BB / "indicadores_original.csv"); BC = pd.read_csv(BB / "indicadores_calibrado.csv"); BU = pd.read_csv(BB / "incerteza_posterior_d50.csv")
+MB = pd.read_csv(BB / "matriz_biomas.csv")
+chk("tratamentos com desfolha por versão 1.728", 1728, (MB.desfolha > 0).sum(), 0)
+chk("tratamentos por versão 1.728", 1728, len(BO), 0)
+Lo = L.set_index(["sitio", "material", "calendario", "desfolha"]).perda_volume_k72
+bo = BO[(BO.nivel_FR == "F100")].set_index(["sitio", "material", "calendario", "desfolha"]).perda_volume_k72
+chk("original = TCC (dif máx < 1e-10)", 0.0, max(0.0, (bo.reindex(Lo.index) - Lo).abs().max() - 1e-10), 1)
+bget = lambda D, s_, m_, cal_, col="perda_volume_k72": D[(D.sitio == s_) & (D.material == m_) & (D.nivel_FR == "F100") & (D.desfolha == 0.5) & (D.calendario == cal_)][col].iloc[0]
+T11 = {"IND": (1.6, 0.7, 11.5, 4.6, -3.4, 9.6, 28, 12), "IMP": (2.3, 1.5, 16.3, 6.5, 1.0, 10.8, 26, 14), "TB": (1.0, 0.6, 7.4, 1.2, -7.2, 8.2, 33, 11),
+       "ALM": (0.7, 0.4, 6.5, 1.4, -5.6, 4.9, 29, 13), "ARA": (-2.5, -0.4, 3.2, 1.4, -5.2, 8.2, 4, 2), "ELD": (1.1, 0.4, 6.4, 2.2, -9.0, 9.5, 34, 11)}
+for s_, (p1o, p1c, pao, pac, lo_, hi_, ro, rc) in T11.items():
+    chk(f"T11 {s_} P1 orig", p1o, bget(BO, s_, "C5", "P1")); chk(f"T11 {s_} P1 cal", p1c, bget(BC, s_, "C5", "P1"))
+    chk(f"T11 {s_} PA orig", pao, bget(BO, s_, "C5", "PA")); chk(f"T11 {s_} PA cal", pac, bget(BC, s_, "C5", "PA"))
+    u_ = BU[(BU.sitio == s_) & (BU.material == "C5") & (BU.calendario == "PA")].iloc[0]
+    chk(f"T11 {s_} IC q05", lo_, u_.q05); chk(f"T11 {s_} IC q95", hi_, u_.q95)
+    chk(f"T11 {s_} recup orig", ro, bget(BO, s_, "C5", "P1", "recup_rel95_meses_ev1"), 0); chk(f"T11 {s_} recup cal", rc, bget(BC, s_, "C5", "P1", "recup_rel95_meses_ev1"), 0)
+k_ = ["sitio", "material", "nivel_FR", "desfolha", "calendario"]
+XB = BO.merge(BC, on=k_, suffixes=("_o", "_c")); XB = XB[(XB.nivel_FR == "F100") & (XB.desfolha == 0.5) & XB.apto_analise_principal_o]
+p1 = XB[(XB.calendario == "P1") & (XB.perda_volume_k72_o > 0)]; pa = XB[XB.calendario == "PA"]
+chk("razão cal/orig P1 55%", 55, 100 * (p1.perda_volume_k72_c / p1.perda_volume_k72_o).median(), 0)
+chk("razão cal/orig PA 34%", 34, 100 * (pa.perda_volume_k72_c / pa.perda_volume_k72_o).median(), 0)
+r1 = XB[XB.calendario == "P1"]
+chk("recup orig mín 4", 4, r1.recup_rel95_meses_ev1_o.min(), 0); chk("recup orig máx 35", 35, r1.recup_rel95_meses_ev1_o.max(), 0)
+chk("recup cal mín 2", 2, r1.recup_rel95_meses_ev1_c.min(), 0); chk("recup cal máx 14", 14, r1.recup_rel95_meses_ev1_c.max(), 0)
+chk("P1 cal C5 < 2% (máx)", 1.5, BC[(BC.material == "C5") & (BC.nivel_FR == "F100") & (BC.desfolha == 0.5) & (BC.calendario == "P1")].perda_volume_k72.max(), 1)
+CR = pd.read_csv(BB / "clima_resumo_locais.csv", index_col=0)
+chk("ARA chuva 572", 572, CR.at["ARA", "chuva_anual"], 0); chk("ARA meses secos 7", 7, CR.at["ARA", "meses_secos"], 0); chk("ALM chuva 1.862", 1862, CR.at["ALM", "chuva_anual"], 0)
+DB = pd.read_csv(BB / "danos_6locais.csv")
+fo = DB[(DB.cenario == "Formigas-cortadeiras")]; foA = fo[fo.sitio != "ARA"]
+chk("formigas orig mín 2,5", 2.5, foA[foA.versao == "original"].perda_volume_84.min()); chk("formigas orig máx 6,6", 6.6, foA[foA.versao == "original"].perda_volume_84.max())
+chk("formigas cal mín 0,5", 0.5, foA[foA.versao == "calibrado"].perda_volume_84.min()); chk("formigas cal máx 3,0", 3.0, foA[foA.versao == "calibrado"].perda_volume_84.max())
+chk("formigas ARA mín −0,6", -0.6, fo[fo.sitio == "ARA"].perda_volume_84.min()); chk("formigas ARA máx 1,5", 1.5, fo[fo.sitio == "ARA"].perda_volume_84.max())
+RFr = pd.read_csv(BB / "rf_resumo.csv"); RI = pd.read_csv(BB / "rf_importancia.csv")
+rr = lambda v_, var_, col: RFr[(RFr.versao == v_) & (RFr.resposta == "perda_volume_k72") & (RFr.variaveis.str.startswith(var_)) & (RFr.esquema == "deixa um local de fora")][col].iloc[0]
+chk("RF LOSO orig cat 63", 63, rr("original", "(a)", "RQEM"), 0); chk("RF LOSO cal cat 143", 143, rr("calibrado", "(a)", "RQEM"), 0)
+chk("RF LOSO cal clim 69", 69, rr("calibrado", "(b)", "RQEM"), 0); chk("RF R2 cal cat 0,17", 0.17, rr("calibrado", "(a)", "R2"), 2); chk("RF R2 cal clim 0,83", 0.83, rr("calibrado", "(b)", "R2"), 2)
+ri = lambda v_, var_: RI[(RI.versao == v_) & (RI.resposta == "perda_volume_k72") & (RI.variavel == var_)].importancia_pct.iloc[0]
+chk("RF6 intens orig 50,6", 50.6, ri("original", "intensidade")); chk("RF6 intens cal 47,3", 47.3, ri("calibrado", "intensidade"))
+chk("RF6 freq orig 44,3", 44.3, ri("original", "frequência")); chk("RF6 freq cal 42,1", 42.1, ri("calibrado", "frequência"))
+MOB = pd.read_csv(BB / "morris_C5_6locais.csv"); mv = MOB[MOB.resposta == "perda_volume_84_pp"]
+top = mv.loc[mv.groupby("sitio").mu_estrela.idxmax()]
+chk("Morris nWs topo nos 6 locais", 6, (top.parametro == "nWs").sum(), 0)
+chk("Morris nWs mín 0,69", 0.69, top.mu_estrela.min(), 2); chk("Morris nWs máx 1,86", 1.86, top.mu_estrela.max(), 2)
+sys.path.insert(0, str(X)); sys.path.insert(0, "/home/claude/tcc/modelo")
+from morris_danos_biomas import sim as _simb  # noqa: E402
+aer = [(_simb("ARA", m_).loc[54, "biom_stem"] + _simb("ARA", m_).loc[54, "biom_foliage"]) for m_ in ["A1", "C5", "C2", "C4"]]
+chk("ARA biomassa aérea mín 57", 57, min(aer), 0); chk("ARA biomassa aérea máx 62", 62, max(aer), 0)
+from run_experimentos import rodar as _r0, linha as _l0  # noqa: E402
+from clones import MATERIAIS as _MAT  # noqa: E402
+_ima = lambda s_: _r0(_l0(s_, "C5", None, _MAT["C5"]["FR_ref"], "F100", 0.0, "P1", "X", asw={"IND": 215, "TB": 214, "IMP": 210, "ALM": 219, "ARA": 194, "ELD": 145}[s_]))
+for s_, t_ in [("IND", 51), ("IMP", 45), ("TB", 60), ("ALM", 70), ("ARA", 20), ("ELD", 56)]:
+    o_ = _ima(s_); k84 = (o_.idade_meses - 84).abs().idxmin(); chk(f"IMA C5 {s_}", t_, o_.volume[k84] / 7, 0)
 O = pd.DataFrame(ok); O.to_csv("/home/claude/tcc/auditoria_final/auditoria_numeros.csv", index=False)
 print(len(O), "itens;", int(O.ok.sum()), "conferem"); print(O[~O.ok].to_string())

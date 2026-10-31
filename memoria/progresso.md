@@ -22,7 +22,12 @@
 - Plausibilidade ARA: biomassa aérea simulada aos 54 meses 57–62 t/ha × 51–132 t/ha (média 88) de 15 clones na estação do IPA
   (Alves et al., 2007, Rev. Ciênc. Agrár. 48:161-173; 3 × 2 m; ~650 mm). Dentro da faixa, abaixo da média. ELD: sem dado
   publicado de produtividade localizado (não independente de qualquer forma).
+- TCC v. 31/10 noite: 49 p., 9 figuras, 13 tabelas. Novas seções 3.12 (compensação e calibração), 3.13 (biomas),
+  4.10, 4.11 (Tabelas 10 e 11); plataforma → 3.14/4.12; limitações → 4.13 (b) e (j)/(k) revistas; objetivos (+2),
+  introdução, resumo/abstract, palavras-chave, conclusões (+2), siglas e símbolos, 5 referências novas (Alves 2007,
+  IBGE 2024, McNabb e Wadouski 1999, OpenStreetMap, Silva, Mauro e Almeida 2019), Apêndice B. Auditoria: 335/335.
 ## Falta (em ordem)
-1. Texto: 3.13/4.12 calibração; 3.14/4.13 biomas; resumo, objetivos, limitações, conclusão; referências novas conferidas no PDF.
-2. Auditoria com os números novos; gerar docx/pdf; Drive e diário.
-3. Defesa: documento de preparação e slides.
+1. Drive: TCC docx/pdf novos, diário e passagem de bastão.
+2. Plataforma: incluir os 3 novos locais e a opção "com compensação calibrada" (opcional).
+3. Revisão do texto pelo autor e envio aos orientadores (1ª semana de novembro).
+4. Defesa: documento de preparação e slides.
