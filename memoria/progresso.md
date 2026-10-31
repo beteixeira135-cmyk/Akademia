@@ -13,9 +13,16 @@
 - Bloco por bioma (experimentos/run_biomas.py → saida/biomas/): 1.728 tratamentos × 2 versões; a versão original reproduz
   o bloco LOCAL do TCC (diferença máx. 3e-14). Calibrado reduz perdas (ex.: IND A1 50% PA 13,8 → 8,8%) e a recuperação
   relativa de 23–35 para 8–15 meses (exceto ARA, 2–8). Incerteza (200 amostras) em incerteza_posterior_d50.csv.
+- RF 6 locais (saida/biomas/rf_*.csv): importância perda de volume — intensidade 50,6/47,3%, frequência 44,3/42,1%
+  (original/calibrado). Local fora, RQEM média: original 63% (local categórico) e 66% (clima numérico); calibrado 143% e 69%
+  (descrever o clima por números melhora a transferência na versão calibrada; R² 0,17 → 0,83).
+- Morris C5, 6 locais (morris_C5_6locais.csv): nWs, k e SLA1 dominam a perda de volume em todos os locais.
+- Danos, 6 locais, C5 (danos_6locais.csv): formigas original 2,5–6,6% (−0,6 em ARA) → calibrado 0,5–3,0%; em ARA a desfolha
+  economiza água e o original dá ganho (−2,5% lagarta), atenuado na calibrada (−0,4%).
+- Plausibilidade ARA: biomassa aérea simulada aos 54 meses 57–62 t/ha × 51–132 t/ha (média 88) de 15 clones na estação do IPA
+  (Alves et al., 2007, Rev. Ciênc. Agrár. 48:161-173; 3 × 2 m; ~650 mm). Dentro da faixa, abaixo da média. ELD: sem dado
+  publicado de produtividade localizado (não independente de qualquer forma).
 ## Falta (em ordem)
-1. RF com local fora (6 grupos), Morris nos novos locais, danos nos 6 locais.
-2. Plausibilidade: ARA biomassa aérea aos 54 meses × 51–132 t/ha (IPA); ELD × TECHS 6.
-3. Texto: 3.13/4.12 calibração; 3.14/4.13 biomas; resumo, objetivos, limitações, conclusão; referências novas conferidas no PDF.
-4. Auditoria com os números novos; gerar docx/pdf; Drive e diário.
-5. Defesa: documento de preparação e slides.
+1. Texto: 3.13/4.12 calibração; 3.14/4.13 biomas; resumo, objetivos, limitações, conclusão; referências novas conferidas no PDF.
+2. Auditoria com os números novos; gerar docx/pdf; Drive e diário.
+3. Defesa: documento de preparação e slides.
