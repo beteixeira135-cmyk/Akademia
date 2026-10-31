@@ -1,0 +1,57 @@
+"""Matriz de afirmações do TCC (etapa 1) e matriz de correções (etapa 8/9). Classes:
+FL fundamentada por literatura; FC por resultado computacional reproduzido; OS sustentada por observação secundária;
+PS parcialmente sustentada; ED extrapolação declarada; SE sem evidência suficiente; IC incorreta ou contraditória."""
+import csv
+from pathlib import Path
+O = Path(__file__).parent
+L = [
+ # (id, seção/parágrafo, afirmação, classe, evidência, fonte, limitação, gravidade, ação)
+ ("A01", "Resumo; P61", "Implementação reproduz o r3PG (R² = 1,000; RQEM < 1e-12 %)", "FC", "Comparação com o r3PG compilado; 49 testes reexecutados", "auditoria_final; modelo/testes", "—", "—", "Manter"),
+ ("A02", "Resumo; P64", "A1 produz 37 Mg/ha/ano de lenho em TB contra 34 medidos", "OS", "Binkley et al. (2017); simulação", "controles_solo_local.csv", "Não independente (TECHS usada na calibração do A1)", "—", "Manter (já declarado)"),
+ ("A03", "P4", "Não há módulo de desfolha documentado para o r3PG aplicado a eucaliptos brasileiros", "PS", "Busca Crossref (e OpenAlex, se disponível); Pinkard et al. (2011): 3-PG sem pragas; CABALA já representa desfolha",
+  "Relatório cienciométrico", "Ausência de evidência não prova ausência; CABALA e CenW representam pragas", "Média", "Manter a cautela ('até onde se pôde verificar') e citar o CABALA como precedente processual"),
+ ("A04", "P8; P54", "Bertulio et al. (2008) é o único experimento brasileiro de desfolha com perdas publicadas", "IC", "Matrangolo et al. (2010) publicou perdas de volume (37,9–79,7%); estudos com formigas (Freitas et al., 1994; Zanetti et al.) citados por Matrangolo",
+  "R02, Tabela 2", "—", "Alta", "Reescrever: único, entre os reunidos, com idade compatível com as parametrizações"),
+ ("A05", "Resumo; P17; P54; P89; Tab. 10; C6", "O urocam/A1 é 'validação' da calibração", "PS", "Teste fora do ajuste; mesmo experimento, local, datas e protocolo; A1 ≠ urocam; melhora dependente de a",
+  "calibracao/saida/auditoria_calibracao.json", "Não é independente", "Alta", "Chamar de teste com material não usado no ajuste e declarar a não independência"),
+ ("A06", "P90", "U = 1,16 está dentro da faixa observada em eucaliptos jovens (Pinkard et al., 2007)", "PS", "Pinkard (2007) não dá percentual no texto; Quentin (2012): cerca de +30% transitório; Pinkard (1998, apud Quentin 2011): até +35%",
+  "R05, R07, R09", "Amax ≠ eficiência quântica; posterior sensível ao limite do prior (1,21 com limite 1,6)", "Média", "Corrigir citação e declarar a sensibilidade ao prior"),
+ ("A07", "P52–P53", "Compensação ativa enquanto W_F < W_F,ref, adaptando o CABALA", "PS", "Pinkard et al. (2011): regra do CABALA; Quentin (2012): aumento transitório (semanas)", "R03, R05",
+  "Duração no modelo ≠ transitória observada", "Média", "Acrescentar à discussão e às limitações"),
+ ("A08", "P53", "γ limitado à homeostase observada com 45% (Quentin et al., 2011)", "FL", "Transpiração por alburno sem diferença; teste: γ = 1 reproduz razão 0,998 no A1", "R09; testes_adicionais.json", "Inativo com IAF > LAIgcx", "Baixa", "Acrescentar o resultado do teste"),
+ ("A09", "P55", "γ não é identificável no protocolo de Bertulio", "FC", "Perdas idênticas com γ de 0 a 1", "protocolo.py", "—", "—", "Manter"),
+ ("A10", "P70", "A transpiração compensatória é 'processo não representado no modelo'", "IC", "Desde a v3 é representada (γ)", "Seção 3.12", "Vale só para a versão original", "Média", "Especificar 'na versão original'"),
+ ("A11", "P84", "Realocação e aumento da fotossíntese são 'mecanismos ausentes no 3-PG'; o módulo leva 23–35 meses", "IC", "Desde a v3 estão representados; a calibrada recupera em 2–14 meses", "Seções 3.12 e 4.11",
+  "Vale só para a versão original", "Média", "Especificar 'na versão original' e remeter a 4.10–4.11"),
+ ("A12", "P84; P91", "Barry et al. (2012) não encontraram diferenças", "PS", "Também encontraram volume do tronco significativamente maior nas desfolhadas (sobrecompensação)", "R04", "Omissão de resultado favorável aos ganhos simulados", "Baixa", "Acrescentar"),
+ ("A13", "P83", "Matrangolo et al. (2010) 'não foi comparável'", "PS", "Protocolo aproximado mostra subestimação de cerca de 10 vezes (RQEM 54–56 p.p.)", "testes_adicionais.json", "Comparação aproximada", "Alta", "Apresentar a evidência contrária e restringir o domínio de uso"),
+ ("A14", "P93; C6", "Com a calibração, as perdas caem para metade (pulso único) e um terço (anual)", "FC", "Reproduzido (auditoria 336/336)", "saida/biomas", "Depende de a, pouco identificado; não vale para desfolha total precoce (Matrangolo)", "Média", "Manter com a ressalva"),
+ ("A15", "P93", "A recuperação calibrada (2–14 meses) fica mais próxima da observada em campo", "OS", "Santos et al. (2001): até 6 meses (mancha foliar); Eyles (2009): 5 meses", "R08", "Comparação qualitativa", "Baixa", "Manter e citar Eyles (2009)"),
+ ("A16", "P66", "Materiais de Borges produziram IAF de 7 a 11", "IC", "IAF máximo de 8,05 a 11,30 (controles); a seção 4.5 diz 8 a 11", "controles_solo_local.csv", "Inconsistência interna", "Baixa", "Uniformizar para 'IAF máximo de 8 a 11'"),
+ ("A17", "P25", "Não há plantios comerciais de eucalipto na planície pantaneira", "PS", "Silva, Mauro e Almeida (2019): quebra-ventos; nenhuma fonte de plantio comercial localizada", "Busca", "Ausência de registro não prova ausência", "Baixa", "Reescrever: não se localizaram registros de plantios comerciais"),
+ ("A18", "P92", "Em Almeirim, não se localizou medição publicada para comparação", "PS", "McNabb e Wadouski (1999) relatam produtividade da Jari, mas o texto completo não foi acessado", "F14", "—", "Baixa", "Reescrever: medições existentes não foram acessadas"),
+ ("A19", "P95", "A sensibilidade do C5 não muda de ordem entre os biomas", "PS", "Só o 1º parâmetro (nWs) é o mesmo nos 6 locais; o 2º muda", "morris_C5_6locais.csv", "—", "Baixa", "Reescrever: o parâmetro mais influente é o mesmo"),
+ ("A20", "P95", "Clima numérico melhora a transferência do metamodelo", "FC", "R² 0,17 → 0,83 (calibrado)", "rf_resumo.csv", "6 locais; RQEM alta", "—", "Manter"),
+ ("A21", "P69–P72; Tab. 5", "Perdas por intensidade, frequência e época (versão original)", "FC", "Auditoria", "indicadores_por_tratamento.csv", "Sem compensação", "Baixa", "Indicar no título das seções que se referem à versão original"),
+ ("A22", "P70", "O módulo superestima a economia de água nos locais secos", "FL", "Quentin (2011); teste: razão 0,785 no original", "testes_adicionais.json", "—", "—", "Manter e acrescentar o número"),
+ ("A23", "P76", "Menor perda dos materiais de Borges reflete a saturação do dossel", "FC", "APAR −15% × −33% com 50%", "Auditoria", "—", "—", "Manter"),
+ ("A24", "P80", "Transferência entre locais é baixa (RQEM 38% com local fora)", "FC", "Auditoria", "D_kfold_resumo.csv", "Metamodelo do 3-PG, não do campo", "—", "Manter"),
+ ("A25", "P87; C5", "Mortalidade de 15% gera perda de 1,4–3,4% (limite inferior)", "ED", "Simulação; justificativa estrutural", "danos_v2.csv", "Sem dado de campo", "—", "Manter"),
+ ("A26", "P51", "Magnitudes de dano da literatura (psilídeo 20–30%; formigas; seca de ponteiros até 15%)", "FL", "Wilcken (2003); Zanetti (2014); Santos (2001)", "Referências", "Literatura técnica", "—", "Manter"),
+ ("A27", "P92", "Biomassa simulada em Araripina dentro da faixa do IPA", "OS", "Alves et al. (2007)", "F14", "Densidade 3 × 2 e chuva diferentes; abaixo da média", "—", "Manter (já declarado)"),
+ ("A28", "P99", "Limitações (a)–(k)", "FL/ED", "—", "—", "Faltam: teste não independente, U ≠ Amax, transitoriedade, evidência contrária de Matrangolo, falta de modulação por N", "Média", "Acrescentar itens"),
+ ("A29", "C9", "Módulo não validado nos locais simulados", "FC/FL", "Coerente com toda a evidência", "—", "—", "—", "Manter"),
+ ("A30", "Introdução P2", "Estudos brasileiros aplicaram desfolha total", "FL", "Bertulio (2008); Matrangolo (2010)", "R01, R02", "—", "—", "Manter"),
+ ("A31", "P2; P52", "Estudos australianos documentaram compensação", "FL", "R04–R10", "Fichas F03–F09", "Desfolha parcial, E. globulus", "—", "Manter"),
+ ("A32", "P58; P98", "Perfil do fuste e altura do A1 são esquemáticos na plataforma", "ED", "Declarado", "—", "—", "—", "Manter"),
+]
+cab = ["id", "secao", "afirmacao", "classe", "evidencia", "fonte", "limitacao", "gravidade", "acao"]
+with open(O / "matriz_afirmacoes.csv", "w", newline="", encoding="utf8") as f:
+    w = csv.writer(f); w.writerow(cab); w.writerows(L)
+COR = [(x[0], x[1], x[2], x[7], x[8]) for x in L if x[7] in ("Alta", "Média", "Baixa")]
+with open(O / "matriz_correcoes.csv", "w", newline="", encoding="utf8") as f:
+    w = csv.writer(f); w.writerow(["id", "secao", "problema", "gravidade", "correcao", "situacao"])
+    for c in COR:
+        w.writerow(list(c) + ["aplicada na versão revisada (ver diff em tcc_docx/conteudo.js)"])
+from collections import Counter
+print(Counter(x[3] for x in L), Counter(x[7] for x in L))

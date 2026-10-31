@@ -199,5 +199,24 @@ from clones import MATERIAIS as _MAT  # noqa: E402
 _ima = lambda s_: _r0(_l0(s_, "C5", None, _MAT["C5"]["FR_ref"], "F100", 0.0, "P1", "X", asw={"IND": 215, "TB": 214, "IMP": 210, "ALM": 219, "ARA": 194, "ELD": 145}[s_]))
 for s_, t_ in [("IND", 51), ("IMP", 45), ("TB", 60), ("ALM", 70), ("ARA", 20), ("ELD", 56)]:
     o_ = _ima(s_); k84 = (o_.idade_meses - 84).abs().idxmin(); chk(f"IMA C5 {s_}", t_, o_.volume[k84] / 7, 0)
+# ===== Missão 07: auditoria da calibração e testes adicionais =====
+AC = json.load(open(CB / "auditoria_calibracao.json")); TA = json.load(open(CB / "testes_adicionais.json"))
+ua = AC["atribuicao_urocam"]
+chk("urocam só U 79,1", 79.1, ua["so_U"]["volume"]); chk("urocam só a 70,1", 70.1, ua["so_a"]["volume"]); chk("urocam U e a 61,7", 61.7, ua["U_e_a"]["volume"])
+p16 = AC["prior_U_ate_1_6"]
+chk("prior 1,6 U q50 1,21", 1.21, p16["U"][1], 2); chk("prior 1,6 U q05 1,02", 1.02, p16["U"][0], 2); chk("prior 1,6 U q95 1,54", 1.54, p16["U"][2], 2)
+chk("reexecução U q50 = publicado", 1.16, AC["reexecucao"]["U"][1], 2)
+qa = {r["versao"]: r["razao_transpiracao_7meses"] for r in TA["quentin2011_transpiracao_A1"]}
+chk("Quentin orig −21,5%", 21.5, 100 * (1 - qa["original"])); chk("Quentin γ0,5 −4,5%", 4.5, 100 * (1 - qa["calibrado γ=0,5"])); chk("Quentin γ1 −0,2%", 0.2, 100 * (1 - qa["calibrado γ=1"]))
+MTt = pd.DataFrame(TA["matrangolo"])
+chk("Matrangolo obs 1x 37,9", 37.9, MTt.observado.iloc[0]); chk("Matrangolo obs 3x 79,7", 79.7, MTt.observado.iloc[3])
+chk("Matrangolo orig mín 2,6", 2.6, MTt.original.min()); chk("Matrangolo orig máx 12,7", 12.7, MTt.original.max())
+chk("Matrangolo cal mín 1,1", 1.1, MTt.calibrado_mediana.min()); chk("Matrangolo cal máx 8,5", 8.5, MTt.calibrado_mediana.max())
+chk("Matrangolo RQEM orig 54", 54, TA["matrangolo_metricas"]["rmse_original"], 0); chk("Matrangolo RQEM cal 56", 56, TA["matrangolo_metricas"]["rmse_calibrado"], 0)
+fo_ = MTt.observado / MTt.original; fc_ = MTt.observado / MTt.calibrado_mediana
+chk("fator orig mín 6", 6, fo_.min(), 0); chk("fator orig máx 15", 15, fo_.max(), 0); chk("fator cal mín 9", 9, fc_.min(), 0); chk("fator cal máx 34", 34, fc_.max(), 0)
+RF_ = json.load(open("/home/claude/tcc/revisao_07/corpus/resumo_filtro.json"))
+chk("busca registros 10.000", 10000, RF_["registros_baixados"], 0); chk("busca DOI únicos 7.908", 7908, RF_["unicos_por_doi"], 0)
+chk("busca dedup 7.431", 7431, RF_["apos_dedup_titulo"], 0); chk("núcleo 93", 93, RF_["nucleo"], 0); chk("contexto 3-PG 20", 20, RF_["contexto_3pg"], 0)
 O = pd.DataFrame(ok); O.to_csv("/home/claude/tcc/auditoria_final/auditoria_numeros.csv", index=False)
 print(len(O), "itens;", int(O.ok.sum()), "conferem"); print(O[~O.ok].to_string())

@@ -1,0 +1,91 @@
+Warning: dependency 'Matrix' is not available
+also installing the dependencies 'sys', 'highr', 'xfun', 'tinytex', 'bit', 'rappdirs', 'qpdf', 'farver', 'labeling', 'askpass', 'knitr', 'rmarkdown', 'yaml', 'lazyeval', 'bit64', 'rematch', 'prettyunits', 'jquerylib', 'memoise', 'sass', 'base64enc', 'jsonlite', 'magrittr', 'pdftools', 'tibble', 'httr', 'generics', 'lifecycle', 'rlang', 'tidyselect', 'vctrs', 'gtable', 'isoband', 'S7', 'scales', 'Rcpp', 'withr', 'curl', 'openssl', 'cpp11', 'viridisLite', 'htmltools', 'htmlwidgets', 'RColorBrewer', 'crosstalk', 'data.table', 'promises', 'zip', 'rentrez', 'XML', 'clipr', 'hms', 'vroom', 'tzdb', 'cellranger', 'progress', 'plyr', 'bslib', 'cachem', 'commonmark', 'fastmap', 'fontawesome', 'httpuv', 'later', 'mime', 'otel', 'sourcetools', 'xtable', 'janeaustenr', 'tokenizers', 'bibliometrixData', 'contentanalysis', 'dimensionsR', 'dplyr', 'ca', 'forcats', 'ggplot2', 'ggrepel', 'httr2', 'igraph', 'plotly', 'openalexR', 'openxlsx', 'pubmedR', 'purrr', 'readr', 'readxl', 'rscopus', 'shiny', 'shinycssloaders', 'SnowballC', 'stringdist', 'stringi', 'stringr', 'tidyr', 'tidytext', 'visNetwork', 'xml2'
+
+* installing *source* package 'curl' ...
+** package 'curl' successfully unpacked and MD5 sums checked
+** using staged installation
+Using PKG_CFLAGS=
+Using PKG_LIBS=-lcurl
+--------------------------- [ANTICONF] --------------------------------
+Configuration failed because libcurl was not found. Try installing:
+ * deb: libcurl4-openssl-dev (Debian, Ubuntu, etc)
+ * rpm: libcurl-devel (Fedora, CentOS, RHEL)
+ * apk: curl-dev (Alpine)
+If libcurl is already installed, check that 'pkg-config' is in your
+PATH and PKG_CONFIG_PATH contains a libcurl.pc file. If pkg-config
+is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
+-------------------------- [ERROR MESSAGE] ---------------------------
+<stdin>:1:10: fatal error: curl/curl.h: No such file or directory
+compilation terminated.
+--------------------------------------------------------------------
+ERROR: configuration failed for package 'curl'
+* removing '/usr/local/lib/R/site-library/curl'
+* installing *source* package 'XML' ...
+** package 'XML' successfully unpacked and MD5 sums checked
+** using staged installation
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether the compiler supports GNU C... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to enable C11 features... none needed
+checking how to run the C preprocessor... gcc -E
+checking for sed... /bin/sed
+checking for pkg-config... /usr/bin/pkg-config
+checking for xml2-config... no
+Cannot find xml2-config
+ERROR: configuration failed for package 'XML'
+* removing '/usr/local/lib/R/site-library/XML'
+* installing *source* package 'xml2' ...
+** package 'xml2' successfully unpacked and MD5 sums checked
+** using staged installation
+Package libxml-2.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libxml-2.0.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libxml-2.0', required by 'virtual:world', not found
+Package libxml-2.0 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `libxml-2.0.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'libxml-2.0', required by 'virtual:world', not found
+Using PKG_CFLAGS=
+Using PKG_LIBS=-lxml2
+------------------------- ANTICONF ERROR ---------------------------
+Configuration failed because libxml-2.0 was not found. Try installing:
+ * deb: libxml2-dev (Debian, Ubuntu, Alpine, etc)
+ * rpm: libxml2-devel (Fedora, CentOS, RHEL)
+ * csw: libxml2_dev (Solaris)
+If libxml-2.0 is already installed, check that 'pkg-config' is in your
+PATH and PKG_CONFIG_PATH contains a libxml-2.0.pc file. If pkg-config
+is unavailable you can set INCLUDE_DIR and LIB_DIR manually via:
+R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
+-------------------------- [ERROR MESSAGE] ---------------------------
+<stdin>:1:10: fatal error: libxml/tree.h: No such file or directory
+compilation terminated.
+--------------------------------------------------------------------
+ERROR: configuration failed for package 'xml2'
+* removing '/usr/local/lib/R/site-library/xml2'
+cat: qpdf.out: No such file or directory
+cat: pdftools.out: No such file or directory
+cat: httr.out: No such file or directory
+cat: httr2.out: No such file or directory
+ERROR: dependency 'Matrix' is not available for package 'igraph'
+* removing '/usr/local/lib/R/site-library/igraph'
+cat: rentrez.out: No such file or directory
+cat: dimensionsR.out: No such file or directory
+cat: openalexR.out: No such file or directory
+cat: pubmedR.out: No such file or directory
+ERROR: dependency 'Matrix' is not available for package 'tidytext'
+* removing '/usr/local/lib/R/site-library/tidytext'
+cat: plotly.out: No such file or directory
+cat: rscopus.out: No such file or directory
+cat: contentanalysis.out: No such file or directory
+cat: bibliometrix.out: No such file or directory
+Warning message:
+In install.packages("bibliometrix", Ncpus = 8, quiet = TRUE) :
+  installation of 17 packages failed:
+  'curl', 'XML', 'xml2', 'qpdf', 'pdftools', 'httr', 'httr2', 'igraph', 'rentrez', 'dimensionsR', 'openalexR', 'pubmedR', 'tidytext', 'plotly', 'rscopus', 'contentanalysis', 'bibliometrix'
+FIM FALSE 

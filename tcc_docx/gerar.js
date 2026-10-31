@@ -162,9 +162,9 @@ const TABS = {
     [["Urograndis (C5)", "Ajuste", "Volume", "52,9", "64,8", "50,4"],
      ["Urograndis (C5)", "Ajuste", "Circunferência", "24,2", "28,5", "20,2"],
      ["Urograndis (C5)", "Ajuste", "Altura", "19,1", "34,7", "24,9"],
-     ["Urocam (A1)", "Validação", "Volume", "59,0", "79,3", "64,8 (53,7 a 78,6)"],
-     ["Urocam (A1)", "Validação", "Circunferência", "22,9", "40,7", "29,7 (22,5 a 40,0)"]],
-    [3.2, 1.8, 2.4, 1.8, 1.8, 2.8], "Perdas ajustadas pela linha de base; desfolha total representada por d = 0,999. Calibrado: média da distribuição preditiva (ajuste) ou de 200 amostras da distribuição a posteriori (validação), com intervalo de 90% entre parênteses. Altura não comparada no urocam, pois o A1 não tem relação hipsométrica própria. Fonte: o autor (2026), com dados observados de Bertulio et al. (2008)."),
+     ["Urocam (A1)", "Teste", "Volume", "59,0", "79,3", "64,8 (53,7 a 78,6)"],
+     ["Urocam (A1)", "Teste", "Circunferência", "22,9", "40,7", "29,7 (22,5 a 40,0)"]],
+    [3.2, 1.8, 2.4, 1.8, 1.8, 2.8], "Perdas ajustadas pela linha de base; desfolha total representada por d = 0,999. Calibrado: média da distribuição preditiva (ajuste) ou de 200 amostras da distribuição a posteriori (teste), com intervalo de 90% entre parênteses. O teste usa outro clone do mesmo experimento e não é validação independente. Altura não comparada no urocam, pois o A1 não tem relação hipsométrica própria. Fonte: o autor (2026), com dados observados de Bertulio et al. (2008)."),
   biomas: () => tabela("Produtividade sem desfolha e perda de volume aos 84 meses com 50% de desfolha no material C5, um local por bioma, nas versões original e calibrada do módulo",
     ["Bioma (local)", "IMA (m³ ha⁻¹ ano⁻¹)", "Pulso único: orig.", "Pulso único: calib.", "Anual: orig.", "Anual: calib.", "Anual: IC 90%", "Recup.: orig.", "Recup.: calib."],
     [["Cerrado (Indianópolis)", "51", "1,6", "0,7", "11,5", "4,6", "−3,4 a 9,6", "28", "12"],
@@ -240,6 +240,15 @@ corpo.push(...tabela("Componentes do pacote de reprodutibilidade",
    ["auditoria_final/auditar_numeros.py", "Recálculo dos números citados no texto a partir das saídas"],
    ["plataforma/", "Akademia Florestal: modelo em JavaScript, dados incorporados e página da plataforma"]],
   [3.2, 5]));
+SUM.push(["APÊNDICE C – BUSCA BIBLIOGRÁFICA E PRECEDENTES", 0]);
+corpo.push(P("APÊNDICE C – BUSCA BIBLIOGRÁFICA E PRECEDENTES", { align: AlignmentType.CENTER, indent: false, sp: L10, run: { bold: true }, before: 480, after: 240, keepNext: true }));
+corpo.push(P("A busca foi feita em 31 de outubro de 2026 na API do Crossref, com 20 consultas em inglês e português que combinaram descritores de desfolha, eucalipto, fisiologia, modelos processuais, ambiente e avaliação de modelos, de 1997 a 31 de outubro de 2026, com os 500 registros mais relevantes de cada uma. Como o Crossref não aceita operadores booleanos, as expressões booleanas do protocolo foram aplicadas depois, sobre título, resumo e assuntos. Dos 10.000 registros, restaram 7.908 com DOI único e 7.431 após a remoção de títulos repetidos; 93 atenderam à expressão do núcleo (desfolha e eucalipto, ou desfolha e modelo processual de árvores) e 20 formaram o subconjunto de contexto sobre o 3-PG. O OpenAlex e o SciELO não puderam ser consultados nessa data (limite diário de acesso esgotado e acesso bloqueado), e Scopus e Web of Science não estavam disponíveis. O protocolo, as expressões, o corpus em CSV e BibTeX e os indicadores estão no relatório cienciométrico do pacote de reprodutibilidade."));
+corpo.push(...tabela("Trabalhos que representam desfolha ou doenças foliares em modelos processuais de crescimento florestal, identificados na busca",
+  ["Trabalho", "Modelo", "Espécie e local", "Relação com este TCC"],
+  [["Pinkard et al. (2011)", "Revisão; CABALA, CenW e outros", "Florestas australianas", "Regra de compensação adaptada na seção 3.12"],
+   ["Pinkard et al. (2014)", "Modelo processual", "E. globulus, Austrália, clima atual e futuro", "Desfolha por Mycosphaerella e estoques de carbono"],
+   ["Rua et al. (2020)", "3PG.d (3-PG com módulo de desfolha)", "E. globulus, Portugal", "Precedente direto de desfolha no 3-PG"]],
+  [3, 3.4, 3.4, 4.4], "Fonte: o autor (2026). A lista completa, com outros modelos e espécies, está no relatório cienciométrico."));
 // ---------- pré-textuais ----------
 const tit = C.meta.titulo.map(x => new TextRun({ text: x.t, bold: true, italics: x.i, font: FONTE, size: 24 }));
 const capa = [centro(C.meta.universidade), ...vazio(2, L10), centro(C.meta.autor), ...vazio(12, L10),

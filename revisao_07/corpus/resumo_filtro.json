@@ -1,0 +1,15 @@
+{
+ "registros_baixados": 10000,
+ "unicos_por_doi": 7908,
+ "apos_dedup_titulo": 7431,
+ "nucleo": 93,
+ "contexto_3pg": 20,
+ "nucleo_com_resumo": 45,
+ "nucleo_por_classe": {
+  "artigo": 81,
+  "preprint": 6,
+  "capítulo": 3,
+  "revisão": 2,
+  "anais": 1
+ }
+}
