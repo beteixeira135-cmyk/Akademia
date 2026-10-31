@@ -9,7 +9,8 @@ Regra permanente: só dados secundários; nada de dados, parâmetros, referênci
 
 ## Estado atual (31/10/2026)
 
-- TCC II: 41 páginas, 9 figuras e 11 tabelas, já incluindo os outros danos de pragas e doenças. Sem buracos de página; auditoria numérica sem divergências; 36 testes do modelo aprovados.
+- TCC II: 49 páginas, 9 figuras e 13 tabelas. Inclui os outros danos, a compensação fisiológica calibrada e um local por bioma. Auditoria: 336 de 336 números conferidos; 49 testes do modelo aprovados.
+- Repositório privado no GitHub (fonte da verdade, salvo a cada etapa): https://github.com/beteixeira135-cmyk/akademia
 - Plataforma Akademia Florestal publicada: https://claude.ai/artifact/UCFSe9dyzhXKkkNRpibFAc. Inclui biblioteca de 49 conceitos, modo explicar, cubagem explicativa e taper seccional com toras; pensada para ser usada por quem não é da área.
 - Artigo da IC no formato MENSUFLOR (modelo do trabalho de mogno, M135), com 7 páginas.
 - Documento de preparação da defesa criado, mas ainda sem as seções preenchidas: https://claude.ai/artifact/YX9RX245H1xYjufaCytW34
@@ -122,6 +123,44 @@ Regra permanente: só dados secundários; nada de dados, parâmetros, referênci
 - **Pendente:**
   - arrastar cubagem.js, conceitos.js e conceitos_ui.js para a pasta 09 plataforma;
   - avaliar se o taper entra no TCC; se entrar, nova seção e as 2 referências.
+
+### 31/10/2026 (noite) — Calibração, biomas e ambiente mecanizado
+- **Ambiente mecanizado.**
+  - Repositório privado Akademia no GitHub.
+  - AGENTS.md (regras para qualquer IA), pasta memoria/ e pipeline único (ferramentas/pipeline.py).
+  - Commit e envio ao GitHub automáticos a cada etapa.
+  - PASSAGEM_DE_BASTAO.md e CONTEXTO_EMPACOTADO.md gerados automaticamente para outra IA continuar.
+- **Compensação fisiológica (módulo v3).** Três mecanismos ativos enquanto as folhas estão abaixo do nível anterior à desfolha:
+  - mais fotossíntese nas folhas remanescentes (U);
+  - mais condutância do dossel (γ);
+  - mais alocação às folhas (a).
+
+  Regra adaptada do CABALA (Pinkard et al., 2011). 13 testes novos, 49 no total.
+- **Calibração bayesiana** com Bertulio et al. (2008):
+  - ajuste no urograndis (C5); validação no urocam (A1), que não entrou no ajuste;
+  - U = 1,16 (intervalo de 90%: 1,02 a 1,33); a = 0,55 (0,05 a 0,975);
+  - na validação, o erro da perda de volume caiu de 20,3 para 5,8 pontos.
+  - Teste com E. globulus (Barry, 2012): o IAF aos 18 meses ficou 8,3% abaixo do controle na versão original e 1,4% na calibrada.
+- **Um local por bioma com eucalipto** (bioma pelo IBGE, 2024):
+  - Almeirim-PA (Amazônia, Jari);
+  - Araripina-PE (Caatinga, IPA);
+  - Eldorado do Sul-RS (Pampa, sítio TECHS 6);
+  - Pantanal excluído: sem plantio comercial e alagamento não representado;
+  - Imperatriz é Cerrado.
+
+  Clima do NASA POWER. Solo: TECHS 6 (145 mm) em Eldorado do Sul; SoilGrids + PTF-ZARC em Almeirim (219 mm) e Araripina (194 mm).
+- **Resultados nos biomas:**
+  - a calibração reduziu as perdas para cerca de metade com pulso único e um terço com pulsos anuais;
+  - a recuperação foliar caiu de 4 a 35 para 2 a 14 meses;
+  - incerteza grande com pulsos anuais;
+  - em Araripina, a desfolha deu ganho de volume na versão original (economia de água);
+  - Random Forest com 6 locais: descrever o clima por números melhorou a transferência (R² de 0,17 para 0,83 na versão calibrada);
+  - Morris: nWs é o parâmetro mais influente nos 6 locais;
+  - Araripina simulada: 57 a 62 t/ha de biomassa aérea, contra 51 a 132 t/ha medidos pelo IPA (Alves et al., 2007).
+- **Texto:**
+  - novas seções 3.12, 3.13, 4.10 e 4.11 e Tabelas 10 e 11;
+  - objetivos, introdução, resumo, abstract, conclusões, limitações, siglas, símbolos e Apêndice B atualizados;
+  - 5 referências novas.
 
 ## Pendências do autor
 - Banca: ainda não definida. Defesa em dezembro de 2026.
