@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (4147 tokens, estimativa (caracteres ÷ 3,6); gerado em 31/10/2026 20:51)
+# PASSAGEM DE BASTÃO — TCC II (4232 tokens, estimativa (caracteres ÷ 3,6); gerado em 31/10/2026 21:05)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (22176 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (22209 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -55,6 +55,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Feito (31/10, 20h): plataforma v8 (artifact versão 8). Motor JS com compensação v3, perda de eficiência e mortalidade, conferido contra o Python em 7 cenários (dif. rel. máx 1,4e-14; plataforma/verificacao/comparar.py). Corrigido: volume registrado antes da mortalidade (como no r3PG). 6 locais por bioma; fisiologia original × calibrada; faixa de 90% com 200 amostras do posterior; catálogo de agentes; perda por produto; quadro de domínio de validade; prancha 'Precedentes' (3PG.d, CABALA). TCC rev08 (53 p.): 3.14, 4.12 e conclusão atualizados; auditoria 367/367.
 - Feito (31/10, 21h): 'tudo no TCC' — TCC rev09 (55 p., 10 figuras, 14 tabelas): 3.14 descreve a biblioteca de 52 conceitos, modo explicar, cubagem (Smalian/Huber/Newton), taper e sortimentos; 4.12 traz a perda por produto (serraria −33,6%, celulose +5,9%, energia +36,8%) e a figura v8; Apêndice A com tutorial de 13 passos e figura das toras; Apêndice B com controle de versões, roteiro automatizado, auditorias numérica e científica, verificacao/, revisao_07/, ferramentas/. Auditoria 379/379. Pendente: perguntar ao autor sobre declaração de uso de IA.
 - Feito (31/10, 21h30): espaço de possibilidades (experimentos/possibilidades.py, 7.584 cenários; 5.688 aptos) e validação cruzada da calibração (calibracao/validacao_cruzada.py: LOO k=5 RQEM 15,1→4,2 p.p.; k=2 C5→A1 19,1→6,4; A1→C5 11,7→4,3). RF k-fold 10×3 R² 0,991; LOSO 0,912; classificador ganho×perda 98,3% (bal. 93,7%). Ganho sobre o controle em 1,9% (orig.) e 3,1% (calib.) dos cenários, quase sempre com 25% de desfolha. TCC rev10: 3.15, 4.13 (Tabelas 12–13), Limitações → 4.14; 59 p.; auditoria 461/461.
+- Feito (31/10, 22h): declaração de uso de IA (3.16) e referência ANTHROPIC (2026); TCC rev11, 60 p.; auditoria 461/461.
+
 
 ---
 # Progresso
@@ -128,6 +130,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 31/10 20:51 Possibilidades do módulo (7.584 cenários de danos combinados) e validação cruzada (LOO da calibração; k-fold do metamodelo); TCC rev10 com 3.15 e 4.13; auditoria 461/461
 - 31/10 20:32 TCC rev09: todo o trabalho no texto (conceitos, cubagem e toras, perda por produto, reprodutibilidade, auditorias); figuras v8; auditoria 379/379; plataforma: subtítulo, rótulo do taper e sinal zero
 - 31/10 20:24 Plataforma v8: compensação calibrada com incerteza, 6 biomas, outros danos, perda por produto e domínio de validade; JS = Python (7 cenários); TCC rev08; auditoria 367/367
 - 31/10 20:04 Missão 07: Drive atualizado (relatórios, diário, passagem); urocam como teste na memória
