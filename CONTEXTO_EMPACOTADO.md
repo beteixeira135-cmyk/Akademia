@@ -65,6 +65,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Feito (31/10, 21h): 'tudo no TCC' — TCC rev09 (55 p., 10 figuras, 14 tabelas): 3.14 descreve a biblioteca de 52 conceitos, modo explicar, cubagem (Smalian/Huber/Newton), taper e sortimentos; 4.12 traz a perda por produto (serraria −33,6%, celulose +5,9%, energia +36,8%) e a figura v8; Apêndice A com tutorial de 13 passos e figura das toras; Apêndice B com controle de versões, roteiro automatizado, auditorias numérica e científica, verificacao/, revisao_07/, ferramentas/. Auditoria 379/379. Pendente: perguntar ao autor sobre declaração de uso de IA.
 - Feito (31/10, 21h30): espaço de possibilidades (experimentos/possibilidades.py, 7.584 cenários; 5.688 aptos) e validação cruzada da calibração (calibracao/validacao_cruzada.py: LOO k=5 RQEM 15,1→4,2 p.p.; k=2 C5→A1 19,1→6,4; A1→C5 11,7→4,3). RF k-fold 10×3 R² 0,991; LOSO 0,912; classificador ganho×perda 98,3% (bal. 93,7%). Ganho sobre o controle em 1,9% (orig.) e 3,1% (calib.) dos cenários, quase sempre com 25% de desfolha. TCC rev10: 3.15, 4.13 (Tabelas 12–13), Limitações → 4.14; 59 p.; auditoria 461/461.
 - Feito (31/10, 22h): declaração de uso de IA (3.16) e referência ANTHROPIC (2026); TCC rev11, 60 p.; auditoria 461/461.
+
+- Feito (01/11, madrugada): TCC enxugado de 60 para 40 páginas (rev12). Corpo 12.924 → 4.362 palavras; métodos 3.1–3.8, resultados 4.1–4.7; resumo 244 palavras; conclusão 6 parágrafos; plataforma detalhada no Apêndice A; Apêndice D novo (efeito do solo, recuperação × água, Morris). Corrigida a Tabela de verificação (308 controles, 28.277 registros; antes 260/23.873). Tabela 1 com os seis locais. Auditoria 489/489. Versão de 60 p. guardada (conteudo_v11_60p_antes_enxugar.js; entregas/rev11).
 ```
 
 ## memoria/progresso.md
@@ -125,6 +127,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 31/10: Missão 07 — auditoria integrada. Parecer B. Recomendação aos orientadores: discutir γ (literatura indica ≈ 1) e o domínio de uso (sem desfolha total no 1º ano).
 - 31/10: diferenciar a plataforma do 3PG.d (Rua et al., 2020) sem alegar pioneirismo: incerteza propagada, compensação calibrada, outros danos, perda por produto e domínio de validade explícito. A comparação usa só a descrição pública do 3PG.d.
 - 31/10: comprovar com validação cruzada: LOO (k=5) e por clone (k=2) na calibração (dado real, mesmo experimento) e k-fold do metamodelo no espaço de possibilidades (mede regularidade do modelo, não acerto em campo).
+- 01/11: o autor pediu um TCC realista: corpo enxuto (~19 p.), detalhes nos apêndices e no pacote; nenhum resultado removido do trabalho, só do corpo.
 ```
 
 ## memoria/tecnico.md

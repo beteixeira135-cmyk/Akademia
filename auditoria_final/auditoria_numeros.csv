@@ -460,3 +460,31 @@ U post mín,1.12,1.12,True
 U post máx,1.21,1.21,True
 a post mín,0.54,0.54,True
 a post máx,0.83,0.83,True
+T1 ALM Tméd,27.3,27.3,True
+T1 ALM Tmín,23.7,23.7,True
+T1 ALM Tmáx,31.0,31.0,True
+T1 ALM chuva,1862.0,1862.0,True
+T1 ALM chuva mín,1398.0,1398.0,True
+T1 ALM chuva máx,2449.0,2449.0,True
+T1 ALM meses secos,2.0,2.0,True
+T1 ALM geada,0.0,0.0,True
+T1 ARA Tméd,26.9,26.9,True
+T1 ARA Tmín,20.7,20.7,True
+T1 ARA Tmáx,33.1,33.1,True
+T1 ARA chuva,572.0,572.0,True
+T1 ARA chuva mín,418.0,418.0,True
+T1 ARA chuva máx,922.0,922.0,True
+T1 ARA meses secos,7.0,7.0,True
+T1 ARA geada,0.0,0.0,True
+T1 ELD Tméd,19.9,19.9,True
+T1 ELD Tmín,15.1,15.1,True
+T1 ELD Tmáx,24.8,24.8,True
+T1 ELD chuva,1459.0,1459.0,True
+T1 ELD chuva mín,1104.0,1104.0,True
+T1 ELD chuva máx,1699.0,1699.0,True
+T1 ELD meses secos,0.0,0.0,True
+T1 ELD geada,0.0,0.0,True
+T1 ALM ASW mín,215.0,215.0,True
+T1 ALM ASW máx,224.0,224.0,True
+T1 ARA ASW mín,188.0,188.0,True
+T1 ARA ASW máx,198.0,198.0,True

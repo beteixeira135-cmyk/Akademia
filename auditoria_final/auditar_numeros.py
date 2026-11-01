@@ -296,5 +296,15 @@ chk("A1→C5 viés orig", 10.7, _K2b["vies_original"], 1); chk("A1→C5 viés ca
 _PV = pd.read_csv("/home/claude/tcc/calibracao/saida/validacao_cruzada_previsoes.csv")
 chk("U post mín", 1.12, _PV.U_post.min(), 2); chk("U post máx", 1.21, _PV.U_post.max(), 2)
 chk("a post mín", 0.54, _PV.a_post.min(), 2); chk("a post máx", 0.83, _PV.a_post.max(), 2)
+# Tabela 1 (clima e solo dos seis locais) — recalculada de clima/power_api e biomas/log_*.txt
+from clima import clima_mensal as _cm2
+for _s, (_tm, _tn, _tx, _pa, _p0, _p1, _ns) in {"ALM": (27.3, 23.7, 31.0, 1862, 1398, 2449, 2), "ARA": (26.9, 20.7, 33.1, 572, 418, 922, 7), "ELD": (19.9, 15.1, 24.8, 1459, 1104, 1699, 0)}.items():
+    _m = _cm2(_s); _m = _m[_m.year <= 2024]; _a = _m.groupby("year").prcp.sum(); _sec = _m.groupby("month").prcp.mean()
+    chk(f"T1 {_s} Tméd", _tm, _m.tmp_ave.mean(), 1); chk(f"T1 {_s} Tmín", _tn, _m.tmp_min.mean(), 1); chk(f"T1 {_s} Tmáx", _tx, _m.tmp_max.mean(), 1)
+    chk(f"T1 {_s} chuva", _pa, _a.mean(), 0); chk(f"T1 {_s} chuva mín", _p0, _a.min(), 0); chk(f"T1 {_s} chuva máx", _p1, _a.max(), 0)
+    chk(f"T1 {_s} meses secos", _ns, int((_sec < 50).sum()), 0); chk(f"T1 {_s} geada", 0, int(_m.frost_days.sum()), 0)
+for _s, (_lo, _hi) in {"ALM": (215, 224), "ARA": (188, 198)}.items():
+    _v = [float(l.split()[3]) for l in open(f"/home/claude/tcc/biomas/log_{_s}.txt") if l.startswith(_s + " ") and l.split()[3] != "None"]
+    chk(f"T1 {_s} ASW mín", _lo, min(_v), 0); chk(f"T1 {_s} ASW máx", _hi, max(_v), 0)
 O = pd.DataFrame(ok); O.to_csv("/home/claude/tcc/auditoria_final/auditoria_numeros.csv", index=False)
 print(len(O), "itens;", int(O.ok.sum()), "conferem"); print(O[~O.ok].to_string())
