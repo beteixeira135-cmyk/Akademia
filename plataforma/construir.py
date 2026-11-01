@@ -9,3 +9,7 @@ for marca, arq in [("/*MODELO*/", "modelo3pg.js"), ("/*DADOS*/", "dados_min.json
     html = html.replace(marca, ler(arq).strip())
 (d / "simulador_3pg_eucalyptus.html").write_text(html, encoding="utf8")
 print("ok", len(html) // 1024, "KB")
+# cópia para o GitHub Pages (Settings → Pages → Deploy from a branch → main /docs)
+docs = d.parent / "docs"; docs.mkdir(exist_ok=True)
+(docs / "index.html").write_text(html, encoding="utf8"); (docs / ".nojekyll").write_text("")
+print("docs/index.html atualizado")
