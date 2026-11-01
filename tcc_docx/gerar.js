@@ -4,7 +4,7 @@ const D = require("docx");
 const C = require("./conteudo.js");
 const { Document, Packer, Paragraph, TextRun, AlignmentType, Table, TableRow, TableCell, WidthType, BorderStyle,
   ImageRun, Header, PageNumber, PageBreak, TabStopType, PositionalTab, PositionalTabAlignment, PositionalTabLeader,
-  PositionalTabRelativeTo, SectionType, VerticalAlign, LineRuleType } = D;
+  PositionalTabRelativeTo, SectionType, VerticalAlign, LineRuleType, ShadingType } = D;
 
 const PG = process.argv[2] && fs.existsSync(process.argv[2]) ? JSON.parse(fs.readFileSync(process.argv[2])) : {};
 const LARG = 11906 - 1701 - 1134; // largura útil (twips)
@@ -70,6 +70,21 @@ function figura(arq, wcm, cap) {
   ];
 }
 
+// ---------- quadro de destaque (Akademia) ----------
+const VERDE = { style: BorderStyle.SINGLE, size: 12, color: "5F6F34" };
+function caixa(textos, qr) {
+  const QR = "/home/claude/tcc/plataforma/qr/qr_akademia.png";
+  const par = textos.map((x, k) => new Paragraph({ alignment: AlignmentType.LEFT, spacing: { ...L10, after: k < textos.length - 1 ? 120 : 0 }, children: runs(x, { size: 22 }) }));
+  const cel = (ch, w) => new TableCell({ width: { size: w, type: WidthType.DXA }, verticalAlign: VerticalAlign.CENTER, margins: { top: 140, bottom: 140, left: 180, right: 180 },
+    shading: { type: ShadingType.CLEAR, color: "auto", fill: "EEF0E6" }, borders: { top: VERDE, bottom: VERDE, left: VERDE, right: VERDE }, children: ch });
+  const wq = 1900, cols = qr ? [LARG - wq, wq] : [LARG];
+  const cells = [cel(par, cols[0])];
+  if (qr) cells.push(cel([new Paragraph({ alignment: AlignmentType.CENTER, children: [new ImageRun({ type: "png", data: fs.readFileSync(QR), transformation: { width: 96, height: 96 } })] })], cols[1]));
+  return [new Paragraph({ spacing: { ...L10, after: 0 }, keepNext: true, children: [] }),
+    new Table({ width: { size: LARG, type: WidthType.DXA }, columnWidths: cols, rows: [new TableRow({ cantSplit: true, children: cells })] }),
+    new Paragraph({ spacing: { ...L10, after: 240 }, children: [] })];
+}
+
 // ---------- equações ----------
 const eq = (txt, n) => new Paragraph({ spacing: { ...L15, before: 120, after: 120 },
   tabStops: [{ type: TabStopType.CENTER, position: Math.round(LARG / 2) }, { type: TabStopType.RIGHT, position: LARG }],
@@ -78,6 +93,15 @@ const eq = (txt, n) => new Paragraph({ spacing: { ...L15, before: 120, after: 12
 // ---------- dados das tabelas ----------
 const FIGD = "/home/claude/tcc/experimentos/saida/figuras/";
 const TABS = {
+  locais: () => tabela("Locais simulados: bioma, clima de 2015 a 2024 e água que o solo guarda até 2 m",
+    ["Local", "Bioma", "Temperatura média (°C)", "Chuva anual (mm)", "Meses secos", "Água no solo, ASW~max~ (mm)"],
+    [["Indianópolis-MG", "Cerrado", "23,2", "1.129", "mai–set", "215"],
+     ["Imperatriz-MA", "Cerrado", "28,7", "1.151", "mai–set", "210"],
+     ["Telêmaco Borba-PR", "Mata Atlântica", "20,4", "1.398", "nenhum", "214"],
+     ["Almeirim-PA", "Amazônia", "27,3", "1.862", "set–out", "219"],
+     ["Araripina-PE", "Caatinga", "26,9", "572", "mai–nov", "194"],
+     ["Eldorado do Sul-RS", "Pampa", "19,9", "1.459", "nenhum", "145"]],
+    [3, 2.4, 1.8, 1.6, 1.5, 2], "Meses secos: chuva média mensal abaixo de 50 mm. Mínimas, máximas, dias de geada, faixas e fontes do solo: Akademia Florestal, Material do TCC. Fonte: o autor (2026), com dados de NASA (2026), Binkley et al. (2017), Poggio et al. (2021) e Teixeira et al. (2021)."),
   clima: () => tabela("Clima (NASA POWER, 2015–2024) e capacidade de água disponível do solo (0–2 m) adotada para os locais de simulação",
     ["Local", "T~méd~ (°C)", "T~mín~ (°C)", "T~máx~ (°C)", "Precipitação anual (mm)", "Meses secos", "Dias de geada", "ASW~max~ (mm)", "Fonte do solo"],
     [["Indianópolis-MG", "23,2", "17,6", "28,9", "1.129 (943–1.384)", "mai–set", "0", "215 (160–311)", "TECHS 9, Estrela do Sul-MG; Latossolo, 80% argila"],
@@ -209,6 +233,7 @@ for (const b of C.corpo) {
   else if (b.eq) corpo.push(eq(b.eq, b.n));
   else if (b.table) corpo.push(...TABS[b.table]());
   else if (b.fig) corpo.push(...figura(b.fig, b.w, b.cap));
+  else if (b.caixa) corpo.push(...caixa(b.caixa, b.qr));
 }
 SUM.push(["5 CONCLUSÃO", 1]);
 corpo.push(P("5 CONCLUSÃO", { align: AlignmentType.LEFT, indent: false, run: { bold: true }, before: 360, after: 240, keepNext: true }));
@@ -216,36 +241,8 @@ C.conclusao.forEach(t => corpo.push(P(t)));
 SUM.push(["REFERÊNCIAS", 0]);
 corpo.push(P("REFERÊNCIAS", { align: AlignmentType.CENTER, indent: false, sp: L10, run: { bold: true }, before: 480, after: 240, keepNext: true }));
 C.referencias.forEach(r => corpo.push(new Paragraph({ alignment: AlignmentType.LEFT, spacing: { ...L10, after: 240 }, children: runs(r) })));
-SUM.push(["APÊNDICE A – PLATAFORMA AKADEMIA FLORESTAL", 0]);
-corpo.push(P("APÊNDICE A – PLATAFORMA AKADEMIA FLORESTAL", { align: AlignmentType.CENTER, indent: false, sp: L10, run: { bold: true }, before: 480, after: 240, keepNext: true }));
-corpo.push(P("Para tornar o módulo acessível a quem não programa, desenvolveu-se a Akademia Florestal, uma página da internet que executa o 3-PG com o módulo de desfolha no próprio navegador. O núcleo foi traduzido da implementação em Python para JavaScript, sem alteração de equações, e os dados de clima, solo e parâmetros dos quatro materiais foram incorporados à página. A tradução foi verificada contra a implementação em Python em sete cenários que combinam os seis locais, os quatro materiais, intensidades e calendários de desfolha, a perda de eficiência, a mortalidade induzida e a compensação. Além do módulo original, a plataforma oferece a compensação calibrada (seção 3.6), com a faixa de 90% obtida das 200 amostras do posterior; os outros danos da seção 3.2, com o catálogo de agentes e as fontes de cada magnitude; a perda por produto, pelo taper de Souza et al. (2016) e pelos critérios de sortimento de Soares et al. (2003); e um quadro de domínio de validade, que lista, para cada cenário, a evidência que o sustenta e a que o contraria.", { sp: L10, after: 160 }));
-corpo.push(P("A interface foi organizada como um laboratório com três painéis. No painel de fisiologia, o usuário escolhe local, material, água, fertilidade, a intensidade, a frequência e a época da desfolha, a fisiologia após o ataque (original ou calibrada), um agente do catálogo de danos ou, livremente, a perda de eficiência e a mortalidade de árvores, e consulta os parâmetros que distinguem cada material. No centro, uma cena tridimensional mostra dois talhões lado a lado, o controle e o desfolhado, cujo diâmetro, altura, folhagem e número de árvores são os simulados mês a mês; o perfil do fuste é apenas ilustrativo, pois o 3-PG não estima a forma do tronco. No painel de métricas, apresentam-se a perda de volume, a água disponível no perfil do solo, a fração do incremento destinada a folhas, lenho e raízes (η~F~, η~S~ e η~R~), os modificadores ambientais e dois indicadores fisiológicos já calculados internamente pelo 3-PG: a eficiência no uso da água e a eficiência quântica efetiva, calculadas por WUE = 100 · NPP / *T* e α~ef~ = α~Cx~ · *f*~N~ · *f*~T~ · *f*~F~ · *f*~CO2~ · φ, em que WUE é a eficiência no uso da água (g de biomassa seca por kg de água), NPP é a produção primária líquida mensal (t ha^-1^), *T* é a transpiração do dossel calculada pela equação de Penman-Monteith do 3-PG (mm), α~ef~ é a eficiência quântica efetiva (mol C mol^-1^), *f*~N~, *f*~T~, *f*~F~ e *f*~CO2~ são os modificadores de nutrição, temperatura, geada e CO~2~ e φ é o modificador fisiológico (f~idade~ · mín(f~VPD~, f~SW~)).", { sp: L10, after: 160 }));
-corpo.push(P("A plataforma inclui ainda um tutorial guiado de 13 passos, que monta os cenários e anima a simulação enquanto explica o problema, o modelo, o módulo, a partição do carbono, o uso da água, a compensação, os outros danos e as limitações; um painel de validação, que reúne a verificação do código, a validação publicada da parametrização, o confronto com dados secundários, a calibração, a evidência contrária, os precedentes de modelagem e um campo para o usuário inserir dados de inventário e obter RQEM, erro absoluto médio e R²; e a exportação da série mensal dos dois talhões.", { sp: L10, after: 160 }));
-corpo.push(P("Para que a plataforma pudesse ser usada por estudantes de outras áreas, como a Biologia, construiu-se uma biblioteca de 52 conceitos em linguagem simples, organizados em sete grupos, da luz e da fotossíntese até o aprendizado de máquina. Cada conceito tem uma explicação curta, uma explicação completa, a fórmula quando existe e a indicação de onde aparece no simulador; 21 deles trazem um quadro que liga o termo florestal a um conteúdo da Biologia, e uma trilha de 15 conceitos orienta quem está começando. No modo explicar, um toque em qualquer número, gráfico ou rótulo abre o conceito correspondente.", { sp: L10, after: 160 }));
-corpo.push(P("Um módulo de cubagem e toras completa a parte didática. Na cubagem, a árvore média do talhão, com diâmetros obtidos da equação de afilamento, é dividida em seções, cujo volume é calculado pelas fórmulas de Smalian, V = L · (g~b~ + g~t~)/2, de Huber, V = L · g~m~, e de Newton, V = L · (g~b~ + 4g~m~ + g~t~)/6, em que *L* é o comprimento da seção e *g*~b~, *g*~m~ e *g*~t~ são as áreas seccionais na base, no meio e no topo; o usuário também pode colar a sua própria cubagem. No taper seccional, o diâmetro ao longo do fuste vem do polinômio de quinto grau de Schöepfer ajustado por Souza et al. (2016) para um clone de *E. grandis* × *E. camaldulensis* em Itamarandiba-MG, e o fuste é cortado da base para a ponta, cada tora destinada ao produto mais nobre cujo diâmetro mínimo na ponta fina ela atende, pelos critérios de Soares et al. (2003): serraria (15 cm e 2,0 m), celulose (8 cm e 2,2 m) e energia (4 cm e 1,1 m), com toco de 0,1 m. Como a equação de afilamento é de outro material, a perda por produto é uma ilustração do raciocínio, e não uma previsão.", { sp: L10, after: 160 }));
-corpo.push(P("Acesso: https://claude.ai/artifact/UCFSe9dyzhXKkkNRpibFAc, ou o arquivo simulador_3pg_eucalyptus.html do pacote de reprodutibilidade (Apêndice B), aberto em qualquer navegador. Não é preciso instalar programas; a internet é necessária só para carregar as fontes e a biblioteca 3D. O tutorial abre na primeira visita e segue o roteiro abaixo.", { sp: L10, after: 160, align: AlignmentType.LEFT }));
-corpo.push(...tabela("Roteiro do tutorial guiado da plataforma Akademia Florestal",
-  ["Passo", "Conteúdo e ação na plataforma"],
-  [["1. Objetivo", "Apresenta o problema e os talhões controle e desfolhado"],
-   ["2. Conceitos", "Apresenta a biblioteca de conceitos e o modo explicar"],
-   ["3. Painel de fisiologia", "Mostra as entradas do talhão e os parâmetros de cada material"],
-   ["4. Módulo de desfolha", "Aplica 50% em jan/2017 e explica W~F,pós~ = W~F,pré~ · (1 − d)"],
-   ["5. Simular", "Anima a rotação: a folhagem se recupera, o lenho não"],
-   ["6. Partição e estresse", "Explica η~R~ e o modificador φ no painel de métricas"],
-   ["7. Água e eficiência", "Apresenta a transpiração, a WUE e a eficiência quântica efetiva"],
-   ["8. Frequência, época e clima", "Compara pulsos anuais, épocas e locais"],
-   ["9. Compensação calibrada", "Liga a fisiologia calibrada e mostra a faixa de 90% no gráfico de volume"],
-   ["10. Outros danos e domínio", "Escolhe um agente do catálogo e lê o quadro de domínio de validade"],
-   ["11. Validação e métricas", "Abre o painel com verificação, calibração, evidência contrária e precedentes"],
-   ["12. Cubagem e toras", "Abre a cubagem (Smalian, Huber e Newton) e o taper seccional com as toras"],
-   ["13. Exportar e ajustar", "Mostra a exportação da série mensal e os ajustes de exibição"]],
-  [2.2, 5]));
-corpo.push(...figura("/home/claude/tcc/plataforma/fig_akademia_tutorial.png", 10.5, "Primeiro passo do tutorial guiado da plataforma Akademia Florestal."));
-corpo.push(...figura("/home/claude/tcc/plataforma/fig_akademia_toras.png", 12, "Taper seccional e toras na plataforma Akademia Florestal: fuste médio do talhão desfolhado (clone A1, Indianópolis-MG, dois pulsos de 95%, fisiologia calibrada) dividido em toras de serraria, celulose e energia pelos critérios de Soares et al. (2003), com afilamento de Souza et al. (2016)."));
-
-
-SUM.push(["APÊNDICE B – REPRODUTIBILIDADE COMPUTACIONAL", 0]);
-corpo.push(P("APÊNDICE B – REPRODUTIBILIDADE COMPUTACIONAL", { align: AlignmentType.CENTER, indent: false, sp: L10, run: { bold: true }, before: 480, after: 240, keepNext: true }));
+SUM.push(["APÊNDICE A – REPRODUTIBILIDADE COMPUTACIONAL", 0]);
+corpo.push(P("APÊNDICE A – REPRODUTIBILIDADE COMPUTACIONAL", { align: AlignmentType.CENTER, indent: false, sp: L10, run: { bold: true }, before: 480, after: 240, keepNext: true }));
 [
   "Os códigos, dados de entrada e saídas deste trabalho estão organizados em um pacote de arquivos que acompanha a versão digital do TCC. O mesmo conteúdo, com a explicação de cada arquivo, está disponível em https://drive.google.com/drive/folders/1GLR5Krx8FoJWjV9NM0OprTmUyA9JQP1L. Todo o projeto é mantido sob controle de versões (Git), em repositório privado cujo acesso pode ser concedido à banca, e cada etapa do trabalho corresponde a um registro datado no histórico. Um roteiro automatizado executa, em ordem, os testes, a calibração, os experimentos, as análises, a auditoria numérica, a geração deste texto e a montagem da plataforma.",
   "Duas auditorias acompanham o texto. A auditoria numérica recalcula, a partir das saídas dos códigos, os números citados no TCC e falha se algum deles divergir. A auditoria científica classificou 32 afirmações centrais do trabalho segundo o tipo de evidência que as sustenta, avaliou os mecanismos da compensação, a robustez da calibração e a concordância com a literatura, e as correções resultantes foram incorporadas ao texto; seus relatórios, matrizes e o protocolo da busca bibliográfica do Apêndice C fazem parte do pacote. A tabela a seguir descreve os componentes necessários para reproduzir os resultados.",
@@ -270,6 +267,8 @@ corpo.push(...tabela("Componentes do pacote de reprodutibilidade",
    ["experimentos/run_biomas.py", "Bloco por bioma (seis locais, versões original e calibrada) e propagação da incerteza"],
    ["experimentos/rf_biomas.py", "Random Forest com seis locais e validação deixando um local de fora"],
    ["experimentos/possibilidades.py e possibilidades_analise.py", "Fatorial de danos combinados (7.584 cenários), aditividade, teste da plataforma e k-fold do metamodelo"],
+   ["experimentos/figuras_novas.py", "Gráficos de calibração, biomas e espaço de possibilidades"],
+   ["plataforma/material_tcc.py", "Material do TCC na plataforma: tabelas completas extraídas do gerador do texto"],
    ["calibracao/validacao_cruzada.py", "Validação cruzada da calibração com as observações de Bertulio et al. (2008)"],
    ["experimentos/morris_danos_biomas.py", "Método de Morris e catálogo de danos nos seis locais"],
    ["experimentos/testes/", "8 testes automatizados do pipeline experimental"],
@@ -279,8 +278,8 @@ corpo.push(...tabela("Componentes do pacote de reprodutibilidade",
    ["revisao_07/", "Auditoria científica: matriz de afirmações, mecanismos e concordância, fichas de leitura, busca bibliográfica, corpus e indicadores"],
    ["ferramentas/", "Roteiro automatizado de execução e registro das etapas"]],
   [3.2, 5]));
-SUM.push(["APÊNDICE C – BUSCA BIBLIOGRÁFICA E PRECEDENTES", 0]);
-corpo.push(P("APÊNDICE C – BUSCA BIBLIOGRÁFICA E PRECEDENTES", { align: AlignmentType.CENTER, indent: false, sp: L10, run: { bold: true }, before: 480, after: 240, keepNext: true }));
+SUM.push(["APÊNDICE B – BUSCA BIBLIOGRÁFICA E PRECEDENTES", 0]);
+corpo.push(P("APÊNDICE B – BUSCA BIBLIOGRÁFICA E PRECEDENTES", { align: AlignmentType.CENTER, indent: false, sp: L10, run: { bold: true }, before: 480, after: 240, keepNext: true }));
 corpo.push(P("A busca foi feita em 31 de outubro de 2026 na API do Crossref, com 20 consultas em inglês e português que combinaram descritores de desfolha, eucalipto, fisiologia, modelos processuais, ambiente e avaliação de modelos, de 1997 a 31 de outubro de 2026, com os 500 registros mais relevantes de cada uma. Como o Crossref não aceita operadores booleanos, as expressões booleanas do protocolo foram aplicadas depois, sobre título, resumo e assuntos. Dos 10.000 registros, restaram 7.908 com DOI único e 7.431 após a remoção de títulos repetidos; 93 atenderam à expressão do núcleo (desfolha e eucalipto, ou desfolha e modelo processual de árvores) e 20 formaram o subconjunto de contexto sobre o 3-PG. O OpenAlex e o SciELO não puderam ser consultados nessa data (limite diário de acesso esgotado e acesso bloqueado), e Scopus e Web of Science não estavam disponíveis. O protocolo, as expressões, o corpus em CSV e BibTeX e os indicadores estão no relatório cienciométrico do pacote de reprodutibilidade."));
 corpo.push(...tabela("Trabalhos que representam desfolha ou doenças foliares em modelos processuais de crescimento florestal, identificados na busca",
   ["Trabalho", "Modelo", "Espécie e local", "Relação com este TCC"],
@@ -288,13 +287,6 @@ corpo.push(...tabela("Trabalhos que representam desfolha ou doenças foliares em
    ["Pinkard et al. (2014)", "Modelo processual", "E. globulus, Austrália, clima atual e futuro", "Desfolha por Mycosphaerella e estoques de carbono"],
    ["Rua et al. (2020)", "3PG.d (3-PG com módulo de desfolha)", "E. globulus, Portugal", "Precedente direto de desfolha no 3-PG"]],
   [3, 3.4, 3.4, 4.4], "Fonte: o autor (2026). A lista completa, com outros modelos e espécies, está no relatório cienciométrico."));
-SUM.push(["APÊNDICE D – RESULTADOS COMPLEMENTARES", 0]);
-corpo.push(P("APÊNDICE D – RESULTADOS COMPLEMENTARES", { align: AlignmentType.CENTER, indent: false, sp: L10, run: { bold: true }, before: 480, after: 240, keepNext: true }));
-corpo.push(P("Este apêndice reúne o efeito do solo e a sensibilidade aos parâmetros nos três locais originais, resumidos nas seções 4.2 e 4.3.", { sp: L10, after: 160 }));
-corpo.push(...TABS.materialclima());
-corpo.push(...figura(FIGD + "F2_matriz_agua_FR_3sitios.png", 12.5, "Perda relativa de volume (%) aos 84 meses com desfolha de 50% em pulso único, para os 16 cenários de água (W) e fertilidade (F), nos três locais e quatro materiais. Em Imperatriz, o clone A1 é diagnóstico de extrapolação térmica."));
-corpo.push(...figura(FIGD + "F5_recuperacao_agua_3sitios.png", 15, "Tempo para a biomassa foliar atingir 95% do controle em função do nível de água, com desfolha de 50% em pulso único, nos três locais. Em Imperatriz, o clone A1 é diagnóstico de extrapolação térmica."));
-corpo.push(...figura(FIGD + "F6_morris_3sitios.png", 15, "Medidas de Morris para a perda de volume causada por desfolha de 50% em pulso único: oito parâmetros com maior μ∗ (barras) e respectivo σ (pontos), clone A1, solo local, nos três locais."));
 // ---------- pré-textuais ----------
 const tit = C.meta.titulo.map(x => new TextRun({ text: x.t, bold: true, italics: x.i, font: FONTE, size: 24 }));
 const capa = [centro(C.meta.universidade), ...vazio(2, L10), centro(C.meta.autor), ...vazio(12, L10),

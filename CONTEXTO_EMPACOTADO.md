@@ -67,6 +67,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Feito (31/10, 22h): declaração de uso de IA (3.16) e referência ANTHROPIC (2026); TCC rev11, 60 p.; auditoria 461/461.
 
 - Feito (01/11, madrugada): TCC enxugado de 60 para 40 páginas (rev12). Corpo 12.924 → 4.362 palavras; métodos 3.1–3.8, resultados 4.1–4.7; resumo 244 palavras; conclusão 6 parágrafos; plataforma detalhada no Apêndice A; Apêndice D novo (efeito do solo, recuperação × água, Morris). Corrigida a Tabela de verificação (308 controles, 28.277 registros; antes 260/23.873). Tabela 1 com os seis locais. Auditoria 489/489. Versão de 60 p. guardada (conteudo_v11_60p_antes_enxugar.js; entregas/rev11).
+- Feito (01/11, 3h): regra do autor — 'tudo que chama atenção fica no TCC (gráficos); tudo que ocupa espaço mental vai para a Akademia'. TCC rev13 (34 p.): linguagem acessível; 12 figuras (3 novas: N1 calibração/validação cruzada, N2 biomas, N3 possibilidades); 1 tabela no corpo (locais); 7 quadros 'Na Akademia' com QR code (plataforma/qr, decodificado e conferido); apêndices A (reprodutibilidade) e B (busca). Akademia v9: 'Material do TCC' com 16 tabelas completas extraídas de gerar.js (extrair_material_tcc.js + material_tcc.py). Auditoria 489/489.
 ```
 
 ## memoria/progresso.md
@@ -128,6 +129,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 31/10: diferenciar a plataforma do 3PG.d (Rua et al., 2020) sem alegar pioneirismo: incerteza propagada, compensação calibrada, outros danos, perda por produto e domínio de validade explícito. A comparação usa só a descrição pública do 3PG.d.
 - 31/10: comprovar com validação cruzada: LOO (k=5) e por clone (k=2) na calibração (dado real, mesmo experimento) e k-fold do metamodelo no espaço de possibilidades (mede regularidade do modelo, não acerto em campo).
 - 01/11: o autor pediu um TCC realista: corpo enxuto (~19 p.), detalhes nos apêndices e no pacote; nenhum resultado removido do trabalho, só do corpo.
+- 01/11: TCC para qualquer leitor entender; gráficos no TCC, tabelas densas replicadas no 'Material do TCC' da Akademia; quadros com QR code levam à plataforma. Sem apêndice de plataforma nem de resultados complementares.
 ```
 
 ## memoria/tecnico.md

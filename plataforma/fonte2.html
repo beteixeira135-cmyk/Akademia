@@ -136,6 +136,10 @@ canvas.g{width:100%;height:170px;display:block}
 /* modais */
 .modal{position:fixed;inset:0;z-index:40;background:rgba(35,39,31,.35);display:grid;place-items:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
 .modal .pr{width:min(860px,100%);max-height:88vh;overflow:auto}
+#m-tcc .pr{width:min(1040px,100%)}
+#mt-indice button{font-size:12.5px}
+#m-tcc .secao{scroll-margin-top:8px}
+.mt-tit{font-family:var(--f-tit);font-style:italic;font-size:14px;color:var(--tinta-2);margin:10px 0 4px}
 .fechar{background:none;border:1px solid var(--linha-2);padding:3px 10px;font-size:13px}
 textarea{width:100%;height:240px;font-family:var(--f-num);font-size:11.5px;border:1px solid var(--linha-2);background:var(--fundo);padding:8px}
 .tabs-wrap{overflow-x:auto}
@@ -212,7 +216,7 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
   <div><div class="rot">Akademia Florestal · laboratório de modelagem ecofisiológica</div>
     <h1>Simulador 3-PG de <em>Eucalyptus</em></h1>
     <p>Crescimento mensal de povoamentos de eucalipto em seis locais, um por bioma com plantios, com e sem desfolha, outros danos e compensação fisiológica.</p></div>
-  <nav><button class="lnk" id="bt-conceitos" type="button">Conceitos</button><button class="lnk chave" id="bt-explicar" type="button" aria-pressed="false">Modo explicar</button><button class="lnk" id="bt-cubagem" type="button">Cubagem e toras</button><button class="lnk" id="bt-tour" type="button">Tutorial guiado</button><button class="lnk" id="bt-valid" type="button">Validação &amp; métricas</button></nav>
+  <nav><button class="lnk" id="bt-conceitos" type="button">Conceitos</button><button class="lnk chave" id="bt-explicar" type="button" aria-pressed="false">Modo explicar</button><button class="lnk" id="bt-cubagem" type="button">Cubagem e toras</button><button class="lnk" id="bt-tour" type="button">Tutorial guiado</button><button class="lnk" id="bt-valid" type="button">Validação &amp; métricas</button><button class="lnk chave" id="bt-material" type="button">Material do TCC</button></nav>
 </header>
 
 <main class="lab">
@@ -376,6 +380,12 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
   <input class="c-busca" id="c-busca" type="search" placeholder="Buscar: folha, água, erro, DAP, rede neural…" aria-label="Buscar conceito">
   <div class="c-grupos" id="c-grupos"></div>
   <div id="c-lista"></div>
+</div></div>
+<div class="modal" id="m-tcc" hidden><div class="pr" role="dialog" aria-modal="true" aria-label="Material do TCC">
+  <div class="pr-cab"><h2>Material do TCC</h2><button class="fechar" data-fecha="m-tcc" type="button">Fechar</button></div>
+  <p class="mini" style="max-width:80ch">As tabelas completas do TCC estão aqui, para quem quer ver todos os números. No texto do TCC ficaram os gráficos e as explicações; cada seção abaixo indica de que parte do TCC ela vem. Todos os números foram recalculados a partir dos códigos do trabalho.</p>
+  <div class="c-grupos" id="mt-indice"></div>
+  <div id="mt-corpo"></div>
 </div></div>
 <div class="modal" id="m-cubagem" hidden><div class="pr" role="dialog" aria-modal="true" aria-label="Cubagem e toras">
   <div class="pr-cab"><h2>Cubagem e toras</h2><button class="fechar" data-fecha="m-cubagem" type="button">Fechar</button></div>
@@ -881,6 +891,8 @@ document.getElementById("bt-valid").onclick = abrirValid;
 
 /*CONCEITOS_UI*/
 /*CUBAGEM*/
+/*MATERIAL*/
+/*MATERIAL_UI*/
 
 // ---------- tutorial ----------
 const PASSOS = [
