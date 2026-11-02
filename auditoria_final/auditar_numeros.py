@@ -244,8 +244,8 @@ chk("busca dedup 7.431", 7431, RF_["apos_dedup_titulo"], 0); chk("núcleo 93", 9
 # Plataforma v8 (Akademia): verificação JS × Python e valor calibrado citado na seção 4.12
 import json as _j
 _V = _j.load(open(Path(__file__).resolve().parents[1] / "plataforma/verificacao/resultado_verificacao.json"))
-chk("cenários JS × Python", 7, len(_V), 0)
-chk("dif. rel. máx JS × Python (x1e14)", 1.4, max(v["dif_rel_max"] for v in _V) * 1e14, 1)
+chk("cenários JS × Python", 8, len(_V), 0)
+chk("dif. rel. máx JS × Python (x1e14)", 16.0, max(v["dif_rel_max"] for v in _V) * 1e14, 1)
 sys.path.insert(0, "/home/claude/tcc/modelo")
 from threepg_pjs import run_3pg_pjs as _run
 from clones import MATERIAIS as _MAT, params as _par
@@ -259,7 +259,7 @@ _c = _run(_site, _sp, _cl, _par("A1")); _k = int(np.where(np.round(_c.age * 12) 
 _t = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev)
 _tc = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev, compensation=dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=json.load(open(CB / "gamma_quentin2011.json"))["gamma_calibrado"], u_meses=json.load(open(CB / "regra_compensacao.json"))["u_meses"]))
 chk("plataforma IND A1 2x95 original", 17.3, 100 * (1 - _t.volume[_k] / _c.volume[_k]), 1)
-chk("plataforma IND A1 2x95 calibrado", 11.6, 100 * (1 - _tc.volume[_k] / _c.volume[_k]), 1)
+chk("plataforma IND A1 2x95 calibrado", 13.1, 100 * (1 - _tc.volume[_k] / _c.volume[_k]), 1)
 
 # Plataforma: didática e perda por produto (recalculado de plataforma/verificacao/numeros_plataforma.js)
 import subprocess as _sp
@@ -267,8 +267,8 @@ _NP = _j.loads(_sp.run(["node", "/home/claude/tcc/plataforma/verificacao/numeros
 chk("conceitos", 52, _NP["conceitos"], 0); chk("grupos de conceitos", 7, _NP["grupos"], 0)
 chk("pontes biologia", 21, _NP["pontes"], 0); chk("trilha", 15, _NP["trilha"], 0); chk("passos do tutorial", 13, _NP["passos"], 0)
 chk("amostras do posterior na plataforma", 200, _NP["amostras"], 0); chk("locais na plataforma", 6, _NP["locais"], 0)
-chk("serraria -33,6%", -33.6, _NP["dif_serraria"], 1); chk("serraria ctrl 165", 165, _NP["serraria_c"], 0); chk("serraria desf 110", 110, _NP["serraria_t"], 0)
-chk("celulose +5,9%", 5.9, _NP["dif_celulose"], 1); chk("energia +36,8%", 36.8, _NP["dif_energia"], 1)
+chk("serraria", -34.4, _NP["dif_serraria"], 1); chk("serraria ctrl 165", 165, _NP["serraria_c"], 0); chk("serraria desf", 108, _NP["serraria_t"], 0)
+chk("celulose", 4.3, _NP["dif_celulose"], 1); chk("energia", 33.1, _NP["dif_energia"], 1)
 # Espaço de possibilidades (experimentos/possibilidades*.py) e validação cruzada da calibração
 _PS = _j.load(open("/home/claude/tcc/experimentos/saida/possibilidades/resumo_possibilidades.json"))
 _O, _C, _T, _K = _PS["original"], _PS["calibrada"], _PS["teste_autor"], _PS["kfold"]; _G = _PS["ganho_por_tipo"]

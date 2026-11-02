@@ -399,10 +399,10 @@ busca DOI únicos 7.908,7908.0,7908.0,True
 busca dedup 7.431,7431.0,7431.0,True
 núcleo 93,93.0,93.0,True
 contexto 3-PG 20,20.0,20.0,True
-cenários JS × Python,7.0,8.0,False
-dif. rel. máx JS × Python (x1e14),1.4,16.0,False
+cenários JS × Python,8.0,8.0,True
+dif. rel. máx JS × Python (x1e14),16.0,16.0,True
 plataforma IND A1 2x95 original,17.3,17.3,True
-plataforma IND A1 2x95 calibrado,11.6,13.1,False
+plataforma IND A1 2x95 calibrado,13.1,13.1,True
 conceitos,52.0,52.0,True
 grupos de conceitos,7.0,7.0,True
 pontes biologia,21.0,21.0,True
@@ -410,11 +410,11 @@ trilha,15.0,15.0,True
 passos do tutorial,13.0,13.0,True
 amostras do posterior na plataforma,200.0,200.0,True
 locais na plataforma,6.0,6.0,True
-"serraria -33,6%",-33.6,-34.4,False
+serraria,-34.4,-34.4,True
 serraria ctrl 165,165.0,165.0,True
-serraria desf 110,110.0,108.0,False
-"celulose +5,9%",5.9,4.3,False
-"energia +36,8%",36.8,33.1,False
+serraria desf,108.0,108.0,True
+celulose,4.3,4.3,True
+energia,33.1,33.1,True
 cenários totais,7584.0,7584.0,True
 cenários aptos,5688.0,5688.0,True
 aptos por versão,2844.0,2844.0,True

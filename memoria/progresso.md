@@ -39,3 +39,4 @@
 3. Revisão do texto pelo autor e envio aos orientadores (1ª semana de novembro).
 4. Defesa: documento de preparação e slides.
 - 02/11: ressalvas do parecer reduzidas a 1 (persistência das perdas após desfolha total precoce, Matrangolo). TCC VERSÃO FINAL v2, 35 p.; auditoria 506/506.
+- 02/11 (tarde): VERSÃO FINAL v3 (37 p.) — dossel corrigido, U de curta duração, teste independente que separa as versões; auditoria 528/528. Ressalva única: persistência das perdas após desfolha total precoce (Matrangolo).
