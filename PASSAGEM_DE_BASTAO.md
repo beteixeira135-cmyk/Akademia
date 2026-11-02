@@ -1,4 +1,4 @@
-# PASSAGEM DE BASTÃO — TCC II (5552 tokens, estimativa (caracteres ÷ 3,6); gerado em 02/11/2026 12:02)
+# PASSAGEM DE BASTÃO — TCC II (5514 tokens, estimativa (caracteres ÷ 3,6); gerado em 02/11/2026 12:02)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
 Para o código completo, use `CONTEXTO_EMPACOTADO.md` (24318 tokens, estimativa (caracteres ÷ 3,6)).
@@ -143,6 +143,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 02/11 12:02 pipeline: etapa tabelas concluída
 - 02/11 11:42 pipeline: etapa danos concluída
 - 02/11 11:42 pipeline: etapa analises concluída
 - 02/11 11:31 pipeline: etapa indicadores concluída
@@ -157,7 +158,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 31/10 21:05 TCC rev11: declaração de uso de inteligência artificial (3.16) e referência ANTHROPIC (2026)
 - 31/10 20:51 Possibilidades do módulo (7.584 cenários de danos combinados) e validação cruzada (LOO da calibração; k-fold do metamodelo); TCC rev10 com 3.15 e 4.13; auditoria 461/461
 - 31/10 20:32 TCC rev09: todo o trabalho no texto (conceitos, cubagem e toras, perda por produto, reprodutibilidade, auditorias); figuras v8; auditoria 379/379; plataforma: subtítulo, rótulo do taper e sinal zero
-- 31/10 20:24 Plataforma v8: compensação calibrada com incerteza, 6 biomas, outros danos, perda por produto e domínio de validade; JS = Python (7 cenários); TCC rev08; auditoria 367/367
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
