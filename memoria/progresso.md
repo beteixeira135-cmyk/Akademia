@@ -38,3 +38,4 @@
 1. OpenAlex: rodar revisao_07/busca/openalex_busca.py após o reset do limite e atualizar a cienciometria.
 3. Revisão do texto pelo autor e envio aos orientadores (1ª semana de novembro).
 4. Defesa: documento de preparação e slides.
+- 02/11: ressalvas do parecer reduzidas a 1 (persistência das perdas após desfolha total precoce, Matrangolo). TCC VERSÃO FINAL v2, 35 p.; auditoria 506/506.

@@ -69,6 +69,9 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Feito (01/11, madrugada): TCC enxugado de 60 para 40 páginas (rev12). Corpo 12.924 → 4.362 palavras; métodos 3.1–3.8, resultados 4.1–4.7; resumo 244 palavras; conclusão 6 parágrafos; plataforma detalhada no Apêndice A; Apêndice D novo (efeito do solo, recuperação × água, Morris). Corrigida a Tabela de verificação (308 controles, 28.277 registros; antes 260/23.873). Tabela 1 com os seis locais. Auditoria 489/489. Versão de 60 p. guardada (conteudo_v11_60p_antes_enxugar.js; entregas/rev11).
 - Feito (01/11, 3h): regra do autor — 'tudo que chama atenção fica no TCC (gráficos); tudo que ocupa espaço mental vai para a Akademia'. TCC rev13 (34 p.): linguagem acessível; 12 figuras (3 novas: N1 calibração/validação cruzada, N2 biomas, N3 possibilidades); 1 tabela no corpo (locais); 7 quadros 'Na Akademia' com QR code (plataforma/qr, decodificado e conferido); apêndices A (reprodutibilidade) e B (busca). Akademia v9: 'Material do TCC' com 16 tabelas completas extraídas de gerar.js (extrair_material_tcc.js + material_tcc.py). Auditoria 489/489.
 - Feito (02/11): acabamento e VERSÃO FINAL para o Álvaro (34 p.). Título atualizado para 'NOS BIOMAS BRASILEIROS'; referências conferidas nos dois sentidos (5 citações restauradas, incl. SILVA 2021; Souza et al. 2016 e Soares et al. 2003 incluídas, DOIs via Crossref); siglas e símbolos refeitos; lista de ilustrações corrigida (et al.); Apêndice A → B corrigido. Auditoria 489/489; 57 testes.
+- Feito (02/11, tarde): ressalvas do parecer resolvidas, sobra 1. (5) γ calibrado com Quentin et al. (2011): γ = 1 (calibracao/calibrar_gamma.py); erro corrigido: calibrar.py ajustava U e a com γ = 0, e as simulações usavam 0,5. Recalibrado com γ = 1: U 1,22 (1,03–1,34), a 0,475; teste urocam 20,3→7,4 p.p.; LOO 15,1→4,1; k=2 19,1→7,2 e 11,7→4,9. Tudo refeito (biomas, possibilidades, RF, Morris). (3) busca complementada no Semantic Scholar (revisao_07/busca/semantic_busca.py: 469 no núcleo combinado; nenhum experimento brasileiro novo). (4) leituras: Battaglia 2011 (fonte primária do CABALA), Turnbull 2007; Collett e Neumann 2002 inacessível. (1) teste independente com Oliveira et al. (2014), Mucuri-BA (calibracao/teste_oliveira2014.py): desfolha total aos 6 meses, perda de volume 8 meses depois 35,4% observada; calibrado 29,2% (26,4–33,5), original 38,7%; parciais ≤1,5%, como no campo (n.s.). (2) Matrangolo vira a única ressalva: o módulo acerta a perda de curto prazo, mas não a persistência por anos (sem reservas nem morte de ramos; o CABALA falha igual, Battaglia 2011).
+- TCC VERSÃO FINAL v2 (02/11, 35 p.): entregas/TCC_II_Bernardo_Castro_VERSAO_FINAL_v2_02-11-2026. Auditoria 506/506; 49 testes; referências 0 sem citação. Akademia reconstruída (Material do TCC e domínio de validade com Oliveira).
+- Atenção: converter o PDF com --outdir (o PDF em tcc_docx/ fica bloqueado) e rodar `node gerar.js paginas.json` para o sumário ter páginas.
 ```
 
 ## memoria/progresso.md
@@ -114,6 +117,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 1. OpenAlex: rodar revisao_07/busca/openalex_busca.py após o reset do limite e atualizar a cienciometria.
 3. Revisão do texto pelo autor e envio aos orientadores (1ª semana de novembro).
 4. Defesa: documento de preparação e slides.
+- 02/11: ressalvas do parecer reduzidas a 1 (persistência das perdas após desfolha total precoce, Matrangolo). TCC VERSÃO FINAL v2, 35 p.; auditoria 506/506.
 ```
 
 ## memoria/decisoes.md
@@ -131,6 +135,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 31/10: comprovar com validação cruzada: LOO (k=5) e por clone (k=2) na calibração (dado real, mesmo experimento) e k-fold do metamodelo no espaço de possibilidades (mede regularidade do modelo, não acerto em campo).
 - 01/11: o autor pediu um TCC realista: corpo enxuto (~19 p.), detalhes nos apêndices e no pacote; nenhum resultado removido do trabalho, só do corpo.
 - 01/11: TCC para qualquer leitor entender; gráficos no TCC, tabelas densas replicadas no 'Material do TCC' da Akademia; quadros com QR code levam à plataforma. Sem apêndice de plataforma nem de resultados complementares.
+- 02/11: γ deixa de ser escolha (0,5) e passa a ser calibrado com experimento independente (Quentin et al., 2011): γ = 1; U e a recalibrados com γ fixo. Oliveira et al. (2014) usado só como teste independente, nunca no ajuste. Krause 2025 e Kautz 2018 fora da tabela de precedentes (conteúdo não conferido).
 ```
 
 ## memoria/tecnico.md
