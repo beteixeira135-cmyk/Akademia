@@ -1,85 +1,85 @@
 escopo,resposta,variavel,importancia_relativa_pct
-3 locais,perda_volume_k72,intensidade,56.98059266023362
-3 locais,perda_volume_k72,frequência,38.343592892545225
-3 locais,perda_volume_k72,época,0.35632557165452083
-3 locais,perda_volume_k72,água (ASWmax),0.4176521938352964
-3 locais,perda_volume_k72,fertilidade (FR),0.37572282545502317
-3 locais,perda_volume_k72,local,2.4970358869560534
-3 locais,perda_volume_k72,material genético,1.0290779693202532
-IND,perda_volume_k72,intensidade,57.24354483943518
-IND,perda_volume_k72,frequência,40.16323017297049
-IND,perda_volume_k72,época,0.9559380266105802
-IND,perda_volume_k72,água (ASWmax),0.5461018588899182
-IND,perda_volume_k72,fertilidade (FR),0.35026133872269266
+3 locais,perda_volume_k72,intensidade,58.83674502208492
+3 locais,perda_volume_k72,frequência,36.62852239214909
+3 locais,perda_volume_k72,época,0.3327349314315113
+3 locais,perda_volume_k72,água (ASWmax),0.5035467777974837
+3 locais,perda_volume_k72,fertilidade (FR),0.8529165242566855
+3 locais,perda_volume_k72,local,1.6801808239678604
+3 locais,perda_volume_k72,material genético,1.1653535283124494
+IND,perda_volume_k72,intensidade,58.35978761877277
+IND,perda_volume_k72,frequência,38.12055690894997
+IND,perda_volume_k72,época,0.7078954638972829
+IND,perda_volume_k72,água (ASWmax),0.8816525115676775
+IND,perda_volume_k72,fertilidade (FR),0.8136048173812453
 IND,perda_volume_k72,local,0.0
-IND,perda_volume_k72,material genético,0.7409237633711425
-TB,perda_volume_k72,intensidade,62.17473271708996
-TB,perda_volume_k72,frequência,34.83813326060118
-TB,perda_volume_k72,época,0.09146157044843437
-TB,perda_volume_k72,água (ASWmax),0.14585840754001633
-TB,perda_volume_k72,fertilidade (FR),0.3840844836184332
+IND,perda_volume_k72,material genético,1.116502679431047
+TB,perda_volume_k72,intensidade,64.79031473451252
+TB,perda_volume_k72,frequência,32.461776499820964
+TB,perda_volume_k72,época,0.1329773565304815
+TB,perda_volume_k72,água (ASWmax),0.19746210246110682
+TB,perda_volume_k72,fertilidade (FR),0.8835568041534795
 TB,perda_volume_k72,local,0.0
-TB,perda_volume_k72,material genético,2.3657295607019853
-IMP,perda_volume_k72,intensidade,57.98809649335826
-IMP,perda_volume_k72,frequência,41.11070123596673
-IMP,perda_volume_k72,época,0.3333877505555
-IMP,perda_volume_k72,água (ASWmax),0.06154003306909251
-IMP,perda_volume_k72,fertilidade (FR),0.43235202568531617
+TB,perda_volume_k72,material genético,1.5339125025214635
+IMP,perda_volume_k72,intensidade,56.92274281088743
+IMP,perda_volume_k72,frequência,41.02911843710008
+IMP,perda_volume_k72,época,0.4438069553506162
+IMP,perda_volume_k72,água (ASWmax),0.3261741207543802
+IMP,perda_volume_k72,fertilidade (FR),0.8305708776734987
 IMP,perda_volume_k72,local,0.0
-IMP,perda_volume_k72,material genético,0.07392246136508523
-3 locais,perda_NPP_acum_pct,intensidade,53.08400759208209
-3 locais,perda_NPP_acum_pct,frequência,43.6191341941978
-3 locais,perda_NPP_acum_pct,época,0.46398416903113265
-3 locais,perda_NPP_acum_pct,água (ASWmax),0.33855438370875174
-3 locais,perda_NPP_acum_pct,fertilidade (FR),0.3141026277937726
-3 locais,perda_NPP_acum_pct,local,1.3126518602164576
-3 locais,perda_NPP_acum_pct,material genético,0.8675651729700036
-IND,perda_NPP_acum_pct,intensidade,53.74847531113538
-IND,perda_NPP_acum_pct,frequência,43.90406635422927
-IND,perda_NPP_acum_pct,época,1.0631048578485993
-IND,perda_NPP_acum_pct,água (ASWmax),0.3761535619491583
-IND,perda_NPP_acum_pct,fertilidade (FR),0.2596197119613321
+IMP,perda_volume_k72,material genético,0.44758679823398945
+3 locais,perda_NPP_acum_pct,intensidade,55.02486103679179
+3 locais,perda_NPP_acum_pct,frequência,40.47869238765677
+3 locais,perda_NPP_acum_pct,época,0.4616343482366436
+3 locais,perda_NPP_acum_pct,água (ASWmax),0.4048375859538418
+3 locais,perda_NPP_acum_pct,fertilidade (FR),0.9667628118701235
+3 locais,perda_NPP_acum_pct,local,1.2324534071294424
+3 locais,perda_NPP_acum_pct,material genético,1.4307584223613807
+IND,perda_NPP_acum_pct,intensidade,54.237275588065394
+IND,perda_NPP_acum_pct,frequência,42.09978227013502
+IND,perda_NPP_acum_pct,época,0.8994139455909168
+IND,perda_NPP_acum_pct,água (ASWmax),0.6924594941197103
+IND,perda_NPP_acum_pct,fertilidade (FR),0.8311746822192855
 IND,perda_NPP_acum_pct,local,0.0
-IND,perda_NPP_acum_pct,material genético,0.6485802028762423
-TB,perda_NPP_acum_pct,intensidade,55.4364260104095
-TB,perda_NPP_acum_pct,frequência,42.487829654745745
-TB,perda_NPP_acum_pct,época,0.11028069980255883
-TB,perda_NPP_acum_pct,água (ASWmax),0.10532038908877268
-TB,perda_NPP_acum_pct,fertilidade (FR),0.2895580823363064
+IND,perda_NPP_acum_pct,material genético,1.239894019869654
+TB,perda_NPP_acum_pct,intensidade,60.028517976149125
+TB,perda_NPP_acum_pct,frequência,36.714505669833976
+TB,perda_NPP_acum_pct,época,0.07088844881374667
+TB,perda_NPP_acum_pct,água (ASWmax),0.14372681443769394
+TB,perda_NPP_acum_pct,fertilidade (FR),1.0845417186789372
 TB,perda_NPP_acum_pct,local,0.0
-TB,perda_NPP_acum_pct,material genético,1.570585163617123
-IMP,perda_NPP_acum_pct,intensidade,53.48382740242191
-IMP,perda_NPP_acum_pct,frequência,45.52451693559852
-IMP,perda_NPP_acum_pct,época,0.42788945445735177
-IMP,perda_NPP_acum_pct,água (ASWmax),0.08961508861595667
-IMP,perda_NPP_acum_pct,fertilidade (FR),0.404694334525766
+TB,perda_NPP_acum_pct,material genético,1.957819372086525
+IMP,perda_NPP_acum_pct,intensidade,53.02443827332947
+IMP,perda_NPP_acum_pct,frequência,44.56134513155097
+IMP,perda_NPP_acum_pct,época,0.6606424472779907
+IMP,perda_NPP_acum_pct,água (ASWmax),0.2742269176574527
+IMP,perda_NPP_acum_pct,fertilidade (FR),0.9658546892538447
 IMP,perda_NPP_acum_pct,local,0.0
-IMP,perda_NPP_acum_pct,material genético,0.06945678438047581
-3 locais,recup_rel95_meses_ev1,intensidade,58.204746129766704
-3 locais,recup_rel95_meses_ev1,frequência,0.0005069325612767204
-3 locais,recup_rel95_meses_ev1,época,10.759725349289887
-3 locais,recup_rel95_meses_ev1,água (ASWmax),2.2779748847879557
-3 locais,recup_rel95_meses_ev1,fertilidade (FR),0.951388307568771
-3 locais,recup_rel95_meses_ev1,local,2.965354374506724
-3 locais,recup_rel95_meses_ev1,material genético,24.84030402151869
-IND,recup_rel95_meses_ev1,intensidade,57.623197668523346
-IND,recup_rel95_meses_ev1,frequência,0.00042155908235190503
-IND,recup_rel95_meses_ev1,época,10.999333043041673
-IND,recup_rel95_meses_ev1,água (ASWmax),2.9329326711007506
-IND,recup_rel95_meses_ev1,fertilidade (FR),0.9997816582022899
+IMP,perda_NPP_acum_pct,material genético,0.5134925409302725
+3 locais,recup_rel95_meses_ev1,intensidade,64.72622950684476
+3 locais,recup_rel95_meses_ev1,frequência,0.008443787184778537
+3 locais,recup_rel95_meses_ev1,época,9.36065761454153
+3 locais,recup_rel95_meses_ev1,água (ASWmax),5.154646779212222
+3 locais,recup_rel95_meses_ev1,fertilidade (FR),5.8967815977155755
+3 locais,recup_rel95_meses_ev1,local,7.209857468400624
+3 locais,recup_rel95_meses_ev1,material genético,7.643383246100495
+IND,recup_rel95_meses_ev1,intensidade,67.3200488756904
+IND,recup_rel95_meses_ev1,frequência,0.006746496248290802
+IND,recup_rel95_meses_ev1,época,10.127217889494002
+IND,recup_rel95_meses_ev1,água (ASWmax),4.306830861699231
+IND,recup_rel95_meses_ev1,fertilidade (FR),7.047806775121795
 IND,recup_rel95_meses_ev1,local,0.0
-IND,recup_rel95_meses_ev1,material genético,27.444333400049597
-TB,recup_rel95_meses_ev1,intensidade,57.983259773782564
-TB,recup_rel95_meses_ev1,frequência,3.666077887289438e-05
-TB,recup_rel95_meses_ev1,época,4.492196170767247
-TB,recup_rel95_meses_ev1,água (ASWmax),0.40116353344359795
-TB,recup_rel95_meses_ev1,fertilidade (FR),0.4717771374592488
+IND,recup_rel95_meses_ev1,material genético,11.191349101746287
+TB,recup_rel95_meses_ev1,intensidade,77.56066549392402
+TB,recup_rel95_meses_ev1,frequência,0.00944046771483023
+TB,recup_rel95_meses_ev1,época,4.366582088592635
+TB,recup_rel95_meses_ev1,água (ASWmax),6.791225388152964
+TB,recup_rel95_meses_ev1,fertilidade (FR),4.572987779951321
 TB,recup_rel95_meses_ev1,local,0.0
-TB,recup_rel95_meses_ev1,material genético,36.651566723768475
-IMP,recup_rel95_meses_ev1,intensidade,70.1928374288397
-IMP,recup_rel95_meses_ev1,frequência,0.0016616683027767584
-IMP,recup_rel95_meses_ev1,época,22.440468496836612
-IMP,recup_rel95_meses_ev1,água (ASWmax),4.3854358481860976
-IMP,recup_rel95_meses_ev1,fertilidade (FR),1.7812879605638887
+TB,recup_rel95_meses_ev1,material genético,6.6990987816642384
+IMP,recup_rel95_meses_ev1,intensidade,65.99808837559195
+IMP,recup_rel95_meses_ev1,frequência,0.019187133851122223
+IMP,recup_rel95_meses_ev1,época,14.792164349199343
+IMP,recup_rel95_meses_ev1,água (ASWmax),6.175473694052119
+IMP,recup_rel95_meses_ev1,fertilidade (FR),8.504663242713148
 IMP,recup_rel95_meses_ev1,local,0.0
-IMP,recup_rel95_meses_ev1,material genético,1.1983085972709269
+IMP,recup_rel95_meses_ev1,material genético,4.510423204592322

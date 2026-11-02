@@ -2,10 +2,10 @@
   "Q6": [
     {
       "pares": 576,
-      "P2_maior_P1_NPPacum_%pares": 94.965,
-      "razao_mediana_volume_k72_P2/P1": 2.057,
-      "razao_min": 0.588,
-      "razao_max": 3.531
+      "P2_maior_P1_NPPacum_%pares": 92.882,
+      "razao_mediana_volume_k72_P2/P1": 1.947,
+      "razao_min": -0.479,
+      "razao_max": 17.035
     }
   ]
 }

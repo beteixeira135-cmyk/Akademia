@@ -1,4 +1,4 @@
-# PASSAGEM DE BASTÃO — TCC II (5351 tokens, estimativa (caracteres ÷ 3,6); gerado em 02/11/2026 11:31)
+# PASSAGEM DE BASTÃO — TCC II (5351 tokens, estimativa (caracteres ÷ 3,6); gerado em 02/11/2026 11:42)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
 Para o código completo, use `CONTEXTO_EMPACOTADO.md` (23836 tokens, estimativa (caracteres ÷ 3,6)).
@@ -141,6 +141,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 02/11 11:31 pipeline: etapa indicadores concluída
 - 02/11 11:31 pipeline: etapa experimentos concluída
 - 02/11 11:19 Conferidor: números decimais do texto do TCC × itens da auditoria
 - 02/11 11:15 Recalibração com γ = 1 (Quentin 2011), teste independente com Oliveira et al. (2014), busca no Semantic Scholar; TCC VERSÃO FINAL v2 (35 p.), auditoria 506/506
@@ -155,7 +156,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 31/10 20:24 Plataforma v8: compensação calibrada com incerteza, 6 biomas, outros danos, perda por produto e domínio de validade; JS = Python (7 cenários); TCC rev08; auditoria 367/367
 - 31/10 20:04 Missão 07: Drive atualizado (relatórios, diário, passagem); urocam como teste na memória
 - 31/10 20:01 Missão 07: auditoria científica e cienciométrica; TCC revisado (53 p.), relatórios, corpus, matrizes; auditoria 363/363
-- 31/10 19:25 Memória e passagem de bastão revisadas
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
