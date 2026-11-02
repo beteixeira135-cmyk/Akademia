@@ -3,6 +3,7 @@ const fs = require("fs"), path = require("path");
 const g = fs.readFileSync(path.join(__dirname, "../tcc_docx/gerar.js"), "utf8");
 const i = g.indexOf("const TABS = {"), j = g.indexOf("\n};", i);
 const tabela = (titulo, cab, linhas, larg, nota) => ({ titulo, cab, linhas, nota: nota || "" });
+const TDJ = JSON.parse(fs.readFileSync(path.join(__dirname, "../tcc_docx/tabelas_dados.json"), "utf8")), TD = TDJ.tabelas, TN = TDJ.notas;
 const TABS = eval("(" + g.slice(i + "const TABS = ".length, j + 2) + ")");
 const out = {};
 for (const k of Object.keys(TABS)) out[k] = TABS[k]();

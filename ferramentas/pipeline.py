@@ -12,19 +12,23 @@ PY = sys.executable
 ETAPAS = {
     "verificar": [[PY, "-c", "import numpy, pandas, sklearn; print('python ok')"], ["node", "--version"]],
     "testes": [[PY, "-m", "pytest", "-q", "modelo/testes"]],
-    "calibracao": [[PY, "calibrar.py", "0.999"], [PY, "calibrar.py", "0.99"]],
-    "experimentos": [[PY, "experimentos/run_experimentos.py"]],
+    "calibracao": [[PY, "calibrar.py", "0.999"], [PY, "calibrar.py", "0.99"], [PY, "calibrar_gamma.py"], [PY, "validacao_cruzada.py"],
+                   [PY, "auditoria_calibracao.py"], [PY, "testes_adicionais.py"], [PY, "validacao_globulus.py"], [PY, "teste_oliveira2014.py"]],
+    "experimentos": [[PY, "experimentos/run_experimentos.py"], [PY, "experimentos/controles.py"]],
     "indicadores": [[PY, "experimentos/indicadores.py"]],
     "analises": [[PY, "experimentos/analise.py"], [PY, "experimentos/estatisticas.py"],
                  [PY, "experimentos/validacao_kfold.py"], [PY, "experimentos/rf_figuras.py"]],
     "danos": [[PY, "experimentos/danos_v2.py"]],
+    "biomas": [[PY, "experimentos/run_biomas.py"], [PY, "experimentos/rf_biomas.py"], [PY, "experimentos/morris_danos_biomas.py"]],
+    "possibilidades": [[PY, "experimentos/possibilidades.py"], [PY, "experimentos/possibilidades_analise.py"]],
+    "tabelas": [[PY, "tcc_docx/tabelas_dados.py"], ["node", "plataforma/extrair_material_tcc.js"], [PY, "plataforma/material_tcc.py"], [PY, "experimentos/figuras_novas.py"]],
     "auditoria": [[PY, "auditoria_final/auditar_numeros.py"]],
-    "tcc": [["node", "tcc_docx/gerar.js"]],
-    "plataforma": [[PY, "plataforma/construir.py"]],
+    "tcc": [["node", "gerar.js", "paginas.json"], ["node", "../ferramentas/conferir_texto_auditoria.js"]],
+    "plataforma": [[PY, "plataforma/sincronizar_dados.py"], [PY, "plataforma/verificacao/comparar.py"], [PY, "plataforma/construir.py"]],
     "passagem": [[PY, "ferramentas/gerar_passagem.py"]],
 }
-CWD = {"calibracao": RAIZ / "calibracao"}
-ORDEM = ["verificar", "testes", "calibracao", "experimentos", "indicadores", "analises", "danos", "auditoria", "tcc", "plataforma"]
+CWD = {"calibracao": RAIZ / "calibracao", "tcc": RAIZ / "tcc_docx"}
+ORDEM = ["verificar", "testes", "calibracao", "experimentos", "indicadores", "analises", "danos", "biomas", "possibilidades", "tabelas", "plataforma", "auditoria", "tcc"]
 
 
 def commit(msg):

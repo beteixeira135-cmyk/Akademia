@@ -136,6 +136,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 01/11: o autor pediu um TCC realista: corpo enxuto (~19 p.), detalhes nos apêndices e no pacote; nenhum resultado removido do trabalho, só do corpo.
 - 01/11: TCC para qualquer leitor entender; gráficos no TCC, tabelas densas replicadas no 'Material do TCC' da Akademia; quadros com QR code levam à plataforma. Sem apêndice de plataforma nem de resultados complementares.
 - 02/11: γ deixa de ser escolha (0,5) e passa a ser calibrado com experimento independente (Quentin et al., 2011): γ = 1; U e a recalibrados com γ fixo. Oliveira et al. (2014) usado só como teste independente, nunca no ajuste. Krause 2025 e Kautz 2018 fora da tabela de precedentes (conteúdo não conferido).
+- 02/11 (tarde): cascata "sem falhas escondidas". (1) Dossel dos clones de Borges corrigido: γF1, γF0 e pFS2 trocados pelos da TECHS (Caldeira et al., 2020a), porque os de Borges davam IAF 8–11 contra 3,0–3,8 medidos; TCC_DOSSEL=borges reproduz a versão anterior. (2) U só no mês do ataque (u_meses = 1; Turnbull et al., 2007; Quentin et al., 2012): as regras testadas deram ajuste equivalente, escolhida a sustentada pela fisiologia; em desfolha total o U não é identificado e vem da faixa da literatura. (3) Matriz principal fixada nos 3 locais (SITIOS_MATRIZ), pois passara a ler os 6 locais. (4) Tabelas completas geradas dos resultados (tcc_docx/tabelas_dados.py), sem números digitados. (5) controles_solo_local.csv ganhou script (experimentos/controles.py). (6) Pipeline com todas as etapas (calibração completa, biomas, possibilidades, tabelas, plataforma).
 ```
 
 ## memoria/tecnico.md
@@ -1483,19 +1484,23 @@ PY = sys.executable
 ETAPAS = {
     "verificar": [[PY, "-c", "import numpy, pandas, sklearn; print('python ok')"], ["node", "--version"]],
     "testes": [[PY, "-m", "pytest", "-q", "modelo/testes"]],
-    "calibracao": [[PY, "calibrar.py", "0.999"], [PY, "calibrar.py", "0.99"]],
-    "experimentos": [[PY, "experimentos/run_experimentos.py"]],
+    "calibracao": [[PY, "calibrar.py", "0.999"], [PY, "calibrar.py", "0.99"], [PY, "calibrar_gamma.py"], [PY, "validacao_cruzada.py"],
+                   [PY, "auditoria_calibracao.py"], [PY, "testes_adicionais.py"], [PY, "validacao_globulus.py"], [PY, "teste_oliveira2014.py"]],
+    "experimentos": [[PY, "experimentos/run_experimentos.py"], [PY, "experimentos/controles.py"]],
     "indicadores": [[PY, "experimentos/indicadores.py"]],
     "analises": [[PY, "experimentos/analise.py"], [PY, "experimentos/estatisticas.py"],
                  [PY, "experimentos/validacao_kfold.py"], [PY, "experimentos/rf_figuras.py"]],
     "danos": [[PY, "experimentos/danos_v2.py"]],
+    "biomas": [[PY, "experimentos/run_biomas.py"], [PY, "experimentos/rf_biomas.py"], [PY, "experimentos/morris_danos_biomas.py"]],
+    "possibilidades": [[PY, "experimentos/possibilidades.py"], [PY, "experimentos/possibilidades_analise.py"]],
+    "tabelas": [[PY, "tcc_docx/tabelas_dados.py"], ["node", "plataforma/extrair_material_tcc.js"], [PY, "plataforma/material_tcc.py"], [PY, "experimentos/figuras_novas.py"]],
     "auditoria": [[PY, "auditoria_final/auditar_numeros.py"]],
-    "tcc": [["node", "tcc_docx/gerar.js"]],
-    "plataforma": [[PY, "plataforma/construir.py"]],
+    "tcc": [["node", "gerar.js", "paginas.json"], ["node", "../ferramentas/conferir_texto_auditoria.js"]],
+    "plataforma": [[PY, "plataforma/sincronizar_dados.py"], [PY, "plataforma/verificacao/comparar.py"], [PY, "plataforma/construir.py"]],
     "passagem": [[PY, "ferramentas/gerar_passagem.py"]],
 }
-CWD = {"calibracao": RAIZ / "calibracao"}
-ORDEM = ["verificar", "testes", "calibracao", "experimentos", "indicadores", "analises", "danos", "auditoria", "tcc", "plataforma"]
+CWD = {"calibracao": RAIZ / "calibracao", "tcc": RAIZ / "tcc_docx"}
+ORDEM = ["verificar", "testes", "calibracao", "experimentos", "indicadores", "analises", "danos", "biomas", "possibilidades", "tabelas", "plataforma", "auditoria", "tcc"]
 
 
 def commit(msg):

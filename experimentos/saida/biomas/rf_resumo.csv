@@ -1,17 +1,17 @@
 versao,resposta,variaveis,esquema,R2,RQEM,RQEM_max
-calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,-0.234,281.352,977.936
-calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,0.995,17.555,22.894
-calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,0.713,136.046,468.234
-calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,0.995,17.635,21.683
-calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,0.334,55.579,76.347
-calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,0.982,10.491,14.328
-calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,0.427,50.211,75.737
-calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,0.983,10.466,14.561
-original,perda_volume_k72,(a) local categórico,deixa um local de fora,0.886,63.321,184.775
-original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,0.996,10.797,14.247
-original,perda_volume_k72,(b) clima numérico,deixa um local de fora,0.862,65.841,241.297
-original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,0.996,9.959,14.068
-original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,0.28,28.588,96.846
-original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,0.99,4.109,4.849
-original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,0.51,22.864,83.622
-original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,0.99,4.026,4.749
+calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,0.88,44.761,79.03
+calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,0.994,12.679,15.347
+calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,0.902,42.674,67.393
+calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,0.994,12.659,15.34
+calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,0.632,62.75,77.014
+calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,0.975,17.014,21.461
+calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,0.754,50.424,60.489
+calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,0.976,16.666,21.962
+original,perda_volume_k72,(a) local categórico,deixa um local de fora,0.931,39.284,64.306
+original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,0.993,12.978,16.442
+original,perda_volume_k72,(b) clima numérico,deixa um local de fora,0.958,29.011,42.409
+original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,0.994,11.437,14.326
+original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,0.385,25.02,53.385
+original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,0.925,8.992,10.918
+original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,0.529,22.04,51.401
+original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,0.926,8.918,10.508

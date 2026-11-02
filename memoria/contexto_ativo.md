@@ -15,3 +15,4 @@
 - TCC VERSÃO FINAL v2 (02/11, 35 p.): entregas/TCC_II_Bernardo_Castro_VERSAO_FINAL_v2_02-11-2026. Auditoria 506/506; 49 testes; referências 0 sem citação. Akademia reconstruída (Material do TCC e domínio de validade com Oliveira).
 - Atenção: converter o PDF com --outdir (o PDF em tcc_docx/ fica bloqueado) e rodar `node gerar.js paginas.json` para o sumário ter páginas.
 
+

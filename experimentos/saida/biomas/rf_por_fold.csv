@@ -1,161 +1,161 @@
 R2,RQEM_pct,vies_pct,versao,resposta,variaveis,esquema,local_testado
-0.9959958709887651,9.71139844696579,-0.5998589020287478,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9967079171985815,9.62060809888315,0.194273339659986,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9958668243123306,10.905886230949568,-0.42353817874325767,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9956152912936824,10.852359785527488,-0.15034958227993048,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9922599111987117,14.246666766355473,1.3853223295519261,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9954507144212411,10.904777725453851,-1.4142758078609492,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9950414110487593,11.896804427773512,0.380931780079142,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9952298297801488,12.015582138025115,0.41304434338972795,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9943451668854882,11.650909549911864,-0.02525967726557092,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9977707417525518,8.240755427719279,-0.8689864407274147,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9946254782587605,11.724060527605229,0.6795999765520826,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9949648474786313,11.220072948364125,-1.3904622799676083,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9975758756192634,8.092187777816987,0.39063916515067926,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9965614900260633,10.074644992166348,-0.13309744775083232,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9370218827544351,44.839438982483706,3.0294666069745846,original,perda_volume_k72,(a) local categórico,deixa um local de fora,ALM
-0.6538591408405139,184.77460109484483,143.2025248688568,original,perda_volume_k72,(a) local categórico,deixa um local de fora,ARA
-0.9462411432955966,37.17021013559822,-19.30746575735778,original,perda_volume_k72,(a) local categórico,deixa um local de fora,ELD
-0.8876803503440078,45.91735387003577,-26.869549986530725,original,perda_volume_k72,(a) local categórico,deixa um local de fora,IMP
-0.9258132340795633,37.83087363442112,0.6428677341462459,original,perda_volume_k72,(a) local categórico,deixa um local de fora,IND
-0.9648325249083615,29.394247212439467,6.801391258000584,original,perda_volume_k72,(a) local categórico,deixa um local de fora,TB
-0.9969867690804182,8.424496414007322,-1.129126094639633,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9975054564087963,8.37457348091116,-0.10028128144859062,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9966990183089549,9.7463182302153,-0.3944499752888742,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9958110699134067,10.607312556616005,-0.12230935319704213,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9924527754929771,14.06805083731855,1.0908188514674897,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9959176912624805,10.329948130326427,-1.3791138614419967,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9961487748723844,10.484572359435237,0.3298036212097636,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9964613186519725,10.349005236389305,0.8713030019689414,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9950615855414592,10.887889438448031,-0.07479827621500006,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9975063745348615,8.715703475637742,-0.846986712685289,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9955702998727379,10.643765640756298,1.1455771520150073,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9953044454963323,10.83509711636969,-1.6325256903472902,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9977901015430195,7.726355051257085,0.2915645763101322,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9977029956162766,8.234277887499193,-0.47344165442323566,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9646827882864938,33.578287097430774,12.1588185887483,original,perda_volume_k72,(b) clima numérico,deixa um local de fora,ALM
-0.4096992065380194,241.29733378721423,197.5576001729488,original,perda_volume_k72,(b) clima numérico,deixa um local de fora,ARA
-0.9846278910850867,19.87635435710344,-9.958090573720302,original,perda_volume_k72,(b) clima numérico,deixa um local de fora,ELD
-0.8981351331261325,43.72815899528994,-25.898867022954104,original,perda_volume_k72,(b) clima numérico,deixa um local de fora,IMP
-0.9301914531397169,36.69758204053985,6.169544351539743,original,perda_volume_k72,(b) clima numérico,deixa um local de fora,IND
-0.9839376013691823,19.86538325032903,1.6609814723737923,original,perda_volume_k72,(b) clima numérico,deixa um local de fora,TB
-0.9895076942040426,4.22765895241576,-0.07074776596327845,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9893006712720465,4.368440359920501,0.2502848175004548,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9861146788357839,4.848751493307093,-0.010817767457649062,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9924096261941512,3.7900624776395526,0.163866188782783,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9895576201234472,4.016223984689023,-0.052718279290758625,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9823388170593833,4.737112304795959,-0.2785679288269429,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9946030124285122,3.113926918396595,0.11359761171684918,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9908248448262257,3.774211749015915,0.22989616230330714,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9935180457763246,3.560560834993706,-0.30686960141430886,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9893034165907406,3.902953630892604,-0.5857011911540688,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9870278699859165,4.6805213612262815,0.28632521304060016,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9902384618418654,4.128743697595923,0.44790371825684205,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9902090612621288,3.9297542813093154,-0.2391646844874276,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.988708500311554,4.441056177989921,-0.37239807774725087,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.7987686460048785,13.049813744864704,8.4309212517402,original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,ALM
--2.1492971872816677,96.8458211513483,90.39909032088845,original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,ARA
-0.3085654798253116,30.657189664138603,-24.724220776400212,original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,ELD
-0.8429236287674552,13.357389831268954,9.174430774979056,original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,IMP
-0.9433205974235633,8.570964415112812,1.302947491390644,original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,IND
-0.9383150220590277,9.043823950342492,-2.1485894733970325,original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,TB
-0.9900384633513536,4.119340047759299,-0.12316355871671796,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.989702155026591,4.285695589704353,0.2328414435408655,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9866821012751257,4.748646224204324,-0.017119682958103854,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9927497604982568,3.704170456717511,0.21101069304452205,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.990103292226582,3.90988113688373,-0.08265256505531922,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9825650487819134,4.706674389391212,-0.2651575920043319,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.995121445078043,2.9605902604065872,0.047151585171140195,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9910429268061391,3.7290878519288824,0.2321246272246273,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9939678957245649,3.434787318897212,-0.37032908445149054,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9893626087650168,3.8921396729444653,-0.6173619547830448,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9870802710890344,4.671058278791006,0.36790466683674733,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9907379620884266,4.021722240051751,0.401107042015482,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.99039792041907,3.891668863627801,-0.21517961138574404,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9894612667836112,4.290467917135806,-0.43051558689970415,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.8783377951251212,10.146922187124588,6.684554033093391,original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,ALM
--1.3479530063451897,83.62165591609673,78.04680694313362,original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,ARA
-0.67241691549572,21.10170491470865,-17.19592690325196,original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,ELD
-0.9415414938260984,8.148731869281118,2.950222436668973,original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,IMP
-0.9388658064046224,8.901417149720608,-1.3855145961000146,original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,IND
-0.9790847267218085,5.266161388307251,1.3464553990161687,original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,TB
-0.995738709148852,14.684825447730733,-0.10162193059810558,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9962240662579179,13.973378356381692,0.7850503134534554,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9955170609900931,18.55147036212273,0.06629839774439558,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9946020211910577,17.557185919048923,-2.043998933137968,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9937447754843811,19.530718952718853,1.5291114861378772,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9947084640475253,18.223397173662,-0.3974750530303343,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9952832237491426,16.357670996286807,-2.4102778343307776,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9959847249486218,16.99620044707472,0.30973902577059614,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9938280940661854,18.369519723290733,-2.9876693354680834,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9940080384012113,18.56574313407939,1.3897958443301246,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9925044678371772,20.577350140948905,-1.590731515096771,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9966508474416234,13.760553897901392,-0.003998230065939148,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9953298430701338,15.72896560451866,1.5763823930415097,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.9920301062184742,22.894088356663698,0.0171925336045695,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
-0.03296154741588053,251.85864188386972,103.82024642848354,calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,ALM
-0.8518049654355268,69.1406381155704,-41.99010496876214,calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,ARA
--4.262155733448219,977.936391716481,485.23206208929577,calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,ELD
-0.7418333068780996,102.09388809216323,-51.61984511977595,calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,IMP
-0.8008754011901904,100.70062726096657,-40.763780565953205,calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,IND
-0.43158660800350046,186.38336258290883,79.1066918775244,calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,TB
-0.9955042149998412,15.083459682830604,0.09433856366061041,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9960554743644568,14.281921036073237,0.4357657230149113,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9945496840524963,20.455389848946155,0.957893379430468,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9948202934025888,17.198552656030692,-1.697179610653548,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9941095371709634,18.952717502955174,1.5080517503383477,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9942969566681488,18.918722223912585,-0.808903923100324,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9956599733473639,15.690797935365225,-2.116533667821491,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9956026123062561,17.786544060843326,0.42193652220708255,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.993662261172132,18.614669152632665,-3.205654712993269,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9938098553834458,18.87027479014864,2.0308699223919153,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9931445453033328,19.679150365419364,-1.8372851589575039,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9966276452294129,13.808136715578575,0.3456772788401646,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9952475068661847,15.867012893387546,1.8168590675791154,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.9928508630694819,21.683225959177516,0.16131396543517207,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
-0.897538388838049,81.98144630285708,33.34108344198383,calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,ALM
-0.9471069179233915,41.30627140605305,-13.700821906358362,calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,ARA
--0.20633548898555243,468.2338549511031,281.3612983830379,calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,ELD
-0.9572492002208272,41.545286628258644,-24.670448439280396,calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,IMP
-0.928178941927734,60.477749012171394,27.997195429960374,calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,IND
-0.7535386794730702,122.72961658707521,-47.857779677865246,calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,TB
-0.9883852797344754,8.771084233616861,-0.5070491780456639,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9687541403152768,14.32759839479733,1.0965706271117779,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9891232194092954,8.656466003829072,0.8330184827175562,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9825346816952388,10.638576465293243,-0.043372670696286454,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9811757706772286,10.715492721906395,0.6210830435251437,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9886368772056454,8.85616745448194,-0.5837725238949639,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9799167531735843,10.88874369775782,-0.6970433510123281,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9895970788122369,8.301671120729589,1.3671959075523992,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9852908718456657,9.948424922546774,-0.457977907158438,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9801443546503662,10.454134410189829,1.0506844141829996,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9744158809617494,12.98676643210416,-1.5132103202248233,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9772539181403872,12.28594745269743,0.47478026855653216,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9795710952297069,11.297289057849726,1.5320177217553312,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.9891288790475679,8.742932879077797,-0.4538000166700506,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
-0.2930233630507877,57.68689467822853,-12.27352570574518,calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,ALM
--0.48980820119163915,76.34723308982437,12.481400386927042,calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,ARA
--0.09603987841851036,75.69031839734915,33.8872389702857,calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,ELD
-0.7594121434188753,38.14986887072693,-17.23274480819947,calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,IMP
-0.8359086815481107,36.62714568455734,-6.717225283508658,calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,IND
-0.6985514948727505,48.97388516053467,22.985008867705915,calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,TB
-0.9856671500795893,9.743504301961648,0.007756231664364885,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9677287786697187,14.560787423665253,0.9952461086655798,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9896677944150009,8.436978906186672,0.6075548195802802,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9815021879359779,10.948520812856003,-0.07915507360981003,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9818468449194824,10.522758469753583,0.4488097417071106,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9849528072580083,10.191185618440109,-1.4349401499302288,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9840966873179724,9.689572384594182,-0.22571936008399074,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9888847991736021,8.58117042153619,1.316963909879815,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9853717781324535,9.921026970302986,-0.5559726010924595,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9833553486119072,9.571575465374886,1.0477359889483944,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9778729021198644,12.077527213459925,-1.3527356002726467,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9783350747144418,11.990407758787196,0.3433742149734825,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9799917317531361,11.18037703853033,0.9906287808139141,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.9882043966670857,9.107099051811097,-0.04613247612796559,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
-0.38177176692984216,53.94473293542725,-9.093470463117741,calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,ALM
--0.4661043338125772,75.73742941906767,27.888765534783083,calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,ARA
-0.14822111006101824,66.72530851279207,22.49263046501803,calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,ELD
-0.8901500208197825,25.778413605060905,-9.009637192962835,calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,IMP
-0.8342262723630179,36.81443377837894,-3.8882353256425874,calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,IND
-0.7755079259782578,42.26282245875117,7.255591857664929,calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,TB
+0.994632139451428,10.352460201837063,-0.19059857732863386,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9937358666659087,12.21939464825376,0.4461371781215223,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9941919187472024,12.279828193421402,0.8710154576543971,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9942645435478601,11.22718340346389,-1.2146773999584601,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9912920090318409,14.099682383548204,0.48726814068771546,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.988225521105235,16.441825717497373,-1.1385958049932363,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9934807025656207,12.742201988645634,0.9709297159460529,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9918162166593218,14.6960958098157,1.6014654622591207,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.993529642348589,11.369231649677232,0.020502177795230173,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9941985576941555,12.3993234579132,-1.8492110677126377,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9902403634918197,14.850500548457818,1.9715652752758182,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9913493336099686,13.672315694393394,-0.45860874690624076,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.992385225320773,12.792573941840768,-0.34188238107489854,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9940848021027225,12.554886462789286,0.43075282042720053,original,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9523795044295617,32.04629693494717,-12.438809042617443,original,perda_volume_k72,(a) local categórico,deixa um local de fora,ALM
+0.8577093092320336,64.30597413350986,34.21853987992601,original,perda_volume_k72,(a) local categórico,deixa um local de fora,ARA
+0.9328545504160287,41.394970473249465,-6.69116447663149,original,perda_volume_k72,(a) local categórico,deixa um local de fora,ELD
+0.9651012832522019,25.366226019081104,-11.088544412115091,original,perda_volume_k72,(a) local categórico,deixa um local de fora,IMP
+0.9114010152967648,43.933194931363644,18.48315916732024,original,perda_volume_k72,(a) local categórico,deixa um local de fora,IND
+0.9670480422808782,28.65678394184742,4.8200256436766225,original,perda_volume_k72,(a) local categórico,deixa um local de fora,TB
+0.9959569249449053,8.984602321141638,-0.5307240734341284,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.996127276687061,9.60787689187398,0.15090597057192368,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.994900431188395,11.506485039975443,0.44244484422666835,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9951528937824378,10.321150058412753,-1.4178825646356692,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.992284961891063,13.27148078108545,0.8794223174927874,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9910615181712987,14.325542367076553,-1.5580880863321231,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9947878891962135,11.393336051856032,1.0367842712625506,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9937449523943401,12.848138888938186,0.7641155887140756,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9947641110796642,10.22732799102251,-0.6504948295825559,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9947780300285511,11.76378790274502,-1.37346447712085,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9924449076854015,13.06604526330163,1.7466264196718853,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9944887821345515,10.912922865314142,-0.7422150194398984,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9950734731707143,10.289631777363931,-0.3779410952504295,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9949454008918653,11.605704496577715,0.4479905034000187,original,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.969714730983406,25.55621981897264,-7.483364093656057,original,perda_volume_k72,(b) clima numérico,deixa um local de fora,ALM
+0.9381132448772189,42.4093810083589,28.472091494071005,original,perda_volume_k72,(b) clima numérico,deixa um local de fora,ARA
+0.9853236287430606,19.353014800008488,-4.139293854529464,original,perda_volume_k72,(b) clima numérico,deixa um local de fora,ELD
+0.9371388270791995,34.04414009026929,-21.4455025293605,original,perda_volume_k72,(b) clima numérico,deixa um local de fora,IMP
+0.9233283516531752,40.8691697233564,13.362251279707255,original,perda_volume_k72,(b) clima numérico,deixa um local de fora,IND
+0.9943776965957282,11.83706350710054,1.2632958077263108,original,perda_volume_k72,(b) clima numérico,deixa um local de fora,TB
+0.916510217327549,9.505864705378672,-0.23168935876995495,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9235166394354205,9.264062944169194,0.6532429512804188,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9186622369745759,8.957309840940848,0.7112512257529847,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9209947586984173,9.441326293258745,-0.038933784392587996,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9435881135450199,8.010721476033755,-0.9397595280309627,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9295198001179598,8.691972906708013,0.2995955618911692,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9568880737219019,7.168885043792208,-0.6278252005801961,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.928017548694124,8.493817548091036,-0.031106982572804996,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9037155507354383,10.263551122961708,-0.18461760382205905,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9355140641013083,8.431132764355443,1.055046470758955,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.8896618334155656,10.917838341595905,-0.4332308897802861,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9115712867827487,8.876265399398134,-1.7196575501198594,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9529819788065397,7.674473154211622,-0.32506235686768714,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9199716004856224,10.187260352782781,1.0579958040222737,original,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.6437793431604928,15.288724999352329,-10.09504497494589,original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,ALM
+-0.34714735890477466,53.3850953846017,38.8999353284612,original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,ARA
+0.21723598550890955,27.717027199580013,-10.070947189824683,original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,ELD
+0.5489852098416581,21.116651727763365,-6.416438778883819,original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,IMP
+0.7890753585025151,14.762809265285762,2.016659132965666,original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,IND
+0.46080238087496206,17.851428830564693,7.756302646059941,original,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,TB
+0.9176180033830751,9.442589723491396,-0.09250645779151216,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9272775055743896,9.03342409626027,0.6083978043291495,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9167294093037422,9.063111181634461,0.713824095543946,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9214866042067186,9.411892019583673,-0.0301047274275365,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9454485704938792,7.877517712167638,-0.8604887805963097,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9298814882990701,8.669641616839083,0.3030994112586317,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9559919861295221,7.243005029650898,-0.6577532191112473,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9264310802683334,8.586907830216449,0.012742609734978882,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9026643689111373,10.319425001820859,-0.25229472298471695,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9358213004734499,8.411024167482754,1.0749917749723352,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.8977989767675775,10.507548416797729,-0.4312462005383437,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9156677378885458,8.668231500079012,-1.6403658577467721,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9535342745067388,7.62926602783311,-0.36395531953387095,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9229681095275848,9.994719673431334,1.0406256574077506,original,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.7014992702036342,13.99537106500764,-7.40813445453396,original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,ALM
+-0.24889459302433425,51.40144921741319,41.729248145431384,original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,ARA
+0.5652730115084715,20.655681263269898,-9.962899999122529,original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,ELD
+0.6494760758671041,18.616091195336722,-6.231297455326518,original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,IMP
+0.7961454923845702,14.51327780652958,0.020953279797006216,original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,IND
+0.7114647816913934,13.05865399963246,3.9066984373441502,original,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,TB
+0.9951220233240508,11.424481977951107,-0.6898431344151901,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9959601503397183,10.899686382137173,1.1065096070955858,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9946760820206377,12.656295918755285,0.4587249434769809,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.992916938953074,14.126644509745397,1.0162747632036686,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9906134375946112,15.34737001053161,0.45289779670056163,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9945691749497857,12.336811230035394,0.1323551477302705,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9955740813965449,11.537446621781825,-0.10607635903307419,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9948874143163535,13.390802137003295,-0.15446426978001776,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9957087123696386,10.7901585199035,-1.224279881553832,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9943967499323838,12.743101818490892,0.019713796093140695,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9935111082067513,12.79875504669514,1.444888851648316,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9956019597353244,11.10446469172505,0.5213477564152381,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9932340446879755,13.208340362305062,0.1456196265704179,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.9929723103699216,15.14500246810786,1.5522635791703632,calibrado,perda_volume_k72,(a) local categórico,k-fold 7 × 10,
+0.8591140669901158,66.60731209853142,19.74097883282348,calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,ALM
+0.9752981605262759,28.69617644864017,6.482005072232459,calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,ARA
+0.5370823520419142,79.02983532940698,-0.8866073727783567,calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,ELD
+0.9727227631120687,30.936076096600804,-3.569371951463607,calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,IMP
+0.9663131686488066,35.38923847067761,6.977407400958656,calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,IND
+0.97073042121158,27.909684308258708,-4.851265740905771,calibrado,perda_volume_k72,(a) local categórico,deixa um local de fora,TB
+0.9952243838636821,11.303979537697506,-0.8129175497244363,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9960071455676179,10.836103364393434,1.0192075727132623,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9947930494206868,12.516493275505768,0.2872015191311714,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9928988095460491,14.144711840817447,0.7821836318837629,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9906222602111274,15.340155665893644,0.6970537919775107,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9945615983714746,12.345413812315122,0.03879581912608542,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9955675175315205,11.545998765638856,-0.26624958493335943,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9946490232506193,13.699440331205988,-0.12742507302229533,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9960250415909213,10.384851892764265,-1.4206190410481099,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9944901530218928,12.636445233006548,-0.18711646689695832,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9934892451489759,12.820298372311953,1.3570371672520583,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.995313747764909,11.462539817294676,0.7682550990321004,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9931458726940997,13.294125441635922,0.007097396241065218,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9932004084975574,14.897193988985146,1.3092956800727507,calibrado,perda_volume_k72,(b) clima numérico,k-fold 7 × 10,
+0.9202470525031476,50.11427633428421,22.42614888159009,calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,ALM
+0.9804679565396089,25.517212335440195,2.131435314007371,calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,ARA
+0.663371923214918,67.39293585275064,0.5317644067816083,calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,ELD
+0.9768123329272937,28.522892673806364,-8.247307094783334,calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,IMP
+0.9727104806032812,31.85217401986365,11.226951510781232,calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,IND
+0.8958499676720945,52.64733502303392,-10.764998608530757,calibrado,perda_volume_k72,(b) clima numérico,deixa um local de fora,TB
+0.973424659413929,18.174347578549792,-0.3880868696772545,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9771260188594708,15.32826175120623,-0.625818040394454,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.983257514370624,13.957785939329684,-0.303242109364563,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9836873442460573,14.6721287788606,-0.2530885522445552,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.983864269171376,14.20240647794505,-0.33178651051647506,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.962485550910275,19.78561922532644,-0.020849676648247238,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9697194639415155,19.214332117301453,0.46354177204177466,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9642121108775588,21.460627519643314,-0.12180201725004083,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9767903196789981,16.528563473526848,0.9812112871696139,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9647415188478795,19.978680980944755,-0.050202135097400444,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9791762906991569,15.12674966431103,0.4649848070809833,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9779143324969636,16.938086262070648,-1.3636819377204048,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.971637253225888,18.6865098559405,0.6920141117052876,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.9812014572129062,14.135438101628385,-0.037398932479889214,calibrado,recup_rel95_meses_ev1,(a) local categórico,k-fold 7 × 10,
+0.6065111507846539,70.59855198121608,-23.461977048901385,calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,ALM
+0.48870253546982734,59.22229036160112,-1.427267027918061,calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,ARA
+0.5085088595945816,70.08329219229752,26.21897882458796,calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,ELD
+0.781778968009778,48.74083530475557,-26.09151798416763,calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,IMP
+0.8026985643533749,50.84043608082804,0.6656410261125645,calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,IND
+0.6034340216142725,77.0138105628221,34.69632097895988,calibrado,recup_rel95_meses_ev1,(a) local categórico,deixa um local de fora,TB
+0.97293647712554,18.34051701398251,-1.313458720852983,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9779939361641147,15.034646208392003,-0.5256243802340195,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9808041080226801,14.945509151403469,0.04203616520793081,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9864905929230234,13.352080397475152,-0.23811837819405154,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9862624844307146,13.104538066586816,-0.5091754842294286,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9654177226243917,18.996655859534112,0.583230399046087,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9663319037626954,20.26062290680769,-0.289001264501259,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9625212936654359,21.96173622744215,0.25149289663001934,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9780232544150897,16.08356138105356,0.5508816052774391,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9686145466177205,18.84947312600052,-1.4068977578158732,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9837286177005041,13.37145903174761,0.6928375910310033,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9807467223880154,15.814716534628838,-1.2561889312142365,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9680604876735647,19.829793464616106,0.6193654605198753,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.9831536276988639,13.38136378950598,0.06238431040845541,calibrado,recup_rel95_meses_ev1,(b) clima numérico,k-fold 7 × 10,
+0.7111339768327019,60.489195698040064,-20.072020550721206,calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,ALM
+0.5568925678039172,55.13189202894023,16.04859400260876,calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,ARA
+0.7204857726296605,52.85165692926363,5.243993118968712,calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,ELD
+0.8825628567767987,35.75587448601704,-14.76548911350219,calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,IMP
+0.8365349668715187,46.27608155236334,-7.797732751412651,calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,IND
+0.8189254080865755,52.0402822487664,18.96580418802641,calibrado,recup_rel95_meses_ev1,(b) clima numérico,deixa um local de fora,TB

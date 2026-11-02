@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (5328 tokens, estimativa (caracteres ÷ 3,6); gerado em 02/11/2026 11:42)
+# PASSAGEM DE BASTÃO — TCC II (5552 tokens, estimativa (caracteres ÷ 3,6); gerado em 02/11/2026 12:02)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (23836 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (24318 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -63,6 +63,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Feito (02/11, tarde): ressalvas do parecer resolvidas, sobra 1. (5) γ calibrado com Quentin et al. (2011): γ = 1 (calibracao/calibrar_gamma.py); erro corrigido: calibrar.py ajustava U e a com γ = 0, e as simulações usavam 0,5. Recalibrado com γ = 1: U 1,22 (1,03–1,34), a 0,475; teste urocam 20,3→7,4 p.p.; LOO 15,1→4,1; k=2 19,1→7,2 e 11,7→4,9. Tudo refeito (biomas, possibilidades, RF, Morris). (3) busca complementada no Semantic Scholar (revisao_07/busca/semantic_busca.py: 469 no núcleo combinado; nenhum experimento brasileiro novo). (4) leituras: Battaglia 2011 (fonte primária do CABALA), Turnbull 2007; Collett e Neumann 2002 inacessível. (1) teste independente com Oliveira et al. (2014), Mucuri-BA (calibracao/teste_oliveira2014.py): desfolha total aos 6 meses, perda de volume 8 meses depois 35,4% observada; calibrado 29,2% (26,4–33,5), original 38,7%; parciais ≤1,5%, como no campo (n.s.). (2) Matrangolo vira a única ressalva: o módulo acerta a perda de curto prazo, mas não a persistência por anos (sem reservas nem morte de ramos; o CABALA falha igual, Battaglia 2011).
 - TCC VERSÃO FINAL v2 (02/11, 35 p.): entregas/TCC_II_Bernardo_Castro_VERSAO_FINAL_v2_02-11-2026. Auditoria 506/506; 49 testes; referências 0 sem citação. Akademia reconstruída (Material do TCC e domínio de validade com Oliveira).
 - Atenção: converter o PDF com --outdir (o PDF em tcc_docx/ fica bloqueado) e rodar `node gerar.js paginas.json` para o sumário ter páginas.
+
 
 
 ---
@@ -128,6 +129,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 01/11: o autor pediu um TCC realista: corpo enxuto (~19 p.), detalhes nos apêndices e no pacote; nenhum resultado removido do trabalho, só do corpo.
 - 01/11: TCC para qualquer leitor entender; gráficos no TCC, tabelas densas replicadas no 'Material do TCC' da Akademia; quadros com QR code levam à plataforma. Sem apêndice de plataforma nem de resultados complementares.
 - 02/11: γ deixa de ser escolha (0,5) e passa a ser calibrado com experimento independente (Quentin et al., 2011): γ = 1; U e a recalibrados com γ fixo. Oliveira et al. (2014) usado só como teste independente, nunca no ajuste. Krause 2025 e Kautz 2018 fora da tabela de precedentes (conteúdo não conferido).
+- 02/11 (tarde): cascata "sem falhas escondidas". (1) Dossel dos clones de Borges corrigido: γF1, γF0 e pFS2 trocados pelos da TECHS (Caldeira et al., 2020a), porque os de Borges davam IAF 8–11 contra 3,0–3,8 medidos; TCC_DOSSEL=borges reproduz a versão anterior. (2) U só no mês do ataque (u_meses = 1; Turnbull et al., 2007; Quentin et al., 2012): as regras testadas deram ajuste equivalente, escolhida a sustentada pela fisiologia; em desfolha total o U não é identificado e vem da faixa da literatura. (3) Matriz principal fixada nos 3 locais (SITIOS_MATRIZ), pois passara a ler os 6 locais. (4) Tabelas completas geradas dos resultados (tcc_docx/tabelas_dados.py), sem números digitados. (5) controles_solo_local.csv ganhou script (experimentos/controles.py). (6) Pipeline com todas as etapas (calibração completa, biomas, possibilidades, tabelas, plataforma).
 
 ---
 # Contexto técnico
@@ -141,6 +143,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 02/11 11:42 pipeline: etapa danos concluída
 - 02/11 11:42 pipeline: etapa analises concluída
 - 02/11 11:31 pipeline: etapa indicadores concluída
 - 02/11 11:31 pipeline: etapa experimentos concluída
@@ -155,7 +158,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 31/10 20:51 Possibilidades do módulo (7.584 cenários de danos combinados) e validação cruzada (LOO da calibração; k-fold do metamodelo); TCC rev10 com 3.15 e 4.13; auditoria 461/461
 - 31/10 20:32 TCC rev09: todo o trabalho no texto (conceitos, cubagem e toras, perda por produto, reprodutibilidade, auditorias); figuras v8; auditoria 379/379; plataforma: subtítulo, rótulo do taper e sinal zero
 - 31/10 20:24 Plataforma v8: compensação calibrada com incerteza, 6 biomas, outros danos, perda por produto e domínio de validade; JS = Python (7 cenários); TCC rev08; auditoria 367/367
-- 31/10 20:04 Missão 07: Drive atualizado (relatórios, diário, passagem); urocam como teste na memória
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.

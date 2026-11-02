@@ -1,29 +1,29 @@
 versao,resposta,variavel,importancia_pct
-original,perda_volume_k72,intensidade,50.6
-original,perda_volume_k72,frequência,44.3
-original,perda_volume_k72,época,0.5
-original,perda_volume_k72,água (ASWmax),0.3
-original,perda_volume_k72,fertilidade (FR),0.4
-original,perda_volume_k72,local,3.1
-original,perda_volume_k72,material,0.8
-original,recup_rel95_meses_ev1,intensidade,46.3
+original,perda_volume_k72,intensidade,51.7
+original,perda_volume_k72,frequência,44.8
+original,perda_volume_k72,época,0.4
+original,perda_volume_k72,água (ASWmax),0.2
+original,perda_volume_k72,fertilidade (FR),0.5
+original,perda_volume_k72,local,1.7
+original,perda_volume_k72,material,0.6
+original,recup_rel95_meses_ev1,intensidade,52.6
 original,recup_rel95_meses_ev1,frequência,0.0
-original,recup_rel95_meses_ev1,época,12.1
-original,recup_rel95_meses_ev1,água (ASWmax),0.5
-original,recup_rel95_meses_ev1,fertilidade (FR),0.9
-original,recup_rel95_meses_ev1,local,23.7
-original,recup_rel95_meses_ev1,material,16.5
-calibrado,perda_volume_k72,intensidade,47.1
-calibrado,perda_volume_k72,frequência,40.0
-calibrado,perda_volume_k72,época,1.2
-calibrado,perda_volume_k72,água (ASWmax),5.0
-calibrado,perda_volume_k72,fertilidade (FR),0.3
-calibrado,perda_volume_k72,local,6.0
-calibrado,perda_volume_k72,material,0.4
-calibrado,recup_rel95_meses_ev1,intensidade,52.3
-calibrado,recup_rel95_meses_ev1,frequência,0.0
-calibrado,recup_rel95_meses_ev1,época,25.2
-calibrado,recup_rel95_meses_ev1,água (ASWmax),6.4
-calibrado,recup_rel95_meses_ev1,fertilidade (FR),0.4
-calibrado,recup_rel95_meses_ev1,local,7.5
-calibrado,recup_rel95_meses_ev1,material,8.2
+original,recup_rel95_meses_ev1,época,17.7
+original,recup_rel95_meses_ev1,água (ASWmax),1.6
+original,recup_rel95_meses_ev1,fertilidade (FR),3.9
+original,recup_rel95_meses_ev1,local,19.6
+original,recup_rel95_meses_ev1,material,4.6
+calibrado,perda_volume_k72,intensidade,48.1
+calibrado,perda_volume_k72,frequência,48.0
+calibrado,perda_volume_k72,época,1.3
+calibrado,perda_volume_k72,água (ASWmax),1.0
+calibrado,perda_volume_k72,fertilidade (FR),0.2
+calibrado,perda_volume_k72,local,1.2
+calibrado,perda_volume_k72,material,0.3
+calibrado,recup_rel95_meses_ev1,intensidade,67.7
+calibrado,recup_rel95_meses_ev1,frequência,0.1
+calibrado,recup_rel95_meses_ev1,época,19.6
+calibrado,recup_rel95_meses_ev1,água (ASWmax),2.9
+calibrado,recup_rel95_meses_ev1,fertilidade (FR),1.2
+calibrado,recup_rel95_meses_ev1,local,4.0
+calibrado,recup_rel95_meses_ev1,material,4.5
