@@ -245,7 +245,7 @@ SUM.push(["APÊNDICE A – REPRODUTIBILIDADE COMPUTACIONAL", 0]);
 corpo.push(P("APÊNDICE A – REPRODUTIBILIDADE COMPUTACIONAL", { align: AlignmentType.CENTER, indent: false, sp: L10, run: { bold: true }, before: 480, after: 240, keepNext: true }));
 [
   "Os códigos, dados de entrada e saídas deste trabalho estão organizados em um pacote de arquivos que acompanha a versão digital do TCC. O mesmo conteúdo, com a explicação de cada arquivo, está disponível em https://drive.google.com/drive/folders/1GLR5Krx8FoJWjV9NM0OprTmUyA9JQP1L. Todo o projeto é mantido sob controle de versões (Git), em repositório privado cujo acesso pode ser concedido à banca, e cada etapa do trabalho corresponde a um registro datado no histórico. Um roteiro automatizado executa, em ordem, os testes, a calibração, os experimentos, as análises, a auditoria numérica, a geração deste texto e a montagem da plataforma.",
-  "Duas auditorias acompanham o texto. A auditoria numérica recalcula, a partir das saídas dos códigos, os números citados no TCC e falha se algum deles divergir. A auditoria científica classificou 32 afirmações centrais do trabalho segundo o tipo de evidência que as sustenta, avaliou os mecanismos da compensação, a robustez da calibração e a concordância com a literatura, e as correções resultantes foram incorporadas ao texto; seus relatórios, matrizes e o protocolo da busca bibliográfica do Apêndice C fazem parte do pacote. A tabela a seguir descreve os componentes necessários para reproduzir os resultados.",
+  "Duas auditorias acompanham o texto. A auditoria numérica recalcula, a partir das saídas dos códigos, os números citados no TCC e falha se algum deles divergir. A auditoria científica classificou 32 afirmações centrais do trabalho segundo o tipo de evidência que as sustenta, avaliou os mecanismos da compensação, a robustez da calibração e a concordância com a literatura, e as correções resultantes foram incorporadas ao texto; seus relatórios, matrizes e o protocolo da busca bibliográfica do Apêndice B fazem parte do pacote. A tabela a seguir descreve os componentes necessários para reproduzir os resultados.",
 ].forEach(t => corpo.push(P(t, { sp: L10, after: 240 })));
 corpo.push(...tabela("Componentes do pacote de reprodutibilidade",
   ["Arquivo", "Conteúdo"],
@@ -315,7 +315,7 @@ const pg = (k) => (PG[k] !== undefined ? String(PG[k]) : "0");
 const TABDOT = [{ type: TabStopType.RIGHT, position: LARG, leader: "dot" }];
 const linhaLista = (txt, pagina, nivel = 0) => new Paragraph({ spacing: { ...L10, after: 120 }, tabStops: TABDOT, indent: { left: nivel * 284, right: 0 },
   children: [...runs(txt), new TextRun({ text: "\t" + pagina, font: FONTE, size: 24 })] });
-const curta = (s) => s.split(/(?<=[a-z\)])\. /)[0].replace(/\.$/, "");
+const curta = (s) => s.split(/(?<!\bal)(?<=[a-z\)])\. (?=[A-ZÁÉÍÓÚ])/)[0].replace(/\.$/, "");
 const listaFig = [tituloPre("LISTA DE ILUSTRAÇÕES"), ...LFIG.map((c, i) => linhaLista(`Figura ${i + 1}. ${curta(c)}`, pg(`fig${i + 1}`)))];
 const listaTab = [tituloPre("LISTA DE TABELAS"), ...LTAB.map((c, i) => linhaLista(`Tabela ${i + 1}. ${c}`, pg(`tab${i + 1}`)))];
 const parLista = (pares) => pares.map(([a, b]) => new Paragraph({ spacing: { ...L10, after: 80 }, tabStops: [{ type: TabStopType.LEFT, position: 2600 }],
