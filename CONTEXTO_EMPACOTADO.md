@@ -75,6 +75,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 
 - Feito (02/11, ~12h30): cascata "sem falhas escondidas" → TCC VERSÃO FINAL v3 (37 p.). Dossel de Borges corrigido (γF e pFS2 da TECHS; IAF 2,4–5,6); U só no mês do ataque (u_meses = 1). Recalibração: U 1,18 (não identificado em desfolha total, vem da literatura), a 0,625, γ = 1 (razão 1,000). Urocam 20,3→7,5 p.p.; LOO 15,7→4,3; Oliveira (independente): original 77,6%, calibrado 33,0% (28,1–45,8) contra 35,4% medido (erro 34,3→3,2 p.p.). Matrangolo segue fora (4–32% contra 38–80%). Recuperação da copa calibrada ≤ 2 meses, perto das 12 semanas de Eyles et al. (2016). Ganho sobre o controle: original 1 caso (0,1%); calibrado 1,3% (máx 5,2%). Biomas: nenhum ganho na faixa de 90%; no Pampa a reação aumenta a perda anual (5,9→8,3%). Morris nos biomas: k no topo em 5 locais. Defeitos achados e corrigidos: matriz principal lia os 6 locais; controles sem script; tabelas digitadas à mão (agora tcc_docx/tabelas_dados.py); plataforma com tabelas digitadas (atualizadas). Auditoria 528/528; conferidor texto×auditoria ok; 49 testes; JS = Python em 8 cenários.
+- Feito (02/11, 16h): VERSÃO FINAL v4 (37 p.) com 5.1 Perspectivas na conclusão (persistência, validação, clones atuais, RESILIA/clima futuro, ensino). PASSAGEM_ASTRA.md escrita (passagem para o Astra). Auditoria 528/528; 49 testes; referências ok.
 ```
 
 ## memoria/progresso.md
@@ -122,6 +123,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 4. Defesa: documento de preparação e slides.
 - 02/11: ressalvas do parecer reduzidas a 1 (persistência das perdas após desfolha total precoce, Matrangolo). TCC VERSÃO FINAL v2, 35 p.; auditoria 506/506.
 - 02/11 (tarde): VERSÃO FINAL v3 (37 p.) — dossel corrigido, U de curta duração, teste independente que separa as versões; auditoria 528/528. Ressalva única: persistência das perdas após desfolha total precoce (Matrangolo).
+- 02/11 (16h): VERSÃO FINAL v4 com perspectivas na conclusão; passagem de bastão para o Astra (PASSAGEM_ASTRA.md).
 ```
 
 ## memoria/decisoes.md

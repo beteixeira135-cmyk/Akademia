@@ -3,7 +3,7 @@ const C = require("../tcc_docx/conteudo.js"); const fs = require("fs");
 const A = fs.readFileSync(__dirname + "/../auditoria_final/auditoria_numeros.csv", "utf8").trim().split("\n").slice(1)
   .map(l => { const p = l.split(","); return parseFloat(p[p.length - 3]); });
 const vals = new Set(); for (const v of A) for (const x of [v, -v, Math.abs(v)]) vals.add(x.toFixed(4));
-const blocos = [["resumo", C.resumo], ...C.conclusao.map((t, i) => ["conclusão " + (i + 1), t]),
+const blocos = [["resumo", C.resumo], ...C.conclusao.map((t, i) => ["conclusão " + (i + 1), t]), ...(C.perspectivas || []).map((t, i) => ["perspectiva " + (i + 1), t]),
   ...C.corpo.filter(b => b.p).map(b => ["corpo", b.p])];
 let n = 0, faltam = [];
 for (const [onde, t] of blocos) for (const m of t.matchAll(/(?<![\d.,])(−?\d{1,3}(?:\.\d{3})*,\d+|−?\d+(?:\.\d{3})+)(?![\d])/g)) {

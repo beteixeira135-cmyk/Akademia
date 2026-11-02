@@ -179,6 +179,7 @@ for (const b of C.corpo) {
 SUM.push(["5 CONCLUSÃO", 1]);
 corpo.push(P("5 CONCLUSÃO", { align: AlignmentType.LEFT, indent: false, run: { bold: true }, before: 360, after: 240, keepNext: true }));
 C.conclusao.forEach(t => corpo.push(P(t)));
+if (C.perspectivas) { SUM.push(["5.1 PERSPECTIVAS", 2]); corpo.push(P("5.1 PERSPECTIVAS", { align: AlignmentType.LEFT, indent: false, run: { bold: true }, before: 240, after: 240, keepNext: true })); C.perspectivas.forEach(t => corpo.push(P(t))); }
 SUM.push(["REFERÊNCIAS", 0]);
 corpo.push(P("REFERÊNCIAS", { align: AlignmentType.CENTER, indent: false, sp: L10, run: { bold: true }, before: 480, after: 240, keepNext: true }));
 C.referencias.forEach(r => corpo.push(new Paragraph({ alignment: AlignmentType.LEFT, spacing: { ...L10, after: 240 }, children: runs(r) })));

@@ -184,8 +184,17 @@ module.exports = {
     "Um ataque custa pouco; ataques repetidos custam muito. Com uma desfolha, o clone A1 perdeu de 1,6 a 15,2% do volume aos sete anos, conforme o local e a intensidade; com desfolhas todo ano, até 58 e 68%. A intensidade e a frequência explicam quase toda a perda, mas o tamanho dela depende do clima e do clone.",
     "A árvore compensa parte do dano. A reação calibrada com Bertulio et al. (2008) reduziu o erro no clone de teste de 20,3 para 7,5 pontos percentuais, e a validação cruzada, de 15,7 para 4,3 pontos. Num experimento independente, previu 33% de perda após desfolha total, contra 35% medidos; sem a reação, o módulo previa 78%. O módulo, porém, não mantém essa perda por anos, como ocorreu no campo após desfolha total no primeiro ano, e não deve ser usado para esse caso.",
     "As folhas voltam; a madeira, não. Em 5.688 cenários, o talhão atacado superou o controle em no máximo 1,3% dos casos, quase sempre com desfolha de até 50%. A copa, o crescimento mensal e a árvore individual se recuperam, mas o volume perdido não é reposto.",
-    "O módulo ainda não está validado no campo: a calibração usou um único experimento, o teste independente cobre poucos meses, e não há experimentos de desfolha nos seis locais. A próxima versão deve incluir reservas e mortalidade baseada em medições e ser recalibrada com experimentos de desfolha parcial, e a validação depende de experimentos locais, que poderão ser objeto de pesquisa futura, condicionada à aprovação em programa de pós-graduação e à disponibilidade de recursos.",
+    "O módulo ainda não está validado no campo: a calibração usou um único experimento, o teste independente cobre poucos meses, e não há experimentos de desfolha nos seis locais.",
     "A plataforma Akademia Florestal reproduz exatamente as simulações deste trabalho, explica cada conceito em linguagem simples e reúne todas as tabelas completas, para que qualquer leitor possa conferir e explorar os resultados.",
+  ],
+
+  perspectivas: [
+    "Cada limite encontrado aponta um próximo passo, e a estrutura construída (modelo conferido, calibração, testes, auditoria e plataforma) serve a todos eles sem ser refeita.",
+    "Perda que persiste por anos. O módulo acerta a perda nos meses seguintes a uma desfolha total, mas não a sua permanência (MATRANGOLO et al., 2010). O próximo passo é representar as reservas de açúcar e a morte de ramos; o experimento de Matrangolo et al. (2010) passaria, então, a ser usado no ajuste, e outro experimento de longo prazo seria necessário para o teste.",
+    "Validação no campo. Experimentos de desfolha parcial nos locais simulados, ou o uso de dados brasileiros de campo que já existem, como os de Rocha et al. (2021), permitiriam o primeiro teste do módulo onde ele foi aplicado.",
+    "Clones atuais. Ajustar clones comerciais de hoje com copa e crescimento medidos substituiria a combinação de ajustes usada nos clones de Borges (2009).",
+    "Resiliência e clima futuro. Como o clima entra no modelo como dado, a mesma cadeia de simulações pode rodar cenários de mudança climática e medir quanto a floresta perde e quanto tempo leva para se recuperar depois de cada ataque, em cada bioma. Essa medida é a base de um Sistema de Avaliação da Resiliência Ecoedáfica Florestal (RESILIA), alinhado ao Objetivo de Desenvolvimento Sustentável 15, que poderá ser desenvolvido em pesquisa de mestrado, condicionada à aprovação em programa de pós-graduação e à disponibilidade de recursos.",
+    "Ensino e extensão. A Akademia Florestal pode ser usada em disciplinas de Engenharia Florestal e em ações de extensão, e receber novos módulos à medida que esses passos forem dados."
   ],
 
   referencias: [
