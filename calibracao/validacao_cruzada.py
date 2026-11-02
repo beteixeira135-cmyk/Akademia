@@ -6,12 +6,13 @@ urograndis (C5) — perda de volume, CAP e altura; urocam (A1) — perda de volu
     verossimilhança gaussiana e σ marginalizado (prior meia-normal, escala 10 p.p.) de calibrar.py, e a observação
     deixada de fora é prevista pela média preditiva do posterior.
 (2) k = 2, deixa um material de fora: ajusta no C5 e prevê o A1 (desenho do TCC) e o inverso.
-Comparação: o modelo original (U = 1, a = 0) com as mesmas observações. As cinco observações vêm do mesmo experimento
+Comparação: o modelo original (sem compensação) com as mesmas observações. As cinco observações vêm do mesmo experimento
 (local, datas e protocolo), portanto isto mede a capacidade preditiva dentro do experimento, não a validação independente.
 Saída: saida/validacao_cruzada.json e saida/validacao_cruzada_previsoes.csv"""
 import json
 import numpy as np, pandas as pd
 import protocolo as p
+GAMMA = json.load(open("saida/gamma_quentin2011.json"))["gamma_calibrado"]  # γ calibrado com Quentin et al. (2011), fixo na calibração de U e a
 
 D_EV = 0.999
 U = np.round(np.arange(1.0, 1.3501, 0.01), 3); A = np.round(np.arange(0.0, 1.0001, 0.025), 3)
@@ -22,11 +23,11 @@ y = np.array([p.observado(m)[v] for m, v in ROT])
 G = pd.read_csv("saida/grade_posterior_d0999.csv")[["U", "a", "L_volume", "L_CAP", "L_altura"]]
 G = G.rename(columns={"L_volume": "C5_volume", "L_CAP": "C5_CAP", "L_altura": "C5_altura"})
 a1 = []
-for r in G.itertuples():  # γ não altera as perdas neste protocolo (verificado em calibrar.py)
-    L = p.perdas("A1", {"U": r.U, "a": r.a, "gam": 0.5}, d=D_EV); a1.append((L["volume"], L["CAP"]))
+for r in G.itertuples():  # A1 com o mesmo γ calibrado (Quentin et al., 2011)
+    L = p.perdas("A1", {"U": r.U, "a": r.a, "gam": GAMMA}, d=D_EV); a1.append((L["volume"], L["CAP"]))
 G["A1_volume"], G["A1_CAP"] = zip(*a1)
 M = G[[f"{m}_{v}" for m, v in ROT]].to_numpy()
-orig = M[(G.U == 1.0).to_numpy() & (G.a == 0.0).to_numpy()][0]
+orig = np.array([p.perdas(m, None, d=D_EV)[v] for m, v in ROT])  # módulo original (sem compensação)
 
 
 def posterior(idx):

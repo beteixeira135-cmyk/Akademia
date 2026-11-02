@@ -1,0 +1,8 @@
+consulta,expressao,total_relatado,baixados
+O01_DxE,"(defoliation | defoliated | herbivory | ""insect damage"" | ""leaf removal"" | ""foliar damage"" | ""leaf damage"") + (Eucalyptus | eucalypt | eucalypts)",755,755
+O02_DxExF,"(defoliation | defoliated | herbivory | ""insect damage"" | ""leaf removal"" | ""foliar damage"" | ""leaf damage"") + (Eucalyptus | eucalypt | eucalypts) + (photosynthesis | photosynthetic | ""carbon allocation"" | ""canopy conductance"" | transpiration | ""leaf area index"" | carbohydrate | regrowth | compensation | compensatory)",66,66
+O03_DxM,"(defoliation | defoliated | herbivory | ""insect damage"" | ""leaf removal"" | ""foliar damage"" | ""leaf damage"") + (""3-PG"" | 3PG | r3PG | ""3-PGmix"" | CABALA | ""process-based"" | ""process based"" | ecophysiological)",155,155
+O04_DxExA,"(defoliation | defoliated | herbivory | ""insect damage"" | ""leaf removal"" | ""foliar damage"" | ""leaf damage"") + (Eucalyptus | eucalypt | eucalypts) + (drought | ""water stress"" | ""soil water"" | fertilisation | fertilization | nitrogen | temperature | ""climate change"")",165,165
+O05_DxMxV,"(defoliation | defoliated | herbivory | ""insect damage"" | ""leaf removal"" | ""foliar damage"" | ""leaf damage"") + (""3-PG"" | 3PG | r3PG | ""3-PGmix"" | CABALA | ""process-based"" | ""process based"" | ecophysiological) + (calibration | Bayesian | validation | ""independent test"" | uncertainty | ""sensitivity analysis"")",19,19
+O06_3PGxE,"(""3-PG"" | r3PG | ""3-PGmix"") + (Eucalyptus | eucalypt | eucalypts)",69,69
+O07_PT,(desfolha | desfolhamento | herbivoria) + (eucalipto | Eucalyptus),30,30

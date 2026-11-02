@@ -23,7 +23,8 @@ from threepg_pjs import run_3pg_pjs  # noqa: E402
 OUT = AQUI / "saida" / "possibilidades"; OUT.mkdir(parents=True, exist_ok=True)
 SOLO = dict(RE.SOLO_LOCAL, ALM=219.0, ARA=194.0, ELD=145.0)
 CAL = json.load(open(AQUI.parent / "calibracao/saida/calibracao_d0999.json"))
-COMP = dict(U=CAL["U"]["q50"], a=CAL["a"]["q50"], gam=0.5)
+GAMMA = json.load(open(Path(__file__).resolve().parents[1] / "calibracao/saida/gamma_quentin2011.json"))["gamma_calibrado"]  # γ calibrado com Quentin et al. (2011)
+COMP = dict(U=CAL["U"]["q50"], a=CAL["a"]["q50"], gam=GAMMA)
 DIAG = {("IMP", "A1"), ("ALM", "A1"), ("ARA", "A1")}
 MATS = ["A1", "C5"]; DS = [0, 25, 50, 75, 95]; RS = [0, 20, 40, 60]; MS = [0, 5, 15, 25]
 FREQ = {"P1": [2017], "PA": list(range(2017, 2023))}; EPOCAS = [1, 7]

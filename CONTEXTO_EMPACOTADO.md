@@ -162,29 +162,29 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
   "altura": 34.73588410037895
  },
  "U": {
-  "media": 1.1668216424874949,
-  "q05": 1.02,
-  "q50": 1.16,
-  "q95": 1.33
+  "media": 1.2072907992304347,
+  "q05": 1.03,
+  "q50": 1.22,
+  "q95": 1.34
  },
  "a": {
-  "media": 0.5419196273550133,
+  "media": 0.4804843371723993,
   "q05": 0.05,
-  "q50": 0.55,
-  "q95": 0.975
+  "q50": 0.475,
+  "q95": 0.95
  },
- "corr_post": 0.09175797641132057,
+ "corr_post": 0.0572715384644338,
  "melhor_ajuste": {
-  "U": 1.11,
-  "a": 0.125,
-  "volume": 50.95914341408743,
-  "CAP": 20.475494026404185,
-  "altura": 25.24568876126059
+  "U": 1.29,
+  "a": 0.2,
+  "volume": 50.961298405737764,
+  "CAP": 20.476617685597297,
+  "altura": 25.247030205937236
  },
  "preditiva_media_C5": {
-  "volume": 50.36120611585377,
-  "CAP": 20.19667112499321,
-  "altura": 24.907813030861934
+  "volume": 53.0142212307465,
+  "CAP": 21.58607094851361,
+  "altura": 26.565428759145277
  },
  "validacao_A1_urocam": {
   "observado": {
@@ -196,16 +196,16 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
    "CAP": 40.66777101660624
   },
   "calibrado_media": {
-   "volume": 64.76762263571628,
-   "CAP": 29.717698203741993
+   "volume": 66.4403626836142,
+   "CAP": 30.868020192277932
   },
   "calibrado_q05": {
-   "volume": 53.74061250754755,
-   "CAP": 22.522488319199436
+   "volume": 55.220854694577554,
+   "CAP": 23.35207005823917
   },
   "calibrado_q95": {
-   "volume": 78.591224830068,
-   "CAP": 39.963546096594165
+   "volume": 78.64539573727869,
+   "CAP": 40.01387346984307
   }
  }
 }
@@ -227,29 +227,29 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
   "altura": 22.227899006885764
  },
  "U": {
-  "media": 1.0923001330370439,
+  "media": 1.1084167681382426,
   "q05": 1.0,
-  "q50": 1.07,
-  "q95": 1.27
+  "q50": 1.09,
+  "q95": 1.28
  },
  "a": {
-  "media": 0.529769518601093,
-  "q05": 0.075,
-  "q50": 0.525,
-  "q95": 0.975
+  "media": 0.44262013881901374,
+  "q05": 0.025,
+  "q50": 0.425,
+  "q95": 0.95
  },
- "corr_post": -0.09540957800141074,
+ "corr_post": -0.1826247638693489,
  "melhor_ajuste": {
-  "U": 1.0,
-  "a": 1.0,
-  "volume": 48.3706052277881,
-  "CAP": 19.149272182411814,
-  "altura": 23.65886792310953
+  "U": 1.02,
+  "a": 0.225,
+  "volume": 50.96144257709777,
+  "CAP": 20.47669286085404,
+  "altura": 25.24711995133635
  },
  "preditiva_media_C5": {
-  "volume": 43.83892910914126,
-  "CAP": 16.964332291787862,
-  "altura": 21.024357866039942
+  "volume": 47.60284652341822,
+  "CAP": 18.795936952865272,
+  "altura": 23.230155077825636
  },
  "validacao_A1_urocam": {
   "observado": {
@@ -261,16 +261,16 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
    "CAP": 37.18041617470538
   },
   "calibrado_media": {
-   "volume": 56.040899145377864,
-   "CAP": 24.05398014712327
+   "volume": 57.291068395091294,
+   "CAP": 24.767302994284236
   },
   "calibrado_q05": {
-   "volume": 48.28418907542766,
-   "CAP": 19.60951049450972
+   "volume": 49.78024934195589,
+   "CAP": 20.386890059833696
   },
   "calibrado_q95": {
-   "volume": 71.65935510954317,
-   "CAP": 34.12225295648243
+   "volume": 71.92448768435044,
+   "CAP": 34.326926741981204
   }
  }
 }
@@ -283,10 +283,12 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 Verossimilhança gaussiana nas perdas ajustadas pela linha de base (volume, CAP, altura; pontos percentuais),
 com desvio σ desconhecido marginalizado numericamente (prior meia-normal, escala 10 p.p.). Priores uniformes:
 U ~ U(1; 1,35) (aumento de até 35% da fotossíntese: Pinkard et al., 1998, citado por Quentin et al., 2011);
-a ~ U(0; 1). γ (condutância) não afeta as perdas neste protocolo (verificado): fica com o prior U(0; 1).
+a ~ U(0; 1). γ (condutância) foi calibrado antes, com Quentin et al. (2011) (calibrar_gamma.py), e fica fixo aqui.
+Correção de 02/11/2026: a versão anterior ajustava com γ = 0 e simulava com γ = 0,5, embora γ altere as perdas do C5.
 Validação independente: urocam (Bertulio) simulado com A1, que não entra no ajuste."""
 import json, sys, numpy as np, pandas as pd
 import protocolo as p
+GAMMA = json.load(open("saida/gamma_quentin2011.json"))["gamma_calibrado"]  # γ calibrado com Quentin et al. (2011), fixo na calibração de U e a
 d_ev = float(sys.argv[1]) if len(sys.argv) > 1 else 0.999
 U = np.round(np.arange(1.0, 1.3501, 0.01), 3); A = np.round(np.arange(0.0, 1.0001, 0.025), 3)
 obs = p.observado("C5"); vs = ["volume", "CAP", "altura"]; y = np.array([obs[v] for v in vs])
@@ -294,7 +296,7 @@ SIG = np.linspace(0.5, 40, 160); prior_sig = np.exp(-0.5 * (SIG / 10) ** 2)
 linhas = []
 for u in U:
     for a in A:
-        L = p.perdas("C5", {"U": u, "a": a}, d=d_ev); m = np.array([L[v] for v in vs])
+        L = p.perdas("C5", {"U": u, "a": a, "gam": GAMMA}, d=d_ev); m = np.array([L[v] for v in vs])
         sse = float(((m - y) ** 2).sum())
         lik = (prior_sig * SIG ** -3 * np.exp(-sse / (2 * SIG ** 2))).sum()
         linhas.append(dict(U=u, a=a, sse=sse, lik=lik, **{f"L_{v}": L[v] for v in vs}))
@@ -307,11 +309,11 @@ best = G.loc[G.sse.idxmin()]
 post_pred = {v: float((G[f"L_{v}"] * G.post).sum()) for v in vs}
 # amostras do posterior para validação e propagação
 rng = np.random.default_rng(2026); idx = rng.choice(len(G), size=200, p=G.post.values)
-amostras = G.iloc[idx][["U", "a"]].reset_index(drop=True); amostras["gam"] = rng.uniform(0, 1, 200)
+amostras = G.iloc[idx][["U", "a"]].reset_index(drop=True); amostras["gam"] = GAMMA
 val = []
 obsA = p.observado("A1")
 for r in amostras.itertuples():
-    L = p.perdas("A1", {"U": r.U, "a": r.a, "gam": r.gam}, d=d_ev); val.append(dict(volume=L["volume"], CAP=L["CAP"]))
+    L = p.perdas("A1", {"U": r.U, "a": r.a, "gam": r.gam}, d=d_ev); val.append(dict(volume=L["volume"], CAP=L["CAP"]))  # γ = GAMMA nas amostras
 V = pd.DataFrame(val); L0 = p.perdas("A1", None, d=d_ev); L0c = p.perdas("C5", None, d=d_ev)
 out = dict(d_evento=d_ev, observado_C5=obs, original_C5={v: L0c[v] for v in vs},
            U=resumo("U"), a=resumo("a"), corr_post=float(np.cov(np.vstack([G.U, G.a]), aweights=G.post)[0, 1] / np.sqrt(np.cov(G.U, aweights=G.post) * np.cov(G.a, aweights=G.post))),

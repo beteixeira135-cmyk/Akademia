@@ -1,9 +1,9 @@
 {
  "n_tratamentos": 1824,
  "comp_mediana": {
-  "U": 1.16,
-  "a": 0.55,
-  "gam": 0.5
+  "U": 1.22,
+  "a": 0.475,
+  "gam": 1.0
  },
  "solo": {
   "IND": 215.0,
@@ -27,5 +27,5 @@
    "A1"
   ]
  ],
- "segundos": 166
+ "segundos": 153
 }

@@ -19,7 +19,8 @@ from clones import params, MATERIAIS
 from threepg_pjs import run_3pg_pjs
 clima.SITIOS["VIC"] = dict(nome="Viçosa-MG", arquivo="POWER_daily_vicosa_20150101_20241231.csv", lat=-20.7546, lon=-42.8825, papel="teste")
 J = json.load(open(Path(__file__).parent / "saida/calibracao_d0999.json"))
-MED = dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=0.5)
+GAMMA = json.load(open(Path(__file__).resolve().parent / "saida/gamma_quentin2011.json"))["gamma_calibrado"]  # γ calibrado com Quentin et al. (2011)
+MED = dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=GAMMA)
 M = MATERIAIS["C5"]
 
 
@@ -43,7 +44,7 @@ for k, ms in ev.items():
     e = {m: 0.999 for m in ms}
     lo = 100 * (1 - sim("VIC", e).volume[92] / c.volume[92])
     lc = 100 * (1 - sim("VIC", e, MED).volume[92] / c.volume[92])
-    post = [100 * (1 - sim("VIC", e, dict(U=a.U, a=a.a, gam=a.gam)).volume[92] / c.volume[92]) for a in A.iloc[::4].itertuples()]
+    post = [100 * (1 - sim("VIC", e, dict(U=a.U, a=a.a, gam=GAMMA)).volume[92] / c.volume[92]) for a in A.iloc[::4].itertuples()]
     mt.append(dict(tratamento=k, observado=obs[k], original=lo, calibrado_mediana=lc, calibrado_q05=np.quantile(post, .05),
                    calibrado_q95=np.quantile(post, .95)))
 MT = pd.DataFrame(mt); out["matrangolo"] = MT.round(1).to_dict("records")

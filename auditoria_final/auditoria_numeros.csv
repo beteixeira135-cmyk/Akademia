@@ -203,127 +203,127 @@ vol/árvore mín +14%,14.0,14.0,True
 vol/árvore máx +16%,16.0,16.0,True
 mancha recup mín 24,24.0,24.0,True
 mancha recup máx 35,35.0,35.0,True
-U q50,1.16,1.16,True
-U q05,1.02,1.02,True
-U q95,1.33,1.33,True
-a q50,0.55,0.55,True
+U q50,1.22,1.22,True
+U q05,1.03,1.03,True
+U q95,1.34,1.34,True
+a q50,0.475,0.475,True
 a q05,0.05,0.05,True
-a q95,0.975,0.975,True
-corr U-a,0.09,0.09,True
-"U q50 d0,99",1.07,1.07,True
+a q95,0.95,0.95,True
+corr U-a,0.06,0.06,True
+"U q50 d0,99",1.09,1.09,True
 C5 obs volume,52.9,52.9,True
 C5 orig volume,64.8,64.8,True
-C5 cal volume,50.4,50.4,True
+C5 cal volume,53.0,53.0,True
 C5 erro orig volume,12.0,12.0,True
-C5 erro cal volume,-2.5,-2.5,True
+C5 erro cal volume,0.1,0.1,True
 C5 obs CAP,24.2,24.2,True
 C5 orig CAP,28.5,28.5,True
-C5 cal CAP,20.2,20.2,True
+C5 cal CAP,21.6,21.6,True
 C5 erro orig CAP,4.3,4.3,True
-C5 erro cal CAP,-4.0,-4.0,True
+C5 erro cal CAP,-2.6,-2.6,True
 C5 obs altura,19.1,19.1,True
 C5 orig altura,34.7,34.7,True
-C5 cal altura,24.9,24.9,True
+C5 cal altura,26.6,26.6,True
 C5 erro orig altura,15.7,15.7,True
-C5 erro cal altura,5.8,5.8,True
+C5 erro cal altura,7.5,7.5,True
 A1 obs volume,59.0,59.0,True
 A1 orig volume,79.3,79.3,True
-A1 cal volume,64.8,64.8,True
-A1 q05 volume,53.7,53.7,True
+A1 cal volume,66.4,66.4,True
+A1 q05 volume,55.2,55.2,True
 A1 q95 volume,78.6,78.6,True
 A1 obs CAP,22.9,22.9,True
 A1 orig CAP,40.7,40.7,True
-A1 cal CAP,29.7,29.7,True
-A1 q05 CAP,22.5,22.5,True
+A1 cal CAP,30.9,30.9,True
+A1 q05 CAP,23.4,23.4,True
 A1 q95 CAP,40.0,40.0,True
 "A1 erro orig vol 20,3",20.3,20.3,True
-"A1 erro cal vol 5,8",5.8,5.8,True
+"A1 erro cal vol 7,4",7.4,7.4,True
 "A1 erro orig CAP 17,7",17.7,17.7,True
-"A1 erro cal CAP 6,8",6.8,6.8,True
-"d0,99 vol 56,0",56.0,56.0,True
-"d0,99 CAP 24,1",24.1,24.1,True
+"A1 erro cal CAP 7,9",7.9,7.9,True
+"d0,99 vol 57,3",57.3,57.3,True
+"d0,99 CAP 24,8",24.8,24.8,True
 "Barry IAF orig 8,3",8.3,8.3,True
-"Barry IAF cal 1,4",1.4,1.4,True
-"Barry IAF q05 −2,4",-2.4,-2.4,True
-"Barry IAF q95 6,7",6.7,6.7,True
+"Barry IAF cal 1,6",1.6,1.6,True
+"Barry IAF q05 −3,2",-3.2,-3.2,True
+"Barry IAF q95 7,0",7.0,7.0,True
 "globulus ganho máx 1,6",1.6,1.6,True
 globulus sem perda (máx ≤ 0),0.0,0.0,True
 tratamentos com desfolha por versão 1.728,1728.0,1728.0,True
 tratamentos por versão 1.728,1728.0,1728.0,True
 original = TCC (dif máx < 1e-10),0.0,0.0,True
 T11 IND P1 orig,1.6,1.6,True
-T11 IND P1 cal,0.7,0.7,True
+T11 IND P1 cal,0.3,0.3,True
 T11 IND PA orig,11.5,11.5,True
-T11 IND PA cal,4.6,4.6,True
-T11 IND IC q05,-3.4,-3.4,True
+T11 IND PA cal,2.2,2.2,True
+T11 IND IC q05,-4.5,-4.5,True
 T11 IND IC q95,9.6,9.6,True
 T11 IND recup orig,28.0,28.0,True
 T11 IND recup cal,12.0,12.0,True
 T11 IMP P1 orig,2.3,2.3,True
-T11 IMP P1 cal,1.5,1.5,True
+T11 IMP P1 cal,1.4,1.4,True
 T11 IMP PA orig,16.3,16.3,True
-T11 IMP PA cal,6.5,6.5,True
-T11 IMP IC q05,1.0,1.0,True
-T11 IMP IC q95,10.8,10.8,True
+T11 IMP PA cal,5.0,5.0,True
+T11 IMP IC q05,-0.9,-0.9,True
+T11 IMP IC q95,10.0,10.0,True
 T11 IMP recup orig,26.0,26.0,True
-T11 IMP recup cal,14.0,14.0,True
+T11 IMP recup cal,15.0,15.0,True
 T11 TB P1 orig,1.0,1.0,True
-T11 TB P1 cal,0.6,0.6,True
+T11 TB P1 cal,0.2,0.2,True
 T11 TB PA orig,7.4,7.4,True
-T11 TB PA cal,1.2,1.2,True
-T11 TB IC q05,-7.2,-7.2,True
-T11 TB IC q95,8.2,8.2,True
+T11 TB PA cal,-2.2,-2.2,True
+T11 TB IC q05,-9.2,-9.2,True
+T11 TB IC q95,7.1,7.1,True
 T11 TB recup orig,33.0,33.0,True
 T11 TB recup cal,11.0,11.0,True
 T11 ALM P1 orig,0.7,0.7,True
-T11 ALM P1 cal,0.4,0.4,True
+T11 ALM P1 cal,0.2,0.2,True
 T11 ALM PA orig,6.5,6.5,True
-T11 ALM PA cal,1.4,1.4,True
-T11 ALM IC q05,-5.6,-5.6,True
-T11 ALM IC q95,4.9,4.9,True
+T11 ALM PA cal,-0.3,-0.3,True
+T11 ALM IC q05,-7.1,-7.1,True
+T11 ALM IC q95,4.5,4.5,True
 T11 ALM recup orig,29.0,29.0,True
-T11 ALM recup cal,13.0,13.0,True
+T11 ALM recup cal,14.0,14.0,True
 T11 ARA P1 orig,-2.5,-2.5,True
-T11 ARA P1 cal,-0.4,-0.4,True
+T11 ARA P1 cal,0.3,0.3,True
 T11 ARA PA orig,3.2,3.2,True
-T11 ARA PA cal,1.4,1.4,True
-T11 ARA IC q05,-5.2,-5.2,True
-T11 ARA IC q95,8.2,8.2,True
+T11 ARA PA cal,5.3,5.3,True
+T11 ARA IC q05,-2.0,-2.0,True
+T11 ARA IC q95,10.3,10.3,True
 T11 ARA recup orig,4.0,4.0,True
-T11 ARA recup cal,2.0,2.0,True
+T11 ARA recup cal,3.0,3.0,True
 T11 ELD P1 orig,1.1,1.1,True
-T11 ELD P1 cal,0.4,0.4,True
+T11 ELD P1 cal,-0.1,-0.1,True
 T11 ELD PA orig,6.4,6.4,True
-T11 ELD PA cal,2.2,2.2,True
-T11 ELD IC q05,-9.0,-9.0,True
-T11 ELD IC q95,9.5,9.5,True
+T11 ELD PA cal,-1.6,-1.6,True
+T11 ELD IC q05,-10.3,-10.3,True
+T11 ELD IC q95,8.2,8.2,True
 T11 ELD recup orig,34.0,34.0,True
 T11 ELD recup cal,11.0,11.0,True
-razão cal/orig P1 55%,55.0,55.0,True
-razão cal/orig PA 34%,34.0,34.0,True
+razão cal/orig P1 26%,26.0,26.0,True
+razão cal/orig PA 18%,18.0,18.0,True
 recup orig mín 4,4.0,4.0,True
 recup orig máx 35,35.0,35.0,True
-recup cal mín 2,2.0,2.0,True
-recup cal máx 14,14.0,14.0,True
-P1 cal C5 < 2% (máx),1.5,1.5,True
+recup cal mín 3,3.0,3.0,True
+recup cal máx 15,15.0,15.0,True
+P1 cal C5 < 2% (máx),1.4,1.4,True
 ARA chuva 572,572.0,572.0,True
 ARA meses secos 7,7.0,7.0,True
 ALM chuva 1.862,1862.0,1862.0,True
 "formigas orig mín 2,5",2.5,2.5,True
 "formigas orig máx 6,6",6.6,6.6,True
-"formigas cal mín 0,5",0.5,0.5,True
-"formigas cal máx 3,0",3.0,3.0,True
+"formigas cal mín 0,2",0.2,0.2,True
+"formigas cal máx 2,7",2.7,2.7,True
 "formigas ARA mín −0,6",-0.6,-0.6,True
-"formigas ARA máx 1,5",1.5,1.5,True
+"formigas ARA máx 1,3",1.3,1.3,True
 RF LOSO orig cat 63,63.0,63.0,True
-RF LOSO cal cat 143,143.0,143.0,True
-RF LOSO cal clim 69,69.0,69.0,True
-"RF R2 cal cat 0,17",0.17,0.17,True
-"RF R2 cal clim 0,83",0.83,0.83,True
+RF LOSO cal cat 281,281.0,281.0,True
+RF LOSO cal clim 136,136.0,136.0,True
+"RF R2 orig→cal LOSO cat −0,23",-0.23,-0.23,True
+"RF R2 cal clim 0,71",0.71,0.71,True
 "RF6 intens orig 50,6",50.6,50.6,True
-"RF6 intens cal 47,3",47.3,47.3,True
+"RF6 intens cal 47,1",47.1,47.1,True
 "RF6 freq orig 44,3",44.3,44.3,True
-"RF6 freq cal 42,1",42.1,42.1,True
+"RF6 freq cal 40,0",40.0,40.0,True
 Morris nWs topo nos 6 locais,6.0,6.0,True
 "Morris nWs mín 0,69",0.69,0.69,True
 "Morris nWs máx 1,86",1.86,1.86,True
@@ -335,16 +335,17 @@ IMA C5 TB,60.0,60.0,True
 IMA C5 ALM,70.0,70.0,True
 IMA C5 ARA,20.0,20.0,True
 IMA C5 ELD,56.0,56.0,True
-"urocam só U 79,1",79.1,79.1,True
-"urocam só a 70,1",70.1,70.1,True
-"urocam U e a 61,7",61.7,61.7,True
-"prior 1,6 U q50 1,21",1.21,1.21,True
-"prior 1,6 U q05 1,02",1.02,1.02,True
-"prior 1,6 U q95 1,54",1.54,1.54,True
-reexecução U q50 = publicado,1.16,1.16,True
+"urocam só U 78,9",78.9,78.9,True
+"urocam só a 72,5",72.5,72.5,True
+"urocam U e a 62,6",62.6,62.6,True
+"prior 1,6 U q50 1,30",1.3,1.3,True
+"prior 1,6 U q05 1,05",1.05,1.05,True
+"prior 1,6 U q95 1,55",1.55,1.55,True
+reexecução U q50 = publicado,1.22,1.22,True
+γ calibrado com Quentin 2011 = 1,1.0,1.0,True
 "Quentin orig −21,5%",21.5,21.5,True
-"Quentin γ0,5 −4,5%",4.5,4.5,True
-"Quentin γ1 −0,2%",0.2,0.2,True
+"Quentin γ0,5 −4,8%",4.8,4.8,True
+"Quentin γ1 −0,5%",0.5,0.5,True
 "Matrangolo obs 1x 37,9",37.9,37.9,True
 "Matrangolo obs 3x 79,7",79.7,79.7,True
 "Matrangolo orig mín 2,6",2.6,2.6,True
@@ -357,6 +358,21 @@ fator orig mín 6,6.0,6.0,True
 fator orig máx 15,15.0,15.0,True
 fator cal mín 9,9.0,9.0,True
 fator cal máx 34,34.0,34.0,True
+"Oliveira obs vol 35,4",35.4,35.4,True
+"Oliveira orig vol 38,7",38.7,38.7,True
+"Oliveira cal vol 29,2",29.2,29.2,True
+"Oliveira cal q05 26,4",26.4,26.4,True
+"Oliveira cal q95 33,5",33.5,33.5,True
+"Oliveira obs DAP 14,8",14.8,14.8,True
+"Oliveira obs altura 11,0",11.0,11.0,True
+"Oliveira orig DAP 14,6",14.6,14.6,True
+"Oliveira cal DAP 10,5",10.5,10.5,True
+"Oliveira orig altura 18,1",18.1,18.1,True
+"Oliveira cal altura 13,1",13.1,13.1,True
+"Oliveira RQEM orig 4,5",4.5,4.5,True
+"Oliveira RQEM cal 4,5",4.5,4.5,True
+"Oliveira parciais orig ≤ 3,0",3.0,3.0,True
+"Oliveira parciais cal ≤ 1,5",1.5,1.5,True
 busca registros 10.000,10000.0,10000.0,True
 busca DOI únicos 7.908,7908.0,7908.0,True
 busca dedup 7.431,7431.0,7431.0,True
@@ -382,84 +398,85 @@ cenários totais,7584.0,7584.0,True
 cenários aptos,5688.0,5688.0,True
 aptos por versão,2844.0,2844.0,True
 ganho orig %,1.9,1.9,True
-ganho calib %,3.1,3.1,True
+ganho calib %,4.8,4.8,True
 ganho máx orig,3.5,3.5,True
-ganho máx calib,5.0,5.0,True
+ganho máx calib,7.5,7.5,True
 só desfolha ganho orig %,4.9,4.9,True
-só desfolha ganho calib %,19.4,19.4,True
-só desfolha ganhos calib n,28.0,28.0,True
-ganhos calib com 25%,22.0,22.0,True
+só desfolha ganho calib %,29.2,29.2,True
+só desfolha ganhos calib n,42.0,42.0,True
+ganhos calib com 25%,25.0,25.0,True
+ganhos só desfolha calib com até 50%,41.0,41.0,True
 só eficiência ganho,0.0,0.0,True
 só mortalidade ganho %,11.1,11.1,True
 só mortalidade ganho máx,1.1,1.1,True
 mortalidade ganho só ALM e ARA,2.0,2.0,True
 desfolha orig ganho só ARA,1.0,1.0,True
-maior ganho IND A1 25 PA jul calib,5.0,5.0,True
+maior ganho ALM C5 25 PA jul m25 calib,7.5,7.5,True
 perda mediana orig,11.1,11.1,True
-perda mediana calib,7.4,7.4,True
+perda mediana calib,7.0,7.0,True
 perda máx orig,82.8,82.8,True
-perda máx calib,63.6,63.6,True
+perda máx calib,64.5,64.5,True
 folhas recuperam orig %,41.1,41.1,True
-folhas recuperam calib %,88.8,88.8,True
+folhas recuperam calib %,88.2,88.2,True
 meses recup orig,32.0,32.0,True
 meses recup calib,8.0,8.0,True
 NPP pós maior orig %,7.7,7.7,True
-NPP pós maior calib %,42.3,42.3,True
-árvore maior com mortalidade %,57.2,57.2,True
-árvore maior e talhão menor %,55.3,55.3,True
+NPP pós maior calib %,42.1,42.1,True
+árvore maior com mortalidade %,58.3,58.3,True
+árvore maior e talhão menor %,55.8,55.8,True
 teste: vol trat 277,277.0,277.0,True
 teste: vol ctrl 352,352.0,352.0,True
-"teste: perda 21,3",21.3,21.3,True
-teste: 4 m pulso1 trat,3.6,3.6,True
-teste: 4 m pulso2 trat,4.5,4.5,True
+"teste: perda 21,2",21.2,21.2,True
+teste: 4 m pulso1 trat,3.8,3.8,True
+teste: 4 m pulso2 trat,4.8,4.8,True
 teste: 4 m pulso1 ctrl,31.2,31.2,True
 teste: 4 m pulso2 ctrl,29.7,29.7,True
-teste: IAF trat jan21,2.9,2.9,True
+teste: IAF trat jan21,2.8,2.8,True
 teste: IAF ctrl jan21,1.9,1.9,True
 teste: NPP trat jan21,5.6,5.6,True
 teste: NPP ctrl jan21,4.4,4.4,True
-teste: 72-84 trat,56.1,56.1,True
+teste: 72-84 trat,54.2,54.2,True
 teste: 72-84 ctrl,56.8,56.8,True
 teste: DAP trat,18.8,18.8,True
 teste: DAP ctrl,18.5,18.5,True
-"teste: vol/árvore +4,9",4.9,4.9,True
+"teste: vol/árvore +5,0",5.0,5.0,True
 teste: só desfolha,11.6,11.6,True
 teste: só eficiência,12.8,12.8,True
 teste: só mortalidade,5.7,5.7,True
 teste: soma,30.2,30.2,True
 interação mediana,0.02,0.02,True
-interação q05,-4.8,-4.8,True
+interação q05,-4.7,-4.7,True
 interação q95,2.9,2.9,True
-RF kfold R2,0.991,0.991,True
+RF kfold R2,0.99,0.99,True
 RF kfold RQEM,1.5,1.5,True
-RF LOSO R2,0.912,0.912,True
-RF LOSO RQEM,4.5,4.5,True
-classif acurácia,98.3,98.3,True
-classif balanceada,93.7,93.7,True
-frac ganho,2.5,2.5,True
-imp frequência,35.6,35.6,True
-imp intensidade,31.1,31.1,True
-imp versão,11.7,11.7,True
+RF LOSO R2,0.91,0.91,True
+RF LOSO RQEM,4.6,4.6,True
+classif acurácia,97.9,97.9,True
+classif balanceada,94.3,94.3,True
+frac ganho,3.3,3.3,True
+imp frequência,34.5,34.5,True
+imp intensidade,30.7,30.7,True
+imp versão,13.0,13.0,True
 imp eficiência,8.4,8.4,True
-imp época,7.5,7.5,True
+imp época,7.7,7.7,True
 clima+solo < 3,3.0,3.0,True
 LOO RQEM orig,15.1,15.1,True
-LOO RQEM calib,4.2,4.2,True
+LOO RQEM calib,4.1,4.1,True
 LOO viés orig,14.0,14.0,True
-LOO viés calib,0.6,0.6,True
+LOO viés calib,1.8,1.8,True
 LOO melhorou,5.0,5.0,True
 C5→A1 RQEM orig,19.1,19.1,True
-C5→A1 RQEM calib,6.4,6.4,True
+C5→A1 RQEM calib,7.2,7.2,True
 C5→A1 viés orig,19.0,19.0,True
-C5→A1 viés calib,6.3,6.3,True
+C5→A1 viés calib,7.2,7.2,True
 A1→C5 RQEM orig,11.7,11.7,True
-A1→C5 RQEM calib,4.3,4.3,True
+A1→C5 RQEM calib,4.9,4.9,True
 A1→C5 viés orig,10.7,10.7,True
-A1→C5 viés calib,0.1,0.1,True
-U post mín,1.12,1.12,True
-U post máx,1.21,1.21,True
-a post mín,0.54,0.54,True
-a post máx,0.83,0.83,True
+A1→C5 viés calib,2.5,2.5,True
+U post mín,1.19,1.19,True
+U post máx,1.24,1.24,True
+a post mín,0.48,0.48,True
+a post máx,0.78,0.78,True
 T1 ALM Tméd,27.3,27.3,True
 T1 ALM Tmín,23.7,23.7,True
 T1 ALM Tmáx,31.0,31.0,True

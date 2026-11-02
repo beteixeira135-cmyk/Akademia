@@ -125,25 +125,25 @@ chk("mancha recup mín 24", 24, mf.min(), 0); chk("mancha recup máx 35", 35, mf
 # ===== calibração da compensação e biomas (31/10/2026) =====
 CB = Path("/home/claude/tcc/calibracao/saida"); BB = S / "biomas"
 J = json.load(open(CB / "calibracao_d0999.json")); J9 = json.load(open(CB / "calibracao_d099.json"))
-for k_, t_, c_ in [("U q50", 1.16, J["U"]["q50"]), ("U q05", 1.02, J["U"]["q05"]), ("U q95", 1.33, J["U"]["q95"]),
-                   ("a q50", 0.55, J["a"]["q50"]), ("a q05", 0.05, J["a"]["q05"]), ("a q95", 0.975, J["a"]["q95"] + 1e-9),
-                   ("corr U-a", 0.09, J["corr_post"]), ("U q50 d0,99", 1.07, J9["U"]["q50"])]:
-    chk(k_, t_, c_, 3 if k_ == "a q95" else 2)
-for var, ob, orig, cal in [("volume", 52.9, 64.8, 50.4), ("CAP", 24.2, 28.5, 20.2), ("altura", 19.1, 34.7, 24.9)]:
+for k_, t_, c_ in [("U q50", 1.22, J["U"]["q50"]), ("U q05", 1.03, J["U"]["q05"]), ("U q95", 1.34, J["U"]["q95"]),
+                   ("a q50", 0.475, J["a"]["q50"]), ("a q05", 0.05, J["a"]["q05"]), ("a q95", 0.95, J["a"]["q95"] + 1e-9),
+                   ("corr U-a", 0.06, J["corr_post"]), ("U q50 d0,99", 1.09, J9["U"]["q50"])]:
+    chk(k_, t_, c_, 3 if k_ in ("a q95", "a q50") else 2)
+for var, ob, orig, cal in [("volume", 52.9, 64.8, 53.0), ("CAP", 24.2, 28.5, 21.6), ("altura", 19.1, 34.7, 26.6)]:
     chk(f"C5 obs {var}", ob, J["observado_C5"][var]); chk(f"C5 orig {var}", orig, J["original_C5"][var]); chk(f"C5 cal {var}", cal, J["preditiva_media_C5"][var])
     chk(f"C5 erro orig {var}", {"volume": 12.0, "CAP": 4.3, "altura": 15.7}[var], J["original_C5"][var] - J["observado_C5"][var])
     chk(f"C5 erro cal {var}", round(cal - ob, 1), J["preditiva_media_C5"][var] - J["observado_C5"][var])
 V = J["validacao_A1_urocam"]
-for var, ob, orig, cal, lo, hi in [("volume", 59.0, 79.3, 64.8, 53.7, 78.6), ("CAP", 22.9, 40.7, 29.7, 22.5, 40.0)]:
+for var, ob, orig, cal, lo, hi in [("volume", 59.0, 79.3, 66.4, 55.2, 78.6), ("CAP", 22.9, 40.7, 30.9, 23.4, 40.0)]:
     chk(f"A1 obs {var}", ob, V["observado"][var]); chk(f"A1 orig {var}", orig, V["original"][var]); chk(f"A1 cal {var}", cal, V["calibrado_media"][var])
     chk(f"A1 q05 {var}", lo, V["calibrado_q05"][var]); chk(f"A1 q95 {var}", hi, V["calibrado_q95"][var])
-chk("A1 erro orig vol 20,3", 20.3, V["original"]["volume"] - V["observado"]["volume"]); chk("A1 erro cal vol 5,8", 5.8, V["calibrado_media"]["volume"] - V["observado"]["volume"])
-chk("A1 erro orig CAP 17,7", 17.7, V["original"]["CAP"] - V["observado"]["CAP"]); chk("A1 erro cal CAP 6,8", 6.8, V["calibrado_media"]["CAP"] - V["observado"]["CAP"])
-chk("d0,99 vol 56,0", 56.0, J9["validacao_A1_urocam"]["calibrado_media"]["volume"]); chk("d0,99 CAP 24,1", 24.1, J9["validacao_A1_urocam"]["calibrado_media"]["CAP"])
+chk("A1 erro orig vol 20,3", 20.3, V["original"]["volume"] - V["observado"]["volume"]); chk("A1 erro cal vol 7,4", 7.4, V["calibrado_media"]["volume"] - V["observado"]["volume"])
+chk("A1 erro orig CAP 17,7", 17.7, V["original"]["CAP"] - V["observado"]["CAP"]); chk("A1 erro cal CAP 7,9", 7.9, V["calibrado_media"]["CAP"] - V["observado"]["CAP"])
+chk("d0,99 vol 57,3", 57.3, J9["validacao_A1_urocam"]["calibrado_media"]["volume"]); chk("d0,99 CAP 24,8", 24.8, J9["validacao_A1_urocam"]["calibrado_media"]["CAP"])
 GL = pd.read_csv(CB / "validacao_globulus.csv")
 gl = lambda caso, ver, var, col="perda_media": GL[GL.caso.str.startswith(caso) & (GL.versao == ver) & (GL.variavel == var)][col].iloc[0]
-chk("Barry IAF orig 8,3", 8.3, gl("Barry", "original", "lai")); chk("Barry IAF cal 1,4", 1.4, gl("Barry", "calibrado", "lai"))
-chk("Barry IAF q05 −2,4", -2.4, gl("Barry", "calibrado", "lai", "q05")); chk("Barry IAF q95 6,7", 6.7, gl("Barry", "calibrado", "lai", "q95"))
+chk("Barry IAF orig 8,3", 8.3, gl("Barry", "original", "lai")); chk("Barry IAF cal 1,6", 1.6, gl("Barry", "calibrado", "lai"))
+chk("Barry IAF q05 −3,2", -3.2, gl("Barry", "calibrado", "lai", "q05")); chk("Barry IAF q95 7,0", 7.0, gl("Barry", "calibrado", "lai", "q95"))
 chk("globulus ganho máx 1,6", 1.6, -GL[GL.variavel.isin(["dbh", "height"])].perda_media.min())
 chk("globulus sem perda (máx ≤ 0)", 0.0, max(0.0, GL[GL.variavel.isin(["dbh", "height"])].perda_media.max()), 1)
 # biomas
@@ -155,8 +155,8 @@ Lo = L.set_index(["sitio", "material", "calendario", "desfolha"]).perda_volume_k
 bo = BO[(BO.nivel_FR == "F100")].set_index(["sitio", "material", "calendario", "desfolha"]).perda_volume_k72
 chk("original = TCC (dif máx < 1e-10)", 0.0, max(0.0, (bo.reindex(Lo.index) - Lo).abs().max() - 1e-10), 1)
 bget = lambda D, s_, m_, cal_, col="perda_volume_k72": D[(D.sitio == s_) & (D.material == m_) & (D.nivel_FR == "F100") & (D.desfolha == 0.5) & (D.calendario == cal_)][col].iloc[0]
-T11 = {"IND": (1.6, 0.7, 11.5, 4.6, -3.4, 9.6, 28, 12), "IMP": (2.3, 1.5, 16.3, 6.5, 1.0, 10.8, 26, 14), "TB": (1.0, 0.6, 7.4, 1.2, -7.2, 8.2, 33, 11),
-       "ALM": (0.7, 0.4, 6.5, 1.4, -5.6, 4.9, 29, 13), "ARA": (-2.5, -0.4, 3.2, 1.4, -5.2, 8.2, 4, 2), "ELD": (1.1, 0.4, 6.4, 2.2, -9.0, 9.5, 34, 11)}
+T11 = {"IND": (1.6, 0.3, 11.5, 2.2, -4.5, 9.6, 28, 12), "IMP": (2.3, 1.4, 16.3, 5.0, -0.9, 10.0, 26, 15), "TB": (1.0, 0.2, 7.4, -2.2, -9.2, 7.1, 33, 11),
+       "ALM": (0.7, 0.2, 6.5, -0.3, -7.1, 4.5, 29, 14), "ARA": (-2.5, 0.3, 3.2, 5.3, -2.0, 10.3, 4, 3), "ELD": (1.1, -0.1, 6.4, -1.6, -10.3, 8.2, 34, 11)}
 for s_, (p1o, p1c, pao, pac, lo_, hi_, ro, rc) in T11.items():
     chk(f"T11 {s_} P1 orig", p1o, bget(BO, s_, "C5", "P1")); chk(f"T11 {s_} P1 cal", p1c, bget(BC, s_, "C5", "P1"))
     chk(f"T11 {s_} PA orig", pao, bget(BO, s_, "C5", "PA")); chk(f"T11 {s_} PA cal", pac, bget(BC, s_, "C5", "PA"))
@@ -166,26 +166,26 @@ for s_, (p1o, p1c, pao, pac, lo_, hi_, ro, rc) in T11.items():
 k_ = ["sitio", "material", "nivel_FR", "desfolha", "calendario"]
 XB = BO.merge(BC, on=k_, suffixes=("_o", "_c")); XB = XB[(XB.nivel_FR == "F100") & (XB.desfolha == 0.5) & XB.apto_analise_principal_o]
 p1 = XB[(XB.calendario == "P1") & (XB.perda_volume_k72_o > 0)]; pa = XB[XB.calendario == "PA"]
-chk("razão cal/orig P1 55%", 55, 100 * (p1.perda_volume_k72_c / p1.perda_volume_k72_o).median(), 0)
-chk("razão cal/orig PA 34%", 34, 100 * (pa.perda_volume_k72_c / pa.perda_volume_k72_o).median(), 0)
+chk("razão cal/orig P1 26%", 26, 100 * (p1.perda_volume_k72_c / p1.perda_volume_k72_o).median(), 0)
+chk("razão cal/orig PA 18%", 18, 100 * (pa.perda_volume_k72_c / pa.perda_volume_k72_o).median(), 0)
 r1 = XB[XB.calendario == "P1"]
 chk("recup orig mín 4", 4, r1.recup_rel95_meses_ev1_o.min(), 0); chk("recup orig máx 35", 35, r1.recup_rel95_meses_ev1_o.max(), 0)
-chk("recup cal mín 2", 2, r1.recup_rel95_meses_ev1_c.min(), 0); chk("recup cal máx 14", 14, r1.recup_rel95_meses_ev1_c.max(), 0)
-chk("P1 cal C5 < 2% (máx)", 1.5, BC[(BC.material == "C5") & (BC.nivel_FR == "F100") & (BC.desfolha == 0.5) & (BC.calendario == "P1")].perda_volume_k72.max(), 1)
+chk("recup cal mín 3", 3, r1.recup_rel95_meses_ev1_c.min(), 0); chk("recup cal máx 15", 15, r1.recup_rel95_meses_ev1_c.max(), 0)
+chk("P1 cal C5 < 2% (máx)", 1.4, BC[(BC.material == "C5") & (BC.nivel_FR == "F100") & (BC.desfolha == 0.5) & (BC.calendario == "P1")].perda_volume_k72.max(), 1)
 CR = pd.read_csv(BB / "clima_resumo_locais.csv", index_col=0)
 chk("ARA chuva 572", 572, CR.at["ARA", "chuva_anual"], 0); chk("ARA meses secos 7", 7, CR.at["ARA", "meses_secos"], 0); chk("ALM chuva 1.862", 1862, CR.at["ALM", "chuva_anual"], 0)
 DB = pd.read_csv(BB / "danos_6locais.csv")
 fo = DB[(DB.cenario == "Formigas-cortadeiras")]; foA = fo[fo.sitio != "ARA"]
 chk("formigas orig mín 2,5", 2.5, foA[foA.versao == "original"].perda_volume_84.min()); chk("formigas orig máx 6,6", 6.6, foA[foA.versao == "original"].perda_volume_84.max())
-chk("formigas cal mín 0,5", 0.5, foA[foA.versao == "calibrado"].perda_volume_84.min()); chk("formigas cal máx 3,0", 3.0, foA[foA.versao == "calibrado"].perda_volume_84.max())
-chk("formigas ARA mín −0,6", -0.6, fo[fo.sitio == "ARA"].perda_volume_84.min()); chk("formigas ARA máx 1,5", 1.5, fo[fo.sitio == "ARA"].perda_volume_84.max())
+chk("formigas cal mín 0,2", 0.2, foA[foA.versao == "calibrado"].perda_volume_84.min()); chk("formigas cal máx 2,7", 2.7, foA[foA.versao == "calibrado"].perda_volume_84.max())
+chk("formigas ARA mín −0,6", -0.6, fo[fo.sitio == "ARA"].perda_volume_84.min()); chk("formigas ARA máx 1,3", 1.3, fo[fo.sitio == "ARA"].perda_volume_84.max())
 RFr = pd.read_csv(BB / "rf_resumo.csv"); RI = pd.read_csv(BB / "rf_importancia.csv")
 rr = lambda v_, var_, col: RFr[(RFr.versao == v_) & (RFr.resposta == "perda_volume_k72") & (RFr.variaveis.str.startswith(var_)) & (RFr.esquema == "deixa um local de fora")][col].iloc[0]
-chk("RF LOSO orig cat 63", 63, rr("original", "(a)", "RQEM"), 0); chk("RF LOSO cal cat 143", 143, rr("calibrado", "(a)", "RQEM"), 0)
-chk("RF LOSO cal clim 69", 69, rr("calibrado", "(b)", "RQEM"), 0); chk("RF R2 cal cat 0,17", 0.17, rr("calibrado", "(a)", "R2"), 2); chk("RF R2 cal clim 0,83", 0.83, rr("calibrado", "(b)", "R2"), 2)
+chk("RF LOSO orig cat 63", 63, rr("original", "(a)", "RQEM"), 0); chk("RF LOSO cal cat 281", 281, rr("calibrado", "(a)", "RQEM"), 0)
+chk("RF LOSO cal clim 136", 136, rr("calibrado", "(b)", "RQEM"), 0); chk("RF R2 orig→cal LOSO cat −0,23", -0.23, rr("calibrado", "(a)", "R2"), 2); chk("RF R2 cal clim 0,71", 0.71, rr("calibrado", "(b)", "R2"), 2)
 ri = lambda v_, var_: RI[(RI.versao == v_) & (RI.resposta == "perda_volume_k72") & (RI.variavel == var_)].importancia_pct.iloc[0]
-chk("RF6 intens orig 50,6", 50.6, ri("original", "intensidade")); chk("RF6 intens cal 47,3", 47.3, ri("calibrado", "intensidade"))
-chk("RF6 freq orig 44,3", 44.3, ri("original", "frequência")); chk("RF6 freq cal 42,1", 42.1, ri("calibrado", "frequência"))
+chk("RF6 intens orig 50,6", 50.6, ri("original", "intensidade")); chk("RF6 intens cal 47,1", 47.1, ri("calibrado", "intensidade"))
+chk("RF6 freq orig 44,3", 44.3, ri("original", "frequência")); chk("RF6 freq cal 40,0", 40.0, ri("calibrado", "frequência"))
 MOB = pd.read_csv(BB / "morris_C5_6locais.csv"); mv = MOB[MOB.resposta == "perda_volume_84_pp"]
 top = mv.loc[mv.groupby("sitio").mu_estrela.idxmax()]
 chk("Morris nWs topo nos 6 locais", 6, (top.parametro == "nWs").sum(), 0)
@@ -202,12 +202,13 @@ for s_, t_ in [("IND", 51), ("IMP", 45), ("TB", 60), ("ALM", 70), ("ARA", 20), (
 # ===== Missão 07: auditoria da calibração e testes adicionais =====
 AC = json.load(open(CB / "auditoria_calibracao.json")); TA = json.load(open(CB / "testes_adicionais.json"))
 ua = AC["atribuicao_urocam"]
-chk("urocam só U 79,1", 79.1, ua["so_U"]["volume"]); chk("urocam só a 70,1", 70.1, ua["so_a"]["volume"]); chk("urocam U e a 61,7", 61.7, ua["U_e_a"]["volume"])
+chk("urocam só U 78,9", 78.9, ua["so_U"]["volume"]); chk("urocam só a 72,5", 72.5, ua["so_a"]["volume"]); chk("urocam U e a 62,6", 62.6, ua["U_e_a"]["volume"])
 p16 = AC["prior_U_ate_1_6"]
-chk("prior 1,6 U q50 1,21", 1.21, p16["U"][1], 2); chk("prior 1,6 U q05 1,02", 1.02, p16["U"][0], 2); chk("prior 1,6 U q95 1,54", 1.54, p16["U"][2], 2)
-chk("reexecução U q50 = publicado", 1.16, AC["reexecucao"]["U"][1], 2)
-qa = {r["versao"]: r["razao_transpiracao_7meses"] for r in TA["quentin2011_transpiracao_A1"]}
-chk("Quentin orig −21,5%", 21.5, 100 * (1 - qa["original"])); chk("Quentin γ0,5 −4,5%", 4.5, 100 * (1 - qa["calibrado γ=0,5"])); chk("Quentin γ1 −0,2%", 0.2, 100 * (1 - qa["calibrado γ=1"]))
+chk("prior 1,6 U q50 1,30", 1.30, p16["U"][1], 2); chk("prior 1,6 U q05 1,05", 1.05, p16["U"][0], 2); chk("prior 1,6 U q95 1,55", 1.55, p16["U"][2], 2)
+chk("reexecução U q50 = publicado", 1.22, AC["reexecucao"]["U"][1], 2)
+GQ = json.load(open(CB / "gamma_quentin2011.json")); gq = {r["gam"]: r["razao"] for r in GQ["grade"]}
+chk("γ calibrado com Quentin 2011 = 1", 1.0, GQ["gamma_calibrado"], 1)
+chk("Quentin orig −21,5%", 21.5, 100 * (1 - GQ["razao_original"])); chk("Quentin γ0,5 −4,8%", 4.8, 100 * (1 - gq[0.5])); chk("Quentin γ1 −0,5%", 0.5, 100 * (1 - gq[1.0]))
 MTt = pd.DataFrame(TA["matrangolo"])
 chk("Matrangolo obs 1x 37,9", 37.9, MTt.observado.iloc[0]); chk("Matrangolo obs 3x 79,7", 79.7, MTt.observado.iloc[3])
 chk("Matrangolo orig mín 2,6", 2.6, MTt.original.min()); chk("Matrangolo orig máx 12,7", 12.7, MTt.original.max())
@@ -215,6 +216,14 @@ chk("Matrangolo cal mín 1,1", 1.1, MTt.calibrado_mediana.min()); chk("Matrangol
 chk("Matrangolo RQEM orig 54", 54, TA["matrangolo_metricas"]["rmse_original"], 0); chk("Matrangolo RQEM cal 56", 56, TA["matrangolo_metricas"]["rmse_calibrado"], 0)
 fo_ = MTt.observado / MTt.original; fc_ = MTt.observado / MTt.calibrado_mediana
 chk("fator orig mín 6", 6, fo_.min(), 0); chk("fator orig máx 15", 15, fo_.max(), 0); chk("fator cal mín 9", 9, fc_.min(), 0); chk("fator cal máx 34", 34, fc_.max(), 0)
+OL = json.load(open(CB / "teste_oliveira2014.json"))["resultados"]; o1 = OL["T1 100%"]
+chk("Oliveira obs vol 35,4", 35.4, o1["observado"]["volume_publicado"]); chk("Oliveira orig vol 38,7", 38.7, o1["original"]["volume"][1]); chk("Oliveira cal vol 29,2", 29.2, o1["calibrado"]["volume"][1])
+chk("Oliveira cal q05 26,4", 26.4, o1["calibrado_faixa90_mediana_anos"][0]); chk("Oliveira cal q95 33,5", 33.5, o1["calibrado_faixa90_mediana_anos"][1])
+chk("Oliveira obs DAP 14,8", 14.8, o1["observado"]["diametro_publicado"]); chk("Oliveira obs altura 11,0", 11.0, o1["observado"]["altura_publicada"])
+chk("Oliveira orig DAP 14,6", 14.6, o1["original"]["dap"][1]); chk("Oliveira cal DAP 10,5", 10.5, o1["calibrado"]["dap"][1])
+chk("Oliveira orig altura 18,1", 18.1, o1["original"]["altura"][1]); chk("Oliveira cal altura 13,1", 13.1, o1["calibrado"]["altura"][1])
+chk("Oliveira RQEM orig 4,5", 4.5, OL["T1_metricas"]["RQEM_original"]); chk("Oliveira RQEM cal 4,5", 4.5, OL["T1_metricas"]["RQEM_calibrado"])
+chk("Oliveira parciais orig ≤ 3,0", 3.0, OL["parciais_max_mediana_entre_anos"]["original"]); chk("Oliveira parciais cal ≤ 1,5", 1.5, OL["parciais_max_mediana_entre_anos"]["calibrado"])
 RF_ = json.load(open("/home/claude/tcc/revisao_07/corpus/resumo_filtro.json"))
 chk("busca registros 10.000", 10000, RF_["registros_baixados"], 0); chk("busca DOI únicos 7.908", 7908, RF_["unicos_por_doi"], 0)
 chk("busca dedup 7.431", 7431, RF_["apos_dedup_titulo"], 0); chk("núcleo 93", 93, RF_["nucleo"], 0); chk("contexto 3-PG 20", 20, RF_["contexto_3pg"], 0)
@@ -235,7 +244,7 @@ _sp = dict(planted="2015-01", fertility=_M["FR_ref"], stems_n=10000 / 9, biom_st
 _cl = _cm("IND"); _ev = {"2017-01": .95, "2020-01": .95}
 _c = _run(_site, _sp, _cl, _par("A1")); _k = int(np.where(np.round(_c.age * 12) == 84)[0][0])
 _t = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev)
-_tc = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev, compensation=dict(U=1.16, a=0.55, gam=0.5))
+_tc = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev, compensation=dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=json.load(open(CB / "gamma_quentin2011.json"))["gamma_calibrado"]))
 chk("plataforma IND A1 2x95 original", 17.3, 100 * (1 - _t.volume[_k] / _c.volume[_k]), 1)
 chk("plataforma IND A1 2x95 calibrado", 11.6, 100 * (1 - _tc.volume[_k] / _c.volume[_k]), 1)
 
@@ -251,51 +260,52 @@ chk("celulose +5,9%", 5.9, _NP["dif_celulose"], 1); chk("energia +36,8%", 36.8, 
 _PS = _j.load(open("/home/claude/tcc/experimentos/saida/possibilidades/resumo_possibilidades.json"))
 _O, _C, _T, _K = _PS["original"], _PS["calibrada"], _PS["teste_autor"], _PS["kfold"]; _G = _PS["ganho_por_tipo"]
 chk("cenários totais", 7584, _PS["n_cenarios"], 0); chk("cenários aptos", 5688, _PS["n_aptos"], 0); chk("aptos por versão", 2844, _O["n"], 0)
-chk("ganho orig %", 1.9, _O["frac_ganho"], 1); chk("ganho calib %", 3.1, _C["frac_ganho"], 1)
-chk("ganho máx orig", 3.5, _O["ganho_max"], 1); chk("ganho máx calib", 5.0, _C["ganho_max"], 1)
-chk("só desfolha ganho orig %", 4.9, _G["só desfolha | original"]["frac"], 1); chk("só desfolha ganho calib %", 19.4, _G["só desfolha | calibrada"]["frac"], 1)
-chk("só desfolha ganhos calib n", 28, _G["só desfolha | calibrada"]["n_ganho"], 0)
-chk("ganhos calib com 25%", 22, _PS["ganho_so_desfolha_calibrada"]["d25_P1"] + _PS["ganho_so_desfolha_calibrada"]["d25_PA"], 0)
+chk("ganho orig %", 1.9, _O["frac_ganho"], 1); chk("ganho calib %", 4.8, _C["frac_ganho"], 1)
+chk("ganho máx orig", 3.5, _O["ganho_max"], 1); chk("ganho máx calib", 7.5, _C["ganho_max"], 1)
+chk("só desfolha ganho orig %", 4.9, _G["só desfolha | original"]["frac"], 1); chk("só desfolha ganho calib %", 29.2, _G["só desfolha | calibrada"]["frac"], 1)
+chk("só desfolha ganhos calib n", 42, _G["só desfolha | calibrada"]["n_ganho"], 0)
+chk("ganhos calib com 25%", 25, _PS["ganho_so_desfolha_calibrada"]["d25_P1"] + _PS["ganho_so_desfolha_calibrada"]["d25_PA"], 0)
+chk("ganhos só desfolha calib com até 50%", 41, sum(v for k, v in _PS["ganho_so_desfolha_calibrada"].items() if k[:3] in ("d25", "d50")), 0)
 chk("só eficiência ganho", 0.0, _G["só perda de eficiência | calibrada"]["frac"] + _G["só perda de eficiência | original"]["frac"], 1)
 chk("só mortalidade ganho %", 11.1, _G["só mortalidade | original"]["frac"], 1); chk("só mortalidade ganho máx", 1.1, _G["só mortalidade | original"]["ganho_max"], 1)
 chk("mortalidade ganho só ALM e ARA", 2, len(_PS["ganho_mortalidade_sitios"]) if set(_PS["ganho_mortalidade_sitios"]) == {"ALM", "ARA"} else 0, 0)
 chk("desfolha orig ganho só ARA", 1, 1 if _PS["ganho_so_desfolha_original_sitios"] == ["ARA"] else 0, 0)
-chk("maior ganho IND A1 25 PA jul calib", 5.0, -_PS["maior_ganho"]["perda_volume"] if (_PS["maior_ganho"]["sitio"], _PS["maior_ganho"]["material"], _PS["maior_ganho"]["d"], _PS["maior_ganho"]["freq"], _PS["maior_ganho"]["epoca"], _PS["maior_ganho"]["versao"]) == ("IND", "A1", 25, "PA", 7, "calibrada") else 0, 1)
-chk("perda mediana orig", 11.1, _O["perda_mediana"], 1); chk("perda mediana calib", 7.4, _C["perda_mediana"], 1)
-chk("perda máx orig", 82.8, _O["perda_max"], 1); chk("perda máx calib", 63.6, _C["perda_max"], 1)
-chk("folhas recuperam orig %", 41.1, _O["frac_folhas_recuperam"], 1); chk("folhas recuperam calib %", 88.8, _C["frac_folhas_recuperam"], 1)
+chk("maior ganho ALM C5 25 PA jul m25 calib", 7.5, -_PS["maior_ganho"]["perda_volume"] if (_PS["maior_ganho"]["sitio"], _PS["maior_ganho"]["material"], _PS["maior_ganho"]["d"], _PS["maior_ganho"]["freq"], _PS["maior_ganho"]["epoca"], _PS["maior_ganho"]["versao"]) == ("ALM", "C5", 25, "PA", 7, "calibrada") and _PS["maior_ganho"]["m"] == 25 else 0, 1)
+chk("perda mediana orig", 11.1, _O["perda_mediana"], 1); chk("perda mediana calib", 7.0, _C["perda_mediana"], 1)
+chk("perda máx orig", 82.8, _O["perda_max"], 1); chk("perda máx calib", 64.5, _C["perda_max"], 1)
+chk("folhas recuperam orig %", 41.1, _O["frac_folhas_recuperam"], 1); chk("folhas recuperam calib %", 88.2, _C["frac_folhas_recuperam"], 1)
 chk("meses recup orig", 32, _O["recup_folhas_mediana"], 0); chk("meses recup calib", 8, _C["recup_folhas_mediana"], 0)
-chk("NPP pós maior orig %", 7.7, _O["frac_npp_pos_maior"], 1); chk("NPP pós maior calib %", 42.3, _C["frac_npp_pos_maior"], 1)
-chk("árvore maior com mortalidade %", 57.2, _PS["mortalidade"]["frac_arvore_maior"], 1); chk("árvore maior e talhão menor %", 55.3, _PS["mortalidade"]["frac_arvore_maior_e_talhao_menor"], 1)
-chk("teste: vol trat 277", 277, _T["vol_trat"], 0); chk("teste: vol ctrl 352", 352, _T["vol_ctrl"], 0); chk("teste: perda 21,3", 21.3, _T["combinado"], 1)
-chk("teste: 4 m pulso1 trat", 3.6, _T["cresc_4m_pos_pulso1_trat"], 1); chk("teste: 4 m pulso2 trat", 4.5, _T["cresc_4m_pos_pulso2_trat"], 1)
+chk("NPP pós maior orig %", 7.7, _O["frac_npp_pos_maior"], 1); chk("NPP pós maior calib %", 42.1, _C["frac_npp_pos_maior"], 1)
+chk("árvore maior com mortalidade %", 58.3, _PS["mortalidade"]["frac_arvore_maior"], 1); chk("árvore maior e talhão menor %", 55.8, _PS["mortalidade"]["frac_arvore_maior_e_talhao_menor"], 1)
+chk("teste: vol trat 277", 277, _T["vol_trat"], 0); chk("teste: vol ctrl 352", 352, _T["vol_ctrl"], 0); chk("teste: perda 21,2", 21.2, _T["combinado"], 1)
+chk("teste: 4 m pulso1 trat", 3.8, _T["cresc_4m_pos_pulso1_trat"], 1); chk("teste: 4 m pulso2 trat", 4.8, _T["cresc_4m_pos_pulso2_trat"], 1)
 chk("teste: 4 m pulso1 ctrl", 31.2, _T["cresc_4m_pos_pulso1_ctrl"], 1); chk("teste: 4 m pulso2 ctrl", 29.7, _T["cresc_4m_pos_pulso2_ctrl"], 1)
-chk("teste: IAF trat jan21", 2.9, _T["iaf_jan2021_trat"], 1); chk("teste: IAF ctrl jan21", 1.9, _T["iaf_jan2021_ctrl"], 1)
+chk("teste: IAF trat jan21", 2.8, _T["iaf_jan2021_trat"], 1); chk("teste: IAF ctrl jan21", 1.9, _T["iaf_jan2021_ctrl"], 1)
 chk("teste: NPP trat jan21", 5.6, _T["npp_jan2021_trat"], 1); chk("teste: NPP ctrl jan21", 4.4, _T["npp_jan2021_ctrl"], 1)
-chk("teste: 72-84 trat", 56.1, _T["cresc_72_84_trat"], 1); chk("teste: 72-84 ctrl", 56.8, _T["cresc_72_84_ctrl"], 1)
-chk("teste: DAP trat", 18.8, _T["dap_trat"], 1); chk("teste: DAP ctrl", 18.5, _T["dap_ctrl"], 1); chk("teste: vol/árvore +4,9", 4.9, _T["vol_arvore_rel"], 1)
+chk("teste: 72-84 trat", 54.2, _T["cresc_72_84_trat"], 1); chk("teste: 72-84 ctrl", 56.8, _T["cresc_72_84_ctrl"], 1)
+chk("teste: DAP trat", 18.8, _T["dap_trat"], 1); chk("teste: DAP ctrl", 18.5, _T["dap_ctrl"], 1); chk("teste: vol/árvore +5,0", 5.0, _T["vol_arvore_rel"], 1)
 chk("teste: só desfolha", 11.6, _T["so_desfolha"], 1); chk("teste: só eficiência", 12.8, _T["so_eficiencia"], 1); chk("teste: só mortalidade", 5.7, _T["so_mortalidade"], 1)
 chk("teste: soma", 30.2, _T["soma_isolados"], 1)
-chk("interação mediana", 0.02, _PS["aditividade"]["interacao_mediana"], 2); chk("interação q05", -4.8, _PS["aditividade"]["interacao_q05"], 1); chk("interação q95", 2.9, _PS["aditividade"]["interacao_q95"], 1)
-chk("RF kfold R2", 0.991, _K["k-fold 10 × 3"]["R2"], 3); chk("RF kfold RQEM", 1.5, _K["k-fold 10 × 3"]["RQEM_pp"], 1)
-chk("RF LOSO R2", 0.912, _K["deixa um local de fora"]["R2"], 3); chk("RF LOSO RQEM", 4.5, _K["deixa um local de fora"]["RQEM_pp"], 1)
+chk("interação mediana", 0.02, _PS["aditividade"]["interacao_mediana"], 2); chk("interação q05", -4.7, _PS["aditividade"]["interacao_q05"], 1); chk("interação q95", 2.9, _PS["aditividade"]["interacao_q95"], 1)
+chk("RF kfold R2", 0.990, _K["k-fold 10 × 3"]["R2"], 3); chk("RF kfold RQEM", 1.5, _K["k-fold 10 × 3"]["RQEM_pp"], 1)
+chk("RF LOSO R2", 0.91, _K["deixa um local de fora"]["R2"], 2); chk("RF LOSO RQEM", 4.6, _K["deixa um local de fora"]["RQEM_pp"], 1)
 _cl = _K["classificacao ganho × perda (k-fold estratificado 10 × 3)"]
-chk("classif acurácia", 98.3, _cl["acuracia"], 1); chk("classif balanceada", 93.7, _cl["acuracia_balanceada"], 1); chk("frac ganho", 2.5, _cl["frac_ganho"], 1)
+chk("classif acurácia", 97.9, _cl["acuracia"], 1); chk("classif balanceada", 94.3, _cl["acuracia_balanceada"], 1); chk("frac ganho", 3.3, _cl["frac_ganho"], 1)
 _I = _PS["importancia_pct"]
-chk("imp frequência", 35.6, _I["pulsos anuais"], 1); chk("imp intensidade", 31.1, _I["intensidade d"], 1); chk("imp versão", 11.7, _I["fisiologia calibrada"], 1)
-chk("imp eficiência", 8.4, _I["perda de eficiência r"], 1); chk("imp época", 7.5, _I["época"], 1)
+chk("imp frequência", 34.5, _I["pulsos anuais"], 1); chk("imp intensidade", 30.7, _I["intensidade d"], 1); chk("imp versão", 13.0, _I["fisiologia calibrada"], 1)
+chk("imp eficiência", 8.4, _I["perda de eficiência r"], 1); chk("imp época", 7.7, _I["época"], 1)
 chk("clima+solo < 3", 3, 3 if _I["T média"] + _I["chuva anual"] + _I["meses secos"] + _I["CAD"] < 3 else 0, 0)
 _VC = _j.load(open("/home/claude/tcc/calibracao/saida/validacao_cruzada.json")); _L5 = _VC["deixa uma observação de fora (k = 5)"]
 _K2a, _K2b = _VC["ajusta no C5, prevê o A1 (k = 2)"], _VC["ajusta no A1, prevê o C5 (k = 2)"]
-chk("LOO RQEM orig", 15.1, _L5["RQEM_original"], 1); chk("LOO RQEM calib", 4.2, _L5["RQEM_calibrado"], 1)
-chk("LOO viés orig", 14.0, _L5["vies_original"], 1); chk("LOO viés calib", 0.6, _L5["vies_calibrado"], 1); chk("LOO melhorou", 5, _L5["melhorou"], 0)
-chk("C5→A1 RQEM orig", 19.1, _K2a["RQEM_original"], 1); chk("C5→A1 RQEM calib", 6.4, _K2a["RQEM_calibrado"], 1)
-chk("C5→A1 viés orig", 19.0, _K2a["vies_original"], 1); chk("C5→A1 viés calib", 6.3, _K2a["vies_calibrado"], 1)
-chk("A1→C5 RQEM orig", 11.7, _K2b["RQEM_original"], 1); chk("A1→C5 RQEM calib", 4.3, _K2b["RQEM_calibrado"], 1)
-chk("A1→C5 viés orig", 10.7, _K2b["vies_original"], 1); chk("A1→C5 viés calib", 0.1, _K2b["vies_calibrado"], 1)
+chk("LOO RQEM orig", 15.1, _L5["RQEM_original"], 1); chk("LOO RQEM calib", 4.1, _L5["RQEM_calibrado"], 1)
+chk("LOO viés orig", 14.0, _L5["vies_original"], 1); chk("LOO viés calib", 1.8, _L5["vies_calibrado"], 1); chk("LOO melhorou", 5, _L5["melhorou"], 0)
+chk("C5→A1 RQEM orig", 19.1, _K2a["RQEM_original"], 1); chk("C5→A1 RQEM calib", 7.2, _K2a["RQEM_calibrado"], 1)
+chk("C5→A1 viés orig", 19.0, _K2a["vies_original"], 1); chk("C5→A1 viés calib", 7.2, _K2a["vies_calibrado"], 1)
+chk("A1→C5 RQEM orig", 11.7, _K2b["RQEM_original"], 1); chk("A1→C5 RQEM calib", 4.9, _K2b["RQEM_calibrado"], 1)
+chk("A1→C5 viés orig", 10.7, _K2b["vies_original"], 1); chk("A1→C5 viés calib", 2.5, _K2b["vies_calibrado"], 1)
 _PV = pd.read_csv("/home/claude/tcc/calibracao/saida/validacao_cruzada_previsoes.csv")
-chk("U post mín", 1.12, _PV.U_post.min(), 2); chk("U post máx", 1.21, _PV.U_post.max(), 2)
-chk("a post mín", 0.54, _PV.a_post.min(), 2); chk("a post máx", 0.83, _PV.a_post.max(), 2)
+chk("U post mín", 1.19, _PV.U_post.min(), 2); chk("U post máx", 1.24, _PV.U_post.max(), 2)
+chk("a post mín", 0.48, _PV.a_post.min(), 2); chk("a post máx", 0.78, _PV.a_post.max(), 2)
 # Tabela 1 (clima e solo dos seis locais) — recalculada de clima/power_api e biomas/log_*.txt
 from clima import clima_mensal as _cm2
 for _s, (_tm, _tn, _tx, _pa, _p0, _p1, _ns) in {"ALM": (27.3, 23.7, 31.0, 1862, 1398, 2449, 2), "ARA": (26.9, 20.7, 33.1, 572, 418, 922, 7), "ELD": (19.9, 15.1, 24.8, 1459, 1104, 1699, 0)}.items():

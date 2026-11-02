@@ -1,0 +1,26 @@
+{
+ "deixa uma observação de fora (k = 5)": {
+  "n": 5,
+  "RQEM_original": 15.070557217037429,
+  "RQEM_calibrado": 4.165141717928426,
+  "vies_original": 14.008956949309715,
+  "vies_calibrado": 0.6273881762705968,
+  "melhorou": 5
+ },
+ "ajusta no C5, prevê o A1 (k = 2)": {
+  "n": 2,
+  "RQEM_original": 19.084395921867362,
+  "RQEM_calibrado": 6.365794959249498,
+  "vies_original": 19.039342678310245,
+  "vies_calibrado": 6.3469634267707775,
+  "melhorou": 2
+ },
+ "ajusta no A1, prevê o C5 (k = 2)": {
+  "n": 3,
+  "RQEM_original": 11.650180810539945,
+  "RQEM_calibrado": 4.308601015511485,
+  "vies_original": 10.655366463309365,
+  "vies_calibrado": 0.12572738895587085,
+  "melhorou": 3
+ }
+}

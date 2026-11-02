@@ -13,17 +13,17 @@ original,recup_rel95_meses_ev1,água (ASWmax),0.5
 original,recup_rel95_meses_ev1,fertilidade (FR),0.9
 original,recup_rel95_meses_ev1,local,23.7
 original,recup_rel95_meses_ev1,material,16.5
-calibrado,perda_volume_k72,intensidade,47.3
-calibrado,perda_volume_k72,frequência,42.1
-calibrado,perda_volume_k72,época,1.0
-calibrado,perda_volume_k72,água (ASWmax),3.6
-calibrado,perda_volume_k72,fertilidade (FR),0.4
-calibrado,perda_volume_k72,local,5.5
-calibrado,perda_volume_k72,material,0.2
-calibrado,recup_rel95_meses_ev1,intensidade,50.6
+calibrado,perda_volume_k72,intensidade,47.1
+calibrado,perda_volume_k72,frequência,40.0
+calibrado,perda_volume_k72,época,1.2
+calibrado,perda_volume_k72,água (ASWmax),5.0
+calibrado,perda_volume_k72,fertilidade (FR),0.3
+calibrado,perda_volume_k72,local,6.0
+calibrado,perda_volume_k72,material,0.4
+calibrado,recup_rel95_meses_ev1,intensidade,52.3
 calibrado,recup_rel95_meses_ev1,frequência,0.0
-calibrado,recup_rel95_meses_ev1,época,26.6
-calibrado,recup_rel95_meses_ev1,água (ASWmax),8.0
-calibrado,recup_rel95_meses_ev1,fertilidade (FR),1.1
-calibrado,recup_rel95_meses_ev1,local,6.6
-calibrado,recup_rel95_meses_ev1,material,7.1
+calibrado,recup_rel95_meses_ev1,época,25.2
+calibrado,recup_rel95_meses_ev1,água (ASWmax),6.4
+calibrado,recup_rel95_meses_ev1,fertilidade (FR),0.4
+calibrado,recup_rel95_meses_ev1,local,7.5
+calibrado,recup_rel95_meses_ev1,material,8.2

@@ -678,9 +678,9 @@ function produtos() {
 function dominio() {
   const P = DADOS.materiais[E.mat].params, it = []; let exp = false;
   if (E.d > 0 && E.comp === "O") it.push("Sem compensação, o módulo superestimou as perdas do experimento de Bertulio et al. (2008): no urocam, 79,3% de perda de volume simulada contra 59,0% observada. Compare com a fisiologia calibrada.");
-  if (E.d > 0 && E.comp === "C") it.push("Compensação calibrada com um único experimento (Bertulio et al., 2008, Campo Verde-MT) e testada em outro clone do mesmo experimento: no urocam, 64,8% simulada contra 59,0% observada. Não há validação independente.");
-  if (E.d >= 90) { exp = true; it.push("Desfolha quase total: no único experimento brasileiro com desfolhas totais (Matrangolo et al., 2010, aos 56 dias de idade), as perdas foram de 37,9 a 79,7%, e o módulo deu de 1,1 a 12,7%. Leia o resultado como limite inferior."); }
-  if (E.d > 45 && E.comp === "C") it.push("A condutância compensatória tem teto no valor observado com 45% de desfolha (Quentin et al., 2011). A literatura indica γ próximo de 1; aqui a mediana usa 0,5.");
+  if (E.d > 0 && E.comp === "C") it.push("Compensação calibrada com um único experimento (Bertulio et al., 2008, Campo Verde-MT) e testada em outro clone do mesmo experimento: no urocam, 66,4% simulada contra 59,0% observada. A condutância (γ = 1) foi calibrada à parte, com Quentin et al. (2011). Não há validação independente no Brasil.");
+  if (E.d >= 90) { exp = true; it.push("Desfolha quase total: o módulo acertou a perda oito meses depois de uma desfolha total aos 6 meses (Oliveira et al., 2014: 29% simulado, 35% medido), mas não a sua persistência: em Matrangolo et al. (2010), as perdas aos 92 meses foram de 37,9 a 79,7%, e o módulo deu de 1,1 a 12,7%. Leia o resultado de fim de rotação como limite inferior."); }
+  if (E.d > 45 && E.comp === "C") it.push("A condutância compensatória tem teto no valor observado com 45% de desfolha (Quentin et al., 2011); acima disso, a transpiração das folhas que sobram não aumenta mais.");
   if (E.r > 0) { exp = true; it.push("Perda de eficiência: a queda de fotossíntese foi medida em folhas atacadas (Almeida et al., 2018), mas a perda no talhão é desconhecida. Cenário exploratório."); }
   if (E.m > 15) { exp = true; it.push("Mortalidade acima de 15%: além do registrado por Santos et al. (2001)."); }
   if (E.mat === "A1" && R.fT0 > 0) { exp = true; it.push(`Extrapolação: a temperatura média passa da T<sub>máx</sub> do clone A1 (${fmt(P.Tmax, 2)} °C) em ${R.fT0} meses. Resultado apenas diagnóstico.`); }
@@ -844,12 +844,12 @@ function abrirValid() {
     <tr><td>C5 → urograndis</td><td>Altura</td><td class="num">0,680</td><td class="num">12,2%</td><td class="num">−12,2%</td></tr>
     <tr><td>C5 → urograndis</td><td>Volume por árvore</td><td class="num">−0,607</td><td class="num">70,1%</td><td class="num">−61,4%</td></tr></tbody></table></div>
     <p class="mini">O volume por árvore é subestimado porque o 3-PG estima volume por biomassa e densidade e o experimento usou cubagem de Smalian.</p>
-    <div class="tabs-wrap" style="margin-top:10px"><table class="tab"><caption>Calibração da compensação com Bertulio et al. (2008), perda relativa ao controle (%), d = 0,999. O urocam é teste do mesmo experimento, não validação independente.</caption>
+    <div class="tabs-wrap" style="margin-top:10px"><table class="tab"><caption>Calibração da compensação com Bertulio et al. (2008), perda relativa ao controle (%), d = 0,999, com γ = 1 calibrado com Quentin et al. (2011). O urocam é teste do mesmo experimento, não validação independente.</caption>
     <thead><tr><th>Material</th><th>Variável</th><th>Observado</th><th>Original</th><th>Calibrado</th></tr></thead><tbody>
-    <tr><td>C5 → urograndis (ajuste)</td><td>Volume</td><td class="num">52,9</td><td class="num">64,8</td><td class="num">50,4</td></tr>
-    <tr><td>C5 → urograndis (ajuste)</td><td>CAP</td><td class="num">24,2</td><td class="num">28,5</td><td class="num">20,2</td></tr>
-    <tr><td>A1 → urocam (teste)</td><td>Volume</td><td class="num">59,0</td><td class="num">79,3</td><td class="num">64,8 (53,7–78,6)</td></tr>
-    <tr><td>A1 → urocam (teste)</td><td>CAP</td><td class="num">22,9</td><td class="num">40,7</td><td class="num">29,7 (22,5–40,0)</td></tr></tbody></table></div>
+    <tr><td>C5 → urograndis (ajuste)</td><td>Volume</td><td class="num">52,9</td><td class="num">64,8</td><td class="num">53,0</td></tr>
+    <tr><td>C5 → urograndis (ajuste)</td><td>CAP</td><td class="num">24,2</td><td class="num">28,5</td><td class="num">21,6</td></tr>
+    <tr><td>A1 → urocam (teste)</td><td>Volume</td><td class="num">59,0</td><td class="num">79,3</td><td class="num">66,4 (55,2–78,6)</td></tr>
+    <tr><td>A1 → urocam (teste)</td><td>CAP</td><td class="num">22,9</td><td class="num">40,7</td><td class="num">30,9 (23,4–40,0)</td></tr></tbody></table></div>
     <div class="tabs-wrap" style="margin-top:10px"><table class="tab"><caption>Evidência contrária: Matrangolo et al. (2010), Viçosa-MG, desfolhas totais a partir dos 56 dias; perda de volume (%), protocolo aproximado.</caption>
     <thead><tr><th>Tratamento</th><th>Observado</th><th>Original</th><th>Calibrado</th></tr></thead><tbody>
     <tr><td>1 desfolha (56 d)</td><td class="num">37,9</td><td class="num">2,6</td><td class="num">1,1</td></tr>
@@ -874,7 +874,7 @@ function abrirValid() {
     <tr><td>Incerteza da calibração propagada até a perda de volume (faixa de 90%)</td><td>200 amostras do posterior</td></tr>
     <tr><td>Outros danos além da desfolha: perda de eficiência e mortalidade, com catálogo de agentes e fontes</td><td>Literatura ou exploratório, marcado em cada agente</td></tr>
     <tr><td>Perda por produto (serraria, celulose, energia) pelo taper e por critérios de sortimento</td><td>Taper de outro clone (Souza et al., 2016): ilustrativo</td></tr>
-    <tr><td>Domínio de validade exibido em cada cenário, inclusive a evidência contrária</td><td>Matrangolo et al. (2010), Quentin et al. (2011)</td></tr>
+    <tr><td>Domínio de validade exibido em cada cenário, inclusive a evidência contrária</td><td>Matrangolo et al. (2010), Oliveira et al. (2014), Quentin et al. (2011)</td></tr>
     </tbody></table></div>
     <p class="mini">A comparação com o 3PG.d se baseia na descrição pública da ferramenta. O que ela não descreve não foi tratado como ausente nela.</p></div>`;
   document.getElementById("bt-calc").onclick = () => {
