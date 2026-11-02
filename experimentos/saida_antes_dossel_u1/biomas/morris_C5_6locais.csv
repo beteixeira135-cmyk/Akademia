@@ -1,0 +1,241 @@
+sitio,bioma,parametro,resposta,mu_estrela,sigma
+IND,Cerrado,alphaCx,perda_volume_84_pp,0.5942,0.3539
+IND,Cerrado,alphaCx,volume_ctrl_84,77.7115,6.5007
+IND,Cerrado,k,perda_volume_84_pp,0.8801,0.4116
+IND,Cerrado,k,volume_ctrl_84,7.271,4.5064
+IND,Cerrado,y,perda_volume_84_pp,0.7527,0.3417
+IND,Cerrado,y,volume_ctrl_84,78.3992,6.8964
+IND,Cerrado,SLA0,perda_volume_84_pp,0.1531,0.0652
+IND,Cerrado,SLA0,volume_ctrl_84,0.4182,0.4609
+IND,Cerrado,SLA1,perda_volume_84_pp,0.86,0.3852
+IND,Cerrado,SLA1,volume_ctrl_84,8.1536,4.2913
+IND,Cerrado,pRx,perda_volume_84_pp,0.0374,0.0145
+IND,Cerrado,pRx,volume_ctrl_84,4.1109,0.7117
+IND,Cerrado,pRn,perda_volume_84_pp,0.1101,0.0584
+IND,Cerrado,pRn,volume_ctrl_84,11.7891,1.2097
+IND,Cerrado,pFS2,perda_volume_84_pp,0.2152,0.0721
+IND,Cerrado,pFS2,volume_ctrl_84,2.8822,1.881
+IND,Cerrado,pFS20,perda_volume_84_pp,0.5817,0.4074
+IND,Cerrado,pFS20,volume_ctrl_84,6.6089,5.9572
+IND,Cerrado,aWs,perda_volume_84_pp,0.2771,0.1596
+IND,Cerrado,aWs,volume_ctrl_84,2.7361,2.4576
+IND,Cerrado,nWs,perda_volume_84_pp,1.858,0.7313
+IND,Cerrado,nWs,volume_ctrl_84,17.8937,10.7064
+IND,Cerrado,Topt,perda_volume_84_pp,0.2153,0.1663
+IND,Cerrado,Topt,volume_ctrl_84,23.5121,10.0581
+IND,Cerrado,Tmax,perda_volume_84_pp,0.0195,0.0189
+IND,Cerrado,Tmax,volume_ctrl_84,2.4816,2.0954
+IND,Cerrado,Tmin,perda_volume_84_pp,0.0151,0.0148
+IND,Cerrado,Tmin,volume_ctrl_84,1.7114,1.0726
+IND,Cerrado,CoeffCond,perda_volume_84_pp,0.1,0.0457
+IND,Cerrado,CoeffCond,volume_ctrl_84,12.2325,1.986
+IND,Cerrado,MaxCond,perda_volume_84_pp,0.2765,0.1478
+IND,Cerrado,MaxCond,volume_ctrl_84,32.4055,3.6762
+IND,Cerrado,fracBB1,perda_volume_84_pp,0.0,0.0
+IND,Cerrado,fracBB1,volume_ctrl_84,15.218,2.0457
+IND,Cerrado,MaxAge,perda_volume_84_pp,0.0827,0.0468
+IND,Cerrado,MaxAge,volume_ctrl_84,14.1725,3.2857
+IND,Cerrado,gammaR,perda_volume_84_pp,0.0,0.0
+IND,Cerrado,gammaR,volume_ctrl_84,0.0,0.0
+IND,Cerrado,LAIgcx,perda_volume_84_pp,0.0171,0.0476
+IND,Cerrado,LAIgcx,volume_ctrl_84,1.0179,0.2911
+TB,Mata Atlântica,alphaCx,perda_volume_84_pp,0.4919,0.2736
+TB,Mata Atlântica,alphaCx,volume_ctrl_84,83.0604,5.9086
+TB,Mata Atlântica,k,perda_volume_84_pp,0.6578,0.3718
+TB,Mata Atlântica,k,volume_ctrl_84,6.2553,4.3003
+TB,Mata Atlântica,y,perda_volume_84_pp,0.7371,0.4571
+TB,Mata Atlântica,y,volume_ctrl_84,87.3495,7.4219
+TB,Mata Atlântica,SLA0,perda_volume_84_pp,0.1073,0.0586
+TB,Mata Atlântica,SLA0,volume_ctrl_84,0.7645,0.4395
+TB,Mata Atlântica,SLA1,perda_volume_84_pp,0.6513,0.3494
+TB,Mata Atlântica,SLA1,volume_ctrl_84,6.6607,3.909
+TB,Mata Atlântica,pRx,perda_volume_84_pp,0.0153,0.0091
+TB,Mata Atlântica,pRx,volume_ctrl_84,2.9877,0.6261
+TB,Mata Atlântica,pRn,perda_volume_84_pp,0.0835,0.0546
+TB,Mata Atlântica,pRn,volume_ctrl_84,13.0715,1.1414
+TB,Mata Atlântica,pFS2,perda_volume_84_pp,0.1255,0.0551
+TB,Mata Atlântica,pFS2,volume_ctrl_84,2.8945,1.8413
+TB,Mata Atlântica,pFS20,perda_volume_84_pp,0.5046,0.4059
+TB,Mata Atlântica,pFS20,volume_ctrl_84,7.1076,5.7183
+TB,Mata Atlântica,aWs,perda_volume_84_pp,0.2163,0.1614
+TB,Mata Atlântica,aWs,volume_ctrl_84,2.9657,2.1702
+TB,Mata Atlântica,nWs,perda_volume_84_pp,1.4293,0.764
+TB,Mata Atlântica,nWs,volume_ctrl_84,22.4476,8.9374
+TB,Mata Atlântica,Topt,perda_volume_84_pp,0.375,0.2309
+TB,Mata Atlântica,Topt,volume_ctrl_84,51.4332,8.4938
+TB,Mata Atlântica,Tmax,perda_volume_84_pp,0.0426,0.0323
+TB,Mata Atlântica,Tmax,volume_ctrl_84,6.8144,3.7741
+TB,Mata Atlântica,Tmin,perda_volume_84_pp,0.0531,0.0379
+TB,Mata Atlântica,Tmin,volume_ctrl_84,8.1542,2.3262
+TB,Mata Atlântica,CoeffCond,perda_volume_84_pp,0.0686,0.0661
+TB,Mata Atlântica,CoeffCond,volume_ctrl_84,10.0851,1.9239
+TB,Mata Atlântica,MaxCond,perda_volume_84_pp,0.3155,0.2067
+TB,Mata Atlântica,MaxCond,volume_ctrl_84,46.0452,4.5004
+TB,Mata Atlântica,fracBB1,perda_volume_84_pp,0.0,0.0
+TB,Mata Atlântica,fracBB1,volume_ctrl_84,17.8328,2.2897
+TB,Mata Atlântica,MaxAge,perda_volume_84_pp,0.0322,0.0291
+TB,Mata Atlântica,MaxAge,volume_ctrl_84,8.7742,2.1165
+TB,Mata Atlântica,gammaR,perda_volume_84_pp,0.0,0.0
+TB,Mata Atlântica,gammaR,volume_ctrl_84,0.0,0.0
+TB,Mata Atlântica,LAIgcx,perda_volume_84_pp,0.0165,0.0346
+TB,Mata Atlântica,LAIgcx,volume_ctrl_84,0.224,0.5271
+IMP,Cerrado,alphaCx,perda_volume_84_pp,0.627,0.2963
+IMP,Cerrado,alphaCx,volume_ctrl_84,70.6699,6.4421
+IMP,Cerrado,k,perda_volume_84_pp,1.0031,0.4109
+IMP,Cerrado,k,volume_ctrl_84,8.9576,5.169
+IMP,Cerrado,y,perda_volume_84_pp,0.8372,0.3501
+IMP,Cerrado,y,volume_ctrl_84,69.5695,6.3577
+IMP,Cerrado,SLA0,perda_volume_84_pp,0.1569,0.0607
+IMP,Cerrado,SLA0,volume_ctrl_84,0.6753,0.786
+IMP,Cerrado,SLA1,perda_volume_84_pp,0.9041,0.322
+IMP,Cerrado,SLA1,volume_ctrl_84,9.5633,5.0616
+IMP,Cerrado,pRx,perda_volume_84_pp,0.042,0.0202
+IMP,Cerrado,pRx,volume_ctrl_84,3.3579,0.5969
+IMP,Cerrado,pRn,perda_volume_84_pp,0.1019,0.0634
+IMP,Cerrado,pRn,volume_ctrl_84,10.5192,1.2482
+IMP,Cerrado,pFS2,perda_volume_84_pp,0.2857,0.0873
+IMP,Cerrado,pFS2,volume_ctrl_84,2.4019,2.1052
+IMP,Cerrado,pFS20,perda_volume_84_pp,0.5008,0.3397
+IMP,Cerrado,pFS20,volume_ctrl_84,6.3779,6.529
+IMP,Cerrado,aWs,perda_volume_84_pp,0.2541,0.1584
+IMP,Cerrado,aWs,volume_ctrl_84,2.7416,2.9504
+IMP,Cerrado,nWs,perda_volume_84_pp,1.823,0.6077
+IMP,Cerrado,nWs,volume_ctrl_84,13.6963,12.5289
+IMP,Cerrado,Topt,perda_volume_84_pp,0.3099,0.1926
+IMP,Cerrado,Topt,volume_ctrl_84,28.866,13.7985
+IMP,Cerrado,Tmax,perda_volume_84_pp,0.0777,0.082
+IMP,Cerrado,Tmax,volume_ctrl_84,5.3698,4.8869
+IMP,Cerrado,Tmin,perda_volume_84_pp,0.0167,0.02
+IMP,Cerrado,Tmin,volume_ctrl_84,1.5066,1.6385
+IMP,Cerrado,CoeffCond,perda_volume_84_pp,0.1174,0.0906
+IMP,Cerrado,CoeffCond,volume_ctrl_84,11.4467,2.0115
+IMP,Cerrado,MaxCond,perda_volume_84_pp,0.3984,0.4801
+IMP,Cerrado,MaxCond,volume_ctrl_84,24.1585,3.6884
+IMP,Cerrado,fracBB1,perda_volume_84_pp,0.0,0.0
+IMP,Cerrado,fracBB1,volume_ctrl_84,13.2877,2.1835
+IMP,Cerrado,MaxAge,perda_volume_84_pp,0.1944,0.105
+IMP,Cerrado,MaxAge,volume_ctrl_84,19.9639,3.9873
+IMP,Cerrado,gammaR,perda_volume_84_pp,0.0,0.0
+IMP,Cerrado,gammaR,volume_ctrl_84,0.0,0.0
+IMP,Cerrado,LAIgcx,perda_volume_84_pp,0.0431,0.0957
+IMP,Cerrado,LAIgcx,volume_ctrl_84,1.1693,0.3012
+ALM,Amazônia,alphaCx,perda_volume_84_pp,0.5041,0.5194
+ALM,Amazônia,alphaCx,volume_ctrl_84,83.8152,6.8433
+ALM,Amazônia,k,perda_volume_84_pp,0.4979,0.3352
+ALM,Amazônia,k,volume_ctrl_84,5.5525,4.9503
+ALM,Amazônia,y,perda_volume_84_pp,0.5759,0.4774
+ALM,Amazônia,y,volume_ctrl_84,87.1774,8.4756
+ALM,Amazônia,SLA0,perda_volume_84_pp,0.0933,0.0565
+ALM,Amazônia,SLA0,volume_ctrl_84,0.5683,0.4645
+ALM,Amazônia,SLA1,perda_volume_84_pp,0.5313,0.3785
+ALM,Amazônia,SLA1,volume_ctrl_84,6.308,5.394
+ALM,Amazônia,pRx,perda_volume_84_pp,0.0108,0.0066
+ALM,Amazônia,pRx,volume_ctrl_84,2.447,0.3368
+ALM,Amazônia,pRn,perda_volume_84_pp,0.0969,0.1544
+ALM,Amazônia,pRn,volume_ctrl_84,12.5513,1.0562
+ALM,Amazônia,pFS2,perda_volume_84_pp,0.0957,0.0494
+ALM,Amazônia,pFS2,volume_ctrl_84,2.7089,1.8923
+ALM,Amazônia,pFS20,perda_volume_84_pp,0.3544,0.3089
+ALM,Amazônia,pFS20,volume_ctrl_84,7.7615,6.1343
+ALM,Amazônia,aWs,perda_volume_84_pp,0.1897,0.1725
+ALM,Amazônia,aWs,volume_ctrl_84,3.351,2.891
+ALM,Amazônia,nWs,perda_volume_84_pp,0.9835,0.5712
+ALM,Amazônia,nWs,volume_ctrl_84,24.1204,10.0383
+ALM,Amazônia,Topt,perda_volume_84_pp,0.2812,0.3284
+ALM,Amazônia,Topt,volume_ctrl_84,26.1207,16.8567
+ALM,Amazônia,Tmax,perda_volume_84_pp,0.0448,0.0942
+ALM,Amazônia,Tmax,volume_ctrl_84,5.067,4.7023
+ALM,Amazônia,Tmin,perda_volume_84_pp,0.011,0.0265
+ALM,Amazônia,Tmin,volume_ctrl_84,1.4282,1.6203
+ALM,Amazônia,CoeffCond,perda_volume_84_pp,0.0713,0.0729
+ALM,Amazônia,CoeffCond,volume_ctrl_84,13.3916,1.6134
+ALM,Amazônia,MaxCond,perda_volume_84_pp,0.112,0.1191
+ALM,Amazônia,MaxCond,volume_ctrl_84,16.739,2.0508
+ALM,Amazônia,fracBB1,perda_volume_84_pp,0.0,0.0
+ALM,Amazônia,fracBB1,volume_ctrl_84,20.7028,2.4895
+ALM,Amazônia,MaxAge,perda_volume_84_pp,0.2037,0.3403
+ALM,Amazônia,MaxAge,volume_ctrl_84,28.0194,4.5218
+ALM,Amazônia,gammaR,perda_volume_84_pp,0.0,0.0
+ALM,Amazônia,gammaR,volume_ctrl_84,0.0,0.0
+ALM,Amazônia,LAIgcx,perda_volume_84_pp,0.0013,0.0031
+ALM,Amazônia,LAIgcx,volume_ctrl_84,0.2092,0.1577
+ARA,Caatinga,alphaCx,perda_volume_84_pp,0.4018,0.4562
+ARA,Caatinga,alphaCx,volume_ctrl_84,28.5219,3.8975
+ARA,Caatinga,k,perda_volume_84_pp,0.552,0.2853
+ARA,Caatinga,k,volume_ctrl_84,8.8813,2.3909
+ARA,Caatinga,y,perda_volume_84_pp,0.4769,0.4793
+ARA,Caatinga,y,volume_ctrl_84,27.6668,3.0567
+ARA,Caatinga,SLA0,perda_volume_84_pp,0.0967,0.1154
+ARA,Caatinga,SLA0,volume_ctrl_84,1.1543,0.2455
+ARA,Caatinga,SLA1,perda_volume_84_pp,0.5421,0.4906
+ARA,Caatinga,SLA1,volume_ctrl_84,2.1284,2.7669
+ARA,Caatinga,pRx,perda_volume_84_pp,0.1001,0.1133
+ARA,Caatinga,pRx,volume_ctrl_84,2.6573,0.5264
+ARA,Caatinga,pRn,perda_volume_84_pp,0.0991,0.1315
+ARA,Caatinga,pRn,volume_ctrl_84,4.5419,0.7492
+ARA,Caatinga,pFS2,perda_volume_84_pp,0.2697,0.2452
+ARA,Caatinga,pFS2,volume_ctrl_84,3.5992,0.7187
+ARA,Caatinga,pFS20,perda_volume_84_pp,0.346,0.423
+ARA,Caatinga,pFS20,volume_ctrl_84,4.2191,1.6063
+ARA,Caatinga,aWs,perda_volume_84_pp,0.121,0.162
+ARA,Caatinga,aWs,volume_ctrl_84,2.355,0.6531
+ARA,Caatinga,nWs,perda_volume_84_pp,0.6926,0.7747
+ARA,Caatinga,nWs,volume_ctrl_84,15.3649,4.7909
+ARA,Caatinga,Topt,perda_volume_84_pp,0.345,0.2247
+ARA,Caatinga,Topt,volume_ctrl_84,6.1688,5.0223
+ARA,Caatinga,Tmax,perda_volume_84_pp,0.0687,0.0788
+ARA,Caatinga,Tmax,volume_ctrl_84,1.1402,1.0781
+ARA,Caatinga,Tmin,perda_volume_84_pp,0.0204,0.0291
+ARA,Caatinga,Tmin,volume_ctrl_84,0.3982,0.4343
+ARA,Caatinga,CoeffCond,perda_volume_84_pp,0.2784,0.2917
+ARA,Caatinga,CoeffCond,volume_ctrl_84,2.1444,1.1772
+ARA,Caatinga,MaxCond,perda_volume_84_pp,0.4398,0.3585
+ARA,Caatinga,MaxCond,volume_ctrl_84,23.6169,6.2867
+ARA,Caatinga,fracBB1,perda_volume_84_pp,0.0,0.0
+ARA,Caatinga,fracBB1,volume_ctrl_84,5.9367,0.9519
+ARA,Caatinga,MaxAge,perda_volume_84_pp,0.1362,0.2294
+ARA,Caatinga,MaxAge,volume_ctrl_84,3.4434,1.2481
+ARA,Caatinga,gammaR,perda_volume_84_pp,0.0,0.0
+ARA,Caatinga,gammaR,volume_ctrl_84,0.0,0.0
+ARA,Caatinga,LAIgcx,perda_volume_84_pp,0.2651,0.3098
+ARA,Caatinga,LAIgcx,volume_ctrl_84,9.2077,3.4048
+ELD,Pampa,alphaCx,perda_volume_84_pp,0.4983,0.3017
+ELD,Pampa,alphaCx,volume_ctrl_84,82.5649,6.3628
+ELD,Pampa,k,perda_volume_84_pp,0.6908,0.3895
+ELD,Pampa,k,volume_ctrl_84,6.6472,4.1369
+ELD,Pampa,y,perda_volume_84_pp,0.6779,0.3879
+ELD,Pampa,y,volume_ctrl_84,85.8419,8.2545
+ELD,Pampa,SLA0,perda_volume_84_pp,0.1092,0.0595
+ELD,Pampa,SLA0,volume_ctrl_84,0.9871,0.5146
+ELD,Pampa,SLA1,perda_volume_84_pp,0.6822,0.3478
+ELD,Pampa,SLA1,volume_ctrl_84,6.8727,3.725
+ELD,Pampa,pRx,perda_volume_84_pp,0.0199,0.0374
+ELD,Pampa,pRx,volume_ctrl_84,2.6839,0.6172
+ELD,Pampa,pRn,perda_volume_84_pp,0.0723,0.0436
+ELD,Pampa,pRn,volume_ctrl_84,12.3921,1.0916
+ELD,Pampa,pFS2,perda_volume_84_pp,0.1333,0.07
+ELD,Pampa,pFS2,volume_ctrl_84,2.8143,1.851
+ELD,Pampa,pFS20,perda_volume_84_pp,0.4893,0.3732
+ELD,Pampa,pFS20,volume_ctrl_84,6.4774,4.9486
+ELD,Pampa,aWs,perda_volume_84_pp,0.2183,0.1386
+ELD,Pampa,aWs,volume_ctrl_84,2.8608,2.0882
+ELD,Pampa,nWs,perda_volume_84_pp,1.5772,0.7186
+ELD,Pampa,nWs,volume_ctrl_84,22.2372,9.7788
+ELD,Pampa,Topt,perda_volume_84_pp,0.4091,0.2675
+ELD,Pampa,Topt,volume_ctrl_84,55.4349,6.8533
+ELD,Pampa,Tmax,perda_volume_84_pp,0.0612,0.0572
+ELD,Pampa,Tmax,volume_ctrl_84,8.0278,3.5769
+ELD,Pampa,Tmin,perda_volume_84_pp,0.0623,0.044
+ELD,Pampa,Tmin,volume_ctrl_84,11.0407,2.2398
+ELD,Pampa,CoeffCond,perda_volume_84_pp,0.0927,0.1012
+ELD,Pampa,CoeffCond,volume_ctrl_84,9.0373,2.2299
+ELD,Pampa,MaxCond,perda_volume_84_pp,0.3202,0.2532
+ELD,Pampa,MaxCond,volume_ctrl_84,46.0323,4.383
+ELD,Pampa,fracBB1,perda_volume_84_pp,0.0,0.0
+ELD,Pampa,fracBB1,volume_ctrl_84,16.8947,2.3008
+ELD,Pampa,MaxAge,perda_volume_84_pp,0.0441,0.0523
+ELD,Pampa,MaxAge,volume_ctrl_84,10.8701,2.2866
+ELD,Pampa,gammaR,perda_volume_84_pp,0.0,0.0
+ELD,Pampa,gammaR,volume_ctrl_84,0.0,0.0
+ELD,Pampa,LAIgcx,perda_volume_84_pp,0.0205,0.0496
+ELD,Pampa,LAIgcx,volume_ctrl_84,0.4915,1.0659

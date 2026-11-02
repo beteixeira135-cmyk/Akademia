@@ -25,7 +25,8 @@ clima.SITIOS["MUC"] = dict(nome="Mucuri-BA", arquivo="POWER_daily_mucuri_2015010
 CL = clima.clima_mensal("MUC")
 J = json.load(open(Path(__file__).parent / "saida/calibracao_d0999.json"))
 GAMMA = json.load(open(Path(__file__).parent / "saida/gamma_quentin2011.json"))["gamma_calibrado"]
-MED = dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=GAMMA)
+U_MESES = json.load(open(Path(__file__).parent / "saida/regra_compensacao.json"))["u_meses"]  # U só no mês do ataque (Turnbull et al., 2007; Quentin et al., 2012)
+MED = dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=GAMMA, u_meses=U_MESES)
 AM = pd.read_csv(Path(__file__).parent / "saida/amostras_posterior_d0999.csv").iloc[::4]
 M = MATERIAIS["C5"]
 
@@ -57,7 +58,7 @@ for ano in range(2015, 2023):
         ev = {f"{ano}-07": d}
         perda = lambda o: {v: 100 * (1 - o[v] / c[v]) for v in ("volume", "dbh", "height")}
         o_, c_ = perda(sim(ano, ev)), perda(sim(ano, ev, MED))
-        post = [perda(sim(ano, ev, dict(U=a.U, a=a.a, gam=GAMMA)))["volume"] for a in AM.itertuples()] if trat == "T1 100%" else [np.nan]
+        post = [perda(sim(ano, ev, dict(U=a.U, a=a.a, gam=GAMMA, u_meses=U_MESES)))["volume"] for a in AM.itertuples()] if trat == "T1 100%" else [np.nan]
         linhas.append(dict(ano_plantio=ano, tratamento=trat, d=d, original_volume=o_["volume"], original_dap=o_["dbh"], original_altura=o_["height"],
                            calibrado_volume=c_["volume"], calibrado_dap=c_["dbh"], calibrado_altura=c_["height"],
                            calibrado_q05=float(np.quantile(post, .05)) if trat == "T1 100%" else None, calibrado_q95=float(np.quantile(post, .95)) if trat == "T1 100%" else None))

@@ -244,7 +244,7 @@ _sp = dict(planted="2015-01", fertility=_M["FR_ref"], stems_n=10000 / 9, biom_st
 _cl = _cm("IND"); _ev = {"2017-01": .95, "2020-01": .95}
 _c = _run(_site, _sp, _cl, _par("A1")); _k = int(np.where(np.round(_c.age * 12) == 84)[0][0])
 _t = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev)
-_tc = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev, compensation=dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=json.load(open(CB / "gamma_quentin2011.json"))["gamma_calibrado"]))
+_tc = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev, compensation=dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=json.load(open(CB / "gamma_quentin2011.json"))["gamma_calibrado"], u_meses=json.load(open(CB / "regra_compensacao.json"))["u_meses"]))
 chk("plataforma IND A1 2x95 original", 17.3, 100 * (1 - _t.volume[_k] / _c.volume[_k]), 1)
 chk("plataforma IND A1 2x95 calibrado", 11.6, 100 * (1 - _tc.volume[_k] / _c.volume[_k]), 1)
 

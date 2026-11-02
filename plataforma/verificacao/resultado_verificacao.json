@@ -7,12 +7,12 @@
  {
   "cenario": "ARA_C5_PA50_comp",
   "meses": 94,
-  "dif_rel_max": 1.4358300925050286e-14
+  "dif_rel_max": 1.6007519096645816e-13
  },
  {
   "cenario": "ELD_C2_tudo",
   "meses": 94,
-  "dif_rel_max": 8.627410355517227e-16
+  "dif_rel_max": 2.393870238924482e-15
  },
  {
   "cenario": "IND_A1_95_comp",
@@ -22,16 +22,21 @@
  {
   "cenario": "TB_C4_mort",
   "meses": 94,
-  "dif_rel_max": 6.338091927963226e-16
+  "dif_rel_max": 6.5334921507890315e-16
  },
  {
   "cenario": "IMP_C5_efic",
   "meses": 94,
-  "dif_rel_max": 5.448005407330954e-15
+  "dif_rel_max": 4.06958788028563e-14
  },
  {
   "cenario": "IND_A1_P1_orig",
   "meses": 85,
   "dif_rel_max": 3.825355170544224e-15
+ },
+ {
+  "cenario": "IND_C5_u1",
+  "meses": 94,
+  "dif_rel_max": 2.7149239049569057e-15
  }
 ]

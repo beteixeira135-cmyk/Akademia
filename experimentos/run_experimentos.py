@@ -41,6 +41,7 @@ EVENTOS = {"P1": ["2017-01"], "P2": ["2017-01", "2020-01"],
            "PA": [f"{a}-01" for a in range(2017, 2023)],          # anual: jan/2017 … jan/2022 (6 pulsos)
            "EA": ["2017-04"], "EJ": ["2017-07"], "EO": ["2017-10"]}  # épocas: abril, julho, outubro
 # SOLO LOCAL (fontes secundárias; ver solos_fontes/SOLOS_LOCAIS.md)
+SITIOS_MATRIZ = ["IND", "TB", "IMP"]  # matriz principal: os três locais originais (os locais por bioma rodam em run_biomas.py)
 SOLO_LOCAL = {"IND": 215.0,   # TECHS sítio 9 (Estrela do Sul-MG, ~35 km), CAD 0–2 m (Stape) — Binkley et al. 2017, Tab. 2
               "TB": 214.0,    # TECHS sítio 22 (Telêmaco Borba-PR), CAD 0–2 m (Stape) — Binkley et al. 2017, Tab. 2
               "IMP": 210.0}   # SoilGrids 2.0 (7 pontos a ~9 km) + PTF-ZARC (Teixeira et al. 2021), 0–2 m
@@ -71,18 +72,18 @@ def linha(sitio, mat, wn, fr, frrot, d, cal, exp, asw=None):
 
 def montar_matriz():
     L = []
-    for s, m, wn, fn in itertools.product(SITIOS, MAT_PRINCIPAIS, NIVEIS, NIVEIS):
+    for s, m, wn, fn in itertools.product(SITIOS_MATRIZ, MAT_PRINCIPAIS, NIVEIS, NIVEIS):
         fr = fr_nivel(m, fn)
         L.append(linha(s, m, wn, fr, f"F{fn}", 0.0, "P1", "E1-E6"))
         for d, cal in itertools.product(DEFOL[1:], ["P1", "P2"]):
             L.append(linha(s, m, wn, fr, f"F{fn}", d, cal, "E1-E6"))
-    for s, m, fr in itertools.product(SITIOS, MAT_PRINCIPAIS, [0.2, 0.4, 0.6, 0.8, 1.0]):  # E2 exploratório
+    for s, m, fr in itertools.product(SITIOS_MATRIZ, MAT_PRINCIPAIS, [0.2, 0.4, 0.6, 0.8, 1.0]):  # E2 exploratório
         for d in (0.0, 0.50):
             L.append(linha(s, m, 100, fr, f"FX{int(fr*100):03d}", d, "P1", "E2x"))
     for m, n in itertools.product(MAT_COMPLEMENTARES, NIVEIS):  # complementares, Indianópolis, solo combinado
         for d in DEFOL:
             L.append(linha("IND", m, n, fr_nivel(m, n), f"F{n}", d, "P1", "COMPL"))
-    for s, m, fn in itertools.product(SITIOS, MAT_PRINCIPAIS, NIVEIS):  # E7–E8: solo local, frequência anual e épocas
+    for s, m, fn in itertools.product(SITIOS_MATRIZ, MAT_PRINCIPAIS, NIVEIS):  # E7–E8: solo local, frequência anual e épocas
         fr = fr_nivel(m, fn)
         L.append(linha(s, m, None, fr, f"F{fn}", 0.0, "P1", "LOCAL", asw=SOLO_LOCAL[s]))
         for d, cal in itertools.product(DEFOL[1:], CAL_LOCAL):

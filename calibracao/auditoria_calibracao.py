@@ -4,6 +4,7 @@ variável; (4) atribuição da melhora no urocam a cada mecanismo. Saída: saida
 import json, numpy as np
 import protocolo as p
 GAMMA = json.load(open("saida/gamma_quentin2011.json"))["gamma_calibrado"]  # γ calibrado com Quentin et al. (2011), fixo na calibração de U e a
+U_MESES = json.load(open("saida/regra_compensacao.json"))["u_meses"]  # U só no mês do ataque (Turnbull et al., 2007; Quentin et al., 2012)
 
 obs = p.observado("C5"); VS = ["volume", "CAP", "altura"]
 obsA = p.observado("A1")
@@ -15,7 +16,7 @@ def grade(Umax=1.35, sig_esc=10.0, vars_=VS, d=0.999, nU=36, nA=41):
     y = np.array([obs[v] for v in vars_]); G = []
     for u in U:
         for a in A:
-            L = p.perdas("C5", {"U": u, "a": a, "gam": GAMMA}, d=d); m = np.array([L[v] for v in vars_])
+            L = p.perdas("C5", {"U": u, "a": a, "gam": GAMMA, "u_meses": U_MESES}, d=d); m = np.array([L[v] for v in vars_])
             sse = ((m - y) ** 2).sum()
             G.append((u, a, (ps * SIG ** (-len(vars_)) * np.exp(-sse / (2 * SIG ** 2))).sum()))
     G = np.array(G); w = G[:, 2] / G[:, 2].sum()
@@ -34,14 +35,14 @@ out["prior_U_ate_1_6"] = grade(Umax=1.6, nU=61)
 out["sigma_escala_5"] = grade(sig_esc=5.0); out["sigma_escala_20"] = grade(sig_esc=20.0)
 out["so_volume"] = grade(vars_=["volume"])
 out["so_CAP"] = grade(vars_=["CAP"])
-med = dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=GAMMA)
+med = dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=GAMMA, u_meses=U_MESES)
 attr = {}
-for nome, comp in [("original", None), ("so_U", {"U": med["U"], "gam": GAMMA}), ("so_a", {"a": med["a"], "gam": GAMMA}), ("U_e_a", med),
-                   ("so_gama", {"gam": GAMMA})]:
+for nome, comp in [("original", None), ("so_U", {"U": med["U"], "gam": GAMMA, "u_meses": U_MESES}), ("so_a", {"a": med["a"], "gam": GAMMA, "u_meses": U_MESES}), ("U_e_a", med),
+                   ("so_gama", {"gam": GAMMA, "u_meses": U_MESES})]:
     attr[nome] = {k: v for k, v in p.perdas("A1", comp).items() if k != "altura"}
 out["atribuicao_urocam"] = dict(observado={k: obsA[k] for k in ["volume", "CAP"]}, **attr)
 c5 = {}
-for nome, comp in [("so_U", {"U": med["U"], "gam": GAMMA}), ("so_a", {"a": med["a"], "gam": GAMMA}), ("so_gama", {"gam": GAMMA})]:
+for nome, comp in [("so_U", {"U": med["U"], "gam": GAMMA, "u_meses": U_MESES}), ("so_a", {"a": med["a"], "gam": GAMMA, "u_meses": U_MESES}), ("so_gama", {"gam": GAMMA, "u_meses": U_MESES})]:
     c5[nome] = p.perdas("C5", comp)
 out["atribuicao_urograndis"] = c5
 json.dump(out, open("saida/auditoria_calibracao.json", "w"), indent=1)

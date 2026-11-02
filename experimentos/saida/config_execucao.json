@@ -1,7 +1,7 @@
 {
   "n_tratamentos": 2408,
   "n_linhas": 221006,
-  "segundos": 63.2,
+  "segundos": 54.2,
   "python": "3.13.18",
   "numpy": "2.5.3",
   "pandas": "3.0.5",

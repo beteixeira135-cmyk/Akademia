@@ -511,11 +511,11 @@ function rodar(sitio, mat, agua, fert, ev, opt) {
     { planted: "2015-01", fertility: frNivel(mat, fert), stems_n: 10000 / 9, WS0: m.WS0, WR0: m.WR0, WF0: m.WF0 }, s.clima, m.params, ev, opt), asw, inicio: m.inicio };
 }
 const quantil = (v, q) => { const a = [...v].sort((x, y) => x - y), i = (a.length - 1) * q, b = Math.floor(i); return a[b] + (a[Math.min(b + 1, a.length - 1)] - a[b]) * (i - b); };
-// incerteza: 200 amostras do posterior da calibração (U, a; γ sorteado em [0, 1], não identificável)
+// incerteza: 200 amostras do posterior da calibração (U, a; γ = 1, calibrado com Quentin et al., 2011; U só no mês do ataque)
 function incerteza(ev, k84) {
   if (E.comp !== "C" || E.d === 0) return null;
   const vols = [], perdas = [];
-  for (const [U, a, gam] of DADOS.calibracao.amostras) { const o = rodar(E.sitio, E.mat, E.agua, E.fert, ev, opcoes({ U, a, gam })).o; vols.push(o.vol); }
+  for (const [U, a, gam] of DADOS.calibracao.amostras) { const o = rodar(E.sitio, E.mat, E.agua, E.fert, ev, opcoes({ U, a, gam, u_meses: DADOS.calibracao.mediana.u_meses })).o; vols.push(o.vol); }
   const n = vols[0].length, lo = [], hi = [];
   for (let k = 0; k < n; k++) { const col = vols.map(v => v[k]); lo.push(quantil(col, .05)); hi.push(quantil(col, .95)); }
   return { lo, hi, vols };
@@ -553,7 +553,7 @@ function montarEntradas() {
   segs(document.getElementById("seg-comp"), COMP, E.comp, k => { E.comp = k; atualizar(); });
   const md = DADOS.calibracao.mediana;
   document.getElementById("txt-comp").innerHTML = E.comp === "C"
-    ? `Folhas remanescentes fazem mais fotossíntese (U = ${fmt(md.U, 2)}), a condutância se mantém (γ = ${fmt(md.gam, 1)}) e mais carbono vai para as folhas (a = ${fmt(md.a, 2)}), enquanto a copa não se recompõe. Calibrado com Bertulio et al. (2008); a faixa de 90% usa 200 amostras do posterior.`
+    ? `Folhas remanescentes fazem mais fotossíntese no mês do ataque (U = ${fmt(md.U, 2)}), a condutância se mantém (γ = ${fmt(md.gam, 1)}) e mais carbono vai para as folhas (a = ${fmt(md.a, 2)}) enquanto a copa não se recompõe. U vem da literatura; a, de Bertulio et al. (2008); γ, de Quentin et al. (2011). A faixa de 90% usa 200 amostras do posterior.`
     : "Só a remoção de folhas: a planta não reage ao ataque. É o 3-PG com o módulo de desfolha, sem compensação.";
   opts(document.getElementById("sel-agente"), Object.fromEntries(Object.entries(AGENTES).map(([k, v]) => [k, v.nome])), E.ag);
   document.getElementById("txt-agente").textContent = AGENTES[E.ag]?.fonte ?? "";

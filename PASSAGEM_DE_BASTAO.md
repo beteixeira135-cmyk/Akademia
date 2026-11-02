@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (5347 tokens, estimativa (caracteres ÷ 3,6); gerado em 02/11/2026 11:15)
+# PASSAGEM DE BASTÃO — TCC II (5349 tokens, estimativa (caracteres ÷ 3,6); gerado em 02/11/2026 11:31)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (23333 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (23836 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -64,6 +64,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - TCC VERSÃO FINAL v2 (02/11, 35 p.): entregas/TCC_II_Bernardo_Castro_VERSAO_FINAL_v2_02-11-2026. Auditoria 506/506; 49 testes; referências 0 sem citação. Akademia reconstruída (Material do TCC e domínio de validade com Oliveira).
 - Atenção: converter o PDF com --outdir (o PDF em tcc_docx/ fica bloqueado) e rodar `node gerar.js paginas.json` para o sumário ter páginas.
 
+
 ---
 # Progresso
 ## Feito
@@ -109,9 +110,9 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Calibração (lido de calibracao/saida/calibracao_d0999.json)
-- U: mediana 1.22 (IC90% 1.03–1.34); a: mediana 0.475 (IC90% 0.050–0.950).
-- Ajuste C5 — observado: CAP 24.2, altura 19.1, volume 52.9 | original: volume 64.8, CAP 28.5, altura 34.7 | calibrado: volume 53.0, CAP 21.6, altura 26.6.
-- Teste A1/urocam (mesmo experimento; não é validação independente) — observado: volume 59.0, CAP 22.9 | original: volume 79.3, CAP 40.7 | calibrado: volume 66.4, CAP 30.9 (IC90% volume 55.2, CAP 23.4 a volume 78.6, CAP 40.0).
+- U: mediana 1.18 (IC90% 1.01–1.34); a: mediana 0.625 (IC90% 0.225–0.975).
+- Ajuste C5 — observado: CAP 24.2, altura 19.1, volume 52.9 | original: volume 66.6, CAP 29.7, altura 36.1 | calibrado: volume 50.9, CAP 20.5, altura 25.2.
+- Teste A1/urocam (mesmo experimento; não é validação independente) — observado: volume 59.0, CAP 22.9 | original: volume 79.3, CAP 40.7 | calibrado: volume 66.5, CAP 30.6 (IC90% volume 59.6, CAP 25.9 a volume 76.9, CAP 38.4).
 
 ---
 # Registro de decisões (mais recente no fim)
@@ -140,6 +141,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 02/11 11:19 Conferidor: números decimais do texto do TCC × itens da auditoria
+- 02/11 11:15 Recalibração com γ = 1 (Quentin 2011), teste independente com Oliveira et al. (2014), busca no Semantic Scholar; TCC VERSÃO FINAL v2 (35 p.), auditoria 506/506
 - 02/11 11:14 pipeline: etapa verificar concluída
 - 02/11 10:43 Versão final do TCC (02/11): título, referências conferidas e completadas, siglas e símbolos, lista de ilustrações; auditoria 489/489
 - 01/11 07:16 Akademia no GitHub Pages: docs/index.html gerado pelo construir.py
@@ -153,8 +156,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 31/10 20:01 Missão 07: auditoria científica e cienciométrica; TCC revisado (53 p.), relatórios, corpus, matrizes; auditoria 363/363
 - 31/10 19:25 Memória e passagem de bastão revisadas
 - 31/10 19:24 Diário e memória atualizados
-- 31/10 19:24 TCC: seções de calibração (3.12/4.10) e biomas (3.13/4.11), Tabelas 10-11, resumo, conclusões e referências; auditoria 335/335
-- 31/10 19:18 Biomas: RF com local fora (6 grupos), Morris e danos nos 6 locais, plausibilidade em Araripina
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.

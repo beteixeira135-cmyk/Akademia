@@ -156,40 +156,43 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ```json
 {
  "d_evento": 0.999,
+ "gam": 1.0,
+ "u_meses": 1,
+ "dossel_borges": "techs",
  "observado_C5": {
   "CAP": 24.194,
   "altura": 19.078,
   "volume": 52.866
  },
  "original_C5": {
-  "volume": 64.83008541956391,
-  "CAP": 28.53812986998523,
-  "altura": 34.73588410037895
+  "volume": 66.57994824108157,
+  "CAP": 29.701246174629624,
+  "altura": 36.081954647713275
  },
  "U": {
-  "media": 1.2072907992304347,
-  "q05": 1.03,
-  "q50": 1.22,
+  "media": 1.1759669864514157,
+  "q05": 1.01,
+  "q50": 1.18,
   "q95": 1.34
  },
  "a": {
-  "media": 0.4804843371723993,
-  "q05": 0.05,
-  "q50": 0.475,
-  "q95": 0.95
+  "media": 0.6123917401127345,
+  "q05": 0.225,
+  "q50": 0.625,
+  "q95": 0.975
  },
- "corr_post": 0.0572715384644338,
+ "corr_post": -0.014687414245374574,
  "melhor_ajuste": {
-  "U": 1.29,
-  "a": 0.2,
-  "volume": 50.961298405737764,
-  "CAP": 20.476617685597297,
-  "altura": 25.247030205937236
+  "U": 1.03,
+  "a": 0.65,
+  "volume": 50.96194824035661,
+  "CAP": 20.47695652997796,
+  "altura": 25.24743472348574
  },
  "preditiva_media_C5": {
-  "volume": 53.0142212307465,
-  "CAP": 21.58607094851361,
-  "altura": 26.565428759145277
+  "volume": 50.88072978285085,
+  "CAP": 20.454425584021205,
+  "altura": 25.217394556332568
  },
  "validacao_A1_urocam": {
   "observado": {
@@ -201,16 +204,16 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
    "CAP": 40.66777101660624
   },
   "calibrado_media": {
-   "volume": 66.4403626836142,
-   "CAP": 30.868020192277932
+   "volume": 66.45733670942239,
+   "CAP": 30.634108219520602
   },
   "calibrado_q05": {
-   "volume": 55.220854694577554,
-   "CAP": 23.35207005823917
+   "volume": 59.607542064401876,
+   "CAP": 25.92374681210576
   },
   "calibrado_q95": {
-   "volume": 78.64539573727869,
-   "CAP": 40.01387346984307
+   "volume": 76.87871631715122,
+   "CAP": 38.41461843730944
   }
  }
 }
@@ -221,40 +224,43 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ```json
 {
  "d_evento": 0.99,
+ "gam": 1.0,
+ "u_meses": 1,
+ "dossel_borges": "techs",
  "observado_C5": {
   "CAP": 24.194,
   "altura": 19.078,
   "volume": 52.866
  },
  "original_C5": {
-  "volume": 45.968461318538566,
-  "CAP": 17.95832605300167,
-  "altura": 22.227899006885764
+  "volume": 56.188224998580104,
+  "CAP": 23.30696936312777,
+  "altura": 28.609570815040474
  },
  "U": {
-  "media": 1.1084167681382426,
-  "q05": 1.0,
-  "q50": 1.09,
-  "q95": 1.28
+  "media": 1.1692527587799855,
+  "q05": 1.01,
+  "q50": 1.17,
+  "q95": 1.34
  },
  "a": {
-  "media": 0.44262013881901374,
+  "media": 0.38033133292120713,
   "q05": 0.025,
-  "q50": 0.425,
-  "q95": 0.95
+  "q50": 0.35,
+  "q95": 0.875
  },
- "corr_post": -0.1826247638693489,
+ "corr_post": -0.044727832999155975,
  "melhor_ajuste": {
-  "U": 1.02,
-  "a": 0.225,
-  "volume": 50.96144257709777,
-  "CAP": 20.47669286085404,
-  "altura": 25.24711995133635
+  "U": 1.32,
+  "a": 0.05,
+  "volume": 50.95518860578192,
+  "CAP": 20.47343199108054,
+  "altura": 25.243227052867155
  },
  "preditiva_media_C5": {
-  "volume": 47.60284652341822,
-  "CAP": 18.795936952865272,
-  "altura": 23.230155077825636
+  "volume": 46.901995282552505,
+  "CAP": 18.44325080119818,
+  "altura": 22.807123448665408
  },
  "validacao_A1_urocam": {
   "observado": {
@@ -266,16 +272,16 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
    "CAP": 37.18041617470538
   },
   "calibrado_media": {
-   "volume": 57.291068395091294,
-   "CAP": 24.767302994284236
+   "volume": 62.23964912142403,
+   "CAP": 27.861630238924473
   },
   "calibrado_q05": {
-   "volume": 49.78024934195589,
-   "CAP": 20.386890059833696
+   "volume": 54.45644365139538,
+   "CAP": 22.921407394792382
   },
   "calibrado_q95": {
-   "volume": 71.92448768435044,
-   "CAP": 34.326926741981204
+   "volume": 74.22730966056018,
+   "CAP": 36.16125781202758
   }
  }
 }
@@ -294,6 +300,7 @@ Validação independente: urocam (Bertulio) simulado com A1, que não entra no a
 import json, sys, numpy as np, pandas as pd
 import protocolo as p
 GAMMA = json.load(open("saida/gamma_quentin2011.json"))["gamma_calibrado"]  # γ calibrado com Quentin et al. (2011), fixo na calibração de U e a
+U_MESES = json.load(open("saida/regra_compensacao.json"))["u_meses"]  # U só no mês do ataque (Turnbull et al., 2007; Quentin et al., 2012)
 d_ev = float(sys.argv[1]) if len(sys.argv) > 1 else 0.999
 U = np.round(np.arange(1.0, 1.3501, 0.01), 3); A = np.round(np.arange(0.0, 1.0001, 0.025), 3)
 obs = p.observado("C5"); vs = ["volume", "CAP", "altura"]; y = np.array([obs[v] for v in vs])
@@ -301,7 +308,7 @@ SIG = np.linspace(0.5, 40, 160); prior_sig = np.exp(-0.5 * (SIG / 10) ** 2)
 linhas = []
 for u in U:
     for a in A:
-        L = p.perdas("C5", {"U": u, "a": a, "gam": GAMMA}, d=d_ev); m = np.array([L[v] for v in vs])
+        L = p.perdas("C5", {"U": u, "a": a, "gam": GAMMA, "u_meses": U_MESES}, d=d_ev); m = np.array([L[v] for v in vs])
         sse = float(((m - y) ** 2).sum())
         lik = (prior_sig * SIG ** -3 * np.exp(-sse / (2 * SIG ** 2))).sum()
         linhas.append(dict(U=u, a=a, sse=sse, lik=lik, **{f"L_{v}": L[v] for v in vs}))
@@ -314,13 +321,14 @@ best = G.loc[G.sse.idxmin()]
 post_pred = {v: float((G[f"L_{v}"] * G.post).sum()) for v in vs}
 # amostras do posterior para validação e propagação
 rng = np.random.default_rng(2026); idx = rng.choice(len(G), size=200, p=G.post.values)
-amostras = G.iloc[idx][["U", "a"]].reset_index(drop=True); amostras["gam"] = GAMMA
+amostras = G.iloc[idx][["U", "a"]].reset_index(drop=True); amostras["gam"] = GAMMA; amostras["u_meses"] = U_MESES
 val = []
 obsA = p.observado("A1")
 for r in amostras.itertuples():
-    L = p.perdas("A1", {"U": r.U, "a": r.a, "gam": r.gam}, d=d_ev); val.append(dict(volume=L["volume"], CAP=L["CAP"]))  # γ = GAMMA nas amostras
+    L = p.perdas("A1", {"U": r.U, "a": r.a, "gam": r.gam, "u_meses": U_MESES}, d=d_ev); val.append(dict(volume=L["volume"], CAP=L["CAP"]))  # γ = GAMMA nas amostras
 V = pd.DataFrame(val); L0 = p.perdas("A1", None, d=d_ev); L0c = p.perdas("C5", None, d=d_ev)
-out = dict(d_evento=d_ev, observado_C5=obs, original_C5={v: L0c[v] for v in vs},
+import clones as _cl
+out = dict(d_evento=d_ev, gam=GAMMA, u_meses=U_MESES, dossel_borges=_cl.DOSSEL, observado_C5=obs, original_C5={v: L0c[v] for v in vs},
            U=resumo("U"), a=resumo("a"), corr_post=float(np.cov(np.vstack([G.U, G.a]), aweights=G.post)[0, 1] / np.sqrt(np.cov(G.U, aweights=G.post) * np.cov(G.a, aweights=G.post))),
            melhor_ajuste=dict(U=float(best.U), a=float(best.a), **{v: float(best[f"L_{v}"]) for v in vs}),
            preditiva_media_C5=post_pred,
@@ -524,12 +532,24 @@ LACUNAS = {
 }
 
 
+# Correção do dossel (02/11/2026): com a queda de folhas e a partição para folhas de Borges (2009), os clones formam
+# IAF de 8 a 11 entre 2 e 3 anos, contra 3,0 a 3,8 medidos na rede TECHS. Esses três parâmetros passam a ser os da
+# parametrização TECHS (Caldeira et al., 2020, clone A1); o resto continua de Borges. Para reproduzir a versão
+# anterior: variável de ambiente TCC_DOSSEL=borges.
+import os as _os
+DOSSEL = _os.environ.get("TCC_DOSSEL", "techs")
+DOSSEL_TECHS = ("gammaF1", "gammaF0", "pFS2")
+
+
 def _borges(i):
     P = {}
     for k_, v in B9.items():
         if k_ in ("WF0", "WS0", "WR0", "FR"):
             continue
         P[k_] = (float(v[i]), f"FONTE Borges 2009 Tab.9 (C{i+1})")
+    if DOSSEL == "techs":
+        for k_ in DOSSEL_TECHS:
+            P[k_] = (float(P_CALDEIRA[k_][0]), "FONTE Caldeira et al. 2020 (TECHS): dossel corrigido, IAF de Borges irreal")
     for k_, v in LACUNAS.items():
         P.setdefault(k_, v)
     assert set(P) == set(PAR_FORTRAN), set(PAR_FORTRAN) ^ set(P)
@@ -841,14 +861,21 @@ def run_3pg_pjs(site: dict, species: dict, climate: pd.DataFrame, params: dict,
     #          1/(1 − 0,45) (homeostase observada com 45% de desfolha; Quentin et al., 2011).
     #   a    : desvio da partição para folhas, η_F' = η_F + a·def·(η_S + η_R), def = 1 − W_F/W_F,ref
     #          (aumento da razão folha:lenho e menor alocação a raízes; Eyles et al., 2009).
+    #   u_meses (opcional, 02/11/2026): U só atua no mês do ataque e nos (u_meses − 1) seguintes; o aumento medido
+    #          some em 3 a 5 semanas (Turnbull; Adams; Warren, 2007; Quentin et al., 2012). None = até a copa se refazer.
     comp = None
     if compensation:
         comp = dict(U=float(compensation.get("U", 1.0)), gam=float(compensation.get("gam", 0.0)),
-                    a=float(compensation.get("a", 0.0)))
+                    a=float(compensation.get("a", 0.0)), u_meses=compensation.get("u_meses"))
+        if comp["u_meses"] is not None:
+            comp["u_meses"] = int(comp["u_meses"])
+            if comp["u_meses"] < 1:
+                raise ValueError("u_meses deve ser >= 1")
         if not (1.0 <= comp["U"] <= 2.0 and 0.0 <= comp["gam"] <= 1.0 and 0.0 <= comp["a"] <= 1.0):
             raise ValueError(f"Parâmetros de compensação fora do domínio: {comp}")
     GC_CAP = 1.0 / (1.0 - 0.45)
     wf_ref = 0.0
+    t_ev = -10 ** 6
     mortind = _serie(mortality_events, "mortalidade induzida")
 
     # ---- INITIALISATION (age independent) ----
@@ -1016,6 +1043,7 @@ def run_3pg_pjs(site: dict, species: dict, climate: pd.DataFrame, params: dict,
             F.update(wf_pre_defol=wf_pre, biom_defol=removed, defol_frac=defol[t])
             if comp is not None and removed > 0:
                 wf_ref = max(wf_pre, wf_ref)
+                t_ev = t
         # ===== EXTENSÃO v2: mortalidade induzida (início do mês) =====
         if mortind[t] > 0.0 and S["stems_n"] > 0:
             mk_ = mortind[t]
@@ -1055,7 +1083,7 @@ def run_3pg_pjs(site: dict, species: dict, climate: pd.DataFrame, params: dict,
             alpha_c = alpha_c * (1.0 - effic[t])
             F.update(effic_loss=effic[t])
         U_ef = 1.0
-        if comp_on and alpha_c > 0:  # EXTENSÃO v3: aumento da fotossíntese das folhas remanescentes
+        if comp_on and alpha_c > 0 and (comp["u_meses"] is None or t - t_ev < comp["u_meses"]):  # EXTENSÃO v3: aumento da fotossíntese das folhas remanescentes
             U_ef = 1.0 + (comp["U"] - 1.0) * f_sw
             alpha_c = alpha_c * U_ef
         epsilon = P["gDM_mol"] * P["molPAR_MJ"] * alpha_c
@@ -1241,6 +1269,7 @@ EVENTOS = {"P1": ["2017-01"], "P2": ["2017-01", "2020-01"],
            "PA": [f"{a}-01" for a in range(2017, 2023)],          # anual: jan/2017 … jan/2022 (6 pulsos)
            "EA": ["2017-04"], "EJ": ["2017-07"], "EO": ["2017-10"]}  # épocas: abril, julho, outubro
 # SOLO LOCAL (fontes secundárias; ver solos_fontes/SOLOS_LOCAIS.md)
+SITIOS_MATRIZ = ["IND", "TB", "IMP"]  # matriz principal: os três locais originais (os locais por bioma rodam em run_biomas.py)
 SOLO_LOCAL = {"IND": 215.0,   # TECHS sítio 9 (Estrela do Sul-MG, ~35 km), CAD 0–2 m (Stape) — Binkley et al. 2017, Tab. 2
               "TB": 214.0,    # TECHS sítio 22 (Telêmaco Borba-PR), CAD 0–2 m (Stape) — Binkley et al. 2017, Tab. 2
               "IMP": 210.0}   # SoilGrids 2.0 (7 pontos a ~9 km) + PTF-ZARC (Teixeira et al. 2021), 0–2 m
@@ -1271,18 +1300,18 @@ def linha(sitio, mat, wn, fr, frrot, d, cal, exp, asw=None):
 
 def montar_matriz():
     L = []
-    for s, m, wn, fn in itertools.product(SITIOS, MAT_PRINCIPAIS, NIVEIS, NIVEIS):
+    for s, m, wn, fn in itertools.product(SITIOS_MATRIZ, MAT_PRINCIPAIS, NIVEIS, NIVEIS):
         fr = fr_nivel(m, fn)
         L.append(linha(s, m, wn, fr, f"F{fn}", 0.0, "P1", "E1-E6"))
         for d, cal in itertools.product(DEFOL[1:], ["P1", "P2"]):
             L.append(linha(s, m, wn, fr, f"F{fn}", d, cal, "E1-E6"))
-    for s, m, fr in itertools.product(SITIOS, MAT_PRINCIPAIS, [0.2, 0.4, 0.6, 0.8, 1.0]):  # E2 exploratório
+    for s, m, fr in itertools.product(SITIOS_MATRIZ, MAT_PRINCIPAIS, [0.2, 0.4, 0.6, 0.8, 1.0]):  # E2 exploratório
         for d in (0.0, 0.50):
             L.append(linha(s, m, 100, fr, f"FX{int(fr*100):03d}", d, "P1", "E2x"))
     for m, n in itertools.product(MAT_COMPLEMENTARES, NIVEIS):  # complementares, Indianópolis, solo combinado
         for d in DEFOL:
             L.append(linha("IND", m, n, fr_nivel(m, n), f"F{n}", d, "P1", "COMPL"))
-    for s, m, fn in itertools.product(SITIOS, MAT_PRINCIPAIS, NIVEIS):  # E7–E8: solo local, frequência anual e épocas
+    for s, m, fn in itertools.product(SITIOS_MATRIZ, MAT_PRINCIPAIS, NIVEIS):  # E7–E8: solo local, frequência anual e épocas
         fr = fr_nivel(m, fn)
         L.append(linha(s, m, None, fr, f"F{fn}", 0.0, "P1", "LOCAL", asw=SOLO_LOCAL[s]))
         for d, cal in itertools.product(DEFOL[1:], CAL_LOCAL):

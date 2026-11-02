@@ -22,7 +22,8 @@ SOLO = dict(RE.SOLO_LOCAL, ALM=219.0, ARA=194.0, ELD=145.0)
 # ALM e ARA: SoilGrids 2.0 (WCS, 8 pontos a ~9 km) + PTF-ZARC; ELD: TECHS 6 (Binkley et al., 2017, Tab. 2)
 CAL = json.load(open(AQUI.parent / "calibracao/saida/calibracao_d0999.json"))
 GAMMA = json.load(open(Path(__file__).resolve().parents[1] / "calibracao/saida/gamma_quentin2011.json"))["gamma_calibrado"]  # γ calibrado com Quentin et al. (2011)
-COMP_MED = dict(U=CAL["U"]["q50"], a=CAL["a"]["q50"], gam=GAMMA)
+U_MESES = json.load(open(Path(__file__).resolve().parents[1] / "calibracao/saida/regra_compensacao.json"))["u_meses"]  # U só no mês do ataque (Turnbull et al., 2007; Quentin et al., 2012)
+COMP_MED = dict(U=CAL["U"]["q50"], a=CAL["a"]["q50"], gam=GAMMA, u_meses=U_MESES)
 DIAG = {("IMP", "A1"), ("ALM", "A1"), ("ARA", "A1")}  # f_T = 0 em vários meses: diagnóstico de extrapolação
 
 
@@ -67,7 +68,7 @@ def incerteza(pool, M):
     for r in trat:
         cid = r["id"].rsplit("_D", 1)[0] + "_D00_CTRL"
         c = ctrl[cid].set_index("mes_ref")
-        outs = pool.map(rodar, [(r, dict(U=a.U, a=a.a, gam=GAMMA)) for a in A.itertuples()], chunksize=10)
+        outs = pool.map(rodar, [(r, dict(U=a.U, a=a.a, gam=GAMMA, u_meses=U_MESES)) for a in A.itertuples()], chunksize=10)
         perdas = [100 * (1 - o.set_index("mes_ref").at[72, "volume"] / c.at[72, "volume"]) for o in outs]
         linhas.append(dict(sitio=r["sitio"], bioma=BIOMA[r["sitio"]], material=r["material"], calendario=r["calendario"],
                            apto=r["apto_analise_principal"], perda_vol_k72_media=np.mean(perdas),

@@ -15,6 +15,7 @@ from clima import SITIOS, clima_mensal
 from clones import params, MATERIAIS
 from threepg_pjs import run_3pg_pjs
 J = json.load(open(Path(__file__).parent / "saida/calibracao_d0999.json"))
+U_MESES = json.load(open(Path(__file__).parent / "saida/regra_compensacao.json"))["u_meses"]
 M = MATERIAIS["A1"]; a = RE.SOLO_LOCAL["IND"]; CL = clima_mensal("IND")
 
 
@@ -27,7 +28,7 @@ def sim(ev=None, comp=None):
 
 c = sim(); tc = c.transp_veg.loc[48:54].sum()
 razao = lambda comp: float(sim({"2019-01": 0.45}, comp).transp_veg.loc[48:54].sum() / tc)
-grade = [dict(gam=float(g), razao=razao(dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=float(g)))) for g in np.round(np.arange(0, 1.0001, 0.05), 2)]
+grade = [dict(gam=float(g), razao=razao(dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=float(g), u_meses=U_MESES))) for g in np.round(np.arange(0, 1.0001, 0.05), 2)]
 orig = razao(None)
 best = min(grade, key=lambda r: abs(r["razao"] - 1))
 out = dict(fonte="Quentin et al. (2011), Agricultural and Forest Meteorology 151:356-364", observado="sem diferença significativa (razão ≈ 1)",

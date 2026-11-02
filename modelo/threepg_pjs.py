@@ -222,14 +222,21 @@ def run_3pg_pjs(site: dict, species: dict, climate: pd.DataFrame, params: dict,
     #          1/(1 − 0,45) (homeostase observada com 45% de desfolha; Quentin et al., 2011).
     #   a    : desvio da partição para folhas, η_F' = η_F + a·def·(η_S + η_R), def = 1 − W_F/W_F,ref
     #          (aumento da razão folha:lenho e menor alocação a raízes; Eyles et al., 2009).
+    #   u_meses (opcional, 02/11/2026): U só atua no mês do ataque e nos (u_meses − 1) seguintes; o aumento medido
+    #          some em 3 a 5 semanas (Turnbull; Adams; Warren, 2007; Quentin et al., 2012). None = até a copa se refazer.
     comp = None
     if compensation:
         comp = dict(U=float(compensation.get("U", 1.0)), gam=float(compensation.get("gam", 0.0)),
-                    a=float(compensation.get("a", 0.0)))
+                    a=float(compensation.get("a", 0.0)), u_meses=compensation.get("u_meses"))
+        if comp["u_meses"] is not None:
+            comp["u_meses"] = int(comp["u_meses"])
+            if comp["u_meses"] < 1:
+                raise ValueError("u_meses deve ser >= 1")
         if not (1.0 <= comp["U"] <= 2.0 and 0.0 <= comp["gam"] <= 1.0 and 0.0 <= comp["a"] <= 1.0):
             raise ValueError(f"Parâmetros de compensação fora do domínio: {comp}")
     GC_CAP = 1.0 / (1.0 - 0.45)
     wf_ref = 0.0
+    t_ev = -10 ** 6
     mortind = _serie(mortality_events, "mortalidade induzida")
 
     # ---- INITIALISATION (age independent) ----
@@ -397,6 +404,7 @@ def run_3pg_pjs(site: dict, species: dict, climate: pd.DataFrame, params: dict,
             F.update(wf_pre_defol=wf_pre, biom_defol=removed, defol_frac=defol[t])
             if comp is not None and removed > 0:
                 wf_ref = max(wf_pre, wf_ref)
+                t_ev = t
         # ===== EXTENSÃO v2: mortalidade induzida (início do mês) =====
         if mortind[t] > 0.0 and S["stems_n"] > 0:
             mk_ = mortind[t]
@@ -436,7 +444,7 @@ def run_3pg_pjs(site: dict, species: dict, climate: pd.DataFrame, params: dict,
             alpha_c = alpha_c * (1.0 - effic[t])
             F.update(effic_loss=effic[t])
         U_ef = 1.0
-        if comp_on and alpha_c > 0:  # EXTENSÃO v3: aumento da fotossíntese das folhas remanescentes
+        if comp_on and alpha_c > 0 and (comp["u_meses"] is None or t - t_ev < comp["u_meses"]):  # EXTENSÃO v3: aumento da fotossíntese das folhas remanescentes
             U_ef = 1.0 + (comp["U"] - 1.0) * f_sw
             alpha_c = alpha_c * U_ef
         epsilon = P["gDM_mol"] * P["molPAR_MJ"] * alpha_c

@@ -86,12 +86,24 @@ LACUNAS = {
 }
 
 
+# Correção do dossel (02/11/2026): com a queda de folhas e a partição para folhas de Borges (2009), os clones formam
+# IAF de 8 a 11 entre 2 e 3 anos, contra 3,0 a 3,8 medidos na rede TECHS. Esses três parâmetros passam a ser os da
+# parametrização TECHS (Caldeira et al., 2020, clone A1); o resto continua de Borges. Para reproduzir a versão
+# anterior: variável de ambiente TCC_DOSSEL=borges.
+import os as _os
+DOSSEL = _os.environ.get("TCC_DOSSEL", "techs")
+DOSSEL_TECHS = ("gammaF1", "gammaF0", "pFS2")
+
+
 def _borges(i):
     P = {}
     for k_, v in B9.items():
         if k_ in ("WF0", "WS0", "WR0", "FR"):
             continue
         P[k_] = (float(v[i]), f"FONTE Borges 2009 Tab.9 (C{i+1})")
+    if DOSSEL == "techs":
+        for k_ in DOSSEL_TECHS:
+            P[k_] = (float(P_CALDEIRA[k_][0]), "FONTE Caldeira et al. 2020 (TECHS): dossel corrigido, IAF de Borges irreal")
     for k_, v in LACUNAS.items():
         P.setdefault(k_, v)
     assert set(P) == set(PAR_FORTRAN), set(PAR_FORTRAN) ^ set(P)

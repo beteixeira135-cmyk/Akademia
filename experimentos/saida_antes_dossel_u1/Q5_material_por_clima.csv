@@ -1,0 +1,13 @@
+sitio,material,perda_vol_media,perda_vol_min,perda_vol_max,apto
+IMP,A1,6.2,5.45,6.79,False
+IMP,C2,3.86,3.01,4.97,True
+IMP,C4,3.17,2.36,4.22,True
+IMP,C5,3.11,2.35,4.07,True
+IND,A1,3.06,2.87,3.26,True
+IND,C2,3.11,2.34,4.19,True
+IND,C4,2.27,1.6,3.26,True
+IND,C5,2.33,1.68,3.27,True
+TB,A1,3.01,2.31,3.39,True
+TB,C2,2.48,1.62,3.6,True
+TB,C4,1.73,0.96,3.21,True
+TB,C5,1.85,1.08,3.34,True

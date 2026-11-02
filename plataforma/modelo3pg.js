@@ -48,9 +48,9 @@
       return a; };
     const effic = serie(opt.efic, "perda de eficiência"), mortind = serie(opt.mort, "mortalidade induzida");
     let comp = null;
-    if (opt.comp) { comp = { U: +(opt.comp.U ?? 1), gam: +(opt.comp.gam ?? 0), a: +(opt.comp.a ?? 0) };
+    if (opt.comp) { comp = { U: +(opt.comp.U ?? 1), gam: +(opt.comp.gam ?? 0), a: +(opt.comp.a ?? 0), uMeses: opt.comp.u_meses == null ? null : Math.trunc(+opt.comp.u_meses) };
       if (!(comp.U >= 1 && comp.U <= 2 && comp.gam >= 0 && comp.gam <= 1 && comp.a >= 0 && comp.a <= 1)) throw new Error("Compensação fora do domínio"); }
-    const GC_CAP = 1 / (1 - 0.45); let wfRef = 0;
+    const GC_CAP = 1 / (1 - 0.45); let wfRef = 0, tEv = -1e6;
     const lg = Math.round(P.leafgrow), lf = Math.round(P.leaffall);
     const dl = daylength(site.lat).map(x => 86400 * x);
     const fCax = P.fCalpha700 / (2 - P.fCalpha700), fCg0 = P.fCg700 / (2 * P.fCg700 - 1);
@@ -93,7 +93,7 @@
       if (dorm && !dprev) { S.debt = S.Wf; S.Wf = 0; S.lai = 0; bcor = true; }
       if (bcor) { for (let k = 0; k < B_N; k++) sdc(t); bcor = false; }
       let rem = 0;
-      if (ev[t] > 0) { const wpre = S.Wf; rem = S.Wf * ev[t]; S.Wf -= rem; S.lai = S.Wf * SLA[t] * 0.1; if (comp && rem > 0) wfRef = Math.max(wpre, wfRef); }
+      if (ev[t] > 0) { const wpre = S.Wf; rem = S.Wf * ev[t]; S.Wf -= rem; S.lai = S.Wf * SLA[t] * 0.1; if (comp && rem > 0) { wfRef = Math.max(wpre, wfRef); tEv = t; } }
       let mInd = 0;
       if (mortind[t] > 0 && S.N > 0) { const mk = mortind[t]; S.Wf *= 1 - mk; S.Wr *= 1 - mk; S.Ws *= 1 - mk; S.debt *= 1 - mk; mInd = S.N * mk; S.N -= mInd;
         upd(t); for (let k = 0; k < B_N; k++) sdc(t); }
@@ -108,7 +108,7 @@
       const fcal = fCax * 350 / (350 * (fCax - 1) + 350), fcg = fCg0 / (1 + (fCg0 - 1) * 350 / 350);
       let ac = P.alphaCx * fnutr * fT(t) * ffrost * fcal * fphys; if (S.lai === 0) ac = 0;
       if (effic[t] > 0) ac *= 1 - effic[t];
-      let Uef = 1; if (compOn && ac > 0) { Uef = 1 + (comp.U - 1) * fsw; ac *= Uef; }
+      let Uef = 1; if (compOn && ac > 0 && (comp.uMeses === null || t - tEv < comp.uMeses)) { Uef = 1 + (comp.U - 1) * fsw; ac *= Uef; }
       let GPP = P.gDM_mol * P.molPAR_MJ * ac * apar / 100, NPP = GPP * P.y;
       const lt = S.lai, lper = lt === 0 ? 0 : S.lai / lt;
       let gC = P.MaxCond; if (lt <= P.LAIgcx) gC = P.MinCond + (P.MaxCond - P.MinCond) * lt / P.LAIgcx;

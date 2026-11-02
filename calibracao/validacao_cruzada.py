@@ -13,6 +13,7 @@ import json
 import numpy as np, pandas as pd
 import protocolo as p
 GAMMA = json.load(open("saida/gamma_quentin2011.json"))["gamma_calibrado"]  # γ calibrado com Quentin et al. (2011), fixo na calibração de U e a
+U_MESES = json.load(open("saida/regra_compensacao.json"))["u_meses"]  # U só no mês do ataque (Turnbull et al., 2007; Quentin et al., 2012)
 
 D_EV = 0.999
 U = np.round(np.arange(1.0, 1.3501, 0.01), 3); A = np.round(np.arange(0.0, 1.0001, 0.025), 3)
@@ -24,7 +25,7 @@ G = pd.read_csv("saida/grade_posterior_d0999.csv")[["U", "a", "L_volume", "L_CAP
 G = G.rename(columns={"L_volume": "C5_volume", "L_CAP": "C5_CAP", "L_altura": "C5_altura"})
 a1 = []
 for r in G.itertuples():  # A1 com o mesmo γ calibrado (Quentin et al., 2011)
-    L = p.perdas("A1", {"U": r.U, "a": r.a, "gam": GAMMA}, d=D_EV); a1.append((L["volume"], L["CAP"]))
+    L = p.perdas("A1", {"U": r.U, "a": r.a, "gam": GAMMA, "u_meses": U_MESES}, d=D_EV); a1.append((L["volume"], L["CAP"]))
 G["A1_volume"], G["A1_CAP"] = zip(*a1)
 M = G[[f"{m}_{v}" for m, v in ROT]].to_numpy()
 orig = np.array([p.perdas(m, None, d=D_EV)[v] for m, v in ROT])  # módulo original (sem compensação)

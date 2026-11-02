@@ -8,6 +8,7 @@ import json, sys
 from pathlib import Path
 import numpy as np, pandas as pd
 GAMMA = json.load(open(Path(__file__).resolve().parent / "saida/gamma_quentin2011.json"))["gamma_calibrado"]  # γ calibrado com Quentin et al. (2011)
+U_MESES = json.load(open(Path(__file__).resolve().parent / "saida/regra_compensacao.json"))["u_meses"]  # U só no mês do ataque (Turnbull et al., 2007; Quentin et al., 2012)
 R = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(R / "experimentos")); sys.path.insert(0, str(R / "modelo"))
 from clima import SITIOS, clima_mensal
@@ -26,7 +27,7 @@ CASOS = {"Barry 2012 (aos 18 meses)": ({"2015-05": 0.40, "2015-10": 0.55}, 18),
 A = pd.read_csv(Path(__file__).parent / "saida/amostras_posterior_d0999.csv")
 out = []
 for nome, (ev, idade) in CASOS.items():
-    for rot, comps in [("original", [None]), ("calibrado", [dict(U=r.U, a=r.a, gam=GAMMA) for r in A.itertuples()])]:
+    for rot, comps in [("original", [None]), ("calibrado", [dict(U=r.U, a=r.a, gam=GAMMA, u_meses=U_MESES) for r in A.itertuples()])]:
         L = []
         for cp in comps:
             t = sim(ev, cp)

@@ -1,26 +1,26 @@
 {
  "deixa uma observação de fora (k = 5)": {
   "n": 5,
-  "RQEM_original": 15.070557217037429,
-  "RQEM_calibrado": 4.086120307188133,
-  "vies_original": 14.008956949309715,
-  "vies_calibrado": 1.8199431404922564,
+  "RQEM_original": 15.722372250100822,
+  "RQEM_calibrado": 4.311172951734867,
+  "vies_original": 14.86076688400899,
+  "vies_calibrado": 1.718954855336441,
   "melhorou": 5
  },
  "ajusta no C5, prevê o A1 (k = 2)": {
   "n": 2,
   "RQEM_original": 19.084395921867362,
-  "RQEM_calibrado": 7.249819462357667,
+  "RQEM_calibrado": 8.410093065767663,
   "vies_original": 19.039342678310245,
-  "vies_calibrado": 7.242548386280873,
+  "vies_calibrado": 8.410057918239461,
   "melhorou": 2
  },
  "ajusta no A1, prevê o C5 (k = 2)": {
   "n": 3,
-  "RQEM_original": 11.650180810539945,
-  "RQEM_calibrado": 4.932161852710105,
-  "vies_original": 10.655366463309365,
-  "vies_calibrado": 2.4912415992857553,
+  "RQEM_original": 13.006877801744311,
+  "RQEM_calibrado": 4.304605463309931,
+  "vies_original": 12.075049687808155,
+  "vies_calibrado": 0.06361870200431359,
   "melhorou": 3
  }
 }
