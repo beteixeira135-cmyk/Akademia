@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<title>Resumo executivo do TCC II</title>
+<style>
+@page { size: A4; margin: 15mm 16mm 17mm; }
+:root { --verde:#5f6f34; --verde2:#e8ecdc; --terra:#8a5a36; --terra2:#f4ebe2; --azul:#4d7590; --azul2:#eef3f6; --ouro:#7a6326; --ouro2:#f6f3e8; --tinta:#23271f; --fraco:#5b6152; --linha:#d9dccf; }
+* { box-sizing: border-box; }
+body { font-family: "Inter", "DejaVu Sans", sans-serif; color: var(--tinta); font-size: 10.3pt; line-height: 1.5; margin: 0; background: #fff; }
+h1, h2, h3 { font-family: "Bitstream Charter", "Caladea", "DejaVu Serif", serif; line-height: 1.2; }
+h1 { font-size: 25pt; margin: 0 0 3mm; }
+h2 { font-size: 18pt; margin: 0 0 3mm; }
+h3 { font-size: 12pt; margin: 5mm 0 1.5mm; }
+p { margin: 0 0 2.6mm; }
+.pagina { page-break-after: always; }
+.pagina:last-child { page-break-after: auto; }
+.rot { font-size: 8.3pt; letter-spacing: .12em; text-transform: uppercase; color: var(--verde); font-weight: 700; margin-bottom: 1mm; }
+.lead { font-size: 11.6pt; color: #333; }
+.box { padding: 3mm 4mm; margin: 3.5mm 0; break-inside: avoid; border-left: 4px solid; }
+.box b.t { display: block; font-size: 8.2pt; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 1mm; }
+.v { background: var(--verde2); border-color: var(--verde); } .v b.t { color: var(--verde); }
+.tr { background: var(--terra2); border-color: var(--terra); } .tr b.t { color: var(--terra); }
+.az { background: var(--azul2); border-color: var(--azul); } .az b.t { color: var(--azul); }
+.kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin: 4mm 0; }
+.kpi { border: 1px solid var(--linha); padding: 3mm; break-inside: avoid; }
+.kpi .n { font-family: "Bitstream Charter", "Caladea", serif; font-size: 23pt; color: var(--verde); line-height: 1; }
+.kpi small { display: block; color: var(--fraco); font-size: 8.7pt; margin-top: 1.5mm; line-height: 1.35; }
+table { border-collapse: collapse; width: 100%; font-size: 9pt; margin: 2.5mm 0; break-inside: avoid; }
+th { text-align: left; font-size: 7.6pt; letter-spacing: .06em; text-transform: uppercase; color: var(--fraco); border-bottom: 1.5px solid var(--tinta); padding: 1.4mm 2mm; }
+td { border-bottom: 1px solid var(--linha); padding: 1.5mm 2mm; vertical-align: top; }
+td.num { font-family: "Bitstream Charter", "Caladea", serif; font-size: 11pt; white-space: nowrap; color: var(--verde); }
+figure { margin: 3mm 0; text-align: center; break-inside: avoid; }
+figure img { max-width: 100%; }
+figcaption { font-size: 8.5pt; color: var(--fraco); margin-top: 1mm; text-align: left; }
+/* trilha fonte → número */
+.trilha { margin: 3mm 0; }
+.passo { display: grid; grid-template-columns: 44mm 6mm 1fr 6mm 30mm; align-items: center; margin-bottom: 2.4mm; break-inside: avoid; }
+.fonte { background: #fff; border: 1px solid var(--linha); border-left: 4px solid var(--azul); padding: 2mm 2.5mm; font-size: 8.8pt; line-height: 1.3; }
+.fonte b { display: block; font-size: 9.2pt; }
+.seta { text-align: center; color: var(--fraco); font-size: 12pt; }
+.diz { font-size: 9pt; line-height: 1.35; color: #333; }
+.numero { background: var(--verde2); border: 1px solid var(--verde); text-align: center; padding: 2mm 1mm; font-family: "Bitstream Charter", "Caladea", serif; font-size: 12.5pt; color: var(--verde); line-height: 1.1; }
+.numero small { display: block; font-family: "Inter", sans-serif; font-size: 7.4pt; color: var(--fraco); margin-top: .6mm; }
+.cap { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+ol.q li { margin-bottom: 2.2mm; }
+.rodape { font-size: 8.3pt; color: var(--fraco); margin-top: 5mm; border-top: 1px solid var(--linha); padding-top: 2mm; }
+svg text { font-family: "Inter", "DejaVu Sans", sans-serif; }
+</style></head>
+<body>
+
+<!-- 1. PÁGINA EXECUTIVA -->
+<section class="pagina">
+  <div style="height:3.5mm;background:linear-gradient(90deg,#5f6f34 0 60%,#8a5a36 60% 100%);margin-bottom:6mm"></div>
+  <div class="rot">Resumo executivo · para a coorientadora Dra. Gabriela Cristina Costa Silva (UFRB)</div>
+  <h1>Da fonte ao número: como a literatura guiou o módulo de desfolha</h1>
+  <p class="lead">Bernardo Teixeira de Castro · TCC II, Engenharia Florestal, UFU · Orientador: Álvaro Augusto Vieira Soares · versão final v4, 02/11/2026</p>
+
+  <h3>A tese em uma frase</h3>
+  <p>Um módulo de desfolha para o modelo 3-PG, construído só com dados publicados, reproduz a perda de madeira de eucaliptos brasileiros nos meses após um ataque, quando a árvore pode reagir ao dano como mostram os experimentos fisiológicos. Ele ainda não reproduz a persistência dessa perda por anos.</p>
+
+  <div class="kpis">
+    <div class="kpi"><div class="n">33% × 35%</div><small>perda prevista × medida num experimento independente (Oliveira et al., 2014). Sem a reação da árvore, o módulo previa 78%.</small></div>
+    <div class="kpi"><div class="n">50</div><small>referências no TCC: cada parâmetro e cada cenário tem origem citada, e o que não tem fonte é chamado de exploratório.</small></div>
+    <div class="kpi"><div class="n">528</div><small>números do TCC recalculados automaticamente a partir dos resultados; todos conferem.</small></div>
+  </div>
+
+  <h3>Como ler este resumo</h3>
+  <p>Ele não lista as fontes ao lado dos resultados. Conta, em cinco capítulos, <b>por que</b> cada número entrou no modelo e qual fonte o justificou, incluindo os casos em que uma fonte corrigiu outra e em que uma fonte mostrou um limite do modelo.</p>
+  <svg viewBox="0 0 640 120" width="100%" aria-label="Cinco capítulos">
+    <defs><marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#23271f"/></marker></defs>
+    <g font-size="11">
+      <rect x="0" y="15" width="112" height="70" fill="#e8ecdc" stroke="#5f6f34"/><text x="56" y="38" text-anchor="middle" font-weight="700">1. Chão firme</text><text x="56" y="56" text-anchor="middle" font-size="9.5">modelo, clone,</text><text x="56" y="70" text-anchor="middle" font-size="9.5">clima e solo</text>
+      <rect x="132" y="15" width="112" height="70" fill="#f4ebe2" stroke="#8a5a36"/><text x="188" y="38" text-anchor="middle" font-weight="700">2. Uma fonte</text><text x="188" y="56" text-anchor="middle" font-size="9.5">corrige outra:</text><text x="188" y="70" text-anchor="middle" font-size="9.5">a copa</text>
+      <rect x="264" y="15" width="112" height="70" fill="#f6f3e8" stroke="#a38b4c"/><text x="320" y="38" text-anchor="middle" font-weight="700">3. O tamanho</text><text x="320" y="56" text-anchor="middle" font-size="9.5">do ataque</text>
+      <rect x="396" y="15" width="112" height="70" fill="#eef3f6" stroke="#4d7590"/><text x="452" y="38" text-anchor="middle" font-weight="700">4. A reação</text><text x="452" y="56" text-anchor="middle" font-size="9.5">da árvore,</text><text x="452" y="70" text-anchor="middle" font-size="9.5">fonte por fonte</text>
+      <rect x="528" y="15" width="112" height="70" fill="#e8ecdc" stroke="#5f6f34"/><text x="584" y="38" text-anchor="middle" font-weight="700">5. Fontes</text><text x="584" y="56" text-anchor="middle" font-size="9.5">como juízes</text>
+      <path d="M112 50 L128 50 M244 50 L260 50 M376 50 L392 50 M508 50 L524 50" stroke="#23271f" stroke-width="1.4" marker-end="url(#a)"/>
+      <text x="320" y="110" text-anchor="middle" font-size="10" fill="#5b6152">construir com o que se mede → corrigir o que não bate → testar com o que não se usou</text>
+    </g>
+  </svg>
+  <div class="box tr"><b class="t">A ressalva única</b>Matrangolo et al. (2010) mediram perdas de 37,9 a 79,7% oito anos depois de desfolhas totais aos 56 dias; o módulo dá de 3,8 a 32,1%. O modelo não tem reservas de açúcar nem morte de ramos, e não deve ser usado para prever o fim da rotação nesse caso.</div>
+</section>
+
+<!-- 2. CAPÍTULO 1 -->
+<section class="pagina">
+  <div class="rot">Capítulo 1</div>
+  <h2>O chão firme: só se mexe no que já está medido</h2>
+  <p>A primeira decisão foi não inventar o modelo. O 3-PG já existia (LANDSBERG; WARING, 1997) e já tinha uma implementação aberta e testada, o r3PG (TROTSIUK; HARTIG; FORRESTER, 2020). O módulo foi escrito sobre uma cópia dele, e a primeira prova foi mostrar que, sem ataque, nada muda.</p>
+  <div class="trilha">
+    <div class="passo"><div class="fonte"><b>Trotsiuk et al. (2020)</b>r3PG v0.1.7</div><div class="seta">→</div><div class="diz">Serve de régua: o código do TCC tem de dar o mesmo resultado em todos os talhões sem ataque.</div><div class="seta">→</div><div class="numero">R² = 1,000<small>308 talhões</small></div></div>
+    <div class="passo"><div class="fonte"><b>Caldeira et al. (2020a)</b>clone A1, rede TECHS</div><div class="seta">→</div><div class="diz">Parâmetros publicados de um clone brasileiro, ajustados com medições em várias regiões. Inclui o limite de temperatura do clone.</div><div class="seta">→</div><div class="numero">28,65 °C<small>limite do A1</small></div></div>
+    <div class="passo"><div class="fonte"><b>Binkley et al. (2017)</b>rede TECHS</div><div class="seta">→</div><div class="diz">Espaçamento 3 × 3 m, solo do sítio vizinho e medidas de lenho e copa do A1 em Telêmaco Borba, usadas como referência.</div><div class="seta">→</div><div class="numero">1.111<small>árvores por hectare</small></div></div>
+    <div class="passo"><div class="fonte"><b>NASA POWER (2026)</b>clima diário 2015–2024</div><div class="seta">→</div><div class="diz">O mesmo método de clima para os seis locais, do semiárido à Amazônia, para que as diferenças venham do clima e não da fonte.</div><div class="seta">→</div><div class="numero">572–1.862<small>mm de chuva por ano</small></div></div>
+    <div class="passo"><div class="fonte"><b>Poggio et al. (2021); Teixeira et al. (2021)</b>SoilGrids e equação do ZARC</div><div class="seta">→</div><div class="diz">Onde não havia sítio TECHS por perto, a água do solo veio do mapa mundial de textura e de uma equação brasileira.</div><div class="seta">→</div><div class="numero">145–219<small>mm de água no solo</small></div></div>
+  </div>
+  <div class="box v"><b class="t">O que esse cuidado comprou</b>Quando o limite de temperatura publicado para o A1 foi passado em Imperatriz (31 dos 84 meses), o crescimento parou. Em vez de "ajustar" o clone, o TCC tratou esse caso como diagnóstico: a fonte diz até onde o clone vale, e o trabalho respeita isso.</div>
+  <div class="box az"><b class="t">Por que é importante para a banca</b>Com o chão firme, qualquer diferença nos resultados vem do dano, e não de um erro escondido. A primeira prova é de verificação; não se chama validação.</div>
+</section>
+
+<!-- 3. CAPÍTULO 2 -->
+<section class="pagina">
+  <div class="rot">Capítulo 2</div>
+  <h2>Uma fonte corrige outra: a copa grande demais</h2>
+  <p>Para comparar clones, entraram três ajustes de Borges (2009) para híbridos do Cerrado mineiro. Nos resultados, eles pareciam muito mais "resistentes" à desfolha que o A1. A explicação não estava na genética: estava na copa. Com os valores de queda de folhas e de partição de Borges, as copas chegavam a índice de área foliar (IAF) de 8 a 11.</p>
+  <p>A rede TECHS (BINKLEY et al., 2017) mede de 3,0 a 3,8 em plantios clonais. Uma copa fechada demais quase não perde luz quando perde metade das folhas. Ou seja, um parâmetro irreal estava escondendo o próprio efeito que o TCC queria medir.</p>
+  <figure><img src="iaf_correcao.png" style="width:138mm"><figcaption>IAF do clone C5 entre 2 e 3 anos com o ajuste de Borges (2009) e com a queda de folhas e a partição da TECHS (CALDEIRA et al., 2020a). Faixa cor de terra: valores medidos na TECHS.</figcaption></figure>
+  <div class="cap">
+    <div class="box v"><b class="t">A decisão</b>Trocar só os dois parâmetros que fazem a copa (queda de folhas e partição para folhas) pelos da TECHS, e manter o resto de Borges. O IAF ficou entre 2,4 e 5,6, e a produtividade continuou plausível (36 a 65 m³/ha/ano).</div>
+    <div class="box tr"><b class="t">O efeito em cadeia</b>Com copas realistas, os clones perderam quase o mesmo (C5 2,7% × A1 3,0%), e o teste independente do capítulo 5 passou a distinguir as duas versões do módulo. A copa densa escondia isso.</div>
+  </div>
+  <p style="font-size:9pt;color:#5b6152">A versão anterior continua reproduzível no código (variável TCC_DOSSEL=borges). A limitação (g) do TCC declara que a copa desses clones vem de outro clone.</p>
+</section>
+
+<!-- 4. CAPÍTULO 3 -->
+<section class="pagina">
+  <div class="rot">Capítulo 3</div>
+  <h2>O tamanho do ataque: cada intensidade tem dono</h2>
+  <p>Os cenários de dano não foram escolhidos por conveniência. Sempre que havia medição de campo publicada, a intensidade veio dela; quando não havia, o cenário foi chamado de exploratório.</p>
+  <div class="trilha">
+    <div class="passo"><div class="fonte"><b>Wilcken et al. (2003)</b>psilídeo-de-concha</div><div class="seta">→</div><div class="diz">Relataram 20 a 30% de desfolha em urograndis.</div><div class="seta">→</div><div class="numero">25%<small>desfolha</small></div></div>
+    <div class="passo"><div class="fonte"><b>Freitas; Berti Filho (1994) apud Zanetti et al. (2014)</b>formigas-cortadeiras</div><div class="seta">→</div><div class="diz">Desfolha total. O modelo precisa de alguma folha restante; 95% é o máximo usado nos cenários.</div><div class="seta">→</div><div class="numero">95%<small>desfolha</small></div></div>
+    <div class="passo"><div class="fonte"><b>Santos, Auer e Grigoletti Júnior (2001)</b>murchas e cancros</div><div class="seta">→</div><div class="diz">Perdas de árvores de até 15%.</div><div class="seta">→</div><div class="numero">5 e 15%<small>árvores mortas</small></div></div>
+    <div class="passo"><div class="fonte"><b>Silveira et al. (1998) apud Silveira; Higashi (2003)</b>ferrugem</div><div class="seta">→</div><div class="diz">Redução de diâmetro de plantas jovens infectadas; a perda de eficiência foi calibrada para reproduzi-la.</div><div class="seta">→</div><div class="numero">r calibrado<small>−25 e −35% de DAP</small></div></div>
+    <div class="passo"><div class="fonte"><b>Almeida et al. (2018); Barbosa et al. (2012)</b>percevejo-bronzeado</div><div class="seta">→</div><div class="diz">Há efeito na fotossíntese, mas não há perda de campo publicada.</div><div class="seta">→</div><div class="numero" style="background:#f4ebe2;border-color:#8a5a36;color:#8a5a36">20 e 40%<small>exploratório</small></div></div>
+  </div>
+  <h3>E os números do desenho experimental?</h3>
+  <table>
+    <tr><th>Número</th><th>De onde vem</th></tr>
+    <tr><td class="num">25 · 50 · 95%</td><td>Desenho da iniciação científica, ancorado nas intensidades acima; 50% é o cenário central.</td></tr>
+    <tr><td class="num">7 anos</td><td>Idade de corte em que a perda é medida (84 meses), comparando cada talhão atacado com o mesmo talhão sem ataque.</td></tr>
+    <tr><td class="num">1, 2 ou todo ano</td><td>Do ataque isolado ao surto recorrente, para separar o efeito da intensidade do efeito da repetição.</td></tr>
+  </table>
+  <div class="box v"><b class="t">O que a história mostrou</b>A repetição pesa mais que o ataque isolado: um ataque tirou de 1,6 a 15,2% do volume do A1; ataques todo ano, até 58 e 68%. Intensidade e frequência explicam quase toda a perda, mas o clima muda o tamanho dela.</div>
+</section>
+
+<!-- 5. CAPÍTULO 4 -->
+<section class="pagina">
+  <div class="rot">Capítulo 4</div>
+  <h2>A reação da árvore, fonte por fonte</h2>
+  <p>Sem nenhuma reação, o módulo exagerava o prejuízo. A literatura fisiológica, quase toda de <i>E. globulus</i> na Austrália, descreve como a árvore reage. Cada parte da reação foi traduzida num parâmetro, e cada parâmetro tem uma fonte diferente. Esse é o centro do trabalho.</p>
+  <svg viewBox="0 0 640 300" width="100%" aria-label="Fontes da compensação">
+    <defs><marker id="b" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#23271f"/></marker></defs>
+    <g font-size="10.5">
+      <rect x="215" y="5" width="210" height="46" fill="#23271f"/><text x="320" y="25" text-anchor="middle" fill="#fff" font-weight="700">QUANDO a reação liga?</text><text x="320" y="41" text-anchor="middle" fill="#fff" font-size="9.5">enquanto a copa for menor que antes</text>
+      <text x="320" y="66" text-anchor="middle" font-size="9.5" fill="#5b6152">regra do CABALA — Battaglia et al. (2011)</text>
+      <path d="M320 72 L120 105 M320 72 L320 105 M320 72 L520 105" stroke="#23271f" stroke-width="1.2" marker-end="url(#b)"/>
+      <rect x="20" y="110" width="200" height="180" fill="#e8ecdc" stroke="#5f6f34"/>
+      <text x="120" y="132" text-anchor="middle" font-weight="700" fill="#5f6f34" font-size="13">U = 1,18</text>
+      <text x="120" y="150" text-anchor="middle">mais fotossíntese</text>
+      <text x="30" y="174" font-size="9.5">• teto 1,35: Pinkard et al. (1998)</text>
+      <text x="30" y="190" font-size="9.5">• +40 a 53% em 1 semana, some</text><text x="38" y="204" font-size="9.5">em 5: Turnbull et al. (2007)</text>
+      <text x="30" y="220" font-size="9.5">• pico em ~22 dias, só com água:</text><text x="38" y="234" font-size="9.5">Quentin et al. (2012)</text>
+      <text x="30" y="256" font-size="9.5" font-weight="700">→ só no mês do ataque</text>
+      <text x="30" y="272" font-size="9.5" fill="#5b6152">e menor com solo seco</text>
+      <rect x="220" y="110" width="200" height="180" fill="#eef3f6" stroke="#4d7590"/>
+      <text x="320" y="132" text-anchor="middle" font-weight="700" fill="#4d7590" font-size="13">γ = 1</text>
+      <text x="320" y="150" text-anchor="middle">transpiração mantida</text>
+      <text x="230" y="174" font-size="9.5">• 45% de desfolha sem mudar a</text><text x="238" y="188" font-size="9.5">transpiração: Quentin et al. (2011)</text>
+      <text x="230" y="210" font-size="9.5">• sem γ, o modelo derruba a</text><text x="238" y="224" font-size="9.5">transpiração em 21,5%</text>
+      <text x="230" y="246" font-size="9.5" font-weight="700">→ só γ = 1 reproduz a</text><text x="238" y="260" font-size="9.5" font-weight="700">homeostase (razão 1,000)</text>
+      <rect x="420" y="110" width="200" height="180" fill="#f4ebe2" stroke="#8a5a36"/>
+      <text x="520" y="132" text-anchor="middle" font-weight="700" fill="#8a5a36" font-size="13">a = 0,625</text>
+      <text x="520" y="150" text-anchor="middle">açúcar para refazer a copa</text>
+      <text x="430" y="174" font-size="9.5">• mais folha por lenho depois</text><text x="438" y="188" font-size="9.5">do ataque: Eyles et al. (2009)</text>
+      <text x="430" y="210" font-size="9.5">• valor calibrado com a perda</text><text x="438" y="224" font-size="9.5">medida por Bertulio et al.</text><text x="438" y="238" font-size="9.5">(2008), Campo Verde-MT</text>
+      <text x="430" y="260" font-size="9.5" font-weight="700">→ único parâmetro ajustado</text><text x="438" y="274" font-size="9.5" font-weight="700">a dado brasileiro</text>
+    </g>
+  </svg>
+  <div class="box tr"><b class="t">O erro que as fontes revelaram</b>No começo, γ era escolhido (0,5), e a calibração rodava com γ = 0 enquanto as simulações usavam 0,5. Levar Quentin et al. (2011) a sério obrigou a calibrar γ com o experimento deles e a refazer o ajuste de U e <i>a</i> com γ fixo.</div>
+  <div class="box az"><b class="t">Uma descoberta honesta</b>Depois de uma desfolha total, quase não sobra folha no mês do ataque. Por isso o experimento de Bertulio não consegue definir U: o valor 1,18 vem da faixa da literatura. Quem é de fato calibrado com dado brasileiro é <i>a</i>, o investimento em refazer a copa.</div>
+</section>
+
+<!-- 6. CAPÍTULO 5 -->
+<section class="pagina">
+  <div class="rot">Capítulo 5</div>
+  <h2>As fontes como juízes</h2>
+  <p>Depois de construir com umas fontes, o trabalho usou outras para julgar o resultado. A regra foi não usar no ajuste o que serviria de teste.</p>
+  <div class="cap">
+    <div>
+      <h3>O juiz principal: Oliveira et al. (2014)</h3>
+      <p><i>E. grandis</i> em Mucuri-BA, desfolha total aos 6 meses, medição 8 meses depois. Não entrou em nenhum ajuste.</p>
+      <figure><img src="oliveira.png" style="width:86mm"><figcaption>Perda de volume oito meses depois da desfolha total; barra preta: faixa de 90% da calibração.</figcaption></figure>
+      <p>O erro médio (volume, diâmetro e altura) caiu de 34,3 para 3,2 pontos. As desfolhas parciais, sem efeito significativo no campo, deram pouca perda também no modelo.</p>
+    </div>
+    <div>
+      <h3>Os outros juízes</h3>
+      <table>
+        <tr><th>Fonte</th><th>O que mediu</th><th>O que o módulo deu</th></tr>
+        <tr><td>Bertulio et al. (2008), clone de teste</td><td>urocam fora do ajuste</td><td>erro de 20,3 → 7,5 p.p.</td></tr>
+        <tr><td>Bertulio et al. (2008), validação cruzada</td><td>cada medição escondida</td><td>erro de 15,7 → 4,3 p.p.</td></tr>
+        <tr><td>Eyles et al. (2016)</td><td>área foliar igual ao controle em 12 semanas</td><td>copa de volta em até 2 meses</td></tr>
+        <tr><td>Barry et al. (2012)</td><td>área foliar sem diferença aos 18 meses</td><td>−0,2% (sem reação: 6,6%)</td></tr>
+        <tr><td>Alves et al. (2007)</td><td>biomassa de 51 a 132 t/ha em Araripina</td><td>57 a 71 t/ha</td></tr>
+        <tr><td style="color:#8a5a36"><b>Matrangolo et al. (2010)</b></td><td>37,9 a 79,7% aos 92 meses</td><td style="color:#8a5a36"><b>3,8 a 32,1%: não reproduz</b></td></tr>
+      </table>
+      <div class="box tr"><b class="t">Por que manter o juiz contrário</b>Matrangolo e Oliveira, juntos, contam uma história coerente: o módulo acerta o curto prazo e erra a persistência. O próprio CABALA falha em desfolhas muito intensas com morte de ramos (BATTAGLIA et al., 2011). Esconder Matrangolo deixaria o trabalho mais bonito e menos verdadeiro.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. FECHAMENTO -->
+<section class="pagina">
+  <div class="rot">Síntese</div>
+  <h2>O que as fontes permitem e o que não permitem afirmar</h2>
+  <table>
+    <tr><th>Afirmação</th><th>Sustentada por</th><th>Força</th></tr>
+    <tr><td>O código é o 3-PG, e o dano é aplicado como descrito</td><td>r3PG (Trotsiuk et al., 2020); 49 testes</td><td>verificação</td></tr>
+    <tr><td>Repetir o ataque custa muito mais que um ataque isolado</td><td>simulações com clones publicados; coerente com a literatura</td><td>simulação</td></tr>
+    <tr><td>A árvore compensa parte do dano</td><td>Quentin et al. (2011); Bertulio et al. (2008); Oliveira et al. (2014)</td><td>teste independente</td></tr>
+    <tr><td>As folhas voltam em meses</td><td>Eyles et al. (2016); Barry et al. (2012)</td><td>coerência qualitativa</td></tr>
+    <tr><td>A perda após desfolha total no primeiro ano persiste por anos</td><td>Matrangolo et al. (2010)</td><td style="color:#8a5a36"><b>o módulo não reproduz</b></td></tr>
+    <tr><td>Os resultados valem para os seis locais simulados</td><td>nenhum experimento de desfolha nesses locais</td><td style="color:#8a5a36"><b>não validado</b></td></tr>
+  </table>
+  <h3>Pontos para conversar</h3>
+  <ol class="q">
+    <li><b>A copa dos clones de Borges.</b> Trocar a queda de folhas e a partição pelas da TECHS é defensável para a banca, ou existe IAF publicado para esses clones?</li>
+    <li><b>U vindo da literatura.</b> Basta declarar que a desfolha total não define U, ou vale buscar um experimento brasileiro de desfolha parcial com fotossíntese medida?</li>
+    <li><b>A leitura de Matrangolo.</b> Reservas de açúcar e morte de ramos são a melhor explicação para a perda que persiste?</li>
+    <li><b>Dados de campo na Bahia.</b> Oliveira et al. (2014) é de Mucuri-BA. Há outros experimentos de desfolha publicados na região que sirvam de teste?</li>
+    <li><b>Perspectiva.</b> A mesma cadeia de simulações com clima futuro, para medir perda e tempo de recuperação em cada bioma, é um bom caminho para o mestrado (RESILIA, ODS 15)?</li>
+  </ol>
+  <div class="rodape">Todos os números deste resumo estão no TCC II (versão final v4, 02/11/2026) ou nos arquivos de resultado auditados (528 itens). As referências completas estão no TCC. Material de apoio: Guia ilustrado do TCC II, passo a passo, e a plataforma Akademia Florestal.</div>
+</section>
+
+</body></html>
