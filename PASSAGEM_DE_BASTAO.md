@@ -1,4 +1,4 @@
-# PASSAGEM DE BASTÃO — TCC II (6832 tokens, estimativa (caracteres ÷ 3,6); gerado em 19/11/2026 17:26)
+# PASSAGEM DE BASTÃO — TCC II (6777 tokens, estimativa (caracteres ÷ 3,6); gerado em 19/11/2026 17:41)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
 Para o código completo, use `CONTEXTO_EMPACOTADO.md` (25775 tokens, estimativa (caracteres ÷ 3,6)).
@@ -141,6 +141,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 19/11 17:26 Add disabled soil fertility adapter scaffold
 - 19/11 16:12 docs: registrar auditoria final de validação
 - 19/11 15:25 build: configure runtime and restore DOCX generation
 - 19/11 12:07 Add Rua 3PG.d comparison tab
@@ -155,7 +156,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 03/11 19:49 Resumo executivo ilustrado: da fonte ao número (PDF, 7 p.), para a coorientadora
 - 02/11 16:23 Guia ilustrado do TCC II, passo a passo (PDF, 18 p.)
 - 02/11 16:09 TCC VERSÃO FINAL v4: 5.1 Perspectivas na conclusão; passagem de bastão para o Astra; conferidor de referências no repositório
-- 02/11 12:08 Cascata: dossel de Borges corrigido (TECHS), U só no mês do ataque, recalibração e reprocessamento completo; tabelas geradas dos resultados; pipeline completo; plataforma e capturas atualizadas; TCC VERSÃO FINAL v3 (37 p.), auditoria 528/528
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.

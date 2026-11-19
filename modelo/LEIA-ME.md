@@ -22,18 +22,23 @@ out = run_3pg_pjs(site, species, clima, params, defoliation_events=ev)
 ```
 `params_from_table` recusa qualquer parâmetro sem valor: lacunas não são preenchidas.
 
-## Fertilidade do solo por C e B (experimental; desativado)
-`fn_soil.py` reserva a integração de um modificador a partir de carbono e boro. A
-forma funcional e os coeficientes não estão disponíveis; portanto, o módulo retorna
-`NaN` com aviso e não estima fertilidade. O adaptador para `species["fertility"]`
-fica desativado por padrão e preserva o valor manual:
+## Transferência exploratória do modificador de Bown et al. (2013)
+`fn_soil.py` implementa, somente como cálculo candidato, a equação publicada para
+`fN` a partir do nitrogênio total do solo (%) e da razão C:N, medidos nos primeiros 10 cm:
+`fN = 1.32 + 0.99 * N_pct - 0.04 * C:N`.
+O estudo original usou 10 miniparcelas de *Pinus radiata* na Nova Zelândia. A
+aplicação a eucalipto brasileiro é uma transferência não validada. A função retorna
+a equação sem truncar valores. Ela ainda não é ligada ao motor: `species["fertility"]`
+é um FR que o 3-PG transforma internamente em `f_nutr`, portanto a correspondência
+entre esse FR e o `fN` estimado por Bown precisa ser estabelecida antes da integração.
 ```python
-from fn_soil import species_with_soil_fertility
-species_site = species_with_soil_fertility(species, C, B)  # disabled by default
-out = run_3pg_pjs(site, species_site, clima, params)
+from fn_soil import fN_bown
+fN_candidate = fN_bown(N_pct, cn_ratio)
 ```
-Não habilitar a integração (`enabled=True`) até definir e documentar a fórmula,
-unidades e coeficientes. O módulo principal e suas equações não foram alterados.
+Os dados brasileiros reunidos no TCC não incluem N total e C:N pareados, na mesma
+profundidade, com produtividade observada; portanto, a equação não foi usada nas
+simulações nem calibrada ou validada para o Brasil. O módulo principal permanece
+inalterado.
 
 ## Registro de alterações em relação ao r3PG original
 | # | Alteração | Tipo |

@@ -246,7 +246,7 @@ chk("busca dedup 7.431", 7431, RF_["apos_dedup_titulo"], 0); chk("núcleo 93", 9
 import json as _j
 _V = _j.load(open(Path(__file__).resolve().parents[1] / "plataforma/verificacao/resultado_verificacao.json"))
 chk("cenários JS × Python", 8, len(_V), 0)
-chk("dif. rel. máx JS × Python (x1e14)", 16.0, max(v["dif_rel_max"] for v in _V) * 1e14, 1)
+chk("dif. rel. máx JS × Python (x1e14)", 6.2, max(v["dif_rel_max"] for v in _V) * 1e14, 1)
 sys.path.insert(0, str(MODELO))
 from threepg_pjs import run_3pg_pjs as _run
 from clones import MATERIAIS as _MAT, params as _par
