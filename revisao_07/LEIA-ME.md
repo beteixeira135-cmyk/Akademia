@@ -16,4 +16,4 @@
 
 **Parecer: B** — encaminhamento com ressalvas explícitas (ver o relatório da auditoria científica, seção 7).
 
-Versões anteriores preservadas: tcc_docx/conteudo_v6_antes_missao07.js e gerar_v6_antes_missao07.js; versoes/TCC_II_..._v49p_31-10-2026 (no Drive).
+As versões anteriores dos scripts foram removidas do diretório de trabalho; o histórico Git mantém a rastreabilidade das alterações. A versão v49p do TCC permanece no Drive, conforme o registro da entrega.

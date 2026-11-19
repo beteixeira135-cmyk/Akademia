@@ -1,7 +1,0 @@
-{
- "u_meses": 1,
- "regra": "U só atua no mês do ataque (u_meses = 1); γ e a continuam enquanto a copa estiver abaixo da de antes do ataque",
- "fonte": "Turnbull, Adams e Warren (2007): aumento de 40 a 53% na fotossíntese 1 semana após a desfolha, desaparecido em 5 semanas; Quentin et al. (2012): pico em cerca de 22 dias",
- "decisao": "02/11/2026; comparação das regras (até a copa se refazer, 1 e 2 meses) com o dossel corrigido: ajuste e validação cruzada equivalentes (RQEM 4,2 a 4,5 p.p.); escolhida a regra sustentada pela fisiologia",
- "anterior": "u_meses = null (U até a copa se refazer)"
-}

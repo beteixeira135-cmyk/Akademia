@@ -2,7 +2,8 @@
 import json, sys, re
 from pathlib import Path
 import numpy as np, pandas as pd
-X = Path("/home/claude/tcc/experimentos"); S = X / "saida"; sys.path.insert(0, str(X))
+RAIZ = Path(__file__).resolve().parents[1]
+X = RAIZ / "experimentos"; S = X / "saida"; sys.path.insert(0, str(X))
 R = pd.read_csv(S / "indicadores_por_tratamento.csv")
 L = R[(R.experimento == "LOCAL") & (R.nivel_FR == "F100")]
 E = R[R.experimento == "E1-E6"].copy(); E["W"] = pd.to_numeric(E.nivel_agua)
@@ -36,7 +37,7 @@ chk("+9% lenho TB vs 34", 9, 100 * (C.loc[("TB", "A1")].caule_24_36 / 34 - 1), 0
 chk("+26% IAF TB vs 3,8", 26, 100 * (C.loc[("TB", "A1")].LAI_24_36 / 3.8 - 1), 0)
 chk("ΔLenho IND→TB 11", 11, C.loc[("TB", "A1")].caule_24_36 - C.loc[("IND", "A1")].caule_24_36, 0)
 chk("fSW IND 0,53", 0.53, C.loc[("IND", "A1")].fSW_med, 2); chk("fSW TB 0,73", 0.73, C.loc[("TB", "A1")].fSW_med, 2)
-CO = pd.read_csv(S.parent / "saida_antes_dossel_u1/controles_solo_local.csv").set_index(["sitio", "mat"]); BG = [(s_, m_) for s_ in ["IND", "TB", "IMP"] for m_ in ["C2", "C4", "C5"]]
+CO = pd.read_csv(Path(__file__).with_name("controles_solo_antes_correcao_dossel.csv")).set_index(["sitio", "mat"]); BG = [(s_, m_) for s_ in ["IND", "TB", "IMP"] for m_ in ["C2", "C4", "C5"]]
 chk("IAF max Borges original mín 8", 8, CO.loc[BG].LAImax.min(), 0); chk("IAF max Borges original máx 11", 11, CO.loc[BG].LAImax.max(), 0)
 chk("IAF 2-3 anos Borges corrigido mín 2,4", 2.4, C.loc[BG].LAI_24_36.min(), 1); chk("IAF 2-3 anos Borges corrigido máx 5,6", 5.6, C.loc[BG].LAI_24_36.max(), 1)
 chk("IMA Borges corrigido mín 36", 36, C.loc[BG].IMA84.min(), 0); chk("IMA Borges corrigido máx 65", 65, C.loc[BG].IMA84.max(), 0)

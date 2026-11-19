@@ -7,14 +7,17 @@ Regra permanente: só dados secundários; nada de dados, parâmetros, referênci
 
 ---
 
-## Estado atual (31/10/2026)
+## Estado atual (19/11/2026)
 
-- TCC II: 49 páginas, 9 figuras e 13 tabelas. Inclui os outros danos, a compensação fisiológica calibrada e um local por bioma. Auditoria: 336 de 336 números conferidos; 49 testes do modelo aprovados.
+- O código-fonte atual do TCC está em `tcc_docx/conteudo.js`; a revisão textual de recuperação, persistência e limites foi registrada em 19/11. A geração do DOCX e a auditoria dos números ainda precisam ser refeitas após essa revisão.
 - Repositório privado no GitHub (fonte da verdade, salvo a cada etapa): https://github.com/beteixeira135-cmyk/akademia
-- Plataforma Akademia Florestal publicada: https://claude.ai/artifact/UCFSe9dyzhXKkkNRpibFAc. Inclui biblioteca de 49 conceitos, modo explicar, cubagem explicativa e taper seccional com toras; pensada para ser usada por quem não é da área.
+- A plataforma registrada no projeto é a Akademia Florestal v8, com conceitos, modo explicar, tutorial, cenários de desfolha e outros danos, compensação, faixa de incerteza, domínio de validade, exportação e cubagem/toras. A equivalência JS–Python está registrada em oito cenários, com diferença máxima de 1,6 × 10⁻¹³; a fonte foi reconstruída em `docs/index.html`. Antes da defesa, confirmar que a URL publicada aponta para essa versão.
 - Artigo da IC no formato MENSUFLOR (modelo do trabalho de mogno, M135), com 7 páginas.
 - Documento de preparação da defesa criado, mas ainda sem as seções preenchidas: https://claude.ai/artifact/YX9RX245H1xYjufaCytW34
-- Arquivos da versão atual: pasta **08 TCC II — versão atual (31-10-2026)** dentro de 3-PG (TCC .docx/.pdf, pacote de reprodutibilidade, MENSUFLOR .docx/.pdf, página da plataforma).
+- O simulador está verificado contra a implementação Python, mas não validado em campo nos seis locais. O teste independente com Oliveira et al. cobre oito meses após desfolha total; persistência por anos e transferência entre materiais seguem limites explícitos.
+- Pendências técnicas: o Python 3.15 disponível não tem `numpy` (e `pandas`/`sklearn` precisam de verificação); Node.js não está no PATH. A auditoria e o DOCX não foram gerados após a revisão textual. Rótulos S5–SA100 e a associação Indianópolis–TECHS 9 seguem sem confirmação.
+- Limpeza do repositório: removidos snapshots do TCC, versões antigas dos modelos e da plataforma, arquivos de backup e saídas anteriores de experimentos/calibração. O fixture de controle exigido pela auditoria foi preservado em `auditoria_final/controles_solo_antes_correcao_dossel.csv`; o protótipo 3D separado `plataforma/talhao_sorteado_3pg.html` foi mantido. A página atual foi reconstruída com `plataforma/construir.py`; a auditoria e os testes ainda aguardam as dependências.
+- As pendências listadas nas entradas datadas abaixo descrevem o estado naquela data, não necessariamente o estado atual.
 
 ## Registro
 

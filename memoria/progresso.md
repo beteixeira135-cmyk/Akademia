@@ -1,44 +1,12 @@
 # Progresso
 ## Feito
-- TCC v. 31/10 (manhã): 41 p., 9 figuras, 11 tabelas; auditoria 204/204; 36 testes (substituída pela versão da noite, abaixo).
-- Plataforma: conceitos (49), modo explicar, cubagem e taper seccional.
-- Calibração v3 (d = 0,999): U mediana 1,16 [IC90% 1,02–1,33]; a mediana 0,55 [0,05–0,975].
-  Ajuste C5 (vol/CAP/alt, %): obs 52,9/24,2/19,1; original 64,8/28,5/34,7; calibrado 50,4/20,2/24,9.
-  Teste A1-urocam, mesmo experimento, não independente (vol/CAP): obs 59,0/22,9; original 79,3/40,7; calibrado 64,8/29,7 (IC90% vol 53,7–78,6; CAP 22,5–40,0).
-- Biomas: clima NASA POWER e solo (ALM 219 mm, ARA 194 mm, ELD 145 mm TECHS 6) prontos; controles rodados.
-- Testes da v3: 13 novos (49 no total), todos aprovados (modelo/testes/test_compensacao_v3.py).
-- Validação qualitativa E. globulus (calibracao/saida/validacao_globulus.csv): sem perda de DAP/altura nas duas versões
-  (fraco para discriminar); IAF aos 18 meses (Barry), perda em relação ao controle: original 8,3%, calibrado 1,4% (IC90% −2,4 a 6,7) → mais próximo
-  de "área foliar sem diferença".
-- Bloco por bioma (experimentos/run_biomas.py → saida/biomas/): 1.728 tratamentos × 2 versões; a versão original reproduz
-  o bloco LOCAL do TCC (diferença máx. 3e-14). Calibrado reduz perdas (ex.: IND A1 50% PA 13,8 → 8,8%) e a recuperação
-  relativa de 23–35 para 8–15 meses (exceto ARA, 2–8). Incerteza (200 amostras) em incerteza_posterior_d50.csv.
-- RF 6 locais (saida/biomas/rf_*.csv): importância perda de volume — intensidade 50,6/47,3%, frequência 44,3/42,1%
-  (original/calibrado). Local fora, RQEM média: original 63% (local categórico) e 66% (clima numérico); calibrado 143% e 69%
-  (descrever o clima por números melhora a transferência na versão calibrada; R² 0,17 → 0,83).
-- Morris C5, 6 locais (morris_C5_6locais.csv): nWs é o mais influente em todos; depois k, y ou SLA1, conforme o local; dominam a perda de volume em todos os locais.
-- Danos, 6 locais, C5 (danos_6locais.csv): formigas original 2,5–6,6% (−0,6 em ARA) → calibrado 0,5–3,0%; em ARA a desfolha
-  economiza água e o original dá ganho (−2,5% lagarta), atenuado na calibrada (−0,4%).
-- Plausibilidade ARA: biomassa aérea simulada aos 54 meses 57–62 t/ha × 51–132 t/ha (média 88) de 15 clones na estação do IPA
-  (Alves et al., 2007, Rev. Ciênc. Agrár. 48:161-173; 3 × 2 m; ~650 mm). Dentro da faixa, abaixo da média. ELD: sem dado
-  publicado de produtividade localizado (não independente de qualquer forma).
-- TCC v. 31/10 noite: 49 p., 9 figuras, 13 tabelas. Novas seções 3.12 (compensação e calibração), 3.13 (biomas),
-  4.10, 4.11 (Tabelas 10 e 11); plataforma → 3.14/4.12; limitações → 4.13 (b) e (j)/(k) revistas; objetivos (+2),
-  introdução, resumo/abstract, palavras-chave, conclusões (+2), siglas e símbolos, 5 referências novas (Alves 2007,
-  IBGE 2024, McNabb e Wadouski 1999, OpenStreetMap, Silva, Mauro e Almeida 2019), Apêndice B. Auditoria: 336/336.
-- Missão 07 (auditoria científica e cienciométrica), concluída em 31/10: revisao_07/. Parecer B (encaminhar com ressalvas).
-  Correções: o urocam passou de "validação" a "teste do mesmo experimento"; Bertulio deixou de ser descrito como único
-  experimento; precedentes 3PG.d (Rua et al., 2020) e CABALA (Pinkard 2011/2014); evidência contrária de Matrangolo (2010):
-  o módulo subestima perdas após desfolha total precoce por fator de 6 a 34; Quentin (2011): γ ≈ 1; U sensível ao prior
-  (1,21 com limite 1,6); limitações (a)–(o); Apêndice C (busca). TCC com 53 p., 14 tabelas; auditoria 363/363.
-- Plataforma v8 (31/10): diferenciais em relação ao 3PG.d — compensação calibrada com incerteza, 6 biomas, outros danos com catálogo, perda por produto, domínio de validade; JS = Python (7 cenários, 1,4e-14). TCC rev08 com 3.14/4.12 atualizados; auditoria 367/367.
-- TCC rev09 (31/10): todo o trabalho descrito no texto (plataforma didática, cubagem e toras, perda por produto, reprodutibilidade e auditorias). 55 p.; auditoria 379/379.
-- TCC rev10 (31/10): seções 3.15/4.13 — possibilidades do módulo (ganho raro, recuperação de folhas ≠ de volume, aditividade) e validação cruzada (k-fold do metamodelo; LOO da calibração). 59 p.; auditoria 461/461.
-## Falta (em ordem)
-1. OpenAlex: rodar revisao_07/busca/openalex_busca.py após o reset do limite e atualizar a cienciometria.
-3. Revisão do texto pelo autor e envio aos orientadores (1ª semana de novembro).
-4. Defesa: documento de preparação e slides.
-- 02/11: ressalvas do parecer reduzidas a 1 (persistência das perdas após desfolha total precoce, Matrangolo). TCC VERSÃO FINAL v2, 35 p.; auditoria 506/506.
-- 02/11 (tarde): VERSÃO FINAL v3 (37 p.) — dossel corrigido, U de curta duração, teste independente que separa as versões; auditoria 528/528. Ressalva única: persistência das perdas após desfolha total precoce (Matrangolo).
-- 02/11 (16h): VERSÃO FINAL v4 com perspectivas na conclusão; passagem de bastão para o Astra (PASSAGEM_ASTRA.md).
-- 19/11: revisão textual da recuperação e persistência, interpretação de ganhos simulados e limites de transferência incorporada em `tcc_docx/conteudo.js`; prioridade de validação TECHS 9/22 registrada, com as identificações ainda pendentes onde não verificadas. A fórmula de perda já existente foi complementada com denominador e sinal; o código confirma controles pareados para comparações de desfolha isolada, mas não confirma a causa biológica dos ganhos. O artigo de Pizzi não foi recuperado pelo link fornecido, portanto seus valores não foram acrescentados. `PASSAGEM_DE_BASTAO.md` e `CONTEXTO_EMPACOTADO.md` regenerados. Auditoria numérica, testes e geração do DOCX pendentes: faltam dependências Python (`numpy`, possivelmente `pandas`/`sklearn`) e `node` não está no PATH.
+- Revisão documental de recuperação, persistência, interpretação dos ganhos simulados e limites de transferência incorporada em `tcc_docx/conteudo.js`.
+- Simulador Akademia: interface e módulos atuais preservados; diferença máxima JS–Python registrada em `1,60075e-13`, abaixo do limite do comparador (`1e-9`).
+- Fixture da auditoria numérica movido para `auditoria_final/controles_solo_antes_correcao_dossel.csv`; caminho da auditoria atualizado.
+- Removidos snapshots do TCC, versões antigas de fontes e modelos, protótipos da plataforma substituídos e saídas antigas de experimentos/calibração. O histórico Git preserva versões anteriores; o protótipo 3D `plataforma/talhao_sorteado_3pg.html` foi mantido por ser uma interface distinta.
+- `py -3 plataforma/construir.py` concluiu; a página `plataforma/docs/index.html` foi reconstruída. `git diff --check` e `git diff --cached --check` passaram.
+
+## Falta
+1. Reexecutar `python3 ferramentas/pipeline.py verificar`, auditoria numérica e testes após instalar as dependências Python ausentes; gerar o DOCX após disponibilizar Node.js.
+2. Rodar crescimento sem desfolha para TECHS 9 e 22 somente após confirmar os metadados e inventários; reportar erros por variável e separar ajuste de avaliação independente.
+3. Reavaliar a apresentação do simulador depois dos testes e da confirmação de todos os dados e alegações exibidos.
