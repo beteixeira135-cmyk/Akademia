@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Akademia Florestal</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -211,6 +216,8 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 #m-cubagem .tab{width:100%;font-size:12.5px}
 #m-cubagem textarea{width:100%;min-height:90px;font-family:var(--f-num);font-size:12.5px}
 </style>
+</head>
+<body>
 
 <header class="cab">
   <div><div class="rot">Akademia Florestal · laboratório de modelagem ecofisiológica</div>
@@ -1153,7 +1160,7 @@ function iniciar3D() {
   const trilha = new THREE.Mesh(new THREE.PlaneGeometry(2, 52), new THREE.MeshLambertMaterial({ color: 0x8a7a5c })); trilha.rotation.x = -Math.PI / 2; trilha.position.y = .02; scene.add(trilha);
   const pts = []; for (let i = 0; i <= 24; i++) { const h = i / 24; pts.push(new THREE.Vector2(Math.max(.001, raio(h * 20, 20, 200)), h)); }
   galhos = new THREE.InstancedMesh(new THREE.LatheGeometry(pts, 10), new THREE.MeshLambertMaterial({ color: 0xc9a27e }), LIN * COL * 2);
-  folhas = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 0), new THREE.MeshLambertMaterial({ color: 0xffffff, flatShading: true }), LIN * COL * 2 * K);
+  folhas = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 0), new THREE.MeshLambertMaterial({ color: 0xffffff }), LIN * COL * 2 * K);
   for (let i = 0; i < LIN * COL * 2 * K; i++) folhas.setColorAt(i, new THREE.Color(0x5f6f34)); folhas.instanceColor.needsUpdate = true;
   scene.add(galhos, folhas);
   const r = rng(20261030);
@@ -1307,7 +1314,7 @@ document.getElementById("bt-valid").onclick = abrirValid;
 // ---------- Conceitos: biblioteca, figuras e modo explicar ----------
 const C_ID = Object.fromEntries(CONCEITOS.map(c => [c.id, c]));
 const C_GR = Object.fromEntries(GRUPOS);
-const semAcento = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const semAcento = s => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
 // termos ordenados do mais longo ao mais curto, para "lei de Beer" vencer "Beer" e "área basal" vencer "área"
 const C_TERMOS = CONCEITOS.flatMap(c => c.termos.map(t => ({ t, n: semAcento(t), id: c.id }))).sort((a, b) => b.n.length - a.n.length);
 const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -1685,3 +1692,5 @@ document.getElementById("estado-sim").textContent = `${SIT[E.sitio]} · ${E.mat}
 let visto = false; try { visto = localStorage.getItem("tour3pg4") === "1"; localStorage.setItem("tour3pg4", "1"); } catch (e) {}
 if (!visto) { passo = 0; document.getElementById("tour").hidden = false; verPasso(); }
 </script>
+</body>
+</html>

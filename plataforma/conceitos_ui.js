@@ -1,7 +1,7 @@
 // ---------- Conceitos: biblioteca, figuras e modo explicar ----------
 const C_ID = Object.fromEntries(CONCEITOS.map(c => [c.id, c]));
 const C_GR = Object.fromEntries(GRUPOS);
-const semAcento = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+const semAcento = s => s.normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
 // termos ordenados do mais longo ao mais curto, para "lei de Beer" vencer "Beer" e "área basal" vencer "área"
 const C_TERMOS = CONCEITOS.flatMap(c => c.termos.map(t => ({ t, n: semAcento(t), id: c.id }))).sort((a, b) => b.n.length - a.n.length);
 const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
