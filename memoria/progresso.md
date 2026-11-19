@@ -1,7 +1,10 @@
 # Progresso
 ## Feito
+- Hipótese de transferência nutricional de Bown et al. (2013) incorporada ao TCC como diferencial proposto, não resultado demonstrado. `modelo/fn_soil.py` calcula a equação para N total (%) e C:N, sem clipping silencioso, mas não conecta ao motor. O texto explicita o modelo de origem (*Pinus radiata*), a falta de dados brasileiros pareados e a incompatibilidade ainda não resolvida entre o fN de Bown e o FR do `species["fertility"]`.
+- Referência completa de Bown adicionada; método 3.7, discussão 4.9, objetivo e perspectivas esclarecem que não houve cálculo brasileiro, calibração nem validação da transferência.
+- Testes do modelo e dos experimentos: 59 aprovados. DOCX gerado com 12 figuras e 3 tabelas. Auditoria numérica: 528/528; um valor esperado obsoleto para a diferença JS–Python foi corrigido para 6,2 × 10⁻¹⁴.
 - Revisão documental de recuperação, persistência, interpretação dos ganhos simulados e limites de transferência incorporada em `tcc_docx/conteudo.js`.
-- Simulador Akademia: interface e módulos atuais preservados; diferença máxima JS–Python registrada em `1,60075e-13`, abaixo do limite do comparador (`1e-9`).
+- Simulador Akademia: interface e módulos atuais preservados; diferença máxima JS–Python nos oito cenários verificados: `6,1567e-14`, abaixo do limite do comparador (`1e-9`).
 - Fixture da auditoria numérica movido para `auditoria_final/controles_solo_antes_correcao_dossel.csv`; caminho da auditoria atualizado.
 - Removidos snapshots do TCC, versões antigas de fontes e modelos, protótipos da plataforma substituídos e saídas antigas de experimentos/calibração. O histórico Git preserva versões anteriores; o protótipo 3D `plataforma/talhao_sorteado_3pg.html` foi mantido por ser uma interface distinta.
 - `py -3 plataforma/construir.py` concluiu; a página `plataforma/docs/index.html` foi reconstruída. `git diff --check` e `git diff --cached --check` passaram.
@@ -15,8 +18,7 @@
 - A conferência automática do texto encontrou três números sem correspondência na tabela de resultados (1.111, 28,65 °C e 1,35); são densidade de plantio, limite térmico e limite de U citados com fórmula ou fonte e precisam de checagem específica.
 - Em 19/11/2026, corrigidos UTF-8, estrutura HTML e um erro de expressão regular que impedia a execução dos scripts da página. Corrigida também uma propriedade de material incompatível na cena Three.js. `plataforma/construir.py` regenerou o simulador e `docs/index.html`; o navegador abriu a cena 3D, confirmou `charset=UTF-8`, `lang=pt-BR`, `R` e `renderer` ativos e não registrou erro de JavaScript. A desfolha visual passou a ser refletida diretamente por folhas menores e o evento mensal, em conjunto com os números do modelo.
 - Em 19/11/2026, adicionada ao cabeçalho a aba "Diferenças x Rua 3PG.d", com tabela comparativa de 10 aspectos e limites explícitos sobre o que se sabe pela descrição pública.
-- Auditoria final do escopo de validação produzida em `AUDITORIA_FINAL_NAO_VALIDADO_2026-11-19.txt`, também copiada para a Área de Trabalho. Reexecução: auditoria numérica 528/528; scanner 115 decimais/3 sem item cadastrado; 57 testes; equivalência JS–Python em 8 cenários (máxima diferença relativa 6,16e-14). Identificados erros textuais no número de biomas, no limite inferior de perda do tutorial e na mistura de versões de Matrangolo.
-- Estrutura inicial de fertilidade do solo por C e B adaptada ao Python (`modelo/fn_soil.py`): valida entradas, preserva ausências, retorna NaN e avisa quando não há parâmetros. O adaptador para `species["fertility"]` permanece desativado por padrão; sem fórmula e coeficientes documentados não estima fN. As suítes do modelo e dos experimentos passaram (62 testes).
+- Auditoria final do escopo de validação produzida em `AUDITORIA_FINAL_NAO_VALIDADO_2026-11-19.txt`, também copiada para a Área de Trabalho. Reexecução atual: auditoria numérica 528/528; scanner 115 decimais/3 sem item cadastrado; 59 testes; equivalência JS–Python em 8 cenários (máxima diferença relativa 6,16e-14). Identificados erros textuais no número de biomas, no limite inferior de perda do tutorial e na mistura de versões de Matrangolo.
 
 ## Falta
 1. Conferir a fórmula/fonte dos três números que a conferência textual não encontrou na tabela de resultados e, se necessário, ampliar a auditoria para entradas e parâmetros citados.
@@ -27,3 +29,4 @@
 6. Ampliar auditoria a entradas, parâmetros, fontes, referências e números do tutorial; revisar manualmente seis candidatos do verificador bibliográfico.
 7. Obter dados independentes, comparar NASA POWER com estações e confirmar coordenadas/solo; calibração cruzada e teste Oliveira não substituem validação local ou de longo prazo.
 8. Corrigir `ferramentas/pipeline.py` para que `verificar` não faça commit/push; confirmar restauração do ZIP, atalho da conversa e sincronização com Drive.
+9. Para testar a transferência de Bown, obter dados secundários de eucalipto com N total, C:N, profundidade e produtividade medidos na mesma parcela; estabelecer também um mapeamento cientificamente justificado entre o fN estimado e o FR usado pelo motor, antes de qualquer integração.
