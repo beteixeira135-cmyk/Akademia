@@ -11,3 +11,5 @@
 - Próxima prioridade científica: obter os inventários e metadados de TECHS 9 e 22 para avaliação por variável e confirmar o subconjunto de dados usado no ajuste A1. A associação direta Indianópolis–TECHS 9 foi descartada; os rótulos S5–SA100 continuam sem correspondência verificada.
 
 - `pipeline.py verificar`: com o Python do sistema, faltam dependências científicas; com `.venv`, numpy/pandas/sklearn passam, mas a verificação completa para em `node --version` porque Node.js não está no PATH.
+
+- Em 19/11/2026, a apresentação web voltou a executar: foi declarado `<!doctype html>`, `<html lang="pt-BR">`, UTF-8, `<head>` e `<body>`; o script que remove acentos passou de uma faixa Unicode mal codificada para `\p{M}`; a cena Three.js deixou de usar a propriedade incompatível `flatShading`. O simulador foi reconstruído e recarregado no navegador sem erros de JavaScript. Em um teste visual com desfolha de 95%, aos 24 meses, o talhão desfolhado mostrou W_F = 0,58 t ha^-1 contra 3,84 t ha^-1 no controle e volume = 48,38 m³ ha^-1 contra 55,83 m³ ha^-1 no controle.

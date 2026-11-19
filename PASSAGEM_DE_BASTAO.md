@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (5000 tokens, estimativa (caracteres ÷ 3,6); gerado em 19/11/2026 11:44)
+# PASSAGEM DE BASTÃO — TCC II (5437 tokens, estimativa (caracteres ÷ 3,6); gerado em 19/11/2026 11:56)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (23951 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (24387 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -61,6 +61,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 - `pipeline.py verificar`: com o Python do sistema, faltam dependências científicas; com `.venv`, numpy/pandas/sklearn passam, mas a verificação completa para em `node --version` porque Node.js não está no PATH.
 
+- Em 19/11/2026, a apresentação web voltou a executar: foi declarado `<!doctype html>`, `<html lang="pt-BR">`, UTF-8, `<head>` e `<body>`; o script que remove acentos passou de uma faixa Unicode mal codificada para `\p{M}`; a cena Three.js deixou de usar a propriedade incompatível `flatShading`. O simulador foi reconstruído e recarregado no navegador sem erros de JavaScript. Em um teste visual com desfolha de 95%, aos 24 meses, o talhão desfolhado mostrou W_F = 0,58 t ha^-1 contra 3,84 t ha^-1 no controle e volume = 48,38 m³ ha^-1 contra 55,83 m³ ha^-1 no controle.
+
 ---
 # Progresso
 ## Feito
@@ -75,6 +77,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Busca documental pública confirmou os locais TECHS 9 (Estrela do Sul; aproximadamente 35 km de Indianópolis) e 22 (Telêmaco Borba). Binkley et al. (2017) fornece metadados de sítio e resultados agregados de meia rotação, mas não localizei os inventários brutos para download na página do IPEF nem nas buscas em repositórios consultados. Site 9 é apenas referência próxima para Indianópolis, não validação direta.
 - Benchmark adaptado executado para A1 no TECHS 22 com as saídas sem desfolha já calculadas: incremento de lenho simulado 37,06 contra 34 Mg ha⁻¹ ano⁻¹ publicado (+9,0%); IAF simulado aos 24 meses 4,89 contra 3,8 publicado. A segunda comparação é pontual aos 24 meses; a tabela do TCC reporta média simulada de 24–36 meses. Clima municipal e solo do sítio são usados; sobreposição com dados de ajuste A1 não confirmada, portanto não é validação independente.
 - `auditoria_final/auditar_numeros.py` compilou após trocar caminhos absolutos por relativos, mas a execução parou por falta de Node.js. A auditoria e o DOCX ainda não foram gerados.
+- Em 19/11/2026, corrigidos UTF-8, estrutura HTML e um erro de expressão regular que impedia a execução dos scripts da página. Corrigida também uma propriedade de material incompatível na cena Three.js. `plataforma/construir.py` regenerou o simulador e `docs/index.html`; o navegador abriu a cena 3D, confirmou `charset=UTF-8`, `lang=pt-BR`, `R` e `renderer` ativos e não registrou erro de JavaScript. A desfolha visual passou a ser refletida diretamente por folhas menores e o evento mensal, em conjunto com os números do modelo.
 
 ## Falta
 1. Disponibilizar Node.js, fonte de dados r3PG e `experimentos/saida/mensal.csv.gz`; então executar a auditoria numérica e completar as suítes de testes.
@@ -106,6 +109,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 19/11: repetição de desfolhas não será apresentada como inovação frente a Rua et al. (2020); a contribuição é avaliar recuperação e perdas persistentes em condições brasileiras, com limites explícitos de transferência entre materiais. Recuperação da área foliar, retomada do incremento e déficit de madeira são dimensões diferentes. Perda negativa significa apenas resultado simulado acima do controle segundo a fórmula pareada; não atribuir causa hídrica sem evidência. Não importar percentuais de Pizzi até recuperar e conferir a fonte primária. Binkley et al. (2017) localiza TECHS 9 em Estrela do Sul, a cerca de 35 km de Indianópolis, e TECHS 22 em Telêmaco Borba; não tratar Indianópolis como sítio TECHS 9. Os rótulos S5–SA100 seguem sem correspondência verificada.
 - 19/11: preparar execução no VS Code com `.venv` e tarefas que chamam diretamente os scripts de calibração. Não usar `ferramentas/pipeline.py` para essas tarefas: ele faz commit e tenta enviar `HEAD:main`. A calibração LOO e por material é validação cruzada no mesmo experimento; Oliveira et al. (2014) é o teste em estudo independente disponível, limitado ao horizonte observado.
 - 19/11: não tratar Indianópolis como TECHS 9. Binkley et al. (2017) localiza o sítio 9 em Estrela do Sul, a ~35 km; o valor de solo é uma referência próxima. O resultado agregado de A1/TECHS 22 pode ser usado como benchmark adaptado, com diferenças de clima/coordenadas e sem independência demonstrada em relação ao ajuste A1; não chamar de validação empírica. A IAF publicada é aos 24 meses e não é diretamente comparável à média simulada de 24–36 meses. Solicitar dados e metadados para avaliação por variável.
+- 19/11/2026: manter `plataforma/fonte2.html` como fonte única de estrutura/visualização e `plataforma/construir.py` para regenerar o simulador e `docs/index.html`. Corrigir problemas de codificação e execução na fonte, não só nos arquivos gerados. Na cena 3D, a copa do talhão desfolhado deve diminuir pela biomassa foliar mensal do modelo e o dano deve marcar também a passagem dos eventos; o resultado visual é ilustrativo e não substitui as métricas científicas.
 
 ---
 # Contexto técnico
@@ -119,6 +123,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 19/11 11:55 Improve Akademia simulator page rendering
+- 19/11 11:45 Document TECHS 22 benchmark limits
 - 19/11 11:36 Document public TECHS data limits
 - 19/11 11:30 Record VS Code validation results
 - 19/11 11:05 Configure VS Code calibration workspace
@@ -132,8 +138,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 02/11 12:02 pipeline: etapa tabelas concluída
 - 02/11 11:42 pipeline: etapa danos concluída
 - 02/11 11:42 pipeline: etapa analises concluída
-- 02/11 11:31 pipeline: etapa indicadores concluída
-- 02/11 11:31 pipeline: etapa experimentos concluída
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
