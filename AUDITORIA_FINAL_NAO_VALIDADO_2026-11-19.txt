@@ -1,0 +1,477 @@
+AUDITORIA FINAL — PENDÊNCIAS DE VALIDAÇÃO, INCONSISTÊNCIAS E CONTRAMEDIDAS
+Projeto: módulo de desfolha no 3-PG / Akademia Florestal
+Data: 19/11/2026
+
+OBJETIVO E LIMITES DESTA AUDITORIA
+
+Este relatório organiza inconsistências e limites encontrados no texto do TCC,
+no tutorial/compêndio, nos scripts e nas saídas atualmente disponíveis. Não é
+uma validação de campo, uma revisão independente de todos os artigos citados,
+nem uma garantia de que nenhum outro problema exista. As citações e os dados
+primários não foram todos reobtidos e conferidos nesta etapa.
+
+Classificação:
+- CONFIRMADO: a afirmação diverge de arquivo, resultado ou cálculo consultado.
+- NÃO VALIDADO: faltam dados independentes ou uma verificação adequada.
+- RISCO/AMBIGUIDADE: há mais de uma interpretação ou a evidência não sustenta
+  uma afirmação forte.
+- CONFERIDO, COM ESCOPO: a checagem passou, mas só cobre os casos descritos.
+
+RESUMO EXECUTIVO
+
+1. Há um erro de escopo repetido: são seis locais em cinco biomas, não seis
+   locais, um por bioma. Indianópolis e Imperatriz ficam no Cerrado; o Pantanal
+   foi excluído.
+2. O tutorial tem ao menos dois números/descrições que precisam ser corrigidos:
+   o limite inferior da perda de um ataque (1,2%, não 1,6%, quando se juntam
+   Indianópolis e Telêmaco Borba) e a faixa de Matrangolo, que mistura duas
+   versões do modelo.
+3. O módulo foi verificado como código e testado contra alguns cenários, mas
+   ainda não foi validado nos seis locais. A validação cruzada usa o mesmo
+   experimento de Bertulio usado na calibração. O teste externo de Oliveira é
+   curto e depende de hipóteses de transferência.
+4. A auditoria numérica atual passou em 528/528 verificações. Isso não significa
+   que todos os números, parâmetros, entradas e citações do TCC e do tutorial
+   estejam rastreados: o scanner textual encontrou três números sem item na
+   tabela de auditoria.
+5. Os resultados de cenários e de Random Forest descrevem saídas de simulação;
+   não são frequências observadas em povoamentos nem acurácia biológica.
+6. O relatório antigo de etapas e partes do tutorial estão desatualizados em
+   relação ao TCC revisado em 19/11/2026.
+
+1. INCONSISTÊNCIAS CONFIRMADAS E CONTRAMEDIDAS
+
+1.1 Quantidade de locais e biomas — PRIORIDADE ALTA
+
+Evidência: o TCC e o tutorial dizem “seis locais, um em cada bioma”. A lista
+contém Indianópolis e Imperatriz no Cerrado, Telêmaco Borba na Mata Atlântica,
+Almeirim na Amazônia, Araripina na Caatinga e Eldorado do Sul no Pampa. São seis
+locais distribuídos em cinco biomas; o Pantanal foi excluído.
+
+Contramedida: substituir em resumo, objetivos, métodos, figuras e tutorial por
+“seis locais em cinco biomas: dois no Cerrado e um em cada um dos outros quatro
+biomas; Pantanal excluído”. Quando a comparação for por local, escrever “seis
+locais”, não “seis biomas”. Revisar também a frase do tutorial “nos seis
+biomas”.
+
+Arquivos: tcc_docx/conteudo.js; guia/guia.html.
+
+1.2 Perda com um ataque no tutorial — PRIORIDADE ALTA
+
+Evidência: o tutorial informa 1,6–15,2% para um ataque de 25–95% em
+Indianópolis e Telêmaco Borba. O próprio TCC informa 1,6–9,5% em Indianópolis
+e 1,2–15,2% em Telêmaco Borba. Portanto, o intervalo conjunto começa em 1,2%.
+
+Contramedida: corrigir o cartão do tutorial para 1,2–15,2% e explicitar que é
+uma faixa de resultados simulados nesses dois locais, não uma faixa observada
+em campo.
+
+Arquivos: guia/guia.html; tcc_docx/conteudo.js.
+
+1.3 Faixa de Matrangolo mistura versões do modelo — PRIORIDADE ALTA
+
+Evidência: o tutorial diz que “o modelo indicou de 3,8 a 32,1%”. A faixa reúne
+o mínimo da versão calibrada (3,8%) com o máximo da versão original (32,1%).
+Os resultados documentados são:
+- original, sem compensação: 7,4–32,1%;
+- calibrado, com compensação: 3,8–11,5%;
+- observado no artigo: 37,9–79,7%.
+
+Contramedida: apresentar as duas versões separadamente e informar que ambas
+subestimam a persistência observada no horizonte longo, com maior subestimação
+na versão calibrada. Não usar a faixa combinada como se pertencesse a uma única
+configuração.
+
+Arquivos: guia/guia.html; tcc_docx/conteudo.js; calibracao/saida/testes_adicionais.json.
+
+1.4 Tutorial não acompanha a revisão do TCC — PRIORIDADE ALTA
+
+Evidência: o guia se identifica como versão final v4, de 02/11/2026, e cita
+essa versão como fonte. O texto do TCC e a memória do projeto registram revisão
+em 19/11/2026. A página ainda traz “seis locais, um por bioma”, o intervalo de
+perda incorreto e a faixa de Matrangolo misturada.
+
+Contramedida: sincronizar tutorial, compêndio, tabelas e TCC a partir dos
+resultados atuais; registrar versão e data de geração; executar a auditoria de
+texto após cada atualização.
+
+Arquivo: guia/guia.html.
+
+1.5 Janela climática descrita como anos completos — PRIORIDADE ALTA
+
+Evidência: o TCC e o guia dizem “2015 a 2024, dia a dia”. A série diária
+consultada termina em 31/01/2024; portanto, 2024 não é um ano completo.
+
+Contramedida: informar datas exatas — 01/01/2015 a 31/01/2024 para a série
+correspondente — e confirmar os limites de cada arquivo/site antes de generalizar.
+Não apresentar 2024 como ano completo.
+
+Arquivos: tcc_docx/conteudo.js; guia/guia.html; clima/power_api/.
+
+1.6 Resultados de dois pulsos sem versão explícita no tutorial — AMBIGUIDADE
+
+Evidência: o TCC registra 17,3% em Indianópolis para a versão original; o
+tutorial também apresenta 13,1% para a versão calibrada. Os valores podem ser
+compatíveis por representarem versões diferentes, mas o leitor pode interpretá-
+los como divergência.
+
+Contramedida: rotular cada resultado como “original” ou “calibrado”, indicando
+clone, calendário e horizonte em todas as figuras, cartões e tabelas.
+
+Arquivos: guia/guia.html; tcc_docx/conteudo.js; experimentos/saida/.
+
+1.7 Inconsistências internas nas fontes de campo — RISCO DOCUMENTAL
+
+Evidência: a revisão já registrada para Bertulio et al. (2008) identificou:
+- métodos citam Tukey a 5%, mas rodapés das tabelas citam teste F a 1%;
+- a coleta de 12/04/2007 a 12/03/2008 cobre 11 meses, mas as idades tabuladas
+  passam de 14 para 26 meses;
+- percentuais do resumo diferem ligeiramente dos calculados a partir das
+  tabelas.
+Em Matrangolo et al. (2010), o texto informa 37,9% de redução de volume por
+árvore após um evento, enquanto a tabela dá 38,6%.
+
+Contramedida: manter os valores transcritos identificados por tabela/texto,
+documentar a regra adotada e rodar sensibilidade para 25/26 meses e para
+37,9/38,6%, se isso alterar as conclusões. Não alegar significância estatística
+sem resolver a divergência do artigo.
+
+Arquivos: revisao/extrair_pares_observados.py;
+revisao/dados_tratamentos_observados_verificado.csv;
+RELATORIO_ETAPAS_INDEPENDENTES.md.
+
+1.8 Tutoriais e relatórios históricos com status superado
+
+Evidência: RELATORIO_ETAPAS_INDEPENDENTES.md, de 30/10, registra pendências e
+afirmações de execução que foram superadas por etapas posteriores. Não deve ser
+lido como status atual. O guia, por sua vez, cita o TCC v4 de 02/11.
+
+Contramedida: inserir aviso visível “relatório histórico — status superado em
+19/11/2026” no relatório antigo e apontar para a memória atual. Atualizar o guia
+conforme o item 1.4.
+
+Arquivos: RELATORIO_ETAPAS_INDEPENDENTES.md; guia/guia.html.
+
+2. O QUE ESTÁ CONFERIDO — E O QUE ESSA CONFERÊNCIA NÃO PROVA
+
+2.1 Números e texto
+
+CONFERIDO, COM ESCOPO: auditoria_final/auditar_numeros.py foi reexecutada e
+passou em 528/528 verificações.
+
+Limite: são verificações/assertions cadastradas no auditor, não 528 números
+únicos nem prova de que todo número em prosa, tabela, legenda, entrada e
+parâmetro tenha sido auditado.
+
+O scanner encontrou 115 números decimais no texto e três sem item correspondente
+na tabela de auditoria:
+- 1.111 árvores/ha: deriva do espaçamento de 3 × 3 m (10.000/9);
+- 28,65 °C: limite térmico atribuído ao clone A1;
+- 1,35: limite superior do prior de U, associado à fonte citada.
+Esses três casos não foram confirmados como erros. São lacunas de rastreabilidade
+automática: a auditoria deve registrar fórmula/fonte e recalcular esses insumos.
+
+Contramedida: ampliar a matriz de auditoria para entradas, parâmetros, fontes,
+valores derivados, tabelas e legendas. Manter um identificador por número citado
+e testar também os números inteiros e os dados do tutorial.
+
+Arquivos: auditoria_final/auditar_numeros.py;
+auditoria_final/auditoria_numeros.csv;
+ferramentas/conferir_texto_auditoria.js.
+
+2.2 Código e plataforma
+
+CONFERIDO, COM ESCOPO: 57 testes passaram. O comparador JS–Python passou em
+oito cenários; a maior diferença relativa nesta execução foi aproximadamente
+6,16 × 10⁻¹⁴, abaixo do limite de 10⁻⁹.
+
+Limite: isso verifica a equivalência da implementação nos testes executados,
+não a validade biológica, nem todos os materiais, calendários, intensidades,
+eventos e estados possíveis. A frase “a plataforma reproduz exatamente as
+simulações deste trabalho” é mais ampla do que a amostra de oito cenários.
+
+Contramedida: dizer “equivalência verificada em oito cenários” até ampliar a
+matriz automatizada; cobrir fronteiras, entradas inválidas, combinações de
+eventos e cenários representativos; manter testes de regressão do módulo
+original com compensation=None.
+
+Nota de rastreabilidade: a memória anterior registra diferença máxima
+1,60075 × 10⁻¹³. O comparador executado agora deu 6,16 × 10⁻¹⁴. Ambos são menores
+que 10⁻⁹, mas atualizar o registro para o resultado atual e identificar qual
+comparador produziu cada número.
+
+Arquivo: plataforma/verificacao/comparar.py.
+
+3. CALIBRAÇÃO, VALIDAÇÃO E MÉTRICAS
+
+3.1 Validação cruzada não é validação independente
+
+Evidência: a calibração de U e a usa o experimento Bertulio, clone urograndis
+(C5). A validação cruzada e a transferência entre C5/A1 reutilizam o mesmo
+experimento e as mesmas observações, embora reservem clone/linhas em algumas
+partições. O RQEM cai de 15,72 para 4,31 pontos percentuais na validação cruzada.
+Essa melhora mede ajuste/transferência dentro do experimento; não é validação
+em dados independentes de campo.
+
+Contramedida: chamar esses resultados de validação cruzada interna ou teste
+entre clones no mesmo experimento. Reservar “validação independente” para dados
+que não participaram da calibração, e explicitar unidade experimental,
+partições e variáveis.
+
+Arquivos: calibracao/validacao_cruzada.py;
+calibracao/saida/validacao_cruzada.json;
+calibracao/calibrar.py.
+
+3.2 Identificabilidade e sensibilidade dos parâmetros
+
+Evidência:
+- U: mediana 1,18; quantis 5–95% 1,01–1,34. Ao ampliar o prior superior de
+  1,35 para 1,60, a mediana passa a 1,30 e o quantil 95% a 1,58. Em desfolha
+  quase total, U é pouco identificável e a posterior acompanha o prior.
+- a: mediana 0,625; quantis 5–95% 0,225–0,975, faixa ampla. Ajustando só volume,
+  a mediana é 0,60; só CAP, 0,425.
+- γ = 1 foi selecionado numa grade de 0 a 1, com passo 0,05, por aproximar a
+  razão de transpiração de 1. O valor está na borda da grade e não tem intervalo
+  de incerteza; valores acima de 1 não foram explorados.
+
+Contramedida: chamar U de parâmetro pouco identificado/ancorado no prior, não
+de estimativa robusta dos dados. Reportar a sensibilidade de a e γ. Não
+interpretar γ = 1 como parâmetro universal: o teste usa outra espécie,
+experimento, clima e configuração.
+
+Arquivos: calibracao/saida/auditoria_calibracao.json;
+calibracao/saida/calibracao_d0999.json;
+calibracao/saida/gamma_quentin2011.json;
+calibracao/calibrar.py.
+
+3.3 Verossimilhança usa três variáveis correlacionadas
+
+Evidência: a função de calibração soma erros de volume, CAP e altura como
+componentes independentes com um desvio comum. Essas medidas vêm do mesmo
+experimento e são biologicamente/geometricamente relacionadas; o código não
+modela covariância entre resíduos. O ajuste isolado por variável também desloca
+a mediana de a.
+
+Contramedida: apresentar essa hipótese como limitação; testar uma verossimilhança
+multivariada com covariância estimável, ou calibrar uma variável e usar as
+demais como checagens externas. Mostrar a análise por variável e não contar
+medidas correlacionadas como três evidências independentes sem justificativa.
+
+3.4 Teste externo de Oliveira é útil, mas limitado
+
+Evidência: o teste usa Oliveira et al. (2014), com volume observado publicado de
+35,4% de perda e mediana simulada calibrada de 33,0%, oito meses após desfolha
+total. A simulação usa C5 (híbrido), embora o estudo seja E. grandis seminal;
+assume solo com ASWmax de 215 mm e usa anos de clima 2015–2022 porque o ano do
+experimento não foi informado. O 3-PG também não distingue desfolha superior e
+inferior. Perdas dos tratamentos parciais são derivadas de D²H, não medidas
+diretas de volume.
+
+Limite da faixa: o código calcula quantis posteriores por ano e depois toma a
+mediana dos quantis dos oito anos. O intervalo 28,1–45,8% não é um intervalo
+frequentista de confiança nem um intervalo preditivo conjunto que inclua uma
+distribuição observada do ano/clima real.
+
+Há ainda diferença interna: a perda de volume publicada é 35,4%; a derivada de
+D²H no próprio script é 36,0%.
+
+Contramedida: descrever o teste como comparação externa adaptada, informar
+espécie, solo, clima e horizonte; chamar 28,1–45,8% de resumo dos quantis
+posteriores por ano, não “IC90%” sem qualificação; usar 35,4% publicado como
+alvo e mostrar 36,0% derivado apenas como conferência.
+
+Arquivos: calibracao/teste_oliveira2014.py;
+calibracao/saida/teste_oliveira2014.json;
+tcc_docx/tabelas_dados.py.
+
+3.5 Evidência contrária de persistência em longo prazo
+
+Evidência: em Matrangolo, a perda observada aos 92 meses é 37,9–79,7%. O modelo
+produz 7,4–32,1% sem compensação e 3,8–11,5% com a versão calibrada. A
+calibração não reproduz a persistência do dano nesse estudo.
+
+Contramedida: manter explícita a restrição de uso: não usar o módulo para
+prever perdas de fim de rotação após desfolha total no primeiro ano. Não
+apresentar o acerto de curto prazo de Oliveira como validação do horizonte de
+oito anos. Investigar reservas de carbono, mortalidade de ramos e outras
+respostas antes de ampliar o domínio.
+
+3.6 Benchmark TECHS 22 não é validação independente demonstrada
+
+Evidência: simulação adaptada de A1: 37,06 contra 34 Mg ha⁻¹ ano⁻¹ (+9%) entre
+24–36 meses; IAF simulado 4,89 contra 3,8 publicado aos 24 meses. O clima usa
+coordenadas municipais; não está demonstrado se a observação participou do
+ajuste de A1. A média simulada de IAF em 24–36 meses não é comparável diretamente
+à observação pontual aos 24 meses.
+
+Contramedida: chamar de benchmark adaptado; apresentar separadamente as idades
+e escalas; obter inventários/metadados e confirmar a independência antes de
+chamar de validação.
+
+3.7 Metamodelos, cenários e Random Forest
+
+Evidência: a grade de possibilidades informa 7.584 cenários gerados, 5.688
+aptos após exclusões e, na versão calibrada, 36 de 2.844 cenários com ganho de
+volume (1,27%), ganho máximo de 5,19%. Esses números são proporções da grade
+escolhida, não probabilidades de campo nem frequência real de benefícios.
+
+Os R² do Random Forest (por exemplo, 0,992 em uma validação k-fold) medem a
+capacidade de prever saídas simuladas dentro daquela matriz. As análises têm
+escopos e partições diferentes; os valores .992, .953, .93 e .88/.90 não devem
+ser misturados sem identificar conjunto, resposta e protocolo.
+
+Contramedida: rotular todo resultado como “cenários simulados” ou “metamodelo
+das saídas do 3-PG”; informar denominador e versão do modelo. Não usar R²,
+acurácia ou importância de variáveis como evidência de acerto biológico.
+
+3.8 Outros danos são cenários exploratórios
+
+Evidência: perdas atribuídas a formigas (4,0–14,6%), psilídeo (0,4–1,6%),
+percevejo, ferrugem e mortalidade derivam de intensidades, taxas e durações
+representadas no modelo. Parte dos valores é explicitamente cenário, não
+estimativa medida em povoamento.
+
+Contramedida: manter “cenário exploratório” junto de cada tabela/figura; não
+apresentar como risco observado ou previsão operacional sem dados de campo
+compatíveis. Priorizar a busca de séries secundárias por praga, local, idade e
+intensidade.
+
+4. CLIMA, SOLO, LOCALIZAÇÃO E TRANSFERÊNCIA
+
+4.1 Clima NASA POWER
+
+Não foi identificada nesta auditoria comparação sistemática com estações
+INMET ou outra rede observacional local. A tabela-resumo do tutorial confere,
+ao arredondamento apresentado, com clima_resumo_locais.csv:
+
+Local | T média (°C) | Chuva anual (mm) | Meses secos
+IND   | 23,24        | 1.128,66          | 5
+TB    | 20,45        | 1.397,52          | 0
+IMP   | 28,69        | 1.151,36          | 5
+ALM   | 27,32        | 1.862,21          | 2
+ARA   | 26,86        | 572,03            | 7
+ELD   | 19,95        | 1.459,08          | 0
+
+Conferir a soma e as datas de cada série, registrar coordenadas pedidas à API,
+variáveis, unidades, códigos de ausência e data de download. Comparar com
+estações disponíveis e quantificar o viés, sobretudo para precipitação. Sem
+essa comparação, tratar o clima como proxy NASA POWER, não como observação do
+talhão.
+
+4.2 Coordenadas e solo
+
+As coordenadas municipais não comprovam a posição de cada povoamento. TECHS 9
+é em Estrela do Sul, cerca de 35 km de Indianópolis; seu solo é uma referência
+próxima, não medição direta do local de Indianópolis. Em outros locais há
+estimativas via SoilGrids/PTF-ZARC, não medições de perfil de solo em todos os
+talhões.
+
+Contramedida: solicitar coordenadas e inventários do TECHS; para cada local,
+classificar solo como medido, emprestado de sítio vizinho ou estimado por mapa.
+Fazer sensibilidade ao ASWmax e não apresentar valor proxy como propriedade
+local observada.
+
+4.3 Limite térmico
+
+Imperatriz, Almeirim e Araripina ultrapassam a temperatura média limite de A1
+(28,65 °C, conforme o texto). O TCC diz que esses casos são diagnósticos. Não
+interpretar resultados de A1 nesses locais como previsão válida fora do
+domínio térmico.
+
+Contramedida: manter exclusões claras nos denominadores e figuras, registrar
+quais cenários foram retirados e testar materiais adaptados antes de inferir
+resposta local.
+
+5. REFERÊNCIAS E RASTREABILIDADE DOCUMENTAL
+
+O verificador atual encontrou zero referências listadas sem citação, mas seis
+candidatos a citações sem referência: FREITAS 1994, SILVEIRA 1998, PINKARD
+1998, NASA 2015, NO 2008 e FLORESTAL 2026. O resultado é heurístico; vários
+candidatos parecem ser falsos positivos por uso de “apud”, datas, abreviações
+ou nomes da plataforma. Não são seis referências ausentes confirmadas.
+
+Contramedida: revisar cada candidato manualmente no contexto; registrar se é
+citação secundária “apud”, referência completa consultada ou falso positivo.
+Conferir DOI, autoria, ano, título e página diretamente na fonte editorial.
+Não declarar o checker prova de correspondência bibliográfica perfeita.
+
+Arquivos: ferramentas/conferir_referencias.js;
+tcc_docx/conteudo.js.
+
+6. REPRODUÇÃO, AMBIENTE E PORTABILIDADE
+
+6.1 Comando de verificação com efeitos de publicação
+
+Evidência: ferramentas/pipeline.py chama a rotina de commit após cada etapa
+bem-sucedida, inclusive “verificar”. Ela executa git add -A, cria commit e
+tenta push para origin HEAD:main. Executar o comando de verificação pode,
+portanto, incluir e publicar alterações não relacionadas.
+
+Contramedida: não usar essa etapa sem revisar as alterações. Alterar o pipeline
+para que “verificar” seja somente leitura, nunca faça commit e nunca faça push
+automático; exigir ação explícita para publicar.
+
+6.2 Node e PATH
+
+O Node v26.13.1 está instalado em
+%LOCALAPPDATA%\\Programs\\node-v26.13.1\\node-v26.13.1-win-x64. O PATH do usuário
+contém a pasta, mas este processo do terminal não a herdou. Nesta auditoria,
+Node foi executado pelo caminho completo. Abrir um novo terminal/VS Code e
+confirmar `node --version`; se necessário, corrigir o PATH do usuário.
+
+6.3 ZIP de retomada
+
+O ZIP da Área de Trabalho é um snapshot do projeto, não um ambiente totalmente
+autônomo: exclui .git, .venv, node_modules e o clone externo r3PG. A reconstrução
+requer instalação de dependências e, para a dependência externa, acesso à rede.
+O atalho agent-host-session:// incluído no pacote não foi testado após
+formatação e pode depender da conta/sessão do serviço.
+
+Contramedida: manter uma segunda cópia do ZIP fora deste computador; guardar
+credenciais e identificador/link da conversa em local seguro; testar a
+restauração em outro perfil; documentar a reinstalação e conferir a URL da
+plataforma. A sincronização deste relatório com o Google Drive não foi
+confirmada nesta execução.
+
+7. PLANO DE AÇÃO PRIORIZADO
+
+ANTES DE DIVULGAR O TCC/TUTORIAL
+1. Corrigir “seis locais, um por bioma”, o cartão 1,6–15,2%, a frase “seis
+   biomas” e a mistura das versões de Matrangolo.
+2. Corrigir datas do clima e rotular resultados originais/calibrados.
+3. Atualizar guia e compêndio a partir da versão revisada em 19/11.
+4. Trocar afirmações absolutas sobre auditoria/plataforma por afirmações com
+   escopo: 528 verificações cadastradas e oito cenários JS–Python.
+
+ANTES DE ALEGAR VALIDAÇÃO
+5. Obter inventários independentes e metadados; confirmar se TECHS 22 entrou no
+   ajuste; buscar dados por variável e local.
+6. Comparar NASA POWER com estações e documentar os limites espaciais e de solo.
+7. Reavaliar Matrangolo, as divergências internas dos artigos e a incerteza da
+   calibração; não extrapolar a resposta de oito meses para o fim da rotação.
+8. Ampliar a auditoria numérica para entradas, parâmetros, fontes, figuras,
+   tabelas, tutorial e referências.
+
+PARA REPRODUTIBILIDADE
+9. Separar verificação, commit e push no pipeline; automatizar testes em mais
+   de oito combinações da plataforma.
+10. Atualizar passagem de bastão, diário e ZIP; testar restauração fora deste
+    computador e confirmar sincronização/registro no Drive.
+
+CONCLUSÃO
+
+Os testes confirmam a execução dos códigos e a consistência de resultados em
+escopos definidos; não demonstram validade biológica geral. A evidência
+independente disponível é limitada e contraditória entre horizontes: há
+proximidade com o resultado de curto prazo de Oliveira sob adaptações, mas há
+subestimação importante em Matrangolo no horizonte longo. Até obter novos dados
+independentes, apresentar o módulo como verificado e calibrado com domínio de
+uso restrito, não como validado nos seis locais.
+
+Arquivos principais consultados: tcc_docx/conteudo.js; guia/guia.html;
+auditoria_final/auditar_numeros.py; ferramentas/conferir_texto_auditoria.js;
+ferramentas/conferir_referencias.js; calibracao/calibrar.py;
+calibracao/auditoria_calibracao.py; calibracao/teste_oliveira2014.py;
+experimentos/saida/biomas/clima_resumo_locais.csv;
+experimentos/saida/possibilidades/resumo_possibilidades.json;
+RELATORIO_ETAPAS_INDEPENDENTES.md; ferramentas/pipeline.py.

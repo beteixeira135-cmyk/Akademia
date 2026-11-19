@@ -2,41 +2,41 @@
  {
   "cenario": "ALM_A1_ctrl",
   "meses": 85,
-  "dif_rel_max": 6.889455225598172e-16
+  "dif_rel_max": 1.1472371948457234e-14
  },
  {
   "cenario": "ARA_C5_PA50_comp",
   "meses": 94,
-  "dif_rel_max": 1.6007519096645816e-13
+  "dif_rel_max": 6.156738114093939e-14
  },
  {
   "cenario": "ELD_C2_tudo",
   "meses": 94,
-  "dif_rel_max": 2.393870238924482e-15
+  "dif_rel_max": 2.7928486120785636e-15
  },
  {
   "cenario": "IND_A1_95_comp",
   "meses": 85,
-  "dif_rel_max": 6.636374044078935e-16
+  "dif_rel_max": 7.314850046713968e-15
  },
  {
   "cenario": "TB_C4_mort",
   "meses": 94,
-  "dif_rel_max": 6.5334921507890315e-16
+  "dif_rel_max": 2.7277439743115336e-15
  },
  {
   "cenario": "IMP_C5_efic",
   "meses": 94,
-  "dif_rel_max": 4.06958788028563e-14
+  "dif_rel_max": 6.104381820427824e-14
  },
  {
   "cenario": "IND_A1_P1_orig",
   "meses": 85,
-  "dif_rel_max": 3.825355170544224e-15
+  "dif_rel_max": 6.375591950907023e-15
  },
  {
   "cenario": "IND_C5_u1",
   "meses": 94,
-  "dif_rel_max": 2.7149239049569057e-15
+  "dif_rel_max": 3.1588734930935884e-15
  }
 ]

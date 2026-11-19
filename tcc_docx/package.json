@@ -1,0 +1,11 @@
+{
+  "name": "akademia-tcc-docx",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Dependencias para gerar o documento do TCC II",
+  "main": "gerar.js",
+  "type": "commonjs",
+  "dependencies": {
+    "docx": "^9.16.0"
+  }
+}
