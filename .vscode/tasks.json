@@ -61,6 +61,38 @@
       "problemMatcher": []
     },
     {
+      "label": "Experimentos: gerar matriz mensal",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "experimentos/run_experimentos.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Testes: modelo e experimentos",
+      "dependsOn": [
+        "Experimentos: gerar matriz mensal"
+      ],
+      "dependsOrder": "sequence",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "pytest",
+        "-q",
+        "modelo/testes",
+        "experimentos/testes"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "Calibração: posterior C5, d=0.999",
       "type": "process",
       "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
