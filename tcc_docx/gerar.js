@@ -125,7 +125,7 @@ const TABS = {
   controles: () => tabela("Crescimento simulado sem desfolha com solo local e dados secundários de referência",
     ["Local", "Material", "Volume aos 84 meses (m^3^ ha^-1^)", "IMA (m^3^ ha^-1^ ano^-1^)", "Lenho, 2–3 anos (Mg ha^-1^ ano^-1^)", "IAF médio, 2–3 anos", "Meses com f~T~ = 0", "Referência medida"],
     TD.controles,
-    [1.6, 0.9, 1.3, 1.2, 1.4, 1.1, 1.0, 2.4], "Lenho: incremento de W~S~(1 − p~BB~) entre 24 e 36 meses. Referência: Binkley et al. (2017), clone A1, mesmo município, mesmo espaçamento; dado não independente da calibração do A1. *Diagnóstico de extrapolação térmica. Fonte: o autor (2026)."),
+    [1.6, 0.9, 1.3, 1.2, 1.4, 1.1, 1.0, 2.4], "Lenho: incremento de W~S~(1 − p~BB~) entre 24 e 36 meses. Benchmark adaptado: Binkley et al. (2017), A1 no TECHS 22; o IAF publicado refere-se a 24 meses, enquanto a coluna mostra a média simulada de 24–36 meses. A simulação usa clima NASA POWER nas coordenadas municipais e solo do sítio. A independência em relação aos dados usados no ajuste A1 não foi estabelecida; não interpretar como validação. *Diagnóstico de extrapolação térmica. Fonte: o autor (2026)."),
   principal: () => tabela("Perda relativa de volume (%) aos 84 meses por local, material, intensidade e frequência da desfolha, com solo local, e tempo para a biomassa foliar atingir 95% do controle após pulso único",
     ["Local", "Frequência", "A1: 25%", "A1: 50%", "A1: 95%", "C5: 25%", "C5: 50%", "C5: 95%"],
     TD.principal,

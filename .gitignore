@@ -18,3 +18,4 @@ solos_fontes/*.pdf
 *.pptx
 plataforma/simulador_3pg_eucalyptus.html
 node_modules/
+.venv/

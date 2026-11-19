@@ -1,0 +1,209 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Python: criar ambiente virtual",
+      "type": "process",
+      "command": "py",
+      "args": [
+        "-3",
+        "-m",
+        "venv",
+        ".venv"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Python: instalar dependências de calibração",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "pip",
+        "install",
+        "-r",
+        "requirements-calibracao.txt"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Python: verificar dependências",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-c",
+        "import numpy, pandas, scipy, sklearn, pytest; print('ambiente de calibração ok')"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Modelo: executar testes",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "pytest",
+        "-q",
+        "modelo/testes"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Experimentos: gerar matriz mensal",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "experimentos/run_experimentos.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Testes: modelo e experimentos",
+      "dependsOn": [
+        "Experimentos: gerar matriz mensal"
+      ],
+      "dependsOrder": "sequence",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "-m",
+        "pytest",
+        "-q",
+        "modelo/testes",
+        "experimentos/testes"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Calibração: posterior C5, d=0.999",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "calibrar.py",
+        "0.999"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}\\calibracao"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Calibração: posterior C5, d=0.99",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "calibrar.py",
+        "0.99"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}\\calibracao"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Calibração: estimar gamma",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "calibrar_gamma.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}\\calibracao"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Calibração: validação cruzada interna",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "validacao_cruzada.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}\\calibracao"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Calibração: auditoria",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "auditoria_calibracao.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}\\calibracao"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Calibração: testes adicionais",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "testes_adicionais.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}\\calibracao"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Calibração: avaliação qualitativa E. globulus",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "validacao_globulus.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}\\calibracao"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Calibração: teste independente Oliveira 2014",
+      "type": "process",
+      "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe",
+      "args": [
+        "teste_oliveira2014.py"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}\\calibracao"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Calibração: recalcular e avaliar pacote atual",
+      "dependsOn": [
+        "Calibração: posterior C5, d=0.999",
+        "Calibração: posterior C5, d=0.99",
+        "Calibração: estimar gamma",
+        "Calibração: validação cruzada interna",
+        "Calibração: auditoria",
+        "Calibração: testes adicionais",
+        "Calibração: avaliação qualitativa E. globulus",
+        "Calibração: teste independente Oliveira 2014"
+      ],
+      "dependsOrder": "sequence",
+      "problemMatcher": []
+    }
+  ]
+}

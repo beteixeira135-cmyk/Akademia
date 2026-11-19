@@ -173,7 +173,7 @@ const CONCEITOS = [
     onde: "Prancha I (material).", ver: ["calibracao"] },
   { id: "verificacao", grupo: "modelo", titulo: "Verificação", termos: ["verificação", "verificado"],
     curto: "Conferir se o programa faz exatamente o que as equações dizem.",
-    texto: "<p>Verificar não é saber se o modelo acerta a floresta, e sim se o código não tem erros. A implementação deste trabalho reproduziu o r3PG original com diferença máxima de 5 × 10⁻¹⁵ (erro de arredondamento do computador) e passou em 49 testes automáticos. O simulador do navegador reproduz essa implementação com diferença máxima de 1,4 × 10⁻¹⁴, inclusive na compensação e nos outros danos.</p>",
+    texto: "<p>Verificar não é saber se o modelo acerta a floresta, e sim se o código não tem erros. A implementação deste trabalho reproduziu o r3PG original com diferença máxima de 5 × 10⁻¹⁵ (erro de arredondamento do computador) e passou em 49 testes automáticos. O simulador do navegador reproduz essa implementação com diferença máxima de 1,6 × 10⁻¹³, inclusive na compensação e nos outros danos.</p>",
     onde: "Validação & métricas.", ver: ["validacao", "calibracao"] },
   { id: "calibracao", grupo: "modelo", titulo: "Calibração", termos: ["calibração", "calibrar", "calibrado"],
     curto: "Ajustar os parâmetros para o modelo reproduzir medições reais.",

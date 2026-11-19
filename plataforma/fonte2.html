@@ -1,3 +1,8 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Akademia Florestal</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -211,12 +216,14 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 #m-cubagem .tab{width:100%;font-size:12.5px}
 #m-cubagem textarea{width:100%;min-height:90px;font-family:var(--f-num);font-size:12.5px}
 </style>
+</head>
+<body>
 
 <header class="cab">
   <div><div class="rot">Akademia Florestal · laboratório de modelagem ecofisiológica</div>
     <h1>Simulador 3-PG de <em>Eucalyptus</em></h1>
     <p>Crescimento mensal de povoamentos de eucalipto em seis locais, um por bioma com plantios, com e sem desfolha, outros danos e compensação fisiológica.</p></div>
-  <nav><button class="lnk" id="bt-conceitos" type="button">Conceitos</button><button class="lnk chave" id="bt-explicar" type="button" aria-pressed="false">Modo explicar</button><button class="lnk" id="bt-cubagem" type="button">Cubagem e toras</button><button class="lnk" id="bt-tour" type="button">Tutorial guiado</button><button class="lnk" id="bt-valid" type="button">Validação &amp; métricas</button><button class="lnk chave" id="bt-material" type="button">Material do TCC</button></nav>
+  <nav><button class="lnk" id="bt-conceitos" type="button">Conceitos</button><button class="lnk chave" id="bt-explicar" type="button" aria-pressed="false">Modo explicar</button><button class="lnk" id="bt-cubagem" type="button">Cubagem e toras</button><button class="lnk" id="bt-tour" type="button">Tutorial guiado</button><button class="lnk" id="bt-valid" type="button">Evidências e métricas</button><button class="lnk chave" id="bt-material" type="button">Material do TCC</button></nav>
 </header>
 
 <main class="lab">
@@ -343,12 +350,12 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 </main>
 
 <footer class="rodape">
-  <p>Motor: 3-PGpjs do r3PG v0.1.7 com o módulo de desfolha do TCC, executado no navegador. A versão em JavaScript reproduz a versão verificada em Python com diferença relativa máxima de 1,4 × 10⁻¹⁴, incluindo a compensação calibrada, a perda de eficiência e a mortalidade. Clima: NASA POWER. Solo local: rede TECHS (Binkley et al., 2017) e SoilGrids com a PTF-ZARC. Bioma: IBGE (2024). Parâmetros: Caldeira et al. (2020) para o A1 e Borges (2009) para C5, C2 e C4, com a queda de folhas e a partição para folhas da rede TECHS (os valores de Borges davam IAF de 8 a 11). Compensação: U da literatura (só no mês do ataque), γ de Quentin et al. (2011) e a de Bertulio et al. (2008); teste independente com Oliveira et al. (2014).</p>
+  <p>Motor: 3-PGpjs do r3PG v0.1.7 com o módulo de desfolha do TCC, executado no navegador. A saída registrada da comparação JavaScript–Python mostrou diferença relativa máxima de 1,6 × 10⁻¹³, incluindo a compensação calibrada, a perda de eficiência e a mortalidade. Clima: NASA POWER. Solo local: rede TECHS (Binkley et al., 2017) e SoilGrids com a PTF-ZARC. Bioma: IBGE (2024). Parâmetros: Caldeira et al. (2020) para o A1 e Borges (2009) para C5, C2 e C4, com a queda de folhas e a partição para folhas da rede TECHS (os valores de Borges davam IAF de 8 a 11). Compensação: U da literatura (só no mês do ataque), γ de Quentin et al. (2011) e a de Bertulio et al. (2008); teste independente com Oliveira et al. (2014).</p>
   <p>As ilustrações, os horizontes do solo, o perfil do fuste do gráfico e a altura do A1 são esquemáticos. O taper da aba Toras usa a equação de Souza et al. (2016), de outro clone, e os critérios de sortimento de Soares et al. (2003). Os resultados foram verificados, mas não validados com experimentos de desfolha nos seis locais.</p>
 </footer>
 
-<div class="modal" id="m-valid" hidden><div class="pr" role="dialog" aria-modal="true" aria-label="Validação e métricas">
-  <div class="pr-cab"><h2>Validação &amp; métricas</h2><button class="fechar" data-fecha="m-valid" type="button">Fechar</button></div>
+<div class="modal" id="m-valid" hidden><div class="pr" role="dialog" aria-modal="true" aria-label="Evidências e métricas">
+  <div class="pr-cab"><h2>Evidências e métricas</h2><button class="fechar" data-fecha="m-valid" type="button">Fechar</button></div>
   <div id="valid-corpo"></div>
 </div></div>
 <div class="modal" id="m-exp" hidden><div class="pr" role="dialog" aria-modal="true" aria-label="Exportar">
@@ -739,7 +746,7 @@ function iniciar3D() {
   const trilha = new THREE.Mesh(new THREE.PlaneGeometry(2, 52), new THREE.MeshLambertMaterial({ color: 0x8a7a5c })); trilha.rotation.x = -Math.PI / 2; trilha.position.y = .02; scene.add(trilha);
   const pts = []; for (let i = 0; i <= 24; i++) { const h = i / 24; pts.push(new THREE.Vector2(Math.max(.001, raio(h * 20, 20, 200)), h)); }
   galhos = new THREE.InstancedMesh(new THREE.LatheGeometry(pts, 10), new THREE.MeshLambertMaterial({ color: 0xc9a27e }), LIN * COL * 2);
-  folhas = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 0), new THREE.MeshLambertMaterial({ color: 0xffffff, flatShading: true }), LIN * COL * 2 * K);
+  folhas = new THREE.InstancedMesh(new THREE.IcosahedronGeometry(1, 0), new THREE.MeshLambertMaterial({ color: 0xffffff }), LIN * COL * 2 * K);
   for (let i = 0; i < LIN * COL * 2 * K; i++) folhas.setColorAt(i, new THREE.Color(0x5f6f34)); folhas.instanceColor.needsUpdate = true;
   scene.add(galhos, folhas);
   const r = rng(20261030);
@@ -830,7 +837,7 @@ function abrirValid() {
   <div class="secao"><h3>1. Verificação numérica</h3><div class="tabs-wrap"><table class="tab"><thead><tr><th>Comparação</th><th>n</th><th>R²</th><th>RQEM</th><th>Viés</th></tr></thead><tbody>
     <tr><td>Port Python × r3PG original (308 controles; W<sub>S</sub>, W<sub>F</sub>, W<sub>R</sub>, volume, IAF, DAP)</td><td class="num">28.277/var.</td><td class="num">1,000000</td><td class="num">&lt; 2×10⁻¹³ %</td><td class="num">&lt; 5×10⁻¹⁵ %</td></tr>
     <tr><td>Port Python × 3-PG em planilha (VBA), perenifólia e decídua</td><td class="num">110</td><td class="num">≥ 0,9996</td><td class="num">≤ 0,13%</td><td class="num">≤ 0,04%</td></tr>
-    <tr><td>Este simulador (JavaScript) × port Python, 7 cenários com desfolha, perda de eficiência, mortalidade e compensação, nos 6 locais</td><td class="num">≈ 640/var.</td><td class="num">1,000000</td><td class="num">máx. 1,4×10⁻¹⁴ (relativa)</td><td class="num">–</td></tr></tbody></table></div></div>
+    <tr><td>Este simulador (JavaScript) × port Python, 7 cenários com desfolha, perda de eficiência, mortalidade e compensação, nos 6 locais</td><td class="num">≈ 640/var.</td><td class="num">1,000000</td><td class="num">máx. 1,6×10⁻¹³ (relativa)</td><td class="num">–</td></tr></tbody></table></div></div>
   <div class="secao"><h3>2. Validação publicada da parametrização A1</h3><p class="mini">Caldeira et al. (2020) calibraram e avaliaram o clone A1 com inventários da rede TECHS em vários sítios do Brasil até 80 meses: R² &gt; 0,93 para volume, biomassa de lenho, DAP e área basal, e R² = 0,26 para IAF. Esses resultados são dos autores e não foram refeitos aqui.</p></div>
   <div class="secao"><h3>3. Confronto com dados secundários</h3><div class="tabs-wrap"><table class="tab"><caption>Telêmaco Borba, clone A1, 3 × 3 m (Binkley et al., 2017). Dado não independente: entrou na calibração do A1.</caption>
     <thead><tr><th>Variável (2 a 3 anos)</th><th>Medido</th><th>Simulado</th><th>Diferença</th></tr></thead><tbody>
@@ -934,3 +941,5 @@ document.getElementById("estado-sim").textContent = `${SIT[E.sitio]} · ${E.mat}
 let visto = false; try { visto = localStorage.getItem("tour3pg4") === "1"; localStorage.setItem("tour3pg4", "1"); } catch (e) {}
 if (!visto) { passo = 0; document.getElementById("tour").hidden = false; verPasso(); }
 </script>
+</body>
+</html>

@@ -57,25 +57,20 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ```markdown
 # Contexto ativo
-- Feito (31/10 noite): Missão 07 — auditoria científica e cienciométrica; TCC revisado (53 p.); relatórios em revisao_07/.
-- Próximo: OpenAlex (após 00h UTC) → atualizar a cienciometria; o autor lê o TCC revisado e envia aos orientadores com as 5 ressalvas do parecer.
-- Arquivos grandes (PDFs, docx, mensal.csv.gz, zips) não vão para o GitHub: ficam no Drive.
-- Drive (31/10, fim da noite): relatórios da Missão 07 em Docs na pasta 11; Diário recriado com a entrada da Missão 07; passagem atualizada. Autor arrasta TCC rev07 (pasta 08) e zip (pasta 11).
-- Feito (31/10, 20h): plataforma v8 (artifact versão 8). Motor JS com compensação v3, perda de eficiência e mortalidade, conferido contra o Python em 7 cenários (dif. rel. máx 1,4e-14; plataforma/verificacao/comparar.py). Corrigido: volume registrado antes da mortalidade (como no r3PG). 6 locais por bioma; fisiologia original × calibrada; faixa de 90% com 200 amostras do posterior; catálogo de agentes; perda por produto; quadro de domínio de validade; prancha 'Precedentes' (3PG.d, CABALA). TCC rev08 (53 p.): 3.14, 4.12 e conclusão atualizados; auditoria 367/367.
-- Feito (31/10, 21h): 'tudo no TCC' — TCC rev09 (55 p., 10 figuras, 14 tabelas): 3.14 descreve a biblioteca de 52 conceitos, modo explicar, cubagem (Smalian/Huber/Newton), taper e sortimentos; 4.12 traz a perda por produto (serraria −33,6%, celulose +5,9%, energia +36,8%) e a figura v8; Apêndice A com tutorial de 13 passos e figura das toras; Apêndice B com controle de versões, roteiro automatizado, auditorias numérica e científica, verificacao/, revisao_07/, ferramentas/. Auditoria 379/379. Pendente: perguntar ao autor sobre declaração de uso de IA.
-- Feito (31/10, 21h30): espaço de possibilidades (experimentos/possibilidades.py, 7.584 cenários; 5.688 aptos) e validação cruzada da calibração (calibracao/validacao_cruzada.py: LOO k=5 RQEM 15,1→4,2 p.p.; k=2 C5→A1 19,1→6,4; A1→C5 11,7→4,3). RF k-fold 10×3 R² 0,991; LOSO 0,912; classificador ganho×perda 98,3% (bal. 93,7%). Ganho sobre o controle em 1,9% (orig.) e 3,1% (calib.) dos cenários, quase sempre com 25% de desfolha. TCC rev10: 3.15, 4.13 (Tabelas 12–13), Limitações → 4.14; 59 p.; auditoria 461/461.
-- Feito (31/10, 22h): declaração de uso de IA (3.16) e referência ANTHROPIC (2026); TCC rev11, 60 p.; auditoria 461/461.
+- Em 19/11, a revisão documental foi incorporada a `tcc_docx/conteudo.js`: Rua é precedente, não inovação; a contribuição é avaliar recuperação e perdas persistentes em condições brasileiras, com limites explícitos de transferência. Distinguir recuperação da área foliar, retomada do incremento e déficit de madeira.
+- Os ganhos simulados acima do controle não têm causa biológica verificada. Não interpretar a inversão do indicador como benefício hídrico sem conferir fórmula, sinal, denominador e cenários pareados. Pizzi não foi recuperado na fonte primária; seus percentuais não foram incorporados.
+- Busca de fontes públicas: Binkley et al. (2017) confirma TECHS 9 em Estrela do Sul (−18,73; −47,92), a cerca de 35 km de Indianópolis, e TECHS 22 em Telêmaco Borba. Portanto, o sítio 9 não fornece observações diretas de Indianópolis. Não localizei séries brutas de inventários para baixar. O artigo apresenta para A1/TECHS 22 produtividade agregada de lenho (34 Mg ha⁻¹ ano⁻¹ entre 24–36 meses) e IAF 3,8 aos 24 meses.
+- Benchmark adaptado já calculado para A1/TECHS 22: o modelo produziu 37,06 Mg ha⁻¹ ano⁻¹ de lenho entre 24–36 meses (+9,0% sobre o valor publicado) e IAF 4,89 aos 24 meses, ante 3,8 publicados. A simulação usa clima NASA POWER nas coordenadas municipais e solo TECHS 22; o artigo não permite confirmar se essa observação participou do ajuste A1, então a independência não está demonstrada. A coluna IAF da tabela do TCC é a média simulada de 24–36 meses e não deve ser comparada como erro à observação pontual aos 24 meses. Tratar os dois resultados como benchmark adaptado, não validação.
+- Limpeza concluída: versões antigas, snapshots e saídas anteriores foram removidos; o histórico Git mantém a rastreabilidade. O CSV de controles necessário à auditoria foi preservado em `auditoria_final/controles_solo_antes_correcao_dossel.csv`. O protótipo separado `plataforma/talhao_sorteado_3pg.html` foi mantido por oferecer uma interface 3D distinta.
+- VS Code preparado com `.vscode/` e `requirements-calibracao.txt`; o ambiente `.venv` foi criado em Python 3.15 e as dependências foram instaladas.
+- Reexecutadas com sucesso calibração C5, estimação de γ, validação cruzada interna, auditoria da calibração, testes adicionais, avaliação qualitativa de *E. globulus* e teste independente de Oliveira. Medianas: U = 1,18 (IC90% 1,01–1,34), a = 0,625 (0,225–0,975), γ = 1. A validação cruzada permanece dentro do experimento Bertulio; o teste Oliveira cobre a resposta em outro estudo, não valida persistência de longo prazo.
+- VS Code usa `.vscode/` para preparar ambiente, recalcular calibração e executar as suítes. A fonte pública `trotsiuk/r3PG` está clonada na pasta irmã esperada; `experimentos/saida/mensal.csv.gz` foi regenerado localmente (ignorado pelo Git). As suítes do modelo e dos experimentos passaram: 57 testes.
+- A auditoria numérica não concluiu: `auditar_numeros.py` teve os caminhos absolutos de Linux corrigidos, mas ainda requer Node.js, que não está no PATH. O DOCX também depende de Node.js.
+- Próxima prioridade científica: obter os inventários e metadados de TECHS 9 e 22 para avaliação por variável e confirmar o subconjunto de dados usado no ajuste A1. A associação direta Indianópolis–TECHS 9 foi descartada; os rótulos S5–SA100 continuam sem correspondência verificada.
 
-- Feito (01/11, madrugada): TCC enxugado de 60 para 40 páginas (rev12). Corpo 12.924 → 4.362 palavras; métodos 3.1–3.8, resultados 4.1–4.7; resumo 244 palavras; conclusão 6 parágrafos; plataforma detalhada no Apêndice A; Apêndice D novo (efeito do solo, recuperação × água, Morris). Corrigida a Tabela de verificação (308 controles, 28.277 registros; antes 260/23.873). Tabela 1 com os seis locais. Auditoria 489/489. Versão de 60 p. guardada (conteudo_v11_60p_antes_enxugar.js; entregas/rev11).
-- Feito (01/11, 3h): regra do autor — 'tudo que chama atenção fica no TCC (gráficos); tudo que ocupa espaço mental vai para a Akademia'. TCC rev13 (34 p.): linguagem acessível; 12 figuras (3 novas: N1 calibração/validação cruzada, N2 biomas, N3 possibilidades); 1 tabela no corpo (locais); 7 quadros 'Na Akademia' com QR code (plataforma/qr, decodificado e conferido); apêndices A (reprodutibilidade) e B (busca). Akademia v9: 'Material do TCC' com 16 tabelas completas extraídas de gerar.js (extrair_material_tcc.js + material_tcc.py). Auditoria 489/489.
-- Feito (02/11): acabamento e VERSÃO FINAL para o Álvaro (34 p.). Título atualizado para 'NOS BIOMAS BRASILEIROS'; referências conferidas nos dois sentidos (5 citações restauradas, incl. SILVA 2021; Souza et al. 2016 e Soares et al. 2003 incluídas, DOIs via Crossref); siglas e símbolos refeitos; lista de ilustrações corrigida (et al.); Apêndice A → B corrigido. Auditoria 489/489; 57 testes.
-- Feito (02/11, tarde): ressalvas do parecer resolvidas, sobra 1. (5) γ calibrado com Quentin et al. (2011): γ = 1 (calibracao/calibrar_gamma.py); erro corrigido: calibrar.py ajustava U e a com γ = 0, e as simulações usavam 0,5. Recalibrado com γ = 1: U 1,22 (1,03–1,34), a 0,475; teste urocam 20,3→7,4 p.p.; LOO 15,1→4,1; k=2 19,1→7,2 e 11,7→4,9. Tudo refeito (biomas, possibilidades, RF, Morris). (3) busca complementada no Semantic Scholar (revisao_07/busca/semantic_busca.py: 469 no núcleo combinado; nenhum experimento brasileiro novo). (4) leituras: Battaglia 2011 (fonte primária do CABALA), Turnbull 2007; Collett e Neumann 2002 inacessível. (1) teste independente com Oliveira et al. (2014), Mucuri-BA (calibracao/teste_oliveira2014.py): desfolha total aos 6 meses, perda de volume 8 meses depois 35,4% observada; calibrado 29,2% (26,4–33,5), original 38,7%; parciais ≤1,5%, como no campo (n.s.). (2) Matrangolo vira a única ressalva: o módulo acerta a perda de curto prazo, mas não a persistência por anos (sem reservas nem morte de ramos; o CABALA falha igual, Battaglia 2011).
-- TCC VERSÃO FINAL v2 (02/11, 35 p.): entregas/TCC_II_Bernardo_Castro_VERSAO_FINAL_v2_02-11-2026. Auditoria 506/506; 49 testes; referências 0 sem citação. Akademia reconstruída (Material do TCC e domínio de validade com Oliveira).
-- Atenção: converter o PDF com --outdir (o PDF em tcc_docx/ fica bloqueado) e rodar `node gerar.js paginas.json` para o sumário ter páginas.
+- `pipeline.py verificar`: com o Python do sistema, faltam dependências científicas; com `.venv`, numpy/pandas/sklearn passam, mas a verificação completa para em `node --version` porque Node.js não está no PATH.
 
-
-- Feito (02/11, ~12h30): cascata "sem falhas escondidas" → TCC VERSÃO FINAL v3 (37 p.). Dossel de Borges corrigido (γF e pFS2 da TECHS; IAF 2,4–5,6); U só no mês do ataque (u_meses = 1). Recalibração: U 1,18 (não identificado em desfolha total, vem da literatura), a 0,625, γ = 1 (razão 1,000). Urocam 20,3→7,5 p.p.; LOO 15,7→4,3; Oliveira (independente): original 77,6%, calibrado 33,0% (28,1–45,8) contra 35,4% medido (erro 34,3→3,2 p.p.). Matrangolo segue fora (4–32% contra 38–80%). Recuperação da copa calibrada ≤ 2 meses, perto das 12 semanas de Eyles et al. (2016). Ganho sobre o controle: original 1 caso (0,1%); calibrado 1,3% (máx 5,2%). Biomas: nenhum ganho na faixa de 90%; no Pampa a reação aumenta a perda anual (5,9→8,3%). Morris nos biomas: k no topo em 5 locais. Defeitos achados e corrigidos: matriz principal lia os 6 locais; controles sem script; tabelas digitadas à mão (agora tcc_docx/tabelas_dados.py); plataforma com tabelas digitadas (atualizadas). Auditoria 528/528; conferidor texto×auditoria ok; 49 testes; JS = Python em 8 cenários.
-- Feito (02/11, 16h): VERSÃO FINAL v4 (37 p.) com 5.1 Perspectivas na conclusão (persistência, validação, clones atuais, RESILIA/clima futuro, ensino). PASSAGEM_ASTRA.md escrita (passagem para o Astra). Auditoria 528/528; 49 testes; referências ok.
+- Em 19/11/2026, a apresentação web voltou a executar: foi declarado `<!doctype html>`, `<html lang="pt-BR">`, UTF-8, `<head>` e `<body>`; o script que remove acentos passou de uma faixa Unicode mal codificada para `\p{M}`; a cena Three.js deixou de usar a propriedade incompatível `flatShading`. O simulador foi reconstruído e recarregado no navegador sem erros de JavaScript. Em um teste visual com desfolha de 95%, aos 24 meses, o talhão desfolhado mostrou W_F = 0,58 t ha^-1 contra 3,84 t ha^-1 no controle e volume = 48,38 m³ ha^-1 contra 55,83 m³ ha^-1 no controle.
 ```
 
 ## memoria/progresso.md
@@ -83,47 +78,24 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ```markdown
 # Progresso
 ## Feito
-- TCC v. 31/10 (manhã): 41 p., 9 figuras, 11 tabelas; auditoria 204/204; 36 testes (substituída pela versão da noite, abaixo).
-- Plataforma: conceitos (49), modo explicar, cubagem e taper seccional.
-- Calibração v3 (d = 0,999): U mediana 1,16 [IC90% 1,02–1,33]; a mediana 0,55 [0,05–0,975].
-  Ajuste C5 (vol/CAP/alt, %): obs 52,9/24,2/19,1; original 64,8/28,5/34,7; calibrado 50,4/20,2/24,9.
-  Teste A1-urocam, mesmo experimento, não independente (vol/CAP): obs 59,0/22,9; original 79,3/40,7; calibrado 64,8/29,7 (IC90% vol 53,7–78,6; CAP 22,5–40,0).
-- Biomas: clima NASA POWER e solo (ALM 219 mm, ARA 194 mm, ELD 145 mm TECHS 6) prontos; controles rodados.
-- Testes da v3: 13 novos (49 no total), todos aprovados (modelo/testes/test_compensacao_v3.py).
-- Validação qualitativa E. globulus (calibracao/saida/validacao_globulus.csv): sem perda de DAP/altura nas duas versões
-  (fraco para discriminar); IAF aos 18 meses (Barry), perda em relação ao controle: original 8,3%, calibrado 1,4% (IC90% −2,4 a 6,7) → mais próximo
-  de "área foliar sem diferença".
-- Bloco por bioma (experimentos/run_biomas.py → saida/biomas/): 1.728 tratamentos × 2 versões; a versão original reproduz
-  o bloco LOCAL do TCC (diferença máx. 3e-14). Calibrado reduz perdas (ex.: IND A1 50% PA 13,8 → 8,8%) e a recuperação
-  relativa de 23–35 para 8–15 meses (exceto ARA, 2–8). Incerteza (200 amostras) em incerteza_posterior_d50.csv.
-- RF 6 locais (saida/biomas/rf_*.csv): importância perda de volume — intensidade 50,6/47,3%, frequência 44,3/42,1%
-  (original/calibrado). Local fora, RQEM média: original 63% (local categórico) e 66% (clima numérico); calibrado 143% e 69%
-  (descrever o clima por números melhora a transferência na versão calibrada; R² 0,17 → 0,83).
-- Morris C5, 6 locais (morris_C5_6locais.csv): nWs é o mais influente em todos; depois k, y ou SLA1, conforme o local; dominam a perda de volume em todos os locais.
-- Danos, 6 locais, C5 (danos_6locais.csv): formigas original 2,5–6,6% (−0,6 em ARA) → calibrado 0,5–3,0%; em ARA a desfolha
-  economiza água e o original dá ganho (−2,5% lagarta), atenuado na calibrada (−0,4%).
-- Plausibilidade ARA: biomassa aérea simulada aos 54 meses 57–62 t/ha × 51–132 t/ha (média 88) de 15 clones na estação do IPA
-  (Alves et al., 2007, Rev. Ciênc. Agrár. 48:161-173; 3 × 2 m; ~650 mm). Dentro da faixa, abaixo da média. ELD: sem dado
-  publicado de produtividade localizado (não independente de qualquer forma).
-- TCC v. 31/10 noite: 49 p., 9 figuras, 13 tabelas. Novas seções 3.12 (compensação e calibração), 3.13 (biomas),
-  4.10, 4.11 (Tabelas 10 e 11); plataforma → 3.14/4.12; limitações → 4.13 (b) e (j)/(k) revistas; objetivos (+2),
-  introdução, resumo/abstract, palavras-chave, conclusões (+2), siglas e símbolos, 5 referências novas (Alves 2007,
-  IBGE 2024, McNabb e Wadouski 1999, OpenStreetMap, Silva, Mauro e Almeida 2019), Apêndice B. Auditoria: 336/336.
-- Missão 07 (auditoria científica e cienciométrica), concluída em 31/10: revisao_07/. Parecer B (encaminhar com ressalvas).
-  Correções: o urocam passou de "validação" a "teste do mesmo experimento"; Bertulio deixou de ser descrito como único
-  experimento; precedentes 3PG.d (Rua et al., 2020) e CABALA (Pinkard 2011/2014); evidência contrária de Matrangolo (2010):
-  o módulo subestima perdas após desfolha total precoce por fator de 6 a 34; Quentin (2011): γ ≈ 1; U sensível ao prior
-  (1,21 com limite 1,6); limitações (a)–(o); Apêndice C (busca). TCC com 53 p., 14 tabelas; auditoria 363/363.
-- Plataforma v8 (31/10): diferenciais em relação ao 3PG.d — compensação calibrada com incerteza, 6 biomas, outros danos com catálogo, perda por produto, domínio de validade; JS = Python (7 cenários, 1,4e-14). TCC rev08 com 3.14/4.12 atualizados; auditoria 367/367.
-- TCC rev09 (31/10): todo o trabalho descrito no texto (plataforma didática, cubagem e toras, perda por produto, reprodutibilidade e auditorias). 55 p.; auditoria 379/379.
-- TCC rev10 (31/10): seções 3.15/4.13 — possibilidades do módulo (ganho raro, recuperação de folhas ≠ de volume, aditividade) e validação cruzada (k-fold do metamodelo; LOO da calibração). 59 p.; auditoria 461/461.
-## Falta (em ordem)
-1. OpenAlex: rodar revisao_07/busca/openalex_busca.py após o reset do limite e atualizar a cienciometria.
-3. Revisão do texto pelo autor e envio aos orientadores (1ª semana de novembro).
-4. Defesa: documento de preparação e slides.
-- 02/11: ressalvas do parecer reduzidas a 1 (persistência das perdas após desfolha total precoce, Matrangolo). TCC VERSÃO FINAL v2, 35 p.; auditoria 506/506.
-- 02/11 (tarde): VERSÃO FINAL v3 (37 p.) — dossel corrigido, U de curta duração, teste independente que separa as versões; auditoria 528/528. Ressalva única: persistência das perdas após desfolha total precoce (Matrangolo).
-- 02/11 (16h): VERSÃO FINAL v4 com perspectivas na conclusão; passagem de bastão para o Astra (PASSAGEM_ASTRA.md).
+- Revisão documental de recuperação, persistência, interpretação dos ganhos simulados e limites de transferência incorporada em `tcc_docx/conteudo.js`.
+- Simulador Akademia: interface e módulos atuais preservados; diferença máxima JS–Python registrada em `1,60075e-13`, abaixo do limite do comparador (`1e-9`).
+- Fixture da auditoria numérica movido para `auditoria_final/controles_solo_antes_correcao_dossel.csv`; caminho da auditoria atualizado.
+- Removidos snapshots do TCC, versões antigas de fontes e modelos, protótipos da plataforma substituídos e saídas antigas de experimentos/calibração. O histórico Git preserva versões anteriores; o protótipo 3D `plataforma/talhao_sorteado_3pg.html` foi mantido por ser uma interface distinta.
+- `py -3 plataforma/construir.py` concluiu; a página `plataforma/docs/index.html` foi reconstruída. `git diff --check` e `git diff --cached --check` passaram.
+- Workspace VS Code configurado em `.vscode/`, dependências da calibração fixadas em `requirements-calibracao.txt` e ambiente `.venv` instalado.
+- Reexecutada a calibração atual: U mediana 1,18 (IC90% 1,01–1,34), a mediana 0,625 (0,225–0,975), γ = 1. LOO no mesmo experimento: RQEM 15,72 → 4,31 p.p.; teste entre materiais no mesmo estudo: C5→A1 19,08 → 8,41 e A1→C5 13,01 → 4,30 p.p. Teste independente Oliveira: perda de volume observada 35,4%, mediana calibrada 33,0% (IC90% 28,1–45,8%).
+- A fonte pública r3PG foi clonada na pasta irmã esperada; a matriz mensal foi regenerada localmente. Suítes do modelo e dos experimentos: 57 testes aprovados.
+- Busca documental pública confirmou os locais TECHS 9 (Estrela do Sul; aproximadamente 35 km de Indianópolis) e 22 (Telêmaco Borba). Binkley et al. (2017) fornece metadados de sítio e resultados agregados de meia rotação, mas não localizei os inventários brutos para download na página do IPEF nem nas buscas em repositórios consultados. Site 9 é apenas referência próxima para Indianópolis, não validação direta.
+- Benchmark adaptado executado para A1 no TECHS 22 com as saídas sem desfolha já calculadas: incremento de lenho simulado 37,06 contra 34 Mg ha⁻¹ ano⁻¹ publicado (+9,0%); IAF simulado aos 24 meses 4,89 contra 3,8 publicado. A segunda comparação é pontual aos 24 meses; a tabela do TCC reporta média simulada de 24–36 meses. Clima municipal e solo do sítio são usados; sobreposição com dados de ajuste A1 não confirmada, portanto não é validação independente.
+- `auditoria_final/auditar_numeros.py` compilou após trocar caminhos absolutos por relativos, mas a execução parou por falta de Node.js. A auditoria e o DOCX ainda não foram gerados.
+- Em 19/11/2026, corrigidos UTF-8, estrutura HTML e um erro de expressão regular que impedia a execução dos scripts da página. Corrigida também uma propriedade de material incompatível na cena Three.js. `plataforma/construir.py` regenerou o simulador e `docs/index.html`; o navegador abriu a cena 3D, confirmou `charset=UTF-8`, `lang=pt-BR`, `R` e `renderer` ativos e não registrou erro de JavaScript. A desfolha visual passou a ser refletida diretamente por folhas menores e o evento mensal, em conjunto com os números do modelo.
+
+## Falta
+1. Disponibilizar Node.js, fonte de dados r3PG e `experimentos/saida/mensal.csv.gz`; então executar a auditoria numérica e completar as suítes de testes.
+2. Gerar o DOCX atualizado após disponibilizar Node.js.
+3. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 já foi calculado, mas não constitui reprodução estrita nem validação empírica.
+4. Reavaliar a apresentação do simulador após as verificações e confirmar a URL publicada.
 ```
 
 ## memoria/decisoes.md
@@ -142,7 +114,11 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 01/11: o autor pediu um TCC realista: corpo enxuto (~19 p.), detalhes nos apêndices e no pacote; nenhum resultado removido do trabalho, só do corpo.
 - 01/11: TCC para qualquer leitor entender; gráficos no TCC, tabelas densas replicadas no 'Material do TCC' da Akademia; quadros com QR code levam à plataforma. Sem apêndice de plataforma nem de resultados complementares.
 - 02/11: γ deixa de ser escolha (0,5) e passa a ser calibrado com experimento independente (Quentin et al., 2011): γ = 1; U e a recalibrados com γ fixo. Oliveira et al. (2014) usado só como teste independente, nunca no ajuste. Krause 2025 e Kautz 2018 fora da tabela de precedentes (conteúdo não conferido).
-- 02/11 (tarde): cascata "sem falhas escondidas". (1) Dossel dos clones de Borges corrigido: γF1, γF0 e pFS2 trocados pelos da TECHS (Caldeira et al., 2020a), porque os de Borges davam IAF 8–11 contra 3,0–3,8 medidos; TCC_DOSSEL=borges reproduz a versão anterior. (2) U só no mês do ataque (u_meses = 1; Turnbull et al., 2007; Quentin et al., 2012): as regras testadas deram ajuste equivalente, escolhida a sustentada pela fisiologia; em desfolha total o U não é identificado e vem da faixa da literatura. (3) Matriz principal fixada nos 3 locais (SITIOS_MATRIZ), pois passara a ler os 6 locais. (4) Tabelas completas geradas dos resultados (tcc_docx/tabelas_dados.py), sem números digitados. (5) controles_solo_local.csv ganhou script (experimentos/controles.py). (6) Pipeline com todas as etapas (calibração completa, biomas, possibilidades, tabelas, plataforma).
+- 02/11 (tarde): cascata "sem falhas escondidas". (1) Dossel dos clones de Borges corrigido: γF1, γF0 e pFS2 trocados pelos da TECHS (Caldeira et al., 2020a), porque os de Borges davam IAF 8–11 contra 3,0–3,8 medidos; TCC_DOSSEL=borges reproduz a versão anterior. (2) U só no mês do ataque (u_meses = 1; Turnbull et al., 2007; Quentin et al., 2012): as regras testadas deram ajuste equivalente, escolhida a sustentada pela fisiologia; em desfolha total o U não é identificado e vem da faixa da literatura. (3) Matriz principal fixada nos 3 locais (SITIOS_MATRIZ), pois passara a ler os 6 locais. (4) Tabelas completas geradas dos resultados (tcc_docx/tabelas_dados.py), sem números digitados. (5) Auditoria numérica com fixture reproduzível; o controle anterior à correção do dossel foi movido para `auditoria_final/controles_solo_antes_correcao_dossel.csv`. (6) Pipeline com todas as etapas (calibração completa, biomas, possibilidades, tabelas, plataforma).
+- 19/11: repetição de desfolhas não será apresentada como inovação frente a Rua et al. (2020); a contribuição é avaliar recuperação e perdas persistentes em condições brasileiras, com limites explícitos de transferência entre materiais. Recuperação da área foliar, retomada do incremento e déficit de madeira são dimensões diferentes. Perda negativa significa apenas resultado simulado acima do controle segundo a fórmula pareada; não atribuir causa hídrica sem evidência. Não importar percentuais de Pizzi até recuperar e conferir a fonte primária. Binkley et al. (2017) localiza TECHS 9 em Estrela do Sul, a cerca de 35 km de Indianópolis, e TECHS 22 em Telêmaco Borba; não tratar Indianópolis como sítio TECHS 9. Os rótulos S5–SA100 seguem sem correspondência verificada.
+- 19/11: preparar execução no VS Code com `.venv` e tarefas que chamam diretamente os scripts de calibração. Não usar `ferramentas/pipeline.py` para essas tarefas: ele faz commit e tenta enviar `HEAD:main`. A calibração LOO e por material é validação cruzada no mesmo experimento; Oliveira et al. (2014) é o teste em estudo independente disponível, limitado ao horizonte observado.
+- 19/11: não tratar Indianópolis como TECHS 9. Binkley et al. (2017) localiza o sítio 9 em Estrela do Sul, a ~35 km; o valor de solo é uma referência próxima. O resultado agregado de A1/TECHS 22 pode ser usado como benchmark adaptado, com diferenças de clima/coordenadas e sem independência demonstrada em relação ao ajuste A1; não chamar de validação empírica. A IAF publicada é aos 24 meses e não é diretamente comparável à média simulada de 24–36 meses. Solicitar dados e metadados para avaliação por variável.
+- 19/11/2026: manter `plataforma/fonte2.html` como fonte única de estrutura/visualização e `plataforma/construir.py` para regenerar o simulador e `docs/index.html`. Corrigir problemas de codificação e execução na fonte, não só nos arquivos gerados. Na cena 3D, a copa do talhão desfolhado deve diminuir pela biomassa foliar mensal do modelo e o dano deve marcar também a passagem dos eventos; o resultado visual é ilustrativo e não substitui as métricas científicas.
 ```
 
 ## memoria/tecnico.md
@@ -172,9 +148,9 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
   "volume": 52.866
  },
  "original_C5": {
-  "volume": 66.57994824108157,
-  "CAP": 29.701246174629624,
-  "altura": 36.081954647713275
+  "volume": 66.5799482410816,
+  "CAP": 29.70124617462966,
+  "altura": 36.08195464771329
  },
  "U": {
   "media": 1.1759669864514157,
@@ -183,23 +159,23 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
   "q95": 1.34
  },
  "a": {
-  "media": 0.6123917401127345,
+  "media": 0.6123917401127346,
   "q05": 0.225,
   "q50": 0.625,
   "q95": 0.975
  },
- "corr_post": -0.014687414245374574,
+ "corr_post": -0.014687414245374673,
  "melhor_ajuste": {
   "U": 1.03,
   "a": 0.65,
-  "volume": 50.96194824035661,
-  "CAP": 20.47695652997796,
+  "volume": 50.96194824035663,
+  "CAP": 20.476956529977976,
   "altura": 25.24743472348574
  },
  "preditiva_media_C5": {
-  "volume": 50.88072978285085,
-  "CAP": 20.454425584021205,
-  "altura": 25.217394556332568
+  "volume": 50.880729782850864,
+  "CAP": 20.454425584021216,
+  "altura": 25.217394556332565
  },
  "validacao_A1_urocam": {
   "observado": {
@@ -211,12 +187,12 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
    "CAP": 40.66777101660624
   },
   "calibrado_media": {
-   "volume": 66.45733670942239,
-   "CAP": 30.634108219520602
+   "volume": 66.4573367094224,
+   "CAP": 30.634108219520613
   },
   "calibrado_q05": {
-   "volume": 59.607542064401876,
-   "CAP": 25.92374681210576
+   "volume": 59.60754206440188,
+   "CAP": 25.923746812105776
   },
   "calibrado_q95": {
    "volume": 76.87871631715122,
@@ -240,8 +216,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
   "volume": 52.866
  },
  "original_C5": {
-  "volume": 56.188224998580104,
-  "CAP": 23.30696936312777,
+  "volume": 56.18822499858012,
+  "CAP": 23.306969363127784,
   "altura": 28.609570815040474
  },
  "U": {
@@ -251,23 +227,23 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
   "q95": 1.34
  },
  "a": {
-  "media": 0.38033133292120713,
+  "media": 0.3803313329212073,
   "q05": 0.025,
   "q50": 0.35,
   "q95": 0.875
  },
- "corr_post": -0.044727832999155975,
+ "corr_post": -0.044727832999155996,
  "melhor_ajuste": {
   "U": 1.32,
   "a": 0.05,
-  "volume": 50.95518860578192,
-  "CAP": 20.47343199108054,
-  "altura": 25.243227052867155
+  "volume": 50.95518860578194,
+  "CAP": 20.473431991080528,
+  "altura": 25.243227052867145
  },
  "preditiva_media_C5": {
-  "volume": 46.901995282552505,
-  "CAP": 18.44325080119818,
-  "altura": 22.807123448665408
+  "volume": 46.90199528255253,
+  "CAP": 18.443250801198186,
+  "altura": 22.8071234486654
  },
  "validacao_A1_urocam": {
   "observado": {
@@ -280,11 +256,11 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
   },
   "calibrado_media": {
    "volume": 62.23964912142403,
-   "CAP": 27.861630238924473
+   "CAP": 27.86163023892449
   },
   "calibrado_q05": {
    "volume": 54.45644365139538,
-   "CAP": 22.921407394792382
+   "CAP": 22.921407394792393
   },
   "calibrado_q95": {
    "volume": 74.22730966056018,

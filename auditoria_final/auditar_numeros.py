@@ -2,7 +2,9 @@
 import json, sys, re
 from pathlib import Path
 import numpy as np, pandas as pd
-X = Path("/home/claude/tcc/experimentos"); S = X / "saida"; sys.path.insert(0, str(X))
+RAIZ = Path(__file__).resolve().parents[1]
+X = RAIZ / "experimentos"; S = X / "saida"; CB = RAIZ / "calibracao" / "saida"; BB = S / "biomas"
+MODELO = RAIZ / "modelo"; sys.path.insert(0, str(X))
 R = pd.read_csv(S / "indicadores_por_tratamento.csv")
 L = R[(R.experimento == "LOCAL") & (R.nivel_FR == "F100")]
 E = R[R.experimento == "E1-E6"].copy(); E["W"] = pd.to_numeric(E.nivel_agua)
@@ -36,7 +38,7 @@ chk("+9% lenho TB vs 34", 9, 100 * (C.loc[("TB", "A1")].caule_24_36 / 34 - 1), 0
 chk("+26% IAF TB vs 3,8", 26, 100 * (C.loc[("TB", "A1")].LAI_24_36 / 3.8 - 1), 0)
 chk("ΔLenho IND→TB 11", 11, C.loc[("TB", "A1")].caule_24_36 - C.loc[("IND", "A1")].caule_24_36, 0)
 chk("fSW IND 0,53", 0.53, C.loc[("IND", "A1")].fSW_med, 2); chk("fSW TB 0,73", 0.73, C.loc[("TB", "A1")].fSW_med, 2)
-CO = pd.read_csv(S.parent / "saida_antes_dossel_u1/controles_solo_local.csv").set_index(["sitio", "mat"]); BG = [(s_, m_) for s_ in ["IND", "TB", "IMP"] for m_ in ["C2", "C4", "C5"]]
+CO = pd.read_csv(Path(__file__).with_name("controles_solo_antes_correcao_dossel.csv")).set_index(["sitio", "mat"]); BG = [(s_, m_) for s_ in ["IND", "TB", "IMP"] for m_ in ["C2", "C4", "C5"]]
 chk("IAF max Borges original mín 8", 8, CO.loc[BG].LAImax.min(), 0); chk("IAF max Borges original máx 11", 11, CO.loc[BG].LAImax.max(), 0)
 chk("IAF 2-3 anos Borges corrigido mín 2,4", 2.4, C.loc[BG].LAI_24_36.min(), 1); chk("IAF 2-3 anos Borges corrigido máx 5,6", 5.6, C.loc[BG].LAI_24_36.max(), 1)
 chk("IMA Borges corrigido mín 36", 36, C.loc[BG].IMA84.min(), 0); chk("IMA Borges corrigido máx 65", 65, C.loc[BG].IMA84.max(), 0)
@@ -127,7 +129,6 @@ chk("vol/árvore mín +13%", 13, 100 * (m15.vol_arvore_ratio.min() - 1), 0); chk
 mf = DN[DN.cenario == "Mancha foliar"].recup_rel95_meses
 chk("mancha recup mín 18", 18, mf.min(), 0); chk("mancha recup máx 25", 25, mf.max(), 0)
 # ===== calibração da compensação e biomas (31/10/2026) =====
-CB = Path("/home/claude/tcc/calibracao/saida"); BB = S / "biomas"
 J = json.load(open(CB / "calibracao_d0999.json")); J9 = json.load(open(CB / "calibracao_d099.json"))
 for k_, t_, c_ in [("U q50", 1.18, J["U"]["q50"]), ("U q05", 1.01, J["U"]["q05"]), ("U q95", 1.34, J["U"]["q95"]),
                    ("a q50", 0.625, J["a"]["q50"]), ("a q05", 0.23, J["a"]["q05"]), ("a q95", 0.975, J["a"]["q95"] + 1e-9),
@@ -203,7 +204,7 @@ chk("RF6 freq orig", 44.8, ri("original", "frequência")); chk("RF6 freq cal", 4
 MOB = pd.read_csv(BB / "morris_C5_6locais.csv"); mv = MOB[MOB.resposta == "perda_volume_84_pp"]
 top = mv.loc[mv.groupby("sitio").mu_estrela.idxmax()]
 chk("Morris k topo em 5 locais", 5, (top.parametro == "k").sum(), 0)
-sys.path.insert(0, str(X)); sys.path.insert(0, "/home/claude/tcc/modelo")
+sys.path.insert(0, str(MODELO))
 from morris_danos_biomas import sim as _simb  # noqa: E402
 aer = [(_simb("ARA", m_).loc[54, "biom_stem"] + _simb("ARA", m_).loc[54, "biom_foliage"]) for m_ in ["A1", "C5", "C2", "C4"]]
 chk("ARA biomassa aérea mín 57", 57, min(aer), 0); chk("ARA biomassa aérea máx (faixa medida 51–132)", 71, max(aer), 0)
@@ -237,7 +238,7 @@ chk("Oliveira orig DAP", 38.2, o1["original"]["dap"][1]); chk("Oliveira cal DAP"
 chk("Oliveira orig altura", 45.7, o1["original"]["altura"][1]); chk("Oliveira cal altura", 15.1, o1["calibrado"]["altura"][1])
 chk("Oliveira RQEM orig", 34.3, OL["T1_metricas"]["RQEM_original"]); chk("Oliveira RQEM cal", 3.2, OL["T1_metricas"]["RQEM_calibrado"])
 chk("Oliveira parciais orig ≤", 8.1, OL["parciais_max_mediana_entre_anos"]["original"]); chk("Oliveira parciais cal ≤", 4.5, OL["parciais_max_mediana_entre_anos"]["calibrado"])
-RF_ = json.load(open("/home/claude/tcc/revisao_07/corpus/resumo_filtro.json"))
+RF_ = json.load(open(RAIZ / "revisao_07" / "corpus" / "resumo_filtro.json"))
 chk("busca registros 10.000", 10000, RF_["registros_baixados"], 0); chk("busca DOI únicos 7.908", 7908, RF_["unicos_por_doi"], 0)
 chk("busca dedup 7.431", 7431, RF_["apos_dedup_titulo"], 0); chk("núcleo 93", 93, RF_["nucleo"], 0); chk("contexto 3-PG 20", 20, RF_["contexto_3pg"], 0)
 
@@ -246,7 +247,7 @@ import json as _j
 _V = _j.load(open(Path(__file__).resolve().parents[1] / "plataforma/verificacao/resultado_verificacao.json"))
 chk("cenários JS × Python", 8, len(_V), 0)
 chk("dif. rel. máx JS × Python (x1e14)", 16.0, max(v["dif_rel_max"] for v in _V) * 1e14, 1)
-sys.path.insert(0, "/home/claude/tcc/modelo")
+sys.path.insert(0, str(MODELO))
 from threepg_pjs import run_3pg_pjs as _run
 from clones import MATERIAIS as _MAT, params as _par
 from clima import SITIOS as _SIT, clima_mensal as _cm
@@ -263,14 +264,14 @@ chk("plataforma IND A1 2x95 calibrado", 13.1, 100 * (1 - _tc.volume[_k] / _c.vol
 
 # Plataforma: didática e perda por produto (recalculado de plataforma/verificacao/numeros_plataforma.js)
 import subprocess as _sp
-_NP = _j.loads(_sp.run(["node", "/home/claude/tcc/plataforma/verificacao/numeros_plataforma.js"], capture_output=True, text=True, check=True).stdout)
+_NP = _j.loads(_sp.run(["node", str(RAIZ / "plataforma" / "verificacao" / "numeros_plataforma.js")], capture_output=True, text=True, check=True).stdout)
 chk("conceitos", 52, _NP["conceitos"], 0); chk("grupos de conceitos", 7, _NP["grupos"], 0)
 chk("pontes biologia", 21, _NP["pontes"], 0); chk("trilha", 15, _NP["trilha"], 0); chk("passos do tutorial", 13, _NP["passos"], 0)
 chk("amostras do posterior na plataforma", 200, _NP["amostras"], 0); chk("locais na plataforma", 6, _NP["locais"], 0)
 chk("serraria", -34.4, _NP["dif_serraria"], 1); chk("serraria ctrl 165", 165, _NP["serraria_c"], 0); chk("serraria desf", 108, _NP["serraria_t"], 0)
 chk("celulose", 4.3, _NP["dif_celulose"], 1); chk("energia", 33.1, _NP["dif_energia"], 1)
 # Espaço de possibilidades (experimentos/possibilidades*.py) e validação cruzada da calibração
-_PS = _j.load(open("/home/claude/tcc/experimentos/saida/possibilidades/resumo_possibilidades.json"))
+_PS = _j.load(open(S / "possibilidades" / "resumo_possibilidades.json"))
 _O, _C, _T, _K = _PS["original"], _PS["calibrada"], _PS["teste_autor"], _PS["kfold"]; _G = _PS["ganho_por_tipo"]
 chk("cenários totais", 7584, _PS["n_cenarios"], 0); chk("cenários aptos", 5688, _PS["n_aptos"], 0); chk("aptos por versão", 2844, _O["n"], 0)
 chk("ganho orig %", 0, _O["frac_ganho"], 1); chk("ganho calib %", 1.3, _C["frac_ganho"], 1)
@@ -308,7 +309,7 @@ _I = _PS["importancia_pct"]
 chk("imp frequência", 38, _I["pulsos anuais"], 1); chk("imp intensidade", 34.8, _I["intensidade d"], 1); chk("imp versão", 11.7, _I["fisiologia calibrada"], 1)
 chk("imp eficiência", 7.1, _I["perda de eficiência r"], 1); chk("imp época", 5.2, _I["época"], 1)
 chk("clima+solo < 3", 3, 3 if _I["T média"] + _I["chuva anual"] + _I["meses secos"] + _I["CAD"] < 3 else 0, 0)
-_VC = _j.load(open("/home/claude/tcc/calibracao/saida/validacao_cruzada.json")); _L5 = _VC["deixa uma observação de fora (k = 5)"]
+_VC = _j.load(open(CB / "validacao_cruzada.json")); _L5 = _VC["deixa uma observação de fora (k = 5)"]
 _K2a, _K2b = _VC["ajusta no C5, prevê o A1 (k = 2)"], _VC["ajusta no A1, prevê o C5 (k = 2)"]
 chk("LOO RQEM orig", 15.7, _L5["RQEM_original"], 1); chk("LOO RQEM calib", 4.3, _L5["RQEM_calibrado"], 1)
 chk("LOO viés orig", 14.9, _L5["vies_original"], 1); chk("LOO viés calib", 1.7, _L5["vies_calibrado"], 1); chk("LOO melhorou", 5, _L5["melhorou"], 0)
@@ -316,7 +317,7 @@ chk("C5→A1 RQEM orig", 19.1, _K2a["RQEM_original"], 1); chk("C5→A1 RQEM cali
 chk("C5→A1 viés orig", 19.0, _K2a["vies_original"], 1); chk("C5→A1 viés calib", 8.4, _K2a["vies_calibrado"], 1)
 chk("A1→C5 RQEM orig", 13, _K2b["RQEM_original"], 1); chk("A1→C5 RQEM calib", 4.3, _K2b["RQEM_calibrado"], 1)
 chk("A1→C5 viés orig", 12.1, _K2b["vies_original"], 1); chk("A1→C5 viés calib", 0.1, _K2b["vies_calibrado"], 1)
-_PV = pd.read_csv("/home/claude/tcc/calibracao/saida/validacao_cruzada_previsoes.csv")
+_PV = pd.read_csv(CB / "validacao_cruzada_previsoes.csv")
 chk("U post mín", 1.18, _PV.U_post.min(), 2); chk("U post máx", 1.18, _PV.U_post.max(), 2)
 chk("a post mín", 0.61, _PV.a_post.min(), 2); chk("a post máx", 0.86, _PV.a_post.max(), 2)
 # Tabela 1 (clima e solo dos seis locais) — recalculada de clima/power_api e biomas/log_*.txt
@@ -327,7 +328,7 @@ for _s, (_tm, _tn, _tx, _pa, _p0, _p1, _ns) in {"ALM": (27.3, 23.7, 31.0, 1862, 
     chk(f"T1 {_s} chuva", _pa, _a.mean(), 0); chk(f"T1 {_s} chuva mín", _p0, _a.min(), 0); chk(f"T1 {_s} chuva máx", _p1, _a.max(), 0)
     chk(f"T1 {_s} meses secos", _ns, int((_sec < 50).sum()), 0); chk(f"T1 {_s} geada", 0, int(_m.frost_days.sum()), 0)
 for _s, (_lo, _hi) in {"ALM": (215, 224), "ARA": (188, 198)}.items():
-    _v = [float(l.split()[3]) for l in open(f"/home/claude/tcc/biomas/log_{_s}.txt") if l.startswith(_s + " ") and l.split()[3] != "None"]
+    _v = [float(l.split()[3]) for l in open(RAIZ / "biomas" / f"log_{_s}.txt") if l.startswith(_s + " ") and l.split()[3] != "None"]
     chk(f"T1 {_s} ASW mín", _lo, min(_v), 0); chk(f"T1 {_s} ASW máx", _hi, max(_v), 0)
-O = pd.DataFrame(ok); O.to_csv("/home/claude/tcc/auditoria_final/auditoria_numeros.csv", index=False)
+O = pd.DataFrame(ok); O.to_csv(RAIZ / "auditoria_final" / "auditoria_numeros.csv", index=False)
 print(len(O), "itens;", int(O.ok.sum()), "conferem"); print(O[~O.ok].to_string())
