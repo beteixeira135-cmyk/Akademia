@@ -34,19 +34,19 @@
   }
  ],
  "matrangolo_metricas": {
-  "vies_original": -41.74744417225273,
-  "rmse_original": 42.2757309931592,
-  "vies_calibrado": -52.34682752805175,
-  "rmse_calibrado": 53.72767276608853
+  "vies_original": -41.747444172225904,
+  "rmse_original": 42.27573099312909,
+  "vies_calibrado": -52.34682752805131,
+  "rmse_calibrado": 53.727672766087984
  },
  "quentin2011_transpiracao": [
   {
    "versao": "original",
-   "razao_transpiracao_7meses": 0.7898247768064459
+   "razao_transpiracao_7meses": 0.7898247768064461
   },
   {
    "versao": "calibrado γ=0",
-   "razao_transpiracao_7meses": 0.9215137732220567
+   "razao_transpiracao_7meses": 0.9215137732220565
   },
   {
    "versao": "calibrado γ=0,5",

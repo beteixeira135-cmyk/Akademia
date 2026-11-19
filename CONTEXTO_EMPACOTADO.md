@@ -61,9 +61,10 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Os ganhos simulados acima do controle não têm causa biológica verificada. Não interpretar a inversão do indicador como benefício hídrico sem conferir fórmula, sinal, denominador e cenários pareados. Pizzi não foi recuperado na fonte primária; seus percentuais não foram incorporados.
 - Próxima prioridade científica: rodar o crescimento sem desfolha nos alvos TECHS 9 e 22, após confirmar sítio, coordenadas, material, idades, unidades e inventários. Telêmaco Borba–sítio 22 tem apoio em Binkley et al. (2017); Indianópolis–sítio 9 e os rótulos S5–SA100 permanecem não verificados.
 - Limpeza concluída: versões antigas, snapshots e saídas anteriores foram removidos; o histórico Git mantém a rastreabilidade. O CSV de controles necessário à auditoria foi preservado em `auditoria_final/controles_solo_antes_correcao_dossel.csv`. O protótipo separado `plataforma/talhao_sorteado_3pg.html` foi mantido por oferecer uma interface 3D distinta.
-- A página da Akademia foi reconstruída com `py -3 plataforma/construir.py`. `pipeline.py verificar` falhou em 19/11 porque o Python 3.15 disponível não tem `numpy`; `pandas` e `sklearn` também não estão instalados. `node` não está no PATH. Auditoria numérica, testes e geração do DOCX permanecem pendentes até resolver as dependências.
-
-- FALHA na etapa `verificar` (19/11 10:35): comando `C:\Users\aluno\AppData\Local\Programs\Python\Python315\python.exe -c import numpy, pandas, sklearn; print('python ok')`.
+- VS Code preparado com `.vscode/` e `requirements-calibracao.txt`; o ambiente `.venv` foi criado em Python 3.15 e as dependências foram instaladas.
+- Reexecutadas com sucesso calibração C5, estimação de γ, validação cruzada interna, auditoria da calibração, testes adicionais, avaliação qualitativa de *E. globulus* e teste independente de Oliveira. Medianas: U = 1,18 (IC90% 1,01–1,34), a = 0,625 (0,225–0,975), γ = 1. A validação cruzada permanece dentro do experimento Bertulio; o teste Oliveira cobre a resposta em outro estudo, não valida persistência de longo prazo.
+- A auditoria completa não concluiu: precisa de Node.js e `auditar_numeros.py` continha caminhos absolutos de Linux, agora substituídos por caminhos relativos ao repositório. Os testes do modelo precisam da fonte r3PG externa (`data.input.xlsx` e `data.default.xlsx`); os testes de experimentos precisam de `experimentos/saida/mensal.csv.gz`. Esses arquivos não estão neste workspace.
+- Próxima prioridade científica: confirmar sítio, coordenadas, material, idades, unidades e inventários antes de rodar crescimento sem desfolha nos alvos TECHS 9 e 22. Telêmaco Borba–sítio 22 tem apoio em Binkley et al. (2017); Indianópolis–sítio 9 e os rótulos S5–SA100 permanecem não verificados.
 ```
 
 ## memoria/progresso.md
@@ -76,11 +77,15 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Fixture da auditoria numérica movido para `auditoria_final/controles_solo_antes_correcao_dossel.csv`; caminho da auditoria atualizado.
 - Removidos snapshots do TCC, versões antigas de fontes e modelos, protótipos da plataforma substituídos e saídas antigas de experimentos/calibração. O histórico Git preserva versões anteriores; o protótipo 3D `plataforma/talhao_sorteado_3pg.html` foi mantido por ser uma interface distinta.
 - `py -3 plataforma/construir.py` concluiu; a página `plataforma/docs/index.html` foi reconstruída. `git diff --check` e `git diff --cached --check` passaram.
+- Workspace VS Code configurado em `.vscode/`, dependências da calibração fixadas em `requirements-calibracao.txt` e ambiente `.venv` instalado.
+- Reexecutada a calibração atual: U mediana 1,18 (IC90% 1,01–1,34), a mediana 0,625 (0,225–0,975), γ = 1. LOO no mesmo experimento: RQEM 15,72 → 4,31 p.p.; teste entre materiais no mesmo estudo: C5→A1 19,08 → 8,41 e A1→C5 13,01 → 4,30 p.p. Teste independente Oliveira: perda de volume observada 35,4%, mediana calibrada 33,0% (IC90% 28,1–45,8%).
+- `auditoria_final/auditar_numeros.py` compilou após trocar caminhos absolutos por relativos, mas a execução parou por falta de Node.js. Os testes do modelo e experimentos não completaram: faltam a fonte externa r3PG (`data.input.xlsx`, `data.default.xlsx`) e `experimentos/saida/mensal.csv.gz`.
 
 ## Falta
-1. Reexecutar `python3 ferramentas/pipeline.py verificar`, auditoria numérica e testes após instalar as dependências Python ausentes; gerar o DOCX após disponibilizar Node.js.
-2. Rodar crescimento sem desfolha para TECHS 9 e 22 somente após confirmar os metadados e inventários; reportar erros por variável e separar ajuste de avaliação independente.
-3. Reavaliar a apresentação do simulador depois dos testes e da confirmação de todos os dados e alegações exibidos.
+1. Disponibilizar Node.js, fonte de dados r3PG e `experimentos/saida/mensal.csv.gz`; então executar a auditoria numérica e completar as suítes de testes.
+2. Gerar o DOCX atualizado após disponibilizar Node.js.
+3. Confirmar os metadados e inventários TECHS 9 e 22; só então rodar controles sem desfolha e avaliar erros por variável, separando ajuste de avaliação independente.
+4. Reavaliar a apresentação do simulador após as verificações e confirmar a URL publicada.
 ```
 
 ## memoria/decisoes.md
@@ -101,6 +106,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 02/11: γ deixa de ser escolha (0,5) e passa a ser calibrado com experimento independente (Quentin et al., 2011): γ = 1; U e a recalibrados com γ fixo. Oliveira et al. (2014) usado só como teste independente, nunca no ajuste. Krause 2025 e Kautz 2018 fora da tabela de precedentes (conteúdo não conferido).
 - 02/11 (tarde): cascata "sem falhas escondidas". (1) Dossel dos clones de Borges corrigido: γF1, γF0 e pFS2 trocados pelos da TECHS (Caldeira et al., 2020a), porque os de Borges davam IAF 8–11 contra 3,0–3,8 medidos; TCC_DOSSEL=borges reproduz a versão anterior. (2) U só no mês do ataque (u_meses = 1; Turnbull et al., 2007; Quentin et al., 2012): as regras testadas deram ajuste equivalente, escolhida a sustentada pela fisiologia; em desfolha total o U não é identificado e vem da faixa da literatura. (3) Matriz principal fixada nos 3 locais (SITIOS_MATRIZ), pois passara a ler os 6 locais. (4) Tabelas completas geradas dos resultados (tcc_docx/tabelas_dados.py), sem números digitados. (5) Auditoria numérica com fixture reproduzível; o controle anterior à correção do dossel foi movido para `auditoria_final/controles_solo_antes_correcao_dossel.csv`. (6) Pipeline com todas as etapas (calibração completa, biomas, possibilidades, tabelas, plataforma).
 - 19/11: repetição de desfolhas não será apresentada como inovação frente a Rua et al. (2020); a contribuição é avaliar recuperação e perdas persistentes em condições brasileiras, com limites explícitos de transferência entre materiais. Recuperação da área foliar, retomada do incremento e déficit de madeira são dimensões diferentes. Perda negativa significa apenas resultado simulado acima do controle segundo a fórmula pareada; não atribuir causa hídrica sem evidência. Não importar percentuais de Pizzi até recuperar e conferir a fonte primária. Rótulos S5–SA100 e associação Indianópolis–TECHS 9 permanecem não verificados; Telêmaco Borba–TECHS 22 é sustentado por Binkley et al. (2017).
+- 19/11: preparar execução no VS Code com `.venv` e tarefas que chamam diretamente os scripts de calibração. Não usar `ferramentas/pipeline.py` para essas tarefas: ele faz commit e tenta enviar `HEAD:main`. A calibração LOO e por material é validação cruzada no mesmo experimento; Oliveira et al. (2014) é o teste em estudo independente disponível, limitado ao horizonte observado.
 ```
 
 ## memoria/tecnico.md
@@ -130,9 +136,9 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
   "volume": 52.866
  },
  "original_C5": {
-  "volume": 66.57994824108157,
-  "CAP": 29.701246174629624,
-  "altura": 36.081954647713275
+  "volume": 66.5799482410816,
+  "CAP": 29.70124617462966,
+  "altura": 36.08195464771329
  },
  "U": {
   "media": 1.1759669864514157,
@@ -141,23 +147,23 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
   "q95": 1.34
  },
  "a": {
-  "media": 0.6123917401127345,
+  "media": 0.6123917401127346,
   "q05": 0.225,
   "q50": 0.625,
   "q95": 0.975
  },
- "corr_post": -0.014687414245374574,
+ "corr_post": -0.014687414245374673,
  "melhor_ajuste": {
   "U": 1.03,
   "a": 0.65,
-  "volume": 50.96194824035661,
-  "CAP": 20.47695652997796,
+  "volume": 50.96194824035663,
+  "CAP": 20.476956529977976,
   "altura": 25.24743472348574
  },
  "preditiva_media_C5": {
-  "volume": 50.88072978285085,
-  "CAP": 20.454425584021205,
-  "altura": 25.217394556332568
+  "volume": 50.880729782850864,
+  "CAP": 20.454425584021216,
+  "altura": 25.217394556332565
  },
  "validacao_A1_urocam": {
   "observado": {
@@ -169,12 +175,12 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
    "CAP": 40.66777101660624
   },
   "calibrado_media": {
-   "volume": 66.45733670942239,
-   "CAP": 30.634108219520602
+   "volume": 66.4573367094224,
+   "CAP": 30.634108219520613
   },
   "calibrado_q05": {
-   "volume": 59.607542064401876,
-   "CAP": 25.92374681210576
+   "volume": 59.60754206440188,
+   "CAP": 25.923746812105776
   },
   "calibrado_q95": {
    "volume": 76.87871631715122,
@@ -198,8 +204,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
   "volume": 52.866
  },
  "original_C5": {
-  "volume": 56.188224998580104,
-  "CAP": 23.30696936312777,
+  "volume": 56.18822499858012,
+  "CAP": 23.306969363127784,
   "altura": 28.609570815040474
  },
  "U": {
@@ -209,23 +215,23 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
   "q95": 1.34
  },
  "a": {
-  "media": 0.38033133292120713,
+  "media": 0.3803313329212073,
   "q05": 0.025,
   "q50": 0.35,
   "q95": 0.875
  },
- "corr_post": -0.044727832999155975,
+ "corr_post": -0.044727832999155996,
  "melhor_ajuste": {
   "U": 1.32,
   "a": 0.05,
-  "volume": 50.95518860578192,
-  "CAP": 20.47343199108054,
-  "altura": 25.243227052867155
+  "volume": 50.95518860578194,
+  "CAP": 20.473431991080528,
+  "altura": 25.243227052867145
  },
  "preditiva_media_C5": {
-  "volume": 46.901995282552505,
-  "CAP": 18.44325080119818,
-  "altura": 22.807123448665408
+  "volume": 46.90199528255253,
+  "CAP": 18.443250801198186,
+  "altura": 22.8071234486654
  },
  "validacao_A1_urocam": {
   "observado": {
@@ -238,11 +244,11 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
   },
   "calibrado_media": {
    "volume": 62.23964912142403,
-   "CAP": 27.861630238924473
+   "CAP": 27.86163023892449
   },
   "calibrado_q05": {
    "volume": 54.45644365139538,
-   "CAP": 22.921407394792382
+   "CAP": 22.921407394792393
   },
   "calibrado_q95": {
    "volume": 74.22730966056018,
