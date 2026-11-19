@@ -39,7 +39,7 @@ for s in ["TB", "IND", "IMP"]:
     for m in ["A1", "C5"]:
         r = C.loc[(s, m)]
         T["controles"].append(["" if m == "C5" else NOME[s], m + ("*" if (s, m) == ("IMP", "A1") else ""), i(r.vol84), i(r.IMA84), f(r.caule_24_36), f(r.LAI_24_36), i(r.meses_fT0),
-                               "34 Mg ha^-1^ ano^-1^; IAF 3,8 (TECHS 22)" if (s, m) == ("TB", "A1") else "–"])
+                               "34 Mg ha^-1^ ano^-1^ (24–36 meses); IAF 3,8 (24 meses; TECHS 22)" if (s, m) == ("TB", "A1") else "–"])
 
 # principal
 T["principal"] = []

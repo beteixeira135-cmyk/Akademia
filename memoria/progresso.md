@@ -9,10 +9,11 @@
 - Reexecutada a calibração atual: U mediana 1,18 (IC90% 1,01–1,34), a mediana 0,625 (0,225–0,975), γ = 1. LOO no mesmo experimento: RQEM 15,72 → 4,31 p.p.; teste entre materiais no mesmo estudo: C5→A1 19,08 → 8,41 e A1→C5 13,01 → 4,30 p.p. Teste independente Oliveira: perda de volume observada 35,4%, mediana calibrada 33,0% (IC90% 28,1–45,8%).
 - A fonte pública r3PG foi clonada na pasta irmã esperada; a matriz mensal foi regenerada localmente. Suítes do modelo e dos experimentos: 57 testes aprovados.
 - Busca documental pública confirmou os locais TECHS 9 (Estrela do Sul; aproximadamente 35 km de Indianópolis) e 22 (Telêmaco Borba). Binkley et al. (2017) fornece metadados de sítio e resultados agregados de meia rotação, mas não localizei os inventários brutos para download na página do IPEF nem nas buscas em repositórios consultados. Site 9 é apenas referência próxima para Indianópolis, não validação direta.
+- Benchmark adaptado executado para A1 no TECHS 22 com as saídas sem desfolha já calculadas: incremento de lenho simulado 37,06 contra 34 Mg ha⁻¹ ano⁻¹ publicado (+9,0%); IAF simulado aos 24 meses 4,89 contra 3,8 publicado. A segunda comparação é pontual aos 24 meses; a tabela do TCC reporta média simulada de 24–36 meses. Clima municipal e solo do sítio são usados; sobreposição com dados de ajuste A1 não confirmada, portanto não é validação independente.
 - `auditoria_final/auditar_numeros.py` compilou após trocar caminhos absolutos por relativos, mas a execução parou por falta de Node.js. A auditoria e o DOCX ainda não foram gerados.
 
 ## Falta
 1. Disponibilizar Node.js, fonte de dados r3PG e `experimentos/saida/mensal.csv.gz`; então executar a auditoria numérica e completar as suítes de testes.
 2. Gerar o DOCX atualizado após disponibilizar Node.js.
-3. Solicitar ou obter os inventários e metadados TECHS 9 e 22. Se não estiverem disponíveis, restringir a comparação aos resultados agregados de Binkley et al. (2017), como benchmark adaptado, sem chamar de reprodução estrita ou validação empírica.
+3. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 já foi calculado, mas não constitui reprodução estrita nem validação empírica.
 4. Reavaliar a apresentação do simulador após as verificações e confirmar a URL publicada.

@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (4746 tokens, estimativa (caracteres ÷ 3,6); gerado em 19/11/2026 11:36)
+# PASSAGEM DE BASTÃO — TCC II (5000 tokens, estimativa (caracteres ÷ 3,6); gerado em 19/11/2026 11:44)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (23688 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (23951 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -50,13 +50,14 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 # Contexto ativo
 - Em 19/11, a revisão documental foi incorporada a `tcc_docx/conteudo.js`: Rua é precedente, não inovação; a contribuição é avaliar recuperação e perdas persistentes em condições brasileiras, com limites explícitos de transferência. Distinguir recuperação da área foliar, retomada do incremento e déficit de madeira.
 - Os ganhos simulados acima do controle não têm causa biológica verificada. Não interpretar a inversão do indicador como benefício hídrico sem conferir fórmula, sinal, denominador e cenários pareados. Pizzi não foi recuperado na fonte primária; seus percentuais não foram incorporados.
-- Busca de fontes públicas: Binkley et al. (2017) confirma TECHS 9 em Estrela do Sul (−18,73; −47,92), a cerca de 35 km de Indianópolis, e TECHS 22 em Telêmaco Borba. Portanto, o sítio 9 pode fornecer apenas um benchmark adaptado/solo de referência próximo, não observações diretas de Indianópolis. O artigo informa medições semestrais de DAP, altura e copa e apresenta resultados agregados de meia rotação, mas não localizei série de inventários para baixar. A página do IPEF descreve a rede, sem disponibilizar inventários; buscas em repositórios públicos também não localizaram os dados brutos. Solicitar os inventários aos responsáveis pelo TECHS ou limitar a comparação aos valores agregados publicados, explicitando o benchmark adaptado.
+- Busca de fontes públicas: Binkley et al. (2017) confirma TECHS 9 em Estrela do Sul (−18,73; −47,92), a cerca de 35 km de Indianópolis, e TECHS 22 em Telêmaco Borba. Portanto, o sítio 9 não fornece observações diretas de Indianópolis. Não localizei séries brutas de inventários para baixar. O artigo apresenta para A1/TECHS 22 produtividade agregada de lenho (34 Mg ha⁻¹ ano⁻¹ entre 24–36 meses) e IAF 3,8 aos 24 meses.
+- Benchmark adaptado já calculado para A1/TECHS 22: o modelo produziu 37,06 Mg ha⁻¹ ano⁻¹ de lenho entre 24–36 meses (+9,0% sobre o valor publicado) e IAF 4,89 aos 24 meses, ante 3,8 publicados. A simulação usa clima NASA POWER nas coordenadas municipais e solo TECHS 22; o artigo não permite confirmar se essa observação participou do ajuste A1, então a independência não está demonstrada. A coluna IAF da tabela do TCC é a média simulada de 24–36 meses e não deve ser comparada como erro à observação pontual aos 24 meses. Tratar os dois resultados como benchmark adaptado, não validação.
 - Limpeza concluída: versões antigas, snapshots e saídas anteriores foram removidos; o histórico Git mantém a rastreabilidade. O CSV de controles necessário à auditoria foi preservado em `auditoria_final/controles_solo_antes_correcao_dossel.csv`. O protótipo separado `plataforma/talhao_sorteado_3pg.html` foi mantido por oferecer uma interface 3D distinta.
 - VS Code preparado com `.vscode/` e `requirements-calibracao.txt`; o ambiente `.venv` foi criado em Python 3.15 e as dependências foram instaladas.
 - Reexecutadas com sucesso calibração C5, estimação de γ, validação cruzada interna, auditoria da calibração, testes adicionais, avaliação qualitativa de *E. globulus* e teste independente de Oliveira. Medianas: U = 1,18 (IC90% 1,01–1,34), a = 0,625 (0,225–0,975), γ = 1. A validação cruzada permanece dentro do experimento Bertulio; o teste Oliveira cobre a resposta em outro estudo, não valida persistência de longo prazo.
 - VS Code usa `.vscode/` para preparar ambiente, recalcular calibração e executar as suítes. A fonte pública `trotsiuk/r3PG` está clonada na pasta irmã esperada; `experimentos/saida/mensal.csv.gz` foi regenerado localmente (ignorado pelo Git). As suítes do modelo e dos experimentos passaram: 57 testes.
 - A auditoria numérica não concluiu: `auditar_numeros.py` teve os caminhos absolutos de Linux corrigidos, mas ainda requer Node.js, que não está no PATH. O DOCX também depende de Node.js.
-- Próxima prioridade científica: obter os inventários e metadados de TECHS 9 e 22 para avaliação por variável. A associação direta Indianópolis–TECHS 9 foi descartada; os rótulos S5–SA100 continuam sem correspondência verificada.
+- Próxima prioridade científica: obter os inventários e metadados de TECHS 9 e 22 para avaliação por variável e confirmar o subconjunto de dados usado no ajuste A1. A associação direta Indianópolis–TECHS 9 foi descartada; os rótulos S5–SA100 continuam sem correspondência verificada.
 
 - `pipeline.py verificar`: com o Python do sistema, faltam dependências científicas; com `.venv`, numpy/pandas/sklearn passam, mas a verificação completa para em `node --version` porque Node.js não está no PATH.
 
@@ -72,12 +73,13 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Reexecutada a calibração atual: U mediana 1,18 (IC90% 1,01–1,34), a mediana 0,625 (0,225–0,975), γ = 1. LOO no mesmo experimento: RQEM 15,72 → 4,31 p.p.; teste entre materiais no mesmo estudo: C5→A1 19,08 → 8,41 e A1→C5 13,01 → 4,30 p.p. Teste independente Oliveira: perda de volume observada 35,4%, mediana calibrada 33,0% (IC90% 28,1–45,8%).
 - A fonte pública r3PG foi clonada na pasta irmã esperada; a matriz mensal foi regenerada localmente. Suítes do modelo e dos experimentos: 57 testes aprovados.
 - Busca documental pública confirmou os locais TECHS 9 (Estrela do Sul; aproximadamente 35 km de Indianópolis) e 22 (Telêmaco Borba). Binkley et al. (2017) fornece metadados de sítio e resultados agregados de meia rotação, mas não localizei os inventários brutos para download na página do IPEF nem nas buscas em repositórios consultados. Site 9 é apenas referência próxima para Indianópolis, não validação direta.
+- Benchmark adaptado executado para A1 no TECHS 22 com as saídas sem desfolha já calculadas: incremento de lenho simulado 37,06 contra 34 Mg ha⁻¹ ano⁻¹ publicado (+9,0%); IAF simulado aos 24 meses 4,89 contra 3,8 publicado. A segunda comparação é pontual aos 24 meses; a tabela do TCC reporta média simulada de 24–36 meses. Clima municipal e solo do sítio são usados; sobreposição com dados de ajuste A1 não confirmada, portanto não é validação independente.
 - `auditoria_final/auditar_numeros.py` compilou após trocar caminhos absolutos por relativos, mas a execução parou por falta de Node.js. A auditoria e o DOCX ainda não foram gerados.
 
 ## Falta
 1. Disponibilizar Node.js, fonte de dados r3PG e `experimentos/saida/mensal.csv.gz`; então executar a auditoria numérica e completar as suítes de testes.
 2. Gerar o DOCX atualizado após disponibilizar Node.js.
-3. Solicitar ou obter os inventários e metadados TECHS 9 e 22. Se não estiverem disponíveis, restringir a comparação aos resultados agregados de Binkley et al. (2017), como benchmark adaptado, sem chamar de reprodução estrita ou validação empírica.
+3. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 já foi calculado, mas não constitui reprodução estrita nem validação empírica.
 4. Reavaliar a apresentação do simulador após as verificações e confirmar a URL publicada.
 
 ---
@@ -103,7 +105,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 02/11 (tarde): cascata "sem falhas escondidas". (1) Dossel dos clones de Borges corrigido: γF1, γF0 e pFS2 trocados pelos da TECHS (Caldeira et al., 2020a), porque os de Borges davam IAF 8–11 contra 3,0–3,8 medidos; TCC_DOSSEL=borges reproduz a versão anterior. (2) U só no mês do ataque (u_meses = 1; Turnbull et al., 2007; Quentin et al., 2012): as regras testadas deram ajuste equivalente, escolhida a sustentada pela fisiologia; em desfolha total o U não é identificado e vem da faixa da literatura. (3) Matriz principal fixada nos 3 locais (SITIOS_MATRIZ), pois passara a ler os 6 locais. (4) Tabelas completas geradas dos resultados (tcc_docx/tabelas_dados.py), sem números digitados. (5) Auditoria numérica com fixture reproduzível; o controle anterior à correção do dossel foi movido para `auditoria_final/controles_solo_antes_correcao_dossel.csv`. (6) Pipeline com todas as etapas (calibração completa, biomas, possibilidades, tabelas, plataforma).
 - 19/11: repetição de desfolhas não será apresentada como inovação frente a Rua et al. (2020); a contribuição é avaliar recuperação e perdas persistentes em condições brasileiras, com limites explícitos de transferência entre materiais. Recuperação da área foliar, retomada do incremento e déficit de madeira são dimensões diferentes. Perda negativa significa apenas resultado simulado acima do controle segundo a fórmula pareada; não atribuir causa hídrica sem evidência. Não importar percentuais de Pizzi até recuperar e conferir a fonte primária. Binkley et al. (2017) localiza TECHS 9 em Estrela do Sul, a cerca de 35 km de Indianópolis, e TECHS 22 em Telêmaco Borba; não tratar Indianópolis como sítio TECHS 9. Os rótulos S5–SA100 seguem sem correspondência verificada.
 - 19/11: preparar execução no VS Code com `.venv` e tarefas que chamam diretamente os scripts de calibração. Não usar `ferramentas/pipeline.py` para essas tarefas: ele faz commit e tenta enviar `HEAD:main`. A calibração LOO e por material é validação cruzada no mesmo experimento; Oliveira et al. (2014) é o teste em estudo independente disponível, limitado ao horizonte observado.
-- 19/11: não tratar Indianópolis como TECHS 9. Binkley et al. (2017) localiza o sítio 9 em Estrela do Sul, a ~35 km; o valor de solo é uma referência próxima. Sem inventários públicos localizados, só usar os números agregados publicados como benchmark adaptado, nunca como validação empírica; solicitar dados e metadados aos responsáveis pelo TECHS.
+- 19/11: não tratar Indianópolis como TECHS 9. Binkley et al. (2017) localiza o sítio 9 em Estrela do Sul, a ~35 km; o valor de solo é uma referência próxima. O resultado agregado de A1/TECHS 22 pode ser usado como benchmark adaptado, com diferenças de clima/coordenadas e sem independência demonstrada em relação ao ajuste A1; não chamar de validação empírica. A IAF publicada é aos 24 meses e não é diretamente comparável à média simulada de 24–36 meses. Solicitar dados e metadados para avaliação por variável.
 
 ---
 # Contexto técnico
@@ -117,6 +119,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 19/11 11:36 Document public TECHS data limits
 - 19/11 11:30 Record VS Code validation results
 - 19/11 11:05 Configure VS Code calibration workspace
 - 19/11 10:38 Remove obsolete project snapshots and outputs
@@ -131,7 +134,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 02/11 11:42 pipeline: etapa analises concluída
 - 02/11 11:31 pipeline: etapa indicadores concluída
 - 02/11 11:31 pipeline: etapa experimentos concluída
-- 02/11 11:19 Conferidor: números decimais do texto do TCC × itens da auditoria
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
