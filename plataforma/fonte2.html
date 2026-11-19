@@ -223,7 +223,7 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
   <div><div class="rot">Akademia Florestal · laboratório de modelagem ecofisiológica</div>
     <h1>Simulador 3-PG de <em>Eucalyptus</em></h1>
     <p>Crescimento mensal de povoamentos de eucalipto em seis locais, um por bioma com plantios, com e sem desfolha, outros danos e compensação fisiológica.</p></div>
-  <nav><button class="lnk" id="bt-conceitos" type="button">Conceitos</button><button class="lnk chave" id="bt-explicar" type="button" aria-pressed="false">Modo explicar</button><button class="lnk" id="bt-cubagem" type="button">Cubagem e toras</button><button class="lnk" id="bt-tour" type="button">Tutorial guiado</button><button class="lnk" id="bt-valid" type="button">Evidências e métricas</button><button class="lnk chave" id="bt-material" type="button">Material do TCC</button></nav>
+  <nav><button class="lnk" id="bt-conceitos" type="button">Conceitos</button><button class="lnk chave" id="bt-explicar" type="button" aria-pressed="false">Modo explicar</button><button class="lnk" id="bt-cubagem" type="button">Cubagem e toras</button><button class="lnk" id="bt-tour" type="button">Tutorial guiado</button><button class="lnk" id="bt-valid" type="button">Evidências e métricas</button><button class="lnk chave" id="bt-rua" type="button">Diferenças x Rua 3PG.d</button><button class="lnk chave" id="bt-material" type="button">Material do TCC</button></nav>
 </header>
 
 <main class="lab">
@@ -357,6 +357,36 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 <div class="modal" id="m-valid" hidden><div class="pr" role="dialog" aria-modal="true" aria-label="Evidências e métricas">
   <div class="pr-cab"><h2>Evidências e métricas</h2><button class="fechar" data-fecha="m-valid" type="button">Fechar</button></div>
   <div id="valid-corpo"></div>
+</div></div>
+<div class="modal" id="m-rua" hidden><div class="pr" role="dialog" aria-modal="true" aria-label="Diferenças entre este simulador e Rua 3PG.d">
+  <div class="pr-cab"><h2>Este simulador × Rua 3PG.d</h2><button class="fechar" data-fecha="m-rua" type="button">Fechar</button></div>
+  <p class="mini" style="max-width:82ch">Comparação documental. As informações sobre o 3PG.d abaixo vêm da descrição pública da ferramenta citada por Rua et al. (2020). Recursos não descritos nessa página não são tratados como ausentes no trabalho original.</p>
+  <div class="secao"><h3>Escopo do precedente 3PG.d</h3>
+    <div class="tabs-wrap"><table class="tab">
+      <thead><tr><th>Aspecto</th><th>Rua 3PG.d</th><th>Este simulador Akademia</th></tr></thead>
+      <tbody>
+      <tr><td>Espécie e praga</td><td><i>Eucalyptus globulus</i>; gorgulho-do-eucalipto <i>Gonipterus platensis</i>, em Portugal</td><td>Quatro clones/híbridos brasileiros em seis locais e vários agentes: lagartas, formigas, percevejos e mortalidade por doenças</td></tr>
+      <tr><td>Frequência do ataque</td><td>Interface pública permite definir o número de ataques por ano</td><td>Pulso único, dois pulsos em 2017 e 2020 ou pulsos anuais de 2017 a 2022</td></tr>
+      <tr><td>Época do ataque</td><td>Descrição pública informa ataques na primavera e, em outra configuração, também no outono</td><td>Janeiro, abril, julho ou outubro</td></tr>
+      <tr><td>Intensidade</td><td>Definida pelo usuário na interface descrita publicamente</td><td>Intensidade de desfolha de 0 a 95% em intervalos de 5%</td></tr>
+      <tr><td>Resposta da planta</td><td>A descrição pública não permite confirmar quais mecanismos fisiológicos entram no modelo</td><td>Compensação com fotossíntese, condutância e alocação calibradas; também há versões original e exploratória</td></tr>
+      <tr><td>Saídas</td><td>Altura dominante, área basal e volume</td><td>IAF, folhas, lenho, raízes, DAP, altura, volume, mortalidade, água no solo, partição de carbono, WUE e sortimentos</td></tr>
+      <tr><td>Visualização</td><td>Não inferida além da descrição pública encontrada</td><td>Talhão 3D comparando controle e desfolhado, com animação mensal e marcas dos eventos</td></tr>
+      <tr><td>Outros danos</td><td>Não descritos publicamente na página consultada</td><td>Perda de eficiência por 4 meses e mortalidade induzida no primeiro evento</td></tr>
+      <tr><td>Incerteza e validade</td><td>Não verificável apenas pela descrição pública consultada</td><td>200 amostras do posterior para cenários calibrados e quadro explícito de domínio de validade</td></tr>
+      <tr><td>Consequência por produto</td><td>Não descrita publicamente na página consultada</td><td>Estimativa ilustrativa por taper e sortimentos de serraria, celulose e energia</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="secao"><h3>Contribuição deste trabalho</h3>
+    <ul>
+      <li>A repetição de desfolha não é apresentada como novidade em relação ao 3PG.d.</li>
+      <li>A contribuição central é avaliar recuperação foliar, retomada do incremento e déficit persistente de madeira em materiais e condições brasileiras.</li>
+      <li>O acesso a dados independentes é limitado: a plataforma distingue verificação, calibração, teste e evidência secundária.</li>
+      <li>O domínio das desfolhas quase totais é marcado como extrapolado; a persistência longa não é apresentada como validadora para os seis locais.</li>
+    </ul>
+  </div>
+  <p class="mini">Referência comparada: Rua, J. C. P. et al. (2020), 3PG.d para desfolha por <i>Gonipterus platensis</i>. A comparação não afirma que o 3PG.d não possui recursos que não apareçam na descrição pública consultada.</p>
 </div></div>
 <div class="modal" id="m-exp" hidden><div class="pr" role="dialog" aria-modal="true" aria-label="Exportar">
   <div class="pr-cab"><h2>Exportar série mensal</h2><button class="fechar" data-fecha="m-exp" type="button">Fechar</button></div>
@@ -896,6 +926,7 @@ function abrirValid() {
   abrir("m-valid");
 }
 document.getElementById("bt-valid").onclick = abrirValid;
+document.getElementById("bt-rua").onclick = () => abrir("m-rua");
 
 /*CONCEITOS_UI*/
 /*CUBAGEM*/
