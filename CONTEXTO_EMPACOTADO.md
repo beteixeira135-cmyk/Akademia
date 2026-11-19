@@ -75,6 +75,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Em 19/11/2026, foi criada uma aba/modal dedicada a "Diferenças x Rua 3PG.d". Ela separa o precedente documental de Rua et al. (2020) da contribuição deste trabalho e evita alegar ausência de recursos não descritos na página pública consultada. A comparação cobre espécie/praga, frequência, época, intensidade, resposta fisiológica, saídas, visualização, outros danos, incerteza e perdas por produto.
 
 - A checagem inicial com o Python global falhou por falta de `numpy`; a checagem equivalente com `.venv` passou após a instalação do Node.js.
+
+- 19/11/2026 — Auditoria final registrada em `AUDITORIA_FINAL_NAO_VALIDADO_2026-11-19.txt` e copiada para a Área de Trabalho. Confirmados: seis locais em cinco biomas; tutorial com limite inferior de perda incorreto e faixas de Matrangolo misturando versões; janela climática termina em 31/01/2024. Auditoria numérica reexecutada: 528/528; texto: 115 decimais, três sem correspondência cadastrada; referências: seis candidatos heurísticos para triagem manual. Testes: 57 aprovados; JS–Python: oito cenários, diferença máxima relativa 6,16e-14. Isso verifica código, não validação biológica. Pendências centrais: dados independentes, clima/solo local, ampliar rastreabilidade e corrigir tutorial. Node existe no PATH do usuário, mas o processo atual não herdou a pasta; foi usado caminho explícito. `pipeline.py verificar` não foi executado porque também faz commit e push automáticos.
 ```
 
 ## memoria/progresso.md
@@ -97,12 +99,17 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - A conferência automática do texto encontrou três números sem correspondência na tabela de resultados (1.111, 28,65 °C e 1,35); são densidade de plantio, limite térmico e limite de U citados com fórmula ou fonte e precisam de checagem específica.
 - Em 19/11/2026, corrigidos UTF-8, estrutura HTML e um erro de expressão regular que impedia a execução dos scripts da página. Corrigida também uma propriedade de material incompatível na cena Three.js. `plataforma/construir.py` regenerou o simulador e `docs/index.html`; o navegador abriu a cena 3D, confirmou `charset=UTF-8`, `lang=pt-BR`, `R` e `renderer` ativos e não registrou erro de JavaScript. A desfolha visual passou a ser refletida diretamente por folhas menores e o evento mensal, em conjunto com os números do modelo.
 - Em 19/11/2026, adicionada ao cabeçalho a aba "Diferenças x Rua 3PG.d", com tabela comparativa de 10 aspectos e limites explícitos sobre o que se sabe pela descrição pública.
+- Auditoria final do escopo de validação produzida em `AUDITORIA_FINAL_NAO_VALIDADO_2026-11-19.txt`, também copiada para a Área de Trabalho. Reexecução: auditoria numérica 528/528; scanner 115 decimais/3 sem item cadastrado; 57 testes; equivalência JS–Python em 8 cenários (máxima diferença relativa 6,16e-14). Identificados erros textuais no número de biomas, no limite inferior de perda do tutorial e na mistura de versões de Matrangolo.
 
 ## Falta
 1. Conferir a fórmula/fonte dos três números que a conferência textual não encontrou na tabela de resultados e, se necessário, ampliar a auditoria para entradas e parâmetros citados.
 2. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 já foi calculado, mas não constitui reprodução estrita nem validação empírica.
 3. Reavaliar a apresentação do simulador após as verificações e confirmar a URL publicada.
 4. Reiniciar o VS Code para que os terminais existentes herdem o PATH atualizado do Node.js.
+5. Corrigir o tutorial/compêndio e a redação “seis locais, um por bioma”; atualizar janela climática e rótulos das versões.
+6. Ampliar auditoria a entradas, parâmetros, fontes, referências e números do tutorial; revisar manualmente seis candidatos do verificador bibliográfico.
+7. Obter dados independentes, comparar NASA POWER com estações e confirmar coordenadas/solo; calibração cruzada e teste Oliveira não substituem validação local ou de longo prazo.
+8. Corrigir `ferramentas/pipeline.py` para que `verificar` não faça commit/push; confirmar restauração do ZIP, atalho da conversa e sincronização com Drive.
 ```
 
 ## memoria/decisoes.md
