@@ -22,6 +22,19 @@ out = run_3pg_pjs(site, species, clima, params, defoliation_events=ev)
 ```
 `params_from_table` recusa qualquer parâmetro sem valor: lacunas não são preenchidas.
 
+## Fertilidade do solo por C e B (experimental; desativado)
+`fn_soil.py` reserva a integração de um modificador a partir de carbono e boro. A
+forma funcional e os coeficientes não estão disponíveis; portanto, o módulo retorna
+`NaN` com aviso e não estima fertilidade. O adaptador para `species["fertility"]`
+fica desativado por padrão e preserva o valor manual:
+```python
+from fn_soil import species_with_soil_fertility
+species_site = species_with_soil_fertility(species, C, B)  # disabled by default
+out = run_3pg_pjs(site, species_site, clima, params)
+```
+Não habilitar a integração (`enabled=True`) até definir e documentar a fórmula,
+unidades e coeficientes. O módulo principal e suas equações não foram alterados.
+
 ## Registro de alterações em relação ao r3PG original
 | # | Alteração | Tipo |
 |---|---|---|

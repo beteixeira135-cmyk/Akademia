@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (6548 tokens, estimativa (caracteres ÷ 3,6); gerado em 19/11/2026 16:08)
+# PASSAGEM DE BASTÃO — TCC II (6832 tokens, estimativa (caracteres ÷ 3,6); gerado em 19/11/2026 17:26)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (25493 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (25775 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -68,6 +68,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - A checagem inicial com o Python global falhou por falta de `numpy`; a checagem equivalente com `.venv` passou após a instalação do Node.js.
 
 - 19/11/2026 — Auditoria final registrada em `AUDITORIA_FINAL_NAO_VALIDADO_2026-11-19.txt` e copiada para a Área de Trabalho. Confirmados: seis locais em cinco biomas; tutorial com limite inferior de perda incorreto e faixas de Matrangolo misturando versões; janela climática termina em 31/01/2024. Auditoria numérica reexecutada: 528/528; texto: 115 decimais, três sem correspondência cadastrada; referências: seis candidatos heurísticos para triagem manual. Testes: 57 aprovados; JS–Python: oito cenários, diferença máxima relativa 6,16e-14. Isso verifica código, não validação biológica. Pendências centrais: dados independentes, clima/solo local, ampliar rastreabilidade e corrigir tutorial. Node existe no PATH do usuário, mas o processo atual não herdou a pasta; foi usado caminho explícito. `pipeline.py verificar` não foi executado porque também faz commit e push automáticos.
+- Adaptada a estrutura de `fN_soil` para Python em `modelo/fn_soil.py`, sem equação ou coeficientes inventados. O cálculo permanece indisponível e desativado; o adaptador só copia `species` e preserva `species["fertility"]` manual por padrão. As suítes do modelo e dos experimentos passaram (62 testes). Para habilitar, exige-se primeiro definir forma, coeficientes e unidades com base verificável.
 
 ---
 # Progresso
@@ -88,6 +89,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Em 19/11/2026, corrigidos UTF-8, estrutura HTML e um erro de expressão regular que impedia a execução dos scripts da página. Corrigida também uma propriedade de material incompatível na cena Three.js. `plataforma/construir.py` regenerou o simulador e `docs/index.html`; o navegador abriu a cena 3D, confirmou `charset=UTF-8`, `lang=pt-BR`, `R` e `renderer` ativos e não registrou erro de JavaScript. A desfolha visual passou a ser refletida diretamente por folhas menores e o evento mensal, em conjunto com os números do modelo.
 - Em 19/11/2026, adicionada ao cabeçalho a aba "Diferenças x Rua 3PG.d", com tabela comparativa de 10 aspectos e limites explícitos sobre o que se sabe pela descrição pública.
 - Auditoria final do escopo de validação produzida em `AUDITORIA_FINAL_NAO_VALIDADO_2026-11-19.txt`, também copiada para a Área de Trabalho. Reexecução: auditoria numérica 528/528; scanner 115 decimais/3 sem item cadastrado; 57 testes; equivalência JS–Python em 8 cenários (máxima diferença relativa 6,16e-14). Identificados erros textuais no número de biomas, no limite inferior de perda do tutorial e na mistura de versões de Matrangolo.
+- Estrutura inicial de fertilidade do solo por C e B adaptada ao Python (`modelo/fn_soil.py`): valida entradas, preserva ausências, retorna NaN e avisa quando não há parâmetros. O adaptador para `species["fertility"]` permanece desativado por padrão; sem fórmula e coeficientes documentados não estima fN. As suítes do modelo e dos experimentos passaram (62 testes).
 
 ## Falta
 1. Conferir a fórmula/fonte dos três números que a conferência textual não encontrou na tabela de resultados e, se necessário, ampliar a auditoria para entradas e parâmetros citados.
@@ -124,6 +126,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 19/11: preparar execução no VS Code com `.venv` e tarefas que chamam diretamente os scripts de calibração. Não usar `ferramentas/pipeline.py` para essas tarefas: ele faz commit e tenta enviar `HEAD:main`. A calibração LOO e por material é validação cruzada no mesmo experimento; Oliveira et al. (2014) é o teste em estudo independente disponível, limitado ao horizonte observado.
 - 19/11: não tratar Indianópolis como TECHS 9. Binkley et al. (2017) localiza o sítio 9 em Estrela do Sul, a ~35 km; o valor de solo é uma referência próxima. O resultado agregado de A1/TECHS 22 pode ser usado como benchmark adaptado, com diferenças de clima/coordenadas e sem independência demonstrada em relação ao ajuste A1; não chamar de validação empírica. A IAF publicada é aos 24 meses e não é diretamente comparável à média simulada de 24–36 meses. Solicitar dados e metadados para avaliação por variável.
 - 19/11/2026: manter `plataforma/fonte2.html` como fonte única de estrutura/visualização e `plataforma/construir.py` para regenerar o simulador e `docs/index.html`. Corrigir problemas de codificação e execução na fonte, não só nos arquivos gerados. Na cena 3D, a copa do talhão desfolhado deve diminuir pela biomassa foliar mensal do modelo e o dano deve marcar também a passagem dos eventos; o resultado visual é ilustrativo e não substitui as métricas científicas.
+- 19/11/2026: manter o novo modificador de fertilidade por carbono e boro isolado e desativado no motor Python até haver forma funcional, coeficientes e unidades verificados. Não substituir FR/fertility manual nem inferir coeficientes da referência.
 - 19/11/2026: apresentar a comparação com o 3PG.d de Rua em uma aba própria e não incorporá-la como seção dispersa das métricas. Qualificar a comparação como documental, baseada na descrição pública consultada; não afirmar que o 3PG.d não tem recursos apenas por eles não aparecerem nessa descrição.
 
 ---
@@ -138,6 +141,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 19/11 16:12 docs: registrar auditoria final de validação
 - 19/11 15:25 build: configure runtime and restore DOCX generation
 - 19/11 12:07 Add Rua 3PG.d comparison tab
 - 19/11 11:56 Record simulator display verification
@@ -152,7 +156,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 02/11 16:23 Guia ilustrado do TCC II, passo a passo (PDF, 18 p.)
 - 02/11 16:09 TCC VERSÃO FINAL v4: 5.1 Perspectivas na conclusão; passagem de bastão para o Astra; conferidor de referências no repositório
 - 02/11 12:08 Cascata: dossel de Borges corrigido (TECHS), U só no mês do ataque, recalibração e reprocessamento completo; tabelas geradas dos resultados; pipeline completo; plataforma e capturas atualizadas; TCC VERSÃO FINAL v3 (37 p.), auditoria 528/528
-- 02/11 12:02 pipeline: etapa plataforma concluída
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
