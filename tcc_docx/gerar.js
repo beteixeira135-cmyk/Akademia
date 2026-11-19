@@ -1,5 +1,6 @@
 // Gera o TCC II no modelo UFU/ICIAG (ABNT). Uso: node gerar.js [paginas.json]
 const fs = require("fs");
+const path = require("path");
 const D = require("docx");
 const C = require("./conteudo.js");
 const { Document, Packer, Paragraph, TextRun, AlignmentType, Table, TableRow, TableCell, WidthType, BorderStyle,
@@ -73,7 +74,7 @@ function figura(arq, wcm, cap) {
 // ---------- quadro de destaque (Akademia) ----------
 const VERDE = { style: BorderStyle.SINGLE, size: 12, color: "5F6F34" };
 function caixa(textos, qr) {
-  const QR = "/home/claude/tcc/plataforma/qr/qr_akademia.png";
+  const QR = path.join(__dirname, "..", "plataforma", "qr", "qr_akademia.png");
   const par = textos.map((x, k) => new Paragraph({ alignment: AlignmentType.LEFT, spacing: { ...L10, after: k < textos.length - 1 ? 120 : 0 }, children: runs(x, { size: 22 }) }));
   const cel = (ch, w) => new TableCell({ width: { size: w, type: WidthType.DXA }, verticalAlign: VerticalAlign.CENTER, margins: { top: 140, bottom: 140, left: 180, right: 180 },
     shading: { type: ShadingType.CLEAR, color: "auto", fill: "EEF0E6" }, borders: { top: VERDE, bottom: VERDE, left: VERDE, right: VERDE }, children: ch });
@@ -91,7 +92,7 @@ const eq = (txt, n) => new Paragraph({ spacing: { ...L15, before: 120, after: 12
   children: [new TextRun({ text: "\t", font: FONTE }), ...runs(txt.replace(/([A-Za-z])~/g, "$1~")), new TextRun({ text: `\t(${n})`, font: FONTE, size: 24 })] });
 
 // ---------- dados das tabelas ----------
-const FIGD = "/home/claude/tcc/experimentos/saida/figuras/";
+const FIGD = path.join(__dirname, "..", "experimentos", "saida", "figuras") + path.sep;
 const TDJ = JSON.parse(fs.readFileSync(__dirname + "/tabelas_dados.json", "utf8")), TD = TDJ.tabelas, TN = TDJ.notas;
 const TABS = {
   locais: () => tabela("Locais simulados: bioma, clima de 2015 a 2024 e água que o solo guarda até 2 m",

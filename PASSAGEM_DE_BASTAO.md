@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (5375 tokens, estimativa (caracteres ÷ 3,6); gerado em 19/11/2026 12:06)
+# PASSAGEM DE BASTÃO — TCC II (6003 tokens, estimativa (caracteres ÷ 3,6); gerado em 19/11/2026 15:23)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (24631 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (24954 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -56,14 +56,16 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - VS Code preparado com `.vscode/` e `requirements-calibracao.txt`; o ambiente `.venv` foi criado em Python 3.15 e as dependências foram instaladas.
 - Reexecutadas com sucesso calibração C5, estimação de γ, validação cruzada interna, auditoria da calibração, testes adicionais, avaliação qualitativa de *E. globulus* e teste independente de Oliveira. Medianas: U = 1,18 (IC90% 1,01–1,34), a = 0,625 (0,225–0,975), γ = 1. A validação cruzada permanece dentro do experimento Bertulio; o teste Oliveira cobre a resposta em outro estudo, não valida persistência de longo prazo.
 - VS Code usa `.vscode/` para preparar ambiente, recalcular calibração e executar as suítes. A fonte pública `trotsiuk/r3PG` está clonada na pasta irmã esperada; `experimentos/saida/mensal.csv.gz` foi regenerado localmente (ignorado pelo Git). As suítes do modelo e dos experimentos passaram: 57 testes.
-- A auditoria numérica não concluiu: `auditar_numeros.py` teve os caminhos absolutos de Linux corrigidos, mas ainda requer Node.js, que não está no PATH. O DOCX também depende de Node.js.
+- Em 19/11/2026, Node.js v26.13.1 foi instalado no perfil do usuário e adicionado ao PATH; `tcc_docx/package.json` declara a dependência `docx`. A auditoria numérica passou (528 itens conferidos), as suítes do modelo e dos experimentos passaram (57 testes) e o DOCX foi gerado (12 figuras e 3 tabelas). A conferência automática do texto encontrou três números sem correspondência na tabela de resultados: densidade de plantio (1.111), limite térmico (28,65 °C) e limite de U (1,35); verificar cada um na fórmula ou fonte citada. Os caminhos de figuras e QR do gerador foram tornados relativos ao repositório.
 - Próxima prioridade científica: obter os inventários e metadados de TECHS 9 e 22 para avaliação por variável e confirmar o subconjunto de dados usado no ajuste A1. A associação direta Indianópolis–TECHS 9 foi descartada; os rótulos S5–SA100 continuam sem correspondência verificada.
 
-- `pipeline.py verificar`: com o Python do sistema, faltam dependências científicas; com `.venv`, numpy/pandas/sklearn passam, mas a verificação completa para em `node --version` porque Node.js não está no PATH.
+- O Python global continua sem dependências científicas; usar `.venv`. O PATH do usuário já contém Node.js, mas processos do VS Code abertos antes da instalação ainda não o enxergam: reiniciar o VS Code para que `node` funcione nesses terminais.
 
 - Em 19/11/2026, a apresentação web voltou a executar: foi declarado `<!doctype html>`, `<html lang="pt-BR">`, UTF-8, `<head>` e `<body>`; o script que remove acentos passou de uma faixa Unicode mal codificada para `\p{M}`; a cena Three.js deixou de usar a propriedade incompatível `flatShading`. O simulador foi reconstruído e recarregado no navegador sem erros de JavaScript. Em um teste visual com desfolha de 95%, aos 24 meses, o talhão desfolhado mostrou W_F = 0,58 t ha^-1 contra 3,84 t ha^-1 no controle e volume = 48,38 m³ ha^-1 contra 55,83 m³ ha^-1 no controle.
 
 - Em 19/11/2026, foi criada uma aba/modal dedicada a "Diferenças x Rua 3PG.d". Ela separa o precedente documental de Rua et al. (2020) da contribuição deste trabalho e evita alegar ausência de recursos não descritos na página pública consultada. A comparação cobre espécie/praga, frequência, época, intensidade, resposta fisiológica, saídas, visualização, outros danos, incerteza e perdas por produto.
+
+- A checagem inicial com o Python global falhou por falta de `numpy`; a checagem equivalente com `.venv` passou após a instalação do Node.js.
 
 ---
 # Progresso
@@ -78,15 +80,17 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - A fonte pública r3PG foi clonada na pasta irmã esperada; a matriz mensal foi regenerada localmente. Suítes do modelo e dos experimentos: 57 testes aprovados.
 - Busca documental pública confirmou os locais TECHS 9 (Estrela do Sul; aproximadamente 35 km de Indianópolis) e 22 (Telêmaco Borba). Binkley et al. (2017) fornece metadados de sítio e resultados agregados de meia rotação, mas não localizei os inventários brutos para download na página do IPEF nem nas buscas em repositórios consultados. Site 9 é apenas referência próxima para Indianópolis, não validação direta.
 - Benchmark adaptado executado para A1 no TECHS 22 com as saídas sem desfolha já calculadas: incremento de lenho simulado 37,06 contra 34 Mg ha⁻¹ ano⁻¹ publicado (+9,0%); IAF simulado aos 24 meses 4,89 contra 3,8 publicado. A segunda comparação é pontual aos 24 meses; a tabela do TCC reporta média simulada de 24–36 meses. Clima municipal e solo do sítio são usados; sobreposição com dados de ajuste A1 não confirmada, portanto não é validação independente.
-- `auditoria_final/auditar_numeros.py` compilou após trocar caminhos absolutos por relativos, mas a execução parou por falta de Node.js. A auditoria e o DOCX ainda não foram gerados.
+- Ambiente completado: Node.js v26.13.1 instalado no perfil do usuário, PATH de usuário configurado e dependência `docx` declarada em `tcc_docx/package.json`/lockfile. Dependências Python da `.venv` conferidas.
+- Corrigidos caminhos absolutos de Linux nas figuras e no QR do gerador do TCC. Auditoria numérica passou (528 itens); `modelo/testes` e `experimentos/testes` passaram (57 testes); DOCX gerado com 12 figuras e 3 tabelas.
+- A conferência automática do texto encontrou três números sem correspondência na tabela de resultados (1.111, 28,65 °C e 1,35); são densidade de plantio, limite térmico e limite de U citados com fórmula ou fonte e precisam de checagem específica.
 - Em 19/11/2026, corrigidos UTF-8, estrutura HTML e um erro de expressão regular que impedia a execução dos scripts da página. Corrigida também uma propriedade de material incompatível na cena Three.js. `plataforma/construir.py` regenerou o simulador e `docs/index.html`; o navegador abriu a cena 3D, confirmou `charset=UTF-8`, `lang=pt-BR`, `R` e `renderer` ativos e não registrou erro de JavaScript. A desfolha visual passou a ser refletida diretamente por folhas menores e o evento mensal, em conjunto com os números do modelo.
 - Em 19/11/2026, adicionada ao cabeçalho a aba "Diferenças x Rua 3PG.d", com tabela comparativa de 10 aspectos e limites explícitos sobre o que se sabe pela descrição pública.
 
 ## Falta
-1. Disponibilizar Node.js, fonte de dados r3PG e `experimentos/saida/mensal.csv.gz`; então executar a auditoria numérica e completar as suítes de testes.
-2. Gerar o DOCX atualizado após disponibilizar Node.js.
-3. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 já foi calculado, mas não constitui reprodução estrita nem validação empírica.
-4. Reavaliar a apresentação do simulador após as verificações e confirmar a URL publicada.
+1. Conferir a fórmula/fonte dos três números que a conferência textual não encontrou na tabela de resultados e, se necessário, ampliar a auditoria para entradas e parâmetros citados.
+2. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 já foi calculado, mas não constitui reprodução estrita nem validação empírica.
+3. Reavaliar a apresentação do simulador após as verificações e confirmar a URL publicada.
+4. Reiniciar o VS Code para que os terminais existentes herdem o PATH atualizado do Node.js.
 
 ---
 ## Calibração (lido de calibracao/saida/calibracao_d0999.json)
@@ -127,7 +131,21 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
-- (git indisponível)
+- 19/11 12:07 Add Rua 3PG.d comparison tab
+- 19/11 11:56 Record simulator display verification
+- 19/11 11:55 Improve Akademia simulator page rendering
+- 19/11 11:45 Document TECHS 22 benchmark limits
+- 19/11 11:36 Document public TECHS data limits
+- 19/11 11:30 Record VS Code validation results
+- 19/11 11:05 Configure VS Code calibration workspace
+- 19/11 10:38 Remove obsolete project snapshots and outputs
+- 19/11 10:20 Atualiza recuperação e limites do módulo
+- 03/11 19:49 Resumo executivo ilustrado: da fonte ao número (PDF, 7 p.), para a coorientadora
+- 02/11 16:23 Guia ilustrado do TCC II, passo a passo (PDF, 18 p.)
+- 02/11 16:09 TCC VERSÃO FINAL v4: 5.1 Perspectivas na conclusão; passagem de bastão para o Astra; conferidor de referências no repositório
+- 02/11 12:08 Cascata: dossel de Borges corrigido (TECHS), U só no mês do ataque, recalibração e reprocessamento completo; tabelas geradas dos resultados; pipeline completo; plataforma e capturas atualizadas; TCC VERSÃO FINAL v3 (37 p.), auditoria 528/528
+- 02/11 12:02 pipeline: etapa plataforma concluída
+- 02/11 12:02 pipeline: etapa tabelas concluída
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
