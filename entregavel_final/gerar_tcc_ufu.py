@@ -19,7 +19,7 @@ from docx.oxml.ns import qn
 from docx.shared import Cm, Pt
 
 AQUI = Path(__file__).resolve().parent
-ORIGEM = AQUI.parent / "tcc_final" / "TCC_TEXTO_FINAL.md"
+ORIGEM = AQUI / "TCC_TEXTO_FINAL.md"
 SAIDA = AQUI / "TCC_II_Bernardo_Castro_FINAL.docx"
 
 TITULO = "SIMULAÇÃO DA DESFOLHA EM PLANTIOS DE *Eucalyptus* COM O MODELO 3-PG: EFEITO NO CRESCIMENTO E NA PRODUÇÃO DE MADEIRA"
@@ -267,6 +267,10 @@ def main():
         mf = re.match(r"^!\[(.*?)\]\((.*?)\)\s*$", l)
         if mf:
             caminho = AQUI / mf.group(2)
+            if not caminho.is_file():
+                caminho = AQUI / "figuras" / Path(mf.group(2)).name
+            if not caminho.is_file():
+                raise FileNotFoundError(f"Figura não encontrada: {mf.group(2)}")
             pic = doc.add_paragraph(); pic.alignment = WD_ALIGN_PARAGRAPH.CENTER
             pic.paragraph_format.line_spacing = 1.0; pic.paragraph_format.keep_with_next = True
             pic.add_run().add_picture(str(caminho), width=Cm(15))

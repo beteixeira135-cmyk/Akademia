@@ -26,12 +26,18 @@ Distinção adotada:
 ## Registro
 - Itens resolvidos (removidos): referência de Bertúlio; autores de Oliveira (2014); unidade dos volumes de Campo Verde; clones C2, C4 e C5; quadro de materiais; DOI do Matrangolo (10.1590/S1678-3921.pab2010.v45.8460); data de plantio do TECHS 9 (dez/2011, Almeida 2021); correção da equivalência com o r3PG no texto.
 
-## Matriz de seis materiais (executada nesta rodada)
-- Saída: `experimentos/saida/possibilidades_6mat/possibilidades.csv` (22.752 linhas); cópia em `fechamento_tcc/possibilidades_6materiais.csv`. Script: `experimentos/possibilidades_6mat.py`.
-- Seção 4.3 atualizada com os números desta matriz.
-- **Pendente:** Figura 10 (N3) e sua legenda ainda usam a matriz antiga de A1 e C5 (5.688 aptos); precisam ser regeradas a partir de `possibilidades_6mat`.
-- **Pendente:** Figura 4 e a discussão da seção 4.10 e 4.5 ainda citam os números antigos; revisar com a matriz nova.
-- **Pendente:** A1 não tem cenários em ALM e ARA; declarar em toda comparação entre materiais.
+## Matriz de seis materiais — bloqueada por falta do arquivo fonte
+- O arquivo solicitado `experimentos/saida/possibilidades_6mat/possibilidades.csv` não existe no workspace inspecionado e não está rastreado pelo Git. `git log --all --oneline --full-history -- experimentos/saida/possibilidades_6mat/possibilidades.csv` não retornou commits.
+- O número “20.856” aparece no texto do commit `1997811` (`finalizacao: entregavel_final com DOCX UFU, texto-fonte, gerador e figuras`), mas isso não fornece a matriz nem permite recalcular os resultados. A busca `git log --all --oneline -S"20.856" -- entregavel_final/TCC_TEXTO_FINAL.md entregavel_final/PENDENCIAS_FORA_DO_TEXTO.md` encontrou somente esse commit.
+- O único arquivo de possibilidades localizado no workspace é `experimentos/saida/possibilidades/possibilidades.csv`, em um diretório diferente. `Import-Csv` confirmou 7.584 linhas, 5.688 aptas, dois materiais (A1 e C5) e seis sítios (IND, TB, IMP, ALM, ARA e ELD); portanto, não corresponde à matriz alegada de seis materiais. Esses dados não comprovam os resultados novos. Não reconstruir nem substituir os dados ausentes.
+- **Bloqueados até recuperar o CSV original e sua proveniência:** confirmar 22.752 cenários totais, 20.856 aptos, 10.428 por versão, os percentuais de recuperação/ganho atribuídos à matriz, as legendas e os dados da Figura 10. A figura não foi regenerada. A menção a 1.848 cenários do Random Forest continua pendente de verificação de aptidão, conforme item B7.
+
+## Registro de auditoria desta etapa (21/11/2026)
+- Branch criada a partir de `finalizacao-claude` limpa, no commit-base `199781183dd32c9bfe05985bcc25645e53cf6288`: `tcc-ii-finalizacao-auditoria`.
+- Comandos: `git status --short --branch` confirmou `finalizacao-claude...origin/finalizacao-claude` sem alterações; `git log -1 --format="%H%n%h %s"` confirmou o commit-base; `git ls-files --error-unmatch experimentos/saida/possibilidades_6mat/possibilidades.csv` não encontrou o arquivo; buscas de histórico descritas acima; `Import-Csv` e o resumo JSON confirmaram as dimensões da saída antiga.
+- `Test-Path` confirmou a ausência de `entregavel_final/TCC_II_Bernardo_Castro_FINAL.docx`, `entregavel_final/TCC_II_Bernardo_Castro_FINAL.pdf` e `entregavel_final/sumario.json`, bem como da figura no caminho `entregavel_final/figuras_padronizadas`; as imagens correspondentes existem em `entregavel_final/figuras`.
+- `python3 ferramentas/pipeline.py verificar` não iniciou: o alias `python3` encaminha à Microsoft Store e não há interpretador Python instalado/disponível no PATH. Node.js e LibreOffice/soffice também não foram encontrados. DOCX, PDF e auditoria numérica não foram gerados. O `git diff --check` passou; a checagem de caminhos confirmou que todas as imagens referenciadas no manuscrito têm arquivo correspondente no caminho atual ou em `entregavel_final/figuras`.
+- Correções independentes aplicadas nesta etapa: caminho de entrada do gerador para `TCC_TEXTO_FINAL.md` no diretório correto; resolução das figuras existentes em `entregavel_final/figuras`; descrição do TECHS 9 corrigida para não o tratar como parcela de Indianópolis; referências no texto à quantidade de materiais alinhadas às Tabelas 1 e 2. Nenhuma saída de cenário ou figura científica foi alterada e o motor científico não foi tocado.
 
 ## Decisões desta rodada
 - MinCond: retirado da análise; declarado como limite aceito no texto (seção 4.7). Valor 0 mantido.
