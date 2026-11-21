@@ -82,6 +82,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Em 21/11/2026, a versão textual entregue foi sincronizada com a revisão das limitações já feita em `tcc_docx/conteudo.js`: as referências Borzak et al. (2016), Eyles et al. (2009, 2016) e Firmino (2011) foram incorporadas ao texto de 4.14 e/ou à lista de referências; o DOI incorreto de Matrangolo foi corrigido para 10.1590/S0100-204X2010000900003. A redação separa reservas, persistência, sobrevivência, queda de folhada e confirmação empírica sem alterar números ou conclusões.
 - Em 21/11/2026, a redação tabular removeu o termo “pulso” das tabelas principais: os calendários passaram a ser chamados ataque isolado, dois ataques e ataques anuais. Os números 5.688 e 20.856 permanecem distintos: o primeiro descreve danos combinados com dois materiais; o segundo, a matriz completa de seis materiais.
 - Em 21/11/2026, o simulador deixou de mostrar “pulso/pulsos” nos rótulos visíveis e passou a usar “ataque isolado”, “dois ataques” e “ataques anuais”. `docs/index.html` e os arquivos-fonte foram reconstruídos. O pacote `handoff_claude/PROMPT_CLAUDE.md` recebeu instruções para diagramar o Material e Métodos como infográfico Notelm encadeado.
+- Em 21/11/2026, ficou explícito no pacote de handoff que o Claude não deve criar clones Git nem repositórios paralelos: a tarefa deve ser realizada no checkout já disponibilizado pela sessão, preservando o repositório e usando uma branch de trabalho apropriada.
 ```
 
 ## memoria/progresso.md
@@ -89,6 +90,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ```markdown
 # Progresso
 ## Feito
+- Em 21/11/2026, registrado no handoff e nas decisões que o Claude não precisa criar clones Git nem repositórios paralelos; ele deve usar o checkout já disponibilizado pela sessão.
 - Em 21/11/2026, removidos os rótulos visíveis “pulso/pulsos” do simulador: fonte principal, conceitos, dados das tabelas e protótipo 3D passaram a usar “ataque isolado”, “dois ataques” e “ataques anuais”. `docs/index.html` foi reconstruído por `plataforma/construir.py`.
 - Em 21/11/2026, `handoff_claude/PROMPT_CLAUDE.md` recebeu uma seção dedicada ao infográfico Notelm do Material e Métodos, com encadeamento objetivo → entradas → 3-PG → desfolha → cenários → calibração → simulações → metamodelo → indicadores → interpretação e distinções entre verificação, calibração, validação cruzada e confirmação empírica.
 - Em 21/11/2026, substituídas em `tcc_docx/gerar.js`, no gerador de dados das tabelas e no JSON das tabelas as expressões “pulso único”, “dois pulsos” e “pulsos anuais” por “ataque isolado”, “dois ataques” e “ataques anuais”. Conferidos os arquivos JS e o JSON; não restou a palavra “pulso” nas fontes do TCC e a sintaxe passou em `node --check`.
@@ -149,6 +151,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11/2026: integrar as nove referências ao texto por fatos verificáveis e sem chamar comparações bibliográficas de validação. Matrangolo, Oliveira e o benchmark TECHS permanecem comparações adaptadas; Caldeira valida crescimento sem desfolha; reservas, lignotúber, queda de folhada e persistência plural anual são tratadas como limites ou dados de espécies/sítios não equivalentes.
 - 21/11/2026: usar linguagem direta para os calendários de desfolha nas tabelas e legendas. “Ataque isolado” substitui “pulso único”, “dois ataques” substitui “dois pulsos” e “ataques anuais” substitui “pulsos anuais”.
 - 21/11/2026: o Material e Métodos do TCC terá instrução específica para o Claude construir uma explicação em formato de infográfico Notelm: encadeamento visual objetivo → dados e locais → 3-PG → desfolha → cenários → calibração → simulações → metamodelo → indicadores → interpretação. O simulador não deve usar “pulso/pulsos” em rótulos visíveis.
+- 21/11/2026: o Claude não precisa nem deve criar clones Git desta tarefa. O trabalho deve começar no checkout já disponibilizado pela sessão, preservando o repositório existente e usando uma branch de trabalho apropriada, sem inicializar ou duplicar o projeto em diretórios paralelos.
 ```
 
 ## memoria/tecnico.md

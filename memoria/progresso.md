@@ -1,5 +1,6 @@
 # Progresso
 ## Feito
+- Em 21/11/2026, registrado no handoff e nas decisões que o Claude não precisa criar clones Git nem repositórios paralelos; ele deve usar o checkout já disponibilizado pela sessão.
 - Em 21/11/2026, removidos os rótulos visíveis “pulso/pulsos” do simulador: fonte principal, conceitos, dados das tabelas e protótipo 3D passaram a usar “ataque isolado”, “dois ataques” e “ataques anuais”. `docs/index.html` foi reconstruído por `plataforma/construir.py`.
 - Em 21/11/2026, `handoff_claude/PROMPT_CLAUDE.md` recebeu uma seção dedicada ao infográfico Notelm do Material e Métodos, com encadeamento objetivo → entradas → 3-PG → desfolha → cenários → calibração → simulações → metamodelo → indicadores → interpretação e distinções entre verificação, calibração, validação cruzada e confirmação empírica.
 - Em 21/11/2026, substituídas em `tcc_docx/gerar.js`, no gerador de dados das tabelas e no JSON das tabelas as expressões “pulso único”, “dois pulsos” e “pulsos anuais” por “ataque isolado”, “dois ataques” e “ataques anuais”. Conferidos os arquivos JS e o JSON; não restou a palavra “pulso” nas fontes do TCC e a sintaxe passou em `node --check`.

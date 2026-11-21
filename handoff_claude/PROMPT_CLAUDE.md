@@ -15,13 +15,17 @@ independência.
   passar após qualquer mudança.
 - Preserve resultados, equações, parâmetros e arquivos originais; não altere o motor
   científico para melhorar a apresentação.
+- Não crie clones Git deste repositório nem repositórios paralelos. Você já deve trabalhar
+  no checkout existente fornecido pela sessão. Preserve esse diretório e use a branch de
+  trabalho já disponível; não inicialize, clone ou duplique o projeto em outra pasta.
 - Não faça alterações diretas na `main`: crie branch própria (ex.: `finalizacao-claude`),
   registre arquivos modificados, e faça merge apenas com autorização.
 - `ferramentas/pipeline.py` faz commit e push para main ao final de cada etapa — não o use
   sem revisar esse comportamento.
 
 ## Antes de editar — verificação independente obrigatória
-1. Confirme acesso; identifique branch padrão e HEAD exatos; registre o commit de origem.
+1. Confirme acesso ao checkout existente; identifique branch padrão e HEAD exatos; registre
+   o commit de origem. Não faça clone, checkout paralelo ou cópia adicional do repositório.
 2. LEIA `memoria/contexto_ativo.md`, `memoria/progresso.md`, `PASSAGEM_DE_BASTAO.md`.
 3. Resolva a questão F1 do relatório do Kimi: os números do briefing anterior (10.428
    cenários, 180 ganhos, máx. 7,5%, 66 só-desfolha, medianas C1…A1 8,6–10,2%) NÃO existem
