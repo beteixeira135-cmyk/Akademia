@@ -9,7 +9,6 @@ python3 - <<'PY'
 import json, re, subprocess
 from pathlib import Path
 pdf = "/tmp/render_tcc/TCC_II_Bernardo_Castro_FINAL.pdf"
-corpo = (Path("..") / "tcc_final" / "TCC_TEXTO_FINAL.md").read_text(encoding="utf-8")
 from gerar_tcc_ufu import ler_corpo, ORIGEM
 corpo = ler_corpo(ORIGEM)
 titulos = []
