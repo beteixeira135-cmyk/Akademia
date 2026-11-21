@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (6742 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 14:15)
+# PASSAGEM DE BASTÃO — TCC II (7444 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 16:07)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (25724 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (26439 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -49,6 +49,9 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ---
 # Contexto ativo
 - A finalização foi integrada à `main` pelo PR #5; o PDF entregue tem 28 páginas. A matriz do commit `fde2780` tem 22.752 linhas e 20.856 aptas; os percentuais da Figura 10 são 51,6%/93,2%, 9,1%/27,4% e 0,02%/1,7%. O DOCX passou nas verificações estruturais (integridade ZIP, XML e 12 imagens), mas o validador oficial indicado no script não existe neste ambiente; não se afirma “All validations PASSED!”. A legenda da Figura 9 foi corrigida (seis sítios em cinco biomas, dois no Cerrado). A confirmação empírica por inventários independentes continua pendente. Google Drive/Diário não foram atualizados.
+- Em 21/11/2026, o Google Drive foi autenticado para `beteixeira135@gmail.com`. Na pasta `3-PG/08 TCC II versão atual`, o PDF final foi atualizado em `TCC_II_Bernardo_Castro_FINAL_21-11-2026.pdf` (2.282.051 bytes) e o DOCX final foi enviado como `TCC_II_Bernardo_Castro_FINAL_21-11-2026.docx` (3.127.347 bytes). O Diário existente recebeu registro da entrega, da auditoria ampliada e da discrepância r3PG.
+- Limitações estruturais avançadas por sensibilidade exploratória: criado `experimentos/sensibilidade_limitacoes.py` e saídas em `experimentos/saida/sensibilidade_limitacoes.csv`. Variação ±10% de γF1 mudou a perda em até 0,95 p.p.; mortalidade de 0 a 15% em até 4,30 p.p. Os oito parâmetros adaptados de E. globulus foram separados entre neutros/structurally inactive e perturbáveis. Isso reduz incerteza de leitura, mas não cria validação empírica nem substitui inventários.
+- A validação automatizada ampliada ficou parcialmente bloqueada: o fixture externo `fontes_r3PG/data-raw/data.input.xlsx` não existe nesta sessão e `experimentos/saida/mensal.csv.gz` não está disponível. A sensibilidade das limitações foi compilada e executada; a auditoria cobriu todos os novos números decimais.
 - Auditoria numérica atualizada: 542 checagens, 541 aprovadas. A leitura JSON usa UTF-8 e os critérios de RQEM/R² não são truncados; foram incluídas 11 checagens da matriz de seis materiais e três valores antes sem item de auditoria. O conferidor encontrou cobertura para os 115 números decimais do texto. A falha restante é real: RQEM máximo do r3PG = 64,6148% (biomassa foliar; IAF = 62,9299%), contra o limite declarado de 2e-13. O auditor registra a falha e retorna código diferente de zero; não alterar o modelo para mascará-la. Origem a investigar antes de alegar equivalência.
 - A integração de Google Drive não está disponível nesta sessão; não houve upload dos entregáveis nem registro no Diário do TCC II. A mudança de auditoria pós-PR ainda não foi enviada; não houve push para `main`.
 - Em 21/11/2026, foi criada a skill Claude Code do projeto em `.claude/skills/akademia-tcc/SKILL.md`; `CLAUDE.md` orienta a lê-la antes de tarefas substantivas. A skill inclui evidências reproduzíveis, distinção entre verificação/calibração/validação e salvaguardas de dados e Git. O Claude Code CLI não está disponível nesta máquina; a estrutura foi validada estaticamente. Skill de repositório se aplica ao Claude Code; Claude.ai web/Desktop/Projects exigem habilitação separada.
@@ -73,6 +76,9 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ## Feito
 - Revisão final integrada à `main` pelo PR #5. DOCX/PDF regenerados; PDF com 28 páginas. Matriz de seis materiais: 22.752 linhas, 20.856 aptas, 10.428 por versão. Percentuais da Figura 10 (original/calibrada): folhagem 51,6%/93,2%; NPP 9,1%/27,4%; volume 0,02%/1,7%. Figuras 1, 2, 3, 7, 9 e 10 conferidas; legenda da Figura 9 corrigida para seis sítios em cinco biomas. Em `TCC_TEXTO_FINAL.md`, `5.688` = 0, `Lagartas` = 0 e a legenda da Figura 10 cita 20.856 cenários. O DOCX passou verificações estruturais, mas o validador oficial indicado não está disponível; não se afirma “All validations PASSED!”. Google Drive e Diário não atualizados.
 - Auditoria numérica expandida para 542 checagens, incluindo a matriz, densidade 3 × 3 m, Tmax A1 e limite superior de U; JSON lido em UTF-8 e critérios de RQEM/R² sem truncamento. Resultado: 541/542. O conferidor cobre 115/115 números decimais do texto. RQEM máximo r3PG = 64,6148% em biomassa foliar e 62,9299% em IAF, acima do limite de 2e-13. O auditor grava o resultado e retorna falha (código 1); a discrepância segue pendente e o modelo não foi alterado.
+- Google Drive autorizado em 21/11/2026 para `beteixeira135@gmail.com`. PDF atual atualizado e DOCX atual enviado à pasta `3-PG/08 TCC II versão atual`; ambos confirmados com tamanho e link no Drive. Registro atualizado no Diário do TCC II.
+- Criada sensibilidade das limitações sem alterar o motor: ±10% em parâmetros adaptados de E. globulus, perda de folhada e mortalidade 0–15%. A análise quantificou amplitudes máximas de 0,95 p.p. para γF1 e 4,30 p.p. para mortalidade em IMP. kF, mF e MinCond são neutros/desligados na configuração testada. O TCC foi atualizado para distinguir esse exercício numérico de validação empírica.
+- Validação ampliada parcialmente bloqueada por arquivos externos/saídas locais ausentes: `fontes_r3PG/data-raw/data.input.xlsx` e `experimentos/saida/mensal.csv.gz`. Compilação e execução da nova sensibilidade passaram; 117 números decimais do texto têm item na auditoria, restando apenas a divergência r3PG registrada.
 - Criada a skill Claude Code versionada `.claude/skills/akademia-tcc/SKILL.md` e ligada ao `CLAUDE.md` para leitura em tarefas substantivas. `AGENTS.md` e `CLAUDE.md` agora alertam que o pipeline pode publicar em `main`.
 - Verificados frontmatter e caminhos da skill e `git diff --check`. Não foi possível testá-la em uma sessão Claude Code porque o executável não está disponível. A passagem e o contexto empacotado foram regenerados com o Python isolado da sessão; o alias do sistema `python3` permanece indisponível.
 - Revisão documental de recuperação, persistência, interpretação dos ganhos simulados e limites de transferência incorporada em `tcc_docx/conteudo.js`.
@@ -122,6 +128,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 19/11/2026: manter `plataforma/fonte2.html` como fonte única de estrutura/visualização e `plataforma/construir.py` para regenerar o simulador e `docs/index.html`. Corrigir problemas de codificação e execução na fonte, não só nos arquivos gerados. Na cena 3D, a copa do talhão desfolhado deve diminuir pela biomassa foliar mensal do modelo e o dano deve marcar também a passagem dos eventos; o resultado visual é ilustrativo e não substitui as métricas científicas.
 - 21/11/2026: adotar formato híbrido para a orientação do Claude no Akademia: skill Claude Code de projeto para procedimentos aprofundados e referência obrigatória no `CLAUDE.md` para tarefas substantivas. O `AGENTS.md` e o `CLAUDE.md` avisam que o pipeline pode commitar e enviar `HEAD:main`; não o executar sem autorização explícita. A skill versionada não se aplica automaticamente ao Claude.ai web/Desktop/Projects.
 - Auditoria pós-PR: não truncar RQEM/R² para transformar limites em igualdade; registrar a divergência r3PG como falha real até investigar sua origem. Não alterar o modelo para fazer o auditor passar.
+- Entrega ao Google Drive em 21/11/2026: preservar o PDF existente pelo mesmo ID, atualizando o conteúdo local atual, e enviar o DOCX atual como arquivo novo datado. Registrar links e limitações no Diário do TCC II.
+- Limitações: não substituir dados de campo por sensibilidades; usar perturbações ±10% apenas como exercícios exploratórios de robustez e manter 4.15 explícita como condições para confirmação empírica futura.
 
 ---
 # Contexto técnico
@@ -135,6 +143,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 21/11 15:52 entregavel: registrar entrega no Google Drive
+- 21/11 14:15 auditoria: incluir matriz 6mat e expor divergÃªncia r3PG
 - 21/11 13:53 documentaÃ§Ã£o: atualizar histÃ³rico da passagem
 - 21/11 13:52 Merge origin/main into finalizacao-claude
 - 21/11 13:44 documentaÃ§Ã£o: registrar passagem e validaÃ§Ãµes finais
@@ -148,8 +158,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11 07:45 Add Akademia Claude Code skill
 - 21/11 07:35 Merge pull request #3 from beteixeira135-cmyk/tcc-ii-finalizacao-auditoria
 - 21/11 07:29 Audit final TCC delivery inputs
-- 21/11 09:09 finalizacao: entregavel_final com DOCX UFU, texto-fonte, gerador e figuras
-- 21/11 09:07 finalizacao: caminhos relativos no gerador do TCC, QR e SoilGrids; gera DOCX
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
