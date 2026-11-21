@@ -15,8 +15,18 @@
 - `auditoria_final/auditar_numeros.py` compilou após trocar caminhos absolutos por relativos, mas a execução parou por falta de Node.js. A auditoria e o DOCX ainda não foram gerados.
 - Em 19/11/2026, corrigidos UTF-8, estrutura HTML e um erro de expressão regular que impedia a execução dos scripts da página. Corrigida também uma propriedade de material incompatível na cena Three.js. `plataforma/construir.py` regenerou o simulador e `docs/index.html`; o navegador abriu a cena 3D, confirmou `charset=UTF-8`, `lang=pt-BR`, `R` e `renderer` ativos e não registrou erro de JavaScript. A desfolha visual passou a ser refletida diretamente por folhas menores e o evento mensal, em conjunto com os números do modelo.
 
+## Feito (21/11/2026 — 2ª passagem)
+- Node.js disponível (`/opt/node22/bin/node v22.23.5`).
+- Auditoria numérica: **528/528 conferem** (`python3 auditoria_final/auditar_numeros.py`). Zero falhas.
+- Correção de 12 caminhos de figura em `entregavel_final/TCC_TEXTO_FINAL.md` (`figuras_padronizadas/` → `figuras/`).
+- DOCX gerado: `entregavel_final/TCC_II_Bernardo_Castro_FINAL.docx` (3,1 MB).
+- PDF gerado: `entregavel_final/TCC_II_Bernardo_Castro_FINAL.pdf` (2,2 MB).
+- Memória, PENDENCIAS e contexto_ativo atualizados.
+- Branch `tcc-ii-auditoria-21nov` commitada e enviada ao origin.
+
 ## Falta
-1. Disponibilizar Node.js, fonte de dados r3PG e `experimentos/saida/mensal.csv.gz`; então executar a auditoria numérica e completar as suítes de testes.
-2. Gerar o DOCX atualizado após disponibilizar Node.js.
-3. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 já foi calculado, mas não constitui reprodução estrita nem validação empírica.
-4. Reavaliar a apresentação do simulador após as verificações e confirmar a URL publicada.
+1. **Matriz de 6 materiais (20.856 cenários):** recuperar `experimentos/saida/possibilidades_6mat/possibilidades.csv` ou reescrever seções 4.3 e 4.10 para refletir apenas os 5.688 cenários (2 materiais) disponíveis.
+2. **Figuras N1/N2/N3:** `experimentos/figuras_novas.py` não executado nesta sessão; N2 requer `plataforma/material_tabelas.json`.
+3. **Série climática TECHS 22:** download NASA POWER nas coordenadas −24,2/−50,5; script pronto em `auditoria_final/baixar_clima_techs_power.py`; API inacessível no ambiente de execução.
+4. **Inventários TECHS 9 e 22:** para avaliação por variável com independência demonstrada.
+5. **Upload ao Google Drive:** DOCX e PDF a enviar para a pasta "08 TCC II versão atual" e registrar no Diário.

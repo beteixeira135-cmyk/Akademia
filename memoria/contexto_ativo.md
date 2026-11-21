@@ -15,3 +15,14 @@
 - `pipeline.py verificar`: com o Python do sistema, faltam dependências científicas; com `.venv`, numpy/pandas/sklearn passam, mas a verificação completa para em `node --version` porque Node.js não está no PATH.
 
 - Em 19/11/2026, a apresentação web voltou a executar: foi declarado `<!doctype html>`, `<html lang="pt-BR">`, UTF-8, `<head>` e `<body>`; o script que remove acentos passou de uma faixa Unicode mal codificada para `\p{M}`; a cena Three.js deixou de usar a propriedade incompatível `flatShading`. O simulador foi reconstruído e recarregado no navegador sem erros de JavaScript. Em um teste visual com desfolha de 95%, aos 24 meses, o talhão desfolhado mostrou W_F = 0,58 t ha^-1 contra 3,84 t ha^-1 no controle e volume = 48,38 m³ ha^-1 contra 55,83 m³ ha^-1 no controle.
+
+## Sessão de 21/11/2026 (2ª passagem)
+
+- **Node.js encontrado:** `/opt/node22/bin/node v22.23.5` — bloqueador da sessão anterior resolvido.
+- **Auditoria numérica concluída:** `python3 auditoria_final/auditar_numeros.py` → 528 itens; 528 conferem. Zero falhas.
+- **Correção de caminhos de figuras:** `entregavel_final/TCC_TEXTO_FINAL.md` tinha 12 referências a `figuras_padronizadas/fig*.png` (diretório inexistente). Corrigidas para `figuras/fig*.png` (caminho real). Motor científico não alterado.
+- **DOCX gerado:** `entregavel_final/TCC_II_Bernardo_Castro_FINAL.docx` (3,1 MB) via `python3 entregavel_final/gerar_tcc_ufu.py`.
+- **PDF gerado:** `entregavel_final/TCC_II_Bernardo_Castro_FINAL.pdf` (2,2 MB) via LibreOffice headless.
+- **Matriz 20.856 ainda bloqueada:** `experimentos/saida/possibilidades_6mat/possibilidades.csv` inexistente no workspace e sem histórico Git. Seções 4.3 e 4.10 do texto condicionadas à recuperação do CSV original.
+- **Branch de trabalho:** `tcc-ii-auditoria-21nov` a partir de `main` HEAD `985fe00`.
+- **Próxima prioridade:** recuperar o CSV de 6 materiais (20.856 cenários) ou reescrever as seções 4.3/4.10 para refletir apenas os 5.688 cenários existentes. Figuras N1/N2/N3 ainda não regeneradas.

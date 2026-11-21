@@ -47,3 +47,21 @@ Distinção adotada:
 - MinCond retirado da análise principal e declarado como limite aceito (valor 0; efeito de 28,8% com 0,1 registrado como implausível).
 - Título adotado: "Simulação da desfolha em plantios de *Eucalyptus* com o modelo 3-PG: efeito no crescimento e na produção de madeira".
 - Repositório acessado: github.com/beteixeira135-cmyk/Akademia (clone funcionou nesta rodada). PROMPT_CLAUDE.md e handoff_claude/ não existem nele.
+
+## Registro de auditoria — 2ª passagem (21/11/2026)
+
+**Branch:** `tcc-ii-auditoria-21nov` a partir de `main` HEAD `985fe00` (merge do PR #4; estado equivalente ao `finalizacao-claude` mesclado).
+
+**Correções aplicadas:**
+- `entregavel_final/TCC_TEXTO_FINAL.md`: 12 ocorrências de `figuras_padronizadas/fig*.png` substituídas por `figuras/fig*.png` (caminho real das imagens). Auditado com `grep -c figuras_padronizadas` antes (12) e depois (0) da substituição.
+
+**Verificações executadas:**
+- Node.js: `/opt/node22/bin/node v22.23.5` — disponível nesta sessão (ausente na 1ª passagem de 19/11).
+- Auditoria numérica: `python3 auditoria_final/auditar_numeros.py` → **528 itens; 528 conferem**. DataFrame vazio (zero falhas).
+- Geração do DOCX: `python3 entregavel_final/gerar_tcc_ufu.py` → `entregavel_final/TCC_II_Bernardo_Castro_FINAL.docx` (3,1 MB). Sem erros de figura; fallback interno do gerador já resolvia `figuras/`; a correção no Markdown garante consistência documental.
+- Geração do PDF: `soffice --headless --convert-to pdf TCC_II_Bernardo_Castro_FINAL.docx --outdir .` → `entregavel_final/TCC_II_Bernardo_Castro_FINAL.pdf` (2,2 MB).
+- Figuras novas (N1/N2/N3 de `experimentos/figuras_novas.py`): **não executadas** nesta sessão (N2 requer `plataforma/material_tabelas.json`; pendente verificação de dependências).
+
+**Matriz de seis materiais:** continua bloqueada. `experimentos/saida/possibilidades_6mat/possibilidades.csv` não existe no workspace nem no histórico Git. Somente a matriz de 2 materiais/5.688 cenários aptos está disponível. As seções 4.3 e 4.10 e a Figura 10 (20.856 cenários) permanecem como pendências científicas não resolvíveis sem o CSV original.
+
+**Motor científico:** não alterado. `compensation=None` preservado; 57 testes continuam passando (confirmado na sessão anterior).

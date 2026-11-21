@@ -186,27 +186,27 @@ Os ganhos ainda não têm explicação física confirmada. Os testes descritos n
 
 A Figura 1 mostra a biomassa de folhas e de tronco do clone A1 mês a mês, nos três locais, com os ataques nos meses 12 e 48. A folha se recompõe antes do tronco, o que explica por que a perda de volume aparece depois da recuperação da copa.
 
-![Figura 1. Biomassa de folhas (W_F) e de tronco (W_S) do clone A1, mês a mês, nos três locais originais, com ataques nos meses 12 e 48 (linhas verticais). Em Imperatriz, o clone A1 é só diagnóstico.](figuras_padronizadas/fig01_trajetoria_A1.png)
+![Figura 1. Biomassa de folhas (W_F) e de tronco (W_S) do clone A1, mês a mês, nos três locais originais, com ataques nos meses 12 e 48 (linhas verticais). Em Imperatriz, o clone A1 é só diagnóstico.](figuras/fig01_trajetoria_A1.png)
 
 A frequência da desfolha é o segundo fator de perda, depois da intensidade. A Figura 2 mostra a perda de volume aos sete anos por intensidade e frequência, para A1 e C5.
 
-![Figura 2. Perda de volume aos sete anos por intensidade e frequência da desfolha, clone A1 (linha cheia) e C5 (tracejada), nos três locais originais.](figuras_padronizadas/fig02_frequencia.png)
+![Figura 2. Perda de volume aos sete anos por intensidade e frequência da desfolha, clone A1 (linha cheia) e C5 (tracejada), nos três locais originais.](figuras/fig02_frequencia.png)
 
 A época do ataque altera a perda. A Figura 3 compara 50% de desfolha em janeiro, abril, julho e outubro de 2017, nos três locais e em quatro clones. As barras mostram a chuva dos três meses seguintes ao ataque.
 
-![Figura 3. Perda de volume aos sete anos com 50% de desfolha em janeiro, abril, julho ou outubro de 2017, nos três locais e quatro clones. Barras: chuva dos três meses seguintes ao ataque.](figuras_padronizadas/fig03_epoca.png)
+![Figura 3. Perda de volume aos sete anos com 50% de desfolha em janeiro, abril, julho ou outubro de 2017, nos três locais e quatro clones. Barras: chuva dos três meses seguintes ao ataque.](figuras/fig03_epoca.png)
 
 ### 4.5 Solo e água
 
 O solo pesa menos que a intensidade do ataque. A Figura 4 mostra a perda com 50% de desfolha para cada combinação de água (W25 a W100) e fertilidade (F25 a F100), nos três locais e quatro materiais. A variação máxima dentro de um mesmo sítio e material é de cerca de 4 pontos percentuais (Telêmaco Borba, clone C2, de 0,5% a 4,6%). Em Indianópolis com o clone A1, a variação é inferior a 0,5 ponto.
 
-![Figura 4. Perda de volume aos sete anos (%) com 50% de desfolha, para os cenários combinados de água (W) e fertilidade (F), nos três locais originais e quatro clones.](figuras_padronizadas/fig04_agua_fertilidade.png)
+![Figura 4. Perda de volume aos sete anos (%) com 50% de desfolha, para os cenários combinados de água (W) e fertilidade (F), nos três locais originais e quatro clones.](figuras/fig04_agua_fertilidade.png)
 
 ### 4.6 Recuperação da copa
 
 A Figura 5 mostra, para 50% de desfolha, o tempo até a folhagem do talhão atacado alcançar 95% da do controle, conforme o nível de água. Nos três locais e nos quatro materiais, esse tempo fica entre 14 e 28 meses. Ele depende do local, do material e da água: em Telêmaco Borba, por exemplo, o clone C2 vai de 14 meses, com a menor água, a 22 meses. Na matriz completa de seis materiais, que inclui desfolhas menores e pontuais, 93,2% dos cenários calibrados com desfolha recuperam 95% da folhagem, com mediana de 6 meses; na versão original, são 51,6% dos cenários, com mediana de 26 meses. A diferença de escala entre a figura e a matriz se deve ao nível de desfolha: a figura usa 50%, e a matriz inclui cenários de todas as intensidades.
 
-![Figura 5. Meses até a copa do talhão atacado alcançar 95% da do controle, conforme o nível de água, com 50% de desfolha, nos três locais originais.](figuras_padronizadas/fig05_recuperacao.png)
+![Figura 5. Meses até a copa do talhão atacado alcançar 95% da do controle, conforme o nível de água, com 50% de desfolha, nos três locais originais.](figuras/fig05_recuperacao.png)
 
 ### 4.7 Fatores dominantes e sensibilidade
 
@@ -214,11 +214,11 @@ Um metamodelo de floresta aleatória foi ajustado para estimar a resposta do mó
 
 Na Figura 6a, a intensidade responde por 64,7% da importância na recuperação foliar, a época por 9,4%, o material genético por 7,6%, o local por 7,2%, a fertilidade por 5,9% e a água por 5,2%. A frequência não tem efeito sobre a recuperação (0,0%). Na Figura 6b, com os três locais juntos, a intensidade responde por cerca de 58% da perda de volume e a frequência por cerca de 37%. Os demais fatores ficam abaixo de 2%.
 
-![Figura 6. Importância de cada fator no Random Forest para a recuperação da copa (a) e para a perda de volume (b), e perdas previstas com um local fora do treino comparadas às do 3-PG (c).](figuras_padronizadas/fig06_random_forest.png)
+![Figura 6. Importância de cada fator no Random Forest para a recuperação da copa (a) e para a perda de volume (b), e perdas previstas com um local fora do treino comparadas às do 3-PG (c).](figuras/fig06_random_forest.png)
 
 A Figura 7 mostra os oito parâmetros do clone A1 com maior efeito médio na perda de volume com 50% de desfolha, pelo método de Morris, nos três locais. Entre eles estão alphaCx, y, k e SLA0, que são parâmetros de dossel e de área foliar. A ordem entre eles muda de um local para outro. Os oito parâmetros de *E. globulus* não foram incluídos nessa análise, porque têm valor zero ou não admitem variação relativa. Para eles, foi feita uma análise exploratória com o clone A1 na versão calibrada, desfolha de 50% no calendário P1 e três sítios, com faixas sem fonte (±10% para valores não nulos; 0 e 0,1 para valores nulos). Os parâmetros kF, thinPower, mF, mR e mS não alteraram a perda nesse cenário, e Qa e Qb alteraram-na em no máximo 0,03 ponto percentual. O parâmetro MinCond não entra na análise principal: testado com o valor 0,1, produziu um ganho de 28,8% em Indianópolis, efeito considerado implausível. Como não há fonte para seu valor, MinCond é mantido com valor zero e sua influência é declarada como limite aceito desta versão.
 
-![Figura 7. Os oito parâmetros do clone A1 com maior efeito médio (μ*) na perda de volume aos 84 meses com 50% de desfolha, pelo método de Morris, nos três locais originais. Os oito parâmetros de *E. globulus* (kF, thinPower, mF, mR, mS, MinCond, Qa, Qb) não estão nesta análise, pelo motivo indicado na seção 3.2.](figuras_padronizadas/fig07_morris.png)
+![Figura 7. Os oito parâmetros do clone A1 com maior efeito médio (μ*) na perda de volume aos 84 meses com 50% de desfolha, pelo método de Morris, nos três locais originais. Os oito parâmetros de *E. globulus* (kF, thinPower, mF, mR, mS, MinCond, Qa, Qb) não estão nesta análise, pelo motivo indicado na seção 3.2.](figuras/fig07_morris.png)
 
 ### 4.8 Verificação e comparação com o experimento de Bertulio et al. (2008)
 
@@ -237,13 +237,13 @@ A perda bruta mede a diferença entre tratamento e testemunha, sem descontar o q
 
 A leitura é cautelosa. Com quatro observações por variável, o coeficiente de correlação alto (0,92 a 1,00) mostra apenas que o modelo ordena corretamente a testemunha e as desfolhadas, e não sustenta inferência. A subestimação do volume tem duas causas prováveis: o simulador calcula o volume de lenho sem casca e sem galhos, enquanto o observado é volume de Smalian; e as biomassas iniciais de Borges e Caldeira não são as desse plantio. Por isso, o volume absoluto não deve ser comparado diretamente entre essas fontes. Esta comparação não é uma validação.
 
-![Figura 8. Perdas após desfolha total no experimento de Bertulio et al. (2008), em Campo Verde-MT: observadas, simuladas sem compensação e previstas pelo módulo calibrado quando cada medição foi escondida do ajuste (validação cruzada).](figuras_padronizadas/fig08_campo_verde.png)
+![Figura 8. Perdas após desfolha total no experimento de Bertulio et al. (2008), em Campo Verde-MT: observadas, simuladas sem compensação e previstas pelo módulo calibrado quando cada medição foi escondida do ajuste (validação cruzada).](figuras/fig08_campo_verde.png)
 
 ### 4.9 Biomas
 
 Um local por bioma foi simulado para o clone C5, com 50% de desfolha. A Figura 9 mostra a perda aos sete anos sem compensação e com a compensação calibrada, para uma desfolha e para desfolhas todos os anos, com a faixa de 90% da calibração.
 
-![Figura 9. Perda de volume aos sete anos do clone C5 com 50% de desfolha, um local por bioma, sem compensação e com a compensação calibrada: uma desfolha (a) e desfolha todo ano (b), com a faixa de 90% da calibração.](figuras_padronizadas/fig09_biomas.png)
+![Figura 9. Perda de volume aos sete anos do clone C5 com 50% de desfolha, um local por bioma, sem compensação e com a compensação calibrada: uma desfolha (a) e desfolha todo ano (b), com a faixa de 90% da calibração.](figuras/fig09_biomas.png)
 
 ### 4.10 Espaço de possibilidades do módulo
 
@@ -251,15 +251,15 @@ A Figura 10 reúne os 20.856 cenários aptos da matriz de seis materiais (10.428
 
 Na Figura 10b, considerando os 8.448 cenários com desfolha, a folhagem volta a 95% do controle em 93,2% dos cenários calibrados (51,6% na original). O crescimento após o primeiro ano supera o controle em 27,4% dos cenários calibrados (9,1% na original). O volume final supera o controle em 1,7% dos cenários calibrados e em 0,02% dos cenários da versão original. Isso mostra que a recuperação da copa é quase completa, mas o ganho de volume ao final é raro.
 
-![Figura 10. Espaço de possibilidades do módulo: perda de volume aos sete anos nos 20.856 cenários de danos combinados, seis materiais (a) e porcentagem de cenários em que a copa, o crescimento após o primeiro ano e o volume final alcançam ou superam o controle (b).](figuras_padronizadas/fig10_possibilidades.png)
+![Figura 10. Espaço de possibilidades do módulo: perda de volume aos sete anos nos 20.856 cenários de danos combinados, seis materiais (a) e porcentagem de cenários em que a copa, o crescimento após o primeiro ano e o volume final alcançam ou superam o controle (b).](figuras/fig10_possibilidades.png)
 
 ### 4.11 Plataforma
 
 A plataforma Akademia Florestal apresenta o modelo calibrado em interface interativa; os resultados numéricos vêm do código de análise. A Figura 11 mostra a tela da plataforma, com as escolhas do cenário, os talhões controle e atacado e os resultados. A Figura 12 mostra o corte do tronco médio do talhão atacado em toras de serraria, celulose e energia.
 
-![Figura 11. A plataforma Akademia Florestal: escolhas do cenário (esquerda), talhões controle e atacado e resultados.](figuras_padronizadas/fig11_plataforma.png)
+![Figura 11. A plataforma Akademia Florestal: escolhas do cenário (esquerda), talhões controle e atacado e resultados.](figuras/fig11_plataforma.png)
 
-![Figura 12. Corte do tronco médio do talhão atacado em toras de serraria, celulose e energia, na plataforma Akademia Florestal.](figuras_padronizadas/fig12_toras.png)
+![Figura 12. Corte do tronco médio do talhão atacado em toras de serraria, celulose e energia, na plataforma Akademia Florestal.](figuras/fig12_toras.png)
 
 
 ### 4.12 O que o modelo expressa
