@@ -541,3 +541,13 @@ T1 ARA ASW máx,198.0,198.0,True
 densidade em 3 × 3 m (árvores/ha),1111.0,1111.0,True
 Tmax A1 (°C),28.65,28.65,True
 limite superior de U,1.35,1.35,True
+gammaF1 amplitude IND,0.9489,0.9489,True
+gammaF1 amplitude TB,0.1509,0.1509,True
+gammaF1 amplitude IMP,0.5772,0.5772,True
+mortalidade 0–15 amplitude IND,3.4341,3.4341,True
+mortalidade 0–15 amplitude TB,3.1399,3.1399,True
+mortalidade 0–15 amplitude IMP,4.3,4.3,True
+Qb amplitude IND,0.3322,0.3322,True
+Qb amplitude TB,0.0205,0.0205,True
+Qb amplitude IMP,0.1499,0.1499,True
+"Qb amplitude IND arredondada 0,33",0.33,0.33,True

@@ -354,6 +354,18 @@ chk("densidade em 3 × 3 m (árvores/ha)", 1111, 10000 / (3 * 3), 0)
 chk("Tmax A1 (°C)", 28.65, P_CALDEIRA["Tmax"][0], 2)
 U_POST = pd.read_csv(CB / "amostras_posterior_d0999.csv")
 chk("limite superior de U", 1.35, U_POST.U.max(), 2)
+# Sensibilidade das limitações estruturais (OAT ±10% exploratório)
+SL = pd.read_csv(X / "saida" / "sensibilidade_limitacoes.csv")
+for _sitio, _valor in [("IND", 0.9489), ("TB", 0.1509), ("IMP", 0.5772)]:
+    _calc = SL[(SL.sitio == _sitio) & (SL.grupo == "folhada") & (SL.parametro == "gammaF1") & SL.nivel.isin(["baixo", "alto"])].perda_volume_k72_pp
+    chk(f"gammaF1 amplitude {_sitio}", _valor, _calc.max() - _calc.min(), 4)
+for _sitio, _valor in [("IND", 3.4341), ("TB", 3.1399), ("IMP", 4.3000)]:
+    _calc = SL[(SL.sitio == _sitio) & (SL.grupo == "mortalidade")].perda_volume_k72_pp
+    chk(f"mortalidade 0–15 amplitude {_sitio}", _valor, _calc.max() - _calc.min(), 4)
+for _sitio, _valor in [("IND", 0.3322), ("TB", 0.0205), ("IMP", 0.1499)]:
+    _calc = SL[(SL.sitio == _sitio) & (SL.grupo == "globulus") & (SL.parametro == "Qb") & SL.nivel.isin(["baixo", "alto"])].perda_volume_k72_pp
+    chk(f"Qb amplitude {_sitio}", _valor, _calc.max() - _calc.min(), 4)
+chk("Qb amplitude IND arredondada 0,33", 0.33, 0.3322, 2)
 O = pd.DataFrame(ok); O.to_csv(RAIZ / "auditoria_final" / "auditoria_numeros.csv", index=False)
 print(len(O), "itens;", int(O.ok.sum()), "conferem"); print(O[~O.ok].to_string())
 if not O.ok.all():
