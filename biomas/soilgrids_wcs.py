@@ -33,4 +33,4 @@ def sitio(cod, lon0, lat0):
     return out
 if __name__ == "__main__":
     res = sitio(sys.argv[1], float(sys.argv[2]), float(sys.argv[3]))
-    json.dump(res, open(f"/home/claude/tcc/solos_fontes/soilgrids_wcs_{sys.argv[1]}.json", "w"), indent=1)
+    json.dump(res, open(f"{__import__('os').path.join(__import__('os').path.dirname(__file__), '..', 'solos_fontes', 'soilgrids_wcs_' + sys.argv[1] + '.json')}", "w"), indent=1)
