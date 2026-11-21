@@ -270,7 +270,7 @@ def main():
             if not caminho.is_file():
                 caminho = AQUI / "figuras" / Path(mf.group(2)).name
             if not caminho.is_file():
-                raise FileNotFoundError(f"Figura não encontrada: {mf.group(2)}")
+                raise FileNotFoundError(f"Figura referenciada no texto não encontrada: {mf.group(2)}")
             pic = doc.add_paragraph(); pic.alignment = WD_ALIGN_PARAGRAPH.CENTER
             pic.paragraph_format.line_spacing = 1.0; pic.paragraph_format.keep_with_next = True
             pic.add_run().add_picture(str(caminho), width=Cm(15))

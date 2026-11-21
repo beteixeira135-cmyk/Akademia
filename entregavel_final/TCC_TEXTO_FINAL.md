@@ -32,7 +32,7 @@ A abordagem é simulacional: usa dados secundários e simulação computacional.
 
 1. Representar a desfolha no 3-PG, com compensação fisiológica e recuperação da copa, sem alterar as equações originais do modelo.
 2. Calibrar os parâmetros de compensação e recuperação e registrar a origem de cada parâmetro do material.
-3. Avaliar o módulo fora do ajuste, com dois testes: a simulação sem desfolha em sítios com inventário final da rede TECHS e a perda de volume observada no experimento de Oliveira et al. (2014).
+3. Avaliar o módulo fora do ajuste por comparação adaptada com o experimento de Oliveira et al. (2014) e delimitar a confirmação empírica, que permanece pendente por falta de inventários independentes compatíveis.
 4. Quantificar a perda de volume por material, sítio e cenário de desfolha, e registrar que os resultados são simulados.
 
 ## 3 MATERIAL E MÉTODOS
@@ -241,9 +241,9 @@ A leitura é cautelosa. Com quatro observações por variável, o coeficiente de
 
 ### 4.9 Biomas
 
-Um local por bioma foi simulado para o clone C5, com 50% de desfolha. A Figura 9 mostra a perda aos sete anos sem compensação e com a compensação calibrada, para uma desfolha e para desfolhas todos os anos, com a faixa de 90% da calibração.
+Seis sítios, distribuídos em cinco biomas, foram simulados para o clone C5, com 50% de desfolha. O Cerrado é representado por Indianópolis e Imperatriz; os outros quatro biomas têm um sítio cada. A Figura 9 mostra a perda aos sete anos sem compensação e com a compensação calibrada, para uma desfolha e para desfolhas todos os anos, com a faixa de 90% da calibração.
 
-![Figura 9. Perda de volume aos sete anos do clone C5 com 50% de desfolha, um local por bioma, sem compensação e com a compensação calibrada: uma desfolha (a) e desfolha todo ano (b), com a faixa de 90% da calibração.](figuras_padronizadas/fig09_biomas.png)
+![Figura 9. Perda de volume aos sete anos do clone C5 com 50% de desfolha, em seis sítios distribuídos por cinco biomas (dois no Cerrado), sem compensação e com a compensação calibrada: uma desfolha (a) e desfolha todo ano (b), com a faixa de 90% da calibração.](figuras_padronizadas/fig09_biomas.png)
 
 ### 4.10 Espaço de possibilidades do módulo
 
@@ -282,9 +282,9 @@ A queda de folhada é outro ponto sensível. Firmino (2011), em povoamentos de *
 
 ### 4.15 Confirmação empírica: condições para execução
 
-Três tipos de dado podem validar o módulo, e este trabalho tem apenas um deles, em forma adaptada.
+Três tipos de dado podem apoiar a confirmação empírica do módulo. Neste trabalho, não há inventários independentes compatíveis; a única comparação externa disponível é adaptada e não constitui validação.
 
-1. **Crescimento sem desfolha em sítios com inventário.** Para os sítios 9 e 22 da rede TECHS, o inventário final de 68 a 70 meses está disponível (CALDEIRA et al., 2020). A comparação exige a data de plantio e a série mensal de clima de cada sítio, que ainda não foram obtidas. Esta é a validação de base do modelo e não foi feita.
+1. **Crescimento sem desfolha em sítios com inventário.** Não há inventários independentes compatíveis disponíveis para este trabalho. Sem dados de campo com local, material, idade e variáveis dendrométricas correspondentes às simulações, não foi possível fazer essa comparação.
 2. **Perda de volume em desfolha total.** O experimento de Oliveira et al. (2014) fornece uma comparação com perda de 35,4% em *E. grandis*. O modelo calibrado simulou 33,0% com o material C5, o que é uma comparação adaptada, não uma validação do clone A1.
 3. **Desfolha repetida em campo.** Para validar a perda acumulada, é preciso um experimento com desfolhas repetidas em mais de um ano, com inventário em cada época e, idealmente, com medição de área foliar. Esse dado não existe para *E. urophylla* no conjunto disponível.
 

@@ -1,7 +1,8 @@
 # Progresso
 ## Feito
+- Revisão de finalização na branch `finalizacao-claude`, com PR #5 aberto contra `main`: conflitos com `main` resolvidos nos cinco arquivos em conflito; texto e entregáveis sincronizados, DOCX/PDF regenerados e PDF com 28 páginas. Matriz do commit `fde2780` conferida (22.752 linhas; 20.856 aptas; 10.428 por versão). Percentuais da Figura 10 recalculados: folhagem 51,6%/93,2%; NPP 9,1%/27,4%; volume 0,02%/1,7% (original/calibrada). Gerador N3 executado e PNG copiado. Conferidas visualmente as Figuras 1, 2, 3, 7, 9 e 10; corrigida a legenda da Figura 9 para seis sítios em cinco biomas. Buscas em `TCC_TEXTO_FINAL.md`: `5.688` = 0 e `Lagartas` = 0; legenda da Figura 10 cita 20.856 cenários. Texto ajustado para declarar a falta de inventários independentes e não tratá-los como validação. Sumário gerado pelo bloco Python do script, pois Bash não está disponível. Verificações estruturais do DOCX passaram, mas o validador indicado não existe no ambiente e não se afirma “All validations PASSED!”. Passagem de bastão e contexto empacotado regenerados; não houve envio ao Drive nem registro no Diário.
 - Criada a skill Claude Code versionada `.claude/skills/akademia-tcc/SKILL.md` e ligada ao `CLAUDE.md` para leitura em tarefas substantivas. `AGENTS.md` e `CLAUDE.md` agora alertam que o pipeline pode publicar em `main`.
-- Verificados frontmatter e caminhos da skill e `git diff --check`. Não foi possível testá-la em uma sessão Claude Code porque o executável não está disponível. `python3 ferramentas/gerar_passagem.py` falhou com exit 9009 (Python ausente), portanto `PASSAGEM_DE_BASTAO.md`/`CONTEXTO_EMPACOTADO.md` não foram regenerados.
+- Verificados frontmatter e caminhos da skill e `git diff --check`. Não foi possível testá-la em uma sessão Claude Code porque o executável não está disponível. A passagem e o contexto empacotado foram regenerados com o Python isolado da sessão; o alias do sistema `python3` permanece indisponível.
 - Revisão documental de recuperação, persistência, interpretação dos ganhos simulados e limites de transferência incorporada em `tcc_docx/conteudo.js`.
 - Simulador Akademia: interface e módulos atuais preservados; diferença máxima JS–Python registrada em `1,60075e-13`, abaixo do limite do comparador (`1e-9`).
 - Fixture da auditoria numérica movido para `auditoria_final/controles_solo_antes_correcao_dossel.csv`; caminho da auditoria atualizado.
@@ -16,7 +17,7 @@
 - Em 19/11/2026, corrigidos UTF-8, estrutura HTML e um erro de expressão regular que impedia a execução dos scripts da página. Corrigida também uma propriedade de material incompatível na cena Three.js. `plataforma/construir.py` regenerou o simulador e `docs/index.html`; o navegador abriu a cena 3D, confirmou `charset=UTF-8`, `lang=pt-BR`, `R` e `renderer` ativos e não registrou erro de JavaScript. A desfolha visual passou a ser refletida diretamente por folhas menores e o evento mensal, em conjunto com os números do modelo.
 
 ## Falta
-1. Disponibilizar Node.js, fonte de dados r3PG e `experimentos/saida/mensal.csv.gz`; então executar a auditoria numérica e completar as suítes de testes.
-2. Gerar o DOCX atualizado após disponibilizar Node.js.
+1. Obter o validador DOCX indicado em `gerar_com_paginas.sh` e executar as validações oficiais; o arquivo não existe neste ambiente.
+2. Disponibilizar Node.js para executar a auditoria numérica e completar as suítes de testes; a auditoria ainda não foi concluída.
 3. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 já foi calculado, mas não constitui reprodução estrita nem validação empírica.
 4. Reavaliar a apresentação do simulador após as verificações e confirmar a URL publicada.
