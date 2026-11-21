@@ -13,11 +13,10 @@ Distinção adotada:
 ## B. Avaliação do modelo
 1. MinCond: o cenário de 0,1 (ganho de 28,8% em IND) está reproduzível em `rodada_pendencias/sensibilidade_globulus_resumo.csv`. Decidir: manter como limitação documentada ou retirar o parâmetro. Não entra na análise principal.
 2. Sensibilidade com faixas justificadas: a atual é exploratória. Refazer com faixas documentadas e cenários com desbaste.
-3. Divergência do motor Python com o r3PG em R (RQEM máximo de 64,6% por registro, em biomassa foliar e IAF): investigar a origem antes de qualquer alegação de equivalência.
-4. Auditor numérico: leitura JSON em UTF-8 e critérios de RQEM/R² sem truncamento; matriz de seis materiais e sensibilidades das limitações adicionadas. Estado atual a recalcular após cada alteração. Falha real: RQEM máximo do r3PG = 64,61% (biomassa foliar; IAF = 62,93%), acima do limite de 2e-13. Investigar a origem antes de alegar equivalência; não alterar o modelo para contornar a falha.
-5. Efeito do VPD: refazer o teste com RH2M (a comparação municipal mostra diferença de −2,1 mbar em TB). Até lá, a conclusão vale só para o proxy usado.
-6. Morris com faixas absolutas, após a decisão do item B1.
-7. Random Forest: confirmar se o conjunto de 1.848 cenários da figura 6 inclui não aptos.
+3. Crosscheck r3PG em R: manter o resultado direto de 23.873 pares por variável e diferença relativa máxima de 5,288 × 10⁻¹⁵. Reexecutar o R somente com os mesmos dados e confirmar que o registro não depende de comparação mensal. Não alterar o modelo nem o limitador para mascarar divergências.
+4. Efeito do VPD: refazer o teste com RH2M (a comparação municipal mostra diferença de −2,1 mbar em TB). Até lá, a conclusão vale só para o proxy usado.
+5. Morris com faixas absolutas, após a decisão do item B1.
+6. Random Forest: confirmar se o conjunto de 1.848 cenários da figura 6 inclui não aptos.
 
 ## C. Confirmação empírica (condicional)
 1. Inventários independentes de TECHS 9 e 22 (DAP, altura, volume, idade, período), não usados na calibração. Só executada se disponíveis e compatíveis.

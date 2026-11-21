@@ -3,8 +3,8 @@ total de tratamentos,2408.0,2408.0,True
 bloco solo,1344.0,1344.0,True
 bloco local,912.0,912.0,True
 controles,308.0,308.0,True
-registros por variável r3PG,28277.0,28277.0,True
-RQEM máx r3PG < 2e-13,2e-13,64.61480277615554,False
+pares por variável r3PG,23873.0,23873.0,True
+diferença relativa máx r3PG < 2e-13,2e-13,5.288160964744036e-15,True
 "R2 VBA mínimo >= 0,9996",0.9996,0.9996391000639998,True
 "RQEM VBA máx < 0,14",0.13,0.13,True
 vol84 TB A1,429.0,429.0,True
