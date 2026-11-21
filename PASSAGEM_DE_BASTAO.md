@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (6578 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 13:52)
+# PASSAGEM DE BASTÃO — TCC II (6742 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 14:15)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (25551 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (25724 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -48,7 +48,9 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 # Contexto ativo
-- Em 21/11/2026, a finalização foi retomada na branch `finalizacao-claude`; PR #5 aberto contra `main` e branch publicada em `origin`. Conflitos com `main` resolvidos nos cinco arquivos de texto/código; o texto e os entregáveis foram sincronizados e DOCX/PDF regenerados (28 páginas). A matriz do commit `fde2780` foi conferida: 22.752 linhas, 20.856 aptas; percentuais recalculados em 51,6%/93,2%, 9,1%/27,4% e 0,02%/1,7%. O gerador N3 foi executado e o PNG foi copiado para o entregável. O mapa do sumário foi produzido pelo bloco Python do script com Poppler no Windows, pois Bash não está disponível. O DOCX passou nas verificações estruturais (integridade ZIP, XML e 12 imagens), mas o validador indicado no script não existe neste ambiente; não se afirma “All validations PASSED!”. A legenda da Figura 9 foi corrigida (seis sítios em cinco biomas, dois no Cerrado); a confirmação empírica por inventários independentes continua pendente. Google Drive/Diário não foram atualizados.
+- A finalização foi integrada à `main` pelo PR #5; o PDF entregue tem 28 páginas. A matriz do commit `fde2780` tem 22.752 linhas e 20.856 aptas; os percentuais da Figura 10 são 51,6%/93,2%, 9,1%/27,4% e 0,02%/1,7%. O DOCX passou nas verificações estruturais (integridade ZIP, XML e 12 imagens), mas o validador oficial indicado no script não existe neste ambiente; não se afirma “All validations PASSED!”. A legenda da Figura 9 foi corrigida (seis sítios em cinco biomas, dois no Cerrado). A confirmação empírica por inventários independentes continua pendente. Google Drive/Diário não foram atualizados.
+- Auditoria numérica atualizada: 542 checagens, 541 aprovadas. A leitura JSON usa UTF-8 e os critérios de RQEM/R² não são truncados; foram incluídas 11 checagens da matriz de seis materiais e três valores antes sem item de auditoria. O conferidor encontrou cobertura para os 115 números decimais do texto. A falha restante é real: RQEM máximo do r3PG = 64,6148% (biomassa foliar; IAF = 62,9299%), contra o limite declarado de 2e-13. O auditor registra a falha e retorna código diferente de zero; não alterar o modelo para mascará-la. Origem a investigar antes de alegar equivalência.
+- A integração de Google Drive não está disponível nesta sessão; não houve upload dos entregáveis nem registro no Diário do TCC II. A mudança de auditoria pós-PR ainda não foi enviada; não houve push para `main`.
 - Em 21/11/2026, foi criada a skill Claude Code do projeto em `.claude/skills/akademia-tcc/SKILL.md`; `CLAUDE.md` orienta a lê-la antes de tarefas substantivas. A skill inclui evidências reproduzíveis, distinção entre verificação/calibração/validação e salvaguardas de dados e Git. O Claude Code CLI não está disponível nesta máquina; a estrutura foi validada estaticamente. Skill de repositório se aplica ao Claude Code; Claude.ai web/Desktop/Projects exigem habilitação separada.
 - A instrução de executar `ferramentas/pipeline.py verificar` foi substituída em `AGENTS.md` e `CLAUDE.md`: o pipeline atualmente faz `git add -A`, commit e push para `HEAD:main` nas etapas bem-sucedidas, exceto `passagem`; não executar sem autorização explícita.
 - Em 19/11, a revisão documental foi incorporada a `tcc_docx/conteudo.js`: Rua é precedente, não inovação; a contribuição é avaliar recuperação e perdas persistentes em condições brasileiras, com limites explícitos de transferência. Distinguir recuperação da área foliar, retomada do incremento e déficit de madeira.
@@ -59,17 +61,18 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - VS Code preparado com `.vscode/` e `requirements-calibracao.txt`; o ambiente `.venv` foi criado em Python 3.15 e as dependências foram instaladas.
 - Reexecutadas com sucesso calibração C5, estimação de γ, validação cruzada interna, auditoria da calibração, testes adicionais, avaliação qualitativa de *E. globulus* e teste independente de Oliveira. Medianas: U = 1,18 (IC90% 1,01–1,34), a = 0,625 (0,225–0,975), γ = 1. A validação cruzada permanece dentro do experimento Bertulio; o teste Oliveira cobre a resposta em outro estudo, não valida persistência de longo prazo.
 - VS Code usa `.vscode/` para preparar ambiente, recalcular calibração e executar as suítes. A fonte pública `trotsiuk/r3PG` está clonada na pasta irmã esperada; `experimentos/saida/mensal.csv.gz` foi regenerado localmente (ignorado pelo Git). As suítes do modelo e dos experimentos passaram: 57 testes.
-- A auditoria numérica não concluiu: `auditar_numeros.py` teve os caminhos absolutos de Linux corrigidos, mas ainda requer Node.js, que não está no PATH. O DOCX também depende de Node.js.
+- O validador DOCX oficial referido em `gerar_com_paginas.sh` não está disponível; as verificações estruturais anteriores não substituem a validação oficial.
 - Próxima prioridade científica: obter os inventários e metadados de TECHS 9 e 22 para avaliação por variável e confirmar o subconjunto de dados usado no ajuste A1. A associação direta Indianópolis–TECHS 9 foi descartada; os rótulos S5–SA100 continuam sem correspondência verificada.
 
-- `pipeline.py verificar`: com o Python do sistema, faltam dependências científicas; com `.venv`, numpy/pandas/sklearn passam, mas a verificação completa para em `node --version` porque Node.js não está no PATH.
+- Node.js 26.13.1 está instalado em `C:\Program Files\nodejs`; em processos PowerShell novos, incluir essa pasta no `PATH` para executar auditoria e geração do DOCX.
 
 - Em 19/11/2026, a apresentação web voltou a executar: foi declarado `<!doctype html>`, `<html lang="pt-BR">`, UTF-8, `<head>` e `<body>`; o script que remove acentos passou de uma faixa Unicode mal codificada para `\p{M}`; a cena Three.js deixou de usar a propriedade incompatível `flatShading`. O simulador foi reconstruído e recarregado no navegador sem erros de JavaScript. Em um teste visual com desfolha de 95%, aos 24 meses, o talhão desfolhado mostrou W_F = 0,58 t ha^-1 contra 3,84 t ha^-1 no controle e volume = 48,38 m³ ha^-1 contra 55,83 m³ ha^-1 no controle.
 
 ---
 # Progresso
 ## Feito
-- Revisão de finalização na branch `finalizacao-claude`, com PR #5 aberto contra `main`: conflitos com `main` resolvidos nos cinco arquivos em conflito; texto e entregáveis sincronizados, DOCX/PDF regenerados e PDF com 28 páginas. Matriz do commit `fde2780` conferida (22.752 linhas; 20.856 aptas; 10.428 por versão). Percentuais da Figura 10 recalculados: folhagem 51,6%/93,2%; NPP 9,1%/27,4%; volume 0,02%/1,7% (original/calibrada). Gerador N3 executado e PNG copiado. Conferidas visualmente as Figuras 1, 2, 3, 7, 9 e 10; corrigida a legenda da Figura 9 para seis sítios em cinco biomas. Buscas em `TCC_TEXTO_FINAL.md`: `5.688` = 0 e `Lagartas` = 0; legenda da Figura 10 cita 20.856 cenários. Texto ajustado para declarar a falta de inventários independentes e não tratá-los como validação. Sumário gerado pelo bloco Python do script, pois Bash não está disponível. Verificações estruturais do DOCX passaram, mas o validador indicado não existe no ambiente e não se afirma “All validations PASSED!”. Passagem de bastão e contexto empacotado regenerados; não houve envio ao Drive nem registro no Diário.
+- Revisão final integrada à `main` pelo PR #5. DOCX/PDF regenerados; PDF com 28 páginas. Matriz de seis materiais: 22.752 linhas, 20.856 aptas, 10.428 por versão. Percentuais da Figura 10 (original/calibrada): folhagem 51,6%/93,2%; NPP 9,1%/27,4%; volume 0,02%/1,7%. Figuras 1, 2, 3, 7, 9 e 10 conferidas; legenda da Figura 9 corrigida para seis sítios em cinco biomas. Em `TCC_TEXTO_FINAL.md`, `5.688` = 0, `Lagartas` = 0 e a legenda da Figura 10 cita 20.856 cenários. O DOCX passou verificações estruturais, mas o validador oficial indicado não está disponível; não se afirma “All validations PASSED!”. Google Drive e Diário não atualizados.
+- Auditoria numérica expandida para 542 checagens, incluindo a matriz, densidade 3 × 3 m, Tmax A1 e limite superior de U; JSON lido em UTF-8 e critérios de RQEM/R² sem truncamento. Resultado: 541/542. O conferidor cobre 115/115 números decimais do texto. RQEM máximo r3PG = 64,6148% em biomassa foliar e 62,9299% em IAF, acima do limite de 2e-13. O auditor grava o resultado e retorna falha (código 1); a discrepância segue pendente e o modelo não foi alterado.
 - Criada a skill Claude Code versionada `.claude/skills/akademia-tcc/SKILL.md` e ligada ao `CLAUDE.md` para leitura em tarefas substantivas. `AGENTS.md` e `CLAUDE.md` agora alertam que o pipeline pode publicar em `main`.
 - Verificados frontmatter e caminhos da skill e `git diff --check`. Não foi possível testá-la em uma sessão Claude Code porque o executável não está disponível. A passagem e o contexto empacotado foram regenerados com o Python isolado da sessão; o alias do sistema `python3` permanece indisponível.
 - Revisão documental de recuperação, persistência, interpretação dos ganhos simulados e limites de transferência incorporada em `tcc_docx/conteudo.js`.
@@ -82,14 +85,15 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - A fonte pública r3PG foi clonada na pasta irmã esperada; a matriz mensal foi regenerada localmente. Suítes do modelo e dos experimentos: 57 testes aprovados.
 - Busca documental pública confirmou os locais TECHS 9 (Estrela do Sul; aproximadamente 35 km de Indianópolis) e 22 (Telêmaco Borba). Binkley et al. (2017) fornece metadados de sítio e resultados agregados de meia rotação, mas não localizei os inventários brutos para download na página do IPEF nem nas buscas em repositórios consultados. Site 9 é apenas referência próxima para Indianópolis, não validação direta.
 - Benchmark adaptado executado para A1 no TECHS 22 com as saídas sem desfolha já calculadas: incremento de lenho simulado 37,06 contra 34 Mg ha⁻¹ ano⁻¹ publicado (+9,0%); IAF simulado aos 24 meses 4,89 contra 3,8 publicado. A segunda comparação é pontual aos 24 meses; a tabela do TCC reporta média simulada de 24–36 meses. Clima municipal e solo do sítio são usados; sobreposição com dados de ajuste A1 não confirmada, portanto não é validação independente.
-- `auditoria_final/auditar_numeros.py` compilou após trocar caminhos absolutos por relativos, mas a execução parou por falta de Node.js. A auditoria e o DOCX ainda não foram gerados.
+- As alterações pós-integração na auditoria estão locais na branch `finalizacao-claude`; ainda não foram publicadas em novo PR.
 - Em 19/11/2026, corrigidos UTF-8, estrutura HTML e um erro de expressão regular que impedia a execução dos scripts da página. Corrigida também uma propriedade de material incompatível na cena Three.js. `plataforma/construir.py` regenerou o simulador e `docs/index.html`; o navegador abriu a cena 3D, confirmou `charset=UTF-8`, `lang=pt-BR`, `R` e `renderer` ativos e não registrou erro de JavaScript. A desfolha visual passou a ser refletida diretamente por folhas menores e o evento mensal, em conjunto com os números do modelo.
 
 ## Falta
-1. Obter o validador DOCX indicado em `gerar_com_paginas.sh` e executar as validações oficiais; o arquivo não existe neste ambiente.
-2. Disponibilizar Node.js para executar a auditoria numérica e completar as suítes de testes; a auditoria ainda não foi concluída.
-3. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 já foi calculado, mas não constitui reprodução estrita nem validação empírica.
-4. Reavaliar a apresentação do simulador após as verificações e confirmar a URL publicada.
+1. Investigar a discrepância de RQEM entre o motor Python e o r3PG em R, sem ajustar o modelo para contornar o auditor.
+2. Obter o validador DOCX indicado em `gerar_com_paginas.sh` e executar a validação oficial; o arquivo não existe neste ambiente.
+3. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 não constitui reprodução estrita nem validação empírica.
+4. Configurar acesso aprovado ao Google Drive e ao Diário do TCC II para entregar os arquivos e registrar a etapa.
+5. Confirmar se a auditoria pós-PR deve ser publicada em um PR de acompanhamento; preservar a falha de RQEM enquanto sua origem não for investigada.
 
 ---
 ## Calibração (lido de calibracao/saida/calibracao_d0999.json)
@@ -117,6 +121,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 19/11: não tratar Indianópolis como TECHS 9. Binkley et al. (2017) localiza o sítio 9 em Estrela do Sul, a ~35 km; o valor de solo é uma referência próxima. O resultado agregado de A1/TECHS 22 pode ser usado como benchmark adaptado, com diferenças de clima/coordenadas e sem independência demonstrada em relação ao ajuste A1; não chamar de validação empírica. A IAF publicada é aos 24 meses e não é diretamente comparável à média simulada de 24–36 meses. Solicitar dados e metadados para avaliação por variável.
 - 19/11/2026: manter `plataforma/fonte2.html` como fonte única de estrutura/visualização e `plataforma/construir.py` para regenerar o simulador e `docs/index.html`. Corrigir problemas de codificação e execução na fonte, não só nos arquivos gerados. Na cena 3D, a copa do talhão desfolhado deve diminuir pela biomassa foliar mensal do modelo e o dano deve marcar também a passagem dos eventos; o resultado visual é ilustrativo e não substitui as métricas científicas.
 - 21/11/2026: adotar formato híbrido para a orientação do Claude no Akademia: skill Claude Code de projeto para procedimentos aprofundados e referência obrigatória no `CLAUDE.md` para tarefas substantivas. O `AGENTS.md` e o `CLAUDE.md` avisam que o pipeline pode commitar e enviar `HEAD:main`; não o executar sem autorização explícita. A skill versionada não se aplica automaticamente ao Claude.ai web/Desktop/Projects.
+- Auditoria pós-PR: não truncar RQEM/R² para transformar limites em igualdade; registrar a divergência r3PG como falha real até investigar sua origem. Não alterar o modelo para fazer o auditor passar.
 
 ---
 # Contexto técnico
@@ -130,6 +135,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 21/11 13:53 documentaÃ§Ã£o: atualizar histÃ³rico da passagem
 - 21/11 13:52 Merge origin/main into finalizacao-claude
 - 21/11 13:44 documentaÃ§Ã£o: registrar passagem e validaÃ§Ãµes finais
 - 21/11 13:44 entregavel: DOCX e PDF regenerados
@@ -144,7 +150,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11 07:29 Audit final TCC delivery inputs
 - 21/11 09:09 finalizacao: entregavel_final com DOCX UFU, texto-fonte, gerador e figuras
 - 21/11 09:07 finalizacao: caminhos relativos no gerador do TCC, QR e SoilGrids; gera DOCX
-- 21/11 09:00 finalizacao: caminho FIG relativo ao repositorio (correcao F3) e handoff_claude/
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.

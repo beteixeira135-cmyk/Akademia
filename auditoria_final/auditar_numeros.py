@@ -5,6 +5,8 @@ import numpy as np, pandas as pd
 RAIZ = Path(__file__).resolve().parents[1]
 X = RAIZ / "experimentos"; S = X / "saida"; CB = RAIZ / "calibracao" / "saida"; BB = S / "biomas"
 MODELO = RAIZ / "modelo"; sys.path.insert(0, str(X))
+sys.path.insert(0, str(RAIZ / "cenarios"))
+from parametros_caldeira_r3pg import P as P_CALDEIRA
 R = pd.read_csv(S / "indicadores_por_tratamento.csv")
 L = R[(R.experimento == "LOCAL") & (R.nivel_FR == "F100")]
 E = R[R.experimento == "E1-E6"].copy(); E["W"] = pd.to_numeric(E.nivel_agua)
@@ -20,13 +22,17 @@ ok = [];
 def chk(rot, texto, calc, dec=1):
     c = round(float(calc), dec); t = float(str(texto).replace(",", "."))
     ok.append(dict(item=rot, texto=texto, calculado=c, ok=abs(c - t) <= 10 ** -dec * 0.51 + 1e-9))
+def chk_cond(rot, texto, calc, passou):
+    ok.append(dict(item=rot, texto=texto, calculado=float(calc), ok=bool(passou)))
 # matriz
 chk("total de tratamentos", 2408, len(M), 0); chk("bloco solo", 1344, (M.experimento == "E1-E6").sum(), 0)
 chk("bloco local", 912, (M.experimento == "LOCAL").sum(), 0); chk("controles", 308, (M.desfolha == 0).sum(), 0)
 # verificação
 chk("registros por variável r3PG", 28277, A.n.iloc[0], 0)
-chk("RQEM máx r3PG < 2e-13 (x1e13)", 2.0, min(2.0, A[A.comparacao.str.contains("r3PG")].RQEM_pct.max() * 1e13), 1)
-chk("R2 VBA mínimo >= 0,9996", 0.9996, max(0.9996, A[A.comparacao.str.contains("VBA")].R2.min()) if A[A.comparacao.str.contains("VBA")].R2.min() >= 0.9996 else 0, 4)
+_rqem_r3pg = float(A[A.comparacao.str.contains("r3PG")].RQEM_pct.max())
+chk_cond("RQEM máx r3PG < 2e-13", 2e-13, _rqem_r3pg, _rqem_r3pg < 2e-13)
+_r2_vba_min = float(A[A.comparacao.str.contains("VBA")].R2.min())
+chk_cond("R2 VBA mínimo >= 0,9996", 0.9996, _r2_vba_min, _r2_vba_min >= 0.9996)
 chk("RQEM VBA máx < 0,14", 0.13, A[A.comparacao.str.contains("VBA")].RQEM_pct.max(), 2)
 # controles
 for (s, m), vol, ima, lenho, lai, ft in [(("TB", "A1"), 429, 61, 37.1, 4.8, 0), (("TB", "C5"), 386, 55, 37.7, 4.7, 0), (("IND", "A1"), 352, 50, 25.9, 3.6, 0),
@@ -129,7 +135,7 @@ chk("vol/árvore mín +13%", 13, 100 * (m15.vol_arvore_ratio.min() - 1), 0); chk
 mf = DN[DN.cenario == "Mancha foliar"].recup_rel95_meses
 chk("mancha recup mín 18", 18, mf.min(), 0); chk("mancha recup máx 25", 25, mf.max(), 0)
 # ===== calibração da compensação e biomas (31/10/2026) =====
-J = json.load(open(CB / "calibracao_d0999.json")); J9 = json.load(open(CB / "calibracao_d099.json"))
+J = json.load(open(CB / "calibracao_d0999.json", encoding="utf-8")); J9 = json.load(open(CB / "calibracao_d099.json", encoding="utf-8"))
 for k_, t_, c_ in [("U q50", 1.18, J["U"]["q50"]), ("U q05", 1.01, J["U"]["q05"]), ("U q95", 1.34, J["U"]["q95"]),
                    ("a q50", 0.625, J["a"]["q50"]), ("a q05", 0.23, J["a"]["q05"]), ("a q95", 0.975, J["a"]["q95"] + 1e-9),
                    ("corr U-a", -0.01, J["corr_post"]), ("U q50 d0,99", 1.17, J9["U"]["q50"])]:
@@ -214,13 +220,13 @@ _ima = lambda s_: _r0(_l0(s_, "C5", None, _MAT["C5"]["FR_ref"], "F100", 0.0, "P1
 for s_, t_ in [("IND", 44), ("IMP", 36), ("TB", 55), ("ALM", 64), ("ARA", 22), ("ELD", 52)]:
     o_ = _ima(s_); k84 = (o_.idade_meses - 84).abs().idxmin(); chk(f"IMA C5 {s_}", t_, o_.volume[k84] / 7, 0)
 # ===== Missão 07: auditoria da calibração e testes adicionais =====
-AC = json.load(open(CB / "auditoria_calibracao.json")); TA = json.load(open(CB / "testes_adicionais.json"))
+AC = json.load(open(CB / "auditoria_calibracao.json", encoding="utf-8")); TA = json.load(open(CB / "testes_adicionais.json", encoding="utf-8"))
 ua = AC["atribuicao_urocam"]
 chk("urocam só U", 79.3, ua["so_U"]["volume"]); chk("urocam só a", 67.3, ua["so_a"]["volume"]); chk("urocam U e a", 66.3, ua["U_e_a"]["volume"])
 p16 = AC["prior_U_ate_1_6"]
 chk("prior 1,6 U q50 1,30", 1.30, p16["U"][1], 2); chk("prior 1,6 U q05", 1.03, p16["U"][0], 2); chk("prior 1,6 U q95", 1.58, p16["U"][2], 2)
 chk("reexecução U q50 = publicado", 1.18, AC["reexecucao"]["U"][1], 2)
-GQ = json.load(open(CB / "gamma_quentin2011.json")); gq = {r["gam"]: r["razao"] for r in GQ["grade"]}
+GQ = json.load(open(CB / "gamma_quentin2011.json", encoding="utf-8")); gq = {r["gam"]: r["razao"] for r in GQ["grade"]}
 chk("γ calibrado com Quentin 2011 = 1", 1.0, GQ["gamma_calibrado"], 1)
 chk("Quentin orig −21,5%", 21.5, 100 * (1 - GQ["razao_original"])); chk("Quentin γ0,5", 4.3, 100 * (1 - gq[0.5])); chk("Quentin γ1", 0, 100 * (1 - gq[1.0]))
 MTt = pd.DataFrame(TA["matrangolo"])
@@ -230,7 +236,7 @@ chk("Matrangolo cal mín", 3.8, MTt.calibrado_mediana.min()); chk("Matrangolo ca
 chk("Matrangolo RQEM orig", 42, TA["matrangolo_metricas"]["rmse_original"], 0); chk("Matrangolo RQEM cal", 54, TA["matrangolo_metricas"]["rmse_calibrado"], 0)
 fo_ = MTt.observado / MTt.original; fc_ = MTt.observado / MTt.calibrado_mediana
 chk("fator orig mín", 2, fo_.min(), 0); chk("fator orig máx", 5, fo_.max(), 0); chk("fator cal mín", 7, fc_.min(), 0); chk("fator cal máx", 10, fc_.max(), 0)
-OL = json.load(open(CB / "teste_oliveira2014.json"))["resultados"]; o1 = OL["T1 100%"]
+OL = json.load(open(CB / "teste_oliveira2014.json", encoding="utf-8"))["resultados"]; o1 = OL["T1 100%"]
 chk("Oliveira obs vol 35,4", 35.4, o1["observado"]["volume_publicado"]); chk("Oliveira orig vol", 77.6, o1["original"]["volume"][1]); chk("Oliveira cal vol", 33, o1["calibrado"]["volume"][1])
 chk("Oliveira cal q05", 28.1, o1["calibrado_faixa90_mediana_anos"][0]); chk("Oliveira cal q95", 45.8, o1["calibrado_faixa90_mediana_anos"][1])
 chk("Oliveira obs DAP 14,8", 14.8, o1["observado"]["diametro_publicado"]); chk("Oliveira obs altura 11,0", 11.0, o1["observado"]["altura_publicada"])
@@ -238,13 +244,13 @@ chk("Oliveira orig DAP", 38.2, o1["original"]["dap"][1]); chk("Oliveira cal DAP"
 chk("Oliveira orig altura", 45.7, o1["original"]["altura"][1]); chk("Oliveira cal altura", 15.1, o1["calibrado"]["altura"][1])
 chk("Oliveira RQEM orig", 34.3, OL["T1_metricas"]["RQEM_original"]); chk("Oliveira RQEM cal", 3.2, OL["T1_metricas"]["RQEM_calibrado"])
 chk("Oliveira parciais orig ≤", 8.1, OL["parciais_max_mediana_entre_anos"]["original"]); chk("Oliveira parciais cal ≤", 4.5, OL["parciais_max_mediana_entre_anos"]["calibrado"])
-RF_ = json.load(open(RAIZ / "revisao_07" / "corpus" / "resumo_filtro.json"))
+RF_ = json.load(open(RAIZ / "revisao_07" / "corpus" / "resumo_filtro.json", encoding="utf-8"))
 chk("busca registros 10.000", 10000, RF_["registros_baixados"], 0); chk("busca DOI únicos 7.908", 7908, RF_["unicos_por_doi"], 0)
 chk("busca dedup 7.431", 7431, RF_["apos_dedup_titulo"], 0); chk("núcleo 93", 93, RF_["nucleo"], 0); chk("contexto 3-PG 20", 20, RF_["contexto_3pg"], 0)
 
 # Plataforma v8 (Akademia): verificação JS × Python e valor calibrado citado na seção 4.12
 import json as _j
-_V = _j.load(open(Path(__file__).resolve().parents[1] / "plataforma/verificacao/resultado_verificacao.json"))
+_V = _j.load(open(Path(__file__).resolve().parents[1] / "plataforma/verificacao/resultado_verificacao.json", encoding="utf-8"))
 chk("cenários JS × Python", 8, len(_V), 0)
 chk("dif. rel. máx JS × Python (x1e14)", 16.0, max(v["dif_rel_max"] for v in _V) * 1e14, 1)
 sys.path.insert(0, str(MODELO))
@@ -258,7 +264,7 @@ _sp = dict(planted="2015-01", fertility=_M["FR_ref"], stems_n=10000 / 9, biom_st
 _cl = _cm("IND"); _ev = {"2017-01": .95, "2020-01": .95}
 _c = _run(_site, _sp, _cl, _par("A1")); _k = int(np.where(np.round(_c.age * 12) == 84)[0][0])
 _t = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev)
-_tc = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev, compensation=dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=json.load(open(CB / "gamma_quentin2011.json"))["gamma_calibrado"], u_meses=json.load(open(CB / "regra_compensacao.json"))["u_meses"]))
+_tc = _run(_site, _sp, _cl, _par("A1"), defoliation_events=_ev, compensation=dict(U=J["U"]["q50"], a=J["a"]["q50"], gam=json.load(open(CB / "gamma_quentin2011.json", encoding="utf-8"))["gamma_calibrado"], u_meses=json.load(open(CB / "regra_compensacao.json", encoding="utf-8"))["u_meses"]))
 chk("plataforma IND A1 2x95 original", 17.3, 100 * (1 - _t.volume[_k] / _c.volume[_k]), 1)
 chk("plataforma IND A1 2x95 calibrado", 13.1, 100 * (1 - _tc.volume[_k] / _c.volume[_k]), 1)
 
@@ -271,7 +277,7 @@ chk("amostras do posterior na plataforma", 200, _NP["amostras"], 0); chk("locais
 chk("serraria", -34.4, _NP["dif_serraria"], 1); chk("serraria ctrl 165", 165, _NP["serraria_c"], 0); chk("serraria desf", 108, _NP["serraria_t"], 0)
 chk("celulose", 4.3, _NP["dif_celulose"], 1); chk("energia", 33.1, _NP["dif_energia"], 1)
 # Espaço de possibilidades (experimentos/possibilidades*.py) e validação cruzada da calibração
-_PS = _j.load(open(S / "possibilidades" / "resumo_possibilidades.json"))
+_PS = _j.load(open(S / "possibilidades" / "resumo_possibilidades.json", encoding="utf-8"))
 _O, _C, _T, _K = _PS["original"], _PS["calibrada"], _PS["teste_autor"], _PS["kfold"]; _G = _PS["ganho_por_tipo"]
 chk("cenários totais", 7584, _PS["n_cenarios"], 0); chk("cenários aptos", 5688, _PS["n_aptos"], 0); chk("aptos por versão", 2844, _O["n"], 0)
 chk("ganho orig %", 0, _O["frac_ganho"], 1); chk("ganho calib %", 1.3, _C["frac_ganho"], 1)
@@ -309,7 +315,7 @@ _I = _PS["importancia_pct"]
 chk("imp frequência", 38, _I["pulsos anuais"], 1); chk("imp intensidade", 34.8, _I["intensidade d"], 1); chk("imp versão", 11.7, _I["fisiologia calibrada"], 1)
 chk("imp eficiência", 7.1, _I["perda de eficiência r"], 1); chk("imp época", 5.2, _I["época"], 1)
 chk("clima+solo < 3", 3, 3 if _I["T média"] + _I["chuva anual"] + _I["meses secos"] + _I["CAD"] < 3 else 0, 0)
-_VC = _j.load(open(CB / "validacao_cruzada.json")); _L5 = _VC["deixa uma observação de fora (k = 5)"]
+_VC = _j.load(open(CB / "validacao_cruzada.json", encoding="utf-8")); _L5 = _VC["deixa uma observação de fora (k = 5)"]
 _K2a, _K2b = _VC["ajusta no C5, prevê o A1 (k = 2)"], _VC["ajusta no A1, prevê o C5 (k = 2)"]
 chk("LOO RQEM orig", 15.7, _L5["RQEM_original"], 1); chk("LOO RQEM calib", 4.3, _L5["RQEM_calibrado"], 1)
 chk("LOO viés orig", 14.9, _L5["vies_original"], 1); chk("LOO viés calib", 1.7, _L5["vies_calibrado"], 1); chk("LOO melhorou", 5, _L5["melhorou"], 0)
@@ -330,5 +336,25 @@ for _s, (_tm, _tn, _tx, _pa, _p0, _p1, _ns) in {"ALM": (27.3, 23.7, 31.0, 1862, 
 for _s, (_lo, _hi) in {"ALM": (215, 224), "ARA": (188, 198)}.items():
     _v = [float(l.split()[3]) for l in open(RAIZ / "biomas" / f"log_{_s}.txt") if l.startswith(_s + " ") and l.split()[3] != "None"]
     chk(f"T1 {_s} ASW mín", _lo, min(_v), 0); chk(f"T1 {_s} ASW máx", _hi, max(_v), 0)
+# Matriz de seis materiais (Figura 10), com os mesmos filtros e fórmulas do gerador N3.
+D6 = pd.read_csv(X / "saida" / "possibilidades_6mat" / "possibilidades.csv")
+chk("6mat cenários totais", 22752, len(D6), 0)
+D6 = D6[D6.apto.astype(str).str.lower().isin(["true", "1"])]
+chk("6mat cenários aptos", 20856, len(D6), 0); chk("6mat materiais", 6, D6.material.nunique(), 0)
+for _versao, _esperado in [("original", 10428), ("calibrada", 10428)]:
+    _d6 = D6[D6.versao == _versao]
+    chk(f"6mat aptos {_versao}", _esperado, len(_d6), 0)
+    _folhas = 100 * _d6[_d6.d > 0].recup_folhas_meses.notna().mean()
+    _npp = 100 * (_d6.npp_pos_rel > 0).mean()
+    _ganho = 100 * (_d6.perda_volume < 0).mean()
+    chk(f"6mat folhagem {_versao} %", 51.6 if _versao == "original" else 93.2, _folhas, 1)
+    chk(f"6mat NPP {_versao} %", 9.1 if _versao == "original" else 27.4, _npp, 1)
+    chk(f"6mat volume {_versao} %", 0.02 if _versao == "original" else 1.7, _ganho, 2 if _versao == "original" else 1)
+chk("densidade em 3 × 3 m (árvores/ha)", 1111, 10000 / (3 * 3), 0)
+chk("Tmax A1 (°C)", 28.65, P_CALDEIRA["Tmax"][0], 2)
+U_POST = pd.read_csv(CB / "amostras_posterior_d0999.csv")
+chk("limite superior de U", 1.35, U_POST.U.max(), 2)
 O = pd.DataFrame(ok); O.to_csv(RAIZ / "auditoria_final" / "auditoria_numeros.csv", index=False)
 print(len(O), "itens;", int(O.ok.sum()), "conferem"); print(O[~O.ok].to_string())
+if not O.ok.all():
+    sys.exit(1)
