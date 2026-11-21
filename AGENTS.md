@@ -6,7 +6,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ## Antes de qualquer coisa
 1. Leia `memoria/contexto_ativo.md` (o que está sendo feito agora) e `memoria/progresso.md` (feito × falta).
 2. Leia `PASSAGEM_DE_BASTAO.md` se existir (gerado por `python3 ferramentas/gerar_passagem.py`).
-3. Rode `python3 ferramentas/pipeline.py verificar` para conferir que o ambiente funciona.
+3. Revise os efeitos de `ferramentas/pipeline.py` antes de executá-lo. Na implementação atual, toda etapa bem-sucedida exceto `passagem` faz `git add -A`, cria commit e executa `git push origin HEAD:main`, inclusive `verificar`. Não rode o pipeline enquanto esse comportamento existir sem autorização explícita; faça verificações equivalentes diretamente e sem efeitos no Git.
 
 ## Regras inegociáveis
 - Só dados secundários. NUNCA inventar dado, parâmetro, referência, DOI ou resultado. Sem fonte → escrever que não há.
