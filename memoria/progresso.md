@@ -1,6 +1,6 @@
 # Progresso
 ## Feito
-- Revisão de finalização na branch `finalizacao-claude`: conferidas visualmente as Figuras 1, 2, 3, 7, 9 e 10; corrigida a legenda da Figura 9 para refletir seis sítios em cinco biomas. Criado `experimentos/figura_N3_6mat.py`; corrigidos os caminhos do texto e das figuras no gerador DOCX. Buscas em `TCC_TEXTO_FINAL.md`: `5.688` = 0 e `Lagartas` = 0; legenda da Figura 10 cita 20.856 cenários. Texto ajustado para declarar a falta de inventários independentes e não tratá-los como validação. A passagem não foi regenerada (Python indisponível); não houve envio ao Drive nem registro no Diário.
+- Revisão de finalização na branch `finalizacao-claude`, sem push: matriz do commit `fde2780` conferida (22.752 linhas; 20.856 aptas; 10.428 por versão). Percentuais da Figura 10 recalculados: folhagem 51,6%/93,2%; NPP 9,1%/27,4%; volume 0,02%/1,7% (original/calibrada). Gerador N3 executado e PNG copiado. Conferidas visualmente as Figuras 1, 2, 3, 7, 9 e 10; corrigida a legenda da Figura 9 para seis sítios em cinco biomas. Buscas em `TCC_TEXTO_FINAL.md`: `5.688` = 0 e `Lagartas` = 0; legenda da Figura 10 cita 20.856 cenários. Texto ajustado para declarar a falta de inventários independentes e não tratá-los como validação. DOCX e PDF regenerados; PDF com 28 páginas. Sumário gerado pelo bloco Python do script, pois Bash não está disponível. Verificações estruturais do DOCX passaram, mas o validador indicado não existe no ambiente e não se afirma “All validations PASSED!”. Passagem de bastão será regenerada; não houve envio ao Drive nem registro no Diário.
 - Revisão documental de recuperação, persistência, interpretação dos ganhos simulados e limites de transferência incorporada em `tcc_docx/conteudo.js`.
 - Simulador Akademia: interface e módulos atuais preservados; diferença máxima JS–Python registrada em `1,60075e-13`, abaixo do limite do comparador (`1e-9`).
 - Fixture da auditoria numérica movido para `auditoria_final/controles_solo_antes_correcao_dossel.csv`; caminho da auditoria atualizado.
@@ -15,8 +15,7 @@
 - Em 19/11/2026, corrigidos UTF-8, estrutura HTML e um erro de expressão regular que impedia a execução dos scripts da página. Corrigida também uma propriedade de material incompatível na cena Three.js. `plataforma/construir.py` regenerou o simulador e `docs/index.html`; o navegador abriu a cena 3D, confirmou `charset=UTF-8`, `lang=pt-BR`, `R` e `renderer` ativos e não registrou erro de JavaScript. A desfolha visual passou a ser refletida diretamente por folhas menores e o evento mensal, em conjunto com os números do modelo.
 
 ## Falta
-1. Recuperar `experimentos/possibilidades_6mat.py` e `experimentos/saida/possibilidades_6mat/possibilidades.csv`, ausentes do checkout; só então recalcular os percentuais, regenerar a Figura 10 e confirmar os números.
-2. Disponibilizar Python, Bash, LibreOffice e ferramentas PDF para executar `gerar_com_paginas.sh`, validar o DOCX, exportar o PDF e conferir o total de páginas. Nenhum DOCX/PDF novo foi produzido nesta etapa.
-3. Disponibilizar Node.js, fonte de dados r3PG e `experimentos/saida/mensal.csv.gz`; então executar a auditoria numérica e completar as suítes de testes.
-4. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 já foi calculado, mas não constitui reprodução estrita nem validação empírica.
-5. Reavaliar a apresentação do simulador após as verificações e confirmar a URL publicada.
+1. Obter o validador DOCX indicado em `gerar_com_paginas.sh` e executar as validações oficiais; o arquivo não existe neste ambiente.
+2. Disponibilizar Node.js para executar a auditoria numérica e completar as suítes de testes; a auditoria ainda não foi concluída.
+3. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 já foi calculado, mas não constitui reprodução estrita nem validação empírica.
+4. Reavaliar a apresentação do simulador após as verificações e confirmar a URL publicada.

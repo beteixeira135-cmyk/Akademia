@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (5437 tokens, estimativa (caracteres ÷ 3,6); gerado em 19/11/2026 11:56)
+# PASSAGEM DE BASTÃO — TCC II (5932 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 13:42)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (24387 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (24924 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -48,6 +48,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 # Contexto ativo
+- Em 21/11/2026, a finalização foi retomada na branch `finalizacao-claude`, sem push. A matriz do commit `fde2780` foi conferida: 22.752 linhas, 20.856 aptas; percentuais recalculados em 51,6%/93,2%, 9,1%/27,4% e 0,02%/1,7%. O gerador N3 foi executado e o PNG foi copiado para o entregável. DOCX e PDF foram regenerados; o PDF tem 28 páginas. O mapa do sumário foi produzido pelo bloco Python do script com Poppler no Windows, pois Bash não está disponível. O DOCX passou nas verificações estruturais (integridade ZIP, XML e 12 imagens), mas o validador indicado no script não existe neste ambiente; não se afirma “All validations PASSED!”. A legenda da Figura 9 foi corrigida (seis sítios em cinco biomas, dois no Cerrado); a confirmação empírica por inventários independentes continua pendente. Google Drive/Diário não foram atualizados.
 - Em 19/11, a revisão documental foi incorporada a `tcc_docx/conteudo.js`: Rua é precedente, não inovação; a contribuição é avaliar recuperação e perdas persistentes em condições brasileiras, com limites explícitos de transferência. Distinguir recuperação da área foliar, retomada do incremento e déficit de madeira.
 - Os ganhos simulados acima do controle não têm causa biológica verificada. Não interpretar a inversão do indicador como benefício hídrico sem conferir fórmula, sinal, denominador e cenários pareados. Pizzi não foi recuperado na fonte primária; seus percentuais não foram incorporados.
 - Busca de fontes públicas: Binkley et al. (2017) confirma TECHS 9 em Estrela do Sul (−18,73; −47,92), a cerca de 35 km de Indianópolis, e TECHS 22 em Telêmaco Borba. Portanto, o sítio 9 não fornece observações diretas de Indianópolis. Não localizei séries brutas de inventários para baixar. O artigo apresenta para A1/TECHS 22 produtividade agregada de lenho (34 Mg ha⁻¹ ano⁻¹ entre 24–36 meses) e IAF 3,8 aos 24 meses.
@@ -66,6 +67,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ---
 # Progresso
 ## Feito
+- Revisão de finalização na branch `finalizacao-claude`, sem push: matriz do commit `fde2780` conferida (22.752 linhas; 20.856 aptas; 10.428 por versão). Percentuais da Figura 10 recalculados: folhagem 51,6%/93,2%; NPP 9,1%/27,4%; volume 0,02%/1,7% (original/calibrada). Gerador N3 executado e PNG copiado. Conferidas visualmente as Figuras 1, 2, 3, 7, 9 e 10; corrigida a legenda da Figura 9 para seis sítios em cinco biomas. Buscas em `TCC_TEXTO_FINAL.md`: `5.688` = 0 e `Lagartas` = 0; legenda da Figura 10 cita 20.856 cenários. Texto ajustado para declarar a falta de inventários independentes e não tratá-los como validação. DOCX e PDF regenerados; PDF com 28 páginas. Sumário gerado pelo bloco Python do script, pois Bash não está disponível. Verificações estruturais do DOCX passaram, mas o validador indicado não existe no ambiente e não se afirma “All validations PASSED!”. Passagem de bastão será regenerada; não houve envio ao Drive nem registro no Diário.
 - Revisão documental de recuperação, persistência, interpretação dos ganhos simulados e limites de transferência incorporada em `tcc_docx/conteudo.js`.
 - Simulador Akademia: interface e módulos atuais preservados; diferença máxima JS–Python registrada em `1,60075e-13`, abaixo do limite do comparador (`1e-9`).
 - Fixture da auditoria numérica movido para `auditoria_final/controles_solo_antes_correcao_dossel.csv`; caminho da auditoria atualizado.
@@ -80,8 +82,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Em 19/11/2026, corrigidos UTF-8, estrutura HTML e um erro de expressão regular que impedia a execução dos scripts da página. Corrigida também uma propriedade de material incompatível na cena Three.js. `plataforma/construir.py` regenerou o simulador e `docs/index.html`; o navegador abriu a cena 3D, confirmou `charset=UTF-8`, `lang=pt-BR`, `R` e `renderer` ativos e não registrou erro de JavaScript. A desfolha visual passou a ser refletida diretamente por folhas menores e o evento mensal, em conjunto com os números do modelo.
 
 ## Falta
-1. Disponibilizar Node.js, fonte de dados r3PG e `experimentos/saida/mensal.csv.gz`; então executar a auditoria numérica e completar as suítes de testes.
-2. Gerar o DOCX atualizado após disponibilizar Node.js.
+1. Obter o validador DOCX indicado em `gerar_com_paginas.sh` e executar as validações oficiais; o arquivo não existe neste ambiente.
+2. Disponibilizar Node.js para executar a auditoria numérica e completar as suítes de testes; a auditoria ainda não foi concluída.
 3. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 já foi calculado, mas não constitui reprodução estrita nem validação empírica.
 4. Reavaliar a apresentação do simulador após as verificações e confirmar a URL publicada.
 
@@ -123,21 +125,21 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 21/11 13:23 entregavel: corrigir caminhos do gerador e registrar pendÃªncias
+- 21/11 13:23 figuras: preparar gerador N3 e corrigir legenda da Figura 9
+- 21/11 16:25 dados: matriz de seis materiais (22.752 cenÃ¡rios) e script que a gera
+- 21/11 09:09 finalizacao: entregavel_final com DOCX UFU, texto-fonte, gerador e figuras
+- 21/11 09:07 finalizacao: caminhos relativos no gerador do TCC, QR e SoilGrids; gera DOCX
+- 21/11 09:00 finalizacao: caminho FIG relativo ao repositorio (correcao F3) e handoff_claude/
+- 19/11 11:58 Merge pull request #1 from beteixeira135-cmyk/beteixeira135-cmyk-recuperacao-e-persistencia
+- 19/11 11:56 Record simulator display verification
 - 19/11 11:55 Improve Akademia simulator page rendering
 - 19/11 11:45 Document TECHS 22 benchmark limits
 - 19/11 11:36 Document public TECHS data limits
 - 19/11 11:30 Record VS Code validation results
 - 19/11 11:05 Configure VS Code calibration workspace
 - 19/11 10:38 Remove obsolete project snapshots and outputs
-- 19/11 10:20 Atualiza recuperação e limites do módulo
-- 03/11 19:49 Resumo executivo ilustrado: da fonte ao número (PDF, 7 p.), para a coorientadora
-- 02/11 16:23 Guia ilustrado do TCC II, passo a passo (PDF, 18 p.)
-- 02/11 16:09 TCC VERSÃO FINAL v4: 5.1 Perspectivas na conclusão; passagem de bastão para o Astra; conferidor de referências no repositório
-- 02/11 12:08 Cascata: dossel de Borges corrigido (TECHS), U só no mês do ataque, recalibração e reprocessamento completo; tabelas geradas dos resultados; pipeline completo; plataforma e capturas atualizadas; TCC VERSÃO FINAL v3 (37 p.), auditoria 528/528
-- 02/11 12:02 pipeline: etapa plataforma concluída
-- 02/11 12:02 pipeline: etapa tabelas concluída
-- 02/11 11:42 pipeline: etapa danos concluída
-- 02/11 11:42 pipeline: etapa analises concluída
+- 19/11 10:20 Atualiza recuperaÃ§Ã£o e limites do mÃ³dulo
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
