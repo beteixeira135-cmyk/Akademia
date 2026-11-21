@@ -32,7 +32,7 @@ A abordagem é simulacional: usa dados secundários e simulação computacional.
 
 1. Representar a desfolha no 3-PG, com compensação fisiológica e recuperação da copa, sem alterar as equações originais do modelo.
 2. Calibrar os parâmetros de compensação e recuperação e registrar a origem de cada parâmetro do material.
-3. Avaliar o módulo fora do ajuste, com dois testes: a simulação sem desfolha em sítios com inventário final da rede TECHS e a perda de volume observada no experimento de Oliveira et al. (2014).
+3. Avaliar o módulo fora do ajuste por comparação adaptada com o experimento de Oliveira et al. (2014) e delimitar a confirmação empírica, que permanece pendente por falta de inventários independentes compatíveis.
 4. Quantificar a perda de volume por material, sítio e cenário de desfolha, e registrar que os resultados são simulados.
 
 ## 3 MATERIAL E MÉTODOS
@@ -78,7 +78,7 @@ O modelo 3-PG representa o genótipo apenas por meio dos parâmetros de cada mat
 
 ### 3.3 Sítios e dados ambientais
 
-Foram usados três sítios: Indianópolis-MG (IND), Imperatriz-MA (IMP) e Telêmaco Borba-PR (TB). IND e IMP estão no Cerrado; TB, na Mata Atlântica. Os sítios TECHS 9 (Estrela do Sul-MG, altitude de 969 m) e TECHS 22 (Telêmaco Borba-PR, altitude de 888 m) são os equivalentes de campo de IND e TB. Segundo Binkley et al. (2017), cada parcela da rede tem 8 linhas de 30 árvores, espaçamento de 3 × 3 m (1.111 árvores por hectare), com adubação intensiva no primeiro ano. O trabalho usa o período de crescimento de 24 a 36 meses publicado por esses autores, que corresponde ao meio da rotação de seis anos. Para o TECHS 9, a precipitação anual nesse período foi de 1.412 mm e o déficit hídrico de 298 mm; para o TECHS 22, foi de 1.554 mm e 29 mm. A água disponível de 0 a 2 m é de 215 mm no TECHS 9 e 214 mm no TECHS 22. Os solos são Latossolos (Oxisols) argilosos, com 80% e 56% de argila, respectivamente (BINKLEY et al., 2017, Tabela 2). Em relação aos dados do NASA POWER usados para IND e TB, a precipitação do TECHS 9 é cerca de 25% maior e a do TECHS 22 cerca de 10% maior; a diferença de período entre as duas fontes é declarada na seção 3.3.
+Foram usados três sítios: Indianópolis-MG (IND), Imperatriz-MA (IMP) e Telêmaco Borba-PR (TB). IND e IMP estão no Cerrado; TB, na Mata Atlântica. O TECHS 9 fica em Estrela do Sul-MG, cerca de 35 km de Indianópolis, e é uma referência regional próxima, não uma parcela de IND. O TECHS 22 fica em Telêmaco Borba-PR. Segundo Binkley et al. (2017), cada parcela da rede tem 8 linhas de 30 árvores, espaçamento de 3 × 3 m (1.111 árvores por hectare), com adubação intensiva no primeiro ano. O trabalho usa o período de crescimento de 24 a 36 meses publicado por esses autores, que corresponde ao meio da rotação de seis anos. Para o TECHS 9, a precipitação anual nesse período foi de 1.412 mm e o déficit hídrico de 298 mm; para o TECHS 22, foi de 1.554 mm e 29 mm. A água disponível de 0 a 2 m é de 215 mm no TECHS 9 e 214 mm no TECHS 22. Os solos são Latossolos (Oxisols) argilosos, com 80% e 56% de argila, respectivamente (BINKLEY et al., 2017, Tabela 2). Em relação aos dados do NASA POWER usados para IND e TB, a precipitação do TECHS 9 é cerca de 25% maior e a do TECHS 22 cerca de 10% maior; a diferença de período entre as duas fontes é declarada na seção 3.3.
 
 - **Clima:** temperatura, precipitação e radiação diárias da NASA POWER, de 01/01/2015 a 31/01/2024, somadas em meses. O período final não é um ano completo.
 - **Água disponível:** 215 mm para IND e 214 mm para TB, valores coincidentes com a água disponível de 0 a 2 m dos sítios 9 e 22 da rede TECHS (CALDEIRA et al., 2020; BINKLEY et al., 2017). Para IMP, a água disponível não tem referência de campo.
@@ -241,9 +241,9 @@ A leitura é cautelosa. Com quatro observações por variável, o coeficiente de
 
 ### 4.9 Biomas
 
-Um local por bioma foi simulado para o clone C5, com 50% de desfolha. A Figura 9 mostra a perda aos sete anos sem compensação e com a compensação calibrada, para uma desfolha e para desfolhas todos os anos, com a faixa de 90% da calibração.
+Seis sítios, distribuídos em cinco biomas, foram simulados para o clone C5, com 50% de desfolha. O Cerrado é representado por Indianópolis e Imperatriz; os outros quatro biomas têm um sítio cada. A Figura 9 mostra a perda aos sete anos sem compensação e com a compensação calibrada, para uma desfolha e para desfolhas todos os anos, com a faixa de 90% da calibração.
 
-![Figura 9. Perda de volume aos sete anos do clone C5 com 50% de desfolha, um local por bioma, sem compensação e com a compensação calibrada: uma desfolha (a) e desfolha todo ano (b), com a faixa de 90% da calibração.](figuras_padronizadas/fig09_biomas.png)
+![Figura 9. Perda de volume aos sete anos do clone C5 com 50% de desfolha, em seis sítios distribuídos por cinco biomas (dois no Cerrado), sem compensação e com a compensação calibrada: uma desfolha (a) e desfolha todo ano (b), com a faixa de 90% da calibração.](figuras_padronizadas/fig09_biomas.png)
 
 ### 4.10 Espaço de possibilidades do módulo
 
@@ -282,9 +282,9 @@ A queda de folhada é outro ponto sensível. Firmino (2011), em povoamentos de *
 
 ### 4.15 Confirmação empírica: condições para execução
 
-Três tipos de dado podem validar o módulo, e este trabalho tem apenas um deles, em forma adaptada.
+Três tipos de dado podem apoiar a confirmação empírica do módulo. Neste trabalho, não há inventários independentes compatíveis; a única comparação externa disponível é adaptada e não constitui validação.
 
-1. **Crescimento sem desfolha em sítios com inventário.** Para os sítios 9 e 22 da rede TECHS, o inventário final de 68 a 70 meses está disponível (CALDEIRA et al., 2020). A comparação exige a data de plantio e a série mensal de clima de cada sítio, que ainda não foram obtidas. Esta é a validação de base do modelo e não foi feita.
+1. **Crescimento sem desfolha em sítios com inventário.** Não há inventários independentes compatíveis disponíveis para este trabalho. Sem dados de campo com local, material, idade e variáveis dendrométricas correspondentes às simulações, não foi possível fazer essa comparação.
 2. **Perda de volume em desfolha total.** O experimento de Oliveira et al. (2014) fornece uma comparação com perda de 35,4% em *E. grandis*. O modelo calibrado simulou 33,0% com o material C5, o que é uma comparação adaptada, não uma validação do clone A1.
 3. **Desfolha repetida em campo.** Para validar a perda acumulada, é preciso um experimento com desfolhas repetidas em mais de um ano, com inventário em cada época e, idealmente, com medição de área foliar. Esse dado não existe para *E. urophylla* no conjunto disponível.
 
