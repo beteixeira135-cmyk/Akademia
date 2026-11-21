@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (5932 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 13:42)
+# PASSAGEM DE BASTÃO — TCC II (5946 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 13:44)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (24924 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (24929 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -67,7 +67,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ---
 # Progresso
 ## Feito
-- Revisão de finalização na branch `finalizacao-claude`, sem push: matriz do commit `fde2780` conferida (22.752 linhas; 20.856 aptas; 10.428 por versão). Percentuais da Figura 10 recalculados: folhagem 51,6%/93,2%; NPP 9,1%/27,4%; volume 0,02%/1,7% (original/calibrada). Gerador N3 executado e PNG copiado. Conferidas visualmente as Figuras 1, 2, 3, 7, 9 e 10; corrigida a legenda da Figura 9 para seis sítios em cinco biomas. Buscas em `TCC_TEXTO_FINAL.md`: `5.688` = 0 e `Lagartas` = 0; legenda da Figura 10 cita 20.856 cenários. Texto ajustado para declarar a falta de inventários independentes e não tratá-los como validação. DOCX e PDF regenerados; PDF com 28 páginas. Sumário gerado pelo bloco Python do script, pois Bash não está disponível. Verificações estruturais do DOCX passaram, mas o validador indicado não existe no ambiente e não se afirma “All validations PASSED!”. Passagem de bastão será regenerada; não houve envio ao Drive nem registro no Diário.
+- Revisão de finalização na branch `finalizacao-claude`, sem push: matriz do commit `fde2780` conferida (22.752 linhas; 20.856 aptas; 10.428 por versão). Percentuais da Figura 10 recalculados: folhagem 51,6%/93,2%; NPP 9,1%/27,4%; volume 0,02%/1,7% (original/calibrada). Gerador N3 executado e PNG copiado. Conferidas visualmente as Figuras 1, 2, 3, 7, 9 e 10; corrigida a legenda da Figura 9 para seis sítios em cinco biomas. Buscas em `TCC_TEXTO_FINAL.md`: `5.688` = 0 e `Lagartas` = 0; legenda da Figura 10 cita 20.856 cenários. Texto ajustado para declarar a falta de inventários independentes e não tratá-los como validação. DOCX e PDF regenerados; PDF com 28 páginas. Sumário gerado pelo bloco Python do script, pois Bash não está disponível. Verificações estruturais do DOCX passaram, mas o validador indicado não existe no ambiente e não se afirma “All validations PASSED!”. Passagem de bastão e contexto empacotado regenerados; não houve envio ao Drive nem registro no Diário.
 - Revisão documental de recuperação, persistência, interpretação dos ganhos simulados e limites de transferência incorporada em `tcc_docx/conteudo.js`.
 - Simulador Akademia: interface e módulos atuais preservados; diferença máxima JS–Python registrada em `1,60075e-13`, abaixo do limite do comparador (`1e-9`).
 - Fixture da auditoria numérica movido para `auditoria_final/controles_solo_antes_correcao_dossel.csv`; caminho da auditoria atualizado.
@@ -125,6 +125,9 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 21/11 13:44 entregavel: DOCX e PDF regenerados
+- 21/11 13:43 texto: sem inventÃ¡rio, nÃºmeros da matriz de seis materiais
+- 21/11 13:43 figuras: fig10 com matriz de seis materiais e conferÃªncia visual
 - 21/11 13:23 entregavel: corrigir caminhos do gerador e registrar pendÃªncias
 - 21/11 13:23 figuras: preparar gerador N3 e corrigir legenda da Figura 9
 - 21/11 16:25 dados: matriz de seis materiais (22.752 cenÃ¡rios) e script que a gera
@@ -137,9 +140,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 19/11 11:45 Document TECHS 22 benchmark limits
 - 19/11 11:36 Document public TECHS data limits
 - 19/11 11:30 Record VS Code validation results
-- 19/11 11:05 Configure VS Code calibration workspace
-- 19/11 10:38 Remove obsolete project snapshots and outputs
-- 19/11 10:20 Atualiza recuperaÃ§Ã£o e limites do mÃ³dulo
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
