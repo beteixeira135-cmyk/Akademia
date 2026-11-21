@@ -280,7 +280,7 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
       <div class="campos">
         <div class="campo"><label class="rot" for="in-d">Intensidade, d</label><div class="faixa"><input type="range" id="in-d" min="0" max="95" step="5"><output id="out-d" class="num"></output></div></div>
         <div class="campo"><span class="rot">Frequência</span><div class="seg" id="seg-freq"></div></div>
-        <div class="campo"><span class="rot">Época do pulso</span><div class="seg" id="seg-epoca"></div></div>
+        <div class="campo"><span class="rot">Época do ataque</span><div class="seg" id="seg-epoca"></div></div>
         <div><button class="lnk" id="bt-aleat" type="button">Gerar cenário aleatório</button></div>
       </div>
     </div>
@@ -448,7 +448,7 @@ const COMP = { O: "Original", C: "Calibrada" };
 // Catálogo de danos do TCC (experimentos/danos_v2.py): mecanismo, magnitude e fonte. O ano do evento segue o do simulador.
 const AGENTES = {
   "": { nome: "Personalizado", fonte: "Ajuste livre dos controles." },
-  lagarta: { nome: "Lagarta desfolhadora (ex.: Thyrinteina arnobia)", e: { d: 50, freq: "P1", epoca: 1, r: 0, m: 0 }, fonte: "50% em pulso único: cenário central do TCC." },
+  lagarta: { nome: "Lagarta desfolhadora (ex.: Thyrinteina arnobia)", e: { d: 50, freq: "P1", epoca: 1, r: 0, m: 0 }, fonte: "50% em ataque isolado: cenário central do TCC." },
   psilideo: { nome: "Psilídeo-de-concha (Glycaspis brimblecombei)", e: { d: 25, freq: "P1", epoca: 7, r: 0, m: 0 }, fonte: "20 a 30% de desfolha em urograndis (Wilcken et al., 2003). Literatura." },
   formigas: { nome: "Formigas-cortadeiras (Atta e Acromyrmex)", e: { d: 95, freq: "P1", epoca: 7, r: 0, m: 0 }, fonte: "Desfolha total no inverno (Freitas; Berti Filho, 1994, em Zanetti et al., 2014); 95% é o limite do controle. Literatura." },
   percevejo20: { nome: "Percevejo-bronzeado, 20% (Thaumastocoris peregrinus)", e: { d: 0, freq: "P1", epoca: 7, r: 20, m: 0 }, fonte: "Queda de Fv/Fm e ETR (Almeida et al., 2018); a perda em campo é desconhecida (Barbosa et al., 2012). Exploratório." },
@@ -458,7 +458,7 @@ const AGENTES = {
 };
 const MAT = { A1: "A1 — E. urophylla (Caldeira et al., 2020)", C5: "C5 — E. grandis × E. urophylla, Cerrado (Borges, 2009)", C2: "C2 — clone 3336, Curvelo (Borges, 2009)", C4: "C4 — clone 3336, Itacambira (Borges, 2009)" };
 const FREQ = { P1: "Único", P2: "Dois", PA: "Anual" };
-const FREQ_L = { P1: "pulso único", P2: "dois pulsos (2017 e 2020)", PA: "pulsos anuais (2017–2022)" };
+const FREQ_L = { P1: "ataque isolado", P2: "dois ataques (2017 e 2020)", PA: "ataques anuais (2017–2022)" };
 const EPOCA = { 1: "jan", 4: "abr", 7: "jul", 10: "out" };
 const MESES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
 const C_ = { oliva: "#5f6f34", oliva2: "#9aa56d", terra: "#8a5a36", argila: "#c19767", agua: "#577b96", alerta: "#9c4a1c", tinta: "#23271f", tinta2: "#5d6356", tinta3: "#8b9183", linha: "#d8dacd", prancha: "#fdfdfb" };
@@ -504,11 +504,11 @@ document.querySelectorAll(".madeira").forEach(b => { const t = b.classList.conta
 
 // ---------- simulação ----------
 function frNivel(mat, n) { const ref = DADOS.materiais[mat].FR_ref; return FR_MIN + [25, 50, 75, 100].indexOf(n) / 3 * (ref - FR_MIN); }
-const anosPulso = () => E.freq === "P1" ? [2017] : E.freq === "P2" ? [2017, 2020] : [2017, 2018, 2019, 2020, 2021, 2022];
+const anosAtaque = () => E.freq === "P1" ? [2017] : E.freq === "P2" ? [2017, 2020] : [2017, 2018, 2019, 2020, 2021, 2022];
 const mesTxt = (a, m) => `${a + Math.floor((m - 1) / 12)}-${String((m - 1) % 12 + 1).padStart(2, "0")}`;
-function eventos() { const ev = {}; if (E.d > 0) anosPulso().forEach(a => ev[mesTxt(a, E.epoca)] = E.d / 100); return ev; }
+function eventos() { const ev = {}; if (E.d > 0) anosAtaque().forEach(a => ev[mesTxt(a, E.epoca)] = E.d / 100); return ev; }
 // outros danos (extensão v2) e compensação (v3), com as mesmas regras do threepg_pjs.py
-function opcoes(comp) { const o = {}; const anos = anosPulso();
+function opcoes(comp) { const o = {}; const anos = anosAtaque();
   if (E.r > 0) { o.efic = {}; anos.forEach(a => { for (let i = 0; i < 4; i++) o.efic[mesTxt(a, E.epoca + i)] = E.r / 100; }); }
   if (E.m > 0) o.mort = { [mesTxt(anos[0], E.epoca)]: E.m / 100 };
   if (comp) o.comp = comp; return o; }
@@ -912,7 +912,7 @@ const PASSOS = [
   { t: "Simular", alvo: "bancada", acao: true, h: `<p>O botão <b>Simular</b> roda o modelo nos dois talhões e anima a rotação mês a mês. A linha do tempo marca os eventos em vermelho.</p><p>As folhas voltam em poucos meses, mas o lenho que deixou de crescer não é recuperado.</p>` },
   { t: "Partição e estresse", alvo: "s-particao", idade: 30, h: `<p>No 3-PG, a fração do carbono destinada às raízes já depende do estresse:</p><div class="eq">η_R = pRx·pRn / [pRn + (pRx − pRn)·φ·m]</div><p>Quando falta água ou o ar está seco, φ diminui e η<sub>R</sub> aumenta, à custa do lenho. As barras de resposta ao estresse mostram f<sub>T</sub>, f<sub>VPD</sub>, f<sub>SW</sub> e φ do mês.</p>` },
   { t: "Água e eficiência", alvo: "s-wue", h: `<p>A transpiração é calculada por Penman-Monteith. A eficiência no uso da água (WUE) é a biomassa produzida por quilo de água transpirada. O α efetivo é a eficiência quântica máxima reduzida por temperatura, VPD, água e idade.</p><p>O talhão desfolhado transpira menos e guarda mais água no solo (Fig. 3).</p>` },
-  { t: "Frequência, época e clima", alvo: "s-desfolha", e: { freq: "PA", d: 50 }, idade: 84, h: `<p>Com pulsos anuais de 50%, a perda de volume do A1 em Indianópolis sobe de 3% para cerca de 14%. A época também importa: em abril, início da seca, custa cerca de 1,7%; em outubro, 3,7%.</p><p>Em Imperatriz, Almeirim e Araripina, a temperatura passa do limite do clone A1, e o resultado aparece marcado como diagnóstico.</p>` },
+  { t: "Frequência, época e clima", alvo: "s-desfolha", e: { freq: "PA", d: 50 }, idade: 84, h: `<p>Com ataques anuais de 50%, a perda de volume do A1 em Indianópolis sobe de 3% para cerca de 14%. A época também importa: em abril, início da seca, custa cerca de 1,7%; em outubro, 3,7%.</p><p>Em Imperatriz, Almeirim e Araripina, a temperatura passa do limite do clone A1, e o resultado aparece marcado como diagnóstico.</p>` },
   { t: "A planta reage: compensação calibrada", alvo: "s-resposta", e: { comp: "C", freq: "P1", d: 50, r: 0, m: 0, ag: "lagarta" }, idade: 84, h: `<p>Depois de perder folhas, o eucalipto faz mais fotossíntese nas folhas que restaram, mantém a transpiração e manda mais carbono para refazer a copa. Na <b>fisiologia calibrada</b>, o aumento da fotossíntese vem da literatura e dura só o mês do ataque, a transpiração foi ajustada a Quentin et al. (2011) e o investimento em folhas, ao experimento de Bertulio et al. (2008), em Mato Grosso. Num teste independente (Oliveira et al., 2014), o módulo calibrado previu 33% de perda após desfolha total, contra 35% medidos.</p><p>A faixa sombreada no gráfico de volume é a <b>incerteza</b>: o modelo roda 200 vezes, uma para cada combinação de parâmetros compatível com os dados.</p>` },
   { t: "Outros danos e domínio de validade", alvo: "resumo", e: { comp: "C", d: 0, r: 40, m: 0, ag: "percevejo40" }, idade: 84, h: `<p>Nem toda praga come folhas. O <b>percevejo-bronzeado</b> deixa a folha na árvore, mas reduz a fotossíntese; a <b>murcha</b> mata árvores. Escolha um agente do catálogo: cada um mostra de onde veio a magnitude.</p><p>O quadro <b>Domínio de validade</b> diz o que sustenta o cenário e quando ele sai do que os dados permitem afirmar, inclusive a evidência contrária. A perda por produto mostra quanto sai da serraria, da celulose e da energia.</p>` },
   { t: "Validação e métricas", alvo: "bt-valid", h: `<p>O link <b>Validação &amp; métricas</b> reúne a verificação do código, a validação publicada da parametrização e o confronto com dados secundários.</p><p>Não há inventário de IMA aos 7 anos nos seis locais. Se você tiver um, cole os dados ali e o simulador calcula RMSE, MAE e R².</p>` },

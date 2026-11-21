@@ -45,7 +45,7 @@ for s in ["TB", "IND", "IMP"]:
 T["principal"] = []
 for s in ["IND", "TB", "IMP"]:
     st = "*" if s == "IMP" else ""
-    for cal, nome in [("P1", "Pulso único"), ("P2", "Dois pulsos"), ("PA", "Pulsos anuais")]:
+    for cal, nome in [("P1", "Ataque isolado"), ("P2", "Dois ataques"), ("PA", "Ataques anuais")]:
         T["principal"].append([NOME[s] if cal == "P1" else "", nome] + [f(v(s, "A1", cal, d)) + st for d in (.25, .5, .95)] + [f(v(s, "C5", cal, d)) for d in (.25, .5, .95)])
     T["principal"].append(["", "Recuperação (meses)"] + [i(v(s, "A1", "P1", d, "recup_rel95_meses_ev1")) + st for d in (.25, .5, .95)] +
                           [i(v(s, "C5", "P1", d, "recup_rel95_meses_ev1")) for d in (.25, .5, .95)])

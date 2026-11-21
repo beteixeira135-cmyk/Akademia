@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (7444 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 16:07)
+# PASSAGEM DE BASTÃO — TCC II (9996 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 18:26)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (26439 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (29004 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -52,7 +52,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Em 21/11/2026, o Google Drive foi autenticado para `beteixeira135@gmail.com`. Na pasta `3-PG/08 TCC II versão atual`, o PDF final foi atualizado em `TCC_II_Bernardo_Castro_FINAL_21-11-2026.pdf` (2.282.051 bytes) e o DOCX final foi enviado como `TCC_II_Bernardo_Castro_FINAL_21-11-2026.docx` (3.127.347 bytes). O Diário existente recebeu registro da entrega, da auditoria ampliada e da discrepância r3PG.
 - Limitações estruturais avançadas por sensibilidade exploratória: criado `experimentos/sensibilidade_limitacoes.py` e saídas em `experimentos/saida/sensibilidade_limitacoes.csv`. Variação ±10% de γF1 mudou a perda em até 0,95 p.p.; mortalidade de 0 a 15% em até 4,30 p.p. Os oito parâmetros adaptados de E. globulus foram separados entre neutros/structurally inactive e perturbáveis. Isso reduz incerteza de leitura, mas não cria validação empírica nem substitui inventários.
 - A validação automatizada ampliada ficou parcialmente bloqueada: o fixture externo `fontes_r3PG/data-raw/data.input.xlsx` não existe nesta sessão e `experimentos/saida/mensal.csv.gz` não está disponível. A sensibilidade das limitações foi compilada e executada; a auditoria cobriu todos os novos números decimais.
-- Auditoria numérica atualizada: 542 checagens, 541 aprovadas. A leitura JSON usa UTF-8 e os critérios de RQEM/R² não são truncados; foram incluídas 11 checagens da matriz de seis materiais e três valores antes sem item de auditoria. O conferidor encontrou cobertura para os 115 números decimais do texto. A falha restante é real: RQEM máximo do r3PG = 64,6148% (biomassa foliar; IAF = 62,9299%), contra o limite declarado de 2e-13. O auditor registra a falha e retorna código diferente de zero; não alterar o modelo para mascará-la. Origem a investigar antes de alegar equivalência.
+- Auditoria numérica atualizada em 21/11/2026: o check inválido baseado no merge mensal foi substituído por leitura direta de `experimentos/r_check/resultado_crosscheck.csv`. Foram 552 checagens, todas aprovadas. O crosscheck registra 23.873 pares por variável e diferença relativa máxima de 5,288160964744036e-15, abaixo do limite de 2e-13. O registro mensal que produzia RQEM de 64,6148% não está disponível nesta sessão e não é tratado como evidência atual.
 - A integração de Google Drive não está disponível nesta sessão; não houve upload dos entregáveis nem registro no Diário do TCC II. A mudança de auditoria pós-PR ainda não foi enviada; não houve push para `main`.
 - Em 21/11/2026, foi criada a skill Claude Code do projeto em `.claude/skills/akademia-tcc/SKILL.md`; `CLAUDE.md` orienta a lê-la antes de tarefas substantivas. A skill inclui evidências reproduzíveis, distinção entre verificação/calibração/validação e salvaguardas de dados e Git. O Claude Code CLI não está disponível nesta máquina; a estrutura foi validada estaticamente. Skill de repositório se aplica ao Claude Code; Claude.ai web/Desktop/Projects exigem habilitação separada.
 - A instrução de executar `ferramentas/pipeline.py verificar` foi substituída em `AGENTS.md` e `CLAUDE.md`: o pipeline atualmente faz `git add -A`, commit e push para `HEAD:main` nas etapas bem-sucedidas, exceto `passagem`; não executar sem autorização explícita.
@@ -70,12 +70,28 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Node.js 26.13.1 está instalado em `C:\Program Files\nodejs`; em processos PowerShell novos, incluir essa pasta no `PATH` para executar auditoria e geração do DOCX.
 
 - Em 19/11/2026, a apresentação web voltou a executar: foi declarado `<!doctype html>`, `<html lang="pt-BR">`, UTF-8, `<head>` e `<body>`; o script que remove acentos passou de uma faixa Unicode mal codificada para `\p{M}`; a cena Three.js deixou de usar a propriedade incompatível `flatShading`. O simulador foi reconstruído e recarregado no navegador sem erros de JavaScript. Em um teste visual com desfolha de 95%, aos 24 meses, o talhão desfolhado mostrou W_F = 0,58 t ha^-1 contra 3,84 t ha^-1 no controle e volume = 48,38 m³ ha^-1 contra 55,83 m³ ha^-1 no controle.
+- Em 21/11/2026, a versão textual entregue foi sincronizada com a revisão das limitações já feita em `tcc_docx/conteudo.js`: as referências Borzak et al. (2016), Eyles et al. (2009, 2016) e Firmino (2011) foram incorporadas ao texto de 4.14 e/ou à lista de referências; o DOI incorreto de Matrangolo foi corrigido para 10.1590/S0100-204X2010000900003. A redação separa reservas, persistência, sobrevivência, queda de folhada e confirmação empírica sem alterar números ou conclusões.
+- Em 21/11/2026, a redação tabular removeu o termo “pulso” das tabelas principais: os calendários passaram a ser chamados ataque isolado, dois ataques e ataques anuais. Os números 5.688 e 20.856 permanecem distintos: o primeiro descreve danos combinados com dois materiais; o segundo, a matriz completa de seis materiais.
+- Em 21/11/2026, o simulador deixou de mostrar “pulso/pulsos” nos rótulos visíveis e passou a usar “ataque isolado”, “dois ataques” e “ataques anuais”. `docs/index.html` e os arquivos-fonte foram reconstruídos. O pacote `handoff_claude/PROMPT_CLAUDE.md` recebeu instruções para diagramar o Material e Métodos como infográfico Notelm encadeado.
+- Em 21/11/2026, ficou explícito no pacote de handoff que o Claude não deve criar clones Git nem repositórios paralelos: a tarefa deve ser realizada no checkout já disponibilizado pela sessão, preservando o repositório e usando uma branch de trabalho apropriada.
+- Em 21/11/2026, foi preparado `handoff_claude/FLUXOGRAMAS_METODOS.md` com cinco fluxogramas do Material e Métodos e uma tabela de usos permitidos das referências. Os diagramas distinguem verificação, calibração, validação cruzada interna, comparação bibliográfica e confirmação empírica pendente.
+- Em 21/11/2026, os cinco fluxogramas foram renderizados com Mermaid CLI para arquivos PNG e SVG em `handoff_claude/diagramas/`, acompanhados das fontes `.mmd`. As imagens foram conferidas visualmente e registradas no arquivo de handoff.
+- Em 21/11/2026, o texto de verificação foi corrigido para não apresentar o RQEM mensal como crosscheck e passou a declarar o crosscheck direto disponível: 23.873 pares por variável e diferença relativa máxima de 5,288 × 10⁻¹⁵. A pendência duplicada foi reduzida a um único item de reexecução do R. Nenhum push foi realizado.
+- Em 21/11/2026, os cinco fluxogramas do Material e Métodos foram incorporados ao texto do TCC e embutidos no DOCX nas seções 3.1, 3.4, 3.5 e 3.6. Arquitetura geral e ciclo mensal explicam o processo; cenários mostram intensidade, época e frequência; calibração/evidências separa verificação, validação cruzada interna e comparação adaptada; a escada de interpretação termina em confirmação empírica pendente. O DOCX final contém 17 imagens e o PDF 33 páginas. Auditoria numérica: 552/552 itens.
+- Em 21/11/2026, o Fluxograma 2 foi convertido de ciclo vertical para leitura horizontal com três módulos: entradas, processo mensal e atualização/saída. Fonte PNG/SVG e `.mmd` foram atualizados, o DOCX foi regenerado e o PDF ficou com 31 páginas. A página 9 contém o diagrama completo e legível na largura da página; o DOCX contém 17 imagens e uma das mídias incorporadas corresponde exatamente ao PNG novo. Auditoria numérica: 552/552 itens.
 
 ---
 # Progresso
 ## Feito
+- Em 21/11/2026, renderizados cinco fluxogramas reais do Material e Métodos em PNG e SVG: arquitetura geral, ciclo mensal, cenários, calibração/evidências e escada de interpretação. Fontes Mermaid preservadas em `handoff_claude/diagramas/` e a lista vinculada em `handoff_claude/FLUXOGRAMAS_METODOS.md`.
+- Em 21/11/2026, criado o pacote `handoff_claude/FLUXOGRAMAS_METODOS.md`: arquitetura geral, ciclo mensal do 3-PG, cenários de ataque, calibração/evidências e escada de interpretação. Incluída tabela que condiciona o uso das referências a comparação, benchmark ou limite do estudo.
+- Em 21/11/2026, registrado no handoff e nas decisões que o Claude não precisa criar clones Git nem repositórios paralelos; ele deve usar o checkout já disponibilizado pela sessão.
+- Em 21/11/2026, removidos os rótulos visíveis “pulso/pulsos” do simulador: fonte principal, conceitos, dados das tabelas e protótipo 3D passaram a usar “ataque isolado”, “dois ataques” e “ataques anuais”. `docs/index.html` foi reconstruído por `plataforma/construir.py`.
+- Em 21/11/2026, `handoff_claude/PROMPT_CLAUDE.md` recebeu uma seção dedicada ao infográfico Notelm do Material e Métodos, com encadeamento objetivo → entradas → 3-PG → desfolha → cenários → calibração → simulações → metamodelo → indicadores → interpretação e distinções entre verificação, calibração, validação cruzada e confirmação empírica.
+- Em 21/11/2026, substituídas em `tcc_docx/gerar.js`, no gerador de dados das tabelas e no JSON das tabelas as expressões “pulso único”, “dois pulsos” e “pulsos anuais” por “ataque isolado”, “dois ataques” e “ataques anuais”. Conferidos os arquivos JS e o JSON; não restou a palavra “pulso” nas fontes do TCC e a sintaxe passou em `node --check`.
+- Em 21/11/2026, sincronizada a versão textual `entregavel_final/TCC_TEXTO_FINAL.md` com as nove referências já revisadas em `tcc_docx/conteudo.js`, corrigido o DOI de Matrangolo e adicionadas Borzak e Eyles às referências textuais. `conferir_referencias.js` confirmou 0 referências sem citação no objeto JavaScript; `conferir_texto_auditoria.js` confirmou 117 números decimais cobertos e 0 sem item. A auditoria numérica executada no ambiente disponível confirmou 551/552 itens e manteve a divergência RQEM r3PG como falha real.
 - Revisão final integrada à `main` pelo PR #5. DOCX/PDF regenerados; PDF com 28 páginas. Matriz de seis materiais: 22.752 linhas, 20.856 aptas, 10.428 por versão. Percentuais da Figura 10 (original/calibrada): folhagem 51,6%/93,2%; NPP 9,1%/27,4%; volume 0,02%/1,7%. Figuras 1, 2, 3, 7, 9 e 10 conferidas; legenda da Figura 9 corrigida para seis sítios em cinco biomas. Em `TCC_TEXTO_FINAL.md`, `5.688` = 0, `Lagartas` = 0 e a legenda da Figura 10 cita 20.856 cenários. O DOCX passou verificações estruturais, mas o validador oficial indicado não está disponível; não se afirma “All validations PASSED!”. Google Drive e Diário não atualizados.
-- Auditoria numérica expandida para 542 checagens, incluindo a matriz, densidade 3 × 3 m, Tmax A1 e limite superior de U; JSON lido em UTF-8 e critérios de RQEM/R² sem truncamento. Resultado: 541/542. O conferidor cobre 115/115 números decimais do texto. RQEM máximo r3PG = 64,6148% em biomassa foliar e 62,9299% em IAF, acima do limite de 2e-13. O auditor grava o resultado e retorna falha (código 1); a discrepância segue pendente e o modelo não foi alterado.
+- Em 21/11/2026, o auditor passou a usar `experimentos/r_check/resultado_crosscheck.csv`: 552/552 checagens aprovadas, 23.873 pares por variável e diferença relativa máxima de 5,288160964744036e-15. A alegação de RQEM 64,6% foi retirada do texto; era produto de um merge mensal cuja saída não está disponível nesta sessão. O texto e a pendência foram alinhados sem alterar o motor.
 - Google Drive autorizado em 21/11/2026 para `beteixeira135@gmail.com`. PDF atual atualizado e DOCX atual enviado à pasta `3-PG/08 TCC II versão atual`; ambos confirmados com tamanho e link no Drive. Registro atualizado no Diário do TCC II.
 - Criada sensibilidade das limitações sem alterar o motor: ±10% em parâmetros adaptados de E. globulus, perda de folhada e mortalidade 0–15%. A análise quantificou amplitudes máximas de 0,95 p.p. para γF1 e 4,30 p.p. para mortalidade em IMP. kF, mF e MinCond são neutros/desligados na configuração testada. O TCC foi atualizado para distinguir esse exercício numérico de validação empírica.
 - Validação ampliada parcialmente bloqueada por arquivos externos/saídas locais ausentes: `fontes_r3PG/data-raw/data.input.xlsx` e `experimentos/saida/mensal.csv.gz`. Compilação e execução da nova sensibilidade passaram; 117 números decimais do texto têm item na auditoria, restando apenas a divergência r3PG registrada.
@@ -100,6 +116,10 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 3. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 não constitui reprodução estrita nem validação empírica.
 4. Configurar acesso aprovado ao Google Drive e ao Diário do TCC II para entregar os arquivos e registrar a etapa.
 5. Confirmar se a auditoria pós-PR deve ser publicada em um PR de acompanhamento; preservar a falha de RQEM enquanto sua origem não for investigada.
+
+- Em 21/11/2026, fechada nesta sessão a correção da alegação r3PG: auditor ajustado ao crosscheck direto, 552/552 checagens aprovadas e uma única pendência de reexecução do R. Nenhum arquivo foi enviado ao Google Drive ou registrado no Diário nesta sessão.
+- Em 21/11/2026, incorporados ao `TCC_TEXTO_FINAL.md` e ao DOCX final os fluxogramas 1–5 dos diagramas em `handoff_claude/diagramas/`. O PDF foi regenerado em 33 páginas. Verificação estrutural confirmou cinco legendas dos fluxogramas e 17 imagens no DOCX; `git diff --check` passou e a auditoria numérica confirmou 552/552 itens.
+- Em 21/11/2026, o Fluxograma 2 foi fechado em leitura horizontal, com três módulos encadeados. `02-ciclo-mensal.mmd`, `.png` e `.svg` foram atualizados; o DOCX foi regenerado sem cortes e o PDF foi convertido com 31 páginas. Inspeção visual da página 9 confirmou o diagrama completo; o arquivo DOCX possui 17 imagens e contém o novo PNG por SHA-256 equivalente. A reorganização do Drive continua pendente de confirmação por postcondição.
 
 ---
 ## Calibração (lido de calibracao/saida/calibracao_d0999.json)
@@ -130,6 +150,16 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Auditoria pós-PR: não truncar RQEM/R² para transformar limites em igualdade; registrar a divergência r3PG como falha real até investigar sua origem. Não alterar o modelo para fazer o auditor passar.
 - Entrega ao Google Drive em 21/11/2026: preservar o PDF existente pelo mesmo ID, atualizando o conteúdo local atual, e enviar o DOCX atual como arquivo novo datado. Registrar links e limitações no Diário do TCC II.
 - Limitações: não substituir dados de campo por sensibilidades; usar perturbações ±10% apenas como exercícios exploratórios de robustez e manter 4.15 explícita como condições para confirmação empírica futura.
+- 21/11/2026: integrar as nove referências ao texto por fatos verificáveis e sem chamar comparações bibliográficas de validação. Matrangolo, Oliveira e o benchmark TECHS permanecem comparações adaptadas; Caldeira valida crescimento sem desfolha; reservas, lignotúber, queda de folhada e persistência plural anual são tratadas como limites ou dados de espécies/sítios não equivalentes.
+- 21/11/2026: usar linguagem direta para os calendários de desfolha nas tabelas e legendas. “Ataque isolado” substitui “pulso único”, “dois ataques” substitui “dois pulsos” e “ataques anuais” substitui “pulsos anuais”.
+- 21/11/2026: o Material e Métodos do TCC terá instrução específica para o Claude construir uma explicação em formato de infográfico Notelm: encadeamento visual objetivo → dados e locais → 3-PG → desfolha → cenários → calibração → simulações → metamodelo → indicadores → interpretação. O simulador não deve usar “pulso/pulsos” em rótulos visíveis.
+- 21/11/2026: o Claude não precisa nem deve criar clones Git desta tarefa. O trabalho deve começar no checkout já disponibilizado pela sessão, preservando o repositório existente e usando uma branch de trabalho apropriada, sem inicializar ou duplicar o projeto em diretórios paralelos.
+- 21/11/2026: preparar no handoff cinco fluxogramas do Material e Métodos em formato Mermaid: arquitetura geral, ciclo mensal, construção dos cenários, calibração/evidências e escada de interpretação. A tabela de referências limita cada uso à evidência disponível e mantém pendentes inventários, metadados TECHS e confirmação empírica independente.
+- 21/11/2026: manter em `handoff_claude/diagramas/` as fontes Mermaid auditáveis e exportações PNG/SVG dos cinco fluxogramas. As imagens acompanham a distinção científica entre verificação, calibração, comparação bibliográfica e confirmação empírica pendente.
+- 21/11/2026: fechar a regeneração local do DOCX/PDF completo nesta branch sem publicar ou mascarar divergências. Preservar o crosscheck direto de r3PG e declarar explicitamente que o validador oficial DOCX continua indisponível.
+- 21/11/2026: corrigir o auditor para ler `experimentos/r_check/resultado_crosscheck.csv`, com 23.873 pares por variável e limite de diferença relativa de 2e-13. Não usar o merge mensal como RQEM sem saída disponível.
+- 21/11/2026: incorporar ao corpo do TCC os cinco fluxogramas reais do Material e Métodos, posicionados nas seções pertinentes. Os nomes visíveis seguem “ataque isolado”, “dois ataques” e “ataques anuais”; a cadeia mantém distinção entre verificação, calibração, comparação bibliográfica e confirmação empírica pendente.
+- 21/11/2026: apresentar o Fluxograma 2 como leitura horizontal em três módulos (“Entradas do mês”, “Processo mensal” e “Atualização e saída”), preservando o ciclo visual de retorno ao próximo mês. Não considerar a reorganização do Google Drive concluída sem confirmação direta da pasta 10 e da pasta de referências.
 
 ---
 # Contexto técnico
@@ -143,21 +173,21 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 21/11 17:27 incorpora fluxogramas ao TCC final
+- 21/11 17:22 corrige crosscheck r3PG no TCC final
+- 21/11 17:11 docs: renderizar fluxogramas do metodo
+- 21/11 17:07 docs: adicionar fluxogramas do Material e Metodos
+- 21/11 16:58 Merge remote-tracking branch 'origin/main' into finalizacao-claude
+- 21/11 16:56 docs: informar Claude para nao criar clones
+- 21/11 16:52 docs: orientar infografico do metodo e retirar pulso do simulador
+- 21/11 16:46 docs: reescrever tabelas em linguagem direta
+- 21/11 16:37 docs: integrar referencias das limitacoes do TCC
+- 21/11 16:09 Merge pull request #7 from beteixeira135-cmyk/finalizacao-claude
+- 21/11 16:07 tcc: quantificar sensibilidades das limitacoes
 - 21/11 15:52 entregavel: registrar entrega no Google Drive
+- 21/11 14:18 Merge pull request #6 from beteixeira135-cmyk/finalizacao-claude
 - 21/11 14:15 auditoria: incluir matriz 6mat e expor divergÃªncia r3PG
-- 21/11 13:53 documentaÃ§Ã£o: atualizar histÃ³rico da passagem
-- 21/11 13:52 Merge origin/main into finalizacao-claude
-- 21/11 13:44 documentaÃ§Ã£o: registrar passagem e validaÃ§Ãµes finais
-- 21/11 13:44 entregavel: DOCX e PDF regenerados
-- 21/11 13:43 texto: sem inventÃ¡rio, nÃºmeros da matriz de seis materiais
-- 21/11 13:43 figuras: fig10 com matriz de seis materiais e conferÃªncia visual
-- 21/11 13:23 entregavel: corrigir caminhos do gerador e registrar pendÃªncias
-- 21/11 13:23 figuras: preparar gerador N3 e corrigir legenda da Figura 9
-- 21/11 16:25 dados: matriz de seis materiais (22.752 cenÃ¡rios) e script que a gera
-- 21/11 07:52 Merge pull request #4 from beteixeira135-cmyk/tcc-ii-finalizacao-auditoria
-- 21/11 07:45 Add Akademia Claude Code skill
-- 21/11 07:35 Merge pull request #3 from beteixeira135-cmyk/tcc-ii-finalizacao-auditoria
-- 21/11 07:29 Audit final TCC delivery inputs
+- 21/11 14:01 Merge pull request #5 from beteixeira135-cmyk/finalizacao-claude
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.

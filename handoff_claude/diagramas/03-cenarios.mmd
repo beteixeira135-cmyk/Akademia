@@ -1,0 +1,16 @@
+flowchart TB
+    A["Matriz de condições"] --> B["Intensidade do ataque"]
+    A --> C["Época do ataque"]
+    A --> D["Frequência do ataque"]
+    B --> E["Ataque isolado"]
+    C --> E
+    D --> F["Dois ataques"]
+    D --> G["Ataques anuais"]
+    E --> H["Versão original"]
+    F --> H
+    G --> H
+    E --> I["Versão calibrada"]
+    F --> I
+    G --> I
+    H --> J["Resultado em relação ao controle"]
+    I --> J

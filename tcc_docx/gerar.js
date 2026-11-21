@@ -126,11 +126,11 @@ const TABS = {
     ["Local", "Material", "Volume aos 84 meses (m^3^ ha^-1^)", "IMA (m^3^ ha^-1^ ano^-1^)", "Lenho, 2–3 anos (Mg ha^-1^ ano^-1^)", "IAF médio, 2–3 anos", "Meses com f~T~ = 0", "Referência medida"],
     TD.controles,
     [1.6, 0.9, 1.3, 1.2, 1.4, 1.1, 1.0, 2.4], "Lenho: incremento de W~S~(1 − p~BB~) entre 24 e 36 meses. Benchmark adaptado: Binkley et al. (2017), A1 no TECHS 22; o IAF publicado refere-se a 24 meses, enquanto a coluna mostra a média simulada de 24–36 meses. A simulação usa clima NASA POWER nas coordenadas municipais e solo do sítio. A independência em relação aos dados usados no ajuste A1 não foi estabelecida; não interpretar como validação. *Diagnóstico de extrapolação térmica. Fonte: o autor (2026)."),
-  principal: () => tabela("Perda relativa de volume (%) aos 84 meses por local, material, intensidade e frequência da desfolha, com solo local, e tempo para a biomassa foliar atingir 95% do controle após pulso único",
+  principal: () => tabela("Perda relativa de volume (%) aos 84 meses por local, material, intensidade e frequência da desfolha, com solo local, e tempo para a biomassa foliar atingir 95% do controle após um ataque isolado",
     ["Local", "Frequência", "A1: 25%", "A1: 50%", "A1: 95%", "C5: 25%", "C5: 50%", "C5: 95%"],
     TD.principal,
-    [1.6, 1.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9], "Pulso único: janeiro de 2017 (24 meses de idade); dois pulsos: janeiro de 2017 e 2020; pulsos anuais: janeiro de 2017 a 2022. Recuperação: meses até W~F~ ≥ 95% do controle após pulso único. Fertilidade F100. *Diagnóstico de extrapolação térmica. Fonte: o autor (2026)."),
-  materialclima: () => tabela("Perda relativa de volume (%) aos 84 meses com desfolha de 50% em pulso único: média e amplitude entre os 16 cenários de água e fertilidade, por local e material",
+    [1.6, 1.9, 0.9, 0.9, 0.9, 0.9, 0.9, 0.9], "Ataque isolado: janeiro de 2017 (24 meses de idade); dois ataques: janeiro de 2017 e 2020; ataques anuais: janeiro de 2017 a 2022. Recuperação: meses até W~F~ ≥ 95% do controle após um ataque isolado. Fertilidade F100. *Diagnóstico de extrapolação térmica. Fonte: o autor (2026)."),
+  materialclima: () => tabela("Perda relativa de volume (%) aos 84 meses com desfolha de 50% em um ataque isolado: média e amplitude entre os 16 cenários de água e fertilidade, por local e material",
     ["Local", "A1", "C5", "C2", "C4"],
     TD.materialclima,
     [2, 1.5, 1.5, 1.5, 1.5], "*Diagnóstico de extrapolação térmica (temperatura média acima da T~máx~ do clone). Fonte: o autor (2026)."),
@@ -159,9 +159,10 @@ const TABS = {
     TD.validacaocruzada,
     [4.4, 0.6, 1.8, 1.8, 1.8, 1.8, 2.3], "Observações: perdas de volume, circunferência e altura do urograndis (C5) e de volume e circunferência do urocam (A1), aos 26 meses, d = 0,999. Previsão: média preditiva da distribuição a posteriori recalculada sem a observação ou sem o clone. As observações são do mesmo experimento: validação cruzada interna, não independente. Fonte: o autor (2026)."),
   biomas: () => tabela("Produtividade sem desfolha e perda de volume aos 84 meses com 50% de desfolha no material C5, um local por bioma, nas versões original e calibrada do módulo",
-    ["Bioma (local)", "IMA (m³ ha⁻¹ ano⁻¹)", "Pulso único: orig.", "Pulso único: calib.", "Anual: orig.", "Anual: calib.", "Anual: IC 90%", "Recup.: orig.", "Recup.: calib."],
+    ["Bioma (local)", "IMA (m³ ha⁻¹ ano⁻¹)", "Ataque isolado: orig.", "Ataque isolado: calib.", "Ataques anuais: orig.", "Ataques anuais: calib.", "Ataques anuais: IC 90%", "Recup.: orig.", "Recup.: calib."],
     TD.biomas,
-    [3.4, 1.5, 1.3, 1.3, 1.3, 1.3, 1.9, 1.2, 1.2], "Perdas em %; valores negativos indicam ganho em relação ao controle. Solo local e fertilidade de referência. Calibrado: medianas a posteriori de U e a, com γ = 1 (calibrado com Quentin et al., 2011); IC 90%: 200 amostras da distribuição a posteriori. Recup.: meses até a biomassa foliar atingir 95% do controle após o pulso único. Fonte: o autor (2026).")
+    [3.4, 1.5, 1.3, 1.3, 1.3, 1.3, 1.9, 1.2, 1.2],
+    "Perdas em %; valores negativos indicam ganho em relação ao controle. Solo local e fertilidade de referência. Calibrado: medianas a posteriori de U e a, com γ = 1 (calibrado com Quentin et al., 2011); IC 90%: 200 amostras da distribuição a posteriori. Recuperação: meses até a biomassa foliar atingir 95% do controle após um ataque isolado. Fonte: o autor (2026)."),
 };
 
 // ---------- corpo ----------

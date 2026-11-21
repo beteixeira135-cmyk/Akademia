@@ -137,7 +137,7 @@ const CONCEITOS = [
     onde: "Validação & métricas (campo para colar dados de inventário).", ver: ["validacao", "area-basal"] },
 
   // ---------------- 5. DANOS ----------------
-  { id: "desfolha", grupo: "danos", titulo: "Desfolha", termos: ["desfolha", "desfolhado", "intensidade", "frequência", "época do pulso", "época"], fig: "desfolha",
+  { id: "desfolha", grupo: "danos", titulo: "Desfolha", termos: ["desfolha", "desfolhado", "intensidade", "frequência", "época do ataque", "época"], fig: "desfolha",
     curto: "Perda de folhas causada por lagartas, formigas, psilídeo ou doenças.",
     texto: "<p>O módulo criado neste trabalho retira, no início do mês do ataque, a fração <i>d</i> das folhas. O IAF cai, a luz absorvida cai e a produção do mês já sai menor. Depois, as folhas voltam a crescer pelas próprias regras do 3-PG, sem nenhuma velocidade imposta.</p><p>Desfolha total (d = 1) é bloqueada: sem reservas no modelo, uma árvore sem folhas nunca mais produziria.</p>",
     formula: "W_F,pós = W_F,pré · (1 − d)", onde: "Prancha I (intensidade, frequência e época) e passo 3 do tutorial.", ver: ["recuperacao", "perda-relativa", "compensacao"] },

@@ -10,30 +10,29 @@ Orientador: Prof. Álvaro Augusto Soares
 
 ## 1 INTRODUÇÃO
 
-Insetos desfolhadores e doenças foliares retiram folhas de plantios de eucalipto, e cada folha perdida reduz a superfície que capta luz para a fotossíntese. Essa redução atinge diretamente o crescimento do tronco. O que se perde em madeira depende de quanta folha foi retirada, de quantas vezes isso ocorreu e de quando, dentro do ciclo do plantio.
+O modelo 3-PG (*Physiological Principles Predicting Growth*) é uma ferramenta de crescimento processual usada para estimar a produção de povoamentos florestais. A cada mês, calcula a luz captada pela copa, transforma essa energia em biomassa e distribui o crescimento entre folhas, tronco e raízes, segundo a idade e os fatores de temperatura, água e fertilidade (LANDSBERG; WARING, 1997; SANDS; LANDSBERG, 2002). O índice de área foliar — área foliar sobre a área do terreno — é uma ligação central desse cálculo: quanto menor é a copa, menos luz é captada e menos biomassa pode ser produzida.
 
-Os modelos de crescimento usados para planejar a produção florestal raramente representam esse dano. O 3-PG (*Physiological Principles Predicting Growth*) é um modelo matemático que calcula o crescimento de um povoamento mês a mês, a partir da luz interceptada pela copa, da temperatura, da precipitação e da água disponível no solo (LANDSBERG; WARING, 1997; SANDS; LANDSBERG, 2002). Nele, a área foliar é uma variável de estado que a simulação atualiza, mas o modelo original não prevê perda de folhas por ataque. Sem esse mecanismo, a produção simulada não responde ao que acontece com a copa quando insetos a consomem.
+Insetos desfolhadores e doenças foliares interrompem esse processo ao retirar folhas ou reduzir a eficiência das que permanecem. A madeira perdida depende da intensidade do dano, do número de eventos e da época do ataque, além do material genético e das condições do sítio (PINKARD et al., 2006; MATRANGOLO et al., 2010). Medir todas essas combinações no campo exigiria vários anos e condições padronizadas. Por isso, este trabalho usa o modelo para comparar cenários controlados e mantém a distinção entre previsão, calibração e confirmação empírica.
 
-Há razões para tratar esse ponto agora. No Brasil, o eucalipto ocupa áreas extensas em regiões com déficit hídrico e solos de baixa fertilidade, onde pragas desfolhadoras e doenças foliares são comuns. A decisão de controlar um ataque depende de quanto madeira se perderia sem controle, e o modelo atual não fornece essa estimativa.
+O 3-PG já foi parametrizado para eucaliptos brasileiros, principalmente pela rede TECHS, mas sua versão original não representa desfolha por pragas ou doenças (CALDEIRA et al., 2020). Trabalhos anteriores acoplaram danos ao 3-PG ou a modelos semelhantes. Rua et al. (2020) avaliaram desfolha em *Eucalyptus globulus* em Portugal, mas com outra espécie, clima e agente. Oliveira et al. (2014) mediram perda de volume em *E. grandis* jovem no sul da Bahia, e Matrangolo et al. (2010) acompanharam desfolhas sucessivas em *E. grandis* até 92 meses. Esses resultados são úteis para comparar magnitudes e persistência, mas não validam por si só uma aplicação em *E. urophylla*.
 
-A literatura já trata o problema, mas com limites para o caso brasileiro. Rua et al. (2020) acoplaram um módulo de desfolha ao 3-PG para *Eucalyptus globulus* em Portugal, com perdas de volume simuladas de 17,0% e 54,0% aos 10 anos para desfolhas de 25% e 50% da copa, na primavera. Esse trabalho mostra que a integração é possível, mas usa outra espécie, outro clima e outro agente desfolhador. Oliveira et al. (2014) mediram, em *Eucalyptus grandis* de seis meses no sul da Bahia, perda de volume de 35,4% após desfolha total, em um experimento de simulação de ataque de formigas cortadeiras. Matrangolo et al. (2010) acompanharam *E. grandis* desfolhado uma, duas e três vezes no primeiro ano de cultivo até 92 meses, com perdas de volume de 37,9% a 79,7%. Esses experimentos mostram que o dano cresce com a repetição, mas não foram feitos para *E. urophylla* nem para o modelo.
+Assim, o problema central é representar o dano foliar em um motor brasileiro de 3-PG e decidir quais resultados são apenas previstos pelo modelo e quais são apoiados por dados independentes. Este trabalho integra três tipos de dano — retirada de folhas, perda temporária de eficiência e mortalidade imposta — e acrescenta três formas de reação da árvore: aumento da fotossíntese das folhas remanescentes, recuperação da transpiração e maior alocação de crescimento às folhas. A reação foi calibrada com dados publicados de Bertulio et al. (2008), não medida neste projeto.
 
-Para *E. urophylla*, o conjunto de parâmetros mais completo disponível no Brasil vem de Caldeira et al. (2020), que avaliaram o modelo 3-PG em 36 experimentos da rede TECHS, distribuídos por mais de 3.500 km, com dados de 80 meses. Esse trabalho não inclui desfolha.
+A abordagem é integralmente simulacional. Foram usados dados secundários, clima diário da NASA POWER e parâmetros publicados de clones e híbridos. Não houve coleta de campo. Esse desenho permite controlar a intensidade, a frequência e a época do ataque, mas não transforma uma comparação bibliográfica em validação independente. A confirmação empírica deve envolver inventários compatíveis de local, material, idade, área foliar e desfolha, dados que não foram localizados nesta etapa.
 
-O problema, portanto, é este: o 3-PG com parâmetros brasileiros não representa a perda de copa, e os módulos de desfolha disponíveis foram calibrados para outra espécie, outro país e outro agente. Este trabalho propõe um módulo de desfolha acoplado ao 3-PG para *E. urophylla* e avalia como a perda de volume responde à intensidade, à frequência e à época do ataque em três sítios brasileiros.
-
-A abordagem é simulacional: usa dados secundários e simulação computacional. Não houve coleta de campo. Isso permite comparar intensidades e frequências em condições de clima e solo conhecidas, algo que um experimento de campo levaria anos para oferecer. Em contrapartida, o resultado é uma previsão do modelo, e não uma medição, e precisa ser validado por dados de campo que este trabalho não tem.
+Este trabalho atende ao problema por cinco etapas verificáveis: (1) integrar o módulo sem alterar a versão original; (2) conferir o motor contra implementações de referência; (3) calibrar a reação da árvore; (4) avaliar a importância estatística da intensidade, da frequência e da época; e (5) separar confirmações internas, comparações adaptadas e limitações não resolvidas.
 
 ## 2 OBJETIVOS
 
-**Objetivo geral.** Desenvolver e avaliar um módulo de desfolha acoplado ao modelo 3-PG, parametrizado para *Eucalyptus urophylla* em sítios brasileiros, e quantificar como a perda de volume depende da intensidade, da frequência e da época do ataque.
+**Objetivo geral.** Desenvolver e avaliar um módulo de desfolha acoplado ao modelo 3-PG, parametrizado para materiais de eucalipto em sítios brasileiros, quantificando estatisticamente como a perda de volume depende da intensidade, da frequência e da época do ataque.
 
 **Objetivos específicos.**
 
-1. Representar a desfolha no 3-PG, com compensação fisiológica e recuperação da copa, sem alterar as equações originais do modelo.
-2. Calibrar os parâmetros de compensação e recuperação e registrar a origem de cada parâmetro do material.
-3. Avaliar o módulo fora do ajuste por comparação adaptada com o experimento de Oliveira et al. (2014) e delimitar a confirmação empírica, que permanece pendente por falta de inventários independentes compatíveis.
-4. Quantificar a perda de volume por material, sítio e cenário de desfolha, e registrar que os resultados são simulados.
+1. Acrescentar ao 3-PG retirada de folhas, perda temporária de eficiência, mortalidade de árvores e reação fisiológica, sem alterar os resultados da versão original sem desfolha.
+2. Verificar a implementação por comparação com o r3PG e contra a implementação usada na plataforma, distinguindo esse teste de uma validação de campo.
+3. Calibrar os parâmetros de reação da árvore com Bertulio et al. (2008), registrar sua incerteza e testar o ajuste por validação cruzada interna.
+4. Comparar o módulo com experimentos publicados como benchmarks adaptados e declarar quais informações seriam necessárias para uma validação independente.
+5. Quantificar a resposta de cada material e sítio por análise estatística dos cenários simulados e publicar os resultados em forma reproduzível.
 
 ## 3 MATERIAL E MÉTODOS
 
@@ -43,7 +42,11 @@ O trabalho usa dados secundários e simulação computacional. Não houve coleta
 
 O 3-PG calcula a produção mensal de biomassa a partir da radiação interceptada pelo dossel, modificada por temperatura, déficit de pressão de vapor, água disponível e fertilidade (LANDSBERG; WARING, 1997). A implementação usada é o motor do projeto Akademia, em Python, com equações conferidas contra a versão em JavaScript do simulador. Na comparação de oito cenários, a diferença relativa entre as duas versões foi de 1,4 × 10⁻¹⁴.
 
-O módulo de desfolha remove, em cada mês de ataque, uma fração da área foliar proporcional à intensidade escolhida. A intensidade (d) pode ser de 25%, 50% ou 95% da copa. A frequência pode ser um evento isolado (P1), eventos anuais por seis anos (PA), ou um evento em abril (EA), julho (EJ) ou outubro (EO). A compensação fisiológica aumenta a fotossíntese por folha que permanece após a perda, e a recuperação restabelece o índice de área foliar. Os parâmetros de compensação usados são U = 1,18, a = 0,625, γ = 1,0 e atraso de um mês, valores medianos da calibração descrita em 3.4.
+![Fluxograma 1. Arquitetura geral do estudo: objetivo, entradas secundárias, modelagem mensal, danos à copa, cenários, calibração, simulações, metamodelo e interpretação.](../handoff_claude/diagramas/01-arquitetura-geral.png)
+
+O módulo de desfolha remove, em cada mês de ataque, uma fração da área foliar proporcional à intensidade escolhida. A intensidade pode ser de 25%, 50% ou 95% da copa. A desfolha pode ocorrer uma única vez, todos os anos durante seis anos ou em abril, julho ou outubro. A compensação fisiológica aumenta a fotossíntese por folha que permanece após a perda, e a recuperação restabelece o índice de área foliar. Os parâmetros de compensação usados são U = 1,18, a = 0,625, γ = 1,0 e atraso de um mês, valores medianos da calibração descrita em 3.4.
+
+![Fluxograma 2. Ciclo mensal do 3-PG com desfolha: dados ambientais, luz captada, crescimento, ocorrência de ataque, compensação, atualização dos estoques e preparo do mês seguinte.](../handoff_claude/diagramas/02-ciclo-mensal.png)
 
 ### 3.2 Materiais genéticos
 
@@ -89,9 +92,13 @@ Foram usados três sítios: Indianópolis-MG (IND), Imperatriz-MA (IMP) e Telêm
 
 A calibração usou o experimento de desfolha artificial sucessiva com clones de *Eucalyptus* em Campo Verde-MT, em que dois clones foram desfolhados duas vezes (BERTULIO et al., 2008). O material desse experimento é um híbrido urograndis, e não o A1; por isso, o resultado é tratado como transferência. A calibração ajustou U, a e γ de modo que a perda simulada se aproximasse da observada nesse experimento. A versão original do modelo, sem compensação, foi mantida para comparação.
 
+![Fluxograma 3. Calibração, verificação e evidências: verificação da implementação, calibração com Bertulio et al. (2008), validação cruzada interna, comparação adaptada e confirmação empírica pendente.](../handoff_claude/diagramas/04-calibracao-evidencias.png)
+
 ### 3.5 Cenários
 
-Para cada material e sítio, foram simulados: o controle sem desfolha; desfolhas de 25%, 50% e 95%; com os calendários P1, PA, EA, EJ e EO. Cada cenário foi comparado com o controle da mesma versão, original ou calibrada, pela perda de volume aos 84 meses, em porcentagem. O script que gera os cenários está no repositório do projeto e reproduz todas as saídas deste trabalho.
+Para cada material e sítio, foram simulados o controle sem desfolha e desfolhas de 25%, 50% e 95%. Cada ataque foi testado como evento isolado, repetição anual por seis anos ou ocorrência em abril, julho ou outubro. Cada cenário foi comparado com o controle da mesma versão, original ou calibrada, pela perda de volume aos 84 meses, em porcentagem. O script que gera os cenários está no repositório do projeto e reproduz todas as saídas deste trabalho.
+
+![Fluxograma 4. Construção dos cenários a partir da intensidade, da época e da frequência do ataque, comparados nas versões original e calibrada.](../handoff_claude/diagramas/03-cenarios.png)
 
 ### 3.6 Avaliação do modelo e alcance dos resultados
 
@@ -102,6 +109,8 @@ O trabalho separa três etapas, que não se condicionam entre si.
 3. **Confirmação empírica.** Comparação entre resultados simulados e observações independentes. Só é feita se houver dados de local, material genético, idade, variáveis dendrométricas e período de medição compatíveis. Quando esses dados não estão disponíveis, a etapa não é substituída por comparações bibliográficas, e a limitação é declarada.
 
 Comparações com resultados publicados (Oliveira et al., 2014; Matrangolo et al., 2010; Rua et al., 2020) são tratadas como comparações de ordem de grandeza, não como validação experimental. O teste de Oliveira et al. (2014) usa outra espécie e o clone C5, e é reportado como comparação adaptada.
+
+![Fluxograma 5. Escada de interpretação: o que foi conferido no código, calibrado, comparado com a literatura, observado em simulação e ainda depende de confirmação empírica em campo.](../handoff_claude/diagramas/05-escada-interpretacao.png)
 
 ### 3.7 Reprodutibilidade
 
@@ -216,13 +225,13 @@ Na Figura 6a, a intensidade responde por 64,7% da importância na recuperação 
 
 ![Figura 6. Importância de cada fator no Random Forest para a recuperação da copa (a) e para a perda de volume (b), e perdas previstas com um local fora do treino comparadas às do 3-PG (c).](figuras_padronizadas/fig06_random_forest.png)
 
-A Figura 7 mostra os oito parâmetros do clone A1 com maior efeito médio na perda de volume com 50% de desfolha, pelo método de Morris, nos três locais. Entre eles estão alphaCx, y, k e SLA0, que são parâmetros de dossel e de área foliar. A ordem entre eles muda de um local para outro. Os oito parâmetros de *E. globulus* não foram incluídos nessa análise, porque têm valor zero ou não admitem variação relativa. Para eles, foi feita uma análise exploratória com o clone A1 na versão calibrada, desfolha de 50% no calendário P1 e três sítios, com faixas sem fonte (±10% para valores não nulos; 0 e 0,1 para valores nulos). Os parâmetros kF, thinPower, mF, mR e mS não alteraram a perda nesse cenário, e Qa e Qb alteraram-na em no máximo 0,03 ponto percentual. O parâmetro MinCond não entra na análise principal: testado com o valor 0,1, produziu um ganho de 28,8% em Indianópolis, efeito considerado implausível. Como não há fonte para seu valor, MinCond é mantido com valor zero e sua influência é declarada como limite aceito desta versão.
+A Figura 7 mostra os oito parâmetros do clone A1 com maior efeito médio na perda de volume com 50% de desfolha, pelo método de Morris, nos três locais. Entre eles estão alphaCx, y, k e SLA0, que são parâmetros de dossel e de área foliar. A ordem entre eles muda de um local para outro. Os oito parâmetros de *E. globulus* não foram incluídos nessa análise, porque têm valor zero ou não admitem variação relativa. Para eles, foi feita uma análise exploratória com o clone A1 na versão calibrada, desfolha isolada de 50% e três sítios, com faixas sem fonte (±10% para valores não nulos; 0 e 0,1 para valores nulos). Os parâmetros kF, thinPower, mF, mR e mS não alteraram a perda nesse cenário, e Qa e Qb alteraram-na em no máximo 0,03 ponto percentual. O parâmetro MinCond não entra na análise principal: testado com o valor 0,1, produziu um ganho de 28,8% em Indianópolis, efeito considerado implausível. Como não há fonte para seu valor, MinCond é mantido com valor zero e sua influência é declarada como limite aceito desta versão.
 
 ![Figura 7. Os oito parâmetros do clone A1 com maior efeito médio (μ*) na perda de volume aos 84 meses com 50% de desfolha, pelo método de Morris, nos três locais originais. Os oito parâmetros de *E. globulus* (kF, thinPower, mF, mR, mS, MinCond, Qa, Qb) não estão nesta análise, pelo motivo indicado na seção 3.2.](figuras_padronizadas/fig07_morris.png)
 
 ### 4.8 Verificação e comparação com o experimento de Bertulio et al. (2008)
 
-A verificação do código compara o motor do projeto com a implementação em Excel/VBA do 3-PG: o R² mínimo entre as duas versões é de 0,9996 e o RQEM máximo é de 0,13%. A comparação com o pacote r3PG em R não demonstrou equivalência: o RQEM máximo por registro chega a 64,6%, o que indica divergência a investigar, principalmente em biomassa foliar e IAF. Essa verificação mede a implementação, não o desempenho do modelo.
+A verificação do código compara o motor do projeto com a implementação em Excel/VBA do 3-PG: o R² mínimo entre as duas versões é de 0,9996 e o RQEM máximo é de 0,13%. Em um crosscheck direto registrado no repositório, o pacote r3PG em R e o motor do projeto foram comparados em 23.873 pares por variável; a diferença relativa máxima foi de 5,288 × 10⁻¹⁵, abaixo do limite de 2 × 10⁻¹³. Esta verificação limitada ao conjunto registrado mede a implementação, não o desempenho do modelo, e não substitui inventários independentes.
 
 A comparação com o experimento de Campo Verde-MT foi feita com dois clones, desfolhados totalmente duas vezes. Para o urograndis, a perda de volume por árvore aos 26 meses é de 52,1% sem ajuste, calculada como 100 × (1 − 0,0830/0,1734). Essa perda bruta inclui a diferença que já existia entre o tratamento e a testemunha no início do experimento. Ajustada pela linha de base, aos 14 meses, a perda é de 52,9%, calculada como 100 × [1 − (0,0830/0,1734) / (0,0523/0,0515)]. A Figura 8 usa o valor ajustado, porque é o que isola o efeito da desfolha. O Quadro 2 separa as três quantidades que devem ser comparadas, sempre no mesmo horizonte de 26 meses e na mesma unidade relativa.
 
@@ -272,9 +281,9 @@ Rua et al. (2020) simularam perdas de 17,0% e 54,0% aos 10 anos para desfolhas d
 
 ### 4.14 Limites do modelo
 
-O modelo calibrado se recupera em até dois meses após uma desfolha pontual. Matrangolo et al. (2010) mostram que a perda pode persistir por anos e se acumular com desfolhas repetidas. Por isso, a versão calibrada tende a subestimar a perda acumulada, e as estimativas de longo prazo devem ser lidas como limites inferiores.
+O modelo não representa reservas de carbono não estruturais nem a reorganização fisiológica associada à sua mobilização. Mudas de *E. globulus* alteram biomassa, alocação e crescimento após desfolha, mas esses estudos não testam a persistência plurianual em plantios adultos (EYLES; PINKARD; MOHAMMED, 2009; EYLES et al., 2016). O modelo calibrado se recupera em até dois meses após uma desfolha pontual. Matrangolo et al. (2010) mostram que a perda pode persistir por anos e se acumular com desfolhas repetidas. Por isso, a versão calibrada tende a subestimar a perda acumulada, e as estimativas de longo prazo devem ser lidas como limites inferiores.
 
-O modelo não simula mortalidade. A sobrevivência observada nos sítios da rede TECHS varia de 86% a 100% (CALDEIRA et al., 2020), e essa diferença não está representada.
+O modelo não possui relação observada entre desfolha e sobrevivência. A mortalidade imposta pode ser simulada como cenário, mas não deriva de campo. Mudas severamente desfolhadas podem sobreviver por mecanismos ligados ao lignotúber, sem que esse processo tenha sido quantificado em plantios adultos (BORZAK; POTTS; O'REILLY-WAPSTRA, 2016). A sobrevivência observada nos sítios da rede TECHS varia de 86% a 100% (CALDEIRA et al., 2020), e essa diferença não está representada.
 
 A fertilidade é fixa por material. Não há estimativa de FR a partir do solo, porque a relação entre FR e propriedades do solo não está estabelecida (NUNES et al., 2022; NUNES et al., 2023).
 
@@ -284,9 +293,9 @@ Uma análise exploratória do modelo quantificou parte dessa incerteza sem alter
 
 ### 4.15 Confirmação empírica: condições para execução
 
-Três tipos de dado podem apoiar a confirmação empírica do módulo. Neste trabalho, não há inventários independentes compatíveis; a única comparação externa disponível é adaptada e não constitui validação.
+Três tipos de dado podem apoiar a confirmação empírica do módulo. Neste trabalho, não foi localizado conjunto independente acessível que reúna clone comparável, série dendrométrica, IAF ou folhada, idade e histórico de desfolha; as comparações externas disponíveis são adaptadas e não constituem validação independente.
 
-1. **Crescimento sem desfolha em sítios com inventário.** Não há inventários independentes compatíveis disponíveis para este trabalho. Sem dados de campo com local, material, idade e variáveis dendrométricas correspondentes às simulações, não foi possível fazer essa comparação.
+1. **Crescimento sem desfolha em sítios com inventário.** Não foi localizado conjunto independente acessível com local, material, idade e variáveis dendrométricas correspondentes às simulações. Sem esses dados, não foi possível fazer essa comparação.
 2. **Perda de volume em desfolha total.** O experimento de Oliveira et al. (2014) fornece uma comparação com perda de 35,4% em *E. grandis*. O modelo calibrado simulou 33,0% com o material C5, o que é uma comparação adaptada, não uma validação do clone A1.
 3. **Desfolha repetida em campo.** Para validar a perda acumulada, é preciso um experimento com desfolhas repetidas em mais de um ano, com inventário em cada época e, idealmente, com medição de área foliar. Esse dado não existe para *E. urophylla* no conjunto disponível.
 
@@ -308,13 +317,19 @@ BORGES, J. S. et al. Parametrização do modelo 3-PG para eucalipto na região d
 
 BORGES, J. S. *Parametrização, calibração e validação do modelo 3-PG para eucalipto na região do cerrado de Minas Gerais*. Dissertação (Mestrado em Solos e Nutrição de Plantas) – Universidade Federal de Viçosa, Viçosa, 2009.
 
+BORZAK, C. L.; POTTS, B. M.; O'REILLY-WAPSTRA, J. M. Survival and recovery of *Eucalyptus globulus* seedlings from severe defoliation. *Forest Ecology and Management*, v. 379, p. 243–251, 2016. DOI: 10.1016/j.foreco.2016.08.025.
+
 CALDEIRA, D. R. M. et al. Multisite evaluation of the 3-PG model for the highest phenotypic plasticity *Eucalyptus* clone in Brazil. *Forest Ecology and Management*, v. 462, 117989, 2020. DOI: 10.1016/j.foreco.2020.117989.
+
+EYLES, A.; PINKARD, E. A.; MOHAMMED, C. Shifts in biomass and resource allocation patterns following defoliation in *Eucalyptus globulus* growing with varying water and nutrient supplies. *Tree Physiology*, v. 29, n. 6, p. 753–764, 2009. DOI: 10.1093/treephys/tpp014.
+
+EYLES, A. et al. Recovery after defoliation in *Eucalyptus globulus* saplings: respiration and growth. *Trees*, v. 30, n. 5, p. 1543–1555, 2016. DOI: 10.1007/s00468-016-1388-3.
 
 FIRMINO, P. N. *Análise do módulo da queda de folhada em eucaliptais no modelo 3-PG*. Dissertação (Mestrado em Engenharia Florestal e dos Recursos Naturais) – Instituto Superior de Agronomia, Universidade de Lisboa, Lisboa, 2011.
 
 LANDSBERG, J. J.; WARING, R. H. A generalised model of forest productivity using simplified concepts of radiation-use efficiency, carbon balance and partitioning. *Forest Ecology and Management*, v. 95, p. 209–228, 1997. DOI: 10.1016/S0378-1127(97)00026-1.
 
-MATRANGOLO, C. A. R.; CASTRO, R. V. O.; DELLA LUCIA, T. M. C.; DELLA LUCIA, R. M.; MENDES, A. F. N.; COSTA, J. M. F. N.; LEITE, H. G. Crescimento de eucalipto sob efeito de desfolhamento artificial. *Pesquisa Agropecuária Brasileira*, Brasília, v. 45, n. 9, p. 952–957, 2010. DOI: 10.1590/S1678-3921.pab2010.v45.8460.
+MATRANGOLO, C. A. R.; CASTRO, R. V. O.; DELLA LUCIA, T. M. C.; DELLA LUCIA, R. M.; MENDES, A. F. N.; COSTA, J. M. F. N.; LEITE, H. G. Crescimento de eucalipto sob efeito de desfolhamento artificial. *Pesquisa Agropecuária Brasileira*, Brasília, v. 45, n. 9, p. 952–957, 2010. DOI: 10.1590/S0100-204X2010000900003.
 
 NUNES, J. D.; OLIVEIRA, T. S.; CORTEZ, N.; TOMÉ, M. Modelação do índice de fertilidade do 3-PG em função de características físicas e químicas do solo. *Revista de Ciências Agrárias*, v. 45, n. 4, p. 487–491, 2022. DOI: 10.19084/rca.28574.
 

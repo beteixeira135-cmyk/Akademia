@@ -15,13 +15,17 @@ independência.
   passar após qualquer mudança.
 - Preserve resultados, equações, parâmetros e arquivos originais; não altere o motor
   científico para melhorar a apresentação.
+- Não crie clones Git deste repositório nem repositórios paralelos. Você já deve trabalhar
+  no checkout existente fornecido pela sessão. Preserve esse diretório e use a branch de
+  trabalho já disponível; não inicialize, clone ou duplique o projeto em outra pasta.
 - Não faça alterações diretas na `main`: crie branch própria (ex.: `finalizacao-claude`),
   registre arquivos modificados, e faça merge apenas com autorização.
 - `ferramentas/pipeline.py` faz commit e push para main ao final de cada etapa — não o use
   sem revisar esse comportamento.
 
 ## Antes de editar — verificação independente obrigatória
-1. Confirme acesso; identifique branch padrão e HEAD exatos; registre o commit de origem.
+1. Confirme acesso ao checkout existente; identifique branch padrão e HEAD exatos; registre
+   o commit de origem. Não faça clone, checkout paralelo ou cópia adicional do repositório.
 2. LEIA `memoria/contexto_ativo.md`, `memoria/progresso.md`, `PASSAGEM_DE_BASTAO.md`.
 3. Resolva a questão F1 do relatório do Kimi: os números do briefing anterior (10.428
    cenários, 180 ganhos, máx. 7,5%, 66 só-desfolha, medianas C1…A1 8,6–10,2%) NÃO existem
@@ -32,6 +36,21 @@ independência.
    rode `python3 ferramentas/pipeline.py verificar`.
 
 ## Tarefas
+### Infográfico do Material e Métodos
+Ao explicar o Material e Métodos, transformá-los em um fluxograma ilustrado no estilo de
+infográfico acadêmico. Conectar visualmente: objetivo → locais e dados de entrada →
+3-PG mensal → desfolha e demais danos → combinação dos cenários → calibração →
+simulações → metamodelo Random Forest → indicadores → interpretação. Cada etapa deve
+possuir texto curto ao lado ou abaixo, indicando o que ela faz e por que a próxima depende dela.
+O pacote gráfico está preparado em `handoff_claude/FLUXOGRAMAS_METODOS.md`, com cinco
+fluxogramas Mermaid e uma tabela que limita o uso de cada referência.
+
+Usar português claro para quem não conhece modelagem. Não mostrar “pulso/pulsos”, códigos
+P1/P2/PA ou siglas sem explicar a primeira ocorrência. Para os calendários visíveis, usar
+“ataque isolado”, “dois ataques” e “ataques anuais”. Manter as distinções entre verificação,
+calibração, validação cruzada interna e confirmação empírica independente. Não inventar
+dados, referências ou resultados e indicar os itens pendentes como pendentes.
+
 1. Corrigir `tcc_docx/conteudo.js`: parametrizar o caminho `FIG` (hoje hard-coded
    `/home/claude/tcc/...`, achado F3) e conferir todas as `fig:` com caminhos absolutos.
 2. Conferir a Figura 10 (`N3_possibilidades.png`) e sua origem em
