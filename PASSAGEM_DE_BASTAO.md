@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (7444 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 16:07)
+# PASSAGEM DE BASTÃO — TCC II (7837 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 16:37)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (26439 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (26828 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -70,10 +70,12 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Node.js 26.13.1 está instalado em `C:\Program Files\nodejs`; em processos PowerShell novos, incluir essa pasta no `PATH` para executar auditoria e geração do DOCX.
 
 - Em 19/11/2026, a apresentação web voltou a executar: foi declarado `<!doctype html>`, `<html lang="pt-BR">`, UTF-8, `<head>` e `<body>`; o script que remove acentos passou de uma faixa Unicode mal codificada para `\p{M}`; a cena Three.js deixou de usar a propriedade incompatível `flatShading`. O simulador foi reconstruído e recarregado no navegador sem erros de JavaScript. Em um teste visual com desfolha de 95%, aos 24 meses, o talhão desfolhado mostrou W_F = 0,58 t ha^-1 contra 3,84 t ha^-1 no controle e volume = 48,38 m³ ha^-1 contra 55,83 m³ ha^-1 no controle.
+- Em 21/11/2026, a versão textual entregue foi sincronizada com a revisão das limitações já feita em `tcc_docx/conteudo.js`: as referências Borzak et al. (2016), Eyles et al. (2009, 2016) e Firmino (2011) foram incorporadas ao texto de 4.14 e/ou à lista de referências; o DOI incorreto de Matrangolo foi corrigido para 10.1590/S0100-204X2010000900003. A redação separa reservas, persistência, sobrevivência, queda de folhada e confirmação empírica sem alterar números ou conclusões.
 
 ---
 # Progresso
 ## Feito
+- Em 21/11/2026, sincronizada a versão textual `entregavel_final/TCC_TEXTO_FINAL.md` com as nove referências já revisadas em `tcc_docx/conteudo.js`, corrigido o DOI de Matrangolo e adicionadas Borzak e Eyles às referências textuais. `conferir_referencias.js` confirmou 0 referências sem citação no objeto JavaScript; `conferir_texto_auditoria.js` confirmou 117 números decimais cobertos e 0 sem item. A auditoria numérica executada no ambiente disponível confirmou 551/552 itens e manteve a divergência RQEM r3PG como falha real.
 - Revisão final integrada à `main` pelo PR #5. DOCX/PDF regenerados; PDF com 28 páginas. Matriz de seis materiais: 22.752 linhas, 20.856 aptas, 10.428 por versão. Percentuais da Figura 10 (original/calibrada): folhagem 51,6%/93,2%; NPP 9,1%/27,4%; volume 0,02%/1,7%. Figuras 1, 2, 3, 7, 9 e 10 conferidas; legenda da Figura 9 corrigida para seis sítios em cinco biomas. Em `TCC_TEXTO_FINAL.md`, `5.688` = 0, `Lagartas` = 0 e a legenda da Figura 10 cita 20.856 cenários. O DOCX passou verificações estruturais, mas o validador oficial indicado não está disponível; não se afirma “All validations PASSED!”. Google Drive e Diário não atualizados.
 - Auditoria numérica expandida para 542 checagens, incluindo a matriz, densidade 3 × 3 m, Tmax A1 e limite superior de U; JSON lido em UTF-8 e critérios de RQEM/R² sem truncamento. Resultado: 541/542. O conferidor cobre 115/115 números decimais do texto. RQEM máximo r3PG = 64,6148% em biomassa foliar e 62,9299% em IAF, acima do limite de 2e-13. O auditor grava o resultado e retorna falha (código 1); a discrepância segue pendente e o modelo não foi alterado.
 - Google Drive autorizado em 21/11/2026 para `beteixeira135@gmail.com`. PDF atual atualizado e DOCX atual enviado à pasta `3-PG/08 TCC II versão atual`; ambos confirmados com tamanho e link no Drive. Registro atualizado no Diário do TCC II.
@@ -130,6 +132,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Auditoria pós-PR: não truncar RQEM/R² para transformar limites em igualdade; registrar a divergência r3PG como falha real até investigar sua origem. Não alterar o modelo para fazer o auditor passar.
 - Entrega ao Google Drive em 21/11/2026: preservar o PDF existente pelo mesmo ID, atualizando o conteúdo local atual, e enviar o DOCX atual como arquivo novo datado. Registrar links e limitações no Diário do TCC II.
 - Limitações: não substituir dados de campo por sensibilidades; usar perturbações ±10% apenas como exercícios exploratórios de robustez e manter 4.15 explícita como condições para confirmação empírica futura.
+- 21/11/2026: integrar as nove referências ao texto por fatos verificáveis e sem chamar comparações bibliográficas de validação. Matrangolo, Oliveira e o benchmark TECHS permanecem comparações adaptadas; Caldeira valida crescimento sem desfolha; reservas, lignotúber, queda de folhada e persistência plural anual são tratadas como limites ou dados de espécies/sítios não equivalentes.
 
 ---
 # Contexto técnico
@@ -143,6 +146,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 21/11 16:07 tcc: quantificar sensibilidades das limitacoes
 - 21/11 15:52 entregavel: registrar entrega no Google Drive
 - 21/11 14:15 auditoria: incluir matriz 6mat e expor divergÃªncia r3PG
 - 21/11 13:53 documentaÃ§Ã£o: atualizar histÃ³rico da passagem
@@ -157,7 +161,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11 07:52 Merge pull request #4 from beteixeira135-cmyk/tcc-ii-finalizacao-auditoria
 - 21/11 07:45 Add Akademia Claude Code skill
 - 21/11 07:35 Merge pull request #3 from beteixeira135-cmyk/tcc-ii-finalizacao-auditoria
-- 21/11 07:29 Audit final TCC delivery inputs
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.

@@ -272,9 +272,9 @@ Rua et al. (2020) simularam perdas de 17,0% e 54,0% aos 10 anos para desfolhas d
 
 ### 4.14 Limites do modelo
 
-O modelo calibrado se recupera em até dois meses após uma desfolha pontual. Matrangolo et al. (2010) mostram que a perda pode persistir por anos e se acumular com desfolhas repetidas. Por isso, a versão calibrada tende a subestimar a perda acumulada, e as estimativas de longo prazo devem ser lidas como limites inferiores.
+O modelo não representa reservas de carbono não estruturais nem a reorganização fisiológica associada à sua mobilização. Mudas de *E. globulus* alteram biomassa, alocação e crescimento após desfolha, mas esses estudos não testam a persistência plurianual em plantios adultos (EYLES; PINKARD; MOHAMMED, 2009; EYLES et al., 2016). O modelo calibrado se recupera em até dois meses após uma desfolha pontual. Matrangolo et al. (2010) mostram que a perda pode persistir por anos e se acumular com desfolhas repetidas. Por isso, a versão calibrada tende a subestimar a perda acumulada, e as estimativas de longo prazo devem ser lidas como limites inferiores.
 
-O modelo não simula mortalidade. A sobrevivência observada nos sítios da rede TECHS varia de 86% a 100% (CALDEIRA et al., 2020), e essa diferença não está representada.
+O modelo não possui relação observada entre desfolha e sobrevivência. A mortalidade imposta pode ser simulada como cenário, mas não deriva de campo. Mudas severamente desfolhadas podem sobreviver por mecanismos ligados ao lignotúber, sem que esse processo tenha sido quantificado em plantios adultos (BORZAK; POTTS; O'REILLY-WAPSTRA, 2016). A sobrevivência observada nos sítios da rede TECHS varia de 86% a 100% (CALDEIRA et al., 2020), e essa diferença não está representada.
 
 A fertilidade é fixa por material. Não há estimativa de FR a partir do solo, porque a relação entre FR e propriedades do solo não está estabelecida (NUNES et al., 2022; NUNES et al., 2023).
 
@@ -284,9 +284,9 @@ Uma análise exploratória do modelo quantificou parte dessa incerteza sem alter
 
 ### 4.15 Confirmação empírica: condições para execução
 
-Três tipos de dado podem apoiar a confirmação empírica do módulo. Neste trabalho, não há inventários independentes compatíveis; a única comparação externa disponível é adaptada e não constitui validação.
+Três tipos de dado podem apoiar a confirmação empírica do módulo. Neste trabalho, não foi localizado conjunto independente acessível que reúna clone comparável, série dendrométrica, IAF ou folhada, idade e histórico de desfolha; as comparações externas disponíveis são adaptadas e não constituem validação independente.
 
-1. **Crescimento sem desfolha em sítios com inventário.** Não há inventários independentes compatíveis disponíveis para este trabalho. Sem dados de campo com local, material, idade e variáveis dendrométricas correspondentes às simulações, não foi possível fazer essa comparação.
+1. **Crescimento sem desfolha em sítios com inventário.** Não foi localizado conjunto independente acessível com local, material, idade e variáveis dendrométricas correspondentes às simulações. Sem esses dados, não foi possível fazer essa comparação.
 2. **Perda de volume em desfolha total.** O experimento de Oliveira et al. (2014) fornece uma comparação com perda de 35,4% em *E. grandis*. O modelo calibrado simulou 33,0% com o material C5, o que é uma comparação adaptada, não uma validação do clone A1.
 3. **Desfolha repetida em campo.** Para validar a perda acumulada, é preciso um experimento com desfolhas repetidas em mais de um ano, com inventário em cada época e, idealmente, com medição de área foliar. Esse dado não existe para *E. urophylla* no conjunto disponível.
 
@@ -308,13 +308,19 @@ BORGES, J. S. et al. Parametrização do modelo 3-PG para eucalipto na região d
 
 BORGES, J. S. *Parametrização, calibração e validação do modelo 3-PG para eucalipto na região do cerrado de Minas Gerais*. Dissertação (Mestrado em Solos e Nutrição de Plantas) – Universidade Federal de Viçosa, Viçosa, 2009.
 
+BORZAK, C. L.; POTTS, B. M.; O'REILLY-WAPSTRA, J. M. Survival and recovery of *Eucalyptus globulus* seedlings from severe defoliation. *Forest Ecology and Management*, v. 379, p. 243–251, 2016. DOI: 10.1016/j.foreco.2016.08.025.
+
 CALDEIRA, D. R. M. et al. Multisite evaluation of the 3-PG model for the highest phenotypic plasticity *Eucalyptus* clone in Brazil. *Forest Ecology and Management*, v. 462, 117989, 2020. DOI: 10.1016/j.foreco.2020.117989.
+
+EYLES, A.; PINKARD, E. A.; MOHAMMED, C. Shifts in biomass and resource allocation patterns following defoliation in *Eucalyptus globulus* growing with varying water and nutrient supplies. *Tree Physiology*, v. 29, n. 6, p. 753–764, 2009. DOI: 10.1093/treephys/tpp014.
+
+EYLES, A. et al. Recovery after defoliation in *Eucalyptus globulus* saplings: respiration and growth. *Trees*, v. 30, n. 5, p. 1543–1555, 2016. DOI: 10.1007/s00468-016-1388-3.
 
 FIRMINO, P. N. *Análise do módulo da queda de folhada em eucaliptais no modelo 3-PG*. Dissertação (Mestrado em Engenharia Florestal e dos Recursos Naturais) – Instituto Superior de Agronomia, Universidade de Lisboa, Lisboa, 2011.
 
 LANDSBERG, J. J.; WARING, R. H. A generalised model of forest productivity using simplified concepts of radiation-use efficiency, carbon balance and partitioning. *Forest Ecology and Management*, v. 95, p. 209–228, 1997. DOI: 10.1016/S0378-1127(97)00026-1.
 
-MATRANGOLO, C. A. R.; CASTRO, R. V. O.; DELLA LUCIA, T. M. C.; DELLA LUCIA, R. M.; MENDES, A. F. N.; COSTA, J. M. F. N.; LEITE, H. G. Crescimento de eucalipto sob efeito de desfolhamento artificial. *Pesquisa Agropecuária Brasileira*, Brasília, v. 45, n. 9, p. 952–957, 2010. DOI: 10.1590/S1678-3921.pab2010.v45.8460.
+MATRANGOLO, C. A. R.; CASTRO, R. V. O.; DELLA LUCIA, T. M. C.; DELLA LUCIA, R. M.; MENDES, A. F. N.; COSTA, J. M. F. N.; LEITE, H. G. Crescimento de eucalipto sob efeito de desfolhamento artificial. *Pesquisa Agropecuária Brasileira*, Brasília, v. 45, n. 9, p. 952–957, 2010. DOI: 10.1590/S0100-204X2010000900003.
 
 NUNES, J. D.; OLIVEIRA, T. S.; CORTEZ, N.; TOMÉ, M. Modelação do índice de fertilidade do 3-PG em função de características físicas e químicas do solo. *Revista de Ciências Agrárias*, v. 45, n. 4, p. 487–491, 2022. DOI: 10.19084/rca.28574.
 
