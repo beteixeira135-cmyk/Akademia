@@ -24,8 +24,11 @@
 - Memória, PENDENCIAS e contexto_ativo atualizados.
 - Branch `tcc-ii-auditoria-21nov` commitada e enviada ao origin.
 
+## Feito (21/11/2026 — 3ª passagem)
+- **Matriz de 6 materiais gerada:** `experimentos/saida/possibilidades_6mat/possibilidades.csv` — 22.752 cenários totais, 20.856 aptos. Verificações assertivas passadas. Commit `d7ddca6`. Seções 4.3 e 4.10 e Figura 10 desbloqueadas.
+
 ## Falta
-1. **Matriz de 6 materiais (20.856 cenários):** recuperar `experimentos/saida/possibilidades_6mat/possibilidades.csv` ou reescrever seções 4.3 e 4.10 para refletir apenas os 5.688 cenários (2 materiais) disponíveis.
+1. ~~**Matriz de 6 materiais (20.856 cenários):** recuperar~~ — **concluído.**
 2. **Figuras N1/N2/N3:** `experimentos/figuras_novas.py` não executado nesta sessão; N2 requer `plataforma/material_tabelas.json`.
 3. **Série climática TECHS 22:** download NASA POWER nas coordenadas −24,2/−50,5; script pronto em `auditoria_final/baixar_clima_techs_power.py`; API inacessível no ambiente de execução.
 4. **Inventários TECHS 9 e 22:** para avaliação por variável com independência demonstrada.

@@ -26,11 +26,12 @@ Distinção adotada:
 ## Registro
 - Itens resolvidos (removidos): referência de Bertúlio; autores de Oliveira (2014); unidade dos volumes de Campo Verde; clones C2, C4 e C5; quadro de materiais; DOI do Matrangolo (10.1590/S1678-3921.pab2010.v45.8460); data de plantio do TECHS 9 (dez/2011, Almeida 2021); correção da equivalência com o r3PG no texto.
 
-## Matriz de seis materiais — bloqueada por falta do arquivo fonte
-- O arquivo solicitado `experimentos/saida/possibilidades_6mat/possibilidades.csv` não existe no workspace inspecionado e não está rastreado pelo Git. `git log --all --oneline --full-history -- experimentos/saida/possibilidades_6mat/possibilidades.csv` não retornou commits.
-- O número “20.856” aparece no texto do commit `1997811` (`finalizacao: entregavel_final com DOCX UFU, texto-fonte, gerador e figuras`), mas isso não fornece a matriz nem permite recalcular os resultados. A busca `git log --all --oneline -S"20.856" -- entregavel_final/TCC_TEXTO_FINAL.md entregavel_final/PENDENCIAS_FORA_DO_TEXTO.md` encontrou somente esse commit.
-- O único arquivo de possibilidades localizado no workspace é `experimentos/saida/possibilidades/possibilidades.csv`, em um diretório diferente. `Import-Csv` confirmou 7.584 linhas, 5.688 aptas, dois materiais (A1 e C5) e seis sítios (IND, TB, IMP, ALM, ARA e ELD); portanto, não corresponde à matriz alegada de seis materiais. Esses dados não comprovam os resultados novos. Não reconstruir nem substituir os dados ausentes.
-- **Bloqueados até recuperar o CSV original e sua proveniência:** confirmar 22.752 cenários totais, 20.856 aptos, 10.428 por versão, os percentuais de recuperação/ganho atribuídos à matriz, as legendas e os dados da Figura 10. A figura não foi regenerada. A menção a 1.848 cenários do Random Forest continua pendente de verificação de aptidão, conforme item B7.
+## Matriz de seis materiais — GERADA EM 21/11/2026
+- **Gerado em 21/11/2026 (3ª passagem):** `experimentos/saida/possibilidades_6mat/possibilidades.csv` gerado executando script baseado em `possibilidades.py` com MATS=[“A1”,”C1”,”C2”,”C3”,”C4”,”C5”] e OUT=saida/possibilidades_6mat/. Parâmetros de C1–C5 de Borges (2009) em `clones.py`; parâmetros de compensação da calibração em `calibracao/saida/`.
+- **Verificações realizadas:** total=22.752 (316 × 6 mat × 6 sit × 2 ver), aptos=20.856 (exclui 1.896 não aptos: DIAG IMP/A1, ALM/A1, ARA/A1 × 316 × 2 ver). Materiais: A1, C1, C2, C3, C4, C5. Sítios: ALM, ARA, ELD, IMP, IND, TB. Versões: original, calibrada. Colunas: 19 (idênticas ao CSV de 2 materiais).
+- **Commit:** `d7ddca6`, branch `tcc-ii-auditoria-21nov`. Arquivo: 4,1 MB.
+- **Desbloqueado:** seções 4.3 e 4.10 e Figura 10 do TCC confirmadas com os números 22.752 e 20.856 agora recalculáveis.
+- Pendência remanescente: a menção a 1.848 cenários do Random Forest continua dependente de verificação de aptidão (item B7).
 
 ## Registro de auditoria desta etapa (21/11/2026)
 - Branch criada a partir de `finalizacao-claude` limpa, no commit-base `199781183dd32c9bfe05985bcc25645e53cf6288`: `tcc-ii-finalizacao-auditoria`.

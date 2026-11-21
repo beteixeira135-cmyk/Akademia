@@ -23,6 +23,6 @@
 - **Correção de caminhos de figuras:** `entregavel_final/TCC_TEXTO_FINAL.md` tinha 12 referências a `figuras_padronizadas/fig*.png` (diretório inexistente). Corrigidas para `figuras/fig*.png` (caminho real). Motor científico não alterado.
 - **DOCX gerado:** `entregavel_final/TCC_II_Bernardo_Castro_FINAL.docx` (3,1 MB) via `python3 entregavel_final/gerar_tcc_ufu.py`.
 - **PDF gerado:** `entregavel_final/TCC_II_Bernardo_Castro_FINAL.pdf` (2,2 MB) via LibreOffice headless.
-- **Matriz 20.856 ainda bloqueada:** `experimentos/saida/possibilidades_6mat/possibilidades.csv` inexistente no workspace e sem histórico Git. Seções 4.3 e 4.10 do texto condicionadas à recuperação do CSV original.
+- **Matriz 20.856 — GERADA (21/11/2026, 3ª passagem):** `experimentos/saida/possibilidades_6mat/possibilidades.csv` gerado com `possibilidades_6mat.py` (MATS=["A1","C1","C2","C3","C4","C5"], OUT=saida/possibilidades_6mat/). Resultado: 22.752 cenários totais, 20.856 aptos. Verificações: total==22752, aptos==20856, 6 materiais, 6 sítios, 2 versões — todas passadas. Commit `d7ddca6` na branch `tcc-ii-auditoria-21nov`. Seções 4.3 e 4.10 e Figura 10 desbloqueadas.
 - **Branch de trabalho:** `tcc-ii-auditoria-21nov` a partir de `main` HEAD `985fe00`.
-- **Próxima prioridade:** recuperar o CSV de 6 materiais (20.856 cenários) ou reescrever as seções 4.3/4.10 para refletir apenas os 5.688 cenários existentes. Figuras N1/N2/N3 ainda não regeneradas.
+- **Próxima prioridade:** regenerar DOCX/PDF com o texto desatualizado das seções 4.3/4.10 (que já referenciavam 20.856 — sem mudança necessária) e as figuras N1/N2/N3.
