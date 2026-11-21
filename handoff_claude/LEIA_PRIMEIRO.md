@@ -5,7 +5,8 @@
 2. `ESTADO_ATUAL.md` — o que existe de verdade no repositório (commit, branches, arquivos).
 3. `RELATORIO_AUDITORIA.md` — diagnóstico: o que bate, o que conflita, o que foi corrigido.
 4. `DECISOES_E_LIMITACOES.md` — decisões tomadas nesta etapa e questões abertas.
-5. `PROMPT_CLAUDE.md` — comando completo para continuar.
+5. `FLUXOGRAMAS_METODOS.md` — cinco fluxogramas prontos para o Material e Métodos.
+6. `PROMPT_CLAUDE.md` — comando completo para continuar.
 
 ## Em uma frase
 O Kimi (Kimi Chat, Moonshot AI) auditou o repositório em modo **somente leitura** nesta etapa:

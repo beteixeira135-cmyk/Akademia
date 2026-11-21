@@ -42,6 +42,8 @@ infográfico acadêmico. Conectar visualmente: objetivo → locais e dados de en
 3-PG mensal → desfolha e demais danos → combinação dos cenários → calibração →
 simulações → metamodelo Random Forest → indicadores → interpretação. Cada etapa deve
 possuir texto curto ao lado ou abaixo, indicando o que ela faz e por que a próxima depende dela.
+O pacote gráfico está preparado em `handoff_claude/FLUXOGRAMAS_METODOS.md`, com cinco
+fluxogramas Mermaid e uma tabela que limita o uso de cada referência.
 
 Usar português claro para quem não conhece modelagem. Não mostrar “pulso/pulsos”, códigos
 P1/P2/PA ou siglas sem explicar a primeira ocorrência. Para os calendários visíveis, usar

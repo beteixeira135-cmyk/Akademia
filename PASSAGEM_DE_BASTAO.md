@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (8644 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 16:56)
+# PASSAGEM DE BASTÃO — TCC II (8897 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 17:07)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (27641 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (27899 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -74,10 +74,12 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Em 21/11/2026, a redação tabular removeu o termo “pulso” das tabelas principais: os calendários passaram a ser chamados ataque isolado, dois ataques e ataques anuais. Os números 5.688 e 20.856 permanecem distintos: o primeiro descreve danos combinados com dois materiais; o segundo, a matriz completa de seis materiais.
 - Em 21/11/2026, o simulador deixou de mostrar “pulso/pulsos” nos rótulos visíveis e passou a usar “ataque isolado”, “dois ataques” e “ataques anuais”. `docs/index.html` e os arquivos-fonte foram reconstruídos. O pacote `handoff_claude/PROMPT_CLAUDE.md` recebeu instruções para diagramar o Material e Métodos como infográfico Notelm encadeado.
 - Em 21/11/2026, ficou explícito no pacote de handoff que o Claude não deve criar clones Git nem repositórios paralelos: a tarefa deve ser realizada no checkout já disponibilizado pela sessão, preservando o repositório e usando uma branch de trabalho apropriada.
+- Em 21/11/2026, foi preparado `handoff_claude/FLUXOGRAMAS_METODOS.md` com cinco fluxogramas do Material e Métodos e uma tabela de usos permitidos das referências. Os diagramas distinguem verificação, calibração, validação cruzada interna, comparação bibliográfica e confirmação empírica pendente.
 
 ---
 # Progresso
 ## Feito
+- Em 21/11/2026, criado o pacote `handoff_claude/FLUXOGRAMAS_METODOS.md`: arquitetura geral, ciclo mensal do 3-PG, cenários de ataque, calibração/evidências e escada de interpretação. Incluída tabela que condiciona o uso das referências a comparação, benchmark ou limite do estudo.
 - Em 21/11/2026, registrado no handoff e nas decisões que o Claude não precisa criar clones Git nem repositórios paralelos; ele deve usar o checkout já disponibilizado pela sessão.
 - Em 21/11/2026, removidos os rótulos visíveis “pulso/pulsos” do simulador: fonte principal, conceitos, dados das tabelas e protótipo 3D passaram a usar “ataque isolado”, “dois ataques” e “ataques anuais”. `docs/index.html` foi reconstruído por `plataforma/construir.py`.
 - Em 21/11/2026, `handoff_claude/PROMPT_CLAUDE.md` recebeu uma seção dedicada ao infográfico Notelm do Material e Métodos, com encadeamento objetivo → entradas → 3-PG → desfolha → cenários → calibração → simulações → metamodelo → indicadores → interpretação e distinções entre verificação, calibração, validação cruzada e confirmação empírica.
@@ -143,6 +145,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11/2026: usar linguagem direta para os calendários de desfolha nas tabelas e legendas. “Ataque isolado” substitui “pulso único”, “dois ataques” substitui “dois pulsos” e “ataques anuais” substitui “pulsos anuais”.
 - 21/11/2026: o Material e Métodos do TCC terá instrução específica para o Claude construir uma explicação em formato de infográfico Notelm: encadeamento visual objetivo → dados e locais → 3-PG → desfolha → cenários → calibração → simulações → metamodelo → indicadores → interpretação. O simulador não deve usar “pulso/pulsos” em rótulos visíveis.
 - 21/11/2026: o Claude não precisa nem deve criar clones Git desta tarefa. O trabalho deve começar no checkout já disponibilizado pela sessão, preservando o repositório existente e usando uma branch de trabalho apropriada, sem inicializar ou duplicar o projeto em diretórios paralelos.
+- 21/11/2026: preparar no handoff cinco fluxogramas do Material e Métodos em formato Mermaid: arquitetura geral, ciclo mensal, construção dos cenários, calibração/evidências e escada de interpretação. A tabela de referências limita cada uso à evidência disponível e mantém pendentes inventários, metadados TECHS e confirmação empírica independente.
 
 ---
 # Contexto técnico
@@ -156,21 +159,21 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 21/11 16:58 Merge remote-tracking branch 'origin/main' into finalizacao-claude
+- 21/11 16:56 docs: informar Claude para nao criar clones
 - 21/11 16:52 docs: orientar infografico do metodo e retirar pulso do simulador
 - 21/11 16:46 docs: reescrever tabelas em linguagem direta
 - 21/11 16:37 docs: integrar referencias das limitacoes do TCC
+- 21/11 16:09 Merge pull request #7 from beteixeira135-cmyk/finalizacao-claude
 - 21/11 16:07 tcc: quantificar sensibilidades das limitacoes
 - 21/11 15:52 entregavel: registrar entrega no Google Drive
+- 21/11 14:18 Merge pull request #6 from beteixeira135-cmyk/finalizacao-claude
 - 21/11 14:15 auditoria: incluir matriz 6mat e expor divergÃªncia r3PG
+- 21/11 14:01 Merge pull request #5 from beteixeira135-cmyk/finalizacao-claude
 - 21/11 13:53 documentaÃ§Ã£o: atualizar histÃ³rico da passagem
 - 21/11 13:52 Merge origin/main into finalizacao-claude
 - 21/11 13:44 documentaÃ§Ã£o: registrar passagem e validaÃ§Ãµes finais
 - 21/11 13:44 entregavel: DOCX e PDF regenerados
-- 21/11 13:43 texto: sem inventÃ¡rio, nÃºmeros da matriz de seis materiais
-- 21/11 13:43 figuras: fig10 com matriz de seis materiais e conferÃªncia visual
-- 21/11 13:23 entregavel: corrigir caminhos do gerador e registrar pendÃªncias
-- 21/11 13:23 figuras: preparar gerador N3 e corrigir legenda da Figura 9
-- 21/11 16:25 dados: matriz de seis materiais (22.752 cenÃ¡rios) e script que a gera
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.

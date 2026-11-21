@@ -1,5 +1,6 @@
 # Progresso
 ## Feito
+- Em 21/11/2026, criado o pacote `handoff_claude/FLUXOGRAMAS_METODOS.md`: arquitetura geral, ciclo mensal do 3-PG, cenários de ataque, calibração/evidências e escada de interpretação. Incluída tabela que condiciona o uso das referências a comparação, benchmark ou limite do estudo.
 - Em 21/11/2026, registrado no handoff e nas decisões que o Claude não precisa criar clones Git nem repositórios paralelos; ele deve usar o checkout já disponibilizado pela sessão.
 - Em 21/11/2026, removidos os rótulos visíveis “pulso/pulsos” do simulador: fonte principal, conceitos, dados das tabelas e protótipo 3D passaram a usar “ataque isolado”, “dois ataques” e “ataques anuais”. `docs/index.html` foi reconstruído por `plataforma/construir.py`.
 - Em 21/11/2026, `handoff_claude/PROMPT_CLAUDE.md` recebeu uma seção dedicada ao infográfico Notelm do Material e Métodos, com encadeamento objetivo → entradas → 3-PG → desfolha → cenários → calibração → simulações → metamodelo → indicadores → interpretação e distinções entre verificação, calibração, validação cruzada e confirmação empírica.
