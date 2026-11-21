@@ -1,5 +1,7 @@
 # Progresso
 ## Feito
+- Criada a skill Claude Code versionada `.claude/skills/akademia-tcc/SKILL.md` e ligada ao `CLAUDE.md` para leitura em tarefas substantivas. `AGENTS.md` e `CLAUDE.md` agora alertam que o pipeline pode publicar em `main`.
+- Verificados frontmatter e caminhos da skill e `git diff --check`. Não foi possível testá-la em uma sessão Claude Code porque o executável não está disponível. `python3 ferramentas/gerar_passagem.py` falhou com exit 9009 (Python ausente), portanto `PASSAGEM_DE_BASTAO.md`/`CONTEXTO_EMPACOTADO.md` não foram regenerados.
 - Revisão documental de recuperação, persistência, interpretação dos ganhos simulados e limites de transferência incorporada em `tcc_docx/conteudo.js`.
 - Simulador Akademia: interface e módulos atuais preservados; diferença máxima JS–Python registrada em `1,60075e-13`, abaixo do limite do comparador (`1e-9`).
 - Fixture da auditoria numérica movido para `auditoria_final/controles_solo_antes_correcao_dossel.csv`; caminho da auditoria atualizado.
