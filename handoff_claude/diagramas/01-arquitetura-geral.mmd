@@ -1,0 +1,10 @@
+flowchart LR
+    A["Objetivo<br/>Avaliar desfolha e perdas em eucalipto"] --> B["Entradas secundárias<br/>Clima, solo e materiais"]
+    B --> C["Modelagem mensal<br/>3-PG-PJS"]
+    C --> D["Danos à copa<br/>Desfolha e demais fatores"]
+    D --> E["Cenários combinados<br/>Intensidade, frequência e época"]
+    E --> F["Calibração<br/>Bertulio et al., 2008"]
+    F --> G["Simulações<br/>Versão original e calibrada"]
+    G --> H["Metamodelo<br/>Random Forest"]
+    H --> I["Indicadores<br/>Folhagem, crescimento e madeira"]
+    I --> J["Interpretação<br/>Sustentações e limites"]

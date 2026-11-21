@@ -1,0 +1,12 @@
+flowchart TB
+    A["Dados do mês<br/>Clima, solo e água disponível"] --> B["Luz captada pela copa"]
+    B --> C["Crescimento 3-PG-PJS"]
+    C --> D{"Houve ataque no mês?"}
+    D -->|Não| E["Crescimento e alocação usuais"]
+    D -->|Sim| F["Retirada foliar e alteração da copa"]
+    F --> G["Compensação fisiológica calibrada"]
+    G --> H["Atualização dos estoques e da área foliar"]
+    E --> H
+    H --> I["Folhagem, IAF, crescimento e volume"]
+    I --> J["Próximo mês"]
+    J --> A

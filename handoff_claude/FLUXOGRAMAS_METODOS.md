@@ -156,3 +156,16 @@ O infográfico deve explicar por que a cadeia termina em **confirmação pendent
 
 Os itens pendentes não devem ser apresentados como concluídos: divergência r3PG, inventários
 e metadados TECHS, comparação por variável e confirmação empírica independente.
+
+## Arquivos de imagem gerados
+
+Cada diagrama possui fonte Mermaid (`.mmd`) e exportações (`.svg` e `.png`) em
+`handoff_claude/diagramas/`.
+
+| Fluxograma | PNG | SVG |
+|---|---|---|
+| Arquitetura geral | [01-arquitetura-geral.png](diagramas/01-arquitetura-geral.png) | [01-arquitetura-geral.svg](diagramas/01-arquitetura-geral.svg) |
+| Ciclo mensal | [02-ciclo-mensal.png](diagramas/02-ciclo-mensal.png) | [02-ciclo-mensal.svg](diagramas/02-ciclo-mensal.svg) |
+| Construção dos cenários | [03-cenarios.png](diagramas/03-cenarios.png) | [03-cenarios.svg](diagramas/03-cenarios.svg) |
+| Calibração e evidências | [04-calibracao-evidencias.png](diagramas/04-calibracao-evidencias.png) | [04-calibracao-evidencias.svg](diagramas/04-calibracao-evidencias.svg) |
+| Escada de interpretação | [05-escada-interpretacao.png](diagramas/05-escada-interpretacao.png) | [05-escada-interpretacao.svg](diagramas/05-escada-interpretacao.svg) |

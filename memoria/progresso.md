@@ -1,5 +1,6 @@
 # Progresso
 ## Feito
+- Em 21/11/2026, renderizados cinco fluxogramas reais do Material e Métodos em PNG e SVG: arquitetura geral, ciclo mensal, cenários, calibração/evidências e escada de interpretação. Fontes Mermaid preservadas em `handoff_claude/diagramas/` e a lista vinculada em `handoff_claude/FLUXOGRAMAS_METODOS.md`.
 - Em 21/11/2026, criado o pacote `handoff_claude/FLUXOGRAMAS_METODOS.md`: arquitetura geral, ciclo mensal do 3-PG, cenários de ataque, calibração/evidências e escada de interpretação. Incluída tabela que condiciona o uso das referências a comparação, benchmark ou limite do estudo.
 - Em 21/11/2026, registrado no handoff e nas decisões que o Claude não precisa criar clones Git nem repositórios paralelos; ele deve usar o checkout já disponibilizado pela sessão.
 - Em 21/11/2026, removidos os rótulos visíveis “pulso/pulsos” do simulador: fonte principal, conceitos, dados das tabelas e protótipo 3D passaram a usar “ataque isolado”, “dois ataques” e “ataques anuais”. `docs/index.html` foi reconstruído por `plataforma/construir.py`.

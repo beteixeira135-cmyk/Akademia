@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (8897 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 17:07)
+# PASSAGEM DE BASTÃO — TCC II (9124 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 17:10)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (27899 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (28121 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -75,10 +75,12 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Em 21/11/2026, o simulador deixou de mostrar “pulso/pulsos” nos rótulos visíveis e passou a usar “ataque isolado”, “dois ataques” e “ataques anuais”. `docs/index.html` e os arquivos-fonte foram reconstruídos. O pacote `handoff_claude/PROMPT_CLAUDE.md` recebeu instruções para diagramar o Material e Métodos como infográfico Notelm encadeado.
 - Em 21/11/2026, ficou explícito no pacote de handoff que o Claude não deve criar clones Git nem repositórios paralelos: a tarefa deve ser realizada no checkout já disponibilizado pela sessão, preservando o repositório e usando uma branch de trabalho apropriada.
 - Em 21/11/2026, foi preparado `handoff_claude/FLUXOGRAMAS_METODOS.md` com cinco fluxogramas do Material e Métodos e uma tabela de usos permitidos das referências. Os diagramas distinguem verificação, calibração, validação cruzada interna, comparação bibliográfica e confirmação empírica pendente.
+- Em 21/11/2026, os cinco fluxogramas foram renderizados com Mermaid CLI para arquivos PNG e SVG em `handoff_claude/diagramas/`, acompanhados das fontes `.mmd`. As imagens foram conferidas visualmente e registradas no arquivo de handoff.
 
 ---
 # Progresso
 ## Feito
+- Em 21/11/2026, renderizados cinco fluxogramas reais do Material e Métodos em PNG e SVG: arquitetura geral, ciclo mensal, cenários, calibração/evidências e escada de interpretação. Fontes Mermaid preservadas em `handoff_claude/diagramas/` e a lista vinculada em `handoff_claude/FLUXOGRAMAS_METODOS.md`.
 - Em 21/11/2026, criado o pacote `handoff_claude/FLUXOGRAMAS_METODOS.md`: arquitetura geral, ciclo mensal do 3-PG, cenários de ataque, calibração/evidências e escada de interpretação. Incluída tabela que condiciona o uso das referências a comparação, benchmark ou limite do estudo.
 - Em 21/11/2026, registrado no handoff e nas decisões que o Claude não precisa criar clones Git nem repositórios paralelos; ele deve usar o checkout já disponibilizado pela sessão.
 - Em 21/11/2026, removidos os rótulos visíveis “pulso/pulsos” do simulador: fonte principal, conceitos, dados das tabelas e protótipo 3D passaram a usar “ataque isolado”, “dois ataques” e “ataques anuais”. `docs/index.html` foi reconstruído por `plataforma/construir.py`.
@@ -146,6 +148,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11/2026: o Material e Métodos do TCC terá instrução específica para o Claude construir uma explicação em formato de infográfico Notelm: encadeamento visual objetivo → dados e locais → 3-PG → desfolha → cenários → calibração → simulações → metamodelo → indicadores → interpretação. O simulador não deve usar “pulso/pulsos” em rótulos visíveis.
 - 21/11/2026: o Claude não precisa nem deve criar clones Git desta tarefa. O trabalho deve começar no checkout já disponibilizado pela sessão, preservando o repositório existente e usando uma branch de trabalho apropriada, sem inicializar ou duplicar o projeto em diretórios paralelos.
 - 21/11/2026: preparar no handoff cinco fluxogramas do Material e Métodos em formato Mermaid: arquitetura geral, ciclo mensal, construção dos cenários, calibração/evidências e escada de interpretação. A tabela de referências limita cada uso à evidência disponível e mantém pendentes inventários, metadados TECHS e confirmação empírica independente.
+- 21/11/2026: manter em `handoff_claude/diagramas/` as fontes Mermaid auditáveis e exportações PNG/SVG dos cinco fluxogramas. As imagens acompanham a distinção científica entre verificação, calibração, comparação bibliográfica e confirmação empírica pendente.
 
 ---
 # Contexto técnico
@@ -159,6 +162,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 21/11 17:07 docs: adicionar fluxogramas do Material e Metodos
 - 21/11 16:58 Merge remote-tracking branch 'origin/main' into finalizacao-claude
 - 21/11 16:56 docs: informar Claude para nao criar clones
 - 21/11 16:52 docs: orientar infografico do metodo e retirar pulso do simulador
@@ -173,7 +177,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11 13:53 documentaÃ§Ã£o: atualizar histÃ³rico da passagem
 - 21/11 13:52 Merge origin/main into finalizacao-claude
 - 21/11 13:44 documentaÃ§Ã£o: registrar passagem e validaÃ§Ãµes finais
-- 21/11 13:44 entregavel: DOCX e PDF regenerados
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.

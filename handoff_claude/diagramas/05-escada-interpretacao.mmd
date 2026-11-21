@@ -1,0 +1,14 @@
+flowchart TB
+    A["O que foi conferido no código"] --> B["O que foi calibrado em um experimento"]
+    B --> C["O que foi reproduzido em comparação bibliográfica"]
+    C --> D["O que permanece como resultado de simulação"]
+    D --> E["O que exige confirmação em campo"]
+    E --> F["Inventários independentes compatíveis<br/>Item pendente"]
+
+    G["Reservas e sobrevivência"] -.-> C
+    H["Eyles et al., 2009 e 2016"] -.-> G
+    I["Borzak et al., 2016"] -.-> G
+    J["Firmino, 2011"] -.-> G
+    K["Persistência após anos"] -.-> E
+    L["Matrangolo et al., 2010"] -.-> K
+    M["Caldeira et al., 2020"] -.-> B
