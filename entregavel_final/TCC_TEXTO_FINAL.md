@@ -42,7 +42,11 @@ O trabalho usa dados secundários e simulação computacional. Não houve coleta
 
 O 3-PG calcula a produção mensal de biomassa a partir da radiação interceptada pelo dossel, modificada por temperatura, déficit de pressão de vapor, água disponível e fertilidade (LANDSBERG; WARING, 1997). A implementação usada é o motor do projeto Akademia, em Python, com equações conferidas contra a versão em JavaScript do simulador. Na comparação de oito cenários, a diferença relativa entre as duas versões foi de 1,4 × 10⁻¹⁴.
 
+![Fluxograma 1. Arquitetura geral do estudo: objetivo, entradas secundárias, modelagem mensal, danos à copa, cenários, calibração, simulações, metamodelo e interpretação.](../handoff_claude/diagramas/01-arquitetura-geral.png)
+
 O módulo de desfolha remove, em cada mês de ataque, uma fração da área foliar proporcional à intensidade escolhida. A intensidade pode ser de 25%, 50% ou 95% da copa. A desfolha pode ocorrer uma única vez, todos os anos durante seis anos ou em abril, julho ou outubro. A compensação fisiológica aumenta a fotossíntese por folha que permanece após a perda, e a recuperação restabelece o índice de área foliar. Os parâmetros de compensação usados são U = 1,18, a = 0,625, γ = 1,0 e atraso de um mês, valores medianos da calibração descrita em 3.4.
+
+![Fluxograma 2. Ciclo mensal do 3-PG com desfolha: dados ambientais, luz captada, crescimento, ocorrência de ataque, compensação, atualização dos estoques e preparo do mês seguinte.](../handoff_claude/diagramas/02-ciclo-mensal.png)
 
 ### 3.2 Materiais genéticos
 
@@ -88,9 +92,13 @@ Foram usados três sítios: Indianópolis-MG (IND), Imperatriz-MA (IMP) e Telêm
 
 A calibração usou o experimento de desfolha artificial sucessiva com clones de *Eucalyptus* em Campo Verde-MT, em que dois clones foram desfolhados duas vezes (BERTULIO et al., 2008). O material desse experimento é um híbrido urograndis, e não o A1; por isso, o resultado é tratado como transferência. A calibração ajustou U, a e γ de modo que a perda simulada se aproximasse da observada nesse experimento. A versão original do modelo, sem compensação, foi mantida para comparação.
 
+![Fluxograma 3. Calibração, verificação e evidências: verificação da implementação, calibração com Bertulio et al. (2008), validação cruzada interna, comparação adaptada e confirmação empírica pendente.](../handoff_claude/diagramas/04-calibracao-evidencias.png)
+
 ### 3.5 Cenários
 
 Para cada material e sítio, foram simulados o controle sem desfolha e desfolhas de 25%, 50% e 95%. Cada ataque foi testado como evento isolado, repetição anual por seis anos ou ocorrência em abril, julho ou outubro. Cada cenário foi comparado com o controle da mesma versão, original ou calibrada, pela perda de volume aos 84 meses, em porcentagem. O script que gera os cenários está no repositório do projeto e reproduz todas as saídas deste trabalho.
+
+![Fluxograma 4. Construção dos cenários a partir da intensidade, da época e da frequência do ataque, comparados nas versões original e calibrada.](../handoff_claude/diagramas/03-cenarios.png)
 
 ### 3.6 Avaliação do modelo e alcance dos resultados
 
@@ -101,6 +109,8 @@ O trabalho separa três etapas, que não se condicionam entre si.
 3. **Confirmação empírica.** Comparação entre resultados simulados e observações independentes. Só é feita se houver dados de local, material genético, idade, variáveis dendrométricas e período de medição compatíveis. Quando esses dados não estão disponíveis, a etapa não é substituída por comparações bibliográficas, e a limitação é declarada.
 
 Comparações com resultados publicados (Oliveira et al., 2014; Matrangolo et al., 2010; Rua et al., 2020) são tratadas como comparações de ordem de grandeza, não como validação experimental. O teste de Oliveira et al. (2014) usa outra espécie e o clone C5, e é reportado como comparação adaptada.
+
+![Fluxograma 5. Escada de interpretação: o que foi conferido no código, calibrado, comparado com a literatura, observado em simulação e ainda depende de confirmação empírica em campo.](../handoff_claude/diagramas/05-escada-interpretacao.png)
 
 ### 3.7 Reprodutibilidade
 

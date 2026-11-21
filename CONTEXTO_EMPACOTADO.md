@@ -86,6 +86,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Em 21/11/2026, foi preparado `handoff_claude/FLUXOGRAMAS_METODOS.md` com cinco fluxogramas do Material e Métodos e uma tabela de usos permitidos das referências. Os diagramas distinguem verificação, calibração, validação cruzada interna, comparação bibliográfica e confirmação empírica pendente.
 - Em 21/11/2026, os cinco fluxogramas foram renderizados com Mermaid CLI para arquivos PNG e SVG em `handoff_claude/diagramas/`, acompanhados das fontes `.mmd`. As imagens foram conferidas visualmente e registradas no arquivo de handoff.
 - Em 21/11/2026, o texto de verificação foi corrigido para não apresentar o RQEM mensal como crosscheck e passou a declarar o crosscheck direto disponível: 23.873 pares por variável e diferença relativa máxima de 5,288 × 10⁻¹⁵. A pendência duplicada foi reduzida a um único item de reexecução do R. Nenhum push foi realizado.
+- Em 21/11/2026, os cinco fluxogramas do Material e Métodos foram incorporados ao texto do TCC e embutidos no DOCX nas seções 3.1, 3.4, 3.5 e 3.6. Arquitetura geral e ciclo mensal explicam o processo; cenários mostram intensidade, época e frequência; calibração/evidências separa verificação, validação cruzada interna e comparação adaptada; a escada de interpretação termina em confirmação empírica pendente. O DOCX final contém 17 imagens e o PDF 33 páginas. Auditoria numérica: 552/552 itens.
 ```
 
 ## memoria/progresso.md
@@ -128,6 +129,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 5. Confirmar se a auditoria pós-PR deve ser publicada em um PR de acompanhamento; preservar a falha de RQEM enquanto sua origem não for investigada.
 
 - Em 21/11/2026, fechada nesta sessão a correção da alegação r3PG: auditor ajustado ao crosscheck direto, 552/552 checagens aprovadas e uma única pendência de reexecução do R. Nenhum arquivo foi enviado ao Google Drive ou registrado no Diário nesta sessão.
+- Em 21/11/2026, incorporados ao `TCC_TEXTO_FINAL.md` e ao DOCX final os fluxogramas 1–5 dos diagramas em `handoff_claude/diagramas/`. O PDF foi regenerado em 33 páginas. Verificação estrutural confirmou cinco legendas dos fluxogramas e 17 imagens no DOCX; `git diff --check` passou e a auditoria numérica confirmou 552/552 itens.
 ```
 
 ## memoria/decisoes.md
@@ -163,6 +165,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11/2026: manter em `handoff_claude/diagramas/` as fontes Mermaid auditáveis e exportações PNG/SVG dos cinco fluxogramas. As imagens acompanham a distinção científica entre verificação, calibração, comparação bibliográfica e confirmação empírica pendente.
 - 21/11/2026: fechar a regeneração local do DOCX/PDF completo nesta branch sem publicar ou mascarar divergências. Preservar o crosscheck direto de r3PG e declarar explicitamente que o validador oficial DOCX continua indisponível.
 - 21/11/2026: corrigir o auditor para ler `experimentos/r_check/resultado_crosscheck.csv`, com 23.873 pares por variável e limite de diferença relativa de 2e-13. Não usar o merge mensal como RQEM sem saída disponível.
+- 21/11/2026: incorporar ao corpo do TCC os cinco fluxogramas reais do Material e Métodos, posicionados nas seções pertinentes. Os nomes visíveis seguem “ataque isolado”, “dois ataques” e “ataques anuais”; a cadeia mantém distinção entre verificação, calibração, comparação bibliográfica e confirmação empírica pendente.
 ```
 
 ## memoria/tecnico.md
