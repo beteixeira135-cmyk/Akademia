@@ -32,6 +32,19 @@ independência.
    rode `python3 ferramentas/pipeline.py verificar`.
 
 ## Tarefas
+### Infográfico do Material e Métodos
+Ao explicar o Material e Métodos, transformá-los em um fluxograma ilustrado no estilo de
+infográfico acadêmico. Conectar visualmente: objetivo → locais e dados de entrada →
+3-PG mensal → desfolha e demais danos → combinação dos cenários → calibração →
+simulações → metamodelo Random Forest → indicadores → interpretação. Cada etapa deve
+possuir texto curto ao lado ou abaixo, indicando o que ela faz e por que a próxima depende dela.
+
+Usar português claro para quem não conhece modelagem. Não mostrar “pulso/pulsos”, códigos
+P1/P2/PA ou siglas sem explicar a primeira ocorrência. Para os calendários visíveis, usar
+“ataque isolado”, “dois ataques” e “ataques anuais”. Manter as distinções entre verificação,
+calibração, validação cruzada interna e confirmação empírica independente. Não inventar
+dados, referências ou resultados e indicar os itens pendentes como pendentes.
+
 1. Corrigir `tcc_docx/conteudo.js`: parametrizar o caminho `FIG` (hoje hard-coded
    `/home/claude/tcc/...`, achado F3) e conferir todas as `fig:` com caminhos absolutos.
 2. Conferir a Figura 10 (`N3_possibilidades.png`) e sua origem em

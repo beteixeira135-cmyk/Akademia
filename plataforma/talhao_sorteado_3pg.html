@@ -325,7 +325,7 @@ const DADOS = {"materiais":{"A1":{"params":{"pFS2":0.5,"pFS20":0.15,"aWs":0.0249
 const ASW_REF = 190.6, FR_MIN = 0.5483, ALT_A1 = { aH: 3.313814, nHB: 0.715203 };
 const SIT = { IND: "Indianópolis-MG", TB: "Telêmaco Borba-PR", IMP: "Imperatriz-MA" };
 const MAT = { A1: "A1 · E. urophylla", C5: "C5 · híbrido Cerrado", C2: "C2 · clone 3336 Curvelo", C4: "C4 · clone 3336 Itacambira" };
-const FREQ = { P1: "Pulso único", P2: "Dois pulsos", PA: "Pulsos anuais" };
+const FREQ = { P1: "Ataque isolado", P2: "Dois ataques", PA: "Ataques anuais" };
 const EPOCA = { 1: "jan", 4: "abr", 7: "jul", 10: "out" };
 const AGUA = { LOC: "Solo local", 100: "100%", 75: "75%", 50: "50%", 25: "25%" };
 const FERT = { 100: "F100", 75: "F75", 50: "F50", 25: "F25" };
@@ -372,7 +372,7 @@ const DEF_FATORES = [
   { id: "solo", nome: "Solo: água e fertilidade", tipo: "solo" },
   { id: "d", nome: "Intensidade da desfolha", tipo: "faixa" },
   { id: "freq", nome: "Frequência", tipo: "chips", op: FREQ, chave: "freq" },
-  { id: "epoca", nome: "Época do pulso", tipo: "chips", op: EPOCA, chave: "epoca", num: true },
+  { id: "epoca", nome: "Época do ataque", tipo: "chips", op: EPOCA, chave: "epoca", num: true },
 ];
 function chips(op, atual, onPick, num) {
   return `<div class="chips">${Object.entries(op).map(([k, v]) => `<button type="button" class="chip" data-k="${k}" aria-pressed="${String(atual) === String(k)}">${v}</button>`).join("")}</div>`;
@@ -591,7 +591,7 @@ const PASSOS = [
     h: `<p>Lagartas e doenças arrancam folhas do eucalipto. Sem folha, a árvore capta menos luz e produz menos madeira. Quanto se perde depende da <b>intensidade</b>, da <b>frequência</b> e da <b>época</b> do ataque, do <b>clima</b>, do <b>solo</b> e do <b>material genético</b>.</p><p>Testar tudo isso em campo levaria décadas. Este simulador testa no computador.</p>` },
   { t: "O motor: modelo 3-PG", alvo: "palco", acao: "tocar", h: `<p>O 3-PG calcula, mês a mês, quanta luz o dossel absorve e transforma isso em carbono. O carbono vai para folhas, lenho e raízes, limitado por temperatura, água no solo e idade.</p><p>Aqui, um talhão de <b>clone A1</b> em <b>Indianópolis-MG</b>, plantado em 3 × 3 m, cresce até 8 anos. Ainda sem ataque, as duas metades são iguais.</p>` },
   { t: "O módulo de desfolha", alvo: "f-d", estado: { d: 50 }, idade: 24, h: `<p>O 3-PG original não tem pragas. Nós acrescentamos uma regra: no mês do ataque, antes de calcular a luz, a biomassa foliar perde a fração <i>d</i>.</p><div class="eq">W<sub>F,pós</sub> = W<sub>F,pré</sub> · (1 − d)</div><p>Aqui, 50% em janeiro de 2017, aos 24 meses. Veja as copas da direita afinarem. Nenhuma outra equação do modelo foi mexida.</p>` },
-  { t: "Controle × desfolhado", alvo: "cartao", idade: 84, h: `<p>A metade esquerda nunca é atacada e serve de <b>controle</b>. Tudo é comparado com ela, no mesmo mês:</p><div class="eq">perda = 100 · (1 − desfolhado / controle)</div><p>Com 50% de desfolha num único pulso, o A1 perde cerca de 3% do volume aos 7 anos.</p>` },
+  { t: "Controle × desfolhado", alvo: "cartao", idade: 84, h: `<p>A metade esquerda nunca é atacada e serve de <b>controle</b>. Tudo é comparado com ela, no mesmo mês:</p><div class="eq">perda = 100 · (1 − desfolhado / controle)</div><p>Com 50% de desfolha em ataque isolado, o A1 perde cerca de 3% do volume aos 7 anos.</p>` },
   { t: "As folhas voltam, o lenho não", alvo: "g-ws", acao: "tocar", h: `<p>A folhagem volta ao nível de antes em poucos meses, mas leva cerca de 2 anos para alcançar 95% do controle. O lenho que deixou de crescer nesse período não é recuperado.</p><p>É por isso que a linha laranja de lenho fica abaixo da tracejada até o fim.</p>` },
   { t: "Frequência pesa muito", alvo: "f-freq", estado: { freq: "PA", d: 50 }, acao: "tocar", h: `<p>Agora o ataque se repete <b>todo ano</b>, de 2017 a 2022. O dossel nunca termina de se refazer, e a perda de volume sobe para cerca de 14%. Com 95% todo ano, passa de 50%.</p>` },
   { t: "A época também conta", alvo: "f-epoca", estado: { freq: "P1", d: 50, epoca: 4 }, idade: 84, h: `<p>O mesmo ataque de 50% em <b>abril</b>, início da seca no Cerrado, custa menos (cerca de 1,7%) do que em <b>outubro</b> (3,7%). Com menos folhas, a árvore transpira menos e guarda água para os meses secos.</p><p>Troque a época no painel e compare.</p>` },
