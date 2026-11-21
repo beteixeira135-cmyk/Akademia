@@ -1,4 +1,4 @@
-# PASSAGEM DE BASTÃO — TCC II (6574 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 13:52)
+# PASSAGEM DE BASTÃO — TCC II (6578 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 13:52)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
 Para o código completo, use `CONTEXTO_EMPACOTADO.md` (25551 tokens, estimativa (caracteres ÷ 3,6)).
@@ -130,6 +130,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 21/11 13:52 Merge origin/main into finalizacao-claude
 - 21/11 13:44 documentaÃ§Ã£o: registrar passagem e validaÃ§Ãµes finais
 - 21/11 13:44 entregavel: DOCX e PDF regenerados
 - 21/11 13:43 texto: sem inventÃ¡rio, nÃºmeros da matriz de seis materiais
@@ -137,14 +138,13 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11 13:23 entregavel: corrigir caminhos do gerador e registrar pendÃªncias
 - 21/11 13:23 figuras: preparar gerador N3 e corrigir legenda da Figura 9
 - 21/11 16:25 dados: matriz de seis materiais (22.752 cenÃ¡rios) e script que a gera
+- 21/11 07:52 Merge pull request #4 from beteixeira135-cmyk/tcc-ii-finalizacao-auditoria
+- 21/11 07:45 Add Akademia Claude Code skill
+- 21/11 07:35 Merge pull request #3 from beteixeira135-cmyk/tcc-ii-finalizacao-auditoria
+- 21/11 07:29 Audit final TCC delivery inputs
 - 21/11 09:09 finalizacao: entregavel_final com DOCX UFU, texto-fonte, gerador e figuras
 - 21/11 09:07 finalizacao: caminhos relativos no gerador do TCC, QR e SoilGrids; gera DOCX
 - 21/11 09:00 finalizacao: caminho FIG relativo ao repositorio (correcao F3) e handoff_claude/
-- 19/11 11:58 Merge pull request #1 from beteixeira135-cmyk/beteixeira135-cmyk-recuperacao-e-persistencia
-- 19/11 11:56 Record simulator display verification
-- 19/11 11:55 Improve Akademia simulator page rendering
-- 19/11 11:45 Document TECHS 22 benchmark limits
-- 19/11 11:36 Document public TECHS data limits
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
