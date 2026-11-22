@@ -11,11 +11,10 @@ permanecem registradas no TCC e não são pedidos de dados nem tarefas abertas d
   22. A série meteorológica específica da parcela TECHS 22 também não foi acessada; as
   simulações usam a série municipal NASA POWER. Os valores agregados publicados são usados
   somente como benchmarks adaptados, não como validação independente.
-- **VPD:** o modelo calcula `vpd_day` com temperaturas mínima e máxima. Embora os arquivos
-  municipais NASA POWER contenham RH2M, essa variável não entra no cálculo. O script
-  `teste_vpd.py` citado em versões anteriores não está nesta versão do repositório, e não há
-  análise reproduzível que isole causalmente o VPD com RH2M. O texto não afirma que VPD
-  explica ou deixa de explicar os ganhos simulados.
+- **VPD:** o modelo mantém o cálculo padrão de `vpd_day` por Tmax e Tmin. A nova análise
+  reproduzível compara essa entrada com uma estimativa alternativa baseada em RH2M nos
+  mesmos cenários e controles. Ela mede sensibilidade às entradas climáticas, não valida
+  VPD em campo nem explica causalmente os ganhos simulados.
 - **Random Forest:** a análise filtra os cenários marcados como aptos antes do ajuste; usa
   fatores de cenário, água, fertilidade, local e material, mas não VPD. A validação cruzada
   mede a reprodução de saídas simuladas, não validação independente em campo.
@@ -23,9 +22,11 @@ permanecem registradas no TCC e não são pedidos de dados nem tarefas abertas d
   inventários independentes compatíveis e dados de desfolha em campo, o TCC não declara
   validação empírica do módulo.
 
-## Verificações e entrega
+## Verificações
 
-- O validador oficial do DOCX e um renderizador PDF não estão disponíveis neste ambiente;
-  a conferência estrutural do DOCX não substitui esses procedimentos.
-- Não há extensão de Google Drive carregada nesta sessão; portanto, não houve upload nem
-  registro no Diário do TCC II. Essa limitação operacional não altera as conclusões do texto.
+- `validar_docx.py` verifica a integridade do pacote DOCX, o XML, as relações internas e as
+  imagens. Ele não implementa validação completa do esquema OOXML nem substitui a inspeção
+  visual do PDF renderizado. O teste estrutural local foi executado; o PDF não foi gerado
+  nesta sessão.
+- O LibreOffice não está disponível nesta sessão; a renderização do PDF e a conferência
+  visual de paginação ficam para a etapa de edição local do documento.

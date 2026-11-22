@@ -163,9 +163,9 @@ tratados como validação independente.
 ## Arquivos de imagem gerados
 
 Cada diagrama possui fonte Mermaid (`.mmd`) e exportações (`.svg` e `.png`) em
-`handoff_claude/diagramas/`. Os três primeiros também são renderizados por
+`handoff_claude/diagramas/`. Os quatro primeiros também são renderizados por
 `render_fluxogramas.py`, para garantir tipografia legível no DOCX sem depender de Mermaid CLI.
-Para regenerar esses três pares de imagens, execute
+Para regenerar esses quatro pares de imagens, execute
 `python handoff_claude/diagramas/render_fluxogramas.py`; mantenha os rótulos e as relações
 sincronizados entre o Mermaid e o renderizador.
 

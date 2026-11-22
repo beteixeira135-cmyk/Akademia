@@ -52,3 +52,29 @@ def clima_mensal(sitio):
     m["tmp_ave"] = (m.tmp_min + m.tmp_max) / 2
     m["vpd_day"] = (es(m.tmp_max) - es(m.tmp_min)) / 2
     return m.drop(columns="n")
+
+
+def vpd_rh2m_mensal(sitio):
+    """VPD diário com RH2M média e Tmax/Tmin, agregado pela média mensal (mbar)."""
+    d = ler_diario(RAIZ / SITIOS[sitio]["arquivo"])
+    obrigatorias = {"T2M_MAX", "T2M_MIN", "RH2M", "date"}
+    faltantes = obrigatorias.difference(d.columns)
+    if faltantes:
+        raise ValueError(f"{sitio}: dados NASA POWER sem colunas {sorted(faltantes)}")
+    if d[["T2M_MAX", "T2M_MIN", "RH2M"]].isna().any().any():
+        raise ValueError(f"{sitio}: Tmax/Tmin/RH2M contém valores ausentes")
+    if ((d.RH2M < 0) | (d.RH2M > 100)).any():
+        raise ValueError(f"{sitio}: RH2M fora do intervalo de 0 a 100%")
+    es = lambda t: 6.10780 * np.exp(17.2690 * t / (237.30 + t))
+    es_dia = (es(d.T2M_MAX) + es(d.T2M_MIN)) / 2.0
+    vpd_dia = es_dia * (1.0 - d.RH2M / 100.0)
+    agrupado = d.groupby([d.date.dt.year.rename("year"), d.date.dt.month.rename("month")])
+    saida = vpd_dia.groupby([d.date.dt.year.rename("year"), d.date.dt.month.rename("month")]).mean()
+    dias = agrupado.size()
+    esperado = pd.to_datetime(
+        dict(year=dias.index.get_level_values(0),
+             month=dias.index.get_level_values(1), day=1)
+    ).dt.days_in_month
+    if not (dias.to_numpy() == esperado.to_numpy()).all():
+        raise ValueError(f"{sitio}: há mês incompleto na série de VPD baseada em RH2M")
+    return saida.rename("vpd_rh2m").reset_index()

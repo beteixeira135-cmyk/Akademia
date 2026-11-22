@@ -148,7 +148,7 @@ razão mediana,1.9,1.9,True
 amplitude máx,4.1,4.1,True
 Figura 4 combinações,192.0,192.0,True
 Figura 4 painéis sítio-material,12.0,12.0,True
-Figura 4 tem 16 combinações por painel,1.0,1.0,True
+Figura 4 tem 16 combinações por painel,1,1.0,True
 Figura 4 células diagnósticas IMP-A1,16.0,16.0,True
 Figura 4 máximo incluindo diagnóstico,6.79,6.79,True
 Figura 4 limite superior da escala,7.0,7.0,True
@@ -196,6 +196,20 @@ n volume 1848,1848.0,1848.0,True
 n recup,1720.0,1720.0,True
 meses no diagnóstico fVPD,84.0,84.0,True
 fVPD médio IND-A1-W100,0.62,0.62,True
+VPD RH2M ASWmax IND,215.0,215.0,True
+VPD RH2M status IND,análise principal,1.0,True
+VPD RH2M ASWmax TB,214.0,214.0,True
+VPD RH2M status TB,análise principal,1.0,True
+VPD RH2M ASWmax IMP,210.0,210.0,True
+VPD RH2M status IMP,diagnóstico (fT=0; fora da análise principal),1.0,True
+VPD padrão médio IND,9.67,9.67,True
+VPD RH2M médio IND,9.86,9.86,True
+VPD RH2M diferença média IND,0.19,0.19,True
+VPD RH2M diferença de perda IND,0.49,0.49,True
+VPD padrão médio TB,8.1,8.1,True
+VPD RH2M médio TB,6.31,6.31,True
+VPD RH2M diferença média TB,-1.79,-1.79,True
+VPD RH2M diferença de perda TB,-0.7,-0.7,True
 imp vol intensidade,58.8,58.8,True
 imp vol frequência,36.6,36.6,True
 imp vol local,1.7,1.7,True
@@ -522,7 +536,7 @@ U post máx,1.18,1.18,True
 a post mín,0.61,0.61,True
 a post máx,0.86,0.86,True
 NASA POWER TB dias 2015–2024,3653.0,3653.0,True
-NASA POWER TB cobre 2015-01-01 a 2024-12-31,1.0,1.0,True
+NASA POWER TB cobre 2015-01-01 a 2024-12-31,1,1.0,True
 NASA POWER TB meses agregados,120.0,120.0,True
 NASA POWER TB latitude municipal,-24.3239,-24.3239,True
 NASA POWER TB longitude municipal,-50.6158,-50.6158,True
@@ -557,7 +571,7 @@ T1 ARA ASW máx,198.0,198.0,True
 6mat cenários totais,22752.0,22752.0,True
 6mat cenários aptos,20856.0,20856.0,True
 6mat materiais,6.0,6.0,True
-locais comuns aptos aos seis materiais,1.0,1.0,True
+locais comuns aptos aos seis materiais,1,1.0,True
 6mat aptos original,10428.0,10428.0,True
 6mat cenários com desfolha original,8448.0,8448.0,True
 6mat recuperação foliar original,4356.0,4356.0,True
@@ -600,7 +614,7 @@ locais comuns aptos aos seis materiais,1.0,1.0,True
 6mat ganhos calibrados frequência PA,62.0,62.0,True
 6mat ganhos apenas por desfolha,66.0,66.0,True
 6mat ganhos apenas por desfolha a 25 ou 50%,54.0,54.0,True
-"6mat ganho máximo em IMP/C2/25%/anual/julho, sem r ou m",1.0,1.0,True
+"6mat ganho máximo em IMP/C2/25%/anual/julho, sem r ou m",1,1.0,True
 6mat ganhos originais em TB,2.0,2.0,True
 6mat ganhos originais em C3,1.0,1.0,True
 6mat ganhos originais em C5,1.0,1.0,True

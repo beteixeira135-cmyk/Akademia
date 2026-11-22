@@ -16,6 +16,7 @@ K = pd.read_csv(S / "estatisticas/D_kfold_resumo.csv"); G = pd.read_csv(S / "est
 IMP = pd.read_csv(S / "estatisticas/C_importancia_variaveis.csv"); TC = pd.read_csv(S / "estatisticas/C_metamodelo_validacao_cruzada.csv")
 A = pd.read_csv(S / "estatisticas/A_verificacao.csv"); MOR = pd.read_csv(S / "sensibilidade_morris_A1_3sitios.csv")
 RC = pd.read_csv(X / "r_check" / "resultado_crosscheck.csv")
+VPD = pd.read_csv(S / "analise_vpd_rh2m.csv")
 Q1 = pd.read_csv(S / "Q1_Q4_agua_vs_fertilidade.csv"); DEC = pd.read_csv(S / "sensibilidade_decomposicao_fatorial.csv")
 Q3 = pd.read_csv(S / "Q3_FR_exploratorio.csv", header=[0, 1], index_col=[0, 1])["perda_volume_k72"]
 M = pd.read_csv(S / "matriz_tratamentos.csv")
@@ -23,7 +24,7 @@ v = lambda s, m, cal, d, col="perda_volume_k72": L[(L.sitio == s) & (L.material 
 ok = []; 
 def chk(rot, texto, calc, dec=1):
     c = round(float(calc), dec); t = float(str(texto).replace(",", "."))
-    ok.append(dict(item=rot, texto=texto, calculado=c, ok=abs(c - t) <= 10 ** -dec * 0.51 + 1e-9))
+    ok.append(dict(item=rot, texto=t, calculado=c, ok=abs(c - t) <= 10 ** -dec * 0.51 + 1e-9))
 def chk_cond(rot, texto, calc, passou):
     ok.append(dict(item=rot, texto=texto, calculado=float(calc), ok=bool(passou)))
 # matriz
@@ -132,6 +133,29 @@ _adv_vpd_n = int(re.search(r"fSW>0,95 = \d+/(\d+)", _adv_vpd).group(1))
 _adv_vpd_mean = float(re.search(r"fVPD médio ([0-9.]+)", _adv_vpd).group(1))
 chk("meses no diagnóstico fVPD", 84, _adv_vpd_n, 0)
 chk("fVPD médio IND-A1-W100", 0.62, _adv_vpd_mean, 2)
+for sitio, asw in [("IND", 215), ("TB", 214), ("IMP", 210)]:
+    _vpd = VPD[VPD.sitio == sitio].iloc[0]
+    chk(f"VPD RH2M ASWmax {sitio}", asw, _vpd.asw_max_mm, 0)
+    _status_vpd = (
+        "diagnóstico (fT=0; fora da análise principal)"
+        if sitio == "IMP"
+        else "análise principal"
+    )
+    chk_cond(
+        f"VPD RH2M status {sitio}",
+        _status_vpd,
+        1,
+        _vpd.status == _status_vpd,
+    )
+for sitio, vpd_padrao, vpd_rh2m, delta_vpd, delta_perda in [
+    ("IND", 9.67, 9.86, 0.19, 0.49),
+    ("TB", 8.10, 6.31, -1.79, -0.70),
+]:
+    _vpd = VPD[VPD.sitio == sitio].iloc[0]
+    chk(f"VPD padrão médio {sitio}", vpd_padrao, _vpd.vpd_proxy_medio_mbar, 2)
+    chk(f"VPD RH2M médio {sitio}", vpd_rh2m, _vpd.vpd_rh2m_medio_mbar, 2)
+    chk(f"VPD RH2M diferença média {sitio}", delta_vpd, _vpd.diferenca_vpd_media_mbar, 2)
+    chk(f"VPD RH2M diferença de perda {sitio}", delta_perda, _vpd.diferenca_perda_pp, 2)
 im = IMP[IMP.escopo == "3 locais"].set_index(["resposta", "variavel"]).importancia_relativa_pct
 for var, val in [("intensidade", 58.8), ("frequência", 36.6), ("local", 1.7), ("material genético", 1.2)]:
     chk(f"imp vol {var}", val, im[("perda_volume_k72", var)], 1)

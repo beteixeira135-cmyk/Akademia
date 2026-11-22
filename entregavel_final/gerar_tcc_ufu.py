@@ -277,6 +277,7 @@ def main():
                 "01-arquitetura-geral.png",
                 "02-ciclo-mensal.png",
                 "03-cenarios.png",
+                "04-calibracao-evidencias.png",
             } else 15
             pic.add_run().add_picture(str(caminho), width=Cm(largura))
             cap = mf.group(1)

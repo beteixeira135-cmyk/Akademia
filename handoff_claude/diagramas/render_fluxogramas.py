@@ -270,7 +270,52 @@ def scenario_matrix():
     d.render_png()
 
 
+def evidence_ladder():
+    d = Diagram("04-calibracao-evidencias", 1800, 1740)
+    w, h, left, right = 760, 205, 70, 970
+    rows = (70, 350, 630, 910, 1190, 1470)
+    labels = [
+        "Verificação da\nimplementação",
+        "308 controles\nsem ataque",
+        "Calibração da\ncompensação",
+        "Dados de Bertulio\net al. (2008)",
+        "Validação cruzada\ninterna",
+        "Testes repetidos no\nmesmo experimento",
+        "Comparação externa\nadaptada",
+        "Oliveira et al.\n(2014)",
+        "Benchmark\nagregado",
+        "Binkley et al. (2017)\nResultados agregados TECHS",
+        "Confirmação empírica\nindependente pendente",
+    ]
+    positions = [
+        (left, rows[0]), (right, rows[0]),
+        (left, rows[1]), (right, rows[1]),
+        (left, rows[2]), (right, rows[2]),
+        (left, rows[3]), (right, rows[3]),
+        (left, rows[4]), (right, rows[4]),
+        (left, rows[5]),
+    ]
+    nodes = [
+        d.node(f"E{index + 1}", label, x, y, w, h,
+               PALE_GOLD if index in {2, 6, 8, 10} else PALE)
+        for index, (label, (x, y)) in enumerate(zip(labels, positions))
+    ]
+    # Serpentine links keep all evidence stages in chronological order.
+    d.edge([center_right(nodes[0]), center_left(nodes[1])])
+    d.edge([center_bottom(nodes[1]), (right + w / 2, rows[1] - 35), (left + w / 2, rows[1] - 35), center_top(nodes[2])])
+    d.edge([center_right(nodes[2]), center_left(nodes[3])])
+    d.edge([center_bottom(nodes[3]), (right + w / 2, rows[2] - 35), (left + w / 2, rows[2] - 35), center_top(nodes[4])])
+    d.edge([center_right(nodes[4]), center_left(nodes[5])])
+    d.edge([center_bottom(nodes[5]), (right + w / 2, rows[3] - 35), (left + w / 2, rows[3] - 35), center_top(nodes[6])])
+    d.edge([center_right(nodes[6]), center_left(nodes[7])])
+    d.edge([center_bottom(nodes[7]), (right + w / 2, rows[4] - 35), (left + w / 2, rows[4] - 35), center_top(nodes[8])])
+    d.edge([center_right(nodes[8]), center_left(nodes[9])])
+    d.edge([center_bottom(nodes[9]), (right + w / 2, rows[5] - 35), (left + w / 2, rows[5] - 35), center_top(nodes[10])])
+    d.render_png()
+
+
 if __name__ == "__main__":
     architecture()
     monthly_cycle()
     scenario_matrix()
+    evidence_ladder()
