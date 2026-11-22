@@ -88,6 +88,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Em 21/11/2026, o texto de verificação foi corrigido para não apresentar o RQEM mensal como crosscheck e passou a declarar o crosscheck direto disponível: 23.873 pares por variável e diferença relativa máxima de 5,288 × 10⁻¹⁵. A pendência duplicada foi reduzida a um único item de reexecução do R. Nenhum push foi realizado.
 - Em 21/11/2026, os cinco fluxogramas do Material e Métodos foram incorporados ao texto do TCC e embutidos no DOCX nas seções 3.1, 3.4, 3.5 e 3.6. Arquitetura geral e ciclo mensal explicam o processo; cenários mostram intensidade, época e frequência; calibração/evidências separa verificação, validação cruzada interna e comparação adaptada; a escada de interpretação termina em confirmação empírica pendente. O DOCX final contém 17 imagens e o PDF 33 páginas. Auditoria numérica: 552/552 itens.
 - Em 21/11/2026, o Fluxograma 2 foi convertido de ciclo vertical para leitura horizontal com três módulos: entradas, processo mensal e atualização/saída. Fonte PNG/SVG e `.mmd` foram atualizados, o DOCX foi regenerado e o PDF ficou com 31 páginas. A página 9 contém o diagrama completo e legível na largura da página; o DOCX contém 17 imagens e uma das mídias incorporadas corresponde exatamente ao PNG novo. Auditoria numérica: 552/552 itens.
+- Em 22/11/2026, foi criado `.venv` local no worktree e instalado `python-docx`, NumPy, pandas e SciPy para executar a auditoria e regenerar o DOCX sem dependências do perfil global. A auditoria confirmou 552/552 itens. `entregavel_final/TCC_II_Bernardo_Castro_FINAL.docx` foi regenerado a partir de `gerar_tcc_ufu.py`; o ZIP passou na integridade, o documento abriu com 359 parágrafos, 5 tabelas, 2 seções e 17 imagens.
 ```
 
 ## memoria/progresso.md
@@ -132,6 +133,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Em 21/11/2026, fechada nesta sessão a correção da alegação r3PG: auditor ajustado ao crosscheck direto, 552/552 checagens aprovadas e uma única pendência de reexecução do R. Nenhum arquivo foi enviado ao Google Drive ou registrado no Diário nesta sessão.
 - Em 21/11/2026, incorporados ao `TCC_TEXTO_FINAL.md` e ao DOCX final os fluxogramas 1–5 dos diagramas em `handoff_claude/diagramas/`. O PDF foi regenerado em 33 páginas. Verificação estrutural confirmou cinco legendas dos fluxogramas e 17 imagens no DOCX; `git diff --check` passou e a auditoria numérica confirmou 552/552 itens.
 - Em 21/11/2026, o Fluxograma 2 foi fechado em leitura horizontal, com três módulos encadeados. `02-ciclo-mensal.mmd`, `.png` e `.svg` foram atualizados; o DOCX foi regenerado sem cortes e o PDF foi convertido com 31 páginas. Inspeção visual da página 9 confirmou o diagrama completo; o arquivo DOCX possui 17 imagens e contém o novo PNG por SHA-256 equivalente. A reorganização do Drive continua pendente de confirmação por postcondição.
+- Em 22/11/2026, a auditoria numérica foi executada no ambiente virtual local e aprovou 552/552 itens. O DOCX final foi regenerado em `entregavel_final/TCC_II_Bernardo_Castro_FINAL.docx`, com integridade ZIP confirmada e 17 imagens incorporadas. Não houve regeneração de PDF nesta etapa e não houve upload ao Google Drive nem registro no Diário.
 ```
 
 ## memoria/decisoes.md
@@ -169,6 +171,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11/2026: corrigir o auditor para ler `experimentos/r_check/resultado_crosscheck.csv`, com 23.873 pares por variável e limite de diferença relativa de 2e-13. Não usar o merge mensal como RQEM sem saída disponível.
 - 21/11/2026: incorporar ao corpo do TCC os cinco fluxogramas reais do Material e Métodos, posicionados nas seções pertinentes. Os nomes visíveis seguem “ataque isolado”, “dois ataques” e “ataques anuais”; a cadeia mantém distinção entre verificação, calibração, comparação bibliográfica e confirmação empírica pendente.
 - 21/11/2026: apresentar o Fluxograma 2 como leitura horizontal em três módulos (“Entradas do mês”, “Processo mensal” e “Atualização e saída”), preservando o ciclo visual de retorno ao próximo mês. Não considerar a reorganização do Google Drive concluída sem confirmação direta da pasta 10 e da pasta de referências.
+- 22/11/2026: usar o `.venv` local do worktree para auditoria e geração do DOCX, mantendo `.venv` fora do Git e sem alterar o motor científico ou publicar em `main`.
 ```
 
 ## memoria/tecnico.md

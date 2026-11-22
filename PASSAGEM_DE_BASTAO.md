@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (9996 tokens, estimativa (caracteres ÷ 3,6); gerado em 21/11/2026 18:26)
+# PASSAGEM DE BASTÃO — TCC II (10272 tokens, estimativa (caracteres ÷ 3,6); gerado em 22/11/2026 04:55)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (29004 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (29263 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -79,6 +79,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Em 21/11/2026, o texto de verificação foi corrigido para não apresentar o RQEM mensal como crosscheck e passou a declarar o crosscheck direto disponível: 23.873 pares por variável e diferença relativa máxima de 5,288 × 10⁻¹⁵. A pendência duplicada foi reduzida a um único item de reexecução do R. Nenhum push foi realizado.
 - Em 21/11/2026, os cinco fluxogramas do Material e Métodos foram incorporados ao texto do TCC e embutidos no DOCX nas seções 3.1, 3.4, 3.5 e 3.6. Arquitetura geral e ciclo mensal explicam o processo; cenários mostram intensidade, época e frequência; calibração/evidências separa verificação, validação cruzada interna e comparação adaptada; a escada de interpretação termina em confirmação empírica pendente. O DOCX final contém 17 imagens e o PDF 33 páginas. Auditoria numérica: 552/552 itens.
 - Em 21/11/2026, o Fluxograma 2 foi convertido de ciclo vertical para leitura horizontal com três módulos: entradas, processo mensal e atualização/saída. Fonte PNG/SVG e `.mmd` foram atualizados, o DOCX foi regenerado e o PDF ficou com 31 páginas. A página 9 contém o diagrama completo e legível na largura da página; o DOCX contém 17 imagens e uma das mídias incorporadas corresponde exatamente ao PNG novo. Auditoria numérica: 552/552 itens.
+- Em 22/11/2026, foi criado `.venv` local no worktree e instalado `python-docx`, NumPy, pandas e SciPy para executar a auditoria e regenerar o DOCX sem dependências do perfil global. A auditoria confirmou 552/552 itens. `entregavel_final/TCC_II_Bernardo_Castro_FINAL.docx` foi regenerado a partir de `gerar_tcc_ufu.py`; o ZIP passou na integridade, o documento abriu com 359 parágrafos, 5 tabelas, 2 seções e 17 imagens.
 
 ---
 # Progresso
@@ -120,6 +121,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Em 21/11/2026, fechada nesta sessão a correção da alegação r3PG: auditor ajustado ao crosscheck direto, 552/552 checagens aprovadas e uma única pendência de reexecução do R. Nenhum arquivo foi enviado ao Google Drive ou registrado no Diário nesta sessão.
 - Em 21/11/2026, incorporados ao `TCC_TEXTO_FINAL.md` e ao DOCX final os fluxogramas 1–5 dos diagramas em `handoff_claude/diagramas/`. O PDF foi regenerado em 33 páginas. Verificação estrutural confirmou cinco legendas dos fluxogramas e 17 imagens no DOCX; `git diff --check` passou e a auditoria numérica confirmou 552/552 itens.
 - Em 21/11/2026, o Fluxograma 2 foi fechado em leitura horizontal, com três módulos encadeados. `02-ciclo-mensal.mmd`, `.png` e `.svg` foram atualizados; o DOCX foi regenerado sem cortes e o PDF foi convertido com 31 páginas. Inspeção visual da página 9 confirmou o diagrama completo; o arquivo DOCX possui 17 imagens e contém o novo PNG por SHA-256 equivalente. A reorganização do Drive continua pendente de confirmação por postcondição.
+- Em 22/11/2026, a auditoria numérica foi executada no ambiente virtual local e aprovou 552/552 itens. O DOCX final foi regenerado em `entregavel_final/TCC_II_Bernardo_Castro_FINAL.docx`, com integridade ZIP confirmada e 17 imagens incorporadas. Não houve regeneração de PDF nesta etapa e não houve upload ao Google Drive nem registro no Diário.
 
 ---
 ## Calibração (lido de calibracao/saida/calibracao_d0999.json)
@@ -160,6 +162,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11/2026: corrigir o auditor para ler `experimentos/r_check/resultado_crosscheck.csv`, com 23.873 pares por variável e limite de diferença relativa de 2e-13. Não usar o merge mensal como RQEM sem saída disponível.
 - 21/11/2026: incorporar ao corpo do TCC os cinco fluxogramas reais do Material e Métodos, posicionados nas seções pertinentes. Os nomes visíveis seguem “ataque isolado”, “dois ataques” e “ataques anuais”; a cadeia mantém distinção entre verificação, calibração, comparação bibliográfica e confirmação empírica pendente.
 - 21/11/2026: apresentar o Fluxograma 2 como leitura horizontal em três módulos (“Entradas do mês”, “Processo mensal” e “Atualização e saída”), preservando o ciclo visual de retorno ao próximo mês. Não considerar a reorganização do Google Drive concluída sem confirmação direta da pasta 10 e da pasta de referências.
+- 22/11/2026: usar o `.venv` local do worktree para auditoria e geração do DOCX, mantendo `.venv` fora do Git e sem alterar o motor científico ou publicar em `main`.
 
 ---
 # Contexto técnico
@@ -173,6 +176,10 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 22/11 04:11 Merge pull request #9 from beteixeira135-cmyk/finalizacao-secao-3-8
+- 22/11 07:11 tcc: secao 3.8 trajetoria metodologica e reutilizacao; Quadro 2 de evidencias; DOCX e PDF regenerados a partir da main
+- 21/11 19:35 Merge pull request #8 from beteixeira135-cmyk/finalizacao-claude
+- 21/11 18:26 Corrige leitura horizontal do Fluxograma 2
 - 21/11 17:27 incorpora fluxogramas ao TCC final
 - 21/11 17:22 corrige crosscheck r3PG no TCC final
 - 21/11 17:11 docs: renderizar fluxogramas do metodo
@@ -184,10 +191,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11 16:37 docs: integrar referencias das limitacoes do TCC
 - 21/11 16:09 Merge pull request #7 from beteixeira135-cmyk/finalizacao-claude
 - 21/11 16:07 tcc: quantificar sensibilidades das limitacoes
-- 21/11 15:52 entregavel: registrar entrega no Google Drive
-- 21/11 14:18 Merge pull request #6 from beteixeira135-cmyk/finalizacao-claude
-- 21/11 14:15 auditoria: incluir matriz 6mat e expor divergÃªncia r3PG
-- 21/11 14:01 Merge pull request #5 from beteixeira135-cmyk/finalizacao-claude
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
