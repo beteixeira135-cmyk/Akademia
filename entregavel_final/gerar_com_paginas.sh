@@ -16,10 +16,10 @@ for l in corpo.split("\n"):
     if l.startswith("## "): titulos.append((1, l[3:].strip()))
     elif l.startswith("### "): titulos.append((2, l[4:].strip()))
 titulos.insert(0, (1, "RESUMO")); titulos.insert(1, (1, "ABSTRACT"))
-n = int(re.search(r"Pages:\s+(\d+)", subprocess.run(["pdfinfo", pdf], capture_output=True, text=True, encoding="utf-8", errors="replace").stdout).group(1))
+n = int(re.search(r"Pages:\s+(\d+)", subprocess.run(["pdfinfo", pdf], capture_output=True, text=True).stdout).group(1))
 paginas = []
 for k in range(1, n + 1):
-    paginas.append(subprocess.run(["pdftotext", "-f", str(k), "-l", str(k), "-layout", "-enc", "UTF-8", pdf, "-"], capture_output=True, text=True, encoding="utf-8", errors="replace").stdout)
+    paginas.append(subprocess.run(["pdftotext", "-f", str(k), "-l", str(k), "-layout", pdf, "-"], capture_output=True, text=True).stdout)
 achados = []
 inicio = next(k for k, t in enumerate(paginas) if "SUMÁRIO" in t) + 1  # busca só depois do sumário
 for nivel, t in titulos:

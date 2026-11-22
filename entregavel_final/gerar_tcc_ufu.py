@@ -149,7 +149,7 @@ def ler_corpo(caminho):
     # título e bloco de autoria saem do corpo (a capa e a folha de rosto os trazem)
     texto = re.sub(r"^# .*?\n---\n", "", texto, flags=re.S)
     # Anexo A (tutorial e glossário), depois das referências
-    anexo = (AQUI.parent / "tcc_docx" / "ANEXO_A_TUTORIAL_E_GLOSSARIO.md")
+    anexo = AQUI / "ANEXO_A_TUTORIAL_E_GLOSSARIO.md"
     if anexo.exists():
         a = anexo.read_text(encoding="utf-8")
         a = re.sub(r"^# .*?\n", "", a, count=1)           # título do anexo tratado à parte
