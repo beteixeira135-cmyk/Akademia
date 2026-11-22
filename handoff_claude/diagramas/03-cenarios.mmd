@@ -1,16 +1,17 @@
 flowchart TB
-    A["Matriz de condições"] --> B["Intensidade do ataque"]
-    A --> C["Época do ataque"]
-    A --> D["Frequência do ataque"]
-    B --> E["Ataque isolado"]
+    A["Matriz de condições"] --> B["Intensidade"]
+    A --> C["Época"]
+    A --> D["Frequência"]
+    B --> E["Combinar os fatores"]
     C --> E
-    D --> F["Dois ataques"]
-    D --> G["Ataques anuais"]
-    E --> H["Versão original"]
-    F --> H
-    G --> H
-    E --> I["Versão calibrada"]
-    F --> I
+    D --> E
+    E --> F["Ataque isolado"]
+    E --> G["Dois ataques"]
+    E --> H["Ataques anuais"]
+    F --> I["Executar cada cenário"]
     G --> I
-    H --> J["Resultado em relação ao controle"]
-    I --> J
+    H --> I
+    I --> J["Versão original"]
+    I --> K["Versão calibrada"]
+    J --> L["Comparar com<br/>controle pareado"]
+    K --> L

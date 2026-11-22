@@ -1,31 +1,13 @@
-flowchart LR
-    subgraph E["1. ENTRADAS DO MÊS"]
-        direction LR
-        A["Clima, solo<br/>e água disponível"]
-        B["Copa e<br/>área foliar"]
-        A --> B
-    end
-
-    subgraph P["2. PROCESSO MENSAL"]
-        direction LR
-        C["Luz captada"]
-        D["Crescimento<br/>3-PG-PJS"]
-        D1{"Ataque<br/>no mês?"}
-        C --> D --> D1
-        D1 -->|Não| E1["Alocação<br/>usual"]
-        D1 -->|Sim| F["Retirada<br/>foliar"]
-        F --> G["Compensação<br/>calibrada"]
-    end
-
-    subgraph S["3. ATUALIZAÇÃO E SAÍDA"]
-        direction LR
-        H["Estoques e IAF<br/>atualizados"]
-        I["Folhagem, crescimento<br/>e volume"]
-        J["Próximo mês"]
-        E1 --> H
-        G --> H
-        H --> I --> J
-    end
-
-    B --> C
+flowchart TB
+    A["Clima, solo e<br/>água disponível"] --> C["Luz captada pela copa"]
+    B["Copa e área foliar"] --> C
+    C --> D["Crescimento<br/>3-PG-PJS"]
+    D --> Q{"Ataque<br/>no mês?"}
+    Q -->|Não|     E["Alocação usual"]
+    Q -->|Sim| F["Retirada foliar"]
+    F --> G["Compensação calibrada"]
+    E --> H["Estoques e IAF atualizados"]
+    G --> H
+    H --> I["Folhagem, crescimento<br/>e volume"]
+    I --> J["Próximo mês"]
     J -.->|"Novo ciclo"| A

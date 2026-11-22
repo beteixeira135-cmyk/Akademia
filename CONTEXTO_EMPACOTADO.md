@@ -57,6 +57,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ```markdown
 # Contexto ativo
+- Em 22/11/2026, foi implementada e executada `experimentos/analise_vpd_rh2m.py`: comparação do VPD padrão com estimativa diária baseada em Tmax/Tmin e RH2M, sem alterar o motor. A análise usa ASWmax local (IND 215, TB 214, IMP 210 mm); IMP fica como diagnóstico (fT=0). O TCC agora explica a função do VPD no 3-PG, a equação alternativa e os resultados de sensibilidade em IND/TB. A auditoria passou em 639/639 itens; os 3 testes direcionados passaram. O DOCX foi regenerado e o validador estrutural local aprovou 18 partes XML e 17 imagens, incluindo o Fluxograma 3 atualizado. Sem `soffice`/LibreOffice, não foi gerado PDF nem conferida a paginação renderizada.
+- Em 22/11/2026, aberto o PR #12 com as alterações de texto e fluxogramas: arquitetura, ciclo mensal e cenários foram reorganizados para leitura em página; a redação de VPD e Random Forest foi limitada às evidências versionadas; e a falta de acesso aos dados brutos TECHS 9 e 22 foi explicitada sem solicitar acesso. `PENDENCIAS_FORA_DO_TEXTO.md` foi reduzido a limitações sem tarefas analíticas abertas. Auditoria numérica: 625/625; DOCX estruturalmente íntegro, com 17 imagens, e fluxogramas 1–3 incorporados a 16 cm. Não foi possível atualizar o PDF ou executar o validador oficial. A sessão não tem extensão de Drive; o upload e o registro no Diário não foram realizados.
 - Em 22/11/2026, a revisão do DOCX foi corrigida nas seções 4.3, 4.10 e 4.13, e a Figura 4/seção 4.5 foram conferidas com a matriz fatorial de água e fertilidade: 192 cenários, 16 por painel, amplitude de 0,4 p.p. em IND–A1 e 4,1 p.p. em TB–C2. IMP–A1 é diagnóstico (f_T=0), fora da análise principal; a barra de cores inclui seus valores sem truncamento. A auditoria passou em 623/623 itens e o DOCX foi regenerado. Para TB, o modelo usa a série municipal NASA POWER de 2015–2024, sem lacunas; a série meteorológica específica da parcela TECHS 22 (2012–2018) não está disponível publicamente, e não tivemos acesso a ela. Não houve atualização do PDF, validação oficial do DOCX, upload ao Drive ou registro no Diário nesta etapa.
 - A finalização foi integrada à `main` pelo PR #5; o PDF entregue tem 28 páginas. A matriz do commit `fde2780` tem 22.752 linhas e 20.856 aptas; os percentuais da Figura 10 são 51,6%/93,2%, 9,1%/27,4% e 0,02%/1,7%. O DOCX passou nas verificações estruturais (integridade ZIP, XML e 12 imagens), mas o validador oficial indicado no script não existe neste ambiente; não se afirma “All validations PASSED!”. A legenda da Figura 9 foi corrigida (seis sítios em cinco biomas, dois no Cerrado). A confirmação empírica por inventários independentes continua pendente. Google Drive/Diário não foram atualizados.
 - Em 21/11/2026, o Google Drive foi autenticado para `beteixeira135@gmail.com`. Na pasta `3-PG/08 TCC II versão atual`, o PDF final foi atualizado em `TCC_II_Bernardo_Castro_FINAL_21-11-2026.pdf` (2.282.051 bytes) e o DOCX final foi enviado como `TCC_II_Bernardo_Castro_FINAL_21-11-2026.docx` (3.127.347 bytes). O Diário existente recebeu registro da entrega, da auditoria ampliada e da discrepância r3PG.
@@ -75,7 +77,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Reexecutadas com sucesso calibração C5, estimação de γ, validação cruzada interna, auditoria da calibração, testes adicionais, avaliação qualitativa de *E. globulus* e teste independente de Oliveira. Medianas: U = 1,18 (IC90% 1,01–1,34), a = 0,625 (0,225–0,975), γ = 1. A validação cruzada permanece dentro do experimento Bertulio; o teste Oliveira cobre a resposta em outro estudo, não valida persistência de longo prazo.
 - VS Code usa `.vscode/` para preparar ambiente, recalcular calibração e executar as suítes. A fonte pública `trotsiuk/r3PG` está clonada na pasta irmã esperada; `experimentos/saida/mensal.csv.gz` foi regenerado localmente (ignorado pelo Git). As suítes do modelo e dos experimentos passaram: 57 testes.
 - O validador DOCX oficial referido em `gerar_com_paginas.sh` não está disponível; as verificações estruturais anteriores não substituem a validação oficial.
-- Próxima prioridade científica: obter os inventários e metadados de TECHS 9 e 22 para avaliação por variável e confirmar o subconjunto de dados usado no ajuste A1. A associação direta Indianópolis–TECHS 9 foi descartada; os rótulos S5–SA100 continuam sem correspondência verificada.
+- Confirmação empírica com inventários TECHS 9 e 22 e dados específicos da parcela permanece uma limitação por falta de acesso; não há pedido de dados em andamento. A associação direta Indianópolis–TECHS 9 foi descartada; os rótulos S5–SA100 continuam sem correspondência verificada.
 
 - Node.js 26.13.1 está instalado em `C:\Program Files\nodejs`; em processos PowerShell novos, incluir essa pasta no `PATH` para executar auditoria e geração do DOCX.
 
@@ -97,6 +99,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ```markdown
 # Progresso
 ## Feito
+- Em 22/11/2026, foi criado `experimentos/analise_vpd_rh2m.py` e a função mensal alternativa em `experimentos/clima.py`. A comparação usa os valores locais de ASWmax, mantém intactas as equações do 3-PG e classifica IMP como diagnóstico. O TCC explica o papel do VPD, o uso de RH2M como análise de sensibilidade e os resultados simulados em IND/TB; a auditoria passou em 639/639 e os 3 testes direcionados passaram. O DOCX foi regenerado, validado estruturalmente (18 partes XML, 17 imagens) e contém o Fluxograma 3 novo; o teste negativo do validador rejeitou a contagem errada de imagens. PDF/renderização indisponíveis sem LibreOffice/soffice.
+- Em 22/11/2026, o PR #12 foi aberto com a atualização do texto: fluxogramas de arquitetura, ciclo mensal e cenários reestruturados e ampliados no DOCX; evidências de Random Forest e VPD descritas sem causalidade não demonstrada; falta de acesso aos inventários brutos TECHS 9 e 22 registrada sem solicitação de dados. A auditoria passou em 625/625 itens; o DOCX passou na integridade ZIP/XML, contém 17 imagens e insere os três fluxogramas a 16 cm. PDF e validação oficial não foram executados por ausência das ferramentas. O upload ao Drive e o registro no Diário não foram realizados.
 - Em 22/11/2026, corrigida a revisão do DOCX com base na matriz versionada e nos scripts do repositório: 4.13 descreve a conversão mensal de Matrangolo; 4.10 explica os denominadores; 4.3 identifica o conjunto comum apto e os ganhos. A Figura 4/seção 4.5 foram conferidas com 192 cenários, 16 por painel; amplitude de 0,4 p.p. em IND–A1 e 4,1 p.p. em TB–C2. IMP–A1 é diagnóstico, e a escala foi ajustada para não truncar seus valores. A auditoria numérica passou em 623/623 itens; o DOCX foi regenerado e conferido estruturalmente. Sem renderizador, paginação do sumário e PDF não foram atualizados. A série municipal NASA POWER de TB cobre 2015–2024; a série específica da parcela TECHS 22 (2012–2018) não está disponível publicamente e não tivemos acesso a ela. Google Drive e Diário não foram atualizados nesta etapa.
 - Em 21/11/2026, renderizados cinco fluxogramas reais do Material e Métodos em PNG e SVG: arquitetura geral, ciclo mensal, cenários, calibração/evidências e escada de interpretação. Fontes Mermaid preservadas em `handoff_claude/diagramas/` e a lista vinculada em `handoff_claude/FLUXOGRAMAS_METODOS.md`.
 - Em 21/11/2026, criado o pacote `handoff_claude/FLUXOGRAMAS_METODOS.md`: arquitetura geral, ciclo mensal do 3-PG, cenários de ataque, calibração/evidências e escada de interpretação. Incluída tabela que condiciona o uso das referências a comparação, benchmark ou limite do estudo.
@@ -127,10 +131,9 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ## Falta
 1. Investigar a discrepância de RQEM entre o motor Python e o r3PG em R, sem ajustar o modelo para contornar o auditor.
-2. Obter o validador DOCX indicado em `gerar_com_paginas.sh` e executar a validação oficial; o arquivo não existe neste ambiente.
-3. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 não constitui reprodução estrita nem validação empírica.
+2. A validação completa do esquema OOXML e a inspeção visual após renderização não foram executadas nesta sessão. `validar_docx.py` cobre a estrutura do pacote e passou; não há LibreOffice/soffice para gerar o PDF.
+3. Confirmar quais observações TECHS entraram no ajuste A1 e avaliar por variável somente se dados independentes se tornarem acessíveis. Não há pedido de dados em andamento; o benchmark agregado do TECHS 22 não constitui reprodução estrita nem validação empírica.
 4. Configurar acesso aprovado ao Google Drive e ao Diário do TCC II para entregar os arquivos e registrar a etapa.
-5. Confirmar se a auditoria pós-PR deve ser publicada em um PR de acompanhamento; preservar a falha de RQEM enquanto sua origem não for investigada.
 
 - Em 21/11/2026, fechada nesta sessão a correção da alegação r3PG: auditor ajustado ao crosscheck direto, 552/552 checagens aprovadas e uma única pendência de reexecução do R. Nenhum arquivo foi enviado ao Google Drive ou registrado no Diário nesta sessão.
 - Em 21/11/2026, incorporados ao `TCC_TEXTO_FINAL.md` e ao DOCX final os fluxogramas 1–5 dos diagramas em `handoff_claude/diagramas/`. O PDF foi regenerado em 33 páginas. Verificação estrutural confirmou cinco legendas dos fluxogramas e 17 imagens no DOCX; `git diff --check` passou e a auditoria numérica confirmou 552/552 itens.
@@ -174,6 +177,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11/2026: incorporar ao corpo do TCC os cinco fluxogramas reais do Material e Métodos, posicionados nas seções pertinentes. Os nomes visíveis seguem “ataque isolado”, “dois ataques” e “ataques anuais”; a cadeia mantém distinção entre verificação, calibração, comparação bibliográfica e confirmação empírica pendente.
 - 21/11/2026: apresentar o Fluxograma 2 como leitura horizontal em três módulos (“Entradas do mês”, “Processo mensal” e “Atualização e saída”), preservando o ciclo visual de retorno ao próximo mês. Não considerar a reorganização do Google Drive concluída sem confirmação direta da pasta 10 e da pasta de referências.
 - 22/11/2026: usar o `.venv` local do worktree para auditoria e geração do DOCX, mantendo `.venv` fora do Git e sem alterar o motor científico ou publicar em `main`.
+- 22/11/2026: não atribuir nem excluir causalidade de VPD para os ganhos simulados. Preservar `vpd_day` e todas as equações do motor; comparar entradas padrão e alternativa baseada em RH2M nos mesmos cenários e controles, com ASWmax local. A alternativa adapta a forma de RH média da FAO-56 e é menos recomendada que RH máxima/mínima; tratá-la como sensibilidade, não validação. IMP fica como diagnóstico (fT=0); o Random Forest continua sem VPD entre os preditores. Declarar a falta de acesso aos dados brutos TECHS como limitação, sem solicitar esses dados.
 ```
 
 ## memoria/tecnico.md
@@ -477,6 +481,32 @@ def clima_mensal(sitio):
     m["tmp_ave"] = (m.tmp_min + m.tmp_max) / 2
     m["vpd_day"] = (es(m.tmp_max) - es(m.tmp_min)) / 2
     return m.drop(columns="n")
+
+
+def vpd_rh2m_mensal(sitio):
+    """VPD diário com RH2M média e Tmax/Tmin, agregado pela média mensal (mbar)."""
+    d = ler_diario(RAIZ / SITIOS[sitio]["arquivo"])
+    obrigatorias = {"T2M_MAX", "T2M_MIN", "RH2M", "date"}
+    faltantes = obrigatorias.difference(d.columns)
+    if faltantes:
+        raise ValueError(f"{sitio}: dados NASA POWER sem colunas {sorted(faltantes)}")
+    if d[["T2M_MAX", "T2M_MIN", "RH2M"]].isna().any().any():
+        raise ValueError(f"{sitio}: Tmax/Tmin/RH2M contém valores ausentes")
+    if ((d.RH2M < 0) | (d.RH2M > 100)).any():
+        raise ValueError(f"{sitio}: RH2M fora do intervalo de 0 a 100%")
+    es = lambda t: 6.10780 * np.exp(17.2690 * t / (237.30 + t))
+    es_dia = (es(d.T2M_MAX) + es(d.T2M_MIN)) / 2.0
+    vpd_dia = es_dia * (1.0 - d.RH2M / 100.0)
+    agrupado = d.groupby([d.date.dt.year.rename("year"), d.date.dt.month.rename("month")])
+    saida = vpd_dia.groupby([d.date.dt.year.rename("year"), d.date.dt.month.rename("month")]).mean()
+    dias = agrupado.size()
+    esperado = pd.to_datetime(
+        dict(year=dias.index.get_level_values(0),
+             month=dias.index.get_level_values(1), day=1)
+    ).dt.days_in_month
+    if not (dias.to_numpy() == esperado.to_numpy()).all():
+        raise ValueError(f"{sitio}: há mês incompleto na série de VPD baseada em RH2M")
+    return saida.rename("vpd_rh2m").reset_index()
 ```
 
 ## experimentos/clones.py

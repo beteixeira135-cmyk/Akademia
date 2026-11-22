@@ -87,6 +87,7 @@ Foram usados três sítios: Indianópolis-MG (IND), Imperatriz-MA (IMP) e Telêm
 - **Água disponível:** 215 mm para IND e 214 mm para TB, valores coincidentes com a água disponível de 0 a 2 m dos sítios 9 e 22 da rede TECHS (CALDEIRA et al., 2020; BINKLEY et al., 2017). Para IMP, a água disponível não tem referência de campo.
 - **Fertilidade (FR):** valor fixo por material, sem estimativa a partir do solo. A relação entre FR e propriedades do solo não está estabelecida (NUNES et al., 2022).
 - **Idade:** plantio no mês zero, desfolha aos 12 meses e horizonte de 84 meses. Para o sítio TECHS 9 (Estrela do Sul-MG, mesma região de IND), o plantio foi em dezembro de 2011 e a colheita em maio de 2018 (ALMEIDA, 2021, Capítulo 2, Tabela 2). Para o sítio TECHS 22 (Telêmaco Borba-PR, 24,2° S e 50,5° O; altitude de 888 m), as coordenadas e a altitude constam da Tabela 3 de Silva et al. (2022). A data de plantio informada em metadados de dissertação é 29/02/2012, a confirmar com o registro primário do projeto TECHS. A série meteorológica diária específica da parcela TECHS 22 para 2012 a 2018 não está disponível publicamente, e não tivemos acesso a esses dados. Por isso, as simulações usam a série NASA POWER municipal de Telêmaco Borba, de 2015 a 2024.
+- **Dados de campo TECHS:** não tivemos acesso aos dados brutos de inventário das parcelas TECHS 9 e 22. As informações agregadas publicadas são usadas apenas nos benchmarks identificados no texto; não permitem reconstruir séries por árvore ou validar as simulações por variável.
 
 ### 3.4 Calibração da compensação
 
@@ -104,7 +105,7 @@ Para cada material e sítio, foram simulados o controle sem desfolha e desfolhas
 
 O trabalho separa três etapas, que não se condicionam entre si.
 
-1. **Dados de entrada.** Clima, solo e dados silviculturais necessários para executar as simulações, obtidos e tratados quando disponíveis. Para Telêmaco Borba, a entrada é a série diária NASA POWER de 2015 a 2024 nas coordenadas municipais, agregada por mês. Ela não é uma medição na parcela TECHS 22. A série meteorológica diária específica da parcela TECHS 22 para 2012 a 2018 não está disponível publicamente, e não tivemos acesso a esses dados; os resumos climáticos publicados para o sítio não substituem essa série temporal.
+1. **Dados de entrada.** Clima, solo e dados silviculturais necessários para executar as simulações, obtidos e tratados quando disponíveis. Para Telêmaco Borba, a entrada é a série diária NASA POWER de 2015 a 2024 nas coordenadas municipais, agregada por mês. Ela não é uma medição na parcela TECHS 22. A série meteorológica diária específica da parcela TECHS 22 para 2012 a 2018 não está disponível publicamente, e não tivemos acesso a esses dados. Também não tivemos acesso aos dados brutos de inventário das parcelas TECHS 9 e 22; os resumos publicados não substituem registros individuais nem permitem validação independente por variável.
 2. **Avaliação do modelo.** Testes internos, verificações numéricas, análise de sensibilidade e comparação com implementações de referência. Essas etapas são feitas com os dados secundários disponíveis.
 3. **Confirmação empírica.** Comparação entre resultados simulados e observações independentes. Só é feita se houver dados de local, material genético, idade, variáveis dendrométricas e período de medição compatíveis. Quando esses dados não estão disponíveis, a etapa não é substituída por comparações bibliográficas, e a limitação é declarada.
 
@@ -112,11 +113,15 @@ Comparações com resultados publicados (Oliveira et al., 2014; Matrangolo et al
 
 ![Fluxograma 5. Escada de interpretação: o que foi conferido no código, calibrado, comparado com a literatura, observado em simulação e ainda depende de confirmação empírica em campo.](../handoff_claude/diagramas/05-escada-interpretacao.png)
 
-### 3.7 Reprodutibilidade
+### 3.7 Reprodutibilidade e sensibilidade ao VPD
 
-Os testes de hipótese sobre os ganhos negativos são reproduzidos por três scripts do repositório: `rodar_tres_sitios.py` (cenários por sítio e material), `teste_vpd.py` (efeito do déficit de pressão de vapor) e `teste_compensacao_25.py` (compensação com desfolha de 25%). Os resultados de cada teste estão nas pastas de saída correspondentes.
+O déficit de pressão de vapor (VPD) representa a diferença entre a pressão de vapor de saturação e a pressão de vapor real do ar, sendo um indicador da demanda evaporativa da atmosfera (ALLEN et al., 1998). No 3-PG, o VPD reduz a condutância do dossel pelo modificador `fVPD = exp(-CoeffCond × VPD)` e também participa do cálculo da transpiração. A entrada padrão do projeto, `vpd_day` em `experimentos/clima.py`, estima o VPD pela diferença entre as pressões de saturação calculadas com as temperaturas máxima e mínima mensais, dividida por dois.
 
-O código, os dados de entrada e as saídas estão em repositório público do projeto. Os testes automáticos do modelo passaram, e a auditoria numérica conferiu as entradas e saídas registradas. A auditoria não cobre todos os números do texto.
+Para avaliar a sensibilidade a uma estimativa com umidade relativa, foi criado `experimentos/analise_vpd_rh2m.py`, sem alterar as equações ou parâmetros do motor. A análise calcula, para cada dia, a pressão de saturação como a média das pressões obtidas com Tmax e Tmin; estima a pressão real como essa média multiplicada por RH2M/100; e calcula VPD como a diferença entre ambas. O cálculo adapta a abordagem de umidade relativa média descrita na FAO-56 (Eq. 19), usando RH2M diária como estimativa de RH média; a FAO considera essa abordagem menos recomendada que o uso de RH máxima e mínima. Por isso, a comparação é uma análise de sensibilidade, não uma substituição definitiva da entrada padrão. A série diária NASA POWER é agregada por média mensal e aplicada aos mesmos cenários e controles. Foram simulados o clone A1 sem compensação e um ataque isolado de 50% em janeiro de 2017, entre janeiro de 2016 e janeiro de 2023, com os valores locais de ASWmax: 215 mm em IND, 214 mm em TB e 210 mm em IMP. O volume foi comparado em 31 de janeiro de 2022. IMP é apresentado apenas como diagnóstico, pois `fT = 0` em parte da série; não integra a interpretação principal. O arquivo `experimentos/saida/analise_vpd_rh2m.csv` registra as entradas e as métricas para reprodução.
+
+O metamodelo é reproduzido por `experimentos/estatisticas.py`, que restringe a análise aos registros de `E1-E6` e `LOCAL` marcados como aptos. Seus preditores são intensidade, número e época dos ataques, água disponível, fertilidade, sítio e material genético; VPD não é um preditor. Portanto, a importância dos preditores não permite atribuir nem descartar efeito do VPD.
+
+O código, os dados de entrada e as saídas versionadas estão no repositório do projeto. Os testes automáticos do modelo passaram, e a auditoria numérica conferiu as entradas e saídas registradas. A validação cruzada do metamodelo avalia sua capacidade de reproduzir saídas simuladas; não é validação independente do modelo em campo. A auditoria numérica não cobre todos os números do texto.
 
 ### 3.8 Trajetória metodológica e organização do projeto para reutilização
 
@@ -250,7 +255,7 @@ Na versão calibrada, 180 dos 10.428 cenários aptos por versão (1,7%) terminam
 
 Nos três locais comuns, a mediana da perda calibrada varia pouco entre materiais (de 8,6% em C1 a 10,6% em C3). Na versão original, a mediana vai de 12,8% a 21,1%, e C1 é o material com maior perda original. Os materiais com mais ganhos calibrados são C2 (65 casos no total) e C5 (32); A1 tem 4.
 
-Os ganhos ainda não têm explicação física confirmada. Os testes descritos na seção 3.7 indicam que o déficit de pressão de vapor não é sua causa e que a compensação calibrada é necessária para que ocorram nos casos de desfolha leve. A matriz completa confirma que o fenômeno não é restrito a um material ou a um local.
+Os ganhos ainda não têm explicação física confirmada. Na auditoria adversarial do cenário IND–A1–W100 (`experimentos/saida/auditoria_adversarial.csv`), o modificador fVPD calculado com a entrada padrão teve média de 0,62 ao longo de 84 meses; esse valor não é uma medição de VPD em campo. A análise de sensibilidade com RH2M, descrita na seção 4.7, compara duas entradas climáticas no mesmo motor, mas não valida o VPD em campo nem identifica o mecanismo dos ganhos. A entrada padrão é calculada a partir das temperaturas mínima e máxima; RH2M não participa desse cálculo, embora seja usada na estimativa alternativa. O Random Forest também não inclui VPD entre os preditores e sua análise de importância não testa essa variável. Portanto, os resultados não permitem atribuir os ganhos ao VPD nem descartá-lo como causa. A matriz completa mostra que os ganhos simulados aparecem em mais de um material e local, mas não identifica o mecanismo que os produz.
 
 ### 4.4 Trajetória, frequência e época do ataque
 
@@ -280,15 +285,17 @@ A Figura 5 mostra, para 50% de desfolha, o tempo até a folhagem do talhão atac
 
 ### 4.7 Fatores dominantes e sensibilidade
 
-Um metamodelo de floresta aleatória foi ajustado para estimar a resposta do módulo a partir dos fatores de cenário, com validação cruzada de sete partes sobre 1.848 cenários dos três locais. Para a perda de volume aos 84 meses, o R² é de 0,993 (r = 0,996; RQEM de 11,3%). Para a perda de NPP acumulada, o R² é de 0,994. Para o tempo até a recuperação foliar, sobre 1.720 observações, o R² é de 0,923 (r = 0,961; RQEM de 8,1%). Com validação de um local fora do treino (leave-one-site-out), sobre 1.848 observações, a correlação entre o previsto e o simulado é de 0,966. A Figura 6 mostra a importância de cada fator e essa comparação entre locais.
+Um metamodelo de floresta aleatória foi ajustado para estimar as saídas simuladas a partir dos fatores de cenário. A validação cruzada em sete partes usou 1.848 cenários aptos dos três locais; o filtro de aptidão é aplicado antes do ajuste. Para a perda de volume aos 84 meses, o R² é de 0,993 (r = 0,996; RQEM de 11,3%). Para a perda de NPP acumulada, o R² é de 0,994. Para o tempo até a recuperação foliar, sobre 1.720 observações, o R² é de 0,923 (r = 0,961; RQEM de 8,1%). Na análise leave-one-site-out, a correlação entre o previsto e o simulado é de 0,966. A Figura 6 mostra a importância de cada fator e essa comparação entre locais. Essas métricas descrevem a reprodução de resultados do próprio modelo, não seu desempenho preditivo em campo.
 
-Na Figura 6a, a intensidade responde por 64,7% da importância na recuperação foliar, a época por 9,4%, o material genético por 7,6%, o local por 7,2%, a fertilidade por 5,9% e a água por 5,2%. A frequência não tem efeito sobre a recuperação (0,0%). Na Figura 6b, com os três locais juntos, a intensidade responde por cerca de 58% da perda de volume e a frequência por cerca de 37%. Os demais fatores ficam abaixo de 2%.
+Na Figura 6a, a intensidade responde por 64,7% da importância na recuperação foliar, a época por 9,4%, o material genético por 7,6%, o local por 7,2%, a fertilidade por 5,9% e a água por 5,2%. A frequência não tem efeito sobre a recuperação (0,0%). Na Figura 6b, com os três locais juntos, a intensidade responde por cerca de 58% da perda de volume e a frequência por cerca de 37%. Os demais fatores ficam abaixo de 2%. Como VPD não está entre as entradas do metamodelo, esses percentuais não informam sua importância nem permitem concluir que ele não contribua para os resultados.
 
 ![Figura 6. Importância de cada fator no Random Forest para a recuperação da copa (a) e para a perda de volume (b), e perdas previstas com um local fora do treino comparadas às do 3-PG (c).](figuras/fig06_random_forest.png)
 
 A Figura 7 mostra os oito parâmetros do clone A1 com maior efeito médio na perda de volume com 50% de desfolha, pelo método de Morris, nos três locais. Entre eles estão alphaCx, y, k e SLA0, que são parâmetros de dossel e de área foliar. A ordem entre eles muda de um local para outro. Os oito parâmetros de *E. globulus* não foram incluídos nessa análise, porque têm valor zero ou não admitem variação relativa. Para eles, foi feita uma análise exploratória com o clone A1 na versão calibrada, desfolha isolada de 50% e três sítios, com faixas sem fonte (±10% para valores não nulos; 0 e 0,1 para valores nulos). Os parâmetros kF, thinPower, mF, mR e mS não alteraram a perda nesse cenário, e Qa e Qb alteraram-na em no máximo 0,03 ponto percentual. O parâmetro MinCond não entra na análise principal: testado com o valor 0,1, produziu um ganho de 28,8% em Indianópolis, efeito considerado implausível. Como não há fonte para seu valor, MinCond é mantido com valor zero e sua influência é declarada como limite aceito desta versão.
 
 ![Figura 7. Os oito parâmetros do clone A1 com maior efeito médio (μ*) na perda de volume aos 84 meses com 50% de desfolha, pelo método de Morris, nos três locais originais. Os oito parâmetros de *E. globulus* (kF, thinPower, mF, mR, mS, MinCond, Qa, Qb) não estão nesta análise, pelo motivo indicado na seção 3.2.](figuras/fig07_morris.png)
+
+Na análise de sensibilidade ao VPD, o valor médio mensal da estimativa com RH2M foi 9,86 mbar em IND e 6,31 mbar em TB, ante 9,67 e 8,10 mbar, respectivamente, na entrada padrão. No cenário isolado de 50%, a diferença entre as perdas de volume calculadas com as duas entradas foi de +0,49 ponto percentual em IND e −0,70 ponto percentual em TB. A direção e a magnitude variaram entre os locais. Esses valores são resultados de simulação e não medem VPD nem resposta de árvores em campo. Como a análise compara estimativas climáticas diferentes dentro do mesmo motor, ela quantifica sensibilidade à entrada, não valida uma das estimativas nem explica causalmente os ganhos observados em outros cenários. O caso de IMP ficou restrito ao diagnóstico descrito na seção 3.7. A floresta aleatória não inclui VPD entre os preditores e, portanto, não estima sua importância.
 
 ### 4.8 Verificação e comparação com o experimento de Bertulio et al. (2008)
 
@@ -358,7 +365,7 @@ Uma análise exploratória do modelo quantificou parte dessa incerteza sem alter
 
 ### 4.15 Confirmação empírica: condições para execução
 
-Três tipos de dado podem apoiar a confirmação empírica do módulo. Neste trabalho, não foi localizado conjunto independente acessível que reúna clone comparável, série dendrométrica, IAF ou folhada, idade e histórico de desfolha; as comparações externas disponíveis são adaptadas e não constituem validação independente.
+Três tipos de dado poderiam apoiar a confirmação empírica do módulo, mas não foram acessados neste trabalho. Em particular, não tivemos acesso aos dados brutos de inventário das parcelas TECHS 9 e 22 nem a um conjunto independente que reúna clone comparável, série dendrométrica, IAF ou folhada, idade e histórico de desfolha. As comparações externas disponíveis são adaptadas e não constituem validação independente; não há solicitação de dados pendente nesta etapa.
 
 1. **Crescimento sem desfolha em sítios com inventário.** Não foi localizado conjunto independente acessível com local, material, idade e variáveis dendrométricas correspondentes às simulações. Sem esses dados, não foi possível fazer essa comparação.
 2. **Perda de volume em desfolha total.** O experimento de Oliveira et al. (2014) fornece uma comparação com perda de 35,4% em *E. grandis*. O modelo calibrado simulou 33,0% com o material C5, o que é uma comparação adaptada, não uma validação do clone A1.
@@ -373,6 +380,8 @@ O módulo de desfolha acoplado ao 3-PG foi avaliado com seis materiais nos três
 Os resultados são previsões do modelo, não medições. A validação de crescimento sem desfolha, a validação de desfolha repetida e a análise de sensibilidade aos oito parâmetros de *E. globulus* são etapas que dependem de dados de campo e de trabalho adicional. Os ganhos de volume observados em alguns cenários calibrados ainda não têm explicação física confirmada.
 
 ## REFERÊNCIAS
+
+ALLEN, R. G.; PEREIRA, L. S.; RAES, D.; SMITH, M. *Crop evapotranspiration: guidelines for computing crop water requirements*. Rome: FAO, 1998. (FAO Irrigation and Drainage Paper, 56). Disponível em: https://www.fao.org/4/x0490e/x0490e00.htm. Acesso em: 22 nov. 2026.
 
 BERTULIO, V. G.; PERES FILHO, O.; SILVA, É. G. da; DORVAL, A. Crescimento de clones de *Eucalyptus* spp. submetidos a desfolha artificial sucessiva. *Revista de Agricultura*, v. 83, n. 2, p. 119–124, 2008. DOI: 10.37856/bja.v83i2.1477.
 

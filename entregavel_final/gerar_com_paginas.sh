@@ -46,4 +46,4 @@ with zipfile.ZipFile(src) as zin, zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED
         zout.writestr(it, d)
 shutil.move(tmp, src)
 PY
-python3 /mnt/skills/public/docx/scripts/office/validate.py TCC_II_Bernardo_Castro_FINAL.docx | tail -1
+python3 validar_docx.py TCC_II_Bernardo_Castro_FINAL.docx

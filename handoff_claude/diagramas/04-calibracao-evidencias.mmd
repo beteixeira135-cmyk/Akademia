@@ -1,12 +1,23 @@
-flowchart LR
-    A["Verificação da implementação"] --> B{"Concordância sem dano?"}
-    B -->|Sim| C["308 talhões sem ataque"]
-    C --> D["Calibração da compensação"]
-    D --> E["Bertulio et al., 2008"]
-    E --> F["Validação cruzada interna"]
-    F --> G["Testes repetidos no mesmo experimento"]
-    G --> H["Comparação externa adaptada"]
-    H --> I["Oliveira et al., 2014"]
-    I --> J["Benchmark agregado"]
-    J --> K["Binkley et al., 2017<br/>Inventários ainda pendentes"]
-    K --> L["Confirmação empírica independente<br/>Pendente"]
+flowchart TB
+    subgraph R1[" "]
+        direction LR
+        A["Verificação da implementação"] --> B["308 controles sem ataque"]
+        B --> C["Calibração da compensação"]
+    end
+    subgraph R2[" "]
+        direction RL
+        D["Dados de Bertulio et al. (2008)"] --> E["Validação cruzada interna"]
+        E --> F["Testes repetidos no mesmo experimento"]
+    end
+    subgraph R3[" "]
+        direction LR
+        G["Comparação externa adaptada"] --> H["Oliveira et al. (2014)"]
+        H --> I["Benchmark agregado"]
+    end
+    subgraph R4[" "]
+        direction RL
+        J["Binkley et al. (2017)<br/>Resultados agregados TECHS"] --> K["Confirmação empírica independente<br/>Pendente"]
+    end
+    C --> D
+    F --> G
+    I --> J
