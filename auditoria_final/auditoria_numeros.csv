@@ -146,6 +146,18 @@ razão mediana,1.9,1.9,True
 20 com 25%,20.0,20.0,True
 "amplitude mín 0,4",0.4,0.4,True
 amplitude máx,4.1,4.1,True
+Figura 4 combinações,192.0,192.0,True
+Figura 4 painéis sítio-material,12.0,12.0,True
+Figura 4 tem 16 combinações por painel,1.0,1.0,True
+Figura 4 células diagnósticas IMP-A1,16.0,16.0,True
+Figura 4 máximo incluindo diagnóstico,6.79,6.79,True
+Figura 4 limite superior da escala,7.0,7.0,True
+Figura 4 amplitude TB-C2,4.1,4.1,True
+Figura 4 TB-C2 mínimo,0.5,0.5,True
+Figura 4 TB-C2 máximo,4.6,4.6,True
+Figura 4 amplitude IND-A1,0.4,0.4,True
+Figura 4 IND-A1 mínimo,2.9,2.9,True
+Figura 4 IND-A1 máximo,3.3,3.3,True
 A1 água IND 70,70.0,70.0,True
 A1 água TB ~100,100.0,100.0,True
 FR Borges mín,22.0,22.0,True

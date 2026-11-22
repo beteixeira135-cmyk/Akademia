@@ -268,9 +268,9 @@ A época do ataque altera a perda. A Figura 3 compara 50% de desfolha em janeiro
 
 ### 4.5 Solo e água
 
-O solo pesa menos que a intensidade do ataque. A Figura 4 mostra a perda com 50% de desfolha para cada combinação de água (W25 a W100) e fertilidade (F25 a F100), nos três locais e quatro materiais. A variação máxima dentro de um mesmo sítio e material é de cerca de 4 pontos percentuais (Telêmaco Borba, clone C2, de 0,5% a 4,6%). Em Indianópolis com o clone A1, a variação é inferior a 0,5 ponto.
+Com um ataque isolado de 50%, a Figura 4 mostra a perda de volume aos 84 meses nas 16 combinações de água (W25 a W100) e fertilidade (F25 a F100), nos três sítios e quatro materiais. A amplitude entre combinações varia de 0,4 ponto percentual em Indianópolis com A1 (2,9% a 3,3%) a 4,1 pontos em Telêmaco Borba com C2 (0,5% a 4,6%). O painel IMP–A1 é apenas diagnóstico, pois f_T = 0, e não integra a análise principal.
 
-![Figura 4. Perda de volume aos sete anos (%) com 50% de desfolha, para os cenários combinados de água (W) e fertilidade (F), nos três locais originais e quatro clones.](figuras/fig04_agua_fertilidade.png)
+![Figura 4. Perda de volume aos sete anos (%) após ataque isolado de 50%, nas 16 combinações de água (W) e fertilidade (F), nos três sítios e quatro materiais. O painel IMP–A1 é diagnóstico (f_T = 0) e não integra a análise principal.](figuras/fig04_agua_fertilidade.png)
 
 ### 4.6 Recuperação da copa
 

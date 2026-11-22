@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (10717 tokens, estimativa (caracteres ÷ 3,6); gerado em 22/11/2026 07:10)
+# PASSAGEM DE BASTÃO — TCC II (10691 tokens, estimativa (caracteres ÷ 3,6); gerado em 22/11/2026 07:22)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (29721 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (29694 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -48,7 +48,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 # Contexto ativo
-- Em 22/11/2026, foi corrigida a revisão do DOCX: a seção 4.13 explica a conversão mensal dos quatro tratamentos de Matrangolo e os resultados calibrados de 3,8%, 8,1%, 8,3% e 11,5%, com as limitações da comparação; a seção 4.10 distingue corretamente 8.448 cenários com desfolha e 10.428 cenários aptos; a seção 4.3 identifica os sítios comuns IND, TB e ELD e discrimina os 180 ganhos calibrados, inclusive o cenário máximo. A auditoria passou em 611/611 itens e o DOCX foi regenerado. Para TB, o modelo usa a série municipal NASA POWER de 2015–2024, sem lacunas; a série meteorológica específica da parcela TECHS 22 (2012–2018) não está disponível publicamente, e não tivemos acesso a ela. Não houve atualização do PDF, validação oficial do DOCX, upload ao Drive ou registro no Diário nesta etapa.
+- Em 22/11/2026, a revisão do DOCX foi corrigida nas seções 4.3, 4.10 e 4.13, e a Figura 4/seção 4.5 foram conferidas com a matriz fatorial de água e fertilidade: 192 cenários, 16 por painel, amplitude de 0,4 p.p. em IND–A1 e 4,1 p.p. em TB–C2. IMP–A1 é diagnóstico (f_T=0), fora da análise principal; a barra de cores inclui seus valores sem truncamento. A auditoria passou em 623/623 itens e o DOCX foi regenerado. Para TB, o modelo usa a série municipal NASA POWER de 2015–2024, sem lacunas; a série meteorológica específica da parcela TECHS 22 (2012–2018) não está disponível publicamente, e não tivemos acesso a ela. Não houve atualização do PDF, validação oficial do DOCX, upload ao Drive ou registro no Diário nesta etapa.
 - A finalização foi integrada à `main` pelo PR #5; o PDF entregue tem 28 páginas. A matriz do commit `fde2780` tem 22.752 linhas e 20.856 aptas; os percentuais da Figura 10 são 51,6%/93,2%, 9,1%/27,4% e 0,02%/1,7%. O DOCX passou nas verificações estruturais (integridade ZIP, XML e 12 imagens), mas o validador oficial indicado no script não existe neste ambiente; não se afirma “All validations PASSED!”. A legenda da Figura 9 foi corrigida (seis sítios em cinco biomas, dois no Cerrado). A confirmação empírica por inventários independentes continua pendente. Google Drive/Diário não foram atualizados.
 - Em 21/11/2026, o Google Drive foi autenticado para `beteixeira135@gmail.com`. Na pasta `3-PG/08 TCC II versão atual`, o PDF final foi atualizado em `TCC_II_Bernardo_Castro_FINAL_21-11-2026.pdf` (2.282.051 bytes) e o DOCX final foi enviado como `TCC_II_Bernardo_Castro_FINAL_21-11-2026.docx` (3.127.347 bytes). O Diário existente recebeu registro da entrega, da auditoria ampliada e da discrepância r3PG.
 - Limitações estruturais avançadas por sensibilidade exploratória: criado `experimentos/sensibilidade_limitacoes.py` e saídas em `experimentos/saida/sensibilidade_limitacoes.csv`. Variação ±10% de γF1 mudou a perda em até 0,95 p.p.; mortalidade de 0 a 15% em até 4,30 p.p. Os oito parâmetros adaptados de E. globulus foram separados entre neutros/structurally inactive e perturbáveis. Isso reduz incerteza de leitura, mas não cria validação empírica nem substitui inventários.
@@ -85,7 +85,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ---
 # Progresso
 ## Feito
-- Em 22/11/2026, corrigida a revisão do DOCX com base na matriz versionada e nos scripts do repositório: 4.13 descreve a conversão mensal de Matrangolo e os quatro resultados simulados; 4.10 explica os denominadores distintos de recuperação foliar e volume; 4.3 identifica o conjunto comum apto (IND, TB, ELD) e detalha a distribuição dos 180 ganhos calibrados e o cenário máximo. A auditoria numérica passou em 611/611 itens; o DOCX foi regenerado e conferido estruturalmente, inclusive com a Figura 10 atualizada incorporada. Sem renderizador disponível, paginação do sumário e PDF não foram atualizados. A série climática municipal NASA POWER de TB cobre 2015–2024 sem lacunas; a série específica da parcela TECHS 22 (2012–2018) não está disponível publicamente e não tivemos acesso a ela. Google Drive e Diário não foram atualizados nesta etapa.
+- Em 22/11/2026, corrigida a revisão do DOCX com base na matriz versionada e nos scripts do repositório: 4.13 descreve a conversão mensal de Matrangolo; 4.10 explica os denominadores; 4.3 identifica o conjunto comum apto e os ganhos. A Figura 4/seção 4.5 foram conferidas com 192 cenários, 16 por painel; amplitude de 0,4 p.p. em IND–A1 e 4,1 p.p. em TB–C2. IMP–A1 é diagnóstico, e a escala foi ajustada para não truncar seus valores. A auditoria numérica passou em 623/623 itens; o DOCX foi regenerado e conferido estruturalmente. Sem renderizador, paginação do sumário e PDF não foram atualizados. A série municipal NASA POWER de TB cobre 2015–2024; a série específica da parcela TECHS 22 (2012–2018) não está disponível publicamente e não tivemos acesso a ela. Google Drive e Diário não foram atualizados nesta etapa.
 - Em 21/11/2026, renderizados cinco fluxogramas reais do Material e Métodos em PNG e SVG: arquitetura geral, ciclo mensal, cenários, calibração/evidências e escada de interpretação. Fontes Mermaid preservadas em `handoff_claude/diagramas/` e a lista vinculada em `handoff_claude/FLUXOGRAMAS_METODOS.md`.
 - Em 21/11/2026, criado o pacote `handoff_claude/FLUXOGRAMAS_METODOS.md`: arquitetura geral, ciclo mensal do 3-PG, cenários de ataque, calibração/evidências e escada de interpretação. Incluída tabela que condiciona o uso das referências a comparação, benchmark ou limite do estudo.
 - Em 21/11/2026, registrado no handoff e nas decisões que o Claude não precisa criar clones Git nem repositórios paralelos; ele deve usar o checkout já disponibilizado pela sessão.
@@ -178,6 +178,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 22/11 07:11 docs: esclarecer indisponibilidade da sÃ©rie TECHS 22
 - 22/11 07:06 docs: corrigir revisÃ£o final do TCC
 - 22/11 04:55 Finalizar DOCX do TCC II
 - 22/11 04:11 Merge pull request #9 from beteixeira135-cmyk/finalizacao-secao-3-8
@@ -192,7 +193,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11 16:56 docs: informar Claude para nao criar clones
 - 21/11 16:52 docs: orientar infografico do metodo e retirar pulso do simulador
 - 21/11 16:46 docs: reescrever tabelas em linguagem direta
-- 21/11 16:37 docs: integrar referencias das limitacoes do TCC
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
