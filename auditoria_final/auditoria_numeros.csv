@@ -373,6 +373,14 @@ Matrangolo orig mín,7.4,7.4,True
 Matrangolo orig máx,32.1,32.1,True
 Matrangolo cal mín,3.8,3.8,True
 Matrangolo cal máx,11.5,11.5,True
+Matrangolo observado 1x (56 d),37.9,37.9,True
+Matrangolo calibrado 1x (56 d),3.8,3.8,True
+Matrangolo observado 2x (56 e 143 d),61.9,61.9,True
+Matrangolo calibrado 2x (56 e 143 d),8.1,8.1,True
+Matrangolo observado 2x (56 e 267 d),61.6,61.6,True
+Matrangolo calibrado 2x (56 e 267 d),8.3,8.3,True
+"Matrangolo observado 3x (56, 143 e 278 d)",79.7,79.7,True
+"Matrangolo calibrado 3x (56, 143 e 278 d)",11.5,11.5,True
 Matrangolo RQEM orig,42.0,42.0,True
 Matrangolo RQEM cal,54.0,54.0,True
 fator orig mín,2.0,2.0,True
@@ -499,6 +507,11 @@ U post mín,1.18,1.18,True
 U post máx,1.18,1.18,True
 a post mín,0.61,0.61,True
 a post máx,0.86,0.86,True
+NASA POWER TB dias 2015–2024,3653.0,3653.0,True
+NASA POWER TB cobre 2015-01-01 a 2024-12-31,1.0,1.0,True
+NASA POWER TB meses agregados,120.0,120.0,True
+NASA POWER TB latitude municipal,-24.3239,-24.3239,True
+NASA POWER TB longitude municipal,-50.6158,-50.6158,True
 T1 ALM Tméd,27.3,27.3,True
 T1 ALM Tmín,23.7,23.7,True
 T1 ALM Tmáx,31.0,31.0,True
@@ -530,14 +543,60 @@ T1 ARA ASW máx,198.0,198.0,True
 6mat cenários totais,22752.0,22752.0,True
 6mat cenários aptos,20856.0,20856.0,True
 6mat materiais,6.0,6.0,True
+locais comuns aptos aos seis materiais,1.0,1.0,True
 6mat aptos original,10428.0,10428.0,True
+6mat cenários com desfolha original,8448.0,8448.0,True
+6mat recuperação foliar original,4356.0,4356.0,True
+6mat NPP acima do controle original,946.0,946.0,True
+6mat ganhos de volume original,2.0,2.0,True
+6mat ganhos sem desfolha original,0.0,0.0,True
+6mat perda máxima original (%),86.42,86.42,True
 6mat folhagem original %,51.6,51.6,True
 6mat NPP original %,9.1,9.1,True
 6mat volume original %,0.02,0.02,True
+6mat volume condicionado à desfolha original %,0.02,0.02,True
 6mat aptos calibrada,10428.0,10428.0,True
+6mat cenários com desfolha calibrada,8448.0,8448.0,True
+6mat recuperação foliar calibrada,7871.0,7871.0,True
+6mat NPP acima do controle calibrada,2854.0,2854.0,True
+6mat ganhos de volume calibrada,180.0,180.0,True
+6mat ganhos sem desfolha calibrada,0.0,0.0,True
+6mat ganho máximo calibrado (%),7.45,7.45,True
 6mat folhagem calibrada %,93.2,93.2,True
 6mat NPP calibrada %,27.4,27.4,True
 6mat volume calibrada %,1.7,1.7,True
+6mat volume condicionado à desfolha calibrada %,2.1,2.1,True
+6mat ganhos calibrados em ALM,5.0,5.0,True
+6mat ganhos calibrados em ARA,3.0,3.0,True
+6mat ganhos calibrados em ELD,7.0,7.0,True
+6mat ganhos calibrados em IMP,103.0,103.0,True
+6mat ganhos calibrados em IND,58.0,58.0,True
+6mat ganhos calibrados em TB,4.0,4.0,True
+6mat ganhos calibrados em A1,4.0,4.0,True
+6mat ganhos calibrados em C1,26.0,26.0,True
+6mat ganhos calibrados em C2,65.0,65.0,True
+6mat ganhos calibrados em C3,23.0,23.0,True
+6mat ganhos calibrados em C4,30.0,30.0,True
+6mat ganhos calibrados em C5,32.0,32.0,True
+6mat ganhos calibrados intensidade 25%,116.0,116.0,True
+6mat ganhos calibrados intensidade 50%,39.0,39.0,True
+6mat ganhos calibrados intensidade 75%,19.0,19.0,True
+6mat ganhos calibrados intensidade 95%,6.0,6.0,True
+6mat ganhos calibrados frequência P1,118.0,118.0,True
+6mat ganhos calibrados frequência PA,62.0,62.0,True
+6mat ganhos apenas por desfolha,66.0,66.0,True
+6mat ganhos apenas por desfolha a 25 ou 50%,54.0,54.0,True
+"6mat ganho máximo em IMP/C2/25%/anual/julho, sem r ou m",1.0,1.0,True
+6mat ganhos originais em TB,2.0,2.0,True
+6mat ganhos originais em C3,1.0,1.0,True
+6mat ganhos originais em C5,1.0,1.0,True
+6mat mediana perda mínima original sítios comuns,12.8,12.8,True
+6mat mediana perda máxima original sítios comuns,21.1,21.1,True
+6mat mediana original C1 sítios comuns,21.1,21.1,True
+6mat mediana perda mínima calibrada sítios comuns,8.6,8.6,True
+6mat mediana perda máxima calibrada sítios comuns,10.6,10.6,True
+6mat mediana calibrada C1 sítios comuns,8.6,8.6,True
+6mat mediana calibrada C3 sítios comuns,10.6,10.6,True
 densidade em 3 × 3 m (árvores/ha),1111.0,1111.0,True
 Tmax A1 (°C),28.65,28.65,True
 limite superior de U,1.35,1.35,True

@@ -234,6 +234,15 @@ MTt = pd.DataFrame(TA["matrangolo"])
 chk("Matrangolo obs 1x 37,9", 37.9, MTt.observado.iloc[0]); chk("Matrangolo obs 3x 79,7", 79.7, MTt.observado.iloc[3])
 chk("Matrangolo orig mín", 7.4, MTt.original.min()); chk("Matrangolo orig máx", 32.1, MTt.original.max())
 chk("Matrangolo cal mín", 3.8, MTt.calibrado_mediana.min()); chk("Matrangolo cal máx", 11.5, MTt.calibrado_mediana.max())
+for _tratamento, _observado, _calibrado in [
+    ("1x (56 d)", 37.9, 3.8),
+    ("2x (56 e 143 d)", 61.9, 8.1),
+    ("2x (56 e 267 d)", 61.6, 8.3),
+    ("3x (56, 143 e 278 d)", 79.7, 11.5),
+]:
+    _mt = MTt[MTt.tratamento == _tratamento].iloc[0]
+    chk(f"Matrangolo observado {_tratamento}", _observado, _mt.observado)
+    chk(f"Matrangolo calibrado {_tratamento}", _calibrado, _mt.calibrado_mediana)
 chk("Matrangolo RQEM orig", 42, TA["matrangolo_metricas"]["rmse_original"], 0); chk("Matrangolo RQEM cal", 54, TA["matrangolo_metricas"]["rmse_calibrado"], 0)
 fo_ = MTt.observado / MTt.original; fc_ = MTt.observado / MTt.calibrado_mediana
 chk("fator orig mín", 2, fo_.min(), 0); chk("fator orig máx", 5, fo_.max(), 0); chk("fator cal mín", 7, fc_.min(), 0); chk("fator cal máx", 10, fc_.max(), 0)
@@ -328,7 +337,14 @@ _PV = pd.read_csv(CB / "validacao_cruzada_previsoes.csv")
 chk("U post mín", 1.18, _PV.U_post.min(), 2); chk("U post máx", 1.18, _PV.U_post.max(), 2)
 chk("a post mín", 0.61, _PV.a_post.min(), 2); chk("a post máx", 0.86, _PV.a_post.max(), 2)
 # Tabela 1 (clima e solo dos seis locais) — recalculada de clima/power_api e biomas/log_*.txt
-from clima import clima_mensal as _cm2
+from clima import clima_mensal as _cm2, ler_diario as _ler_diario, SITIOS as _SITIOS, RAIZ as _CLIMA_RAIZ
+_tb_daily = _ler_diario(_CLIMA_RAIZ / _SITIOS["TB"]["arquivo"])
+chk("NASA POWER TB dias 2015–2024", 3653, len(_tb_daily), 0)
+chk_cond("NASA POWER TB cobre 2015-01-01 a 2024-12-31", 1, 1,
+         _tb_daily.date.min() == pd.Timestamp("2015-01-01") and _tb_daily.date.max() == pd.Timestamp("2024-12-31"))
+chk("NASA POWER TB meses agregados", 120, len(_cm2("TB")), 0)
+chk("NASA POWER TB latitude municipal", -24.3239, _SITIOS["TB"]["lat"], 4)
+chk("NASA POWER TB longitude municipal", -50.6158, _SITIOS["TB"]["lon"], 4)
 for _s, (_tm, _tn, _tx, _pa, _p0, _p1, _ns) in {"ALM": (27.3, 23.7, 31.0, 1862, 1398, 2449, 2), "ARA": (26.9, 20.7, 33.1, 572, 418, 922, 7), "ELD": (19.9, 15.1, 24.8, 1459, 1104, 1699, 0)}.items():
     _m = _cm2(_s); _m = _m[_m.year <= 2024]; _a = _m.groupby("year").prcp.sum(); _sec = _m.groupby("month").prcp.mean()
     chk(f"T1 {_s} Tméd", _tm, _m.tmp_ave.mean(), 1); chk(f"T1 {_s} Tmín", _tn, _m.tmp_min.mean(), 1); chk(f"T1 {_s} Tmáx", _tx, _m.tmp_max.mean(), 1)
@@ -342,15 +358,62 @@ D6 = pd.read_csv(X / "saida" / "possibilidades_6mat" / "possibilidades.csv")
 chk("6mat cenários totais", 22752, len(D6), 0)
 D6 = D6[D6.apto.astype(str).str.lower().isin(["true", "1"])]
 chk("6mat cenários aptos", 20856, len(D6), 0); chk("6mat materiais", 6, D6.material.nunique(), 0)
+_sites_by_material = {m: set(g.sitio) for m, g in D6.groupby("material")}
+_sites_common = set.intersection(*_sites_by_material.values())
+chk_cond("locais comuns aptos aos seis materiais", 1, 1, _sites_common == {"IND", "TB", "ELD"})
 for _versao, _esperado in [("original", 10428), ("calibrada", 10428)]:
     _d6 = D6[D6.versao == _versao]
     chk(f"6mat aptos {_versao}", _esperado, len(_d6), 0)
-    _folhas = 100 * _d6[_d6.d > 0].recup_folhas_meses.notna().mean()
+    _com_desfolha = _d6[_d6.d > 0]
+    chk(f"6mat cenários com desfolha {_versao}", 8448, len(_com_desfolha), 0)
+    _recuperadas = int(_com_desfolha.recup_folhas_meses.notna().sum())
+    _folhas = 100 * _recuperadas / len(_com_desfolha)
+    chk(f"6mat recuperação foliar {_versao}", 4356 if _versao == "original" else 7871, _recuperadas, 0)
+    _npp_positiva = int((_d6.npp_pos_rel > 0).sum())
     _npp = 100 * (_d6.npp_pos_rel > 0).mean()
+    chk(f"6mat NPP acima do controle {_versao}", 946 if _versao == "original" else 2854, _npp_positiva, 0)
+    _ganhos = int((_d6.perda_volume < 0).sum())
+    chk(f"6mat ganhos de volume {_versao}", 2 if _versao == "original" else 180, _ganhos, 0)
+    chk(f"6mat ganhos sem desfolha {_versao}", 0, int(((_d6.perda_volume < 0) & (_d6.d == 0)).sum()), 0)
     _ganho = 100 * (_d6.perda_volume < 0).mean()
+    _ganho_cond = 100 * ((_com_desfolha.perda_volume < 0).mean())
+    if _versao == "calibrada":
+        chk("6mat ganho máximo calibrado (%)", 7.45, -_d6.perda_volume.min(), 2)
+    else:
+        chk("6mat perda máxima original (%)", 86.42, _d6.perda_volume.max(), 2)
     chk(f"6mat folhagem {_versao} %", 51.6 if _versao == "original" else 93.2, _folhas, 1)
     chk(f"6mat NPP {_versao} %", 9.1 if _versao == "original" else 27.4, _npp, 1)
     chk(f"6mat volume {_versao} %", 0.02 if _versao == "original" else 1.7, _ganho, 2 if _versao == "original" else 1)
+    chk(f"6mat volume condicionado à desfolha {_versao} %", 0.02 if _versao == "original" else 2.1, _ganho_cond, 2 if _versao == "original" else 1)
+_cg = D6[(D6.versao == "calibrada") & (D6.perda_volume < 0)]
+for _site, _count in [("ALM", 5), ("ARA", 3), ("ELD", 7), ("IMP", 103), ("IND", 58), ("TB", 4)]:
+    chk(f"6mat ganhos calibrados em {_site}", _count, (_cg.sitio == _site).sum(), 0)
+for _material, _count in [("A1", 4), ("C1", 26), ("C2", 65), ("C3", 23), ("C4", 30), ("C5", 32)]:
+    chk(f"6mat ganhos calibrados em {_material}", _count, (_cg.material == _material).sum(), 0)
+for _intensidade, _count in [(25, 116), (50, 39), (75, 19), (95, 6)]:
+    chk(f"6mat ganhos calibrados intensidade {_intensidade}%", _count, (_cg.d == _intensidade).sum(), 0)
+for _freq, _count in [("P1", 118), ("PA", 62)]:
+    chk(f"6mat ganhos calibrados frequência {_freq}", _count, (_cg.freq == _freq).sum(), 0)
+_cg_so_d = _cg[( _cg.d > 0) & (_cg.r == 0) & (_cg.m == 0)]
+chk("6mat ganhos apenas por desfolha", 66, len(_cg_so_d), 0)
+chk("6mat ganhos apenas por desfolha a 25 ou 50%", 54, _cg_so_d.d.isin([25, 50]).sum(), 0)
+_cg_max = _cg.loc[_cg.perda_volume.idxmin()]
+chk_cond("6mat ganho máximo em IMP/C2/25%/anual/julho, sem r ou m", 1, 1,
+         (_cg_max.sitio, _cg_max.material, _cg_max.d, _cg_max.freq, _cg_max.epoca, _cg_max.r, _cg_max.m)
+         == ("IMP", "C2", 25, "PA", 7, 0, 0))
+_og = D6[(D6.versao == "original") & (D6.perda_volume < 0)]
+chk("6mat ganhos originais em TB", 2, (_og.sitio == "TB").sum(), 0)
+chk("6mat ganhos originais em C3", 1, (_og.material == "C3").sum(), 0)
+chk("6mat ganhos originais em C5", 1, (_og.material == "C5").sum(), 0)
+for _versao, _lo, _hi in [("original", 12.8, 21.1), ("calibrada", 8.6, 10.6)]:
+    _med = D6[(D6.versao == _versao) & D6.sitio.isin(["IND", "TB", "ELD"])].groupby("material").perda_volume.median()
+    chk(f"6mat mediana perda mínima {_versao} sítios comuns", _lo, _med.min(), 1)
+    chk(f"6mat mediana perda máxima {_versao} sítios comuns", _hi, _med.max(), 1)
+    if _versao == "calibrada":
+        chk("6mat mediana calibrada C1 sítios comuns", 8.6, _med.loc["C1"], 1)
+        chk("6mat mediana calibrada C3 sítios comuns", 10.6, _med.loc["C3"], 1)
+    else:
+        chk("6mat mediana original C1 sítios comuns", 21.1, _med.loc["C1"], 1)
 chk("densidade em 3 × 3 m (árvores/ha)", 1111, 10000 / (3 * 3), 0)
 chk("Tmax A1 (°C)", 28.65, P_CALDEIRA["Tmax"][0], 2)
 U_POST = pd.read_csv(CB / "amostras_posterior_d0999.csv")
