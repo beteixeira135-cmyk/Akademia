@@ -19,10 +19,11 @@ for v in ["original", "calibrada"]:
                 frac_npp_pos_maior=100 * (d.npp_pos_rel > 0).mean(),
                 frac_ganho=100 * (d.perda_volume < 0).mean())
 fig, ax = plt.subplots(1, 2, figsize=(7.6, 3.4), gridspec_kw=dict(width_ratios=[1.35, 1]))
-bins = np.arange(-6, 88, 2)
+bins = np.arange(2 * np.floor(D.perda_volume.min() / 2),
+                 2 * (np.ceil(D.perda_volume.max() / 2) + 1), 2)
 for v, cor, n in [("original", ORI, "Sem compensação"), ("calibrada", CAL, "Calibrado")]:
     ax[0].hist(D[D.versao == v].perda_volume, bins=bins, color=cor, alpha=0.75 if v == "original" else 0.85, label=n)
-ax[0].axvspan(-6, 0, color=OBS, alpha=0.15)
+ax[0].axvspan(bins[0], 0, color=OBS, alpha=0.15)
 yt = ax[0].get_ylim()[1]
 ax[0].annotate("perda negativa: o atacado\nsupera o controle", xy=(-2.5, yt * 0.55), xytext=(22, yt * 0.55),
                fontsize=7.5, color=OBS, va="center", arrowprops=dict(arrowstyle="->", color=OBS, lw=0.8))

@@ -15,6 +15,7 @@ S = AQUI / "saida"; F = S / "figuras"; F.mkdir(exist_ok=True)
 from run_experimentos import rodar, linha, fr_nivel  # noqa: E402
 import run_experimentos as RE  # noqa: E402
 from clones import params, MATERIAIS  # noqa: E402
+from figura_agua_fertilidade import gerar_figura_agua_fr  # noqa: E402
 
 R = pd.read_csv(S / "indicadores_por_tratamento.csv")
 E = R[R.experimento == "E1-E6"].copy()
@@ -163,25 +164,8 @@ for j, s_ in enumerate(SITN):
 ax[0, 0].legend(frameon=False, title="desfolha", fontsize=8)
 fig.tight_layout(); fig.savefig(F / "F1_trajetorias_3sitios.png", dpi=200); plt.close(fig)
 
-# F2 — matriz água × FR, 3 sítios × 4 materiais (d = 50 %, P1)
-sub0 = E[(E.desfolha == 0.5) & (E.calendario == "P1")]
-vmax = sub0[sub0.apto_analise_principal].perda_volume_k72.max()
-fig, ax = plt.subplots(3, 4, figsize=(11, 8))
-for i, s_ in enumerate(SITN):
-    for j, m in enumerate(["A1", "C5", "C2", "C4"]):
-        a = ax[i, j]; sub = sub0[(sub0.sitio == s_) & (sub0.material == m)]
-        Z = sub.pivot_table(index="Fn", columns="W", values="perda_volume_k72").sort_index(ascending=False)
-        im = a.imshow(Z.values, cmap="Blues", vmin=0, vmax=vmax)
-        for r_ in range(4):
-            for c_ in range(4):
-                val = Z.values[r_, c_]
-                a.text(c_, r_, f"{val:.1f}".replace(".", ","), ha="center", va="center", fontsize=7.5,
-                       color="#0b0b0b" if val < 0.6 * vmax else "#fcfcfb")
-        a.set_xticks(range(4)); a.set_xticklabels([f"W{w}" for w in Z.columns], fontsize=7.5); a.set_yticks(range(4))
-        a.set_yticklabels([f"F{f}" for f in Z.index], fontsize=7.5); a.grid(False)
-        a.set_title(f"{s_} · {m}" + (" (diagn.)" if (s_ == "IMP" and m == "A1") else ""), fontsize=9)
-fig.colorbar(im, ax=ax, label="perda de volume aos 84 meses (%)", shrink=0.6)
-fig.savefig(F / "F2_matriz_agua_FR_3sitios.png", dpi=200, bbox_inches="tight"); plt.close(fig)
+# F2 — 16 combinações água × FR, 3 sítios × 4 materiais, desfolha isolada de 50%
+gerar_figura_agua_fr(E, F / "F2_matriz_agua_FR_3sitios.png")
 
 # F3 — frequência (solo local, F100)
 L100 = LOC[LOC.Fn == 100]
