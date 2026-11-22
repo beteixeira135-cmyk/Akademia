@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (10691 tokens, estimativa (caracteres ÷ 3,6); gerado em 22/11/2026 07:22)
+# PASSAGEM DE BASTÃO — TCC II (11255 tokens, estimativa (caracteres ÷ 3,6); gerado em 22/11/2026 07:53)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (29694 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (30221 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -48,6 +48,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 # Contexto ativo
+- Em 22/11/2026, está em preparação o PR #12: os fluxogramas 1–3 foram reorganizados para leitura em página, a redação de VPD e Random Forest foi limitada às evidências versionadas, e a falta de acesso aos dados brutos TECHS 9 e 22 foi explicitada sem solicitar acesso. `PENDENCIAS_FORA_DO_TEXTO.md` foi reduzido a limitações sem tarefas analíticas abertas. Auditoria numérica: 625/625; DOCX estruturalmente íntegro, com 17 imagens, e fluxogramas 1–3 incorporados a 16 cm. Não foi possível atualizar o PDF ou executar o validador oficial. A sessão não tem extensão de Drive; o upload e o registro no Diário não foram realizados.
 - Em 22/11/2026, a revisão do DOCX foi corrigida nas seções 4.3, 4.10 e 4.13, e a Figura 4/seção 4.5 foram conferidas com a matriz fatorial de água e fertilidade: 192 cenários, 16 por painel, amplitude de 0,4 p.p. em IND–A1 e 4,1 p.p. em TB–C2. IMP–A1 é diagnóstico (f_T=0), fora da análise principal; a barra de cores inclui seus valores sem truncamento. A auditoria passou em 623/623 itens e o DOCX foi regenerado. Para TB, o modelo usa a série municipal NASA POWER de 2015–2024, sem lacunas; a série meteorológica específica da parcela TECHS 22 (2012–2018) não está disponível publicamente, e não tivemos acesso a ela. Não houve atualização do PDF, validação oficial do DOCX, upload ao Drive ou registro no Diário nesta etapa.
 - A finalização foi integrada à `main` pelo PR #5; o PDF entregue tem 28 páginas. A matriz do commit `fde2780` tem 22.752 linhas e 20.856 aptas; os percentuais da Figura 10 são 51,6%/93,2%, 9,1%/27,4% e 0,02%/1,7%. O DOCX passou nas verificações estruturais (integridade ZIP, XML e 12 imagens), mas o validador oficial indicado no script não existe neste ambiente; não se afirma “All validations PASSED!”. A legenda da Figura 9 foi corrigida (seis sítios em cinco biomas, dois no Cerrado). A confirmação empírica por inventários independentes continua pendente. Google Drive/Diário não foram atualizados.
 - Em 21/11/2026, o Google Drive foi autenticado para `beteixeira135@gmail.com`. Na pasta `3-PG/08 TCC II versão atual`, o PDF final foi atualizado em `TCC_II_Bernardo_Castro_FINAL_21-11-2026.pdf` (2.282.051 bytes) e o DOCX final foi enviado como `TCC_II_Bernardo_Castro_FINAL_21-11-2026.docx` (3.127.347 bytes). O Diário existente recebeu registro da entrega, da auditoria ampliada e da discrepância r3PG.
@@ -66,7 +67,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - Reexecutadas com sucesso calibração C5, estimação de γ, validação cruzada interna, auditoria da calibração, testes adicionais, avaliação qualitativa de *E. globulus* e teste independente de Oliveira. Medianas: U = 1,18 (IC90% 1,01–1,34), a = 0,625 (0,225–0,975), γ = 1. A validação cruzada permanece dentro do experimento Bertulio; o teste Oliveira cobre a resposta em outro estudo, não valida persistência de longo prazo.
 - VS Code usa `.vscode/` para preparar ambiente, recalcular calibração e executar as suítes. A fonte pública `trotsiuk/r3PG` está clonada na pasta irmã esperada; `experimentos/saida/mensal.csv.gz` foi regenerado localmente (ignorado pelo Git). As suítes do modelo e dos experimentos passaram: 57 testes.
 - O validador DOCX oficial referido em `gerar_com_paginas.sh` não está disponível; as verificações estruturais anteriores não substituem a validação oficial.
-- Próxima prioridade científica: obter os inventários e metadados de TECHS 9 e 22 para avaliação por variável e confirmar o subconjunto de dados usado no ajuste A1. A associação direta Indianópolis–TECHS 9 foi descartada; os rótulos S5–SA100 continuam sem correspondência verificada.
+- Confirmação empírica com inventários TECHS 9 e 22 e dados específicos da parcela permanece uma limitação por falta de acesso; não há pedido de dados em andamento. A associação direta Indianópolis–TECHS 9 foi descartada; os rótulos S5–SA100 continuam sem correspondência verificada.
 
 - Node.js 26.13.1 está instalado em `C:\Program Files\nodejs`; em processos PowerShell novos, incluir essa pasta no `PATH` para executar auditoria e geração do DOCX.
 
@@ -85,6 +86,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ---
 # Progresso
 ## Feito
+- Em 22/11/2026, preparada a atualização do texto para o PR #12: os fluxogramas de arquitetura, ciclo mensal e cenários foram reestruturados para leitura e ampliados no DOCX; a fonte Mermaid e um renderizador local mantêm os ativos reproduzíveis. O texto agora esclarece que o Random Forest usa apenas cenários aptos, prevê saídas simuladas e não inclui VPD. A afirmação de que VPD não causa os ganhos foi retirada porque o script citado não está versionado e não há teste RH2M reproduzível; as séries municipais têm RH2M, mas o código não o usa no VPD. A falta de acesso a inventários brutos TECHS 9 e 22 foi explicitada como limitação, sem solicitação de dados. A auditoria passou em 625/625 itens; o DOCX passou na integridade ZIP/XML, contém 17 imagens e insere os três fluxogramas a 16 cm. PDF e validação oficial não foram executados por ausência das ferramentas.
 - Em 22/11/2026, corrigida a revisão do DOCX com base na matriz versionada e nos scripts do repositório: 4.13 descreve a conversão mensal de Matrangolo; 4.10 explica os denominadores; 4.3 identifica o conjunto comum apto e os ganhos. A Figura 4/seção 4.5 foram conferidas com 192 cenários, 16 por painel; amplitude de 0,4 p.p. em IND–A1 e 4,1 p.p. em TB–C2. IMP–A1 é diagnóstico, e a escala foi ajustada para não truncar seus valores. A auditoria numérica passou em 623/623 itens; o DOCX foi regenerado e conferido estruturalmente. Sem renderizador, paginação do sumário e PDF não foram atualizados. A série municipal NASA POWER de TB cobre 2015–2024; a série específica da parcela TECHS 22 (2012–2018) não está disponível publicamente e não tivemos acesso a ela. Google Drive e Diário não foram atualizados nesta etapa.
 - Em 21/11/2026, renderizados cinco fluxogramas reais do Material e Métodos em PNG e SVG: arquitetura geral, ciclo mensal, cenários, calibração/evidências e escada de interpretação. Fontes Mermaid preservadas em `handoff_claude/diagramas/` e a lista vinculada em `handoff_claude/FLUXOGRAMAS_METODOS.md`.
 - Em 21/11/2026, criado o pacote `handoff_claude/FLUXOGRAMAS_METODOS.md`: arquitetura geral, ciclo mensal do 3-PG, cenários de ataque, calibração/evidências e escada de interpretação. Incluída tabela que condiciona o uso das referências a comparação, benchmark ou limite do estudo.
@@ -116,7 +118,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ## Falta
 1. Investigar a discrepância de RQEM entre o motor Python e o r3PG em R, sem ajustar o modelo para contornar o auditor.
 2. Obter o validador DOCX indicado em `gerar_com_paginas.sh` e executar a validação oficial; o arquivo não existe neste ambiente.
-3. Solicitar ou obter inventários e metadados TECHS 9 e 22 e confirmar quais observações entraram no ajuste A1; então avaliar por variável. O benchmark agregado do TECHS 22 não constitui reprodução estrita nem validação empírica.
+3. Confirmar quais observações TECHS entraram no ajuste A1 e avaliar por variável somente se dados independentes se tornarem acessíveis. Não há pedido de dados em andamento; o benchmark agregado do TECHS 22 não constitui reprodução estrita nem validação empírica.
 4. Configurar acesso aprovado ao Google Drive e ao Diário do TCC II para entregar os arquivos e registrar a etapa.
 5. Confirmar se a auditoria pós-PR deve ser publicada em um PR de acompanhamento; preservar a falha de RQEM enquanto sua origem não for investigada.
 
@@ -165,6 +167,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11/2026: incorporar ao corpo do TCC os cinco fluxogramas reais do Material e Métodos, posicionados nas seções pertinentes. Os nomes visíveis seguem “ataque isolado”, “dois ataques” e “ataques anuais”; a cadeia mantém distinção entre verificação, calibração, comparação bibliográfica e confirmação empírica pendente.
 - 21/11/2026: apresentar o Fluxograma 2 como leitura horizontal em três módulos (“Entradas do mês”, “Processo mensal” e “Atualização e saída”), preservando o ciclo visual de retorno ao próximo mês. Não considerar a reorganização do Google Drive concluída sem confirmação direta da pasta 10 e da pasta de referências.
 - 22/11/2026: usar o `.venv` local do worktree para auditoria e geração do DOCX, mantendo `.venv` fora do Git e sem alterar o motor científico ou publicar em `main`.
+- 22/11/2026: não atribuir nem excluir causalidade de VPD para os ganhos simulados. `vpd_day` usa temperatura mínima e máxima; RH2M disponível nos arquivos municipais não é usada pelo modelo, o Random Forest não inclui VPD e o script `teste_vpd.py` não está versionado. Declarar a falta de acesso aos dados brutos TECHS como limitação, sem solicitar esses dados.
 
 ---
 # Contexto técnico
@@ -178,6 +181,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 22/11 07:22 fix: conferir Figura 4 e seÃ§Ã£o 4.5
 - 22/11 07:11 docs: esclarecer indisponibilidade da sÃ©rie TECHS 22
 - 22/11 07:06 docs: corrigir revisÃ£o final do TCC
 - 22/11 04:55 Finalizar DOCX do TCC II
@@ -192,9 +196,8 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 21/11 16:58 Merge remote-tracking branch 'origin/main' into finalizacao-claude
 - 21/11 16:56 docs: informar Claude para nao criar clones
 - 21/11 16:52 docs: orientar infografico do metodo e retirar pulso do simulador
-- 21/11 16:46 docs: reescrever tabelas em linguagem direta
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
-2. Com código: siga "Falta (em ordem)" e rode `python3 ferramentas/pipeline.py <etapa>`.
+2. Com código: siga "Falta (em ordem)" e execute diretamente o script necessário, após conferir suas entradas e efeitos. Não use `ferramentas/pipeline.py` sem autorização explícita: as etapas podem fazer commit e push para `main`.
 3. Ao fim de cada passo: atualize `memoria/`, rode este gerador e faça commit.

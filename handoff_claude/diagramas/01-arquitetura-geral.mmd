@@ -1,10 +1,25 @@
-flowchart LR
-    A["Objetivo<br/>Avaliar desfolha e perdas em eucalipto"] --> B["Entradas secundárias<br/>Clima, solo e materiais"]
-    B --> C["Modelagem mensal<br/>3-PG-PJS"]
-    C --> D["Danos à copa<br/>Desfolha e demais fatores"]
-    D --> E["Cenários combinados<br/>Intensidade, frequência e época"]
-    E --> F["Calibração<br/>Bertulio et al., 2008"]
-    F --> G["Simulações<br/>Versão original e calibrada"]
-    G --> H["Metamodelo<br/>Random Forest"]
-    H --> I["Indicadores<br/>Folhagem, crescimento e madeira"]
-    I --> J["Interpretação<br/>Sustentações e limites"]
+flowchart TB
+    subgraph R1[" "]
+        direction LR
+        A["1. Objetivo<br/>Avaliar desfolha e perdas"] --> B["2. Entradas secundárias<br/>Clima, solo e materiais"]
+    end
+    subgraph R2[" "]
+        direction RL
+        C["3. Modelagem mensal<br/>3-PG-PJS"] -->         D["4. Danos à copa<br/>Desfolha e outros fatores"]
+    end
+    subgraph R3[" "]
+        direction LR
+        E["5. Cenários combinados<br/>Intensidade, frequência e época"] --> F["6. Calibração<br/>Bertulio et al., 2008"]
+    end
+    subgraph R4[" "]
+        direction RL
+        G["7. Simulações<br/>Versão original e calibrada"] --> H["8. Metamodelo<br/>Random Forest"]
+    end
+    subgraph R5[" "]
+        direction LR
+        I["9. Indicadores<br/>Folhagem, crescimento e madeira"] --> J["10. Interpretação<br/>O que o estudo sustenta e limita"]
+    end
+    B --> C
+    D --> E
+    F --> G
+    H --> I

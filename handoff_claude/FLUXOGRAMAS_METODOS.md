@@ -79,7 +79,9 @@ flowchart TB
 
 Cada caminho deve ser identificado por intensidade, época, frequência e estado do solo ou
 da fertilidade. Os calendários visíveis devem usar “ataque isolado”, “dois ataques” e
-“ataques anuais”; essa nomenclatura não cria um novo processo biológico.
+“ataques anuais”; essa nomenclatura não cria um novo processo biológico. Os três primeiros
+diagramas foram reorganizados em percursos compactos e as imagens foram ampliadas para
+ocupar a largura útil da página sem reduzir a leitura do texto.
 
 ## 4. Calibração, verificação e evidências
 
@@ -154,13 +156,18 @@ O infográfico deve explicar por que a cadeia termina em **confirmação pendent
 | Firmino (2011) | Evidência de folhada em E. globulus. |
 | Binkley et al. (2017) | Benchmark agregado TECHS; inventários brutos não localizados. |
 
-Os itens pendentes não devem ser apresentados como concluídos: divergência r3PG, inventários
-e metadados TECHS, comparação por variável e confirmação empírica independente.
+Os fluxogramas distinguem comparação adaptada de confirmação empírica. Não há acesso aos
+dados brutos de inventário TECHS nesta etapa; os resultados agregados publicados não são
+tratados como validação independente.
 
 ## Arquivos de imagem gerados
 
 Cada diagrama possui fonte Mermaid (`.mmd`) e exportações (`.svg` e `.png`) em
-`handoff_claude/diagramas/`.
+`handoff_claude/diagramas/`. Os três primeiros também são renderizados por
+`render_fluxogramas.py`, para garantir tipografia legível no DOCX sem depender de Mermaid CLI.
+Para regenerar esses três pares de imagens, execute
+`python handoff_claude/diagramas/render_fluxogramas.py`; mantenha os rótulos e as relações
+sincronizados entre o Mermaid e o renderizador.
 
 | Fluxograma | PNG | SVG |
 |---|---|---|

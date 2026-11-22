@@ -273,7 +273,12 @@ def main():
                 raise FileNotFoundError(f"Figura referenciada no texto não encontrada: {mf.group(2)}")
             pic = doc.add_paragraph(); pic.alignment = WD_ALIGN_PARAGRAPH.CENTER
             pic.paragraph_format.line_spacing = 1.0; pic.paragraph_format.keep_with_next = True
-            pic.add_run().add_picture(str(caminho), width=Cm(15))
+            largura = 16 if Path(mf.group(2)).name in {
+                "01-arquitetura-geral.png",
+                "02-ciclo-mensal.png",
+                "03-cenarios.png",
+            } else 15
+            pic.add_run().add_picture(str(caminho), width=Cm(largura))
             cap = mf.group(1)
             m2 = re.match(r"^(Figura \d+)\. (.*)$", cap)
             cp = doc.add_paragraph(); cp.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY

@@ -8,6 +8,7 @@ MODELO = RAIZ / "modelo"; sys.path.insert(0, str(X))
 sys.path.insert(0, str(RAIZ / "cenarios"))
 from parametros_caldeira_r3pg import P as P_CALDEIRA
 R = pd.read_csv(S / "indicadores_por_tratamento.csv")
+ADV = pd.read_csv(S / "auditoria_adversarial.csv")
 L = R[(R.experimento == "LOCAL") & (R.nivel_FR == "F100")]
 E = R[R.experimento == "E1-E6"].copy(); E["W"] = pd.to_numeric(E.nivel_agua)
 C = pd.read_csv(S / "controles_solo_local.csv").set_index(["sitio", "mat"])
@@ -126,6 +127,11 @@ gg = G[(G.modelo == RF) & (G.resposta == "perda_volume_k72")].set_index("grupo_t
 chk("viés IMP", -21, gg.loc["IMP"].vies_pct, 0); chk("viés IND +13", 19, gg.loc["IND"].vies_pct, 0); chk("viés TB +14", 6, gg.loc["TB"].vies_pct, 0)
 chk("A1 fora RQEM", 27, gg.loc["A1"].RQEM_pct, 0)
 chk("n volume 1848", 1848, TC[TC.resposta == "perda_volume_k72"].n.iloc[0], 0); chk("n recup", 1720, TC[TC.resposta == "recup_rel95_meses_ev1"].n.iloc[0], 0)
+_adv_vpd = ADV[ADV.teste == "Saturação dos modificadores"].resultado.iloc[0]
+_adv_vpd_n = int(re.search(r"fSW>0,95 = \d+/(\d+)", _adv_vpd).group(1))
+_adv_vpd_mean = float(re.search(r"fVPD médio ([0-9.]+)", _adv_vpd).group(1))
+chk("meses no diagnóstico fVPD", 84, _adv_vpd_n, 0)
+chk("fVPD médio IND-A1-W100", 0.62, _adv_vpd_mean, 2)
 im = IMP[IMP.escopo == "3 locais"].set_index(["resposta", "variavel"]).importancia_relativa_pct
 for var, val in [("intensidade", 58.8), ("frequência", 36.6), ("local", 1.7), ("material genético", 1.2)]:
     chk(f"imp vol {var}", val, im[("perda_volume_k72", var)], 1)

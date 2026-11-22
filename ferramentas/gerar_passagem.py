@@ -63,7 +63,7 @@ Para o código completo, use `CONTEXTO_EMPACOTADO.md` ({n_ctx} tokens, {met}).
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
-2. Com código: siga "Falta (em ordem)" e rode `python3 ferramentas/pipeline.py <etapa>`.
+2. Com código: siga "Falta (em ordem)" e execute diretamente o script necessário, após conferir suas entradas e efeitos. Não use `ferramentas/pipeline.py` sem autorização explícita: as etapas podem fazer commit e push para `main`.
 3. Ao fim de cada passo: atualize `memoria/`, rode este gerador e faça commit.
 """
     n, metodo = contar(corpo)

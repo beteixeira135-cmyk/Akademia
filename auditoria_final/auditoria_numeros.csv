@@ -194,6 +194,8 @@ viés TB +14,6.0,6.0,True
 A1 fora RQEM,27.0,27.0,True
 n volume 1848,1848.0,1848.0,True
 n recup,1720.0,1720.0,True
+meses no diagnóstico fVPD,84.0,84.0,True
+fVPD médio IND-A1-W100,0.62,0.62,True
 imp vol intensidade,58.8,58.8,True
 imp vol frequência,36.6,36.6,True
 imp vol local,1.7,1.7,True
