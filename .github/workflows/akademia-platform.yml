@@ -1,0 +1,29 @@
+name: Akademia platform
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check JavaScript syntax
+        run: |
+          node --check plataforma/modelo3pg.js
+          node --check plataforma/curso3pg.js
+      - name: Test learning stages
+        run: node --test plataforma/testes/curso3pg.test.js
+      - name: Build platform
+        run: |
+          python -m py_compile plataforma/construir.py
+          python plataforma/construir.py
+          git diff --exit-code -- docs/index.html
