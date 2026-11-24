@@ -150,7 +150,12 @@ textarea{width:100%;height:240px;font-family:var(--f-num);font-size:11.5px;borde
 .tabs-wrap{overflow-x:auto}
 
 /* tutorial */
+.tour-spotlight{position:fixed;inset:0;width:100vw;height:100vh;z-index:39;overflow:visible;pointer-events:none}
+.tour-spotlight[hidden]{display:none}
+.tour-shade{fill:rgba(24,31,27,.76);fill-rule:evenodd}
+.tour-outline{fill:none;stroke:#efbd59;stroke-width:3;vector-effect:non-scaling-stroke;filter:drop-shadow(0 2px 5px rgba(35,39,31,.6))}
 .tour{position:fixed;z-index:50;left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));display:flex;justify-content:center;pointer-events:none}
+.tour.at-top{top:calc(12px + env(safe-area-inset-top,0px));bottom:auto;align-items:flex-start}
 .tour .pr{pointer-events:auto;width:min(580px,100%);box-shadow:0 12px 34px rgba(35,39,31,.22)}
 .tour h3{font-size:21px;margin:2px 0 6px}
 .tour p{margin:0 0 7px}
@@ -509,6 +514,10 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
     <div class="cub-aviso"><b>Leia com cuidado.</b> O 3-PG não calcula a forma do tronco. A equação usada é a de Souza et al. (2016), ajustada para um clone de <i>E. grandis</i> × <i>E. camaldulensis</i> aos 8 anos em Itamarandiba-MG, no espaçamento 3 × 3 m. Aqui ela é emprestada para outros materiais e locais, por isso serve para explicar o raciocínio, não para planejar a colheita. Outros cuidados: a altura do A1 no simulador é esquemática; o 3-PG simula a árvore média, e um talhão real tem árvores maiores, que rendem mais serraria, e menores; o total pelo taper difere do volume do 3-PG porque os dois vêm de equações diferentes.</div>
   </div>
 </div></div>
+<svg class="tour-spotlight" id="tour-spotlight" aria-hidden="true" hidden>
+  <path class="tour-shade" id="tour-shade"></path>
+  <path class="tour-outline" id="tour-outline"></path>
+</svg>
 <div class="tour" id="tour" hidden><div class="pr" role="dialog" aria-live="polite" aria-label="Tutorial">
   <div class="rot" id="tour-n"></div><h3 id="tour-t"></h3><div id="tour-h"></div>
   <div class="tour-nav"><div class="pontos" id="tour-p"></div><div style="display:flex;gap:8px">
@@ -1048,19 +1057,59 @@ const PASSOS = [
   { t: "Exportar e ajustar", alvo: "bancada", e: { freq: "P1", d: 50, r: 0, m: 0, comp: "O", ag: "lagarta" }, h: `<p><b>Exportar</b> gera a série mensal dos dois talhões para colar numa planilha. <b>Ajustes</b> muda só a exibição (velocidade e exagero do diâmetro).</p><p>Os resultados estão verificados, mas não validados em campo.</p>` },
 ];
 let passo = 0;
+let tourFrame = 0;
+function retanguloArredondado(x, y, w, h, raio) {
+  const r = Math.min(raio, w / 2, h / 2);
+  return `M${x + r},${y}H${x + w - r}Q${x + w},${y} ${x + w},${y + r}V${y + h - r}Q${x + w},${y + h} ${x + w - r},${y + h}H${x + r}Q${x},${y + h} ${x},${y + h - r}V${y + r}Q${x},${y} ${x + r},${y}Z`;
+}
+function atualizarFocoTour() {
+  const tour = document.getElementById("tour"), svg = document.getElementById("tour-spotlight");
+  if (tour.hidden) { svg.setAttribute("hidden", ""); return; }
+  const w = window.innerWidth, h = window.innerHeight;
+  const outer = `M0 0H${w}V${h}H0Z`, target = document.querySelector(".marcado");
+  svg.setAttribute("viewBox", `0 0 ${w} ${h}`);
+  if (!target) {
+    document.getElementById("tour-shade").setAttribute("d", outer);
+    document.getElementById("tour-outline").setAttribute("d", "");
+    svg.removeAttribute("hidden");
+    tour.classList.remove("at-top");
+    return;
+  }
+  const box = target.getBoundingClientRect(), margem = 10;
+  const esquerdaVisivel = Math.max(0, box.left - margem), direitaVisivel = Math.min(w, box.right + margem);
+  const topoVisivel = Math.max(0, box.top - margem), baseVisivel = Math.min(h, box.bottom + margem);
+  const larguraMax = Math.max(48, Math.min(w - 24, w * .9));
+  const alturaMax = Math.max(48, Math.min(h - 24, h * .68, h - 190));
+  const largura = Math.min(larguraMax, Math.max(48, direitaVisivel - esquerdaVisivel));
+  const altura = Math.min(alturaMax, Math.max(48, baseVisivel - topoVisivel));
+  const centroX = (esquerdaVisivel + direitaVisivel) / 2, centroY = (topoVisivel + baseVisivel) / 2;
+  const x = Math.max(12, Math.min(w - largura - 12, centroX - largura / 2));
+  const y = Math.max(12, Math.min(h - altura - 12, centroY - altura / 2));
+  const foco = retanguloArredondado(x, y, largura, altura, 9);
+  document.getElementById("tour-shade").setAttribute("d", `${outer} ${foco}`);
+  document.getElementById("tour-outline").setAttribute("d", foco);
+  svg.removeAttribute("hidden");
+  tour.classList.toggle("at-top", centroY > h * .44);
+}
+function agendarFocoTour() {
+  if (!tourFrame) tourFrame = requestAnimationFrame(() => { tourFrame = 0; atualizarFocoTour(); });
+}
 function verPasso() {
   const p = PASSOS[passo]; document.querySelectorAll(".marcado").forEach(x => x.classList.remove("marcado"));
   if (p.e) { Object.assign(E, p.e); atualizar(); } if (p.idade) { parar(); irPara(p.idade); } if (p.acao) tocar(true);
-  const a = document.getElementById(p.alvo); if (a) { a.classList.add("marcado"); a.scrollIntoView({ block: "nearest", behavior: "smooth" }); }
+  const a = document.getElementById(p.alvo); if (a) { a.classList.add("marcado"); a.scrollIntoView({ block: "center", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); }
   document.getElementById("tour-n").textContent = `Passo ${passo + 1} de ${PASSOS.length}`; document.getElementById("tour-t").textContent = p.t; document.getElementById("tour-h").innerHTML = p.h; linkarTermos(document.getElementById("tour-h"));
   document.getElementById("tour-p").innerHTML = PASSOS.map((_, i) => `<i class="${i === passo ? "on" : ""}"></i>`).join("");
   document.getElementById("tour-ant").disabled = passo === 0; document.getElementById("tour-prox").textContent = passo === PASSOS.length - 1 ? "Concluir" : "Próximo";
+  agendarFocoTour();
 }
-const fecharTour = () => { document.getElementById("tour").hidden = true; document.querySelectorAll(".marcado").forEach(x => x.classList.remove("marcado")); };
+const fecharTour = () => { document.getElementById("tour").hidden = true; document.getElementById("tour-spotlight").setAttribute("hidden", ""); document.getElementById("tour").classList.remove("at-top"); document.querySelectorAll(".marcado").forEach(x => x.classList.remove("marcado")); };
 document.getElementById("bt-tour").onclick = () => { passo = 0; document.getElementById("tour").hidden = false; verPasso(); };
 document.getElementById("tour-prox").onclick = () => passo < PASSOS.length - 1 ? (passo++, verPasso()) : fecharTour();
 document.getElementById("tour-ant").onclick = () => { if (passo) { passo--; verPasso(); } };
 document.getElementById("tour-sair").onclick = fecharTour;
+addEventListener("scroll", agendarFocoTour, { passive: true });
+addEventListener("resize", agendarFocoTour);
 addEventListener("resize", () => R && graficos());
 
 try { iniciar3D(); } catch (err) { document.getElementById("nota3d").textContent = "A cena 3D não abriu neste navegador. A simulação e os painéis continuam funcionando."; }
