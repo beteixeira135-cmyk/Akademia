@@ -6,6 +6,7 @@
   const DOY = [15, 46, 74, 105, 135, 166, 196, 227, 258, 288, 319, 349];
   const DIM = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const B_N = 2;
+  const STAGE_LEVEL = { A: 0, B: 1, C: 2, D1: 3, D2: 4, D3: 5, D4: 6, D5: 7, D6: 8 };
   const dormant = (m, g, f) => g > f ? (f <= m && m <= g) : g < f ? (m < g || m >= f) : false;
   const fexp = (x, g0, gx, tg, ng) => tg !== 0 ? gx + (g0 - gx) * Math.exp(-LN2 * Math.pow(x / tg, ng)) : gx;
   const fexpF = (x, f1, f0, tg) => { if (tg * f1 === 0) return f1; const kg = 12 * Math.log(1 + f1 / f0) / tg; return f1 * f0 / (f0 + (f1 - f0) * Math.exp(-kg * x)); };
@@ -28,7 +29,13 @@
   // opt (extensões v2/v3, iguais às do threepg_pjs.py): {efic: {"YYYY-MM": r}, mort: {"YYYY-MM": m}, comp: {U, gam, a}}
   //   efic: perda de eficiência α·(1 − r); mort: mortalidade induzida N·(1 − m) no início do mês;
   //   comp: compensação fisiológica enquanto W_F < W_F,ref (adaptada do CABALA). opt ausente = versão original.
-  function run(site, sp, clim, P, defol, opt) {
+  function run(site, sp, clim, P, defol, opt, stageId = "D6") {
+    if (!Object.prototype.hasOwnProperty.call(STAGE_LEVEL, stageId)) throw new Error("Estágio desconhecido: " + stageId);
+    const stageLevel = STAGE_LEVEL[stageId];
+    opt = opt || {};
+    if (stageId !== "D6" && ((defol && Object.keys(defol).length) || Object.keys(opt).length)) {
+      throw new Error("Extensões de dano e compensação só podem ser executadas explicitamente no estágio D6");
+    }
     const [yi, mi] = site.from.split("-").map(Number), [yt, mt] = site.to.split("-").map(Number), [yp, mp] = sp.planted.split("-").map(Number);
     const i0 = clim.year.findIndex((y, k) => ym(y, clim.month[k]) === ym(yi, mi));
     const n = ym(yt, mt) - ym(yi, mi) + 1;
@@ -41,7 +48,6 @@
       if (t < 1 || t >= n) throw new Error("Evento fora da simulação: " + k);
       ev[t] = d;
     }
-    opt = opt || {};
     const serie = (evts, nome) => { const a = new Float64Array(n);
       for (const [k, r] of Object.entries(evts || {})) { const [y, m] = k.split("-").map(Number), t = ym(y, m) - ym(yi, mi);
         if (!(r >= 0 && r < 1)) throw new Error(nome + " deve estar em [0,1)"); if (t < 1 || t >= n) throw new Error("Mês de " + nome + " fora da simulação: " + k); a[t] = r; }
@@ -73,34 +79,44 @@
     const vol = t => S.Ws * (1 - fBB[t]) / rho[t];
     const out = { mes: [], age: [], Wf: [], Ws: [], Wr: [], lai: [], dbh: [], h: [], vol: [], N: [], asw: [], fT: [], fSW: [], npp: [], removido: [], fracBB: [],
       gpp: [], apar: [], alpha: [], fVPD: [], fAge: [], phys: [], transp: [], et: [], prcp: [], etaR: [], etaS: [], etaF: [], compOn: [], compU: [], compGc: [], mortInd: [] };
-    const rec = (t, x) => { out.mes.push(t); out.age.push(age[t]); out.Wf.push(S.Wf); out.Ws.push(S.Ws); out.Wr.push(S.Wr); out.lai.push(S.lai);
-      out.dbh.push(S.dbh); out.h.push(S.h); out.vol.push(x.vol ?? vol(t)); out.N.push(S.N); out.asw.push(ASW); out.fT.push(fT(t));
+    const rec = (t, x) => { out.mes.push(t); out.age.push(age[t]); out.Wf.push(S.Wf); out.Ws.push(S.Ws); out.Wr.push(S.Wr);
+      out.lai.push(stageLevel >= 3 ? S.lai : NaN);
+      out.dbh.push(stageLevel >= 6 ? S.dbh : NaN); out.h.push(stageLevel >= 8 ? S.h : NaN);
+      out.vol.push(stageLevel >= 8 ? (x.vol ?? vol(t)) : NaN); out.N.push(S.N); out.asw.push(ASW);
+      out.fT.push(stageLevel >= 4 ? fT(t) : NaN);
       out.fSW.push(x.fsw); out.npp.push(x.npp); out.removido.push(x.rem); out.fracBB.push(fBB[t]);
       for (const k of ["gpp","apar","alpha","fVPD","phys","transp","et","prcp","etaR","etaS","etaF"]) out[k].push(x[k] ?? NaN);
-      out.compOn.push(x.compOn ?? 0); out.compU.push(x.compU ?? 1); out.compGc.push(x.compGc ?? 1); out.mortInd.push(x.mortInd ?? 0); out.fAge.push(fage[t]); };
+      out.compOn.push(x.compOn ?? 0); out.compU.push(x.compU ?? 1); out.compGc.push(x.compGc ?? 1); out.mortInd.push(x.mortInd ?? 0);
+      out.fAge.push(stageLevel >= 4 ? fage[t] : NaN); };
     let month = mi;
     if (age[0] >= 0) Object.assign(S, { N: sp.stems_n, Ws: sp.WS0, Wf: sp.WF0, Wr: sp.WR0 });
-    if (dormant(month, lg, lf)) { S.debt = S.Wf; S.Wf = 0; }
+    if (stageLevel >= 7 && dormant(month, lg, lf)) { S.debt = S.Wf; S.Wf = 0; }
     S.bt = S.Ws * 1000 / S.N; S.dbh = Math.pow(S.bt / P.aWs, 1 / P.nWs); S.ba = S.dbh * S.dbh / 4 * PI * S.N / 10000; S.lai = S.Wf * SLA[0] * 0.1;
     S.h = P.aH * Math.pow(S.dbh, P.nHB) * Math.pow(rho[0] * S.ba, P.nHC);
     for (let k = 0; k < B_N; k++) sdc(0);
     rec(0, { fsw: NaN, npp: 0, rem: 0 });
     for (let t = 1; t < n; t++) {
       month = month + 1 > 12 ? 1 : month + 1;
+      if (stageLevel <= 2) {
+        rec(t, { fsw: NaN, npp: 0, rem: 0 });
+        continue;
+      }
       let bcor = false;
-      const dorm = dormant(month, lg, lf), dprev = dormant(month - 1, lg, lf);
+      const dorm = stageLevel >= 7 && dormant(month, lg, lf), dprev = stageLevel >= 7 && dormant(month - 1, lg, lf);
       if (!dorm && dprev) { S.lai = S.debt * SLA[t] * 0.1; bcor = true; }
       if (dorm && !dprev) { S.debt = S.Wf; S.Wf = 0; S.lai = 0; bcor = true; }
       if (bcor) { for (let k = 0; k < B_N; k++) sdc(t); bcor = false; }
       let rem = 0;
-      if (ev[t] > 0) { const wpre = S.Wf; rem = S.Wf * ev[t]; S.Wf -= rem; S.lai = S.Wf * SLA[t] * 0.1; if (comp && rem > 0) { wfRef = Math.max(wpre, wfRef); tEv = t; } }
+      if (stageLevel >= 8 && ev[t] > 0) { const wpre = S.Wf; rem = S.Wf * ev[t]; S.Wf -= rem; S.lai = S.Wf * SLA[t] * 0.1; if (comp && rem > 0) { wfRef = Math.max(wpre, wfRef); tEv = t; } }
       let mInd = 0;
-      if (mortind[t] > 0 && S.N > 0) { const mk = mortind[t]; S.Wf *= 1 - mk; S.Wr *= 1 - mk; S.Ws *= 1 - mk; S.debt *= 1 - mk; mInd = S.N * mk; S.N -= mInd;
+      if (stageLevel >= 8 && mortind[t] > 0 && S.N > 0) { const mk = mortind[t]; S.Wf *= 1 - mk; S.Wr *= 1 - mk; S.Ws *= 1 - mk; S.debt *= 1 - mk; mInd = S.N * mk; S.N -= mInd;
         upd(t); for (let k = 0; k < B_N; k++) sdc(t); }
       const compOn = comp !== null && wfRef > 0 && S.Wf < wfRef, deficit = compOn ? 1 - S.Wf / wfRef : 0;
       if (comp !== null && !compOn) wfRef = 0;
+      if (stageLevel <= 6) S.lai = S.Wf * SLA[t] * 0.1;
       let cc = 1; if (P.fullCanAge > 0 && agem[t] < P.fullCanAge) cc = (agem[t] + 0.01) / P.fullCanAge;
       const li = 1 - Math.exp(-P.k * S.lai / cc), apar = g("srad", t) * DIM[month - 1] * li * cc, vpd = g("vpd_day", t);
+      if (stageLevel === 3) { rec(t, { fsw: NaN, npp: 0, rem, apar, prcp: g("prcp", t) }); continue; }
       const fvpd = Math.exp(-P.CoeffCond * vpd), fsw = 1 / (1 + Math.pow((1 - ASW / asw_max) / SWconst, SWpower));
       const fnutr = P.fNn === 0 ? 1 : 1 - (1 - fN0) * Math.pow(1 - sp.fertility, P.fNn);
       const fphys = Math.min(fvpd, fsw) * fage[t];
@@ -109,7 +125,8 @@
       let ac = P.alphaCx * fnutr * fT(t) * ffrost * fcal * fphys; if (S.lai === 0) ac = 0;
       if (effic[t] > 0) ac *= 1 - effic[t];
       let Uef = 1; if (compOn && ac > 0 && (comp.uMeses === null || t - tEv < comp.uMeses)) { Uef = 1 + (comp.U - 1) * fsw; ac *= Uef; }
-      let GPP = P.gDM_mol * P.molPAR_MJ * ac * apar / 100, NPP = GPP * P.y;
+      let GPP = 0, NPP = 0;
+      if (stageLevel >= 5) { GPP = P.gDM_mol * P.molPAR_MJ * ac * apar / 100; NPP = GPP * P.y; }
       const lt = S.lai, lper = lt === 0 ? 0 : S.lai / lt;
       let gC = P.MaxCond; if (lt <= P.LAIgcx) gC = P.MinCond + (P.MaxCond - P.MinCond) * lt / P.LAIgcx;
       let cond = gC * lper * fphys * 1 * fcg, gcFac = 1;
@@ -127,10 +144,21 @@
       const fts = (tr + pint) === 0 ? 1 : et / (tr + pint);
       GPP *= fts; NPP *= fts; const nppf = NPP, gppf = GPP;
       const trTot = tr; if (trTot > 0 && fts < 1) tr = (et - pint) / trTot * tr;
+      if (stageLevel === 4) {
+        rec(t, { fsw, npp: 0, rem, apar, alpha: ac, fVPD: fvpd, phys: fphys, transp: tr, et, prcp: g("prcp", t) });
+        continue;
+      }
+      if (stageLevel === 5) {
+        rec(t, { fsw, npp: nppf, rem, gpp: gppf, apar, alpha: ac, fVPD: fvpd, fAge: fage[t], phys: fphys,
+          transp: tr, et, prcp: g("prcp", t) });
+        continue;
+      }
       const m = P.m0 + (1 - P.m0) * sp.fertility;
       let fr = P.pRx * P.pRn / (P.pRn + (P.pRx - P.pRn) * fphys * m), fs = (1 - fr) / (1 + S.pFS), ff = 1 - fr - fs;
       if (compOn && comp.a > 0) { const mv = comp.a * deficit; ff = ff + mv * (fs + fr); fs *= 1 - mv; fr *= 1 - mv; }
-      if (!dorm) {
+      if (stageLevel === 6) {
+        S.Wf += NPP * ff; S.Wr += NPP * fr; S.Ws += NPP * fs;
+      } else if (!dorm) {
         if (S.Wf === 0) S.Wf = S.debt;
         if (NPP >= S.debt) { NPP -= S.debt; S.debt = 0; } else { S.debt -= NPP; NPP = 0; }
         const lf_ = gF[t] * S.Wf, lr = P.gammaR * S.Wr;
@@ -138,11 +166,11 @@
       }
       upd(t); for (let k = 0; k < B_N; k++) sdc(t);
       const volMes = vol(t); // como no r3PG: volume do mês calculado antes da mortalidade
-      if (!dorm && gN[t] > 0) { const ms = Math.min(gN[t] * S.N / 12 / 100, S.N);
+      if (stageLevel >= 7 && !dorm && gN[t] > 0) { const ms = Math.min(gN[t] * S.N / 12 / 100, S.N);
         S.Wf -= P.mF * ms * S.Wf / S.N; S.Wr -= P.mR * ms * S.Wr / S.N; S.Ws -= P.mS * ms * S.Ws / S.N; S.N -= ms; bcor = true; }
       if (bcor) { upd(t); for (let k = 0; k < B_N; k++) sdc(t); bcor = false; }
       const btmax = P.wSx1000 * Math.pow(1000 / S.N, P.thinPower);
-      if (!dorm && btmax < S.bt) {
+      if (stageLevel >= 7 && !dorm && btmax < S.bt) {
         const mt_ = mortality(S.N, S.Ws, P.mS, P.wSx1000, P.thinPower);
         if (mt_ < S.N) { S.Wf -= P.mF * mt_ * S.Wf / S.N; S.Wr -= P.mR * mt_ * S.Wr / S.N; S.Ws -= P.mS * mt_ * S.Ws / S.N; S.N -= mt_; }
         else Object.assign(S, { Wf: 0, Wr: 0, Ws: 0, N: 0 });

@@ -1,10 +1,9 @@
-"""Monta simulador_3pg_eucalyptus.html a partir de fonte2.html, inserindo o motor (modelo3pg.js), os dados
-(dados_min.json), a biblioteca de conceitos (conceitos.js) a interface dos conceitos (conceitos_ui.js) e o módulo de cubagem e toras (cubagem.js)."""
+"""Monta o simulador e o laboratório 3-PG a partir das fontes da plataforma."""
 from pathlib import Path
 d = Path(__file__).parent
 ler = lambda n: (d / n).read_text(encoding="utf8")
 html = ler("fonte2.html")
-for marca, arq in [("/*MODELO*/", "modelo3pg.js"), ("/*DADOS*/", "dados_min.json"), ("/*CONCEITOS*/", "conceitos.js"), ("/*CONCEITOS_UI*/", "conceitos_ui.js"), ("/*CUBAGEM*/", "cubagem.js"), ("/*MATERIAL*/", "material_tcc.js"), ("/*MATERIAL_UI*/", "material_ui.js")]:
+for marca, arq in [("/*MODELO*/", "modelo3pg.js"), ("/*DADOS*/", "dados_min.json"), ("/*CONCEITOS*/", "conceitos.js"), ("/*CONCEITOS_UI*/", "conceitos_ui.js"), ("/*CUBAGEM*/", "cubagem.js"), ("/*MATERIAL*/", "material_tcc.js"), ("/*MATERIAL_UI*/", "material_ui.js"), ("/*CURSO*/", "curso3pg.js")]:
     assert html.count(marca) == 1, marca
     html = html.replace(marca, ler(arq).strip())
 (d / "simulador_3pg_eucalyptus.html").write_text(html, encoding="utf8")

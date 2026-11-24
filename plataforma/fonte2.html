@@ -75,7 +75,7 @@ select{width:100%;background:var(--prancha);border:1px solid var(--linha-2);bord
 
 /* janela e bancada */
 .centro{display:grid;gap:14px;min-width:0}
-.janela{position:relative;padding:12px;background:linear-gradient(135deg,#b98652,#94653a 45%,#a8763f 70%,#8a5d34);box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 8px 24px rgba(60,40,20,.18);border-radius:2px}
+.janela{position:relative;padding:12px;background:linear-gradient(135deg,#b98652,#94653a 45%,#a8763f 70%,#8a5d34);box-shadow:0 1px 0 rgba(255,255,255,.4) inset,0 8px 24px rgba(0,0,0,.22);border-radius:2px}
 .janela-in{position:relative;border:1px solid rgba(0,0,0,.35);background:#eef0ea;overflow:hidden}
 #cena{display:block;width:100%;height:clamp(300px,50vh,540px);touch-action:none}
 .placa{position:absolute;top:8px;left:8px;right:8px;display:flex;justify-content:space-between;gap:8px;pointer-events:none}
@@ -193,7 +193,7 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 .c-corpo p{margin:0 0 8px;max-width:70ch}
 .c-fig{margin:8px 0;max-width:420px}
 .fig-leg{font-size:12px;color:var(--tinta-2);margin:2px 0 0}
-.c-ponte{border-left:3px solid var(--agua);background:#eef3f6;padding:7px 10px;margin:8px 0;font-size:13.5px;max-width:70ch}
+.c-ponte{border:1px solid var(--agua);background:#eef3f6;padding:7px 10px;margin:8px 0;font-size:13.5px;max-width:70ch}
 .c-ver{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:4px}
 .c-tag{background:none;border:1px solid var(--oliva-2);color:var(--oliva);padding:2px 9px;font-size:12.5px;border-radius:12px;margin:2px 0}
 .termo{background:none;border:none;padding:0;font:inherit;color:inherit;border-bottom:1px dotted var(--oliva);cursor:help}
@@ -212,9 +212,83 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 .cub-seg{display:inline-flex;border:1px solid var(--linha-2)}
 .cub-seg button{background:var(--prancha);border:none;padding:4px 10px;font-size:12.5px}
 .cub-seg button.on{background:var(--tinta);color:var(--prancha)}
-.cub-aviso{border-left:3px solid var(--alerta);background:#f8efe8;padding:7px 10px;font-size:13px;margin:10px 0;max-width:72ch}
+.cub-aviso{border:1px solid var(--alerta);background:#f8efe8;padding:7px 10px;font-size:13px;margin:10px 0;max-width:72ch}
 #m-cubagem .tab{width:100%;font-size:12.5px}
 #m-cubagem textarea{width:100%;min-height:90px;font-family:var(--f-num);font-size:12.5px}
+
+/* curso científico */
+#m-curso{z-index:60;padding:2vh 2vw;background:rgba(2,10,16,.82)}
+.course-shell{width:min(1280px,100%);height:96vh;max-height:96vh;display:flex;flex-direction:column;overflow:hidden;background:#0b1720;color:#e4edf2;border:1px solid #385465;box-shadow:0 24px 80px rgba(0,0,0,.5);font:14px/1.5 "IBM Plex Sans",Arial,sans-serif}
+.course-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-bottom:1px solid #29404d;background:#101f2a}
+.course-head h2{font:600 24px "EB Garamond",Georgia,serif;color:#eafaff}
+.course-head button,.course-shell button,.course-shell select,.course-shell input{font:inherit}
+.course-head button,.course-content button{color:#dceaf0;background:#142833;border:1px solid #3a5665;border-radius:4px;padding:7px 10px}
+.course-content button:hover:not(:disabled){border-color:#42cbe8;background:#1a3542}
+.course-content button:disabled{opacity:.42;cursor:not-allowed}
+.course-nav{display:flex;gap:4px;overflow-x:auto;padding:7px 12px;border-bottom:1px solid #29404d;background:#0d1b24}
+.course-tab{white-space:nowrap;font-size:12.5px!important}
+.course-tab.active{background:#087d9a!important;border-color:#42cbe8!important;color:white!important}
+.course-content{overflow:auto;padding:20px;scrollbar-color:#385465 #0b1720}
+.course-content h2{font:600 clamp(25px,3vw,36px) "EB Garamond",Georgia,serif;color:#f1f8fb;margin:0 0 8px}
+.course-content h3{font:600 19px "EB Garamond",Georgia,serif;color:#b9e8f2;margin:0 0 5px}
+.course-content p{margin:5px 0 10px;max-width:95ch}
+.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:16px 0}
+.course-grid article,.course-section,.reference-card,.equation-card,.map-node{background:#101f2a;border:1px solid #294452;border-radius:5px;padding:12px}
+.course-grid article p{margin:0;color:#c4d2d9}
+.course-actions,.module-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.course-primary{background:#086f89!important;border-color:#44cee9!important;color:#fff!important;font-weight:600}
+.course-section{margin:12px 0}
+.course-footnote,.mini-status,.input-unit{font-size:12px;color:#a8bac4}
+.module-strip{display:flex;gap:7px;overflow-x:auto;padding:8px 0;margin:6px 0 14px}
+.module-chip{min-width:145px;display:grid;grid-template-columns:26px 1fr;gap:0 7px;text-align:left!important}
+.module-chip b{grid-row:span 2;color:#8ce4f2}
+.module-chip small{color:#b2c2ca}
+.module-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:14px}
+.mode-switch{display:grid;gap:3px;color:#b7c9d2;font-size:12px}
+.mode-switch select,.select-label select,.input-grid input,.select-label input{background:#0b1720;color:#e4edf2;border:1px solid #3a5665;padding:7px;border-radius:4px}
+.module-facts article h3{font-size:17px}
+.module-facts article p{margin:0}
+.module-equations{padding:5px 0;color:#cbd9df}
+.course-link{padding:2px 6px!important;margin:2px;color:#7bd8ec!important;background:#102732!important;font:12px "IBM Plex Mono",monospace!important}
+.status-pill,.map-legend span,.equation-status,.reference-kind{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;border:1px solid currentColor}
+.status-learned,.status-learned small{color:#49d4b1!important}
+.status-current,.status-current small{color:#56d7f0!important}
+.status-future,.status-future small{color:#81939e!important}
+.status-dependency,.status-dependency small{color:#ffd16c!important}
+.status-extension,.status-extension small{color:#c5a0ff!important}
+.status-error,.status-error small{color:#ff737d!important}
+.module-chip.status-learned{border-color:#49d4b1}.module-chip.status-current{border-color:#56d7f0}.module-chip.status-future{border-color:#526875}
+.module-chip.status-error{border-color:#ff737d}.module-chip.status-extension{border-color:#c5a0ff}
+.map-legend{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
+.map-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:9px}
+.map-node{position:relative}
+.map-node-title{display:flex;width:100%;justify-content:space-between;gap:8px;text-align:left;margin-bottom:8px}
+.map-node-title small{color:#a7bac5;white-space:nowrap}
+.map-node>div:not(.node-equations){display:grid;grid-template-columns:78px 1fr;gap:6px;font-size:11.5px;color:#b7c7cf;margin:4px 0}
+.map-node>div b{color:#e0edf2}
+.map-node.status-extension{border-color:#7656a7}
+.input-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:9px;margin:10px 0}
+.input-grid label,.select-label{display:grid;gap:3px;color:#d4e2e8;font-size:12px}
+.input-grid input{width:100%;font-family:"IBM Plex Mono",monospace}
+.input-unit{font-size:11px}
+.input-errors{color:#ff737d;font-size:12px}
+.table-scroll{overflow:auto;max-height:45vh;margin:10px 0}
+.course-table{width:100%;border-collapse:collapse;min-width:600px;font-size:12px}
+.course-table th,.course-table td{padding:5px 7px;border-bottom:1px solid #294452;text-align:right;white-space:nowrap}
+.course-table th:first-child,.course-table td:first-child{text-align:left}
+.course-table th{position:sticky;top:0;background:#142833;color:#a9dce6}
+.check-pass{color:#54d9b2}.check-fail{color:#ff737d}
+.test-list{padding-left:20px}.test-list li{margin:4px 0}
+.result-panel code,.equation-card code{overflow-wrap:anywhere;color:#8bdced}
+.equation-card{margin:8px 0}
+.equation-card summary{cursor:pointer;color:#edf6f9}
+.equation-formula{font:13px "IBM Plex Mono",monospace;background:#0b1720;border:1px solid #23a7c3;padding:10px;margin:8px 0;overflow-wrap:anywhere}
+.equation-card dl{display:grid;grid-template-columns:145px 1fr;gap:4px 10px;font-size:12px}
+.equation-card dt{color:#88cbd9}.equation-card dd{margin:0;color:#c7d4da}
+.equation-status{margin-left:8px;color:#ffd16c}
+.reference-card{margin:8px 0}.reference-kind{color:#81d6e5}
+#audit-status{display:block;color:#78dfbf;margin-top:8px}
+@media(max-width:700px){#m-curso{padding:0}.course-shell{width:100%;height:100dvh;max-height:100dvh;border:0}.course-content{padding:13px}.course-head{padding:10px 12px}.module-heading{align-items:flex-start;flex-direction:column}.equation-card dl{grid-template-columns:1fr}.course-table{min-width:520px}}
 </style>
 </head>
 <body>
@@ -223,7 +297,7 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
   <div><div class="rot">Akademia Florestal · laboratório de modelagem ecofisiológica</div>
     <h1>Simulador 3-PG de <em>Eucalyptus</em></h1>
     <p>Crescimento mensal de povoamentos de eucalipto em seis locais, um por bioma com plantios, com e sem desfolha, outros danos e compensação fisiológica.</p></div>
-  <nav><button class="lnk" id="bt-conceitos" type="button">Conceitos</button><button class="lnk chave" id="bt-explicar" type="button" aria-pressed="false">Modo explicar</button><button class="lnk" id="bt-cubagem" type="button">Cubagem e toras</button><button class="lnk" id="bt-tour" type="button">Tutorial guiado</button><button class="lnk" id="bt-valid" type="button">Evidências e métricas</button><button class="lnk chave" id="bt-material" type="button">Material do TCC</button></nav>
+  <nav><button class="lnk chave" id="bt-curso" type="button">Laboratório 3-PG</button><button class="lnk" id="bt-conceitos" type="button">Conceitos</button><button class="lnk chave" id="bt-explicar" type="button" aria-pressed="false">Modo explicar</button><button class="lnk" id="bt-cubagem" type="button">Cubagem e toras</button><button class="lnk" id="bt-tour" type="button">Tutorial guiado</button><button class="lnk" id="bt-valid" type="button">Evidências e métricas</button><button class="lnk chave" id="bt-material" type="button">Material do TCC</button></nav>
 </header>
 
 <main class="lab">
@@ -354,6 +428,10 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
   <p>As ilustrações, os horizontes do solo, o perfil do fuste do gráfico e a altura do A1 são esquemáticos. O taper da aba Toras usa a equação de Souza et al. (2016), de outro clone, e os critérios de sortimento de Soares et al. (2003). Os resultados foram verificados, mas não validados com experimentos de desfolha nos seis locais.</p>
 </footer>
 
+<div class="modal" id="m-curso" hidden><section class="course-shell" role="dialog" aria-modal="true" aria-labelledby="course-title">
+  <header class="course-head"><h2 id="course-title">Aprender e explorar o 3-PG</h2><button id="course-close" type="button">Fechar</button></header>
+  <nav class="course-nav" id="course-nav" aria-label="Áreas do laboratório"></nav><div class="course-content" id="course-content"></div>
+</section></div>
 <div class="modal" id="m-valid" hidden><div class="pr" role="dialog" aria-modal="true" aria-label="Evidências e métricas">
   <div class="pr-cab"><h2>Evidências e métricas</h2><button class="fechar" data-fecha="m-valid" type="button">Fechar</button></div>
   <div id="valid-corpo"></div>
@@ -512,10 +590,14 @@ function opcoes(comp) { const o = {}; const anos = anosAtaque();
   if (E.r > 0) { o.efic = {}; anos.forEach(a => { for (let i = 0; i < 4; i++) o.efic[mesTxt(a, E.epoca + i)] = E.r / 100; }); }
   if (E.m > 0) o.mort = { [mesTxt(anos[0], E.epoca)]: E.m / 100 };
   if (comp) o.comp = comp; return o; }
-function rodar(sitio, mat, agua, fert, ev, opt) {
+function rodar(sitio, mat, agua, fert, ev, opt, stageId = "D6", scenarioOverride = null) {
   const m = DADOS.materiais[mat], s = DADOS.sitios[sitio], asw = agua === "LOC" ? s.asw_local : ASW_REF * agua / 100;
-  return { o: Modelo3PG.run({ lat: s.lat, asw_max: asw, asw_i: asw, from: m.inicio, to: "2023-01" },
-    { planted: "2015-01", fertility: frNivel(mat, fert), stems_n: 10000 / 9, WS0: m.WS0, WR0: m.WR0, WF0: m.WF0 }, s.clima, m.params, ev, opt), asw, inicio: m.inicio };
+  const overrides = scenarioOverride || window.Curso3PG?.scenarioOverrides?.(sitio, mat) || {};
+  const initial = overrides.initial || {};
+  return { o: Modelo3PG.run({ lat: s.lat, asw_max: asw, asw_i: initial.asw_i ?? asw, from: m.inicio, to: "2023-01" },
+    { planted: "2015-01", fertility: frNivel(mat, fert), stems_n: initial.stems_n ?? 10000 / 9,
+      WS0: initial.WS0 ?? m.WS0, WR0: initial.WR0 ?? m.WR0, WF0: initial.WF0 ?? m.WF0 },
+    overrides.climate || s.clima, m.params, ev, opt, stageId), asw, inicio: m.inicio };
 }
 const quantil = (v, q) => { const a = [...v].sort((x, y) => x - y), i = (a.length - 1) * q, b = Math.floor(i); return a[b] + (a[Math.min(b + 1, a.length - 1)] - a[b]) * (i - b); };
 // incerteza: 200 amostras do posterior da calibração (U, a; γ = 1, calibrado com Quentin et al., 2011; U só no mês do ataque)
@@ -799,7 +881,7 @@ function tocar(inicio) { parar(); if (matchMedia("(prefers-reduced-motion: reduc
   timer = setInterval(() => { if (tAtual >= R.c.Wf.length - 1) return parar(); tAtual++; mostrar(); }, AJ.vel); }
 function parar() { clearInterval(timer); timer = null; const b = document.getElementById("bt-play"); b.textContent = "▶"; b.setAttribute("aria-label", "Reproduzir"); }
 function irPara(idade) { const k = R.idade.indexOf(idade); tAtual = k >= 0 ? k : R.c.Wf.length - 1; mostrar(); }
-function atualizar(ui = true) { simular(); if (ui) montarEntradas(); montarTempo(); mostrar();
+function atualizar(ui = true) { window.Curso3PG?.invalidateRun?.(); simular(); if (ui) montarEntradas(); montarTempo(); mostrar();
   document.getElementById("estado-sim").textContent = `${SIT[E.sitio]} · ${E.mat} · ${E.d}% ${FREQ_L[E.freq]} em ${EPOCA[E.epoca]} · ${COMP[E.comp]}`; }
 document.getElementById("bt-play").onclick = () => timer ? parar() : tocar(tAtual >= R.c.Wf.length - 1);
 document.getElementById("mes").oninput = e => { parar(); tAtual = +e.target.value; mostrar(); };
@@ -901,6 +983,51 @@ document.getElementById("bt-valid").onclick = abrirValid;
 /*CUBAGEM*/
 /*MATERIAL*/
 /*MATERIAL_UI*/
+/*CURSO*/
+(function () {
+  const getScenario = () => ({
+    site: E.sitio, material: E.mat, water: E.agua, fertility: E.fert,
+    aswMax: E.agua === "LOC" ? DADOS.sitios[E.sitio].asw_local : ASW_REF * Number(E.agua) / 100
+  });
+  window.Curso3PG.init({
+    data: DADOS,
+    getScenario,
+    setScenario(changes) {
+      if (changes.site && Object.prototype.hasOwnProperty.call(DADOS.sitios, changes.site)) E.sitio = changes.site;
+      if (changes.material && Object.prototype.hasOwnProperty.call(DADOS.materiais, changes.material)) E.mat = changes.material;
+    },
+    runStage(moduleId, overrides) {
+      const scenario = getScenario();
+      const comp = E.comp === "C" ? DADOS.calibracao.mediana : null;
+      const defoliation = moduleId === "D6" ? eventos() : {};
+      const options = moduleId === "D6" ? opcoes(comp) : {};
+      return rodar(scenario.site, scenario.material, scenario.water, scenario.fertility, defoliation, options, moduleId, overrides).o;
+    },
+    describeScenario(overrides, moduleId) {
+      const scenario = getScenario();
+      const material = DADOS.materiais[scenario.material];
+      return {
+        engine: "Akademia Modelo3PG · 3-PGpjs / r3PG v0.1.7",
+        stage: moduleId,
+        site: scenario.site,
+        material: scenario.material,
+        water: scenario.water,
+        asw_max_mm: scenario.aswMax,
+        fertility: scenario.fertility,
+        extensions: moduleId === "D6" ? {
+          defoliation: eventos(),
+          options: opcoes(E.comp === "C" ? DADOS.calibracao.mediana : null),
+          scenario: { damage: E.d, frequency: E.freq, season: E.epoca, compensation: E.comp, efficiency_loss: E.r, mortality: E.m }
+        } : "Disabled outside D6",
+        initial: overrides.initial,
+        climate: overrides.climate,
+        parameters: material.params,
+        period: { from: material.inicio, to: "2023-01" }
+      };
+    },
+    refreshScenario() { atualizar(); }
+  });
+})();
 
 // ---------- tutorial ----------
 const PASSOS = [
