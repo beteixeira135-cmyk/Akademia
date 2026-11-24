@@ -217,77 +217,78 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 #m-cubagem textarea{width:100%;min-height:90px;font-family:var(--f-num);font-size:12.5px}
 
 /* curso científico */
-#m-curso{z-index:60;padding:2vh 2vw;background:rgba(2,10,16,.82)}
-.course-shell{width:min(1280px,100%);height:96vh;max-height:96vh;display:flex;flex-direction:column;overflow:hidden;background:#0b1720;color:#e4edf2;border:1px solid #385465;box-shadow:0 24px 80px rgba(0,0,0,.5);font:14px/1.5 "IBM Plex Sans",Arial,sans-serif}
-.course-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-bottom:1px solid #29404d;background:#101f2a}
-.course-head h2{font:600 24px "EB Garamond",Georgia,serif;color:#eafaff}
+#m-curso{z-index:60;padding:2vh 2vw;background:rgba(35,39,31,.38)}
+.course-shell{width:min(1280px,100%);height:96vh;max-height:96vh;display:flex;flex-direction:column;overflow:hidden;background:var(--fundo);color:var(--tinta);border:1px solid var(--linha-2);box-shadow:0 18px 56px rgba(35,39,31,.22);font:14px/1.5 "IBM Plex Sans",Arial,sans-serif}
+.course-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-bottom:1px solid var(--linha);background:var(--prancha)}
+.course-head h2{font:600 24px "EB Garamond",Georgia,serif;color:var(--tinta)}
 .course-head button,.course-shell button,.course-shell select,.course-shell input{font:inherit}
-.course-head button,.course-content button{color:#dceaf0;background:#142833;border:1px solid #3a5665;border-radius:4px;padding:7px 10px}
-.course-content button:hover:not(:disabled){border-color:#42cbe8;background:#1a3542}
-.course-content button:disabled{opacity:.42;cursor:not-allowed}
-.course-nav{display:flex;gap:4px;overflow-x:auto;padding:7px 12px;border-bottom:1px solid #29404d;background:#0d1b24}
-.course-tab{white-space:nowrap;font-size:12.5px!important}
-.course-tab.active{background:#087d9a!important;border-color:#42cbe8!important;color:white!important}
-.course-content{overflow:auto;padding:20px;scrollbar-color:#385465 #0b1720}
-.course-content h2{font:600 clamp(25px,3vw,36px) "EB Garamond",Georgia,serif;color:#f1f8fb;margin:0 0 8px}
-.course-content h3{font:600 19px "EB Garamond",Georgia,serif;color:#b9e8f2;margin:0 0 5px}
+.course-shell button{color:var(--tinta);background:var(--prancha);border:1px solid var(--linha-2);border-radius:3px;padding:7px 10px}
+.course-shell button:hover:not(:disabled){border-color:var(--agua);background:#edf3ef}
+.course-shell button:disabled{opacity:1;cursor:not-allowed;background:#f0f2ec;color:var(--tinta-2)}
+.course-shell button.course-primary:disabled{background:#f0f2ec!important;border-color:var(--linha-2)!important;color:var(--tinta-2)!important}
+.course-nav{display:flex;flex-wrap:wrap;gap:5px;overflow:visible;padding:7px 12px;border-bottom:1px solid var(--linha);background:var(--fundo)}
+.course-tab{white-space:nowrap;font-size:12.5px!important;padding:5px 9px!important}
+.course-tab.active{background:#e8f0ed!important;border-color:var(--oliva)!important;color:var(--oliva)!important}
+.course-content{overflow:auto;padding:20px;scrollbar-color:var(--linha-2) var(--fundo)}
+.course-content h2{font:600 clamp(25px,3vw,36px) "EB Garamond",Georgia,serif;color:var(--tinta);margin:0 0 8px}
+.course-content h3{font:600 19px "EB Garamond",Georgia,serif;color:#385f52;margin:0 0 5px}
 .course-content p{margin:5px 0 10px;max-width:95ch}
 .course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin:16px 0}
-.course-grid article,.course-section,.reference-card,.equation-card,.map-node{background:#101f2a;border:1px solid #294452;border-radius:5px;padding:12px}
-.course-grid article p{margin:0;color:#c4d2d9}
+.course-grid article,.course-section,.reference-card,.equation-card,.map-node{background:var(--prancha);border:1px solid var(--linha);border-radius:3px;padding:12px}
+.course-grid article p{margin:0;color:var(--tinta-2)}
 .course-actions,.module-nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:12px 0}
-.course-primary{background:#086f89!important;border-color:#44cee9!important;color:#fff!important;font-weight:600}
+.course-primary{background:#486c45!important;border-color:#486c45!important;color:#fff!important;font-weight:600}
 .course-section{margin:12px 0}
-.course-footnote,.mini-status,.input-unit{font-size:12px;color:#a8bac4}
-.module-strip{display:flex;gap:7px;overflow-x:auto;padding:8px 0;margin:6px 0 14px}
-.module-chip{min-width:145px;display:grid;grid-template-columns:26px 1fr;gap:0 7px;text-align:left!important}
-.module-chip b{grid-row:span 2;color:#8ce4f2}
-.module-chip small{color:#b2c2ca}
+.course-footnote,.mini-status,.input-unit{font-size:12px;color:var(--tinta-2)}
+.module-strip{display:flex;flex-wrap:wrap;gap:7px;overflow:visible;padding:8px 0;margin:6px 0 14px}
+.module-chip{min-width:0;flex:1 1 145px;display:grid;grid-template-columns:26px 1fr;gap:0 7px;text-align:left!important}
+.module-chip b{grid-row:span 2;color:#286782}
+.module-chip small{color:var(--tinta-2)}
 .module-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:14px}
-.mode-switch{display:grid;gap:3px;color:#b7c9d2;font-size:12px}
-.mode-switch select,.select-label select,.input-grid input,.select-label input{background:#0b1720;color:#e4edf2;border:1px solid #3a5665;padding:7px;border-radius:4px}
+.mode-switch{display:grid;gap:3px;color:var(--tinta-2);font-size:12px}
+.mode-switch select,.select-label select,.input-grid input,.select-label input{background:var(--prancha);color:var(--tinta);border:1px solid var(--linha-2);padding:7px;border-radius:3px}
 .module-facts article h3{font-size:17px}
 .module-facts article p{margin:0}
-.module-equations{padding:5px 0;color:#cbd9df}
-.course-link{padding:2px 6px!important;margin:2px;color:#7bd8ec!important;background:#102732!important;font:12px "IBM Plex Mono",monospace!important}
+.module-equations{padding:5px 0;color:var(--tinta-2)}
+.course-link{padding:2px 6px!important;margin:2px;color:#286782!important;background:#edf3ef!important;font:12px "IBM Plex Mono",monospace!important}
 .status-pill,.map-legend span,.equation-status,.reference-kind{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;border:1px solid currentColor}
-.status-learned,.status-learned small{color:#49d4b1!important}
-.status-current,.status-current small{color:#56d7f0!important}
-.status-future,.status-future small{color:#81939e!important}
-.status-dependency,.status-dependency small{color:#ffd16c!important}
-.status-extension,.status-extension small{color:#c5a0ff!important}
-.status-error,.status-error small{color:#ff737d!important}
-.module-chip.status-learned{border-color:#49d4b1}.module-chip.status-current{border-color:#56d7f0}.module-chip.status-future{border-color:#526875}
-.module-chip.status-error{border-color:#ff737d}.module-chip.status-extension{border-color:#c5a0ff}
+.status-learned,.status-learned small{color:#13725b!important}
+.status-current,.status-current small{color:#286782!important}
+.status-future,.status-future small{color:#5d6b63!important}
+.status-dependency,.status-dependency small{color:#805d1f!important}
+.status-extension,.status-extension small{color:#694e90!important}
+.status-error,.status-error small{color:#a33434!important}
+.module-chip.status-learned{border-color:#13725b}.module-chip.status-current{border-color:#286782}.module-chip.status-future{border-color:#bfc3b2}
+.module-chip.status-error{border-color:#a33434}.module-chip.status-extension{border-color:#694e90}
 .map-legend{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
 .map-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:9px}
 .map-node{position:relative}
 .map-node-title{display:flex;width:100%;justify-content:space-between;gap:8px;text-align:left;margin-bottom:8px}
-.map-node-title small{color:#a7bac5;white-space:nowrap}
-.map-node>div:not(.node-equations){display:grid;grid-template-columns:78px 1fr;gap:6px;font-size:11.5px;color:#b7c7cf;margin:4px 0}
-.map-node>div b{color:#e0edf2}
-.map-node.status-extension{border-color:#7656a7}
+.map-node-title small{color:var(--tinta-2);white-space:nowrap}
+.map-node>div:not(.node-equations){display:grid;grid-template-columns:78px 1fr;gap:6px;font-size:11.5px;color:var(--tinta-2);margin:4px 0}
+.map-node>div b{color:var(--tinta)}
+.map-node.status-extension{border-color:#694e90}
 .input-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:9px;margin:10px 0}
-.input-grid label,.select-label{display:grid;gap:3px;color:#d4e2e8;font-size:12px}
+.input-grid label,.select-label{display:grid;gap:3px;color:var(--tinta);font-size:12px}
 .input-grid input{width:100%;font-family:"IBM Plex Mono",monospace}
 .input-unit{font-size:11px}
-.input-errors{color:#ff737d;font-size:12px}
+.input-errors{color:#a33434;font-size:12px}
 .table-scroll{overflow:auto;max-height:45vh;margin:10px 0}
 .course-table{width:100%;border-collapse:collapse;min-width:600px;font-size:12px}
-.course-table th,.course-table td{padding:5px 7px;border-bottom:1px solid #294452;text-align:right;white-space:nowrap}
+.course-table th,.course-table td{padding:5px 7px;border-bottom:1px solid var(--linha);text-align:right;white-space:nowrap}
 .course-table th:first-child,.course-table td:first-child{text-align:left}
-.course-table th{position:sticky;top:0;background:#142833;color:#a9dce6}
-.check-pass{color:#54d9b2}.check-fail{color:#ff737d}
+.course-table th{position:sticky;top:0;background:#edf0e9;color:#27483f}
+.check-pass{color:#13725b}.check-fail{color:#a33434}
 .test-list{padding-left:20px}.test-list li{margin:4px 0}
-.result-panel code,.equation-card code{overflow-wrap:anywhere;color:#8bdced}
+.result-panel code,.equation-card code{overflow-wrap:anywhere;color:#286782}
 .equation-card{margin:8px 0}
-.equation-card summary{cursor:pointer;color:#edf6f9}
-.equation-formula{font:13px "IBM Plex Mono",monospace;background:#0b1720;border:1px solid #23a7c3;padding:10px;margin:8px 0;overflow-wrap:anywhere}
+.equation-card summary{cursor:pointer;color:var(--tinta)}
+.equation-formula{font:13px "IBM Plex Mono",monospace;background:#f0f2ec;border:1px solid var(--agua);padding:10px;margin:8px 0;overflow-wrap:anywhere}
 .equation-card dl{display:grid;grid-template-columns:145px 1fr;gap:4px 10px;font-size:12px}
-.equation-card dt{color:#88cbd9}.equation-card dd{margin:0;color:#c7d4da}
-.equation-status{margin-left:8px;color:#ffd16c}
-.reference-card{margin:8px 0}.reference-kind{color:#81d6e5}
-#audit-status{display:block;color:#78dfbf;margin-top:8px}
+#audit-status{display:block;color:#13725b;margin-top:8px}
+.equation-card dt{color:#286782}.equation-card dd{margin:0;color:var(--tinta-2)}
+.equation-status{margin-left:8px;color:#805d1f}
+.reference-card{margin:8px 0}.reference-kind{color:#286782}
 @media(max-width:700px){#m-curso{padding:0}.course-shell{width:100%;height:100dvh;max-height:100dvh;border:0}.course-content{padding:13px}.course-head{padding:10px 12px}.module-heading{align-items:flex-start;flex-direction:column}.equation-card dl{grid-template-columns:1fr}.course-table{min-width:520px}}
 </style>
 </head>

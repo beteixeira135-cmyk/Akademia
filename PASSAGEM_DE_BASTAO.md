@@ -1,7 +1,7 @@
-# PASSAGEM DE BASTÃO — TCC II (12092 tokens, estimativa (caracteres ÷ 3,6); gerado em 24/11/2026 09:30)
+# PASSAGEM DE BASTÃO — TCC II (12410 tokens, estimativa (caracteres ÷ 3,6); gerado em 24/11/2026 09:42)
 
 Documento gerado automaticamente por `ferramentas/gerar_passagem.py`. Serve para qualquer IA continuar o trabalho.
-Para o código completo, use `CONTEXTO_EMPACOTADO.md` (31433 tokens, estimativa (caracteres ÷ 3,6)).
+Para o código completo, use `CONTEXTO_EMPACOTADO.md` (31750 tokens, estimativa (caracteres ÷ 3,6)).
 
 # AGENTS.md — instruções para qualquer IA que trabalhe neste projeto (Claude, ChatGPT/Codex, Gemini, Cursor)
 
@@ -48,6 +48,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 # Contexto ativo
+- Em 24/11/2026, foi aplicada a revisão visual solicitada para o laboratório: a navegação superior agora quebra em linhas sem rolagem horizontal; os painéis, controles e conteúdo adotam os tons off-white já definidos pela Akademia; e o estado desativado mantém contraste legível. A prévia foi conferida em 690×584: as regiões de navegação não transbordam e o texto desativado tem contraste 4,97:1. Os testes Node continuam em 5/5 e a página foi reconstruída.
 - Em 24/11/2026, a Akademia foi ampliada no aplicativo estático existente com um curso/laboratório interativo do 3-PG, sem duplicar o motor: os estágios A–D6 executam `Modelo3PG.run`, com mapa de dependências, equações e referências, exploração de cenários, comparações, testes e exportação de auditoria. A plataforma foi reconstruída em `docs/index.html`; 5 testes Node passaram e a navegação no navegador concluiu D6 com invariantes e determinismo aprovados. O último botão da trilha agora informa “Trilha concluída” e fica desativado. Os testes Python de regressão do modelo não puderam ser executados: o sandbox bloqueou a leitura da instalação global do NumPy; não repetir por caminhos alternativos.
 - Em 22/11/2026, foi implementada e executada `experimentos/analise_vpd_rh2m.py`: comparação do VPD padrão com estimativa diária baseada em Tmax/Tmin e RH2M, sem alterar o motor. A análise usa ASWmax local (IND 215, TB 214, IMP 210 mm); IMP fica como diagnóstico (fT=0). O TCC agora explica a função do VPD no 3-PG, a equação alternativa e os resultados de sensibilidade em IND/TB. A auditoria passou em 639/639 itens; os 3 testes direcionados passaram. O DOCX foi regenerado e o validador estrutural local aprovou 18 partes XML e 17 imagens, incluindo o Fluxograma 3 atualizado. Sem `soffice`/LibreOffice, não foi gerado PDF nem conferida a paginação renderizada.
 - Em 22/11/2026, aberto o PR #12 com as alterações de texto e fluxogramas: arquitetura, ciclo mensal e cenários foram reorganizados para leitura em página; a redação de VPD e Random Forest foi limitada às evidências versionadas; e a falta de acesso aos dados brutos TECHS 9 e 22 foi explicitada sem solicitar acesso. `PENDENCIAS_FORA_DO_TEXTO.md` foi reduzido a limitações sem tarefas analíticas abertas. Auditoria numérica: 625/625; DOCX estruturalmente íntegro, com 17 imagens, e fluxogramas 1–3 incorporados a 16 cm. Não foi possível atualizar o PDF ou executar o validador oficial. A sessão não tem extensão de Drive; o upload e o registro no Diário não foram realizados.
@@ -88,6 +89,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 ---
 # Progresso
 ## Feito
+- Em 24/11/2026, revisão visual do laboratório conforme a captura: removida a barra de rolagem horizontal da navegação por quebra responsiva das abas; o tema escuro do curso foi substituído por tons off-white consistentes com a página; estados desativados preservam contraste. Conferido no navegador a 690×584; contraste do texto de módulos futuros desativados: 4,97:1. Build, parsing de scripts, `git diff --check` e os 5 testes Node passaram.
 - Em 24/11/2026, a plataforma Akademia foi evoluída para um curso/laboratório 3-PG integrado à aplicação estática existente, reutilizando `Modelo3PG.run`. Foram incluídos estágios pedagógicos A–D6, mapa científico, navegação por equações e referências, exploração/comparação de cenários, tutor, testes e pacote de auditoria; `docs/index.html` foi regenerado. `node --test plataforma/testes/curso3pg.test.js` passou (5/5), a sintaxe JS/Python e `git diff --check` passaram, e o navegador concluiu D6 com invariantes/determinismo aprovados. A navegação final informa “Trilha concluída” e desativa o botão sem destino. A regressão Python do motor ficou bloqueada pelo sandbox ao acessar o NumPy global; não foi repetida por outra ferramenta/caminho.
 - Em 22/11/2026, foi criado `experimentos/analise_vpd_rh2m.py` e a função mensal alternativa em `experimentos/clima.py`. A comparação usa os valores locais de ASWmax, mantém intactas as equações do 3-PG e classifica IMP como diagnóstico. O TCC explica o papel do VPD, o uso de RH2M como análise de sensibilidade e os resultados simulados em IND/TB; a auditoria passou em 639/639 e os 3 testes direcionados passaram. O DOCX foi regenerado, validado estruturalmente (18 partes XML, 17 imagens) e contém o Fluxograma 3 novo; o teste negativo do validador rejeitou a contagem errada de imagens. PDF/renderização indisponíveis sem LibreOffice/soffice.
 - Em 22/11/2026, o PR #12 foi aberto com a atualização do texto: fluxogramas de arquitetura, ciclo mensal e cenários reestruturados e ampliados no DOCX; evidências de Random Forest e VPD descritas sem causalidade não demonstrada; falta de acesso aos inventários brutos TECHS 9 e 22 registrada sem solicitação de dados. A auditoria passou em 625/625 itens; o DOCX passou na integridade ZIP/XML, contém 17 imagens e insere os três fluxogramas a 16 cm. PDF e validação oficial não foram executados por ausência das ferramentas. O upload ao Drive e o registro no Diário não foram realizados.
@@ -172,6 +174,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 22/11/2026: usar o `.venv` local do worktree para auditoria e geração do DOCX, mantendo `.venv` fora do Git e sem alterar o motor científico ou publicar em `main`.
 - 22/11/2026: não atribuir nem excluir causalidade de VPD para os ganhos simulados. Preservar `vpd_day` e todas as equações do motor; comparar entradas padrão e alternativa baseada em RH2M nos mesmos cenários e controles, com ASWmax local. A alternativa adapta a forma de RH média da FAO-56 e é menos recomendada que RH máxima/mínima; tratá-la como sensibilidade, não validação. IMP fica como diagnóstico (fT=0); o Random Forest continua sem VPD entre os preditores. Declarar a falta de acesso aos dados brutos TECHS como limitação, sem solicitar esses dados.
 - 24/11/2026: integrar o curso/laboratório ao aplicativo estático existente, preservando o motor científico `Modelo3PG.run` e mantendo D6 como estágio final para saídas, testes e auditoria. No último estágio, o controle de avanço deve anunciar a conclusão da trilha e ficar desativado, evitando sugerir uma etapa inexistente.
+- 24/11/2026: a pedido do usuário, manter as abas de navegação mas quebrá-las em linhas responsivas, eliminando a barra horizontal; usar para o curso a paleta off-white da Akademia e preservar contraste suficiente nos estados desativados.
 
 ---
 # Contexto técnico
@@ -185,6 +188,7 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 
 ---
 ## Últimos commits
+- 24/11 09:30 Add interactive 3-PG learning lab
 - 22/11 08:19 Merge pull request #12 from xreberx/xreberx-finalizar-docx-tcc
 - 22/11 08:18 Finaliza anÃ¡lise de VPD e validaÃ§Ã£o do DOCX
 - 22/11 07:55 docs: registrar entrega da revisao no PR
@@ -199,7 +203,6 @@ no modelo ecofisiológico 3-PG (r3PG v0.1.7, 3-PGpjs, porta Python verificada) p
 - 22/11 07:11 tcc: secao 3.8 trajetoria metodologica e reutilizacao; Quadro 2 de evidencias; DOCX e PDF regenerados a partir da main
 - 21/11 19:35 Merge pull request #8 from beteixeira135-cmyk/finalizacao-claude
 - 21/11 18:26 Corrige leitura horizontal do Fluxograma 2
-- 21/11 17:27 incorpora fluxogramas ao TCC final
 
 ## Para a IA que continuar
 1. Sem execução de código: redija o texto, marcando [CONFERIR] em números ainda não gerados. Nunca invente resultados.
