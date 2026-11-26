@@ -97,7 +97,7 @@ select{width:100%;background:var(--prancha);border:1px solid var(--linha-2);bord
 .madeira:active{filter:brightness(.96);box-shadow:0 1px 2px rgba(0,0,0,.35) inset}
 .madeira.ipe{--m:var(--ipe)} .madeira.aroeira{--m:var(--aroeira)} .madeira.mulato{--m:var(--mulato)}
 .madeira{padding:13px 22px;min-width:136px}
-.madeira.mulato{text-shadow:0 -1px 0 rgba(0,0,0,.55),0 0 6px rgba(40,20,5,.35)}
+.madeira.mulato{text-shadow:0 -1px 0 rgba(0,0,0,.55)}
 
 .tempo{display:grid;gap:4px;background:var(--prancha);border:1px solid var(--linha-2);padding:10px 14px}
 .tempo-l{display:flex;gap:12px;align-items:center}
@@ -234,6 +234,10 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 .course-nav{display:flex;flex-wrap:wrap;gap:5px;overflow:visible;padding:7px 12px;border-bottom:1px solid var(--linha);background:var(--fundo)}
 .course-tab{white-space:nowrap;font-size:12.5px!important;padding:5px 9px!important}
 .course-tab.active{background:#e8f0ed!important;border-color:var(--oliva)!important;color:var(--oliva)!important}
+.course-more{display:flex;flex-direction:column;gap:5px}
+.course-more summary{list-style:none;cursor:pointer;border:1px solid var(--linha-2);border-radius:3px;background:var(--prancha);color:var(--tinta)}
+.course-more summary::-webkit-details-marker{display:none}
+.course-more-menu{display:flex;flex-wrap:wrap;gap:5px}
 .course-content{overflow:auto;padding:20px;scrollbar-color:var(--linha-2) var(--fundo)}
 .course-content h2{font:600 clamp(25px,3vw,36px) "EB Garamond",Georgia,serif;color:var(--tinta);margin:0 0 8px}
 .course-content h3{font:600 19px "EB Garamond",Georgia,serif;color:#385f52;margin:0 0 5px}
@@ -265,6 +269,29 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 .status-error,.status-error small{color:#a33434!important}
 .module-chip.status-learned{border-color:#13725b}.module-chip.status-current{border-color:#286782}.module-chip.status-future{border-color:#bfc3b2}
 .module-chip.status-error{border-color:#a33434}.module-chip.status-extension{border-color:#694e90}
+.academy-principle{max-width:76ch}
+.academy-catalog{margin:18px 0}
+.academy-catalog summary,.map-details summary{cursor:pointer;color:#286782;font-weight:600;padding:8px 0}
+.flow-steps{display:grid;gap:0;list-style:none;padding:0;margin:16px 0;max-width:78ch}
+.flow-step{padding:10px 0 14px;border-bottom:1px solid var(--linha)}
+.flow-step-link{display:flex;align-items:center;gap:10px;text-align:left!important;font-weight:600}
+.flow-step-link b{font:600 12px "IBM Plex Mono",monospace;color:#286782;min-width:34px}
+.flow-step p{margin:5px 0}
+.flow-operation{color:var(--tinta)}
+.flow-explanation{color:var(--tinta-2)}
+.flow-step>small{font-size:12px;color:var(--tinta-2)}
+.flow-loop{max-width:78ch;background:#edf3ef;padding:10px 12px}
+.extension-branch{margin:20px 0;padding:14px 0;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+.extension-branch h3{margin-bottom:4px}
+.extension-branch p{max-width:76ch}
+.map-details{margin-top:20px}
+.map-details .map-flow{margin-top:10px}
+.extension-scope{max-width:76ch;background:#f0edf4;padding:9px 12px;color:#4e3b65}
+.extension-equation code{display:block;font:15px "IBM Plex Mono",monospace;background:#f0f2ec;border:1px solid var(--agua);padding:12px;overflow-wrap:anywhere}
+.extension-equation dl{display:grid;grid-template-columns:110px 1fr;gap:5px 10px;margin:12px 0 0}
+.extension-equation dt{color:#286782;font-weight:600}
+.extension-equation dd{margin:0;color:var(--tinta-2)}
+.course-shell :focus-visible{outline:3px solid #286782;outline-offset:2px}
 .map-legend{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
 .map-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:9px}
 .map-node{position:relative}
@@ -294,7 +321,7 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 .equation-card dt{color:#286782}.equation-card dd{margin:0;color:var(--tinta-2)}
 .equation-status{margin-left:8px;color:#805d1f}
 .reference-card{margin:8px 0}.reference-kind{color:#286782}
-@media(max-width:700px){#m-curso{padding:0}.course-shell{width:100%;height:100dvh;max-height:100dvh;border:0}.course-content{padding:13px}.course-head{padding:10px 12px}.module-heading{align-items:flex-start;flex-direction:column}.equation-card dl{grid-template-columns:1fr}.course-table{min-width:520px}}
+@media(max-width:700px){#m-curso{padding:0}.course-shell{width:100%;height:100dvh;max-height:100dvh;border:0}.course-content{padding:13px}.course-head{padding:10px 12px}.module-heading{align-items:flex-start;flex-direction:column}.equation-card dl,.extension-equation dl{grid-template-columns:1fr}.course-table{min-width:520px}}
 </style>
 </head>
 <body>
