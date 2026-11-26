@@ -4,7 +4,7 @@ const assert = require("node:assert/strict");
 const { test } = require("node:test");
 const data = require("../dados_min.json");
 const { run } = require("../modelo3pg.js");
-const { MODULES, checkStage, validateInitial } = require("../curso3pg.js");
+const { MODULES, EQUATIONS, MAP_NODES, FLOW_MODULE_IDS, DEFOLIATION_MODULE, checkStage, validateInitial } = require("../curso3pg.js");
 
 const site = data.sitios.IND;
 const material = data.materiais.A1;
@@ -60,4 +60,29 @@ test("initial water state must fit the selected scenario capacity", () => {
   assert.deepEqual(validateInitial({ ...initial, asw_i: aswMax + 0.1 }, aswMax), [
     "ASW inicial deve estar entre 0 e ASWmax."
   ]);
+});
+
+test("the learning flow follows the registered 3-PGpjs stage order", () => {
+  assert.deepEqual(FLOW_MODULE_IDS, MODULES.map(module => module.id));
+  assert.ok(MODULES.every(module => module.add && (module.explanation || module.why)), "each flow step needs an operation and an explanation");
+});
+
+test("the shared 3-PG flowchart connects every core stage without an extension node", () => {
+  const html = require("../curso3pg.js").renderCoreFlowchart();
+  assert.equal((html.match(/class="core-flow-item flow-/g) || []).length, MODULES.length);
+  assert.ok(FLOW_MODULE_IDS.every(id => html.includes(`>${id}</span>`)));
+  assert.match(html, /core-flow-connector/);
+  assert.match(html, /Retorno ao próximo mês/);
+  assert.doesNotMatch(html, /data-tab="defoliation"|Módulo de desfolha/);
+});
+
+test("defoliation is a separately registered optional extension", () => {
+  const equation = EQUATIONS.find(item => item.id === DEFOLIATION_MODULE.equationId);
+  const mapNode = MAP_NODES.find(item => item.type === "extension");
+  assert.equal(DEFOLIATION_MODULE.kind, "extension");
+  assert.equal(MODULES.some(module => module.id === DEFOLIATION_MODULE.id), false);
+  assert.match(DEFOLIATION_MODULE.scope, /não integra o núcleo original do 3-PG/i);
+  assert.ok(equation);
+  assert.equal(equation.status, "extension");
+  assert.equal(mapNode.id, "extension");
 });

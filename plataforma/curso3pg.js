@@ -64,6 +64,13 @@
     { id: "extension", label: "Desfolha e compensação", type: "extension", module: "D6", status: "EXTENSION", dependencies: ["wf"], affected_by: ["cenário explícito"], affects: ["canopy", "apar", "gpp", "partition"], scope: "extensão posterior; não original", equation_ids: ["ext.defoliation"], source_ids: ["source.r3pg"] }
   ];
 
+  const FLOW_MODULE_IDS = MODULES.map(module => module.id);
+  const DEFOLIATION_MODULE = {
+    id: "EXT-D", title: "Desfolha", kind: "extension", equationId: "ext.defoliation",
+    description: "Extensão opcional da Akademia: remove parte de WF no mês do evento e altera o estado foliar que alimenta o dossel.",
+    scope: "Não integra o núcleo original do 3-PG; só atua quando há um cenário explícito de desfolha."
+  };
+
   function validateInitial(initial, aswMax) {
     const errors = [];
     for (const key of ["WF0", "WR0", "WS0"]) if (!Number.isFinite(initial[key]) || initial[key] < 0) errors.push(`${key} deve ser finito e ≥ 0.`);
@@ -151,7 +158,7 @@
     return Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, "0")).join("");
   }
 
-  const api = { MODULES, SOURCES, EQUATIONS, MAP_NODES, validateInitial, checkStage, canonical, sha256 };
+  const api = { MODULES, SOURCES, EQUATIONS, MAP_NODES, FLOW_MODULE_IDS, DEFOLIATION_MODULE, validateInitial, checkStage, canonical, sha256, renderCoreFlowchart };
   root.Curso3PG = api;
   if (typeof module !== "undefined" && module.exports) module.exports = api;
 
@@ -159,6 +166,31 @@
   let runtime = null;
   const STORAGE_KEY = "akademia-curso-3pg-v1";
   const escapeHtml = value => String(value ?? "").replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+  function renderCoreFlowchart() {
+    const nodes = FLOW_MODULE_IDS.map((id, index) => {
+      const module = MODULES.find(item => item.id === id);
+      const equations = module.equations.map(equationId => {
+        const equation = EQUATIONS.find(item => item.id === equationId);
+        return equation ? `<li><code>${escapeHtml(equation.equation)}</code><p>${escapeHtml(equation.name)} · ${escapeHtml(equation.units)}</p><small>${escapeHtml(equation.scope)}</small></li>`
+          : `<li><code>${escapeHtml(equationId)}</code><p>Equação não encontrada no registro disponível.</p></li>`;
+      }).join("");
+      return `<li class="core-flow-item flow-${escapeHtml(id.toLowerCase())}">
+        <details class="core-flow-node">
+          <summary><span class="core-flow-stage">${escapeHtml(id)}</span><span class="core-flow-title"><b>${escapeHtml(module.title)}</b><small>${escapeHtml(module.add)}</small></span><span class="core-flow-toggle" aria-hidden="true">+</span></summary>
+          <div class="core-flow-details">
+            <p><b>Por que esta etapa:</b> ${escapeHtml(module.explanation || module.why)}</p>
+            <dl><dt>Recebe</dt><dd>${escapeHtml(module.depends)}</dd><dt>Afeta</dt><dd>${escapeHtml(module.affects)}</dd><dt>Unidades</dt><dd>${escapeHtml(module.units)}</dd><dt>Escopo</dt><dd>${escapeHtml(module.scope)}</dd><dt>Fonte</dt><dd>${escapeHtml(module.source)}</dd></dl>
+            ${equations ? `<div class="core-flow-equations"><b>Equações registradas</b><ul>${equations}</ul></div>` : `<p class="core-flow-no-equation">Esta etapa não tem equação associada no registro atual.</p>`}
+          </div>
+        </details>${module.id === "D5" ? `<span class="core-flow-return">↶ Estados atualizados retornam ao módulo A no próximo mês.</span>` : ""}${index === FLOW_MODULE_IDS.length - 1 ? "" : `<span class="core-flow-connector" aria-hidden="true">↓</span>`}
+      </li>`;
+    }).join("");
+    return `<section class="core-flowchart" aria-label="Fluxograma das etapas do 3-PG">
+      <p class="core-flow-intro">Núcleo do 3-PG, sem ativar a extensão de desfolha. Abra cada etapa para ver o processo, suas entradas, saídas, escopo e as equações que já estão registradas. Mapeamentos ainda não confirmados são identificados como pendentes.</p>
+      <ol class="core-flow-list">${nodes}</ol>
+      <p class="core-flow-loop"><b>Retorno ao próximo mês:</b> depois de D5, o povoamento atualizado fornece os estados para o novo ciclo climático e de crescimento. D6 reúne as séries e as verificações da execução.</p>
+    </section>`;
+  }
   const safeRead = () => {
     try { return JSON.parse(root.localStorage.getItem(STORAGE_KEY) || "{}"); }
     catch (error) { console.warn("Não foi possível ler o progresso local da Akademia.", error); return {}; }
@@ -222,8 +254,11 @@
   const STATUS_LABEL = { LEARNED: "Aprendido", CURRENT: "Atual", FUTURE: "Futuro", DEPENDENCY: "Dependência", EXTENSION: "Extensão", ERROR: "Erro" };
 
   function navHtml() {
-    const tabs = [["home", "Início"], ["map", "Mapa"], ["learn", "Aprender"], ["explore", "Explorar"], ["lab", "Laboratório"], ["equations", "Equações"], ["references", "Referências"], ["tests", "Testes"], ["progress", "Progresso"], ["tutor", "Ajuda / tutor"], ["audit", "Auditoria"]];
-    return tabs.map(([id, label]) => `<button type="button" class="course-tab ${state.tab === id ? "active" : ""}" data-tab="${id}">${label}</button>`).join("");
+    const primary = [["home", "Início"], ["learn", "Aprender"], ["map", "Mapa do fluxo"], ["defoliation", "Desfolha"], ["explore", "Explorar"], ["lab", "Laboratório"]];
+    const more = [["equations", "Equações"], ["references", "Referências"], ["tests", "Testes"], ["progress", "Progresso"], ["tutor", "Ajuda / tutor"], ["audit", "Auditoria"]];
+    const renderTabs = tabs => tabs.map(([id, label]) => `<button type="button" class="course-tab ${state.tab === id ? "active" : ""}" data-tab="${id}">${label}</button>`).join("");
+    const moreActive = more.some(([id]) => state.tab === id);
+    return `${renderTabs(primary)}<details class="course-more" ${moreActive ? "open" : ""}><summary class="course-tab ${moreActive ? "active" : ""}">Mais</summary><div class="course-more-menu">${renderTabs(more)}</div></details>`;
   }
   function statusClass(status) { return `status-${status.toLowerCase()}`; }
   function moduleButtons() {
@@ -235,35 +270,59 @@
   }
   function renderHome() {
     return `<section class="course-home">
-      <h2>Akademia · Laboratório 3-PG</h2>
-      <p>Aprenda como o modelo de crescimento florestal é construído, execute o mesmo motor por estágios, investigue cenários e acompanhe a evidência de cada componente.</p>
-      <div class="course-actions"><button class="course-primary" data-action="start-learning">Começar pelo módulo A</button><button data-tab="map">Abrir mapa do 3-PG</button><button data-tab="explore">Explorar o cenário</button></div>
-      <div class="course-grid">
-        <article><h3>O que é o 3-PG?</h3><p>Um modelo ecofisiológico que representa produção, balanço de carbono e alocação em passos mensais. A implementação existente é o 3-PGpjs do r3PG, não uma afirmação de identidade irrestrita com todas as formulações do 3-PG original.</p></article>
-        <article><h3>O que é este laboratório?</h3><p>Um ambiente para aprender equações, unidades, dependências e limites científicos usando o simulador existente da Akademia.</p></article>
-        <article><h3>Como interpretar resultados?</h3><p>Os testes aqui verificam contratos e comportamento do código. Eles não substituem calibração, comparação independente nem validação com observações de campo.</p></article>
-      </div>
-      <div class="course-section"><h3>Trilha incremental</h3><div class="module-strip">${moduleButtons()}</div></div>
+      <h2>Aprenda o 3-PG, um passo de cada vez</h2>
+      <p>Comece pelo básico, mesmo sem experiência com modelagem. O simulador continua acessível; o mapa do fluxo é um guia opcional para quando quiser entender como os processos se conectam.</p>
+      <div class="course-actions"><button class="course-primary" data-action="start-learning">Começar pelo módulo A</button><button data-tab="map">Ver o mapa do fluxo (opcional)</button><button data-tab="explore">Explorar o cenário</button></div>
+      <div class="course-section academy-principle"><h3>O que você vai acompanhar</h3><p>Entradas e estados → processos mensais → produção e alocação → atualização dos estoques. A desfolha aparece em um módulo próprio, identificado como extensão opcional, sem confundi-la com o núcleo do 3-PG.</p></div>
+      <details class="academy-catalog">
+        <summary>Ver os módulos da academia</summary>
+        <p>Os módulos A–D6 explicam etapas do 3-PGpjs. A extensão de desfolha fica separada do fluxo original.</p>
+        <div class="module-strip">${moduleButtons()}</div>
+        <button type="button" class="module-chip status-extension" data-tab="defoliation"><b>EXT.</b><span>Módulo de desfolha</span><small>Extensão opcional</small></button>
+      </details>
       <div class="course-footnote">Base de cenário: dados incluídos na plataforma. Parâmetros sem proveniência individual, equações sem mapeamento confirmado e comparações independentes ausentes permanecem explicitamente pendentes.</div>
     </section>`;
   }
   function renderMap() {
-    const nodes = MAP_NODES.map(node => {
+    const nodes = MAP_NODES.filter(node => node.type !== "extension").map(node => {
       const current = moduleById(state.moduleId);
       const required = current ? new Set(MAP_NODES.filter(item => item.module === current.id).flatMap(item => item.dependencies)) : new Set();
       const status = node.type === "extension" ? "EXTENSION" : node.id === state.lastErrorNode ? "ERROR"
         : required.has(node.id) ? "DEPENDENCY" : moduleStatus(moduleById(node.module));
       const eqButtons = node.equation_ids.map(id => `<button type="button" class="course-link" data-equation="${escapeHtml(id)}">${escapeHtml(id)}</button>`).join("");
+      const target = node.type === "extension" ? `data-tab="defoliation"` : `data-module="${escapeHtml(node.module)}"`;
       return `<article class="map-node ${statusClass(status)}" data-node="${escapeHtml(node.id)}">
-        <button type="button" class="map-node-title" data-module="${escapeHtml(node.module)}"><span>${escapeHtml(node.label)}</span><small>${STATUS_LABEL[status]} · ${escapeHtml(node.module)}</small></button>
+        <button type="button" class="map-node-title" ${target}><span>${escapeHtml(node.label)}</span><small>${STATUS_LABEL[status]} · ${escapeHtml(node.module)}</small></button>
         <div><b>Depende de</b><span>${escapeHtml(node.dependencies.join(", ") || "entrada")}</span></div>
         <div><b>Afetado por</b><span>${escapeHtml(node.affected_by.join(", "))}</span></div>
         <div><b>Afeta</b><span>${escapeHtml(node.affects.join(", "))}</span></div>
         <div><b>Escopo</b><span>${escapeHtml(node.scope)}</span></div><div class="node-equations">${eqButtons}</div></article>`;
     }).join("");
-    return `<section><h2>Mapa do 3-PG</h2>
-      <div class="map-legend"><span class="status-learned">Aprendido</span><span class="status-current">Atual</span><span class="status-future">Futuro</span><span class="status-dependency">Dependência</span><span class="status-extension">Extensão</span><span class="status-error">Erro</span></div>
-      <div class="map-flow">${nodes}</div><p class="course-footnote">O mapa descreve relações presentes no porte 3-PGpjs da plataforma. A atribuição de números de equação ao artigo de 1997 só é afirmada quando verificada; os demais vínculos aparecem como pendentes na biblioteca.</p></section>`;
+    return `<section><h2>Fluxo mensal do 3-PG</h2>
+      <p>Guia opcional: siga os módulos na ordem para ver como as entradas alimentam os processos e como os estoques chegam ao mês seguinte. Se preferir, volte ao simulador sem percorrer o mapa.</p>
+      ${renderCoreFlowchart()}
+      <p class="course-footnote">A desfolha é uma extensão opcional apresentada em módulo separado e não integra este fluxo do 3-PG original.</p>
+      <details class="map-details"><summary>Ver o mapa técnico de dependências</summary>
+        <div class="map-legend"><span class="status-learned">Aprendido</span><span class="status-current">Atual</span><span class="status-future">Futuro</span><span class="status-dependency">Dependência</span><span class="status-extension">Extensão</span><span class="status-error">Erro</span></div>
+        <div class="map-flow">${nodes}</div><p class="course-footnote">O mapa descreve relações presentes no porte 3-PGpjs da plataforma. A atribuição de números de equação ao artigo de 1997 só é afirmada quando verificada; os demais vínculos aparecem como pendentes na biblioteca.</p>
+      </details></section>`;
+  }
+  function renderDefoliation() {
+    const equation = equationById(DEFOLIATION_MODULE.equationId);
+    const source = sourceById(equation.source_ids[0]);
+    return `<section class="defoliation-module">
+      <h2>Módulo de desfolha</h2>
+      <p>${escapeHtml(DEFOLIATION_MODULE.description)}</p>
+      <p class="extension-scope">${escapeHtml(DEFOLIATION_MODULE.scope)}</p>
+      <div class="course-section extension-equation"><h3>O que muda no evento</h3><code>${escapeHtml(equation.equation)}</code>
+        <dl><dt>Entradas</dt><dd>${escapeHtml(equation.inputs.join(", "))}</dd><dt>Saídas</dt><dd>${escapeHtml(equation.outputs.join(", "))}</dd><dt>Unidades</dt><dd>${escapeHtml(equation.units)}</dd></dl>
+      </div>
+      <div class="course-grid module-facts"><article><h3>Onde atua</h3><p>${escapeHtml(equation.implementation)}</p></article><article><h3>Consequência no fluxo</h3><p>WF menor altera o LAI calculado a partir da biomassa foliar e, em seguida, a radiação absorvida pelo dossel.</p></article><article><h3>Como interpretar</h3><p>A extensão só é ativada por um cenário explícito. Resultados simulados não são, por si, validação empírica.</p></article></div>
+      <div class="course-section"><h3>Registro e proveniência</h3><p>${escapeHtml(source.citation)}</p><p>${escapeHtml(equation.scope)} · ${escapeHtml(equation.model_version)}.</p>
+        <button type="button" class="course-link" data-equation="${escapeHtml(equation.id)}">Abrir registro da equação</button>
+      </div>
+      <div class="course-actions"><button type="button" class="course-primary" data-action="open-simulator">Abrir controles no simulador</button><button type="button" data-tab="map">Voltar ao mapa do fluxo</button></div>
+    </section>`;
   }
   function renderModule(module) {
     const status = moduleStatus(module);
@@ -423,6 +482,7 @@
   function renderTab() {
     if (state.tab === "home") return renderHome();
     if (state.tab === "map") return renderMap();
+    if (state.tab === "defoliation") return renderDefoliation();
     if (state.tab === "learn") return renderModule(moduleById(state.moduleId));
     if (state.tab === "explore") return renderExplore();
     if (state.tab === "lab") return renderLab();
@@ -443,7 +503,11 @@
     if (mode) mode.value = state.mode;
     safeWrite();
   }
-  function openTab(tab) { state.tab = tab; render(); }
+  function openTab(tab) {
+    state.tab = tab; render();
+    const content = byId("course-content");
+    if (content) content.scrollTop = 0;
+  }
   function currentContext(output, repeatOutput, scenarioHash) {
     const scenario = runtime.getScenario();
     ensureScenario(scenario.site, scenario.material, scenario.aswMax);
@@ -549,6 +613,8 @@
       if (target > current && !state.completed[state.moduleId]) return;
     }
     state.moduleId = id; state.tab = "learn"; render();
+    const content = byId("course-content");
+    if (content) content.scrollTop = 0;
   }
   function onClick(event) {
     const button = event.target.closest("button");

@@ -77,7 +77,7 @@ function montarCubagem() {
   }
   const ult = med[med.length - 1], cone = gArea(ult.d) * (H - ult.h) / 3, ex = volExato(0, H, dap, H), toco = volExato(0, med[0].h, dap, H);
   const tot = v => v + cone + toco, err = v => 100 * (tot(v) / ex - 1), f = ex / (gArea(dap) * H);
-  document.getElementById("cub-arvore").innerHTML = `Árvore média do talhão <b>${CUB_TAL === "c" ? "controle" : "desfolhado"}</b> aos 84 meses (${SIT[E.sitio]}, ${E.mat}): DAP = <b class="num">${fmt(dap, 1)} cm</b>, altura total = <b class="num">${fmt(H, 1)} m</b>.`;
+  document.getElementById("cub-arvore").innerHTML = `Árvore média do talhão <b>${CUB_TAL === "c" ? "referência 3-PG" : "simulação atual"}</b> aos 84 meses (${SIT[E.sitio]}, ${E.mat}): DAP = <b class="num">${fmt(dap, 1)} cm</b>, altura total = <b class="num">${fmt(H, 1)} m</b>.`;
   document.getElementById("cub-tab").innerHTML = `<thead><tr><th>Seção (m)</th><th>d base (cm)</th><th>d topo (cm)</th><th>V Smalian (dm³)</th></tr></thead><tbody>${linhas}</tbody>`;
   document.getElementById("cub-res").innerHTML = `<table class="tab"><thead><tr><th>Método</th><th>Volume da árvore (m³)</th><th>Erro vs. volume exato</th></tr></thead><tbody>
     <tr><td>Smalian (média das pontas)</td><td class="num">${fmt(tot(vS), 4)}</td><td class="num">${fmt(err(vS), 2)}%</td></tr>
@@ -106,7 +106,7 @@ function calcularToras() {
   const porS = trx => Object.fromEntries([...SORT.map(s => [s.id, trx.lista.filter(t => t.s === s).reduce((x, t) => x + t.v, 0)]), ["ponta", trx.ponta + trx.toco]]);
   const pc = porS(trC), pt = porS(trT), lin = (nome, cor, vc, vt) => { const hc = vc * ac.N, ht = vt * at.N, dif = hc > 0 ? 100 * (ht / hc - 1) : NaN;
     return `<tr><td><i class="cub-cor" style="background:${cor}"></i>${nome}</td><td class="num">${fmt(hc, 0)}</td><td class="num">${fmt(ht, 0)}</td><td class="num">${Number.isFinite(dif) ? (dif > 0 ? "+" : "") + fmt(dif, 1) + "%" : "–"}</td></tr>`; };
-  document.getElementById("tor-ha").innerHTML = `<thead><tr><th>Destino</th><th>Controle (m³/ha)</th><th>Desfolhado (m³/ha)</th><th>Diferença</th></tr></thead><tbody>` +
+  document.getElementById("tor-ha").innerHTML = `<thead><tr><th>Destino</th><th>Referência 3-PG (m³/ha)</th><th>Simulação atual (m³/ha)</th><th>Diferença</th></tr></thead><tbody>` +
     SORT.map(s => lin(s.nome, s.cor, pc[s.id], pt[s.id])).join("") + lin("Toco + ponteira", "var(--oliva-3)", pc.ponta, pt.ponta) +
     `<tr><td><b>Total pelo taper</b></td><td class="num"><b>${fmt(trC.total * ac.N, 0)}</b></td><td class="num"><b>${fmt(trT.total * at.N, 0)}</b></td><td class="num">${fmt(100 * (trT.total * at.N / (trC.total * ac.N) - 1), 1)}%</td></tr>
      <tr><td class="mini">Volume do 3-PG, para comparar</td><td class="num mini">${fmt(ac.vol3pg, 0)}</td><td class="num mini">${fmt(at.vol3pg, 0)}</td><td class="num mini">${fmt(100 * (at.vol3pg / ac.vol3pg - 1), 1)}%</td></tr></tbody>`;
