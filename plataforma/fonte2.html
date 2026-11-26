@@ -38,6 +38,78 @@ button{cursor:pointer}
 .lnk{background:none;border:none;padding:2px 0;border-bottom:1px solid var(--tinta-3);color:var(--tinta);font-size:13.5px}
 .lnk:hover{border-color:var(--tinta)}
 
+.launch-screen{position:fixed;inset:0;z-index:100;overflow:auto;background:var(--fundo);padding:clamp(24px,6vw,76px);display:grid;place-items:center}
+.launch-inner{width:min(980px,100%);margin:auto}
+.launch-screen h1{font-size:clamp(34px,6vw,66px);line-height:1.04;max-width:13ch}
+.launch-lede{max-width:66ch;font-size:17px;color:var(--tinta-2);margin:14px 0 30px}
+.launch-menu{display:grid;gap:12px}
+.launch-choice{width:100%;display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:16px;align-items:center;text-align:left;background:var(--prancha);border:1px solid var(--linha-2);padding:20px 24px;color:var(--tinta);box-shadow:0 3px 12px rgba(35,39,31,.06);transition:transform .18s ease-out,box-shadow .18s ease-out,border-color .18s ease-out}
+.launch-choice:hover{transform:translateY(-2px);border-color:var(--oliva);box-shadow:0 8px 20px rgba(35,39,31,.12)}
+.launch-icon{font-size:34px;text-align:center}
+.launch-title{display:block;font:600 25px/1.1 var(--f-tit);margin:0 0 3px}
+.launch-description{display:block;color:var(--tinta-2);max-width:64ch}
+.launch-action{font-weight:600;color:var(--oliva);white-space:nowrap}
+.launch-note{margin-top:22px;padding-top:12px;border-top:1px solid var(--linha);font-size:12px;color:var(--tinta-2)}
+body:not([data-started="true"]) .cab,body:not([data-started="true"]) .module-navigation,body:not([data-started="true"]) .lab,body:not([data-started="true"]) #flow-view,body:not([data-started="true"]) .rodape{display:none}
+.module-navigation{max-width:1500px;margin:0 auto 14px;padding:8px 10px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--prancha);border:1px solid var(--linha-2)}
+.module-tabs{display:flex;gap:6px;flex-wrap:wrap}
+.module-tab{padding:8px 13px;border:1px solid var(--linha-2);background:var(--fundo);color:var(--tinta)}
+.module-tab[aria-current="page"]{background:#e8f0ed;border-color:var(--oliva);color:#28483d;font-weight:600}
+.mode-controls{display:flex;align-items:center;gap:8px}
+.mode-controls label{font-size:12px;color:var(--tinta-2)}
+.mode-controls select{width:auto;min-width:145px}
+.mode-controls button{border:0;background:none;text-decoration:underline;text-underline-offset:3px}
+.learn-insight{background:#e8f0ed;border:1px solid var(--linha-2);padding:14px 18px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 20px;align-items:center}
+.learn-insight h2{font-size:21px}
+.learn-insight p{margin:0;max-width:80ch}
+.learn-insight button{grid-column:2;grid-row:1/3;background:var(--prancha);border:1px solid var(--linha-2);padding:9px 12px}
+body[data-mode="scientific"] .learn-insight{display:none}
+body[data-workspace-view="model"] #s-desfolha,body[data-workspace-view="model"] #s-resposta{display:none}
+body[data-workspace-view="defoliation"] #p1>.secao:not(#s-entradas):not(#s-desfolha):not(#s-resposta){display:none}
+body[data-workspace-view="defoliation"] #p1 #s-parametros,body[data-workspace-view="defoliation"] #p1 #s-estrutura{display:none}
+body[data-workspace-view="defoliation"] #s-entradas{margin-bottom:20px}
+.flow-view{max-width:1500px;margin:0 auto 24px;padding:clamp(16px,3vw,34px);background:var(--prancha);border:1px solid var(--linha-2)}
+.flow-view h2{font-size:clamp(28px,4vw,42px);margin-bottom:8px}
+.scientific-parameters{margin-top:16px}
+.scientific-parameters summary{cursor:pointer;font-size:16px;font-weight:600;padding:7px 0}
+.scientific-parameters .tabs-wrap{max-height:55vh;overflow:auto}
+body[data-mode="scientific"] .scientific-parameters{display:block}
+.advanced-scenario-controls{padding-top:8px;border-top:1px solid var(--linha);font-size:12px}
+.advanced-scenario-controls summary{cursor:pointer;color:var(--tinta-2);padding:3px 0}
+.advanced-scenario-controls .duas{margin-top:8px}
+.core-flow-intro{max-width:82ch;color:var(--tinta-2);margin:8px 0 20px}
+.core-flow-list{list-style:none;padding:0;margin:0 auto;max-width:960px}
+.core-flow-item{display:grid;justify-items:center}
+.core-flow-node{width:100%;border:1px solid var(--linha-2);background:var(--prancha);box-shadow:0 2px 8px rgba(35,39,31,.05)}
+.core-flow-node summary{display:grid;grid-template-columns:52px minmax(0,1fr) 24px;gap:14px;align-items:center;cursor:pointer;list-style:none;padding:14px 18px}
+.core-flow-node summary::-webkit-details-marker{display:none}
+.core-flow-stage{display:grid;place-items:center;min-height:44px;background:var(--flow-color,var(--oliva));color:white;font-family:var(--f-num);font-weight:600;font-size:15px}
+.core-flow-title{display:grid;gap:2px}
+.core-flow-title b{font-size:16px}
+.core-flow-title small{color:var(--tinta-2);font-size:12px}
+.core-flow-toggle{font-size:22px;text-align:center;color:var(--flow-color,var(--oliva));transition:transform .15s ease-out}
+.core-flow-node[open] .core-flow-toggle{transform:rotate(45deg)}
+.core-flow-details{padding:0 20px 16px 84px}
+.core-flow-details p{margin:8px 0}
+.core-flow-details dl{display:grid;grid-template-columns:100px minmax(0,1fr);gap:5px 12px;margin:10px 0}
+.core-flow-details dt{font-weight:600;color:var(--flow-color,var(--oliva))}
+.core-flow-details dd{margin:0;color:var(--tinta-2)}
+.core-flow-equations{border-top:1px solid var(--linha);padding-top:8px}
+.core-flow-equations ul{padding-left:20px;margin:6px 0}
+.core-flow-equations li{margin:8px 0}
+.core-flow-equations code{display:block;max-width:100%;overflow-wrap:anywhere;font:13px var(--f-num);background:var(--fundo);padding:6px 8px}
+.core-flow-equations p,.core-flow-equations small{display:block;margin:3px 0;color:var(--tinta-2)}
+.core-flow-no-equation{font-size:12px;color:var(--tinta-2);font-style:italic}
+.core-flow-connector{height:36px;display:grid;place-items:center;color:var(--agua);font-size:23px;line-height:1}
+.core-flow-return{max-width:100%;margin:12px 0 2px;padding:8px 14px;border:1px dashed var(--oliva);background:#f1f3e8;color:var(--oliva);font-size:12px;text-align:center}
+.core-flow-loop{max-width:960px;margin:0 auto;padding:12px 16px;border:1px dashed var(--agua);background:#eff4f5;color:var(--tinta-2)}
+.flow-a{--flow-color:#577b96}.flow-b{--flow-color:#5f6f34}.flow-c{--flow-color:#577b96}
+.flow-d1{--flow-color:#647f4a}.flow-d2{--flow-color:#577b96}.flow-d3{--flow-color:#8a5a36}
+.flow-d4{--flow-color:#8a5a36}.flow-d5{--flow-color:#9c4a1c}.flow-d6{--flow-color:#5f6f34}
+@media(max-width:700px){.launch-screen{padding:22px}.launch-lede{font-size:15px;margin-bottom:20px}.launch-choice{grid-template-columns:42px minmax(0,1fr);gap:10px;padding:16px}.launch-icon{font-size:28px}.launch-action{grid-column:2}.module-navigation{align-items:flex-start}.mode-controls{width:100%;justify-content:space-between}.learn-insight{grid-template-columns:1fr}.learn-insight button{grid-column:1;grid-row:auto;justify-self:start}.flow-view{padding:16px 12px}}
+@media(max-width:700px){.core-flow-node summary{grid-template-columns:42px minmax(0,1fr) 20px;gap:9px;padding:12px}.core-flow-details{padding:0 12px 14px}.core-flow-details dl{grid-template-columns:1fr;gap:2px}.core-flow-details dd{margin-bottom:7px}}
+@media(max-width:700px){.mode-controls{display:grid;grid-template-columns:minmax(0,1fr);align-items:stretch}.mode-controls select{width:100%;min-width:0}.mode-controls button{justify-self:start;text-align:left}}
+
 .lab{max-width:1500px;margin:0 auto;display:grid;gap:16px;grid-template-columns:330px minmax(0,1fr) 350px;align-items:start}
 @media (max-width:1220px){.lab{grid-template-columns:310px minmax(0,1fr)}.p2{grid-column:1/-1}}
 @media (max-width:780px){.lab{grid-template-columns:minmax(0,1fr)}.centro{order:-1}}
@@ -272,15 +344,6 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 .academy-principle{max-width:76ch}
 .academy-catalog{margin:18px 0}
 .academy-catalog summary,.map-details summary{cursor:pointer;color:#286782;font-weight:600;padding:8px 0}
-.flow-steps{display:grid;gap:0;list-style:none;padding:0;margin:16px 0;max-width:78ch}
-.flow-step{padding:10px 0 14px;border-bottom:1px solid var(--linha)}
-.flow-step-link{display:flex;align-items:center;gap:10px;text-align:left!important;font-weight:600}
-.flow-step-link b{font:600 12px "IBM Plex Mono",monospace;color:#286782;min-width:34px}
-.flow-step p{margin:5px 0}
-.flow-operation{color:var(--tinta)}
-.flow-explanation{color:var(--tinta-2)}
-.flow-step>small{font-size:12px;color:var(--tinta-2)}
-.flow-loop{max-width:78ch;background:#edf3ef;padding:10px 12px}
 .extension-branch{margin:20px 0;padding:14px 0;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
 .extension-branch h3{margin-bottom:4px}
 .extension-branch p{max-width:76ch}
@@ -326,14 +389,47 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 </head>
 <body>
 
+<section class="launch-screen" id="launch-screen" aria-labelledby="launch-title">
+  <div class="launch-inner">
+  <h1 id="launch-title">Como você quer explorar o 3-PG?</h1>
+  <p class="launch-lede">Escolha um caminho. Nos dois, você pode acompanhar uma simulação do 3-PG original e entender como as condições do ambiente e do povoamento se relacionam com a resposta da floresta.</p>
+  <div class="launch-menu" role="group" aria-label="Modos de uso">
+    <button class="launch-choice" type="button" data-start-mode="learn">
+      <span class="launch-icon" aria-hidden="true">🌱</span>
+      <span><span class="launch-title">Modo Aprender</span><span class="launch-description">“Como uma floresta cresce?” Comece por um exemplo pronto, explore as variáveis principais e veja explicações junto aos resultados.</span></span>
+      <span class="launch-action">Começar a aprender →</span>
+    </button>
+    <button class="launch-choice" type="button" data-start-mode="scientific">
+      <span class="launch-icon" aria-hidden="true">🔬</span>
+      <span><span class="launch-title">Modo Científico</span><span class="launch-description">Explore o simulador com os parâmetros completos usados pelo 3-PGpjs e os controles de cenário, para estudantes, pesquisadores e profissionais.</span></span>
+      <span class="launch-action">Abrir parâmetros →</span>
+    </button>
+  </div>
+  <p class="launch-note">A desfolha é uma extensão opcional, separada do 3-PG original. Você a encontrará em uma aba própria depois de entrar no simulador.</p>
+  </div>
+</section>
+
 <header class="cab">
   <div><div class="rot">Akademia Florestal · laboratório de modelagem ecofisiológica</div>
     <h1>Simulador 3-PG de <em>Eucalyptus</em></h1>
-    <p>Crescimento mensal de povoamentos de eucalipto em seis locais, um por bioma com plantios, com e sem desfolha, outros danos e compensação fisiológica.</p></div>
+  <p>Explore o crescimento mensal de povoamentos de eucalipto e acompanhe como o 3-PG transforma entradas em resultados.</p></div>
   <nav><button class="lnk chave" id="bt-curso" type="button">Laboratório 3-PG</button><button class="lnk" id="bt-conceitos" type="button">Conceitos</button><button class="lnk chave" id="bt-explicar" type="button" aria-pressed="false">Modo explicar</button><button class="lnk" id="bt-cubagem" type="button">Cubagem e toras</button><button class="lnk" id="bt-tour" type="button">Tutorial guiado</button><button class="lnk" id="bt-valid" type="button">Evidências e métricas</button><button class="lnk chave" id="bt-material" type="button">Material do TCC</button></nav>
 </header>
 
-<main class="lab">
+<nav class="module-navigation" id="module-navigation" aria-label="Módulos do simulador">
+  <div class="module-tabs" role="group" aria-label="Área de trabalho">
+  <button class="module-tab" type="button" data-workspace-view="model" aria-current="page">3-PG original</button>
+  <button class="module-tab" type="button" data-workspace-view="flow">Fluxograma</button>
+  <button class="module-tab" type="button" data-workspace-view="defoliation">Desfolha</button>
+  </div>
+  <div class="mode-controls">
+  <label for="mode-select">Modo de uso</label>
+  <select id="mode-select"><option value="learn">🌱 Aprender</option><option value="scientific">🔬 Científico</option></select>
+  <button id="mode-home" type="button">Escolher modo</button>
+  </div>
+</nav>
+
+<main class="lab" id="lab">
   <!-- PRANCHA I -->
   <section class="pr" id="p1" aria-label="Fisiologia e parâmetros de entrada">
     <div class="pr-cab"><h2>Fisiologia</h2><span class="rot">Prancha I</span></div>
@@ -379,8 +475,11 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
       <div class="campos">
         <div class="campo"><label class="rot" for="sel-sitio">Local</label><select id="sel-sitio"></select></div>
         <div class="campo"><label class="rot" for="sel-mat">Material genético</label><select id="sel-mat"></select></div>
-        <div class="duas"><div class="campo"><label class="rot" for="sel-agua">Água (ASW<sub>max</sub>)</label><select id="sel-agua"></select></div>
-          <div class="campo"><label class="rot" for="sel-fert">Fertilidade (FR)</label><select id="sel-fert"></select></div></div>
+        <details class="advanced-scenario-controls" id="advanced-conditions">
+          <summary>Condições avançadas: água e fertilidade</summary>
+          <div class="duas"><div class="campo"><label class="rot" for="sel-agua">Água (ASW<sub>max</sub>)</label><select id="sel-agua"></select></div>
+            <div class="campo"><label class="rot" for="sel-fert">Fertilidade (FR)</label><select id="sel-fert"></select></div></div>
+        </details>
       </div>
     </div>
     <div class="secao" id="s-desfolha"><h3>Desfolha</h3>
@@ -401,21 +500,28 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
         <div class="campo"><label class="rot" for="in-m">Mortalidade de árvores, m (no 1º evento)</label><div class="faixa"><input type="range" id="in-m" min="0" max="30" step="5"><output id="out-m" class="num"></output></div></div>
       </div>
     </div>
-    <div class="secao"><h3>Parâmetros do material</h3><div class="tabs-wrap"><table class="tab" id="tab-par"></table></div></div>
+    <details class="scientific-parameters" id="s-parametros"><summary>Parâmetros completos do material selecionado</summary>
+      <p class="mini">Identificadores e valores carregados pelo modelo. Unidades e proveniência individual aparecem apenas quando mapeadas na plataforma; não são inferidas nesta tabela.</p>
+      <div class="tabs-wrap"><table class="tab" id="tab-par"></table></div>
+    </details>
     <div class="secao" id="s-estrutura"><h3>Estrutura da biomassa</h3>
       <figure><svg id="svg-estr" viewBox="0 0 300 230" width="100%" role="img" aria-label="Esquema da partição da biomassa entre folhas, lenho e raízes"></svg>
-      <figcaption>Fig. 2. Estoques no mês exibido (talhão desfolhado) e fração do incremento alocada a cada compartimento (η).</figcaption></figure>
+      <figcaption>Fig. 2. Estoques no mês exibido e fração do incremento alocada a cada compartimento (η).</figcaption></figure>
     </div>
   </section>
 
   <!-- CENTRO -->
   <section class="centro" aria-label="Talhão e ações">
     <div class="janela" id="janela"><div class="janela-in">
-      <canvas id="cena" aria-label="Talhão em três dimensões; à esquerda o controle, à direita o talhão desfolhado"></canvas>
-      <div class="placa"><span>Controle</span><span class="t">Desfolhado</span></div>
+      <canvas id="cena" aria-label="Comparação do povoamento de referência com a simulação atual"></canvas>
+      <div class="placa"><span id="label-base">Referência 3-PG</span><span class="t" id="label-simulacao">Simulação atual</span></div>
       <div class="nota3d" id="nota3d">Arraste para girar · role para aproximar</div>
       <div class="ev3d" id="ev3d">Evento de desfolha</div>
     </div></div>
+    <section class="learn-insight" id="learn-insight">
+      <h2>Por que a floresta respondeu assim?</h2><p id="learn-insight-text"></p>
+      <button type="button" data-workspace-view="flow">Ver o fluxograma →</button>
+    </section>
     <div class="bancada" id="bancada">
       <div class="madeiras">
         <button class="madeira ipe" id="bt-simular" type="button">Simular</button>
@@ -432,9 +538,9 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
     </div>
     <div class="graficos">
       <div class="pr"><div class="rot">Biomassa foliar e de lenho (t ha⁻¹)</div><canvas class="g" id="g-bio"></canvas>
-        <div class="leg"><span><i style="border-color:var(--oliva)"></i>W<sub>F</sub> × 10</span><span><i style="border-color:var(--terra)"></i>W<sub>S</sub></span><span><i style="border-color:var(--tinta-3);border-top-style:dashed"></i>controle</span></div></div>
+        <div class="leg"><span><i style="border-color:var(--oliva)"></i>W<sub>F</sub> × 10</span><span><i style="border-color:var(--terra)"></i>W<sub>S</sub></span><span><i style="border-color:var(--tinta-3);border-top-style:dashed"></i><span id="leg-base">referência</span></span></div></div>
       <div class="pr"><div class="rot">Volume (m³ ha⁻¹) e perfil do fuste</div><canvas class="g" id="g-vol"></canvas>
-        <div class="leg"><span><i style="border-color:var(--alerta)"></i>desfolhado</span><span><i style="border-color:var(--tinta-3);border-top-style:dashed"></i>controle</span><span id="leg-ic"><i style="border-color:rgba(156,74,28,.35);border-top-width:6px"></i>faixa de 90%</span></div></div>
+        <div class="leg"><span><i style="border-color:var(--alerta)"></i><span id="leg-simulacao">simulação atual</span></span><span><i style="border-color:var(--tinta-3);border-top-style:dashed"></i><span id="leg-base-vol">referência</span></span><span id="leg-ic"><i style="border-color:rgba(156,74,28,.35);border-top-width:6px"></i>faixa de 90%</span></div></div>
     </div>
   </section>
 
@@ -444,20 +550,26 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
     <div id="resumo"></div>
     <div class="secao" id="s-solo"><h3>Solo e retenção hídrica</h3>
       <figure><svg id="svg-solo" viewBox="0 0 320 200" width="100%" role="img" aria-label="Perfil de solo com água disponível"></svg>
-      <figcaption>Fig. 3. Água disponível no perfil de 0 a 2 m no mês exibido (controle e desfolhado). Horizontes esquemáticos de Latossolo.</figcaption></figure>
+      <figcaption>Fig. 3. Água disponível no perfil de 0 a 2 m no mês exibido (referência e cenário atual). Horizontes esquemáticos de Latossolo.</figcaption></figure>
     </div>
     <div class="secao" id="s-particao"><h3>Partição do carbono</h3>
       <figure><svg id="svg-pizza" viewBox="0 0 320 128" width="100%" role="img" aria-label="Partição do incremento de biomassa"></svg>
       <figcaption>Fig. 4. Fração do incremento mensal para folhas (η<sub>F</sub>), lenho (η<sub>S</sub>) e raízes (η<sub>R</sub>). Com estresse (φ menor), η<sub>R</sub> = pRx·pRn / [pRn + (pRx − pRn)·φ·m] aumenta.</figcaption></figure>
     </div>
     <div class="secao" id="s-estresse"><h3>Resposta ao estresse</h3><div class="barras" id="barras-estresse"></div>
-      <p class="mini" style="margin:6px 0 0">Valores do talhão desfolhado no mês. O traço vermelho marca o controle.</p></div>
+      <p class="mini" style="margin:6px 0 0">Valores do cenário atual no mês. O traço vermelho marca a referência.</p></div>
     <div class="secao" id="s-wue"><h3>Uso da água e eficiência quântica</h3><div id="wue"></div></div>
   </section>
 </main>
 
+<main class="flow-view" id="flow-view" hidden aria-labelledby="flow-view-title">
+  <h2 id="flow-view-title">Fluxograma matemático do 3-PG</h2>
+  <p>As etapas se conectam em um ciclo mensal. A desfolha não está ativa neste fluxo; use sua aba para explorar a extensão separadamente.</p>
+  <div id="flow-content"></div>
+</main>
+
 <footer class="rodape">
-  <p>Motor: 3-PGpjs do r3PG v0.1.7 com o módulo de desfolha do TCC, executado no navegador. A saída registrada da comparação JavaScript–Python mostrou diferença relativa máxima de 1,6 × 10⁻¹³, incluindo a compensação calibrada, a perda de eficiência e a mortalidade. Clima: NASA POWER. Solo local: rede TECHS (Binkley et al., 2017) e SoilGrids com a PTF-ZARC. Bioma: IBGE (2024). Parâmetros: Caldeira et al. (2020) para o A1 e Borges (2009) para C5, C2 e C4, com a queda de folhas e a partição para folhas da rede TECHS (os valores de Borges davam IAF de 8 a 11). Compensação: U da literatura (só no mês do ataque), γ de Quentin et al. (2011) e a de Bertulio et al. (2008); teste independente com Oliveira et al. (2014).</p>
+  <p>Motor: porte 3-PGpjs do r3PG v0.1.7, executado no navegador. A saída registrada da comparação JavaScript–Python mostrou diferença relativa máxima de 1,6 × 10⁻¹³ nos cenários comparados. Clima: NASA POWER. Solo local: rede TECHS (Binkley et al., 2017) e SoilGrids com a PTF-ZARC. Bioma: IBGE (2024). Parâmetros: Caldeira et al. (2020) para o A1 e Borges (2009) para C5, C2 e C4, com a queda de folhas e a partição para folhas da rede TECHS (os valores de Borges davam IAF de 8 a 11). A aba Desfolha contém extensões opcionais do projeto.</p>
   <p>As ilustrações, os horizontes do solo, o perfil do fuste do gráfico e a altura do A1 são esquemáticos. O taper da aba Toras usa a equação de Souza et al. (2016), de outro clone, e os critérios de sortimento de Soares et al. (2003). Os resultados foram verificados, mas não validados com experimentos de desfolha nos seis locais.</p>
 </footer>
 
@@ -471,7 +583,7 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
 </div></div>
 <div class="modal" id="m-exp" hidden><div class="pr" role="dialog" aria-modal="true" aria-label="Exportar">
   <div class="pr-cab"><h2>Exportar série mensal</h2><button class="fechar" data-fecha="m-exp" type="button">Fechar</button></div>
-  <p class="mini">Valores mensais do controle e do talhão desfolhado no cenário atual, separados por ponto e vírgula. Copie e cole numa planilha.</p>
+  <p class="mini">Valores mensais da referência e da simulação atual, separados por ponto e vírgula. Copie e cole numa planilha.</p>
   <textarea id="csv" readonly></textarea>
   <div style="display:flex;gap:10px;margin-top:8px;align-items:center"><button class="btn-s p" id="bt-copiar" type="button">Copiar tabela</button><span class="mini" id="copiado"></span></div>
 </div></div>
@@ -514,7 +626,7 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
     <div class="eq">Smalian: V = (g_base + g_topo)/2 · L<br>Huber:   V = g_meio · L<br>Newton:  V = (g_base + 4·g_meio + g_topo)/6 · L</div>
     <p>Smalian, o mais usado no Brasil, mede só as pontas da seção. Huber usa só o meio, o que é difícil com a tora empilhada. Newton junta os dois e é o mais exato. Quanto mais curtas as seções, menor a diferença entre eles.</p>
     <p id="cub-arvore"></p>
-    <div class="cub-op"><span class="cub-seg" id="cub-tal"><button type="button" data-t="c" class="on">Controle</button><button type="button" data-t="t">Desfolhado</button></span>
+    <div class="cub-op"><span class="cub-seg" id="cub-tal"><button type="button" data-t="c" class="on">Referência 3-PG</button><button type="button" data-t="t">Simulação atual</button></span>
       <label class="mini">Medir a cada <select id="cub-passo"><option value="0">posições de Souza et al. (2016)</option><option value="1" selected>1 m</option><option value="2">2 m</option><option value="4">4 m</option></select></label></div>
     <div class="cub-grid"><div class="tabs-wrap"><table class="tab" id="cub-tab"></table></div><div id="cub-res"></div></div>
     <p class="mini">Os diâmetros desta árvore didática não foram medidos: saem da equação de afilamento descrita na aba 2. A tabela mostra o método; com árvores reais, os diâmetros vêm da fita ou da suta.</p>
@@ -528,7 +640,7 @@ body.explicar .lab *:hover{outline:1px dashed var(--oliva)}
     <p><b>Taper seccional.</b> A equação de afilamento dá o diâmetro em qualquer altura do tronco. Com ela, o tronco é "cortado no computador" em toras, da base para a ponta. Cada tora vai para o produto mais nobre cujo diâmetro mínimo na ponta fina ela atende: primeiro serraria, depois celulose e, por último, energia. O que sobra no alto, fino demais, é a ponteira, e a base fica no toco.</p>
     <div class="eq">d / DAP = β₀ + β₁(h/H) + β₂(h/H)² + β₃(h/H)³ + β₄(h/H)⁴ + β₅(h/H)⁵     (Schöepfer, 5º grau)</div>
     <p class="mini" id="tor-cena"></p>
-    <div class="cub-op"><span class="cub-seg" id="tor-tal"><button type="button" data-t="c" class="on">Controle</button><button type="button" data-t="t">Desfolhado</button></span>
+    <div class="cub-op"><span class="cub-seg" id="tor-tal"><button type="button" data-t="c" class="on">Referência 3-PG</button><button type="button" data-t="t">Simulação atual</button></span>
       <label class="mini">Altura do toco (m) <input class="cub-in num" id="tor-toco" type="number" min="0" max="0.9" step="0.05" value="0.1"></label>
       <button class="lnk" id="tor-pad" type="button">Restaurar critérios</button></div>
     <div class="cub-grid"><div id="tor-svg"></div>
@@ -578,7 +690,7 @@ const EPOCA = { 1: "jan", 4: "abr", 7: "jul", 10: "out" };
 const MESES = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
 const C_ = { oliva: "#5f6f34", oliva2: "#9aa56d", terra: "#8a5a36", argila: "#c19767", agua: "#577b96", alerta: "#9c4a1c", tinta: "#23271f", tinta2: "#5d6356", tinta3: "#8b9183", linha: "#d8dacd", prancha: "#fdfdfb" };
 
-let E = { sitio: "IND", mat: "A1", agua: "LOC", fert: 100, d: 50, freq: "P1", epoca: 1, comp: "O", r: 0, m: 0, ag: "lagarta" };
+let E = { sitio: "IND", mat: "A1", agua: "LOC", fert: 100, d: 0, freq: "P1", epoca: 1, comp: "O", r: 0, m: 0, ag: "" };
 let AJ = { vel: 110, exag: 1.6, part: true };
 let R = null, tAtual = 0;
 const fmt = (x, d = 1) => Number.isFinite(x) ? x.toLocaleString("pt-BR", { minimumFractionDigits: d, maximumFractionDigits: d }) : "–";
@@ -622,6 +734,19 @@ function frNivel(mat, n) { const ref = DADOS.materiais[mat].FR_ref; return FR_MI
 const anosAtaque = () => E.freq === "P1" ? [2017] : E.freq === "P2" ? [2017, 2020] : [2017, 2018, 2019, 2020, 2021, 2022];
 const mesTxt = (a, m) => `${a + Math.floor((m - 1) / 12)}-${String((m - 1) % 12 + 1).padStart(2, "0")}`;
 function eventos() { const ev = {}; if (E.d > 0) anosAtaque().forEach(a => ev[mesTxt(a, E.epoca)] = E.d / 100); return ev; }
+const temExtensaoAtiva = () => E.d > 0 || E.r > 0 || E.m > 0;
+function textoEstadoSimulacao() {
+  const extensoes = [E.d > 0 ? `desfolha ${E.d}%` : "", E.r > 0 ? `perda de eficiência ${E.r}%` : "", E.m > 0 ? `mortalidade ${E.m}%` : ""].filter(Boolean);
+  return `${SIT[E.sitio]} · ${E.mat} · ${extensoes.length ? extensoes.join(" · ") : "3-PG original"} · fisiologia ${COMP[E.comp]}`;
+}
+function atualizarRotulosComparacao() {
+  const atual = temExtensaoAtiva() ? "Cenário com extensões" : "Simulação atual";
+  document.getElementById("label-base").textContent = "Referência 3-PG";
+  document.getElementById("label-simulacao").textContent = atual;
+  document.getElementById("leg-base").textContent = "referência 3-PG";
+  document.getElementById("leg-base-vol").textContent = "referência 3-PG";
+  document.getElementById("leg-simulacao").textContent = atual.toLowerCase();
+}
 // outros danos (extensão v2) e compensação (v3), com as mesmas regras do threepg_pjs.py
 function opcoes(comp) { const o = {}; const anos = anosAtaque();
   if (E.r > 0) { o.efic = {}; anos.forEach(a => { for (let i = 0; i < 4; i++) o.efic[mesTxt(a, E.epoca + i)] = E.r / 100; }); }
@@ -685,13 +810,30 @@ function montarEntradas() {
   document.getElementById("txt-agente").textContent = AGENTES[E.ag]?.fonte ?? "";
   for (const [id, v] of [["r", E.r], ["m", E.m]]) { document.getElementById("in-" + id).value = v; document.getElementById("out-" + id).textContent = v + "%"; }
   const P = DADOS.materiais[E.mat].params;
-  document.getElementById("tab-par").innerHTML = `<thead><tr><th>Parâmetro</th><th>Valor</th><th>Unidade</th></tr></thead><tbody>
-    <tr><td>α<sub>Cx</sub>, eficiência quântica máx.</td><td class="num">${fmt(P.alphaCx, 3)}</td><td>mol C mol⁻¹</td></tr>
-    <tr><td>T<sub>ópt</sub> / T<sub>máx</sub></td><td class="num">${fmt(P.Topt, 1)} / ${fmt(P.Tmax, 1)}</td><td>°C</td></tr>
-    <tr><td>SLA<sub>0</sub> → SLA<sub>1</sub></td><td class="num">${fmt(P.SLA0, 2)} → ${fmt(P.SLA1, 2)}</td><td>m² kg⁻¹</td></tr>
-    <tr><td>η<sub>R</sub> máx. / mín. (pRx / pRn)</td><td class="num">${fmt(P.pRx, 2)} / ${fmt(P.pRn, 2)}</td><td>–</td></tr>
-    <tr><td>k, extinção da luz</td><td class="num">${fmt(P.k, 2)}</td><td>–</td></tr>
-    <tr><td>f<sub>N0</sub>, nutrição com FR = 0</td><td class="num">${fmt(P.fN0, 2)}</td><td>–</td></tr></tbody>`;
+  const metadata = {
+    alphaCx: ["Eficiência quântica máxima", "mol C mol⁻¹"],
+    Topt: ["Temperatura ótima", "°C"],
+    Tmax: ["Temperatura máxima", "°C"],
+    SLA0: ["Área foliar específica inicial", "m² kg⁻¹"],
+    SLA1: ["Área foliar específica final", "m² kg⁻¹"],
+    pRx: ["Partição máxima para raízes", "—"],
+    pRn: ["Partição mínima para raízes", "—"],
+    k: ["Coeficiente de extinção da luz", "—"],
+    fN0: ["Fertilidade com FR = 0", "—"]
+  };
+  const table = document.getElementById("tab-par");
+  table.replaceChildren();
+  const head = table.createTHead().insertRow();
+  ["Parâmetro", "Descrição", "Valor carregado", "Unidade", "Proveniência individual"].forEach(label => {
+    const th = document.createElement("th"); th.textContent = label; head.appendChild(th);
+  });
+  const body = table.createTBody();
+  Object.entries(P).forEach(([key, value]) => {
+    const row = body.insertRow(), [label, unit] = metadata[key] || [key, "Não mapeada"];
+    [key, label, String(value), unit, "Não identificada na interface"].forEach((text, index) => {
+      const cell = row.insertCell(); cell.textContent = text; if (index === 2) cell.className = "num";
+    });
+  });
 }
 document.getElementById("sel-sitio").onchange = e => { E.sitio = e.target.value; atualizar(); };
 document.getElementById("sel-mat").onchange = e => { E.mat = e.target.value; atualizar(); };
@@ -737,10 +879,10 @@ function svgSolo() {
     <text x="${x + 45}" y="${top - 8}" text-anchor="middle" font-size="10.5" fill="${ac}" letter-spacing="0.08em">${rot}</text>
     <text x="${x + 45}" y="${base - frac * H - 4 < top + 10 ? top + 12 : base - frac * H - 4}" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="${C_.tinta}">${fmt(frac * asw, 0)} mm</text>`;
   document.getElementById("svg-solo").innerHTML = `<g font-family="IBM Plex Sans, Arial">
-    ${col(70, fc, "CONTROLE", C_.tinta2)}${col(190, ft, "DESFOLHADO", C_.alerta)}
+    ${col(70, fc, "REFERÊNCIA", C_.tinta2)}${col(190, ft, "ATUAL", C_.alerta)}
     <g font-size="9.5" fill="${C_.tinta2}">${[0, .5, 1, 1.5, 2].map(z => `<text x="62" y="${top + z / 2 * H + 3}" text-anchor="end">${fmt(z, 1)} m</text><line x1="64" x2="68" y1="${top + z / 2 * H}" y2="${top + z / 2 * H}" stroke="${C_.tinta3}"/>`).join("")}
       ${hz.map(([a, b, n]) => `<text x="${286}" y="${top + (a + b) / 2 * H + 3}">${n}</text>`).join("")}</g>
-    <text x="70" y="199" font-size="9.5" fill="${C_.tinta2}">ASWmax ${fmt(asw, 0)} mm · fSW ctrl ${fmt(c.fSW[k], 2)} · desf. ${fmt(t.fSW[k], 2)}</text></g>`;
+    <text x="70" y="199" font-size="9.5" fill="${C_.tinta2}">ASWmax ${fmt(asw, 0)} mm · fSW ref. ${fmt(c.fSW[k], 2)} · atual ${fmt(t.fSW[k], 2)}</text></g>`;
 }
 function arco(cx, cy, r, a0, a1) { const p = a => [cx + r * Math.sin(a), cy - r * Math.cos(a)]; const [x0, y0] = p(a0), [x1, y1] = p(a1);
   return `M${cx},${cy} L${x0},${y0} A${r},${r} 0 ${a1 - a0 > Math.PI ? 1 : 0} 1 ${x1},${y1} Z`; }
@@ -749,7 +891,7 @@ function svgPizza() {
   const pizza = (o, cx, rot) => { const v = [o.etaF[k], o.etaS[k], o.etaR[k]]; if (!v.every(Number.isFinite)) return `<text x="${cx}" y="70" text-anchor="middle" font-size="10">–</text>`;
     let a = 0; return v.map((x, i) => { const s = `<path d="${arco(cx, 64, 46, a, a + x * 2 * Math.PI - 1e-6)}" fill="${cores[i]}" stroke="${C_.prancha}" stroke-width="1.2"/>`; a += x * 2 * Math.PI; return s; }).join("")
       + `<circle cx="${cx}" cy="64" r="20" fill="${C_.prancha}"/><text x="${cx}" y="60" text-anchor="middle" font-size="9" fill="${C_.tinta2}" letter-spacing="0.06em">${rot}</text><text x="${cx}" y="73" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10">${fmt(o.etaR[k] * 100, 0)}% R</text>`; };
-  document.getElementById("svg-pizza").innerHTML = `<g font-family="IBM Plex Sans, Arial">${pizza(c, 62, "CTRL")}${pizza(t, 178, "DESF.")}
+  document.getElementById("svg-pizza").innerHTML = `<g font-family="IBM Plex Sans, Arial">${pizza(c, 62, "REF.")}${pizza(t, 178, "ATUAL")}
     <g font-size="10" fill="${C_.tinta}">${nomes.map((n, i) => `<rect x="244" y="${36 + i * 20}" width="10" height="10" fill="${cores[i]}"/><text x="258" y="${45 + i * 20}">${n.replace("_", "")}</text>`).join("")}</g>
     </g>`;
 }
@@ -760,7 +902,7 @@ function barrasEstresse() {
 }
 function painelWue() {
   const { c, t } = R, k = tAtual, w = o => o.transp[k] > 0 ? o.npp[k] * 100 / o.transp[k] : NaN;
-  document.getElementById("wue").innerHTML = `<div class="kv"><span class="h">No mês exibido</span><span class="h">Controle</span><span class="h">Desfolhado</span>
+  document.getElementById("wue").innerHTML = `<div class="kv"><span class="h">No mês exibido</span><span class="h">Referência 3-PG</span><span class="h">Simulação atual</span>
     <span>Transpiração (Penman-Monteith), mm</span><span>${fmt(c.transp[k], 1)}</span><span>${fmt(t.transp[k], 1)}</span>
     <span>WUE, g kg⁻¹ (NPP / transpiração)</span><span>${fmt(w(c), 2)}</span><span>${fmt(w(t), 2)}</span>
     <span>α efetivo, mol C mol⁻¹</span><span>${fmt(c.alpha[k], 4)}</span><span>${fmt(t.alpha[k], 4)}</span>
@@ -774,11 +916,16 @@ function resumo() {
   const av = [];
   if (E.d >= 95 && E.freq !== "P1" && E.m === 0) av.push("A desfolha, sozinha, não mata árvores no modelo. Para representar morte, use a mortalidade de árvores.");
   const desc = [E.d > 0 ? `desfolha ${E.d}%, ${FREQ_L[E.freq]}, em ${EPOCA[E.epoca]}` : "", E.r > 0 ? `eficiência −${E.r}%` : "", E.m > 0 ? `mortalidade ${E.m}%` : ""].filter(Boolean).join(" · ");
+  const difference = R.perda > 0 ? `${fmt(R.perda, 1)}% abaixo` : R.perda < 0 ? `${fmt(Math.abs(R.perda), 1)}% acima` : "igual à referência";
+  const interpretation = temExtensaoAtiva()
+    ? `Com ${desc}, o volume simulado ficou ${difference} aos 84 meses. Este é um resultado do cenário, não uma observação de campo.`
+    : `Sem extensões ativas, a referência e a simulação coincidem: ${fmt(c.vol[k84], 1)} m³ ha⁻¹ aos 84 meses.`;
   document.getElementById("resumo").innerHTML = `
     <div class="destaque-num"><span class="grande num" style="font-family:var(--f-tit)">${fmt(R.perda, 1)}%</span>
-      <span>perda de volume aos 84 meses<br><span class="mini">${desc ? desc + " · classe " + nv : "sem dano"} · fisiologia ${COMP[E.comp].toLowerCase()}</span>
+      <span>diferença relativa de volume vs. referência<br><span class="mini">${desc ? desc + " · classe " + nv : "3-PG original, sem extensões"} · fisiologia ${COMP[E.comp].toLowerCase()}</span>
         ${R.ic ? `<span class="ic">Faixa de 90%: ${fmt(R.ic.p05, 1)} a ${fmt(R.ic.p95, 1)}% (${R.ic.n} amostras do posterior)</span>` : ""}</span></div>
-    <div class="kv"><span class="h">Aos 84 meses</span><span class="h">Controle</span><span class="h">Desfolhado</span>
+    <p class="mini" style="margin:8px 0">${interpretation}</p>
+    <div class="kv"><span class="h">Aos 84 meses</span><span class="h">Referência 3-PG</span><span class="h">Simulação atual</span>
       <span>Volume, m³ ha⁻¹</span><span>${fmt(c.vol[k84], 0)}</span><span>${fmt(t.vol[k84], 0)}</span>
       <span>IMA, m³ ha⁻¹ ano⁻¹</span><span>${fmt(c.vol[k84] / 7, 1)}</span><span>${fmt(t.vol[k84] / 7, 1)}</span>
       <span>DAP, cm</span><span>${fmt(c.dbh[k84], 1)}</span><span>${fmt(t.dbh[k84], 1)}</span>
@@ -911,7 +1058,16 @@ function montarTempo() { const s = document.getElementById("mes"), n = R.c.Wf.le
   document.getElementById("marcas").innerHTML = R.kev.map(k => `<i style="left:${100 * k / n}%"></i>`).join("") + `<b style="left:${100 * R.k84 / n}%"></b>`; }
 function mostrar() {
   const d = R.datas[tAtual]; document.getElementById("q-idade").textContent = R.idade[tAtual] + " meses"; document.getElementById("q-data").textContent = MESES[d.m - 1] + "/" + d.a; document.getElementById("mes").value = tAtual;
-  atualizar3D(); resumo(); svgEstrutura(); document.getElementById("leg-ic").hidden = !R.ic; svgSolo(); svgPizza(); barrasEstresse(); painelWue(); graficos();
+  atualizarRotulosComparacao(); atualizar3D(); resumo(); atualizarInsightAprender(); svgEstrutura(); document.getElementById("leg-ic").hidden = !R.ic; svgSolo(); svgPizza(); barrasEstresse(); painelWue(); graficos();
+}
+function atualizarInsightAprender() {
+  const text = document.getElementById("learn-insight-text"), { c, k84 } = R;
+  if (!temExtensaoAtiva()) {
+    text.textContent = `Você está vendo o 3-PG original, sem danos opcionais. Neste cenário, o volume de referência e o atual coincidem em ${fmt(c.vol[k84], 1)} m³ ha⁻¹ aos 84 meses. Abra o Fluxograma para acompanhar as etapas que produzem esse resultado.`;
+    return;
+  }
+  const qualifier = R.perda > 0 ? `${fmt(R.perda, 1)}% menor` : R.perda < 0 ? `${fmt(Math.abs(R.perda), 1)}% maior` : "igual";
+  text.textContent = `Com as extensões selecionadas, o volume atual ficou ${qualifier} que a referência aos 84 meses. É uma diferença simulada para este cenário, não uma observação de campo. Abra o Fluxograma para acompanhar os processos do núcleo do 3-PG.`;
 }
 function tocar(inicio) { parar(); if (matchMedia("(prefers-reduced-motion: reduce)").matches) { tAtual = R.k84; mostrar(); return; }
   if (inicio) tAtual = Math.max(0, R.k12 - 1); const b = document.getElementById("bt-play"); b.textContent = "❚❚"; b.setAttribute("aria-label", "Pausar");
@@ -919,10 +1075,38 @@ function tocar(inicio) { parar(); if (matchMedia("(prefers-reduced-motion: reduc
 function parar() { clearInterval(timer); timer = null; const b = document.getElementById("bt-play"); b.textContent = "▶"; b.setAttribute("aria-label", "Reproduzir"); }
 function irPara(idade) { const k = R.idade.indexOf(idade); tAtual = k >= 0 ? k : R.c.Wf.length - 1; mostrar(); }
 function atualizar(ui = true) { window.Curso3PG?.invalidateRun?.(); simular(); if (ui) montarEntradas(); montarTempo(); mostrar();
-  document.getElementById("estado-sim").textContent = `${SIT[E.sitio]} · ${E.mat} · ${E.d}% ${FREQ_L[E.freq]} em ${EPOCA[E.epoca]} · ${COMP[E.comp]}`; }
+  document.getElementById("estado-sim").textContent = textoEstadoSimulacao(); }
 document.getElementById("bt-play").onclick = () => timer ? parar() : tocar(tAtual >= R.c.Wf.length - 1);
 document.getElementById("mes").oninput = e => { parar(); tAtual = +e.target.value; mostrar(); };
 document.getElementById("bt-simular").onclick = () => { atualizar(); tocar(true); };
+function selecionarModo(mode) {
+  document.body.dataset.mode = mode;
+  document.getElementById("mode-select").value = mode;
+  document.getElementById("s-parametros").open = mode === "scientific";
+  document.getElementById("advanced-conditions").open = mode === "scientific";
+}
+function selecionarVista(view) {
+  document.body.dataset.workspaceView = view;
+  const isFlow = view === "flow";
+  document.getElementById("lab").hidden = isFlow;
+  document.getElementById("flow-view").hidden = !isFlow;
+  document.querySelectorAll(".module-tab").forEach(button => {
+    if (button.dataset.workspaceView === view) button.setAttribute("aria-current", "page");
+    else button.removeAttribute("aria-current");
+  });
+}
+document.querySelectorAll("[data-start-mode]").forEach(button => button.addEventListener("click", () => {
+  selecionarModo(button.dataset.startMode);
+  document.body.dataset.started = "true";
+  document.getElementById("launch-screen").hidden = true;
+  selecionarVista("model");
+}));
+document.getElementById("mode-select").onchange = event => selecionarModo(event.target.value);
+document.getElementById("mode-home").onclick = () => {
+  document.getElementById("launch-screen").hidden = false;
+  document.body.removeAttribute("data-started");
+};
+document.querySelectorAll("[data-workspace-view]").forEach(button => button.addEventListener("click", () => selecionarVista(button.dataset.workspaceView)));
 
 // ---------- modais ----------
 const abrir = id => { document.getElementById(id).hidden = false; }, fechar = id => { document.getElementById(id).hidden = true; };
@@ -931,9 +1115,9 @@ document.querySelectorAll(".modal").forEach(m => m.addEventListener("click", e =
 document.addEventListener("keydown", e => { if (e.key === "Escape") { if (document.querySelector(".modal:not([hidden])")) document.querySelectorAll(".modal").forEach(m => m.hidden = true); else if (typeof modoExplicar === "function" && explicando) modoExplicar(false); } });
 document.getElementById("bt-exportar").onclick = () => {
   const { c, t, datas, idade } = R, cols = [["Wf", "Wf_tha"], ["Ws", "Ws_tha"], ["Wr", "Wr_tha"], ["lai", "IAF"], ["dbh", "DAP_cm"], ["vol", "vol_m3ha"], ["N", "arv_ha"], ["asw", "ASW_mm"], ["npp", "NPP_tha"], ["transp", "transp_mm"], ["alpha", "alpha_ef"], ["etaR", "etaR"], ["compU", "U_ef"], ["mortInd", "mortos_dano"]];
-  const cab = ["idade_meses", "data", ...cols.flatMap(([, n]) => [n + "_ctrl", n + "_desf"]), "removido_tha"].join(";");
+  const cab = ["idade_meses", "data", ...cols.flatMap(([, n]) => [n + "_referencia", n + "_atual"]), "removido_tha"].join(";");
   const lin = idade.map((a, k) => [a, `${datas[k].a}-${String(datas[k].m).padStart(2, "0")}`, ...cols.flatMap(([v]) => [c[v][k], t[v][k]].map(x => Number.isFinite(x) ? x.toFixed(4).replace(".", ",") : "")), t.removido[k].toFixed(4).replace(".", ",")].join(";"));
-  document.getElementById("csv").value = `# Akademia Florestal · simulador 3-PG · ${SIT[E.sitio]} · ${E.mat} · água ${E.agua} · F${E.fert} · d ${E.d}% · ${FREQ_L[E.freq]} · ${EPOCA[E.epoca]} · eficiência −${E.r}% · mortalidade ${E.m}% · fisiologia ${COMP[E.comp]}\n` + [cab, ...lin].join("\n");
+  document.getElementById("csv").value = `# Akademia Florestal · simulador 3-PG · ${textoEstadoSimulacao()} · água ${E.agua} · F${E.fert} · frequência ${FREQ_L[E.freq]} · época ${EPOCA[E.epoca]}\n` + [cab, ...lin].join("\n");
   document.getElementById("copiado").textContent = ""; abrir("m-exp"); };
 document.getElementById("bt-copiar").onclick = () => { const ta = document.getElementById("csv");
   navigator.clipboard?.writeText(ta.value).then(() => document.getElementById("copiado").textContent = "Tabela copiada.", () => { ta.select(); document.getElementById("copiado").textContent = "Texto selecionado: use Ctrl+C."; })
@@ -1069,13 +1253,13 @@ document.getElementById("bt-valid").onclick = abrirValid;
 // ---------- tutorial ----------
 const PASSOS = [
   { t: "Objetivo do simulador", alvo: "janela", e: { sitio: "IND", mat: "A1", agua: "LOC", fert: 100, d: 0, freq: "P1", epoca: 1, comp: "O", r: 0, m: 0, ag: "" }, idade: 84,
-    h: `<p>Lagartas e doenças removem folhas do eucalipto e reduzem a produção de madeira. A perda depende da intensidade, da frequência e da época do ataque, do clima, do solo e do material genético.</p><p>Este laboratório usa o 3-PG para testar essas combinações. Na janela, o talhão da esquerda é o controle e o da direita recebe a desfolha.</p>` },
+    h: `<p>Lagartas e doenças podem remover folhas do eucalipto e reduzir a produção de madeira. Os cenários de extensão variam em intensidade, frequência e época do ataque, além do clima, do solo e do material genético.</p><p>Este laboratório usa o 3-PG para testar combinações. Na janela, à esquerda está a referência do 3-PG e, à direita, a simulação atual. A desfolha e outros danos ficam numa aba própria.</p>` },
   { t: "Não conhece algum termo?", alvo: "bt-conceitos", h: `<p>Palavras com pontilhado e \"?\", como IAF ou fotossíntese, abrem uma explicação simples quando tocadas.</p><p>O link <b>Conceitos</b> reúne 52 explicações, da lei de Beer à rede neural, com uma trilha para iniciantes. Com o <b>Modo explicar</b> ligado, basta tocar em qualquer parte do simulador.</p>` },
   { t: "Prancha I: entradas fisiológicas", alvo: "p1", h: `<p>À esquerda ficam as condições do talhão (local, material, água e fertilidade) e os parâmetros que distinguem cada material, como α<sub>Cx</sub> e as temperaturas cardinais.</p><p>A Fig. 2 mostra os estoques de folhas, lenho e raízes no mês exibido.</p>` },
   { t: "O módulo de desfolha", alvo: "s-desfolha", e: { d: 50 }, idade: 24, h: `<p>O 3-PG original não representa pragas. No mês do evento, antes do cálculo da luz, a biomassa foliar perde a fração <i>d</i>:</p><div class="eq">W_F,pós = W_F,pré · (1 − d)</div><p>Aqui, 50% em janeiro de 2017, aos 24 meses. Nenhuma outra equação foi alterada.</p>` },
   { t: "Simular", alvo: "bancada", acao: true, h: `<p>O botão <b>Simular</b> roda o modelo nos dois talhões e anima a rotação mês a mês. A linha do tempo marca os eventos em vermelho.</p><p>As folhas voltam em poucos meses, mas o lenho que deixou de crescer não é recuperado.</p>` },
   { t: "Partição e estresse", alvo: "s-particao", idade: 30, h: `<p>No 3-PG, a fração do carbono destinada às raízes já depende do estresse:</p><div class="eq">η_R = pRx·pRn / [pRn + (pRx − pRn)·φ·m]</div><p>Quando falta água ou o ar está seco, φ diminui e η<sub>R</sub> aumenta, à custa do lenho. As barras de resposta ao estresse mostram f<sub>T</sub>, f<sub>VPD</sub>, f<sub>SW</sub> e φ do mês.</p>` },
-  { t: "Água e eficiência", alvo: "s-wue", h: `<p>A transpiração é calculada por Penman-Monteith. A eficiência no uso da água (WUE) é a biomassa produzida por quilo de água transpirada. O α efetivo é a eficiência quântica máxima reduzida por temperatura, VPD, água e idade.</p><p>O talhão desfolhado transpira menos e guarda mais água no solo (Fig. 3).</p>` },
+  { t: "Água e eficiência", alvo: "s-wue", h: `<p>A transpiração é calculada por Penman-Monteith. A eficiência no uso da água (WUE) é a biomassa produzida por quilo de água transpirada. O α efetivo é a eficiência quântica máxima reduzida por temperatura, VPD, água e idade.</p><p>Compare a referência com o cenário atual nos painéis. No 3-PG original sem extensões, eles coincidem.</p>` },
   { t: "Frequência, época e clima", alvo: "s-desfolha", e: { freq: "PA", d: 50 }, idade: 84, h: `<p>Com ataques anuais de 50%, a perda de volume do A1 em Indianópolis sobe de 3% para cerca de 14%. A época também importa: em abril, início da seca, custa cerca de 1,7%; em outubro, 3,7%.</p><p>Em Imperatriz, Almeirim e Araripina, a temperatura passa do limite do clone A1, e o resultado aparece marcado como diagnóstico.</p>` },
   { t: "A planta reage: compensação calibrada", alvo: "s-resposta", e: { comp: "C", freq: "P1", d: 50, r: 0, m: 0, ag: "lagarta" }, idade: 84, h: `<p>Depois de perder folhas, o eucalipto faz mais fotossíntese nas folhas que restaram, mantém a transpiração e manda mais carbono para refazer a copa. Na <b>fisiologia calibrada</b>, o aumento da fotossíntese vem da literatura e dura só o mês do ataque, a transpiração foi ajustada a Quentin et al. (2011) e o investimento em folhas, ao experimento de Bertulio et al. (2008), em Mato Grosso. Num teste independente (Oliveira et al., 2014), o módulo calibrado previu 33% de perda após desfolha total, contra 35% medidos.</p><p>A faixa sombreada no gráfico de volume é a <b>incerteza</b>: o modelo roda 200 vezes, uma para cada combinação de parâmetros compatível com os dados.</p>` },
   { t: "Outros danos e domínio de validade", alvo: "resumo", e: { comp: "C", d: 0, r: 40, m: 0, ag: "percevejo40" }, idade: 84, h: `<p>Nem toda praga come folhas. O <b>percevejo-bronzeado</b> deixa a folha na árvore, mas reduz a fotossíntese; a <b>murcha</b> mata árvores. Escolha um agente do catálogo: cada um mostra de onde veio a magnitude.</p><p>O quadro <b>Domínio de validade</b> diz o que sustenta o cenário e quando ele sai do que os dados permitem afirmar, inclusive a evidência contrária. A perda por produto mostra quanto sai da serraria, da celulose e da energia.</p>` },
@@ -1139,11 +1323,12 @@ addEventListener("scroll", agendarFocoTour, { passive: true });
 addEventListener("resize", agendarFocoTour);
 addEventListener("resize", () => R && graficos());
 
+document.getElementById("flow-content").innerHTML = window.Curso3PG.renderCoreFlowchart();
+selecionarModo("learn");
+selecionarVista("model");
 try { iniciar3D(); } catch (err) { document.getElementById("nota3d").textContent = "A cena 3D não abriu neste navegador. A simulação e os painéis continuam funcionando."; }
 simular(); montarEntradas(); montarTempo(); tAtual = R.k84; mostrar();
-document.getElementById("estado-sim").textContent = `${SIT[E.sitio]} · ${E.mat} · ${E.d}% ${FREQ_L[E.freq]} em ${EPOCA[E.epoca]} · ${COMP[E.comp]}`;
-let visto = false; try { visto = localStorage.getItem("tour3pg4") === "1"; localStorage.setItem("tour3pg4", "1"); } catch (e) {}
-if (!visto) { passo = 0; document.getElementById("tour").hidden = false; verPasso(); }
+document.getElementById("estado-sim").textContent = textoEstadoSimulacao();
 </script>
 </body>
 </html>

@@ -67,6 +67,15 @@ test("the learning flow follows the registered 3-PGpjs stage order", () => {
   assert.ok(MODULES.every(module => module.add && (module.explanation || module.why)), "each flow step needs an operation and an explanation");
 });
 
+test("the shared 3-PG flowchart connects every core stage without an extension node", () => {
+  const html = require("../curso3pg.js").renderCoreFlowchart();
+  assert.equal((html.match(/class="core-flow-item flow-/g) || []).length, MODULES.length);
+  assert.ok(FLOW_MODULE_IDS.every(id => html.includes(`>${id}</span>`)));
+  assert.match(html, /core-flow-connector/);
+  assert.match(html, /Retorno ao próximo mês/);
+  assert.doesNotMatch(html, /data-tab="defoliation"|Módulo de desfolha/);
+});
+
 test("defoliation is a separately registered optional extension", () => {
   const equation = EQUATIONS.find(item => item.id === DEFOLIATION_MODULE.equationId);
   const mapNode = MAP_NODES.find(item => item.type === "extension");
